@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="row no-gutters h-100" >
+        <div class="col-12 h-100" >
+            <div class="header row no-gutters ">
+                <div class="row-header">
+                    <span class="select-parameters " (click)="selectTag()" *ngIf="tagNames.length < 1">SELECT
+                        PARAMETERS</span>
+                    <span class="select-parameters " (click)="selectTag()" *ngIf="tagNames.length > 0">SELECTED
+                        {{tagNames.length}}
+                        TAGS.</span>
+                </div>
+                <div class="row-header">
+                    <app-time-control [title]="'START'" [dateTime]="startTime" (selectDatetime)="selectStartTime($event)"></app-time-control>
+                    <span class="stroke">-</span>
+                    <app-time-control [title]="'END'" [dateTime]="endTime" (selectDatetime)="selectEndTime($event)"></app-time-control>
+                    <div class="d-inline-block">
+                        <span class="btn-ok" (click)="selectChart()">OK</span>
+                    </div>
+                </div>
+                <div class="row-header">
+                    <app-time-preset [periodSelected]="periodName" [periodNames]="periodNames" (select)="selectedPeriod($event)"></app-time-preset>
+                </div>
+            </div>
+            <div class="content">
+                <app-sat-chart [chartParameters]="chartParameters"></app-sat-chart>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,62 @@
+.mapContent{
+    //background-color: #666666;
+    // background-image: url('/assets/images/map3D.png');
+    // background-position: center;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    .mapImg{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+    }
+    .zoneCard,#card1{
+        position: absolute;
+        top: 10%;
+        left: 10%;
+        z-index: 5;
+    }
+    .zoneCard,#card2{
+        position: absolute;
+        top: 12%;
+        left: 40%;
+        z-index: 5;
+    }
+    .zoneCard,#card3{
+        position: absolute;
+        top: 7%;
+        left: 73%;
+        z-index: 5;
+    }
+    .zoneCard,#card4{
+        position: absolute;
+        top: 34%;
+        left: 10%;
+        z-index: 5;
+    }
+    .zoneCard,#card5{
+        position: absolute;
+        top: 37%;
+        left: 38%;
+        z-index: 5;
+    }
+    .zoneCard,#card6{
+        position: absolute;
+        top: 52%;
+        left: 2%;
+        z-index: 5;
+    }
+    .zoneCard,#card7{
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        z-index: 5;
+    }
+}
+

@@ -1,0 +1,164 @@
+// div[class^="col"] {
+//    padding-right: 7px;
+//    padding-bottom: 7px;
+// }
+
+.chart-content {
+    height: 181px;
+    position: relative;
+}
+
+.container-group {
+    // min-height: 190px;
+}
+
+.weather-card{
+    //height: 5%;
+}
+
+.container-fluid {
+    width: 100%;
+    height: 100%;
+    padding: 7px;
+}
+
+.siteInfoCard { grid-area: siteInfoCard; }
+.powerCard { grid-area: powerCard; }
+.energyCard { grid-area: energyCard; }
+.weatherCard { grid-area: weatherCard; }
+.powerChartCard { grid-area: powerChartCard; }
+.energyChartCard { grid-area: energyChartCard; }
+.prChartCard { grid-area: prChartCard; }
+.invertersChartCard { grid-area: invertersChartCard; }
+
+@media screen and (max-width:720px){
+    .chart-content {
+        height: 100%  !important;
+    }
+    .row-grid{
+        display: grid;
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 200px) repeat(4, 250px);
+        grid-template-areas: 
+                "siteInfoCard"
+                "powerCard"
+                "energyCard"                
+                "weatherCard"
+                "powerChartCard"
+                "energyChartCard"
+                "prChartCard"
+                "invertersChartCard";
+        grid-gap: 7px;
+    }
+}
+
+@media screen and (min-width:721px){
+    .chart-content {
+        height: 100%  !important;
+    }
+    .row-grid{
+        display: grid;
+        height: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 200px) repeat(4, 250px);
+        grid-template-areas: 
+                "siteInfoCard       powerCard"
+                "energyCard         weatherCard"
+                "powerChartCard     powerChartCard"
+                "energyChartCard    energyChartCard"
+                "prChartCard        prChartCard"
+                "invertersChartCard invertersChartCard";
+        grid-gap: 7px;
+    }
+}
+
+@media screen and (min-width:1300px){
+    .chart-content {
+        height: 100%  !important;
+    }
+    .row-grid{
+        display: grid;
+        height: 100%;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1.5fr 1.5fr;
+        grid-template-areas: 
+        "siteInfoCard       powerCard       energyCard          weatherCard"
+        "powerChartCard     powerChartCard  energyChartCard     energyChartCard"
+        "prChartCard        prChartCard     invertersChartCard  invertersChartCard";
+        grid-gap: 7px;
+    }
+}
+
+@media screen and (min-width:1400px){
+    .chart-content {
+        height: 100%  !important;
+        }
+
+    .row-grid{
+        display: grid;
+        height: 100%;
+        box-sizing: border-box;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 2fr 2fr;
+        grid-template-areas: 
+        "siteInfoCard       powerCard       energyCard          weatherCard"
+        "powerChartCard     powerChartCard  energyChartCard     energyChartCard"
+        "prChartCard        prChartCard     invertersChartCard  invertersChartCard";
+        grid-gap: 7px;
+    }
+}
+
+
+
+
+
+// @media screen and (min-width:1200px){
+//     .chart-content {
+//         height: 100%  !important;
+//     }
+
+//     .r1 {
+//         height: 23vh;        
+//     }   
+       
+//     .r2, .r3 {
+//         height: 31.75vh;
+//     }
+// }
+// @media screen and (min-width:1300px){
+//     .chart-content {
+//         height: 100%  !important;
+//     }
+
+//     .r1 {
+//         height: 28.5vh;        
+//     }
+
+          
+//     .r2, .r3 {
+//         height: 35vh;
+//     }
+// }
+
+// @media screen and (min-width:1400px){
+//     .chart-content {
+//         height: 100%  !important;
+//     }
+//     .r1,.r2 {
+//         margin-bottom: 2px;
+//     }
+
+//     .r3 {
+//         margin-bottom: 0px;
+//     }    
+
+//     .r1 {
+//         height: 21vh;
+//     }
+    
+//     .r2, .r3 {
+//         height: 38.4vh;
+//     }
+// }
+

@@ -1,0 +1,405 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "power_value",
+			"Name": "TOU03.W"
+		},
+		{
+			"Title": "power_expected",
+			"Name": "CALC03.W_EXPECT"
+		},
+		{
+			"Title": "power_peak",
+			"Name": "CALC03.W_PEAK_DAY"
+		},
+		{
+			"Title": "power_peaktime",
+			"Name": "CALC03.W_PEAK_DAY_TIME"
+		},
+		{
+			"Title": "power_capacity",
+			"Name": "CALC03.CAPACITY"
+		},
+		{
+			"Title": "power_pr",
+			"Name": "CALC03.PR"
+		},
+		{
+			"Title": "energy_value",
+			"Name": "CALC03.WH"
+		},
+		{
+			"Title": "energy_expected",
+			"Name": "CALC03.WH_EXPECT"
+		},
+		{
+			"Title": "energy_today",
+			"Name": "CALC03.WH_TODAY"
+		},
+		{
+			"Title": "energy_yesterday",
+			"Name": ""
+		},
+		{
+			"Title": "energy_mtd",
+			"Name": "TOU03.WH_MTD"
+		},
+		{
+			"Title": "energy_cod",
+			"Name": "TOU03.WH"
+		},
+		{
+			"Title": "weather_irr",
+			"Name": "SLOGGER03.PYRANO"
+		},
+		{
+			"Title": "weather_amb",
+			"Name": "SLOGGER03.AMBTEMP"
+		},
+		{
+			"Title": "weather_pv",
+			"Name": "SLOGGER03.PVTEMP"
+		},
+		{
+			"Title": "weather_irrtoday",
+			"Name": "SLOGGER03.IRR_TODAY"
+		},
+		{
+			"Title": "weather_co2",
+			"Name": "CALC03.CO2_TODAY"
+		}
+	],
+	"historianConfig": [
+		{
+			"Name": "TOU03.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER03.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "INV0301.WH_TODAY",
+			"Title": "X3",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "INV0302.WH_TODAY",
+			"Title": "X4",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "CALC03.WH_HOUR",
+			"Title": "X5",
+			"Options" : {
+				"Interval": 60,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}				
+	],
+	"chartConfig":[
+		{
+			"name": "powerGeneration",
+			"tags": [
+				{
+					"name": "SLOGGER03.PYRANO",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "TOU03.W",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		},
+		{
+			"name": "energyExported",
+			"type": "Raw",
+			"tags": [
+				
+				{
+					"name": "CALC03.WH_HOUR",
+					"title": "Energy",
+					"period": "t",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				},
+				{
+					"name": "CALC03.WH_DAY",
+					"title": "Energy",
+					"period": "7d",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				},
+				{
+					"name": "CALC03.WH_DAY",
+					"title": "Energy",
+					"period": "30d",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				},
+				{
+					"name": "CALC03.WH_DAY",
+					"title": "Energy",
+					"period": "3m",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				},
+				{
+					"name": "CALC03.WH_MONTH",
+					"title": "Energy",
+					"period": "12m",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"title": "Energy Exported",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "#7CB5EC",
+							"text": "ENERGY (kWh)"
+						}
+					],
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		},
+		{
+			"name": "performanceRatio",
+			"tags": [
+				{
+					"name": "CALC03.PR_HOUR",
+					"title": "Performance",
+					"period": "t",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				},
+				{
+					"name": "CALC03.PR_DAY",
+					"title": "Performance",
+					"period": "7d",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				},
+				{
+					"name": "CALC03.PR_DAY",
+					"title": "Performance",
+					"period": "30d",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				},
+				{
+					"name": "CALC03.PR_DAY",
+					"title": "Performance",
+					"period": "3m",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				},
+				{
+					"name": "CALC03.PR_MONTH",
+					"title": "Performance",
+					"period": "12m",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Raw",
+			"title": "Energy Exported2",
+			"options": {
+				"runtimeConfigs": {
+					"periodName": "t"
+				},
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "#7CB5EC",
+							"text": "PR (%)",
+							"useMax": true
+						}
+					],
+					"legend": {
+						"enable": true
+					}
+				}
+			}
+		},
+		{
+			"name": "interverEnergy",
+			"tags": [
+				{
+					"name": "INV0301.WH_TODAY",
+					"title": "SINV01",
+					"period": "t",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				},
+				{
+					"name": "INV0302.WH_TODAY",
+					"title": "SINV02",
+					"period": "t",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Raw",
+			"title": "INVERTER ENERGY",
+			"options": {
+				"runtimeConfigs": {
+					"periodName": "t"
+				},
+				"chartOptions": {
+					"yAxis": [
+						{
+							"text": "ENERGY (kWh)",
+							"color": "#7CB5EC"
+						}
+					],
+					"legend": {
+						"enable": true
+					},
+					"xAxis": {
+						"categories": [
+							"SINV01",
+							"SINV02"
+						]
+					}
+				}
+			}
+		}
+	]
+}

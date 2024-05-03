@@ -1,0 +1,30 @@
+<div class="login-page">
+  <div class="form">
+    <form class="example-form">
+      <h1 class="header">LOGIN</h1>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <i class="material-icons">
+            person
+          </i>
+        </div>
+        <input [(ngModel)]="username" name="username" type="text" class="form-control" placeholder="USERNAME" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <i class="material-icons">
+            lock
+          </i>
+        </div>
+        <input [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="PASSWORD" aria-label="Username"
+          aria-describedby="basic-addon1">
+      </div>
+   
+      <div>
+        <button type="submit" (click)="login()" mat-raised-button color="primary" class="full-width btn-login">Login</button>
+      </div>
+      <span *ngIf="invalid" class="invalid" [className]="animateClass">The username or password incorrect</span>
+    </form>
+  </div>
+</div>

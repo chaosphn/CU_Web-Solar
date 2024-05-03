@@ -1,0 +1,110 @@
+<div class="container-fluid">
+  <div class="row no-gutters pd-t-5">
+    <div class="col-12 bar-group">
+      <span class="title"> {{title}}</span>
+      <div class="min-value">
+        {{(minValue | number : '1.0-2') || '---'}}
+      </div>
+      <div class="max-value">
+        {{maxValue}}
+      </div>
+      <div class="actual-value">
+        {{actualValue | number : '1.0-2'}} {{actualUnit}}
+      </div>
+      <div class="expected-text">
+        {{ expectText | uppercase }}
+      </div>
+      <div class="arrow-group" *ngIf="showArrow" [style.left]="'calc(' + (((expectValue * 70) / maxValue) + 10) + '% - 40px)'">
+        <div class="arrow">
+          <i class="material-icons">
+            navigation
+          </i>
+        </div>
+        <p>
+          {{expectValue | number : '1.0-2'}} {{expectUnit}}
+        </p>
+      </div>
+      <div class="max-bar">
+      </div>
+      <div class="actual-bar" [style.width]="actualValue * 70 / maxValue + '%'">
+      </div>
+    </div>
+    <div class="col-12 daily-value">
+      <div class="row no-gutters">
+        <div class="col-3 group">
+          <div class="group-title">
+            {{g1Title}}
+          </div>
+          <div class="group-value">
+            <!-- {{g1Value}} -->
+            {{g1Value || '---'}}
+          </div>
+          <div class="group-unit">
+            {{g1Unit}}
+          </div>
+        </div>
+        <div class="col-3 group">
+          <div class="group-title">
+            {{g2Title}}
+          </div>
+          <div class="group-value">
+            {{getNumber(g2Value) || '---'}}
+          </div>
+          <div class="group-unit">
+            {{g2Unit}}
+          </div>
+        </div>
+        <div class="col-3 group">
+          <div class="group-title">
+            {{g3Title}}
+          </div>
+          <div class="group-value">
+            {{g3Value || '---'}}
+          </div>
+          <div class="group-unit">
+            {{g3Unit}}
+          </div>
+        </div>
+        <div class="col-3 group">
+          <div class="group-title">
+            {{g4Title}}
+          </div>
+          <div class="group-value">
+            {{g4Value || '---'}}
+          </div>
+          <div class="group-unit">
+            {{g4Unit}}
+          </div>
+        </div>
+      </div>
+      <!-- ROW2 -->
+      <div class="row no-gutters">
+        <div class="col-3 group">
+          <div class="group-title">
+            {{r2g1Title}}
+          </div>
+          <div class="group-value">
+            <!-- {{g1Value}} -->
+            {{r2g1Value || ''}}
+          </div>
+          <div class="group-unit">
+            {{r2g1Unit}}
+          </div>
+        </div>
+        <div class="col-3 group">
+          <div class="group-title">
+            {{r2g1vTitle}}
+          </div>
+          <div class="group-value">
+    
+            {{r2g1vValue || ''}}
+          </div>
+          <div class="group-unit">
+            {{r2g1vUnit}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

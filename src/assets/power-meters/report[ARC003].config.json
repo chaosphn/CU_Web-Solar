@@ -1,0 +1,30 @@
+[
+	{
+        "Name": "PQM01",
+        "kWH": "PQM01.WH",
+        "kW": "PQM01.W",
+        "kVAR": "PQM01.VAR",
+        "HZ": "PQM01.HZ",
+        "PF": "PQM01.PF",
+        "VACA": "PQM01.V1",
+        "VACB": "PQM01.V2",
+        "VACC": "PQM01.V3",
+        "IACA": "PQM01.I1",
+        "IACB": "PQM01.I2",
+        "IACC": "PQM01.I3"
+    },
+    {
+        "Name": "TOU01",
+        "kWH": "TOU01.WH",
+        "kW": "TOU01.W",
+        "kVAR": "TOU01.VAR",
+        "HZ": "TOU01.HZ",
+        "PF": "TOU01.PF",
+        "VACA": "TOU01.V1",
+        "VACB": "TOU01.V2",
+        "VACC": "TOU01.V3",
+        "IACA": "TOU01.I1",
+        "IACB": "TOU01.I2",
+        "IACC": "TOU01.I3"
+    }
+]

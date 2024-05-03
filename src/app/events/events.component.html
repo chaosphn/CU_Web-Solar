@@ -1,0 +1,76 @@
+<div class="container-fluid  event-component">
+  <div class="row no-gutters h-10 row-container">
+    <div class="col-12 h-100">
+      <!-- <div class="header row no-gutters d-flex justify-content-lg-between"> -->
+          <div class="header row no-gutters">
+        <!-- <div class="d-flex"> -->
+            <div class="d-flex align-items-center">
+                <span class="obj-name">OBJECT NAME</span>
+                <input class="input-obj-name" type="text" [(ngModel)]="objName">
+              </div>
+              <div class="d-flex align-items-center">
+                <div class="start">
+                  <app-time-control [title]="'START'" [dateTime]="startTime" (selectDatetime)="selectStartTime($event)"></app-time-control>
+                </div>
+                <span class="stroke">-</span>
+                <div class="end">
+                  <app-time-control [title]="'END'" [dateTime]="endTime" (selectDatetime)="selectEndTime($event)"></app-time-control>
+                </div>
+              </div>
+              <div class="d-flex align-items-center">
+                <span class="obj-name">Max Events</span>
+                <input class="input-max-event" type="text" [(ngModel)]="maxEvents">
+                <span class="btn-ok" (click)="selectObject()">OK</span>
+              </div>
+        <!-- </div> -->
+        <!-- <div class="d-flex time-preset"> -->
+            <div class="time-preset">
+                <app-time-preset [periodSelected]="periodName" [periodNames]="periodNames" (select)="selectedPeriod($event)"></app-time-preset>
+            </div>
+          <!-- </div> -->
+      </div>
+      <div class="content">
+        <div class="loader" *ngIf="loading"></div>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col" class="col-width">PRIORITY</th>
+                <th scope="col" class="col-width">ALARM CHANGE</th>
+                <th scope="col" style="width:160px">EVENTTIME</th>
+                <th scope="col" class="col-width">OBJECT NAME</th>
+                <th scope="col" class="col-width">DESCRIPTION</th>
+                <th scope="col" class="col-width">CONDITION</th>
+                <th scope="col" class="col-width">SUB CONDITION</th>
+                <th scope="col" class="text-left">MESSAGE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let event of events" [ngClass]="{'alarm': event.type == 'ALARM'}">
+                <td>{{event.PriorityLevel}}</td>
+                <td>{{event.AlarmChange}}</td>
+                <td>{{event.EventTime | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                <!-- <td>{{event.EventTime}}</td> -->
+                <td>{{event.ObjectName}}</td>
+                <td>{{event.ObjectDescription}}</td>
+                <td>{{event.Condition}}</td>
+                <td>{{event.SubCondition}}</td>
+                <td class="text-left">{{event.Message}}</td>
+              </tr>
+              <tr *ngIf="pristine && events.length === 0">
+                <td colspan="8">No event found.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <button mat-fab class="download" *ngIf="events && events.length > 0" (click)="download()">
+          <i class="material-icons">
+            play_for_work
+          </i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- 
+<button (click)="check()">Check Auth</button> -->

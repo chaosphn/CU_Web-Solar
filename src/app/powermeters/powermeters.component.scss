@@ -1,0 +1,133 @@
+.weather-card{
+    //height: 5%;
+    width: 100%;
+    //border: 1px solid white;
+    padding-right: 7px;
+}
+
+.row-container{
+    height: 100%;
+    //border: 2px solid rgb(255, 0, 0);
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    background: #136286;
+    color: white;
+    // padding: 4px;
+    min-height: 32px;
+}
+
+
+.row-header {
+    display: flex;
+    // justify-content: space-between;
+    padding: 4px 4px 4px  10px;
+    align-items: center;
+}
+
+@media only screen and (max-width: 630px) {
+    .row-header {
+        width: 100%;
+        padding: 4px 4px 4px  4px !important;
+    }
+}
+
+
+
+.title {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.container-fluid {
+    background: white;
+    height: 100%;
+    background: #3E94C0;
+    padding: 7px 0px 0px 7px;
+}
+
+.content {
+    background-color: #f8f8f8;
+    width: 100%;
+    position: relative;
+}
+
+
+.box {
+    height: 100%;
+}
+
+.group {
+    // padding-bottom: 7px;
+    padding-right: 7px;
+}
+
+.stroke {
+    padding: 0px 5px;
+}
+
+.periods > app-time-control:first-of-type {
+    // margin-right: 7px;
+}
+
+.btn-ok {
+    background: #FD674E;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-block;
+    // line-height: 1.4;
+    // padding-bottom: 1px;
+    margin-left: 5px;
+    padding: 3.5px 10px 1px 10px;
+}
+
+.select-all {
+    padding: 1px 8px;
+    background: #efefef;
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.chart {
+    padding-bottom: 7px;
+}
+
+.content-chart {
+    min-height: 299px;
+}
+
+.period, .period-time {
+    text-align: right;
+}
+
+@media only screen and (max-width: 992px)  {
+    .period {
+        text-align: left !important;
+        padding-bottom: 5px;
+    }
+
+    .group-power-meter {
+        margin-bottom: 7px;
+    }
+}
+
+
+
+@media only screen and (max-width: 992px)  {
+    .period-time {
+        text-align: left !important;
+    }
+}
+
+
+

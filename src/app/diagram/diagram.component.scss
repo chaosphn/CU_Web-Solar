@@ -1,0 +1,35 @@
+.container-fluid {
+    text-align: center;
+    background-color: white;
+    padding: 8px;
+    overflow: hidden;
+    box-sizing: border-box;
+    //border: 1px solid red;
+}
+
+.weather-card{
+  height: 5%;
+  z-index: 100;
+}
+
+.row{
+  height: 100%;
+  //border: 1px solid red;
+}
+
+.label{
+  fill: rgb(94, 0, 0);
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+// @media screen and (min-width:1919px){
+//     .container-fluid {
+//         zoom: 85%;
+//       }
+// }

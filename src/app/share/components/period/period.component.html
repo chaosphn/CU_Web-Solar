@@ -1,0 +1,5 @@
+<span class="period" *ngFor="let period of periods" 
+[ngClass]="{'active': periodSelected.name == period.name}" 
+(click)="selectPeriod(period)">
+  {{period.display | uppercase}}
+</span>

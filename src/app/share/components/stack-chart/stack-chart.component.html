@@ -1,0 +1,15 @@
+<div class="chart-box" title={{subTitle}}>
+  <div class="chartValue">{{value || '---'}}</div>
+  <div class="chartGroup">
+    <div class="Box w-100 h-100">
+      <div class="outerBox w-100 h-100">
+        <div class="chartItem" id="idx0" *ngFor="let item of chartItems; let i = index"></div>
+        </div>
+      <div class="innerBox w-100 h-100">
+        <div class="chartItem1" id="idx1" *ngFor="let item of chartItems; let i = index" 
+         [style.background-color]="getColor(9-i)"></div>
+      </div>
+    </div>
+  </div>
+  <div class="chartLabel">{{ label || "XXX"}}<br>{{subLabel || 000}}</div>
+</div>

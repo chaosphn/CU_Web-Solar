@@ -1,0 +1,133 @@
+.container{
+    padding: 18px;
+    display: grid;
+    grid-template-columns: 1fr;
+    row-gap: 8px;
+}
+
+.cardTopic{
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+}
+
+.weatherContent{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr) 1.5fr;
+    row-gap: 20px;
+    column-gap: 30px;
+}
+
+.gridItem{
+    padding: 0 8%;
+    column-gap: 24px;
+    //border: 1px solid red;
+    .imgItem{
+        //border: 1px solid red;
+        border-radius: 5px;
+        //background: rgba(255, 158, 12, 0.7);
+        width: 45px;
+        height: 45px;
+        padding: 5px;
+        img{
+            width: 35px;
+        }
+    }
+    .infoItem{
+        width:calc(100% - 45px);
+        //border: 1px solid red;
+        span{
+            width: 100%;
+            text-align: left;
+        }
+        .tpc{
+            font-size: 14px;
+            color: #f3f3f3;
+        }
+        .val{
+            font-size: 16px;
+            color: white;
+            font-weight: 500;
+            text-shadow: 0px 6px 4px rgba(0,0,0,0.6);
+        }
+    }
+}
+
+.enviContent{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 18px;
+}
+
+.enviItem{
+    padding: 4px 8px;
+    justify-content: space-between;
+    .infoItem{
+        row-gap: 8px;
+        span{
+            width: 100%;
+            text-align: right;
+        }
+        .tpc{
+            font-size: 20px;
+            color: white;
+            font-weight: 500;
+            text-shadow: 0px 6px 4px rgba(0,0,0,0.6);
+        }
+        .val{
+            font-size: 12px;
+            color: #f3f3f3;
+        }
+    }
+}
+
+.red-bd{
+    border: 2px solid #F8A300;
+}
+.yel-bd{
+    border: 2px solid #69EDFF;
+}
+
+.red-bg{
+    background:#c58000;
+}
+.yel-bg{
+    background:#50b3c0;
+}
+
+@media screen and (max-width: 500px) { 
+    .gridItem{
+        padding: 0 2%;
+        column-gap: 24px;
+        //border: 1px solid red;
+        .imgItem{
+            //border: 1px solid red;
+            border-radius: 5px;
+            //background: rgba(255, 158, 12, 0.7);
+            width: 45px;
+            height: 45px;
+            padding: 5px;
+            img{
+                width: 35px;
+            }
+        }
+        .infoItem{
+            width:calc(100% - 45px);
+            //border: 1px solid rgba(0, 0, 0, 0.103);
+            span{
+                width: 100%;
+                text-align: left;
+            }
+            .tpc{
+                font-size: 14px;
+                color: #f3f3f3;
+            }
+            .val{
+                font-size: 16px;
+                color: white;
+                font-weight: 500;
+            }
+        }
+    }
+}

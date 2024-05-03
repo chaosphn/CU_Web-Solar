@@ -1,0 +1,282 @@
+.container-fluid {
+    height: 100%;
+    width: auto;
+    padding: 7px 7px 0px 7px;
+}
+
+.weather-card{
+    //height: 5%;
+    width: 100%;
+    //border: 1px solid white;
+    
+}
+
+.row-container{
+    height: 100%;
+    //border: 2px solid rgb(255, 0, 0);
+}
+
+.header {
+    display: flex;
+    // justify-content: space-between;
+    background: #136286;
+    color: white;
+    // padding: 4px;
+    min-height: 32px;
+}
+
+
+.line {
+    margin-right: 10px;
+}
+
+.stroke {
+    padding: 0px 5px; 
+}
+.select-parameters {
+    padding: 3px 20px;
+    background: #FD674E;
+    color: white;
+    font-weight: 500;
+}
+
+.btn-ok {
+    padding: 5px 10px;
+    background: #FD674E;
+    color: white;
+    text-align: center;
+    /* margin: 0px 0px 0px 10px; */
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+}
+
+app-time-control:first-of-type {
+    // margin-right: 10px;
+}
+
+.content {
+    background-color: #f8f8f8;
+    position: relative;
+    min-height: 92%;
+    margin-bottom: 10px;
+    margin: 7px 0px;
+}
+
+.mat-select {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.form-feild {
+    width: 70%;
+}
+
+::ng-deep.event-component {
+    .mat-form-field-label,
+    .mat-select-arrow,
+    .mat-select-value-text {
+        color: white;
+    }
+    .mat-form-field-infix {
+        border-top: initial;
+    }
+    .mat-form-field-appearance-legacy .mat-form-field-underline {
+        bottom: 0px !important;
+    }
+    .mat-form-field-appearance-legacy .mat-form-field-wrapper {
+        padding-bottom: 0px !important;
+    }
+    .mat-form-field.mat-focused .mat-form-field-label,
+    .mat-form-field.mat-focused.mat-primary .mat-select-arrow {
+        color: white;
+    }
+    .mat-form-field.mat-focused .mat-form-field-ripple,
+    .mat-form-field-appearance-legacy .mat-form-field-underline {
+        background-color: white;
+    }
+    .mat-form-field-appearance-legacy .mat-form-field-infix {
+        padding: 4px 0;
+    }
+}
+
+.obj-name {
+    padding: 0px 7px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+thead {
+    background: #136286;
+    color: white;
+}
+
+th {
+    vertical-align: top;
+    border-top: 1px solid #dee2e6;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 5px 5px !important;
+    text-align: center;
+    border-top: 0px !important;
+}
+
+th,
+td {
+    padding: 5px;
+}
+
+td {
+    text-align: center;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.alarm {
+    color: white !important;
+    background-color: #ED5564 !important;
+}
+
+
+
+.period-name {
+    margin-right: 5px;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.col-width {
+    width: 110px;
+}
+
+.download {
+    position: fixed;
+    cursor: pointer;
+    right: 23px;
+    z-index: 50;
+    bottom: 20px; // font-size: 25px;
+    // padding: 2px 10px;
+    // border-radius: 50%;
+    background-color: gray;
+    color: white;
+}
+
+.download i {
+    font-size: 35px !important;
+    line-height: 1px !important;
+}
+
+.group {
+    margin-top: 0px;
+}
+
+@media only screen and (max-width: 1007px) {
+  .d-flex {
+    // padding-top: 5px;
+    // padding: 4px;
+    padding-bottom: 4px;
+  }
+
+  .header {
+    padding: 4px;
+  }
+}
+
+
+@media only screen and (max-width: 992px) {
+    .group {
+        // margin-top: 5px !important;
+    }
+    .obj-name {
+        padding: 0px 15px 0px 5px;
+    }
+
+    .time-preset {
+        position: relative;
+        padding: 0px;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    .end {
+        margin-top: 5px !important;
+    }
+    .start>span,
+    .end>span {
+        width: 40px;
+        display: flex;
+    }
+}
+
+.start,
+.end {
+    display: flex;
+}
+
+.loader {
+    border: 16px solid coral;
+    border-radius: 50%;
+    border-top: 16px solid azure;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    top: 36%;
+}
+
+@-webkit-keyframes spin {
+    0% {
+        -webkit-transform: rotate(0deg);
+    }
+    100% {
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.input-max-event {
+    width: 85px;
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 10px;
+    padding: 2px 5px;
+    border: 0px;
+}
+
+.input-obj-name {
+    font-size: 12px;
+    font-weight: 500;
+    margin-right: 10px;
+    min-width: 200px;
+    padding: 2px 5px;
+    border: 0px;
+}
+
+.time-preset {
+    position: absolute;
+    right: 0;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 1060px) {
+    .time-preset {
+        position: relative;
+        width: 100%;
+        padding-left: 5px;
+    }
+  }

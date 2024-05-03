@@ -1,0 +1,239 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import "~ng-pick-datetime/assets/style/picker.min.css";
+// @media screen and (min-width:1919px){
+//     html {
+//      zoom:120%;
+//       }
+// }
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.no-gutters {
+    margin-right: 0;
+    margin-left: 0;
+    >.col,
+    >[class*="col-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+.w-100{
+    width: 100%;
+}
+
+.h-100{
+    height: 100%;
+}
+
+.n-pad{
+    padding: 0 !important;
+}
+
+.n-mar{
+    margin: 0 !important;
+}
+
+.n-mp{
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+.d-flex{
+    display: flex;
+}
+
+.d-flex-ct{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.d-col{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.col{
+    display: flex;
+    flex-direction: column;
+}
+.d-col-c{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.d-col-st{
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    flex-direction: column;
+}
+.d-col-sb{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.d-flex-sb{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+.brd{
+    border: 1px solid red;
+    box-sizing: border-box;
+}
+
+.no-pm{
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.no-padding {
+    padding: 0px !important;
+}
+
+.mat-select-panel {
+    min-width: 180px !important; 
+}
+
+.cdk-overlay-pane {
+    overflow: auto;
+    transform: translateX(0px) !important;
+    top: 34px !important;
+}
+.mat-option{
+    min-width: 185px !important;
+}
+
+/* width */
+
+.cdk-overlay-pane::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Handle */
+
+.cdk-overlay-pane::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.cdk-global-overlay-wrapper {
+    padding: 15px 0px;
+}
+
+.cdk-overlay-pane {
+    margin: 0 auto !important;
+}
+
+.cdk-overlay-container .dialog-backdrop {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.dialog-panel .mat-dialog-container {
+    background: initial;
+    box-shadow: initial;
+}
+
+@media (min-width:576px) {
+    .card-columns {
+        column-count: 2;
+    }
+}
+
+@media (min-width:768px) {
+    .card-columns {
+        column-count: 3;
+    }
+}
+
+@media (min-width:992px) {
+    .card-columns {
+        column-count: 4;
+    }
+}
+
+@media (min-width:1200px) {
+    .card-columns {
+        column-count: 6;
+    }
+}
+
+.pd-t-5 {
+    padding-top: 5px;
+}
+
+.highcharts-legend-item .highcharts-point {
+    rx: 0 !important;
+    ry: 0 !important; // height: 12px !important;
+    height: 2px !important;
+    width: 16px !important;
+    y: 9 !important;
+}
+
+.highcharts-legend-item tspan {
+    letter-spacing: -0.6px;
+}
+
+.highcharts-background {
+    background-color: #f8f8f8;
+}
+
+
+.highcharts-tooltip span,
+.chart tspan,
+.chart text {
+    color: rgba(0, 0, 0, 0.9) !important;
+    font-size: 12px !important;
+    font-weight: 500 !important;
+    fill: rgba(0, 0, 0, 0.9) !important;
+    font-family: 'Roboto' !important;
+}
+
+
+.card-body {
+    background-color: transparent;
+}
+
+.highcharts-reset-zoom text {
+    color: white !important;
+    fill: white !important;
+}
+
+.highcharts-legend-item tspan {
+    letter-spacing: 0.5px;
+    }
+
+
+button.download {
+    background-color: #FD674E !important;
+}
+
+.animated {
+	animation: fade-in-fwd 1.0s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
+
+@keyframes fade-in-fwd {
+    0% {
+      -webkit-transform: translateZ(-80px);
+              transform: translateZ(-80px);
+      opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+}  

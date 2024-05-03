@@ -1,0 +1,45 @@
+<div class="container-fluid  event-component">
+  <div class="row no-gutters h-100">
+    <div class="col-12 h-100">
+      <div class="header row no-gutters">
+        <!-- <form autocomplete="off">  -->
+        <table>
+          <tr>
+            <th>
+              <span class="obj-name">Enable Manual Zero Export</span>
+            </th>
+            <th>
+              <select [(ngModel)]="enableManualZeroExport">
+                <option value=1>Enable</option>
+                <option value=0>Disable</option>
+              </select>
+          </th>
+        </tr>
+        <tr>
+          <th>
+            <div class="obj-name">Inverter Limit Power 1 to 100 (%)</div>
+          </th>
+            <th>
+            <input class="input-obj-name" id="limitPowerWatt" autocomplete="new-password" type="text" [(ngModel)]="limitPowerWatt">
+          </th>
+        </tr>
+          <tr> 
+            <th>
+              <span class="obj-name">Password</span>
+            </th>
+            <th>
+              <input class="input-obj-name" id="manualPassword" autocomplete="new-password" type="password" [(ngModel)]="password">
+            </th>
+          </tr>
+          <tr>
+            <th></th>
+            <th>
+              <span class="btn-ok" (click)="setValue()">SET</span>
+            </th>
+          </tr>
+        </table>
+      <!-- </form> -->
+      </div>
+    </div>
+  </div>
+</div>

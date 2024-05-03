@@ -1,0 +1,39 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-lg-11 col-md-12 order-lg-1 order-2  tag-groups">
+      <!-- <div class="card-columns">
+        <div class="card" *ngFor="let d of data">
+          <div class="card-body">
+            <h5 class="card-title">{{d.Category}}</h5>
+            <ng-container *ngIf="d.Groups.length == 1">
+              <div class="row no-gutters">
+                <div class="col-12 bd">
+                    <p class="card-text group-name" (click)="selectAllOnceGroup(d)" [ngClass]="{'active': getActiveOnceGroup(d)}">ALL</p>
+                    <p class="card-text group-name" *ngFor="let a of d.Aliases" (click)="selectOnceGroup(d, a)" [ngClass]="{'active': a.active }" >{{a.Name}}</p>
+                </div>
+              </div>
+           
+            </ng-container>
+            <ng-container *ngIf="d.Groups.length > 1">
+              <div class="row no-gutters">
+                <div class="col-6 border-right pd-r-5 bd">
+                    <p class="card-text group-name half" (click)="selectAllGroup(d)" [ngClass]="{'active': getActiveAllGroup(d)}">ALL</p>
+                  <p class="card-text group-name half" *ngFor="let g of d.Groups" [ngClass]="{'active': g.active }" (click)="selectGroup(d, g)">{{g.Name}}</p>
+                </div>
+                <div class="col-6 pd-l-5 bd" >
+                    <p class="card-text group-name half" (click)="selectAllAlias(d)" [ngClass]="{'active': getActiveAllAlias(d)}">ALL</p>
+                  <p class="card-text group-name half" *ngFor="let a of d.Aliases"  [ngClass]="{'active': a.active }"  (click)="selectAlias(d, a)">{{a.Name}}</p>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+      </div> -->
+    </div>
+    <div class="col-lg-1 col-md-12 order-lg-2 order-1">
+      <button mat-raised-button color="primary" class="btn-control btn-ok" >OK</button>
+      <button mat-raised-button color="accent" class="btn-control btn-clear" >CLEAR</button>
+      <button mat-raised-button color="warn" class="btn-control" (click)="close()">CANCEL</button>
+    </div>
+  </div>
+</div>

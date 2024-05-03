@@ -1,0 +1,102 @@
+
+<div class="flex-container" [className]="bgClass">
+  <div class="content selector" *ngIf="mode">
+    <p class="topic">LOCATION</p>
+    <div class="dropDown">
+      <mat-select disableOptionCentering 
+      [placeholder]="siteSelected"
+        panelClass="myPanelClass"
+        class="mySelectClass"  style="color: white;" 
+        *ngIf="!diagramSelecter">
+        <mat-option *ngFor="let item of site"  [value]="item" (click)="selectSite(item)">
+          {{item.viewvalue}} 
+        </mat-option>
+      </mat-select>
+      <mat-select disableOptionCentering 
+        [placeholder]="siteSelected"
+        panelClass="myPanelClass"
+        class="mySelectClass"  style="color: white;" 
+        *ngIf="diagramSelecter">
+        <mat-option routerLink="/main/diagram"  (click)="diagramNav('/main/diagram')">Orange Market</mat-option>
+        <mat-option routerLink="/main/diagram1" (click)="diagramNav('/main/diagram1')">Fruit Market</mat-option>
+        <mat-option routerLink="/main/diagram2" (click)="diagramNav('/main/diagram2')">Fresh Market</mat-option>
+        <mat-option routerLink="/main/diagram3" (click)="diagramNav('/main/diagram3')">Container Yard</mat-option>
+      </mat-select>
+   </div>
+  </div>
+  <div class="content">
+    <div class="item-img">
+      <img src="assets/images/sunny2.png" alt="" class="weather-icon">
+    </div>
+    <div class="item-info">
+      <p class="topic">TEMPERATURE</p>
+      <div class="value-info">
+        <p class="value">38.6</p>
+        <p class="unit">&deg;C</p>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="item-img">
+      <img src="assets/images/humidity1.png" alt="" class="weather-icon">
+    </div>
+    <div class="item-info">
+      <p class="topic">HUMIDITY</p>
+      <div class="value-info">
+        <p class="value">60</p>
+        <p class="unit">%</p>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="item-img">
+      <img src="assets/images/stormy.png" alt="" class="weather-icon">
+    </div>
+    <div class="item-info">
+      <p class="topic">WIND SPEED</p>
+      <div class="value-info">
+        <p class="value">1.4</p>
+        <p class="unit">m/s</p>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="item-img">
+      <img src="assets/images/compass6.png" alt="" class="weather-icon">
+    </div>
+    <div class="item-info">
+      <p class="topic">WIND DIRECTION</p>
+      <div class="value-info">
+        <p class="value">45</p>
+        <p class="unit">Deg</p>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="item-img">
+      <img src="assets/images/sun1.png" alt="" class="weather-icon">
+    </div>
+    <div class="item-info">
+      <p class="topic">IRRADIANCE</p>
+      <div class="value-info">
+        <p class="value">995</p>
+        <p class="unit">W/m <sup>2</sup></p>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    <div class="item-img">
+      <img src="assets/images/calendar3.png" alt="" class="weather-icon">
+    </div>
+    <div class="item-info">
+      <p class="topic">{{toDay}}</p>
+      <div class="value-info">
+        <p class="value">{{dateTime}}</p>
+        <p class="unit">{{period}}</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+
+

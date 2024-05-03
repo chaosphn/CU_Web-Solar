@@ -1,0 +1,8 @@
+[
+    {
+        "Name": "SINV01_WAC",
+        "TagName": "MITRPHOL\\Inverters\\SINV01\\WAC",
+        "Format": "1.1-1",
+        "Type": "RealTime"
+    }
+]

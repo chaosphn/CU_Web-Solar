@@ -1,0 +1,25 @@
+.chart-container {
+    overflow: hidden;
+    //position: absolute;
+    height: 100%;
+    position: relative;
+}
+.icon-container{
+    position: absolute;
+    top: 1%;
+    right: 0.5%;
+    z-index: 100;
+}
+.chart {
+    padding: 5px;
+    //background-color: #f8f8f8;
+    //border: 2px solid red;
+}
+
+.material-icons {
+    font-size: 25px;
+}
+
+.table{
+   display: none;
+}

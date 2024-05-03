@@ -1,0 +1,31 @@
+<div class=" brd d-flex no-pm" [className]="classDisplay" >
+  <div class="circleOuter d-flex-ct">
+    <div class="circleInner d-flex-ct">
+      <div class="circle"></div>
+    </div>
+  </div>
+  <div class="shadow-wrap">
+    <div class="tooltip-hoz" id="tooltip1">
+      <div class="info-card d-flex">
+        <div class="imgBox"><img [src]="imgSrc" alt="" width="90px" height="100%"></div>
+        <div class="infoBox">
+          <div class="titleBox  d-flex">
+            <span>{{title}}</span>
+            <span>{{titleText}}</span>
+          </div>   
+          <div class="valueBox d-flex">
+            <span>{{g1Title}}</span>
+            <span class="value">{{g1Value|| 0 | myNumber : '1.0-2'}}</span>
+            <span>{{g1Unit}}</span>
+          </div>   
+          <div class="valueBox d-flex">
+            <span>{{g2Title}}</span>
+            <span class="value">{{g2Value|| 0 | myNumber : '1.0-2'}}</span>
+            <span>{{g2Unit}}</span>
+          </div>  
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

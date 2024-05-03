@@ -1,0 +1,149 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "zone1_power",
+			"Name": "SLOGGER06.INV_WAC"
+		},
+		{
+			"Title": "zone1_energy",
+			"Name": "SLOGGER06.WH_TODAY"
+		},
+		{
+			"Title": "CEN001_power",
+			"Name": "TOU02.W"
+		},
+		{
+			"Title": "CEN001_energy",
+			"Name": "TOU02.WH"
+		},
+		{
+			"Title": "ARC003_power",
+			"Name": "TOU01.W"
+		},
+		{
+			"Title": "ARC003_energy",
+			"Name": "TOU01.WH"
+		},
+		{
+			"Title": "CEN003_power",
+			"Name": "TOU04.W"
+		},
+		{
+			"Title": "CEN003_energy",
+			"Name": "TOU04.WH"
+		},
+		{
+			"Title": "CEN005_power",
+			"Name": "TOU03.W"
+		},
+		{
+			"Title": "CEN005_energy",
+			"Name": "TOU03.WH"
+		},
+		{
+			"Title": "CEN072_power",
+			"Name": "TOU05.W"
+		},
+		{
+			"Title": "CEN072_energy",
+			"Name": "TOU05.WH"
+		},
+		{
+			"Title": "CEN091_power",
+			"Name": "TOU06.W"
+		},
+		{
+			"Title": "CEN091_energy",
+			"Name": "TOU06.WH"
+		},
+		{
+			"Title": "irr_value",
+			"Name": "SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "pv_value",
+			"Name": "SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "amb_value",
+			"Name": "SLOGGER06.AMBTEMP"
+		},
+		{
+			"Title": "total_energy",
+			"Name": "SLOGGER06.WH"
+		},
+		{
+			"Title": "total_power",
+			"Name": "PQM06.W"
+		}
+		
+	],
+	"historianConfig": [{
+		"Name": "SLOGGER06.PYRANO",
+		"Title": "X2",
+		"Options" : {
+			"Interval": 5,
+			"Time" : "t",
+			"StartTime" : "2021-06-24T00:00:00",
+			"EndTime" : "2023-12-24T23:59:59"
+		}
+	}],
+	"chartConfig":[{
+		"name": "powerGeneration",
+		"tags": [
+			{
+				"name": "SLOGGER06.PYRANO",
+				"title": "IRR",
+				"options": {
+					"chartOptions": {
+						"yAxis": 0,
+						"type": "area",
+						"color": "rgba(253, 103, 78, 1)"
+					}
+				}
+			},
+			{
+				"name": "SLOGGER06.INV_WAC",
+				"title": "Power",
+				"options": {
+					"chartOptions": {
+						"yAxis": 1,
+						"type": "area",
+						"color": "#3DB1FC"
+					}
+				}
+			}
+		],
+		"type": "Plot",
+		"interval": 1000,
+		"title": "Power Generation",
+		"options": {
+			"chartOptions": {
+				"yAxis": [
+					{
+						"color": "rgba(253, 103, 78, 1)",
+						"text": "IRR (W/sq.m)",
+						"useMax": true,
+						"opposite": true,
+						"visible": false
+					},
+					{
+						"color": "#7CB5EC",
+						"text": "Power (kW)",
+						"useMax": true,
+						"visible": false
+					}
+				],
+				"xAxis": {
+					
+				},
+				"legend": {
+					"enable": true
+				}
+			},
+			"runtimeConfigs": {
+				"periodName": "t"
+			}
+		}
+	}]
+}

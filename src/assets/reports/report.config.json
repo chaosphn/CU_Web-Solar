@@ -1,0 +1,10 @@
+[
+    {
+        "Name": "Daily Report",
+        "Type": "Daily"
+    },
+    {
+        "Name": "Monthly Report",
+        "Type": "Monthly"
+    }
+]

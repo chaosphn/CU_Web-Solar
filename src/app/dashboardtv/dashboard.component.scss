@@ -1,0 +1,363 @@
+* {
+    --radius: 20px;
+    --second: #182B3C;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.container-fluid {
+    width: 100vw;
+    height: 100%;
+    min-height: 100vh;
+    //border: 1px solid rgb(255, 16, 16);
+    //background: radial-gradient(100% 50% at 50% 50%, #22B5BE 0%, #161464 100%);
+    background-image: radial-gradient(circle, rgba(34, 181, 190, 1) 0%, rgba(22, 20, 100, 1) 100%);
+    box-sizing: border-box;
+    padding: 8px;
+    position: relative;
+}
+
+.main-container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 1fr;
+    row-gap: 10px;
+}
+
+.extend-container{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    #main{
+        width: 100%;
+        height: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr;
+        .left-content{
+            display: none;
+        }
+        .right-content{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    #footer{
+        display: none;
+    }
+}
+
+#main{
+    height: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-template-rows: 1fr;
+    column-gap: 10px;
+}
+
+.left-content{
+    display: grid;
+    //grid-template-rows: 1fr 3fr 3fr;
+    row-gap: 10px !important;
+    max-height: 100%;
+    .headerCard{
+        //height: 110px;
+    }
+    
+    .overviewCard{
+        height: auto;
+    }
+    
+    .enviCard{
+        height: auto;
+    }
+}
+
+.headerContent{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 18px;
+}
+
+.h-info{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+    height: 100%;
+    .th{
+        font-size: 28px;
+        color: white;
+    }
+    .en{
+        font-size: 20px;
+        color: #b2b3b4;
+    }
+}
+
+.mobileTable{
+    display: none;
+}
+
+#footer{
+    
+}
+
+.mapContent{
+    //background-color: #666666;
+    // background-image: url('/assets/images/map3D.png');
+    // background-position: center;
+    // background-size: cover;
+    // background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+    
+    .mapImg{
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+    }
+}
+
+
+.mapCard-full{
+    
+}
+
+.headerCard-full{
+    position: absolute;
+    bottom: 3%;
+    right: 1.5%;
+    background-image: radial-gradient(circle, rgba(34, 181, 190, 0.9) 0%, rgba(22, 20, 100, 0.9) 100%);
+    .headerContent1{
+        display: flex;
+        align-items: center;
+        column-gap: 20px;
+        padding: 18px;
+    }
+    
+    .h-info{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: space-between;
+        height: 100%;
+        .th{
+            font-size: 28px;
+            color: white;
+        }
+        .en{
+            font-size: 20px;
+            color: #f1f1f1;
+        }
+    }
+}
+
+.chart-container{
+    padding: 18px;
+    row-gap: 8px;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.cardTopic{
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+}
+
+.cardContent{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    column-gap: 5px;
+}
+
+.cardContent{
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30px, 1fr));
+    grid-template-rows: 1fr;
+}
+
+.chartBox{
+    height: 100%;
+    padding: 4px 0px;
+    box-sizing: border-box;
+}
+
+
+
+@media screen and (max-width: 500px) {
+    .container-fluid {
+        padding: 8px;
+        height: 3575px !important;
+    }
+    
+    .main-container{
+        //border: 1px solid red;
+        width: 100%;
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 10px !important;
+    }
+    
+    #main{
+        //border: 1px solid rgb(179, 255, 0);
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+    
+    .left-content{
+        display: grid;
+        height: 800px !important;
+    }
+    .right-content{
+        display: none;
+    }
+    
+    .headerCard{
+        height: 110px !important;
+    }
+    
+    .headerContent{
+        padding: 18px;
+    }
+    
+    .h-info{
+        .th{
+            font-size: 22px;
+        }
+        .en{
+            font-size: 14px;
+        }
+    }
+
+    .overviewCard{
+        height: 330px !important;
+    }
+    
+    .enviCard{
+        height: 330px !important;
+    }
+
+    .container-table{
+        padding: 16px;
+        .topic{
+            font-size: 20px;
+            color: white;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+    }
+    .mobileTable{
+        display: block;
+    }
+    table {
+        width: 100%;
+        //border: 1px solid black;
+    }
+    
+    .mat-elevation-z8{
+        /*border: 1px solid black;*/
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .mat-header-row{
+        background-color: rgba(255, 255, 255, 0.0001);
+    }
+    .mat-row{
+        background-color: rgba(255, 255, 255, 0.0001);
+    }
+    .mat-table{
+        background-color: rgba(255, 255, 255, 0.0001);
+    }
+    th, td{
+        border-bottom: 1px solid whitesmoke;
+        text-align: center;
+        padding: 0;
+    }
+    
+    .mat-header-cell{
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+        padding: 0%;
+        color: white;
+        
+    }
+    .mat-cell{
+        font-size: 14px;
+        text-align: center;
+        padding: 0%;
+        color: white;
+    }
+    
+    .paginator{
+     width: 100%;   
+    }
+
+    #footer{
+        width: 100%;
+    }
+    
+    .mapContent{
+        display: none;
+    }
+    
+    
+    .mapCard-full{
+        display: none;
+    }
+    
+    .headerCard-full{
+       display: none;
+    }
+
+    .chart-container{
+        padding: 16px;
+        row-gap: 8px;
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .cardTopic{
+        font-size: 20px;
+        color: white;
+        font-weight: 500;
+    }
+    
+    // .cardContent{
+    //     width: 100%;
+    //     height: 100%;
+    //     display: grid;
+    //     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    // }
+
+    // .cardContent-item{
+    //     height: 100px;
+    //     border: 1px solid red;
+    // }
+
+    // .chartBox{
+    //     width: auto;
+    //     height: 100px;
+    // }
+}

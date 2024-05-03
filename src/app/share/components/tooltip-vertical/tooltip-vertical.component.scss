@@ -1,0 +1,191 @@
+.top{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+    .shadow-wrap{
+        filter: drop-shadow(0px 8px 8px rgba(0, 0, 0, 0.4));
+    }
+}
+
+.tooltip-hoz{
+    position: relative;
+    width: 271px;
+    height: 111px;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 55% 80%, 50% 100%, 45% 80%, 0 80%);
+    background-color: #F0F0F0;
+    z-index: 5;
+    
+}
+
+.info-card{
+    width: 252px;
+    height: 75px;
+    position: absolute;
+    top: 6%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    box-sizing: border-box;
+    column-gap: 12px;
+}
+
+.imgBox{
+    border: 2px solid rgba(0, 0, 0, 0.35);
+    box-sizing: border-box;
+}
+
+.infoBox{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-between;
+}
+
+.titleBox{
+    color: rgb(63, 63, 63);
+    font-weight:600;
+    font-size: 18px;
+    column-gap: 5px;
+    
+}
+
+.valueBox{
+    width: 100%;
+    color: #000000;
+    font-weight:600;
+    font-size: 10px;
+    column-gap: 10px;
+    align-items: center;
+    .value{
+        color: #ECB800;
+        font-weight:600;
+        font-size: 14px;
+    }
+}
+
+
+.circleOuter{
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    z-index: 4;
+    background-color: #a9a9a92c;
+    .circleInner{
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        z-index: 8;
+        background-color: #ffffff;
+        .circle{
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            z-index: 9;
+            //border-radius: 94px;
+            background: rgb(149, 255, 153);
+        }
+    }
+}
+
+
+.top:hover{
+    //transform: rotateY(180deg);
+    .circleOuter{
+        scale: 1.8;
+        background-color: rgba(149, 255, 152, 0.1);
+        .circleInner{
+            scale: 0.7;
+            .circle{
+                scale: 0.7;
+            }
+        }
+    }
+    .tooltip-hoz{
+        background: linear-gradient(90deg, #22B5BE 0%, #161464 100%);
+    }
+
+    .titleBox{
+        text-shadow: 0px 2px 2px rgba(0,0,0,0.6);
+        color: white;
+    }
+    
+    .valueBox{
+        text-shadow: 0px 2px 2px rgba(0,0,0,0.6);
+        color: whitesmoke;
+    }
+}
+
+.bottom{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 0.3s;
+    transform: rotateX(180deg);
+    .shadow-wrap{
+        filter: drop-shadow(0px -8px 8px rgba(0, 0, 0, 0.4));
+    }
+    .tooltip-hoz{
+        position: relative;
+        width: 271px;
+        height: 111px;
+        clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 55% 80%, 50% 100%, 45% 80%, 0 80%);
+        background-color: #F0F0F0;
+        z-index: 5;
+        transition: 0.5s ease-out;
+        //background: linear-gradient(90deg, rgba(255,158,12,0.8) 0%, rgba(251,40,33,0.8) 50%, rgba(13,16,23,0.9) 100%) right;
+        //background-size: 200%;
+        //transition: .5s ease-out;
+    }
+    
+    .info-card{
+        //transform: rotateY(-180deg);
+        width: 252px;
+        height: 75px;
+        position: absolute;
+        top: 6%;
+        left: 50%;
+        transform: translate(-50%, 0) rotateX(-180deg); 
+        box-sizing: border-box;
+        column-gap: 12px;
+    }
+}
+
+.bottom:hover{
+    //transform: rotateY(180deg);
+    .circleOuter{
+        scale: 1.8;
+        background-color: rgba(149, 255, 152, 0.1);
+        .circleInner{
+            scale: 0.7;
+            .circle{
+                scale: 0.7;
+            }
+        }
+    }
+    .tooltip-hoz{
+        background: linear-gradient(90deg, #22B5BE 0%, #161464 100%);
+    }
+
+    .titleBox{
+        text-shadow: 0px 2px 2px rgba(0,0,0,0.6);
+        color: white;
+    }
+    
+    .valueBox{
+        text-shadow: 0px 2px 2px rgba(0,0,0,0.6);
+        color: whitesmoke;
+    }
+}
+
+.active{
+    background: linear-gradient(90deg, #22B5BE 0%, #161464 100%);
+    .titleBox{
+        text-shadow: 0px 2px 2px rgba(0,0,0,0.6);
+        color: white;
+    }
+    
+    .valueBox{
+        text-shadow: 0px 2px 2px rgba(0,0,0,0.6);
+        color: whitesmoke;
+    }
+}

@@ -1,0 +1,52 @@
+<div class="container w-100 ">
+  <div class="card-container w-100 ">
+    <div class="headBox d-flex-sb">
+     <span class="">{{data}} Switch Breaker</span>
+     <span (click)="close()">
+      <i class="material-icons">
+        close
+      </i>
+     </span>
+    </div>
+    <div class="contentBox w-100 d-flex-ct " *ngIf="isLogIn">
+      <span class="outerbox d-flex-ct">
+        <label class="switch ">
+          <input class="chk" type="checkbox" [disabled]="false">
+          <span class="slider"></span>                
+        </label>
+      </span>
+      <span class="desc">
+        this button will be open circuit breaker at<br>
+        building XXX1 please make sure before pressed !
+      </span>
+    </div>
+    <div class="contentBox w-100 d-flex-ct " *ngIf="!isLogIn">
+      <div class=" w-100 h-100">
+        <form class="example-form w-100 bz">
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <i class="material-icons">
+                person
+              </i>
+            </div>
+            <input [(ngModel)]="username" name="username" type="text" class="form-control" placeholder="USERNAME" aria-label="Username"
+              aria-describedby="basic-addon1">
+          </div>
+          <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <i class="material-icons">
+                lock
+              </i>
+            </div>
+            <input [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="PASSWORD" aria-label="Username"
+              aria-describedby="basic-addon1">
+          </div>
+          <div>
+            <button type="submit" (click)="login()" mat-raised-button color="primary" class="full-width btn-login">Login</button>
+          </div>
+          <span *ngIf="invalid" class="invalid" [className]="animateClass">The username or password incorrect</span>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

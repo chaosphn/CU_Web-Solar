@@ -1,0 +1,95 @@
+.group-name {
+    text-align: center;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+    margin: 2px 7px;
+    font-weight: 500;
+    padding: 2px 2.5px;
+
+}
+
+.masonry-item {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    // background-color: #fff;
+    background-clip: border-box;
+    width: 220px;
+}
+
+button:focus {outline:0;}
+
+
+.card-title {
+    background-color: #0E6486;
+    color: white;
+    margin-bottom: 0px;
+    // padding: 5px;
+    font-size: 13px;
+    padding: 5px;
+    // margin-bottom: 0px;
+}
+
+.row-content {
+    background-color: #fff;
+}
+// .card-body {
+//     padding: 0px !important;
+// }
+
+.border-right {
+    border-right: 1.5px solid darkgray !important;
+}
+
+.btn-control {
+    margin-left: 5px;
+    margin-right: 5px;
+    border-radius: 0px !important;
+}
+.btn-control:not(:first-child) {
+    margin-top: 10px;
+}
+
+button {
+    color: white;
+    font-weight: 500;
+}
+
+.btn-ok {
+    background-color: #6ACA25;
+}
+
+.btn-clear {
+    background-color: #999;
+}
+
+.card {
+    border: initial;
+    border-radius: initial;
+}
+
+
+@media only screen and (max-width: 991px) {
+    .tag-groups {
+        margin-top: 20px;
+        padding: 0px 10px;
+    }
+    
+}
+
+.active {
+    background-color: #FD674E;
+}
+
+.bd {
+  padding: 7px 0px;
+}
+
+
+ngxMasonryItem {
+    padding: 5px;
+}

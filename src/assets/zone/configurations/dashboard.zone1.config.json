@@ -1,0 +1,803 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "ZONE_power",
+			"Name": "CALC.ZONE01.W"
+		},
+		{
+			"Title": "ZONE_energy",
+			"Name": "CALC.ZONE01.WH_DAY"
+		},
+		{
+			"Title": "TOTAL_energy",
+			"Name": "CALC.ZONE01.WH"
+		},
+		{
+			"Title": "CEN072_power",
+			"Name": "SLOGGER05.INV_WAC"
+		},
+		{
+			"Title": "CEN072_energy",
+			"Name": "SLOGGER05.WH_TODAY"
+		},
+		{
+			"Title": "CEN072_pr",
+			"Name": ""
+		},
+		{
+			"Title": "CEN072_irr",
+			"Name": "SLOGGER05.PYRANO"
+		},
+		{
+			"Title": "CEN072_pv",
+			"Name": "SLOGGER05.PVTEMP"
+		},
+		{
+			"Title": "CEN072_amb",
+			"Name": "SLOGGER05.AMBTEMP"
+		},
+		{
+			"Title": "CEN091_power",
+			"Name": "SLOGGER06.INV_WAC"
+		},
+		{
+			"Title": "CEN091_energy",
+			"Name": "SLOGGER06.WH_TODAY"
+		},
+		{
+			"Title": "CEN091_pr",
+			"Name": ""
+		},
+		{
+			"Title": "CEN091_irr",
+			"Name": "SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "CEN091_pv",
+			"Name": "SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "CEN091_amb",
+			"Name": "SLOGGER06.AMBTEMP"
+		},
+		{
+			"Title": "CEN089_power",
+			"Name": "SLOGGER13.INV_WAC"
+		},
+		{
+			"Title": "CEN089_energy",
+			"Name": "SLOGGER13.WH_TODAY"
+		},
+		{
+			"Title": "CEN089_pr",
+			"Name": ""
+		},
+		{
+			"Title": "CEN089_irr",
+			"Name": "SLOGGER13.PYRANO"
+		},
+		{
+			"Title": "CEN089_pv",
+			"Name": "SLOGGER13.PVTEMP"
+		},
+		{
+			"Title": "CEN089_amb",
+			"Name": "SLOGGER13.AMBTEMP"
+		},
+		{
+			"Title": "CEN103_power",
+			"Name": "SLOGGER14.INV_WAC"
+		},
+		{
+			"Title": "CEN103_energy",
+			"Name": "SLOGGER14.WH_TODAY"
+		},
+		{
+			"Title": "CEN103_pr",
+			"Name": ""
+		},
+		{
+			"Title": "CEN103_irr",
+			"Name": "SLOGGER14.PYRANO"
+		},
+		{
+			"Title": "CEN103_pv",
+			"Name": "SLOGGER14.PVTEMP"
+		},
+		{
+			"Title": "CEN103_amb",
+			"Name": "SLOGGER14.AMBTEMP"
+		},
+		{
+			"Title": "INS011_power",
+			"Name": "SLOGGER15.INV_WAC"
+		},
+		{
+			"Title": "INS011_energy",
+			"Name": "SLOGGER15.WH_TODAY"
+		},
+		{
+			"Title": "INS011_pr",
+			"Name": ""
+		},
+		{
+			"Title": "INS011_irr",
+			"Name": "SLOGGER15.PYRANO"
+		},
+		{
+			"Title": "INS011_pv",
+			"Name": "SLOGGER15.PVTEMP"
+		},
+		{
+			"Title": "INS011_amb",
+			"Name": "SLOGGER15.AMBTEMP"
+		},
+		{
+			"Title": "CEN027_power",
+			"Name": "SLOGGER16.INV_WAC"
+		},
+		{
+			"Title": "CEN027_energy",
+			"Name": "SLOGGER16.WH_TODAY"
+		},
+		{
+			"Title": "CEN027_pr",
+			"Name": ""
+		},
+		{
+			"Title": "CEN027_irr",
+			"Name": "SLOGGER16.PYRANO"
+		},
+		{
+			"Title": "CEN027_pv",
+			"Name": "SLOGGER16.PVTEMP"
+		},
+		{
+			"Title": "CEN027_amb",
+			"Name": "SLOGGER16.AMBTEMP"
+		},
+		{
+			"Title": "INS010_power",
+			"Name": "SLOGGER38.INV_WAC"
+		},
+		{
+			"Title": "INS010_energy",
+			"Name": "SLOGGER38.WH_TODAY"
+		},
+		{
+			"Title": "INS010_pr",
+			"Name": ""
+		},
+		{
+			"Title": "INS010_irr",
+			"Name": "SLOGGER38.PYRANO"
+		},
+		{
+			"Title": "INS010_pv",
+			"Name": "SLOGGER38.PVTEMP"
+		},
+		{
+			"Title": "INS010_amb",
+			"Name": "SLOGGER38.AMBTEMP"
+		}
+		
+	],
+	"historianConfig": [
+		{
+			"Name": "SLOGGER05.INV_WAC",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER05.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER06.INV_WAC",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER06.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER13.INV_WAC",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER13.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER14.INV_WAC",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER14.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER15.INV_WAC",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER15.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER16.INV_WAC",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER16.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER38.INV_WAC",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER38.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "CALC.ZONE01.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}
+	],
+	"chartConfig":[
+		{
+			"name": "CEN072_CHART",
+			"tags": [
+				{
+					"name": "SLOGGER05.PYRANO",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "SLOGGER05.INV_WAC",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		},
+		{
+			"name": "CEN091_CHART",
+			"tags": [
+				{
+					"name": "SLOGGER06.PYRANO",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "SLOGGER06.INV_WAC",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		},
+		{
+			"name": "CEN089_CHART",
+			"tags": [
+				{
+					"name": "SLOGGER13.PYRANO",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "SLOGGER13.INV_WAC",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		},
+		{
+			"name": "CEN103_CHART",
+			"tags": [
+				{
+					"name": "SLOGGER14.PYRANO",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "SLOGGER14.INV_WAC",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		},
+		{
+			"name": "INS011_CHART",
+			"tags": [
+				{
+					"name": "SLOGGER15.PYRANO",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "SLOGGER15.INV_WAC",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		},
+		{
+			"name": "CEN027_CHART",
+			"tags": [
+				{
+					"name": "SLOGGER16.PYRANO",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "SLOGGER16.INV_WAC",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		},
+		{
+			"name": "INS010_CHART",
+			"tags": [
+				{
+					"name": "SLOGGER38.PYRANO",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "SLOGGER38.INV_WAC",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		},
+		{
+			"name": "ZONE_CHART",
+			"tags": [
+				{
+					"name": "",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "CALC.ZONE01.W",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		}
+	]
+}

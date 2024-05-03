@@ -1,0 +1,57 @@
+<div class="container w-100 ">
+  <div class="card-container w-100 ">
+    <div class="headBox d-flex">
+     <span class="">{{header || 'อาคาร XXXXX'}}</span>
+     <!-- <img class="" src="assets/images/tuk.png" alt="" height="20px">  -->
+    </div>
+    <div class="contentBox w-100">
+      <aside class="cardBox ">   
+          <div class="cardItem">
+            <div class="iconBox d-flex-ct "><img src="assets/images/thunder.png" alt="" height="20px"></div>
+            <div class="infoBox  d-flex">
+              <span class="infoTopic ">{{topic1 || 'Power'}}</span>
+              <div class="infoValue  d-flex">
+                <span id="value" class="">{{value1 | myNumber : '1.0-2'}}</span>
+                <span id="unit" class="">{{unit1 || 'kW'}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="cardItem">
+            <div class="iconBox d-flex-ct "><img src="assets/images/solar-cell1.png" alt="" height="20px"></div>
+            <div class="infoBox  d-flex">
+              <span class="infoTopic ">{{topic2 || 'Energy'}}</span>
+              <div class="infoValue  d-flex">
+                <span id="value" class="">{{value2 | myNumber : '1.0-2'}}</span>
+                <span id="unit" class="">{{unit2 || 'kWh'}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="cardItem">
+            <div class="iconBox d-flex-ct "><img src="assets/images/speedometer.png" alt="" height="20px"></div>
+            <div class="infoBox  d-flex">
+              <span class="infoTopic ">{{topic3 || 'Performance'}}</span>
+              <div class="infoValue  d-flex">
+                <span id="value" class="">{{value3 | myNumber : '1.0-2'}}</span>
+                <span id="unit" class="">{{unit3 || '%'}}</span>
+              </div>
+            </div>
+          </div>
+          <div class="cardItem">
+            <div class="iconBox d-flex-ct "><img src="assets/images/bath.png" alt="" height="20px"></div>
+            <div class="infoBox  d-flex">
+              <span class="infoTopic ">{{topic4 || 'Today Saving'}}</span>
+              <div class="infoValue  d-flex">
+                <span id="value" class="">{{value4 | myNumber : '1.0-2'}}</span>
+                <span id="unit" class="">{{unit4 || 'Bath'}}</span>
+              </div>
+            </div>
+          </div>
+      </aside>
+      <aside class="chartBox">
+        <div class="chart-content h-100 ">
+          <app-sat-chart3 [height]="'150px'" [chartParameters]="chartOptions"></app-sat-chart3>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>

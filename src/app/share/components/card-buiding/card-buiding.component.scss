@@ -1,0 +1,88 @@
+.container{
+    background-color: rgba(62, 148, 192, 0.1);
+    //filter: drop-shadow(-4px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(4px 0px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25), 4px 0px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    padding: 0;
+    margin: 0;
+}
+.headBox{
+    justify-content: space-between;
+    background: #136286;
+    color: white;
+    padding: 8px 10px;
+    span {
+        font-size: 12px;
+        font-weight: 500;
+        // line-height: 1.8;
+        // padding-top: 2px;
+    }
+}
+
+.contentBox{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    padding: 10px;
+    column-gap: 5px;
+}
+
+.cardBox{
+    //border: 1px solid lime;
+    display: grid;
+    row-gap: 10px;
+}
+
+.cardItem{
+    //border: 1px solid rgb(255, 174, 0);
+    display: flex;
+    background: #EDEDED;
+}
+.iconBox{
+    width: 30px;
+    height: 30px;
+    background: #136286;
+}
+.infoBox{
+    width: calc(100% - 40px);
+    justify-content: space-between;
+    padding: 0 10px;
+    .infoTopic{
+        font-size: 12px;
+        font-weight: 500;
+    }
+    .infoValue{
+        align-items:end;
+        column-gap: 10px;
+    }
+    .infoValue #value{
+        font-size: 14px;
+        text-align: end;
+        color: #F8A300;
+        font-weight: 500;
+    }
+    .infoValue #unit{
+        font-size: 12px;
+        text-align: end;
+        font-weight: 500;
+    }
+}
+
+.chartBox{
+    padding: 0;
+}
+
+@media screen and (max-width: 500px) {
+    .contentBox{
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 1fr;
+        padding: 10px;
+        row-gap: 5px;
+    }
+    .chartBox{
+        background-color: #f8f8f8;
+    }
+    .infoBox{
+        width: calc(100% - 40px);
+    }
+}

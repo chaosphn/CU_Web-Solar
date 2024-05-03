@@ -1,0 +1,49 @@
+.container{
+    padding: 16px;
+    display: grid;
+    row-gap: 8px;
+}
+
+.cardTopic{
+    font-size: 20px;
+    color: white;
+    font-weight: 500;
+}
+
+.cardContent{
+
+}
+
+.cardItem{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 18px;
+}
+.cardInfo{
+    column-gap: 24px;
+}
+.Icon{
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    //background-color: #F8A300;
+    background-color: #F8A300;
+    //background: linear-gradient(90deg, #fe4f10 0%, #ff9e0c 100%);
+}
+.Info{
+    color: #f3f3f3;
+    font-size: 18px;
+    
+}
+.cardValue{
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    font-weight: 500;
+    color: white;
+    font-size: 20px;
+    text-shadow: 0px 6px 4px rgba(0,0,0,0.6);
+    span{
+        text-align: right;
+    }
+}

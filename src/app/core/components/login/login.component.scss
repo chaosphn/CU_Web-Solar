@@ -1,0 +1,105 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.login-page {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display:table;
+  // background-color: #34495e;
+  background-image: url("/assets/background.jpg");
+  background-repeat: round;
+  background-position: initial;
+  position: relative;
+}
+.logo-img{
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 200px;
+  height: auto;
+}
+.form {
+  display:table-cell;
+  vertical-align:middle;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.example-form {
+  display:table;
+  margin:auto;
+  z-index: 1;
+  text-align: center;
+  min-width: 360px;
+  // min-width: 95%;
+  margin-top: -30px;
+  padding: 30px;
+  background-color: rgba(0,0,0,.4);
+  padding-top: 60px;
+  padding-bottom: 60px;
+}
+
+.header {
+  text-align: center;
+  color: rgba(255,255,255,0.7);
+  // border-bottom: 2px solid grey;
+  padding-bottom: 9px;
+}
+
+.material-icons {
+  padding-top: 7px;
+  padding-left: 7px;
+}
+
+
+.input-group:first-of-type {
+  margin-top: 30px;
+}
+
+.input-group {
+  background-color: white;
+}
+
+input {
+  border: 0px;
+}
+
+
+.btn-login {
+  background-color: #FD674E;
+  color: white;
+  margin-top: 10px;
+  height: 42px;
+}
+
+.btn-login:focus {
+  outline-color: orange;
+}
+
+.invalid {
+  padding-top: 10px;
+  display: block;
+  color: chocolate;
+}
+
+.invalid-animate{
+  padding-top: 10px;
+  display: block;
+  color: chocolate;
+  animation: shake-animation 4.72s ease ;
+  transform-origin: 50% 50%;
+}
+
+@keyframes shake-animation {
+  0% { transform:translate(0,0) }
+ 1.78571% { transform:translate(5px,0) }
+ 3.57143% { transform:translate(0,0) }
+ 5.35714% { transform:translate(5px,0) }
+ 7.14286% { transform:translate(0,0) }
+ 8.92857% { transform:translate(5px,0) }
+ 10.71429% { transform:translate(0,0) }
+ 100% { transform:translate(0,0) }
+}

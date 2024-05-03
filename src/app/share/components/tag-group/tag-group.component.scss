@@ -1,0 +1,85 @@
+.container-fluid {
+    height: 100%;
+    padding: 0px !important;
+    overflow-x: auto;
+}
+
+.card {
+    border: initial;
+    border-radius: initial;
+    background-color: #f8f8f8;
+}
+
+.card-body {
+    padding: 0px !important;
+    // overflow-x: auto;
+    margin-top: 4px;
+}
+
+.container-fluid::-webkit-scrollbar {
+    height: 5px;
+}
+
+.container-fluid::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+
+.card-title {
+    background-color: #0E6486;
+    color: white;
+    padding: 7px 10px;
+    font-size: 15px;
+}
+
+.group-name {
+    // text-align: center;
+    // background-color: gray;
+    // color: white;
+    // cursor: pointer;
+    // font-size: 12px;
+    // width: 75px;
+    // margin: 2px 2px;
+    // font-weight: 500;
+    // padding: 2px 2.5px;
+    text-align: center;
+    background-color: gray;
+    color: white;
+    cursor: pointer;
+    font-size: 11px;
+    width: 70px;
+    margin: 2px 2px;
+    font-weight: 500;
+    padding: 2px 0px;
+}
+
+.half {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    width: 90%;
+}
+
+.border-right {
+    border-right: 1.5px solid darkgray !important;
+}
+
+.flex-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.alias {
+    border-left: 2px solid gray;
+    padding-left: 7px;
+    margin-left: 7px;
+}
+
+.groups {
+    padding-left: 7px;
+}
+
+
+.active {
+    background-color: #FD674E;
+}

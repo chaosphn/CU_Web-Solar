@@ -1,0 +1,123 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "ZONE_power",
+			"Name": "CALC.ZONE00.W"
+		},
+		{
+			"Title": "ZONE_energy",
+			"Name": "CALC.ZONE00.WH_DAY"
+		},
+		{
+			"Title": "TOTAL_energy",
+			"Name": "CALC.ZONE00.WH"
+		},
+		{
+			"Title": "SAT000_power",
+			"Name": ""
+		},
+		{
+			"Title": "SAT000_energy",
+			"Name": ""
+		},
+		{
+			"Title": "SAT000_pr",
+			"Name": ""
+		},
+		{
+			"Title": "SAT000_irr",
+			"Name": ""
+		},
+		{
+			"Title": "SAT000_pv",
+			"Name": ""
+		},
+		{
+			"Title": "SAT000_amb",
+			"Name": ""
+		}
+	],
+	"historianConfig": [
+		{
+			"Name": "",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}
+	],
+	"chartConfig":[
+		{
+			"name": "SAT000_CHART",
+			"tags": [
+				{
+					"name": "",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		}
+			
+	]
+}

@@ -1,0 +1,25 @@
+<div class="container-fluid">
+  <div class="row no-gutters">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <ng-container *ngIf="true">
+              <!-- [style.width]="getWidth(groups.length)" -->
+            <div class="flex-container groups" [style.height]="height" [style.width]="getWidth(groups.length)">
+              <p class="card-text group-name" [ngClass]="{'active': getGroupActive() }" (click)="selectAllGroup()">ALL</p>
+              <p class="card-text group-name" *ngFor="let g of groups" [ngClass]="{'active': g.active }" (click)="selectGroup(g)">{{g.Display
+                }}</p>
+            </div>
+          </ng-container>
+          <ng-container *ngIf="true">
+              <!-- [style.width]="getWidth(alias.length)" -->
+            <div class="flex-container alias" [style.height]="height" >
+                <p class="card-text group-name" [ngClass]="{'active': getAliasActive() }" (click)="selectAllAlias()">ALL</p>
+              <p class="card-text group-name" *ngFor="let a of alias" [ngClass]="{'active': a.active }"  (click)="selectAlias(a)" >{{a.Display}}</p>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

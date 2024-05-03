@@ -1,0 +1,255 @@
+*{
+    margin: 0;
+}
+.container{
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    //background-color: #182B3C;
+    // border: 1px solid lightgreen;
+}
+
+.special{
+    background-color: #182B3C;
+    border-radius: 10px;
+    //border: 1px solid lightgreen;
+    width: 100%;
+    // border: 1px solid red;
+    //border-radius: 10px;
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    //background-color: #000000;
+}
+.normal{
+    background-color: #004966;
+    border-radius: 0px;
+    //border: 1px solid lightgreen;
+    width: 100%;
+    // border: 1px solid red;
+    //border-radius: 10px;
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    //background-color: #000000;
+}
+
+.flex-container{
+    width: 100%;
+    // border: 1px solid red;
+    //border-radius: 10px;
+    display: flex;
+    justify-content: stretch;
+    flex-wrap: wrap;
+    //background-color: #000000;
+}
+
+
+.content{
+    flex: 1 0 200px;
+    box-sizing: border-box;
+    // border-right-width: 3px;
+    // border-right-style: solid;
+    // border-image: linear-gradient(to top, #11998E, #10E572) 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 30px;
+   // border: 1px solid red;
+    //background-color: #004966;
+    padding: 5px 0px;
+}
+
+
+.item-img{ 
+    
+    .weather-icon{
+        height: 40px;
+        width: auto;
+    }
+}
+
+.item-info{
+
+    .value-info{
+        display: flex;
+        color: #ffffff;
+        font-weight: 500;
+        column-gap: 15px;
+        .value{
+            font-size: 16px;
+        }   
+        .unit{
+            font-size: 16px;
+        }
+    }
+}
+.topic{
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.selector{
+    display: flex;
+    flex-direction: column;
+    background-color: #0E6486;
+    justify-content: space-evenly;
+}
+.dropDown{
+    width: 55%;
+    //border: 1px solid rgb(151, 10, 10);
+    ::ng-deep .mat-select .mat-select-placeholder{
+        font-weight: 500;
+        text-align: center;
+        /*border: 1px dotted rgb(255, 255, 255);*/
+        font-size: 16px;
+        /*color: orange!important;*/
+        color: #ffffff !important;
+        /*border-bottom: 1px solid whitesmoke;*/
+        }
+        
+        ::ng-deep .mat-select .mat-select-arrow{
+        /*color: orange;*/
+        color: #ffffff !important;
+        }
+        
+        ::ng-deep .mat-select .mat-select-value-text{
+        /*color: orange;*/
+        color: #ffffff !important;
+        font-weight: 500;
+        text-align: center;
+        font-size: 16px;
+        /*border-bottom: 1px solid whitesmoke;*/
+        }
+        ::ng-deep .mat-select{
+            font-weight: 500;
+            color: white !important;
+            font-size: 12px;
+            padding: 0px 0px;
+            //border: 1px solid white;
+            width: 100%;
+        }
+}
+
+
+@media screen and (min-width:2559px) {
+
+    .content{
+        flex: 1 0 200px;
+        column-gap: 30px;
+        padding: 5px 0px;
+    }
+
+    .dropDown{
+        width: 60%;
+        //border: 1px solid rgb(151, 10, 10);
+        ::ng-deep .mat-select .mat-select-placeholder{
+            font-weight: 500;
+            text-align: center;
+            font-size: 24px;
+            color: #ffffff ;
+        }
+        
+        ::ng-deep .mat-select .mat-select-value-text{
+        font-size: 24px;
+        text-align: center;
+        }
+        ::ng-deep .mat-select{
+            font-weight: 500;
+            color: white;
+            font-size: 18px;
+            padding: 0px 0px;
+           // border: 1px solid white;
+            width: 100%;
+        }
+    }
+
+    .item-img{    
+        .weather-icon{
+            height: 50px;
+            width: auto;
+        }
+    }
+    
+    .item-info{   
+        .value-info{
+            display: flex;
+            color: #ffffff;
+            font-weight: 500;
+            column-gap: 15px;
+            .value{
+                font-size: 24px;
+            }   
+            .unit{
+                font-size: 24px;
+            }
+        }
+    }
+    .topic{
+        color: #ffffff;
+        font-size: 18px;
+        font-weight: 500;
+    }
+    
+}
+
+
+@media screen and (min-width:3839px) {
+    .content{
+        flex: 1 0 200px;
+        column-gap: 30px;
+        padding: 5px 0px;
+    }
+
+    .dropDown{
+        width: 50%;
+        //border: 1px solid rgb(151, 10, 10);
+    }
+
+    .item-img{    
+        .weather-icon{
+            height: 70px;
+            width: auto;
+        }
+    }
+    
+    .item-info{   
+        .value-info{
+            display: flex;
+            color: #ffffff;
+            font-weight: 500;
+            column-gap: 15px;
+            .value{
+                font-size: 32px;
+            }   
+            .unit{
+                font-size: 32px;
+            }
+        }
+    }
+    .topic{
+        color: #ffffff;
+        font-size: 28px;
+        font-weight: 500;
+    }
+
+    ::ng-deep .mat-select .mat-select-placeholder{
+    font-weight: 500;
+    text-align: center;
+    font-size: 32px;
+    color: #ffffff ;
+    }
+    
+    ::ng-deep .mat-select .mat-select-value-text{
+    font-size: 32px;
+    }
+    ::ng-deep .mat-select{
+        font-weight: 500;
+        color: white;
+        font-size: 18px;
+        padding: 0px 0px;
+        //border: 1px solid white;
+        width: 100%;
+    }
+}

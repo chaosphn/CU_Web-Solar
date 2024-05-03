@@ -1,0 +1,262 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" *ngIf="!bgStatus" [position]="(isHandset$ | async) ? 'end' : 'start'"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="!(isHandset$ | async)" [ngClass]="{'special': bgStatus}">
+    <mat-toolbar class="title">
+      <img src="assets/images/mea.png" class="logo" alt="" (click)="callHome()">
+    </mat-toolbar>
+    <mat-nav-list>
+      <a class="box logout-box " style="display: flex; flex-direction: column; justify-content: center; ">
+        <p class="role">{{role}}</p>
+        <p class="logout" (click)="logout()" (click)="routing1('logout')">LOGOUT</p>
+        <p class="role">{{today}}</p>
+      </a>
+
+      <a class="box site-box" style="display: flex; flex-direction: column; justify-content: center; row-gap: 5px;">
+        <p>LOCATION</p>
+        <div class="dropDown">
+          <mat-select disableOptionCentering [placeholder]="buildingList.building[0].name" panelClass="myPanelClass"
+            class="mySelectClass" style="color: white;" *ngIf="buildingList">
+            <!-- <mat-option *ngFor="let item of buildingList.building"  [value]="item" (click)="selectSite(item)">
+              {{item.name}} 
+            </mat-option> -->
+            <ng-container *ngFor="let item of buildingList.building; let i = index">
+              
+              <mat-option *ngIf="tagShowList.includes(i)" [value]="item"
+                (click)="selectSite(item)">
+                {{item.name}}
+              </mat-option>
+            </ng-container>
+          </mat-select>
+        </div>
+      </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/dashboardtv" routerLinkActive="active"
+        *ngIf="pages.indexOf('dashboardtv') > -1" (click)="toggleBackground('/main/dashboardtv')">
+        <i class="material-icons">
+          language
+        </i>
+        <p>MAP OVERVIEW</p>
+      </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/dashboard1" routerLinkActive="active"
+        *ngIf="pages.indexOf('dashboard1') > -1" (click)="toggleBackground('/main/dashboard1')">
+        <i class="material-icons">
+          dashboard
+        </i>
+        <p>OVERVIEW</p>
+      </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/dashboard" routerLinkActive="active"
+        *ngIf="pages.indexOf('dashboard') > -1" (click)="toggleBackground('/main/dashboard')">
+        <i class="material-icons">
+          dashboard_customize
+        </i>
+        <p>DASHBOARD</p>
+      </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/dashboard3" routerLinkActive="active"
+        *ngIf="pages.indexOf('dashboard3') > -1" (click)="toggleBackground('/main/dashboard')">
+        <i class="material-icons">
+          account_balance
+        </i>
+        <p>BUILDING</p>
+      </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/diagram" routerLinkActive="active"
+        *ngIf="pages.indexOf('diagram') > -1" (click)="toggleBackground('/main/diagram')">
+        <i class="material-icons">
+          device_hub
+        </i>
+        <p>DIAGRAM</p>
+      </a>
+      <!--<a mat-list-item href="#" class="box-option" >
+        <i class="material-icons">
+          device_hub
+        </i>
+        <p>DIAGRAM</p>
+        <mat-select placeholder="LOCATION" >
+          <mat-option value="Diagram01" routerLink="/main/diagram" >OrangeMarket</mat-option>
+          <mat-option value="Diagram02" routerLink="/main/diagram1">FruitMarket</mat-option>
+          <mat-option value="Diagram03" routerLink="/main/diagram2">FreshMarket</mat-option>
+          <mat-option value="Diagram04" routerLink="/main/diagram3">ContainerYard</mat-option>
+        </mat-select>
+      </a>-->
+      <!--<a mat-list-item href="#" class="box" routerLink="/main/diagram2" routerLinkActive="active" *ngIf="pages.indexOf('diagram2') > -1" [ngStyle]="getStyle('D2')">
+        <i class="material-icons">
+          device_hub
+        </i>
+        <p>MDB 1</p>
+      </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/diagram3" routerLinkActive="active" *ngIf="pages.indexOf('diagram3') > -1" [ngStyle]="getStyle('D3')">
+        <i class="material-icons">
+          device_hub
+        </i>
+        <p>MDB 2</p>
+      </a>-->
+      <a mat-list-item href="#" class="box" routerLink="/main/powermeters" routerLinkActive="active"
+        *ngIf="pages.indexOf('powermeters') > -1" (click)="toggleBackground('/main/powermeter')">
+        <i class="material-icons">
+          offline_bolt
+        </i>
+        <p>POWER METERS</p>
+      </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/inverters" routerLinkActive="active"
+        *ngIf="pages.indexOf('inverters') > -1" (click)="toggleBackground('/main/powermeter')">
+        <i class="material-icons">
+          waves
+        </i>
+        <p>INVERTERS</p>
+      </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/charts" routerLinkActive="active"
+        *ngIf="pages.indexOf('charts') > -1" (click)="toggleBackground('/main/powermeter')">
+        <i class="material-icons">
+          timeline
+        </i>
+        <p>CHARTS</p>
+      </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/reports" routerLinkActive="active"
+        *ngIf="pages.indexOf('reports') > -1" (click)="toggleBackground('/main/powermeter')">
+        <i class="material-icons">
+          file_copy
+        </i>
+        <p>REPORTS</p>
+      </a>
+      <!-- <a mat-list-item href="#" class="box" routerLink="/main/events" routerLinkActive="active" *ngIf="pages.indexOf('events') > -1" (click)="toggleBackground('/main/powermeter')" >
+        <i class="material-icons">
+          warning
+        </i>
+        <p>EVENTS</p>
+      </a> -->
+      <!--<a mat-list-item href="#" class="box" routerLink="/main/ctl" routerLinkActive="active" (click)="routing1('/main/ctl')">
+        <i class="material-icons">
+          edit
+        </i>
+        <p>CONTROL</p>
+      </a>-->
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="content">
+    <mat-toolbar [style.display]="(isHandset$ | async) ? 'inherit': 'none'" class="header-control"
+      [ngClass]="{'special': bgStatus}">
+      <!--<span class="example-fill-remaining-space"></span>
+      <div class="owl-carousel owl-theme">
+        <a mat-list-item href="#" class="icon-box" routerLink="/main/dashboard" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            dashboard
+          </i>
+        </a>
+        <a mat-list-item href="#" class="icon-box" routerLink="/main/diagram" routerLinkActive="icon-active" (click)="routing(address[0])">
+          <i class="material-icons icon-material-icons">
+            device_hub
+          </i>
+        </a>
+        <a mat-list-item href="#" class="icon-box" routerLink="/main/powermeter" routerLinkActive="icon-active" (click)="routing(address[1])">
+          <i class="material-icons icon-material-icons">
+            offline_bolt
+          </i>
+        </a>
+        <a mat-list-item href="#" class="icon-box" routerLink="/main/inverters" routerLinkActive="icon-active" (click)="routing(address[2])">
+          <i class="material-icons icon-material-icons">
+            waves
+          </i>
+        </a>
+        <a mat-list-item href="#" class="icon-box" routerLink="/main/charts" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            timeline
+          </i>
+        </a>
+        <a mat-list-item href="#" class="icon-box" routerLink="/main/reports" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            file_copy
+          </i>
+        </a>
+        <a mat-list-item href="#" class="icon-box" routerLink="/main/events" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            warning
+          </i>
+        </a>
+        <a mat-list-item href="#" class="icon-box" routerLink="/main/write" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            edit
+          </i>
+        </a>
+
+        <a (click)="logout()">
+          <i class="material-icons icon-material-icons icon-logout">
+            exit_to_app
+          </i>
+        </a>
+        <button type="button" class="btn-toggle" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+          <mat-icon class="toggle-icon" aria-label="Side nav toggle icon">menu</mat-icon>
+        </button> 
+      </div>-->
+      <div class="nav-content">
+        <a mat-list-item href="#" class="icon-box diagram" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            dashboard
+          </i>
+          <div class="list1">
+            <a mat-list-item href="#" routerLink="/main/dashboard1">Overview</a>
+            <a mat-list-item href="#" routerLink="/main/dashboardtv">Map Overview</a>
+          </div>
+        </a>
+        <div mat-list-item href="#" class="icon-box dashboard" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            dashboard_customize
+          </i>
+          <div class="list1">
+            <a mat-list-item href="#" *ngFor="let item of siteList" (click)="selectSiteMobile(item,'dashboard')"
+              routerLink="/main/dashboard">{{item}}</a>
+          </div>
+        </div>
+        <div mat-list-item href="#" class="icon-box diagram" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            device_hub
+          </i>
+          <div class="list1">
+            <a mat-list-item href="#" *ngFor="let item of siteList" (click)="selectSiteMobile(item,'dashboard3')"
+              routerLink="/main/dashboard3">{{item}}</a>
+          </div>
+        </div>
+        <div mat-list-item href="#" class="icon-box powermeter" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            offline_bolt
+          </i>
+          <div class="list1">
+            <a mat-list-item href="#" *ngFor="let item of siteList" (click)="selectSiteMobile(item,'powermeters')"
+              routerLink="/main/powermeters">{{item}}</a>
+          </div>
+        </div>
+        <a mat-list-item href="#" class="icon-box inverters" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            waves
+          </i>
+          <div class="list1">
+            <a mat-list-item href="#" *ngFor="let item of siteList" (click)="selectSiteMobile(item,'inverters')"
+              routerLink="/main/inverters">{{item}}</a>
+          </div>
+        </a>
+        <a mat-list-item href="#" class="icon-box" routerLink="/main/charts" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            timeline
+          </i>
+        </a>
+        <a mat-list-item href="#" class="icon-box" routerLink="/main/reports" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            file_copy
+          </i>
+        </a>
+        <a mat-list-item href="#" class="icon-box" routerLink="/main/events" routerLinkActive="icon-active">
+          <i class="material-icons icon-material-icons">
+            warning
+          </i>
+        </a>
+        <a (click)="logout()">
+          <i class="material-icons icon-material-icons icon-logout">
+            exit_to_app
+          </i>
+        </a>
+      </div>
+    </mat-toolbar>
+
+    <!-- <header><app-weather-card></app-weather-card></header> -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

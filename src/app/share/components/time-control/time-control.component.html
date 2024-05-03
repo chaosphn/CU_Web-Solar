@@ -1,0 +1,17 @@
+<label class="input-wrapper" *ngIf="startView">
+        <input class="picker-disable " readonly [(ngModel)]="dateTimeCustom" [style.fontSize]="fontSize" [owlDateTimeTrigger]="dt"
+[owlDateTime]="dt">
+    <input class="datetime-picker" [(ngModel)]="dateTimeCustom" readonly [style.fontSize]="fontSize" (click)="dt.open()">
+
+
+  <owl-date-time #dt="owlDateTime" [pickerType]="pickerType" [startView]="startView" (yearSelected)="chosenYearHandler($event, dt)"
+    (monthSelected)="chosenMonthHandler($event, dt)" (afterPickerClosed)="afterPickerClosed()"></owl-date-time>
+</label>
+
+<label class="input-wrapper" *ngIf="!startView">
+
+    <input class="datetime-picker" readonly [(ngModel)]="dateTime" [style.fontSize]="fontSize" [owlDateTimeTrigger]="dt1"
+[owlDateTime]="dt1">
+
+  <owl-date-time #dt1="owlDateTime" [pickerType]="pickerType" (afterPickerClosed)="afterPickerClosed1()"></owl-date-time>
+</label>

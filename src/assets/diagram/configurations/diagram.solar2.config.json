@@ -1,0 +1,110 @@
+[
+	{
+		"Tags": "WEATHER_ABTEMP",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "WEATHER_PVTEMP",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "WEATHER_PYRANO",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "PQM_I",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "PQM_V",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "PQM_W",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "PQM_WH",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV01_WAC",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV02_WAC",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV03_WAC",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV04_WAC",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV05_WAC",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV06_WAC",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV07_WAC",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV08_WAC",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV09_WAC",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV10_WAC",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV01_WH",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV02_WH",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV03_WH",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV04_WH",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV05_WH",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV06_WH",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV07_WH",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV08_WH",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV09_WH",
+		"Mode": "Realtime"
+	},
+	{
+		"Tags": "INV10_WH",
+		"Mode": "Realtime"
+	}
+]

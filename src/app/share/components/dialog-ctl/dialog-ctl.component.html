@@ -1,0 +1,57 @@
+<div class="container-fluid  event-component">
+  <div class="row no-gutters h-100">
+    <div class="col-12 h-100">
+      <div class="header row no-gutters">
+        <!-- <form autocomplete="off">  -->
+        <table>
+          <tr>
+            <th>
+              <span class="obj-name">Current MDB {{data['MDB']}} Status</span>
+            </th>
+            <th>
+              <label>{{MDBSTATUS}}</label>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <div class="obj-name">MDB {{data['MDB']}} Control</div>
+            </th>
+            <th>
+              <select [(ngModel)]="selectMDB">
+                <option value=0>CLOSE</option>
+                <option value=1>OPEN</option>
+              </select>
+            </th>
+            <th>
+              <span class="btn-ok" (click)="setMDB()">SET</span>
+            </th>
+          </tr>
+          <tr>
+            <th>
+              <span class="obj-name">Password</span>
+            </th>
+            <th>
+              <input class="input-obj-name" id="manualPassword" autocomplete="new-password" type="password"
+                [(ngModel)]="password">
+            </th>
+          </tr>
+          <tr>
+            <th></th>
+            <!-- <th>
+              <span class="btn-ok" (click)="setValue()">SET</span>
+            </th> -->
+          </tr>
+        </table>
+        <!-- </form> -->
+      </div>
+      <span class="btn-ok" (click)="close()">CLOSE</span>
+      <p> </p>
+      <p class="p1">Before command Close MDB {{data['MDB']}} please check.</p>
+      <p class="p2">1) VCB at Power plant status is close.</p>
+      <p class="p2">2) Current MDB {{data['MDB']}} MODE is REMOTE.</p>
+      <p class="p1">Before command Open MDB {{data['MDB']}} please check.</p>
+      <p class="p2">1) Current MDB {{data['MDB']}} MODE is REMOTE.</p>
+      <p class="p1">After command Close,Open MDB {{data['MDB']}} pleas recheck status of MDB {{data['MDB']}} (Close,Open).</p>
+    </div>
+  </div>
+</div>

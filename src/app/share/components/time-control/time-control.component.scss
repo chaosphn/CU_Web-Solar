@@ -1,0 +1,30 @@
+.datetime-picker {
+    font-size: 12px !important;
+    text-align: center;
+    border: 0px;
+    // width: 100px;
+    padding: 2px 0px;
+    width: 110px;
+}
+
+.input-wrapper {
+    margin-bottom: 0px;
+    display: flex;
+}
+
+.input-wrapper > span {
+    margin-right: 5px;
+    font-size: 12px;
+}
+
+.title {
+    font-size: 12px; 
+}
+
+.picker-disable {
+    opacity: 0;
+    z-index: -90000;
+    width: 0px;
+    overflow: hidden;
+    border: 0px;
+}

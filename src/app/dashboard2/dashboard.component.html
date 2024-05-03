@@ -1,0 +1,108 @@
+<div class="container-fluid">
+  <div class="row-grid">
+    <section class="summary-card">
+      <div class="power-content" >
+        <app-solar-container [title]="'TOTAL POWER'">
+          <ng-template #content>
+            <div class="progressbox d-flex-ct">
+              <div class="progressbar" >
+                <app-circle-progress [Ids]="'00'" 
+                [title]="'POWER'" 
+                [unit]="data?.singleValue['ZONE_power']?.unit" 
+                [value]="data?.singleValue['ZONE_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'" 
+              [maxValue]="data?.singleValue['ZONE_power']?.maxValue"
+              [titleFont]="'22'"
+                [valueFont]="'36'"
+                [unitFont]="'22'"
+                [percentValue]="1"></app-circle-progress>
+              </div>
+            </div>
+          </ng-template>
+        </app-solar-container>
+      </div>
+      <div class="energy-content">
+        <app-solar-container [title]="'TOTAL ENERGY'">
+          <ng-template #content>
+            <div class="energy-item">
+              <div class="topic">TODAY</div>
+              <div class="value">{{data?.singleValue['ZONE_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'}}</div>
+              <div class="unit">{{data?.singleValue['ZONE_energy']?.unit}}</div>
+              <div class="topic">TOTAL</div>
+              <div class="value">{{data?.singleValue['TOTAL_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'}}</div>
+              <div class="unit">{{data?.singleValue['TOTAL_energy']?.unit}}</div>
+            </div>
+          </ng-template>
+        </app-solar-container>
+      </div>
+      <div class="map-content">
+        <app-solar-container [title]= "getzone()">
+          <ng-template #content>
+            <img [src]="'assets/images/building/zone/zone'+loadImgSite(siteName)+'.png'" alt="" width="100%" height="220px">
+          </ng-template>
+        </app-solar-container>
+      </div>
+      <div class="chart-content">
+        <app-solar-container [title]="'TOTAL POWER CHART'">
+          <ng-template #content>
+            <div class="chart-content ">
+              <app-sat-chart2 [height]="'100px'" [chartParameters]="chartOptions['ZONE_CHART']"></app-sat-chart2>
+            </div>
+          </ng-template>
+        </app-solar-container>
+      </div>
+    </section>
+    <section class="site-card" *ngFor="let item of buildingList; index as i;">
+      <div class="site-content ">
+          <div class="site-info ">
+            <div class="site-img"><img [src]="'assets/images/building/dashboard/' + item.id +'.png'"  (error)="handleImageError($event)" (click)="isShow(item)"></div>
+            <div class="site-topic">
+              <div class="longlist-container"><p class="zone no-pm">{{item.name}}</p></div>
+              <p class="capacity no-pm">{{item.capacity}} kWp</p>
+              <p class="location no-pm">จุฬาลงกรณ์มหาวิทยาลัย</p>
+            </div>
+          </div>
+          <div class="progress-group ">
+            <div class="site-progress "><app-circle-progress [Ids]="i+'01'" 
+              [title]="'POWER'"
+              [value]="data?.singleValue[item.id+'_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [unit]="data?.singleValue[item.id+'_power']?.unit"
+              [maxValue]="data?.singleValue[item.id+'_power']?.maxValue"
+              [percentValue]="1"></app-circle-progress></div>
+            <div class="site-progress "><app-circle-progress [Ids]="i+'02'" 
+              [title]="'TODAY'"
+              [value]="data?.singleValue[item.id+'_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [unit]="data?.singleValue[item.id+'_energy']?.unit"
+              [maxValue]="data?.singleValue[item.id+'_energy']?.maxValue"
+              [percentValue]="1"></app-circle-progress></div>
+            <div class="site-progress "><app-circle-progress [Ids]="i+'03'" 
+              [title]="'PR'"
+              [value]="data?.singleValue[item.id+'_pr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [unit]="data?.singleValue[item.id+'_pr']?.unit || '%'"
+              [maxValue]="data?.singleValue[item.id+'_pr']?.maxValue"
+              [percentValue]="1"></app-circle-progress></div>
+            <div class="site-progress "><app-circle-progress [Ids]="i+'04'" 
+              [title]="'PYRANO'"
+              [value]="data?.singleValue[item.id+'_irr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [unit]="data?.singleValue[item.id+'_irr']?.unit"
+              [maxValue]="data?.singleValue[item.id+'_irr']?.maxValue"
+              [percentValue]="1"></app-circle-progress></div>
+            <div class="site-progress "><app-circle-progress [Ids]="i+'05'" 
+              [title]="'PVTEMP'"
+              [value]="data?.singleValue[item.id+'_pv']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [unit]="data?.singleValue[item.id+'_pv']?.unit"
+              [maxValue]="data?.singleValue[item.id+'_pv']?.maxValue"
+              [percentValue]="1"></app-circle-progress></div>
+            <div class="site-progress "><app-circle-progress [Ids]="i+'06'" 
+              [title]="'AMBTEMP'"
+              [value]="data?.singleValue[item.id+'_amb']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [unit]="data?.singleValue[item.id+'_amb']?.unit"
+              [maxValue]="data?.singleValue[item.id+'_amb']?.maxValue"
+              [percentValue]="1"></app-circle-progress></div>
+          </div>
+          <div class="site-chart ">
+            <app-sat-chart3 [height]="'100px'" [chartParameters]="chartOptions[item.id+'_CHART']"></app-sat-chart3>
+          </div>
+      </div>
+    </section>
+  </div>
+</div>

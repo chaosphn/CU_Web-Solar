@@ -1,0 +1,35 @@
+<div class="container-fluid report-component">
+    <div class="row no-gutters h-100 ">
+        <div class="col-12 group h-100">
+            <div class="header row no-gutters">
+                <div class="d-flex align-items-center selector" style="margin-right: 7px;">
+                    <mat-form-field class="mat-selects">
+                        <mat-select [(value)]="selectedReport">
+                            <mat-option *ngFor="let report of reportConfig" [value]="report">
+                                {{report.Name}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                <div class="d-flex align-items-center">
+                    <app-time-control [pickerType]="'calendar'" [startView]="getStartView(selectedReport?.Type)"
+                    style="margin-right: 7px;"
+                    (selectDatetime)="onDateTimeChange($event)" [dateTime]="dateTime"></app-time-control>
+                </div>
+                <div class="d-flex align-items-center">
+                        <span class="btn-ok" (click)="selectReport()">VIEW</span>
+                        <span class="btn-ok" (click)="download()">SAVE XLS</span>
+                        <span class="btn-ok" (click)="downloadPdf()">SAVE PDF</span>
+                </div>
+            </div>
+            <div class="content" [ngClass]="{'full-height': !pdf}">
+                <pdf-viewer [src]="pdf" [render-text]="true"></pdf-viewer>
+                <button mat-fab class="download" *ngIf="pdf" (click)="download()">
+                    <i class="material-icons">
+                        play_for_work
+                    </i>
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

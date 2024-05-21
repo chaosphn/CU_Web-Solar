@@ -20,8 +20,10 @@
             <!-- <mat-option *ngFor="let item of buildingList.building"  [value]="item" (click)="selectSite(item)">
               {{item.name}} 
             </mat-option> -->
+            <Input matInput placeholder="Search"
+            (input)="filter($event.target.value)"
+            class="nav-search"/>
             <ng-container *ngFor="let item of buildingList.building; let i = index">
-              
               <mat-option *ngIf="tagShowList.includes(i)" [value]="item"
                 (click)="selectSite(item)">
                 {{item.name}}
@@ -197,41 +199,51 @@
             <a mat-list-item href="#" routerLink="/main/dashboardtv">Map Overview</a>
           </div>
         </a>
-        <div mat-list-item href="#" class="icon-box dashboard" routerLinkActive="icon-active">
+        <div class="icon-box dashboard" routerLinkActive="icon-active">
+          <!-- <i class="material-icons icon-material-icons">
+            format_list_bulleted
+          </i> -->
+          <mat-select style="padding-top: 10px;">
+            <Input matInput placeholder="Search"
+            (input)="filter($event.target.value)"
+            class="nav-search"/>
+              <ng-container *ngFor="let item of buildingList.building; let i = index">
+                <mat-option *ngIf="tagShowList.includes(i)" [value]="item"
+                  (click)="selectSite(item)">
+                  {{item.name}}
+                </mat-option>
+              </ng-container>
+          <!-- <div class="list1" style="overflow-y: auto; height: 300px; width: 300px; background-color: #fafdfd;">
+            <mat-option *ngFor="let item of buildingList.building">
+              <mat-option
+                (click)="selectSiteMobile(item)">
+                {{item.name}}
+              </mat-option>
+              </mat-option>
+          </div> -->
+        </mat-select>
+        </div>
+        <div mat-list-item href="#" class="icon-box dashboard" routerLinkActive="icon-active"routerLink="/main/dashboard">
           <i class="material-icons icon-material-icons">
             dashboard_customize
           </i>
-          <div class="list1">
-            <a mat-list-item href="#" *ngFor="let item of siteList" (click)="selectSiteMobile(item,'dashboard')"
-              routerLink="/main/dashboard">{{item}}</a>
-          </div>
         </div>
-        <div mat-list-item href="#" class="icon-box diagram" routerLinkActive="icon-active">
+        
+        <div mat-list-item href="#" class="icon-box diagram" routerLinkActive="icon-active" routerLink="/main/dashboard3">
           <i class="material-icons icon-material-icons">
-            device_hub
+            account_balance
           </i>
-          <div class="list1">
-            <a mat-list-item href="#" *ngFor="let item of siteList" (click)="selectSiteMobile(item,'dashboard3')"
-              routerLink="/main/dashboard3">{{item}}</a>
-          </div>
+          
         </div>
-        <div mat-list-item href="#" class="icon-box powermeter" routerLinkActive="icon-active">
+        <div mat-list-item href="#" class="icon-box powermeter" routerLink="/main/powermeters" routerLinkActive="icon-active">
           <i class="material-icons icon-material-icons">
             offline_bolt
           </i>
-          <div class="list1">
-            <a mat-list-item href="#" *ngFor="let item of siteList" (click)="selectSiteMobile(item,'powermeters')"
-              routerLink="/main/powermeters">{{item}}</a>
-          </div>
         </div>
-        <a mat-list-item href="#" class="icon-box inverters" routerLinkActive="icon-active">
+        <a mat-list-item href="#" class="icon-box inverters" routerLink="/main/inverters" routerLinkActive="icon-active">
           <i class="material-icons icon-material-icons">
             waves
           </i>
-          <div class="list1">
-            <a mat-list-item href="#" *ngFor="let item of siteList" (click)="selectSiteMobile(item,'inverters')"
-              routerLink="/main/inverters">{{item}}</a>
-          </div>
         </a>
         <a mat-list-item href="#" class="icon-box" routerLink="/main/charts" routerLinkActive="icon-active">
           <i class="material-icons icon-material-icons">
@@ -241,11 +253,6 @@
         <a mat-list-item href="#" class="icon-box" routerLink="/main/reports" routerLinkActive="icon-active">
           <i class="material-icons icon-material-icons">
             file_copy
-          </i>
-        </a>
-        <a mat-list-item href="#" class="icon-box" routerLink="/main/events" routerLinkActive="icon-active">
-          <i class="material-icons icon-material-icons">
-            warning
           </i>
         </a>
         <a (click)="logout()">

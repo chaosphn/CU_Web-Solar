@@ -18,9 +18,7 @@
           ></app-tooltip-vertical>
       </div>
     </div>
-    <div class="tooltipBox" id="build1">
-
-    </div>
+    
     <div class="cardBoxs col h-100">
       <div class="cardList" id="1" >
         <app-card-buiding 
@@ -29,7 +27,16 @@
         [value2]="data?.singleValue['energy_value'].dataRecords[0]?.Value || '---'"
         [chartOptions]="chartChildOptions['powerGeneration']">
         </app-card-buiding>
+        <div class="btn-box">
+          <button mat-mini-fab class="btn-respons" (click)="openBreaker()">
+            <mat-icon class="icon-break">warning</mat-icon>
+          <div>{{siteName.id}} Breaker</div>
+        </button>
+        </div>
       </div>
+      <div class="tooltipBox" id="build1">
+      
+    </div>
       <div class="cardList" id="2" >
         <!-- <div class="container w-100 ">
           <div class="card-container w-100 ">

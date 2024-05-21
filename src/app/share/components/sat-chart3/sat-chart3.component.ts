@@ -208,7 +208,7 @@ export class SatChart3Component implements OnInit, OnDestroy, OnChanges {
         //     y: 10
         //   };
         // },
-        //positioner: this.setPositionTooltip.bind(this),
+        positioner: this.setPositionTooltip.bind(this),
         // pointFormat: '{series.name}: <b style="color:red">{point.y}</b>  <br/>',
         formatter: function () {
           const dateTime: Date = new Date(this.x);

@@ -11,7 +11,7 @@ import { EnviConsumptionComponent } from './components/envi-consumption/envi-con
 import { ChartConsumptionComponent } from './components/chart-consumption/chart-consumption.component';
 import { MapConsumtionComponent } from './components/map-consumtion/map-consumtion.component';
 import { FormsModule } from '@angular/forms';
-import { MatToolbarModule } from '@angular/material';
+import { MatFormFieldModule, MatInputModule, MatPaginator, MatPaginatorModule, MatSortModule, MatTableModule, MatToolbarModule } from '@angular/material';
 
 @NgModule({
   imports: [
@@ -19,7 +19,12 @@ import { MatToolbarModule } from '@angular/material';
     SharedModule,
     DashboardRoutingModule,
     FormsModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
   declarations: [
     DashboardComponent,

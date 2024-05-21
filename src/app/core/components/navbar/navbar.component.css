@@ -333,6 +333,9 @@
   text-align: start;
 }
 
+.nav-search{
+  width: 100%;
+}
 
 .powermeter{
   position: relative;

@@ -131,10 +131,6 @@
 }
 
 
-.mapCard-full{
-    
-}
-
 .headerCard-full{
     position: absolute;
     bottom: 3%;
@@ -194,17 +190,17 @@
 }
 
 .chartBox{
-    height: 100%;
+    height: 180px;
     padding: 4px 0px;
     box-sizing: border-box;
 }
 
 
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 722px) {
     .container-fluid {
         padding: 8px;
-        height: 3575px !important;
+        height: 100% !important;
     }
     
     .main-container{

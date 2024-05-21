@@ -148,7 +148,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     //this.init();
-    // localStorage.setItem('nowUrl',this.router.url.toString());
+    localStorage.setItem('nowUrl',this.router.url.toString());
     this.currentRoute = this.router.url.toString()
     const building = localStorage.getItem('location');
     const coBuilding = JSON.parse(building)
@@ -537,7 +537,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   openBreaker() {
     const dialogRef = this.dialog.open(DialogbreakerComponent, {
       width: '650px',
-      data: this.siteName.id,
+      data: this.siteName,
       backdropClass: 'dialog-backdrop',
       panelClass: ['dialog-panel']
     });

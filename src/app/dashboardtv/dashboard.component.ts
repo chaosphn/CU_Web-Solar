@@ -26,12 +26,12 @@ import { DashboardTagService } from './services/dashboard-tag.service';
 import { BuildingModel, SiteStateModel } from '../core/stores/sites/sites.model';
 import { SitesState } from '../core/stores/sites/sites.state';
 import { Select } from '@ngxs/store';
-import {debounceTime } from 'rxjs/operators';
+import {debounceTime, filter } from 'rxjs/operators';
 import { Router,NavigationEnd  } from '@angular/router';
 import { LocalStorageService } from '../share/services/localstorage.service';
 import { EventService } from '../share/services/event.service';
 import { NavbarComponent } from '../core/components/navbar/navbar.component';
-import { MatPaginator, MatTableDataSource } from '@angular/material';
+import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 
 @Component({
   selector: 'app-dashboard',
@@ -86,25 +86,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   isFullmap: boolean = false;
   public getScreenWidth: any;
   public getScreenHeight: any;
-  tablerow:DataModel[] = [
-    { buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-    ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-    ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-    ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-    ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-    ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-    ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-    ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-    ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-  ];
+  // tablerow:DataModel[] = [
+  //   { buiding: "AAA",power: "1",energy:"3"},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
+  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
+  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
+  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
+  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
+  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
+  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
+  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
+  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
+  // ];
     
     //[1,1,1,11,1,1,,1,1,1,11,1,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,11,1,1,1,1,1,1,1,11,];
   buildingList: SiteStateModel;
   displayedColumns: string[] = ['No', 'Building', 'Power', 'Energy'];
-  dataSource = new MatTableDataSource<DataModel>();
+  dataSource: MatTableDataSource<any>
 
   @ViewChild('progressBar') progressBar: ElementRef;
   @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort : MatSort
 
   constructor(private httpService: HttpService,
     private datePipe: DatePipe,
@@ -120,9 +121,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     private router: Router,
     private storageService: LocalStorageService,
     private renderer: Renderer2,
+    private changeDetectorRefs: ChangeDetectorRef,
     private event: EventService) {
     this.periodSelected = this.periods[0];
   }
+  
 
   @HostListener('window:resize', ['$event'])
   onWindowResize() {
@@ -135,8 +138,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  ngOnInit() {
-    this.dataSource.paginator = this.paginator;
+  async ngOnInit() {
     //this.init();
     localStorage.setItem('nowUrl',this.router.url.toString());
     // this.currentRoute = this.router.url.toString()
@@ -145,8 +147,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     /*this.storageService.getStorageChanges().subscribe(newValue => {
       this.currentRoute = newValue || '';
     });*/
-    this.getConfig();
-    this.init02();
+    await this.init02();
+    await this.getConfig();
     this.onWindowResize();
     // console.log(this.data.singleValue)
   }
@@ -154,7 +156,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   async getConfig() {
     //this.siteList = await this.httpService.getConfig('assets/main/location.json');
     this.buildingList = await this.httpService.getNavConfig('assets/main/BuildingList.json');
-    //console.log(this.buildingList);
+    this.dataSource = await new MatTableDataSource(this.getTabel());
+    this.dataSource.paginator = this.paginator;
+    // console.log(this.buildingList.building);
   }
 
   isChange(){
@@ -189,6 +193,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     return res;
   }
 
+
   updateInit(){
     this.siteName = localStorage.getItem('location');
     //console.log("Update Dashboard Component in site:"+ this.siteName);
@@ -196,7 +201,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    
+    this.dataSource.paginator = this.paginator;
+    this.paginator.page.subscribe((event) =>{
+      // console.log(this.dataSource)
+    })
   }
 
   ngOnDestroy() {
@@ -206,6 +214,28 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //this.sub1.unsubscribe();
     
   }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+  
+
+  getTabel(){
+    let showlist = [0,4,5,6,7,8]
+      return this.buildingList.building
+      .filter((item,index) => showlist.includes(index))
+      .map((item, index) => {
+        const powerData = this.data.singleValue[item.id + '_power'];
+        const energyData = this.data.singleValue[item.id + '_energy'];
+        return {
+          no: index + 1,
+          building: item.id,
+          power: powerData && powerData.dataRecords && powerData.dataRecords.length > 0 ? powerData.dataRecords[0].Value : 0,
+          energy: energyData && energyData.dataRecords && energyData.dataRecords.length > 0 ? energyData.dataRecords[0].Value : 0
+        };
+      });
+    }
 
   increaseValue(){
     this.event.changeNavbar();

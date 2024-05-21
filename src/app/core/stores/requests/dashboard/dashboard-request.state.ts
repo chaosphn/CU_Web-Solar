@@ -39,7 +39,7 @@ export class ChangeTagIds {
     }
 })
 export class DashboardRequestState {
-    
+
     constructor(private store: Store) { }
 
     @Action(SetDashboardRequest)
@@ -64,30 +64,43 @@ export class DashboardRequestState {
     @Action(ChangePeriod1)
     ChangePeriod1(ctx: StateContext<DashboardRequestModel>, action: ChangePeriod1) {
         let state = ctx.getState();
-        action.requestName[0].forEach((item) =>  {
-            //console.log(item);
-            let request1 = state.Historian.find(d => d.Name == item.name);
-            if (request1.Options.StartTime != null && request1.Options.EndTime != null && request1.Options.Time != "") {
-                //console.log(request1)
-                request1.Options.Time = "";
-                //console.log("1 : "+request1.Options.Time);
-                request1.Options.StartTime = action.startTime;
-                request1.Options.EndTime = action.endTime;
-            } else if (request1.Options.StartTime != null && request1.Options.EndTime != null && request1.Options.Time == ""){
-                //console.log("2");
-                request1.Options.StartTime = action.startTime;
-                request1.Options.EndTime = action.endTime;
-            }
-        });
-        // const newState = produce(state, draft => {
-        //     const request = draft.Historian.find(d => d.Name = action.requestName[0].name);
-        //     if (request.Options.StartTime != null && request.Options.EndTime != null) {
-        //         request.Options.StartTime = action.startTime;
-        //         request.Options.EndTime = action.endTime;
-        //     }
-        // });
-        //console.log(state)
-        ctx.setState(state);
+        action.requestName[0].forEach((item) => {
+            console.log(item)
+            const trimItem = item.name.split('_')
+            console.log("ItemName : "+trimItem[0]);
+            state.Historian.map((req) => {
+                const trimName = req.Name.split('_')
+                console.log("RequestName : "+trimName[0])
+                // let request1 = state.Historian.find(d => req.Name[0] == trimItem[0]);
+                if (trimName[0] == trimItem[0]) {
+                    let request1 = req
+                    console.log(request1)     
+                    if (request1 !== undefined) {
+                        if (request1.Options.StartTime != null && request1.Options.EndTime != null && request1.Options.Time != "") {
+
+                            request1.Options.Time = "";
+                            // console.log("1 : "+request1.Options.Time);
+                            request1.Options.StartTime = action.startTime;
+                            request1.Options.EndTime = action.endTime;
+                        } else if (request1.Options.StartTime != null && request1.Options.EndTime != null && request1.Options.Time == "") {
+                            // console.log("2");
+                            request1.Options.StartTime = action.startTime;
+                            request1.Options.EndTime = action.endTime;
+                        }
+                    }
+
+                }
+            });
+            // const newState = produce(state, draft => {
+            //     const request = draft.Historian.find(d => d.Name = action.requestName[0].name);
+            //     if (request.Options.StartTime != null && request.Options.EndTime != null) {
+            //         request.Options.StartTime = action.startTime;
+            //         request.Options.EndTime = action.endTime;
+            //     }
+            // });
+            //console.log(state)
+            ctx.setState(state);
+        })
     }
 
     @Action(ChangeTagIds)
@@ -98,7 +111,7 @@ export class DashboardRequestState {
             const raw: RawTag[] = group.tags as RawTag[];
             const tags = raw.filter(r => r.period === action.periodName);
             const state = ctx.getState();
-            const newState =  produce(state, draft => {
+            const newState = produce(state, draft => {
                 const groupReq = draft.find(d => d.RequestId === action.groupId);
                 if (groupReq) {
                     const tagNames = tags.map(t => t.name);
@@ -109,26 +122,26 @@ export class DashboardRequestState {
             ctx.setState(newState);
         }
     }
- 
-    static getRequest() {  
+
+    static getRequest() {
         return createSelector([DashboardRequestState], (state: DashboardRequestModel) => {
             return state;
         });
     }
 
-    static getRequestRealtime() {  
+    static getRequestRealtime() {
         return createSelector([DashboardRequestState], (state: DashboardRequestModel) => {
             return state.Realtime;
         });
     }
 
-    static getRequestHistorian() {  
+    static getRequestHistorian() {
         return createSelector([DashboardRequestState], (state: DashboardRequestModel) => {
             return state.Historian;
         });
     }
 
-    static getRequestHistorianWithName(chartName: any[]) {  
+    static getRequestHistorianWithName(chartName: any[]) {
         return createSelector([DashboardRequestState], (state: DashboardRequestModel) => {
             const stateHis = state.Historian;
             let reqHis: DashboardReqHistorian[] = []
@@ -141,20 +154,20 @@ export class DashboardRequestState {
         });
     }
 
-    static getRequestWithKeys(key: string) {  
+    static getRequestWithKeys(key: string) {
         return createSelector([DashboardRequestState], (state: DashboardRequestModel) => {
             //console.log(state[key]);
             return state[key];
         });
     }
-    
-    static getRequestWithId(id: string) {  
+
+    static getRequestWithId(id: string) {
         return createSelector([DashboardRequestState], (state: DashboardRequestStateModel[]) => {
             return state.filter(s => s.RequestId === id);
         });
     }
 
-    
+
     static getRealTimeCurrentConfig() {
         return createSelector([DashboardRequestState], (state: DashboardRequestStateModel[]) => {
             const _configs: DashboardRequestStateModel[] = [];
@@ -173,10 +186,10 @@ export class DashboardRequestState {
             state.forEach(s => {
                 if (s.Mode === ValueType.Raw || s.Mode === ValueType.Plot) {
                     const req = dashboardConfigs.find(x => x.name === s.RequestId);
-                    if (req && 
-                        req.options && 
-                        req.options.runtimeConfigs && 
-                        req.options.runtimeConfigs.periodName && 
+                    if (req &&
+                        req.options &&
+                        req.options.runtimeConfigs &&
+                        req.options.runtimeConfigs.periodName &&
                         req.options.runtimeConfigs.periodName.toLowerCase() === 't' &&
                         req.options.runtimeConfigs.zoom === false) {
                         _configs.push(s);

@@ -196,6 +196,16 @@ export class HttpService {
         }
     }
 
+    async getBreaker(url:string,username:string,n:string) {
+        const body = {
+            user:username,
+            no: n
+        }
+        const res: any = await this.httpClient.post<EventModel[]>(this.appLoadService.Config.UrlApiAuthen+url,body).toPromise();
+        // console.log(res)
+        return res;
+    }
+
     refreshToken(refreshToken: string): Observable<any> {
         const body = `grant_type=refresh_token&refresh_token=${refreshToken}`;
         const res = this.httpClient.post(this.appLoadService.Config.UrlApiAuthen + 'token', body, {

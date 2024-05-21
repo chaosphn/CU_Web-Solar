@@ -12,7 +12,7 @@
     color: white;
     padding: 8px 10px;
     span {
-        font-size: 12px;
+        font-size: 16px;
         font-weight: 500;
         // line-height: 1.8;
         // padding-top: 2px;
@@ -48,7 +48,7 @@
     padding: 0 10px;
     .infoTopic{
         font-size: 12px;
-        font-weight: 500;
+        font-weight: bold;
     }
     .infoValue{
         align-items:end;
@@ -70,8 +70,34 @@
 .chartBox{
     padding: 0;
 }
+.cardItem-mobile{
+    display: none;
+}
+.headText{
+    font-size: 24px;
+}
 
-@media screen and (max-width: 500px) {
+
+
+
+
+
+@media screen and (max-width: 722px) {
+    .headBox{
+        justify-content: space-between;
+        background: #136286;
+        color: white;
+        padding: 8px 10px;
+        span {
+            font-size: 18px;
+            font-weight: 500;
+            // line-height: 1.8;
+            // padding-top: 2px;
+        }
+    }
+    .cardItem{
+        display: none;
+    }
     .contentBox{
         display: grid;
         grid-template-columns: 1fr ;
@@ -81,8 +107,123 @@
     }
     .chartBox{
         background-color: #f8f8f8;
+        height: 250px;
+    }
+    .cardItem-mobile{
+        display: flex;;
+        height: 250px;
     }
     .infoBox{
-        width: calc(100% - 40px);
+        // background-color: #f8f8f8;
+        border-radius: 6px;
+        border: 3px solid #EDEDED;
+        margin: 5px 4px;
+        width: calc(80% - 40px);
+        justify-content: space-between;
+        padding: 0 10px;
+        color: #f8f8f8;
+        .infoTopic{
+            font-size: 22px;
+            font-weight: 500;
+        }
+        .infoValue{
+            align-items:end;
+            column-gap: 10px;
+        }
+        .infoValue #value{
+            font-size: 24px;
+            text-align: end;
+            color: #F8A300;
+            font-weight: 500;
+        }
+        .infoValue #unit{
+            font-size: 24px;
+            text-align: end;
+            font-weight: 500;
+        }
+    }
+    .mobile-value{
+        display: flex;
+        align-items: center;
+        font-size: 36px;
+        color: #F8A300;
+        font-weight: 800;
+    }
+    .container{
+        height: 850px;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .headBox{
+        justify-content: space-between;
+        background: #136286;
+        color: white;
+        padding: 8px 10px;
+        span {
+            font-size: 18px;
+            font-weight: 500;
+            // line-height: 1.8;
+            // padding-top: 2px;
+        }
+    }
+    .cardItem{
+        display: none;
+    }
+    .contentBox{
+        display: grid;
+        grid-template-columns: 1fr ;
+        grid-template-rows: 1fr 1fr;
+        padding: 10px;
+        row-gap: 5px;
+    }
+    .chartBox{
+        background-color: #f8f8f8;
+        height: 200px;
+    }
+    .cardItem-mobile{
+        display: flex;
+        flex-direction: column;
+        height: 150px;
+        width: 100%;
+    }
+    .infoBox{
+        // background-color: #f8f8f8;
+        border-radius: 6px;
+        border: 3px solid #EDEDED;
+        margin: 5px 4px;
+        width: 100%;
+        justify-content: space-between;
+        padding: 0 10px;
+        color: #f8f8f8;
+        .infoTopic{
+            font-size: 22px;
+            font-weight: 500;
+        }
+        .infoValue{
+            align-items:end;
+            column-gap: 10px;
+        }
+        .infoValue #value{
+            font-size: 24px;
+            text-align: end;
+            color: #F8A300;
+            font-weight: 500;
+        }
+        .infoValue #unit{
+            font-size: 24px;
+            text-align: end;
+            font-weight: 500;
+        }
+    }
+    .mobile-value{
+        display: flex;
+        align-items: center;
+        font-size: 36px;
+        color: #F8A300;
+        font-weight: 800;
+    }
+    .container{
+        height: 580px;
     }
 }

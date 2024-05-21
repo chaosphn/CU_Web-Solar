@@ -222,10 +222,12 @@ export class ChartsComponent implements OnInit {
       //+ "\nEnd: " + endTime.toISOString());
       //await this.store.dispatch(new AddTags(tagNames)).toPromise();
       this.reqCurrs = this.getReqDataConfig(tagNames ,st, ed);
-      //console.log(this.reqCurrs);
+      // console.log(this.reqCurrs);
       const res = await this.httpService.getHistorian(this.reqCurrs);
-      //console.log(res);
-      this.renderChart(res);
+      // console.log(res)
+      // console.log(this.getMaxValueRecord(res));
+      
+      this.renderChart(this.getMaxValueRecord(res));
   
       if (this.periodName && this.periodName.toLowerCase() === 't') {
         this.startTimer(this.appLoadService.Config.Timer * 1000 * 12);
@@ -310,6 +312,26 @@ export class ChartsComponent implements OnInit {
       throw new Error('Start time should be less than end time.');
     }
   }
+
+  getMaxValueRecord(data) {
+    return data.map(item => {
+    const maxValues = {};
+    item.records.forEach(record => {
+      const TimeStamp = record.TimeStamp;
+      const value = parseFloat(record.Value);
+
+      if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value)) {
+        maxValues[TimeStamp] = {...record,Value:value.toString() };
+      }
+    });
+
+
+  const maxRecords = Object.values(maxValues)
+  return  {...item,
+  records:maxRecords}
+  
+})
+}
 
   startTimer(dueTimer: number) {
     // const _timer = timer(dueTimer, 3000).pipe(take(1)).subscribe(x => {

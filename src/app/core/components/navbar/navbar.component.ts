@@ -1,5 +1,5 @@
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Store } from '@ngxs/store';
 import { Observable } from 'rxjs';
@@ -20,6 +20,7 @@ import { PowermetersComponent } from 'src/app/powermeters/powermeters.component'
 import { EventService } from 'src/app/share/services/event.service';
 import { SetBulding } from '../../stores/building/building.state';
 import { DateTimeService } from 'src/app/share/services/datetime.service';
+import { MatMenuModule, MatSelect } from '@angular/material';
 
 declare var $: any;
 @Component({
@@ -53,6 +54,10 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   nowUrl: string;
   buildingList: SiteStateModel;
   today: string;
+  filteredBuildingList: any[] = [];
+
+  @ViewChild('searchInput') searchInput: any;
+  @ViewChild('selectDropdown') selectDropdown: MatSelect;
 
   constructor(private breakpointObserver: BreakpointObserver, 
     private route: ActivatedRoute,private httpService: HttpService,
@@ -89,7 +94,8 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     this.today = this.dateTimeSrv.getDateTime(new Date()).substring(0,10)
     this.getConfig();
     this.toggleBackground(this.currentRoute);
-    
+    this.filteredBuildingList = [...this.buildingList.building]
+    this.tagShowList = this.buildingList.building.map((_, index) => index);
   }
 
   async getConfig() {
@@ -161,11 +167,10 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     this.siteSelected = data;
     //console.log(this.nowUrl);
     //console.log(this.siteSelected);
-    localStorage.setItem('location', data);
-    if( this.nowUrl == "/main/"+links){
-      await this.updateData();
-    }
+    localStorage.setItem('location', JSON.stringify(data));
+    this.event.triggerFunction()
     this.diagramRouting();
+    // window.location.reload()
   }
 
   updateData(){
@@ -178,6 +183,29 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   }
 
   tagShowList = [0,4,5,6,7,8]
+
+  filter(query: string) {
+  this.tagShowList = []
+    this.filteredBuildingList = this.buildingList.building.filter((building, index) => {
+      const matches = building.name.toLowerCase().includes(query.toLowerCase());
+      if (matches) {
+        this.tagShowList.push(index);
+      }
+      return matches;
+    });
+
+    if (this.filteredBuildingList.length === 0) {
+      // this.tagShowList = this.buildingList.building.map((_, index) => index); ////all build
+      this.tagShowList = [0,4,5,6,7,8]
+    }
+
+    if (query.length == 0) {
+      this.tagShowList = [0,4,5,6,7,8] //////ลบได้หลังข้อมูลตึกครบ
+      query = '';
+      this.searchInput.nativeElement.value = '';
+      this.filter('')
+    }
+  }
 
   routing1(data:string){
     const url = localStorage.getItem('nowUrl');

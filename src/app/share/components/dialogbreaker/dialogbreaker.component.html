@@ -1,17 +1,21 @@
 <div class="container w-100 ">
   <div class="card-container w-100 ">
     <div class="headBox d-flex-sb">
-     <span class="">{{data}} Switch Breaker</span>
+     <span class="">{{data.id}} Switch Breaker</span>
      <span (click)="close()">
       <i class="material-icons">
         close
       </i>
      </span>
     </div>
+      
     <div class="contentBox w-100 d-flex-ct " *ngIf="isLogIn">
+      <div class="statusBreaker" *ngIf="isBreaker">
+        Breaker Offline.
+      </div>
       <span class="outerbox d-flex-ct">
         <label class="switch ">
-          <input class="chk" type="checkbox" [disabled]="false">
+          <input class="chk" type="checkbox" [disabled]="false" (click)="this.linkBreaker()">
           <span class="slider"></span>                
         </label>
       </span>
@@ -20,6 +24,7 @@
         building XXX1 please make sure before pressed !
       </span>
     </div>
+    
     <div class="contentBox w-100 d-flex-ct " *ngIf="!isLogIn">
       <div class=" w-100 h-100">
         <form class="example-form w-100 bz">

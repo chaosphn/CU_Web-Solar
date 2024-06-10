@@ -179,7 +179,7 @@ export class DashboardLastValuesService {
         //rawConfigs.options.runtimeConfigs.periodName = periodName;
         let tags: RawTag[] = rawConfigs.tags as RawTag[];
         const listData: Data[] = [];
-        tags.forEach(tag => {
+        tags.filter(x => x.period == periodName).forEach(tag => {
             const lastValues: DashboardLastValuesModel[] = this.store.selectSnapshot(DashboardLastValuesState.getLastValuesHistorian(tag.name));
             if (lastValues.length > 0 && lastValues) {
                 const tagMatch = lastValues.find(x => x.Name === tag.name)

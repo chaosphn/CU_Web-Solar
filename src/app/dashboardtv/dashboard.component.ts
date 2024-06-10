@@ -417,7 +417,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.initloadInverterValues();
     // console.log(this.data.singleValue['CEN091_energy'].dataRecords[0].Value);
     this.updateZone();
-    console.log(this.getSumValue("_co2"))
     this.startTimer(this.appLoadService.Config.Timer * 60000);
     // console.log(this.data)
   }
@@ -636,7 +635,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
     const _period = this.dateTimeService.parseDate(period.name);
     const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
-    await this.store.dispatch(new ChangePeriod1(tagChart, st, now)).toPromise();
+    await this.store.dispatch(new ChangePeriod1(tagChart, st, now, period.name)).toPromise();
 
     this.dashboardInverterService.periodName = period.name;
     this.dashboardInverterService.requests.forEach(r => {   
@@ -656,7 +655,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
     const _period = this.dateTimeService.parseDate(period.name);
     const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
-    await this.store.dispatch(new ChangePeriod1(tagChart, _period.startTime, _period.endTime)).toPromise();
+    await this.store.dispatch(new ChangePeriod1(tagChart, _period.startTime, _period.endTime, period.name)).toPromise();
 
     const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, _period));
     const res: DashboardResHistorian[] = await this.httpService.getHistorian(req);
@@ -701,7 +700,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     .filter(x => x[0].endsWith(key))
       .map(d => parseFloat(d[1].dataRecords[0].Value))
         .reduce((pre, cur) => { pre += cur; return pre; }, 0);
-    console.log(data)
     if(data){
       return data.toFixed(2);
     } else {
@@ -714,7 +712,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     .filter(x => x[0].endsWith(key))
       .map(d => parseFloat(d[1].dataRecords[0].Value))
         .reduce((pre, cur, idx, arr) => { pre += (cur/arr.length); return pre; }, 0);
-    console.log(data)
     if(data){
       return data.toFixed(2);
     } else {

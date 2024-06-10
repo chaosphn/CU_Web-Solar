@@ -472,7 +472,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
     const _period = this.dateTimeService.parseDate(period.name);
     const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
-    await this.store.dispatch(new ChangePeriod1(tagChart, st, now)).toPromise();
+    await this.store.dispatch(new ChangePeriod1(tagChart, st, now, period.name)).toPromise();
 
     this.dashboardInverterService.periodName = period.name;
     this.dashboardInverterService.requests.forEach(r => {   
@@ -492,7 +492,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
     const _period = this.dateTimeService.parseDate(period.name);
     const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
-    await this.store.dispatch(new ChangePeriod1(tagChart, _period.startTime, _period.endTime)).toPromise();
+    await this.store.dispatch(new ChangePeriod1(tagChart, _period.startTime, _period.endTime, period.name)).toPromise();
 
     const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, _period));
     const res: DashboardResHistorian[] = await this.httpService.getHistorian(req);

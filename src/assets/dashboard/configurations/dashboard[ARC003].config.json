@@ -38,11 +38,11 @@
 		},
 		{
 			"Title": "energy_yesterday",
-			"Name": ""
+			"Name": "CALC01.WH_YEAR"
 		},
 		{
 			"Title": "energy_mtd",
-			"Name": "TOU01.WH_MTD"
+			"Name": "CALC01.WH_MONTH"
 		},
 		{
 			"Title": "energy_cod",

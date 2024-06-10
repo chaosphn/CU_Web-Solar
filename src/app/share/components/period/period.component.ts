@@ -1,4 +1,4 @@
-import { AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { AfterViewChecked, ChangeDetectionStrategy, ChangeDetectorRef, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { Period } from '../../models/period';
 
 @Component({
@@ -7,15 +7,19 @@ import { Period } from '../../models/period';
   styleUrls: ['./period.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class PeriodComponent implements OnInit, AfterViewChecked {
+export class PeriodComponent implements OnInit, AfterViewChecked, OnChanges {
 
   @Input() periodSelected: Period;
   @Input() periods: Period[] = [];
   @Output() select = new EventEmitter();
-
+  period: Period[] = [];
   constructor(private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    
   }
 
   ngAfterViewChecked() {

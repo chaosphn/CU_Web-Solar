@@ -120,7 +120,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const building = localStorage.getItem('location');
     this.siteName = JSON.parse(building);
     //console.log(JSON.parse(building))
+    this.periodSelected = {
+      name: 't',
+      display: 't'
+    };
     this.init02();
+    this.cd.markForCheck();
   }
 
   ngAfterViewInit() {
@@ -380,6 +385,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const curr = this.dashboardLastValuesService.getCurrentGroupData();
     ////console.log(curr);
     this.data.singleValue = { ...curr };
+    this.periodSelected = this.periods[0];
     this.cd.markForCheck();
   }
 
@@ -405,7 +411,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
     const _period = this.dateTimeService.parseDate(period.name);
     const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
-    await this.store.dispatch(new ChangePeriod1(tagChart, st, now)).toPromise();
+    await this.store.dispatch(new ChangePeriod1(tagChart, st, now, period.name)).toPromise();
 
     this.dashboardInverterService.periodName = period.name;
     this.dashboardInverterService.requests.forEach(r => {   
@@ -421,16 +427,16 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // emit event from view (period component)
   async selectPeriod(period: Period, chartName: string) {
-    //console.log("Chart: "+chartName+"\nStart :"+period.name);
+    console.log("Chart: "+chartName+"\nStart :"+period.name);
     await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
     const _period = this.dateTimeService.parseDate(period.name);
     const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
-    await this.store.dispatch(new ChangePeriod1(tagChart, _period.startTime, _period.endTime)).toPromise();
+    await this.store.dispatch(new ChangePeriod1(tagChart, _period.startTime, _period.endTime, period.name)).toPromise();
 
     const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
     const res: DashboardResHistorian[] = await this.httpService.getPlotData(req);
-    // console.log(req);
-    // console.log(res);
+    console.log(req);
+    console.log(res);
     await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
     const charts = this.chartConfigs.find(d => d.name == chartName);
     const type = charts.type;
@@ -442,7 +448,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       data = this.dashboardLastValuesService.getPlotGroupDataWithName(chartName, period.name, this.chartConfigs);
     }
     if (data && data[chartName] && data[chartName].data.length > 0) {
-      //console.log(data);
+      console.log(data);
       this.chartOptions[chartName] = this.dashboardChartService.getChartOptions(chartName, data[chartName]);
     }
 

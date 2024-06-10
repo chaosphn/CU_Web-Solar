@@ -21,7 +21,7 @@ export class ChangePeriod {
 
 export class ChangePeriod1 {
     static readonly type = '[DashboardRequest] ChangePeriod1';
-    constructor(public requestName: any[], public startTime: string, public endTime: string) { }
+    constructor(public requestName: any[], public startTime: string, public endTime: string, public period: string) { }
 }
 
 export class ChangeTagIds {
@@ -67,28 +67,54 @@ export class DashboardRequestState {
         
         const startTimeISO = new Date(action.startTime).toISOString().split('.')[0];
         const endTimeISO = new Date(action.endTime).toISOString().split('.')[0];
+        const changeItem = action.requestName[0].find(x => x.period == action.period);
+        //console.log(changeItem)
+        // action.requestName[0].forEach((item) => {
+        //     const itemName = item.name.split('_')[0];
+        //     state.Historian.forEach((req) => {
+        //         const reqName = req.Name.split('_')[0];
 
-        action.requestName[0].forEach((item) => {
-            const itemName = item.name.split('_')[0];
+        //         if (reqName == itemName) {
+        //             let request1 = req;
+        //             if(changeItem && changeItem.name){
+        //                 request1.Name = changeItem.name;
+        //             }
+        //             if (request1 && request1.Options.StartTime && request1.Options.EndTime) {
+        //                 request1.Options.StartTime = startTimeISO;
+        //                 request1.Options.EndTime = endTimeISO;
 
-            state.Historian.forEach((req) => {
-                const reqName = req.Name.split('_')[0];
+        //                 if (request1.Options.Time !="") {
+        //                     request1.Options.Time = "";
+        //                 }
+        //             }
+        //             console.log(request1)
+        //         }
+        //     });
+        // });
+        state.Historian.forEach((req) => {
+            let reqName = req.Name;
+            //console.log(action.requestName[0])
+            let itemName = action.requestName[0].find(x => x.name == req.Name);
+            //console.log(reqName);
+            //console.log(itemName)
+            if ( itemName && itemName.name && reqName == itemName.name) {
+                let request1 = req;
+                if(changeItem && changeItem.name){
+                    //console.log(changeItem)
+                    request1.Name = changeItem.name;
+                }
+                if (request1 && request1.Options.StartTime && request1.Options.EndTime) {
+                    request1.Options.StartTime = startTimeISO;
+                    request1.Options.EndTime = endTimeISO;
 
-                if (reqName === itemName) {
-                    let request1 = req;
-
-                    if (request1 && request1.Options.StartTime && request1.Options.EndTime) {
-                        request1.Options.StartTime = startTimeISO;
-                        request1.Options.EndTime = endTimeISO;
-
-                        if (request1.Options.Time !="") {
-                            request1.Options.Time = "";
-                        }
+                    if (request1.Options.Time !="") {
+                        request1.Options.Time = "";
                     }
                 }
-            });
+                //console.log(request1)
+            }
         });
-            // console.log(state)
+        //console.log(state)
         ctx.setState(state);
     }
 
@@ -135,39 +161,17 @@ export class DashboardRequestState {
     static getRequestHistorianWithName(chartName: any[],period) {
         return createSelector([DashboardRequestState], (state: DashboardRequestModel) => {
             const stateHis = state.Historian;
-            let reqHis: DashboardReqHistorian[] = []
-            chartName[0].forEach((item) => {
-                let request = stateHis.find(d => d.Name.split('_')[0] == item.name.split('_')[0]);
-                if (item.period == period.display && period.display == 't') {
+            let reqHis: DashboardReqHistorian[] = [];
+            console.log(chartName[0])
+            console.log(stateHis);
+            chartName[0].filter(x => x.period == period.name || !x.period).forEach((item) => {
+                let request = stateHis.find(d => d.Name == item.name);
+                if(request){
                     reqHis.push(request);
-                }
-                if (item.period == period.display && period.display == '7d') {
-                     
-                    // request.Name = request.Name.split('_')[0]+'_DAY'
-                }
-                if (item.period == period.display && period.display == '30d') {
-                     
-                    // request.Name = request.Name.split('_')[0]+'_DAY'
-                    reqHis.push(request);
-                }
-                if (item.period == period.display && period.display == '3m') {
-                     
-                    // request.Name = request.Name.split('_')[0]+'_DAY'
-                    reqHis.push(request);
-                }
-                if (item.period == period.display && period.display == '12m') {
-                     
-                    // request.Name = request.Name.split('_')[0]+'_MONTH'
-                    reqHis.push(request);
-                }
-                if (request != null|| undefined) {
-                    reqHis.push(request)
                 }
                 
             });
-            if (reqHis != null|| undefined) {
-                return reqHis;
-            }
+            return reqHis;
         });
     }
 

@@ -60,15 +60,43 @@ export class DashboardLastValuesState {
     @Action(ChangeLastValues1)
     changeLastValues1(ctx: StateContext<DashboardLastValuesModel[]>, action: ChangeLastValues1) {
         let state = ctx.getState();
-        action.tags[0].forEach((item) => {
-            let lastValue = state.find(d => d.Name == item.name && d.Mode == "Historian");
-            let res = action.values.find(d => d.Name == item.name);
-            //console.log(lastValue);
-            //console.log(res);
-            if(lastValue != null){
-                lastValue.DataRecord = [...res.records];
+        console.log(state)
+        console.log(action)
+        action.values.forEach((item) => {
+            let lastValue = state.find(d => d.Name == item.Name && d.Mode == "Historian");
+            // let res = action.values.find(d => d.Name == item.Name);
+            if(lastValue && item && item.records){
+                lastValue.DataRecord = [...item.records];
+            } else {
+                state.push({
+                    Name: item.Name,
+                    Unit: item.Unit,
+                    Mode: "Historian",
+                    Min: item.Min,
+                    Max: item.Max,
+                    DataRecord: item.records
+                });
             }
         });
+        console.log(state);
+        // action.tags[0].forEach((item) => {
+        //     let lastValue = state.find(d => d.Name == item.name && d.Mode == "Historian");
+        //     let res = action.values.find(d => d.Name == item.name);
+        //     console.log(lastValue);
+        //     console.log(res);
+        //     if(lastValue && res && res.records){
+        //         lastValue.DataRecord = [...res.records];
+        //     } else if( !lastValue && res && res.records) {
+        //         state.push({
+        //             Name: res.Name,
+        //             Unit: res.Unit,
+        //             Mode: "Historian",
+        //             Min: res.Min,
+        //             Max: res.Max,
+        //             DataRecord: res.records
+        //         });
+        //     }
+        // });
         //console.log(state);
         //ctx.setState(state);
     }

@@ -32,25 +32,31 @@
       <ngx-masonry [options]="masonryOptions">
         <ngxMasonryItem class="masonry-item" *ngFor="let d of data">
           <!-- <div class="card-body"> -->
-              <div class="">
+          <div class="">
             <h5 class="card-title">{{d.Category}}</h5>
             <ng-container *ngIf="d.Groups.length == 1">
               <div class="row no-gutters row-content">
                 <div class="col-12 bd">
-                    <p class="card-text group-name" (click)="selectAllOnceGroup(d)" [ngClass]="{'active': getActiveOnceGroup(d)}">ALL</p>
-                    <p class="card-text group-name" *ngFor="let a of d.Aliases" (click)="selectOnceGroup(d, a)" [ngClass]="{'active': a.active }" >{{a.Name}}</p>
+                  <p class="card-text group-name" (click)="selectAllOnceGroup(d)"
+                    [ngClass]="{'active': getActiveOnceGroup(d)}">ALL</p>
+                  <p class="card-text group-name" *ngFor="let a of d.Aliases | orderBy: 'Name'" (click)="selectOnceGroup(d, a)"
+                    [ngClass]="{'active': a.active }">{{a.Name}}</p>
                 </div>
               </div>
             </ng-container>
             <ng-container *ngIf="d.Groups.length > 1">
               <div class="row no-gutters row-content">
                 <div class="col-6 border-right pd-r-5 bd">
-                    <p class="card-text group-name half" (click)="selectAllGroup(d)" [ngClass]="{'active': getActiveAllGroup(d)}">ALL</p>
-                  <p class="card-text group-name half" *ngFor="let g of d.Groups" [ngClass]="{'active': g.active }" (click)="selectGroup(d, g)">{{g.Name}}</p>
+                  <p class="card-text group-name half" (click)="selectAllGroup(d)"
+                    [ngClass]="{'active': getActiveAllGroup(d)}">ALL</p>
+                  <p class="card-text group-name half" *ngFor="let g of d.Groups | orderBy: 'Name'" [ngClass]="{'active': g.active }"
+                    (click)="selectGroup(d, g)">{{g.Name}}</p>
                 </div>
-                <div class="col-6 pd-l-5 bd" >
-                    <p class="card-text group-name half" (click)="selectAllAlias(d)" [ngClass]="{'active': getActiveAllAlias(d)}">ALL</p>
-                  <p class="card-text group-name half" *ngFor="let a of d.Aliases"  [ngClass]="{'active': a.active }"  (click)="selectAlias(d, a)">{{a.Name}}</p>
+                <div class="col-6 pd-l-5 bd">
+                  <p class="card-text group-name half" (click)="selectAllAlias(d)"
+                    [ngClass]="{'active': getActiveAllAlias(d)}">ALL</p>
+                  <p class="card-text group-name half" *ngFor="let a of d.Aliases | orderBy: 'Name'" [ngClass]="{'active': a.active }"
+                    (click)="selectAlias(d, a)">{{a.Name}}</p>
                 </div>
               </div>
             </ng-container>

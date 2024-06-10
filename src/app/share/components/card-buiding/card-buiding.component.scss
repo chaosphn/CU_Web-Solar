@@ -30,6 +30,7 @@
     //border: 1px solid lime;
     display: grid;
     row-gap: 10px;
+
 }
 
 .cardItem{
@@ -50,6 +51,7 @@
         font-size: 12px;
         font-weight: bold;
     }
+    
     .infoValue{
         align-items:end;
         column-gap: 10px;
@@ -77,15 +79,17 @@
     font-size: 24px;
 }
 
+.material-icons{
+    display: none;
+}
 
 
 
 
-
-@media screen and (max-width: 722px) {
+@media screen and (max-width: 1024px) {
     .headBox{
         justify-content: space-between;
-        background: #136286;
+        background: #007907;
         color: white;
         padding: 8px 10px;
         span {
@@ -94,6 +98,9 @@
             // line-height: 1.8;
             // padding-top: 2px;
         }
+    }
+    .material-icons{
+        display: flex;
     }
     .cardItem{
         display: none;
@@ -104,6 +111,7 @@
         grid-template-rows: 1fr 1fr;
         padding: 10px;
         row-gap: 5px;
+        background: #9baebc;
     }
     .chartBox{
         background-color: #f8f8f8;
@@ -111,7 +119,7 @@
     }
     .cardItem-mobile{
         display: flex;;
-        height: 250px;
+        height: 100%;
     }
     .infoBox{
         // background-color: #f8f8f8;
@@ -121,10 +129,17 @@
         width: calc(80% - 40px);
         justify-content: space-between;
         padding: 0 10px;
-        color: #f8f8f8;
+        color: #ffebcd;
+        background-color: #008959;
+        .img-mobile{
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+        }
         .infoTopic{
             font-size: 22px;
             font-weight: 500;
+            padding: 10px;
         }
         .infoValue{
             align-items:end;
@@ -150,7 +165,7 @@
         font-weight: 800;
     }
     .container{
-        height: 850px;
+        // height: 850px;
     }
 }
 
@@ -167,6 +182,9 @@
             // padding-top: 2px;
         }
     }
+    .material-icons{
+        display: flex;
+    }
     .cardItem{
         display: none;
     }
@@ -176,6 +194,7 @@
         grid-template-rows: 1fr 1fr;
         padding: 10px;
         row-gap: 5px;
+        background: #9baebc;
     }
     .chartBox{
         background-color: #f8f8f8;
@@ -185,7 +204,9 @@
         display: flex;
         flex-direction: column;
         height: 150px;
+        justify-content: flex-end;
         width: 100%;
+        margin-top: 45px;
     }
     .infoBox{
         // background-color: #f8f8f8;
@@ -196,6 +217,11 @@
         justify-content: space-between;
         padding: 0 10px;
         color: #f8f8f8;
+        .img-mobile{
+            width: 40px;
+            height: 40px;
+            margin: 5px;
+        }
         .infoTopic{
             font-size: 22px;
             font-weight: 500;
@@ -224,6 +250,6 @@
         font-weight: 800;
     }
     .container{
-        height: 580px;
+        height: 700px;
     }
 }

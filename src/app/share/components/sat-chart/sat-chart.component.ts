@@ -125,6 +125,7 @@ export class SatChartComponent implements OnInit, OnDestroy, OnChanges {
 
   initChartNew(_params: ChartParameters) {
     const _config = new ChartParametersAdapter(_params);
+    // console.log(_config)
     _config.chartParams.eventEmitter.on(ChartEvent.AddPoint, this.addPoint.bind(this));
     _config.chartParams.eventEmitter.on(ChartEvent.Redraw, this.redraw.bind(this));
     _config.chartParams.eventEmitter.on(ChartEvent.ChangeSerie, this.changeSerie.bind(this));

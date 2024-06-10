@@ -8,9 +8,9 @@
 
 
 .container-fluid {
-    width: 100vw;
-    height: 100%;
-    min-height: 100vh;
+    // width: 100vw;
+    // height: 100%;
+    // min-height: 100vh;
     //border: 1px solid rgb(255, 16, 16);
     //background: radial-gradient(100% 50% at 50% 50%, #22B5BE 0%, #161464 100%);
     background-image: radial-gradient(circle, rgba(34, 181, 190, 1) 0%, rgba(22, 20, 100, 1) 100%);
@@ -22,7 +22,6 @@
 .main-container{
     width: 100%;
     height: 100%;
-    display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: 3fr 1fr;
     row-gap: 10px;
@@ -30,20 +29,19 @@
 
 .extend-container{
     width: 100%;
-    height: 100%;
-    display: grid;
+    // height: 100%;
     #main{
         width: 100%;
-        height: 100%;
-        display: grid;
+        // height: 100%;
         grid-template-columns: 1fr;
         grid-template-rows: 1fr;
         .left-content{
             display: none;
         }
         .right-content{
+            display: flex;
             width: 100%;
-            height: 100%;
+            // height: 100%;
         }
     }
     #footer{
@@ -52,7 +50,7 @@
 }
 
 #main{
-    height: 100%;
+    // height: 100%;
     display: grid;
     grid-template-columns: 1fr 3fr;
     grid-template-rows: 1fr;
@@ -63,17 +61,17 @@
     display: grid;
     //grid-template-rows: 1fr 3fr 3fr;
     row-gap: 10px !important;
-    max-height: 100%;
+    // max-height: 100%;
     .headerCard{
         //height: 110px;
     }
     
     .overviewCard{
-        height: auto;
+        // height: auto;
     }
     
     .enviCard{
-        height: auto;
+        // height: auto;
     }
 }
 
@@ -89,7 +87,7 @@
     flex-direction: column;
     align-items: start;
     justify-content: space-between;
-    height: 100%;
+    // height: 100%;
     .th{
         font-size: 28px;
         color: white;
@@ -148,7 +146,7 @@
         flex-direction: column;
         align-items: start;
         justify-content: space-between;
-        height: 100%;
+        // height: 100%;
         .th{
             font-size: 28px;
             color: white;
@@ -168,15 +166,46 @@
 
 }
 
+
 .cardTopic{
     font-size: 20px;
     color: white;
     font-weight: 500;
 }
 
+::ng-deep .custom-form-field .mat-form-field-infix{
+    display: flex !important;
+    align-items: center;
+    width: 70%;
+    // height: 60px ;
+    background-color: rgb(255, 255, 255);
+    border-radius: 30px;
+    margin-top: 10px;
+    padding: 0 20px;
+}
+
+.mat-paginator{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: #00b1d4;
+    color: #000000;
+    font-size: 14px;
+}
+
+::ng-deep .mat-select .mat-select-value-text{
+    color: #000000;
+}
+
+#arrow-paginator ::ng-deep .mat-select .mat-select-arrow{
+    background-color: #00b1d4;
+    color: #000000;
+}
+
+
 .cardContent{
     width: 100%;
-    height: 100%;
+    // height: 100%;
     display: flex;
     column-gap: 5px;
 }
@@ -190,7 +219,7 @@
 }
 
 .chartBox{
-    height: 180px;
+    // height: 180px;
     padding: 4px 0px;
     box-sizing: border-box;
 }
@@ -200,33 +229,29 @@
 @media screen and (max-width: 722px) {
     .container-fluid {
         padding: 8px;
-        height: 100% !important;
     }
     
     .main-container{
         //border: 1px solid red;
         width: 100%;
-        display: grid;
         grid-template-columns: 1fr;
         row-gap: 10px !important;
     }
     
     #main{
         //border: 1px solid rgb(179, 255, 0);
-        display: grid;
         grid-template-columns: 1fr;
     }
     
     .left-content{
-        display: grid;
-        height: 800px !important;
+        // height: 800px !important;
     }
     .right-content{
         display: none;
     }
     
     .headerCard{
-        height: 110px !important;
+        // height: 110px !important;
     }
     
     .headerContent{
@@ -243,11 +268,11 @@
     }
 
     .overviewCard{
-        height: 330px !important;
+        // height: 330px !important;
     }
     
     .enviCard{
-        height: 330px !important;
+        // height: 330px !important;
     }
 
     .container-table{
@@ -273,16 +298,18 @@
         display: flex;
         flex-direction: column;
         align-items: center;
+        background: #00b1d4;
     }
     
     .mat-header-row{
-        background-color: rgba(255, 255, 255, 0.0001);
+        background-color: #00b1d4;
     }
     .mat-row{
-        background-color: rgba(255, 255, 255, 0.0001);
+        background-color: #fffade;
     }
     .mat-table{
-        background-color: rgba(255, 255, 255, 0.0001);
+        background-color: #fffade;
+        color: #161464;
     }
     th, td{
         border-bottom: 1px solid whitesmoke;
@@ -302,7 +329,7 @@
         font-size: 14px;
         text-align: center;
         padding: 0%;
-        color: white;
+        color: #161464;
     }
     
     .paginator{
@@ -343,7 +370,6 @@
     // .cardContent{
     //     width: 100%;
     //     height: 100%;
-    //     display: grid;
     //     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     // }
 
@@ -356,4 +382,151 @@
     //     width: auto;
     //     height: 100px;
     // }
+}
+
+@media screen and (max-width: 1280px) {
+    .container-fluid {
+        padding: 8px;
+    }
+    
+    .main-container{
+        //border: 1px solid red;
+        width: 100%;
+        grid-template-columns: 1fr;
+        row-gap: 10px !important;
+    }
+    
+    #main{
+        //border: 1px solid rgb(179, 255, 0);
+        grid-template-columns: 1fr;
+    }
+    
+    .left-content{
+        // height: 800px !important;
+    }
+    .right-content{
+        display: none;
+    }
+    
+    .headerCard{
+        // height: 110px !important;
+    }
+    
+    .headerContent{
+        padding: 18px;
+        justify-content: center;
+    }
+    
+    .h-info{
+        .th{
+            font-size: 22px;
+        }
+        .en{
+            font-size: 14px;
+        }
+    }
+
+    .overviewCard{
+        // height: 330px !important;
+    }
+    
+    .enviCard{
+        // height: 330px !important;
+    }
+
+    .container-table{
+        padding: 16px;
+        .topic{
+            font-size: 20px;
+            color: white;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+    }
+    .mobileTable{
+        display: block;
+    }
+    table {
+        width: 100%;
+        //border: 1px solid black;
+    }
+    
+    .mat-elevation-z8{
+        /*border: 1px solid black;*/
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background: #00b1d4;
+    }
+    
+    .mat-header-row{
+        background-color: #00b1d4;
+    }
+    .mat-row{
+        background-color: #fffade;
+    }
+    .mat-table{
+        background-color: #fffade;
+        color: #161464;
+    }
+    th, td{
+        border-bottom: 1px solid whitesmoke;
+        text-align: center;
+        padding: 0;
+    }
+    
+    .mat-header-cell{
+        font-weight: 500;
+        font-size: 20px;
+        text-align: center;
+        padding: 0%;
+        color: white;
+        
+    }
+    .mat-cell{
+        font-size: 14px;
+        text-align: center;
+        padding: 0%;
+        color: #161464;
+    }
+    
+    .paginator{
+     width: 100%;   
+    }
+
+    #footer{
+        width: 100%;
+    }
+    
+    .mapContent{
+        display: none;
+    }
+    
+    
+    .mapCard-full{
+        display: none;
+    }
+    
+    .headerCard-full{
+       display: none;
+    }
+
+    .chart-container{
+        padding: 16px;
+        row-gap: 8px;
+        display: flex;
+        flex-direction: column;
+    
+    }
+    
+    .cardTopic{
+        font-size: 20px;
+        color: white;
+        font-weight: 500;
+    }
+
+    #cu{
+        margin: 0 5%;
+    }
 }

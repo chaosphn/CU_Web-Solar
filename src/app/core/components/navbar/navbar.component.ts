@@ -20,7 +20,7 @@ import { PowermetersComponent } from 'src/app/powermeters/powermeters.component'
 import { EventService } from 'src/app/share/services/event.service';
 import { SetBulding } from '../../stores/building/building.state';
 import { DateTimeService } from 'src/app/share/services/datetime.service';
-import { MatMenuModule, MatSelect } from '@angular/material';
+import { MatSelect } from '@angular/material';
 
 declare var $: any;
 @Component({
@@ -55,6 +55,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   buildingList: SiteStateModel;
   today: string;
   filteredBuildingList: any[] = [];
+  selectedZone: string = ''
 
   @ViewChild('searchInput') searchInput: any;
   @ViewChild('selectDropdown') selectDropdown: MatSelect;
@@ -183,6 +184,16 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   }
 
   tagShowList = [0,4,5,6,7,8]
+  
+  onZoneChange(event){
+    this.tagShowList = []
+    const selectedZone = event;
+    this.filteredBuildingList = this.buildingList.building.filter((item,index) => {
+     if(item.zone === selectedZone){
+       this.tagShowList.push(index);
+     } 
+    }) ;
+  }
 
   filter(query: string) {
   this.tagShowList = []

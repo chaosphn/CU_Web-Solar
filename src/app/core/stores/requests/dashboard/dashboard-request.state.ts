@@ -64,44 +64,35 @@ export class DashboardRequestState {
     @Action(ChangePeriod1)
     ChangePeriod1(ctx: StateContext<DashboardRequestModel>, action: ChangePeriod1) {
         let state = ctx.getState();
-        action.requestName[0].forEach((item) => {
-            console.log(item)
-            const trimItem = item.name.split('_')
-            console.log("ItemName : "+trimItem[0]);
-            state.Historian.map((req) => {
-                const trimName = req.Name.split('_')
-                console.log("RequestName : "+trimName[0])
-                // let request1 = state.Historian.find(d => req.Name[0] == trimItem[0]);
-                if (trimName[0] == trimItem[0]) {
-                    let request1 = req
-                    console.log(request1)     
-                    if (request1 !== undefined) {
-                        if (request1.Options.StartTime != null && request1.Options.EndTime != null && request1.Options.Time != "") {
+        
+        const startTimeISO = new Date(action.startTime).toISOString().split('.')[0];
+        const endTimeISO = new Date(action.endTime).toISOString().split('.')[0];
 
+        action.requestName[0].forEach((item) => {
+            const itemName = item.name.split('_')[0];
+
+            state.Historian.forEach((req) => {
+                const reqName = req.Name.split('_')[0];
+
+                if (reqName === itemName) {
+                    let request1 = req;
+
+                    if (request1 && request1.Options.StartTime && request1.Options.EndTime) {
+                        request1.Options.StartTime = startTimeISO;
+                        request1.Options.EndTime = endTimeISO;
+
+                        if (request1.Options.Time !="") {
                             request1.Options.Time = "";
-                            // console.log("1 : "+request1.Options.Time);
-                            request1.Options.StartTime = action.startTime;
-                            request1.Options.EndTime = action.endTime;
-                        } else if (request1.Options.StartTime != null && request1.Options.EndTime != null && request1.Options.Time == "") {
-                            // console.log("2");
-                            request1.Options.StartTime = action.startTime;
-                            request1.Options.EndTime = action.endTime;
                         }
                     }
-
                 }
             });
-            // const newState = produce(state, draft => {
-            //     const request = draft.Historian.find(d => d.Name = action.requestName[0].name);
-            //     if (request.Options.StartTime != null && request.Options.EndTime != null) {
-            //         request.Options.StartTime = action.startTime;
-            //         request.Options.EndTime = action.endTime;
-            //     }
-            // });
-            //console.log(state)
-            ctx.setState(state);
-        })
+        });
+            // console.log(state)
+        ctx.setState(state);
     }
+
+
 
     @Action(ChangeTagIds)
     ChangeTagIds(ctx: StateContext<DashboardRequestStateModel[]>, action: ChangeTagIds) {
@@ -141,16 +132,42 @@ export class DashboardRequestState {
         });
     }
 
-    static getRequestHistorianWithName(chartName: any[]) {
+    static getRequestHistorianWithName(chartName: any[],period) {
         return createSelector([DashboardRequestState], (state: DashboardRequestModel) => {
             const stateHis = state.Historian;
             let reqHis: DashboardReqHistorian[] = []
             chartName[0].forEach((item) => {
-                let request = stateHis.find(d => d.Name == item.name);
-                reqHis.push(request);
+                let request = stateHis.find(d => d.Name.split('_')[0] == item.name.split('_')[0]);
+                if (item.period == period.display && period.display == 't') {
+                    reqHis.push(request);
+                }
+                if (item.period == period.display && period.display == '7d') {
+                     
+                    // request.Name = request.Name.split('_')[0]+'_DAY'
+                }
+                if (item.period == period.display && period.display == '30d') {
+                     
+                    // request.Name = request.Name.split('_')[0]+'_DAY'
+                    reqHis.push(request);
+                }
+                if (item.period == period.display && period.display == '3m') {
+                     
+                    // request.Name = request.Name.split('_')[0]+'_DAY'
+                    reqHis.push(request);
+                }
+                if (item.period == period.display && period.display == '12m') {
+                     
+                    // request.Name = request.Name.split('_')[0]+'_MONTH'
+                    reqHis.push(request);
+                }
+                if (request != null|| undefined) {
+                    reqHis.push(request)
+                }
+                
             });
-            //console.log(reqHis);
-            return reqHis;
+            if (reqHis != null|| undefined) {
+                return reqHis;
+            }
         });
     }
 

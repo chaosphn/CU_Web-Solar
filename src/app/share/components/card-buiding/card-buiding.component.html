@@ -48,15 +48,24 @@
           </div>
           <span class="cardItem-mobile">
             <div class="infoBox  d-flex">
-              <span class="infoTopic ">{{topic1 || 'Power'}}</span>
-              <div id="value" class="mobile-value">{{value1 | myNumber : '1.0-2'}}</div>
+              <span class="infoTopic ">
+                <img src="assets/images/thunder.png" alt="" height="20px" class="img-mobile">
+                {{topic1 || 'Power'}}
+              </span>
+              <div id="value" class="mobile-value">
+                {{value1 | myNumber : '1.0-2'}}
+                
+              </div>
               <div class="infoValue  d-flex">
                 <!-- <div id="value" class="">{{value1 | myNumber : '1.0-2'}}</div> -->
                 <span id="unit" class="">{{unit1 || 'kW'}}</span>
               </div>
             </div>
             <div class="infoBox  d-flex">
-              <span class="infoTopic ">{{topic2 || 'Energy'}}</span>
+              <span class="infoTopic ">
+                <img src="assets/images/solar-cell1.png" class="img-mobile">
+                {{topic2 || 'Energy'}}
+              </span>
               <div id="value" class="mobile-value">{{value2 | myNumber : '1.0-2'}}</div>
               <div class="infoValue  d-flex">
                 <!-- <span id="value" class="">{{value2 | myNumber : '1.0-2'}}</span> -->
@@ -66,16 +75,24 @@
           </span>
           <span class="cardItem-mobile">
             <div class="infoBox  d-flex">
-              <span class="infoTopic ">{{topic3 || 'Performance'}}</span>
+              <span class="infoTopic ">
+                <img src="assets/images/speedometer.png" class="img-mobile">
+                {{topic3 || 'Performance'}}
+              </span>
               <div id="value" class="mobile-value">{{value3 | myNumber : '1.0-2'}}</div>
+              <!-- <div id="value" class="mobile-value">0</div> -->
               <div class="infoValue  d-flex">
                 <!-- <span id="value" class="">{{value3 | myNumber : '1.0-2'}}</span> -->
                 <span id="unit" class="">{{unit3 || '%'}}</span>
               </div>
             </div>
             <div class="infoBox  d-flex">
-              <span class="infoTopic ">{{topic4 || 'Today Saving'}}</span>
+              <span class="infoTopic ">
+                <img src="assets/images/bath.png" class="img-mobile">
+                {{topic4 || 'Today Saving'}}
+              </span>
               <div id="value" class="mobile-value">{{value4 | myNumber : '1.0-2'}}</div>
+              <!-- <div id="value" class="mobile-value">0</div> -->
               <div class="infoValue  d-flex">
                 <!-- <span id="value" class="">{{value4 | myNumber : '1.0-2'}}</span> -->
                 <span id="unit" class="">{{unit4 || 'Bath'}}</span>

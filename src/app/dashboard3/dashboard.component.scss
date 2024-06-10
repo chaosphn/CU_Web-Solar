@@ -112,7 +112,7 @@
     display: none;
 }
 
-@media screen and (max-width: 721px) {
+@media screen and (max-width: 1024px) {
     
     .svgBox{
         display: none;
@@ -122,14 +122,20 @@
         justify-content: center;
     }
     .cardBoxs{
-        position: absolute;
-        top: 0;
-        left: 0;
+        display: flex;
+        width: 100%;
     }
     .container-fluid {
         width: 100%;
         height: auto;
         padding: 7px;
+    }
+
+    .cardList{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
     }
 }
 

@@ -30,6 +30,11 @@
     }
 }
 
+.row{
+    display: flex;
+    justify-content: center;
+}
+
 .bar-group {
     position: relative;
     height: 75px;

@@ -138,9 +138,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   
   getPeakTime(sec: number) {
     const time = new Date();
+    const timeISO = time.toISOString().split('.')[0];
     time.setHours(0, 0, 0, 0);
     time.setSeconds(sec);
-    const timeStr = "xxx";//this.datePipe.transform(time, 'HH:mm');
+    const timeStr = this.datePipe.transform(timeISO, 'HH:mm');
     this.cd.markForCheck();
     return timeStr;
   }
@@ -279,6 +280,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async getDashboardConfigs() {
     const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/dashboard/configurations/dashboard['+this.siteName.id+'].config.json');
+    // const weatherConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/card-weather/weather-value.json');
     //const ChartsConfigs: DashboardConfigStateModel[] = await this.httpService.getConfig('assets/dashboard/configurations/dashboard.chart.config.json');
     this.chartConfigs = [].concat(dashboardConfigs.chartConfig);
     //console.log(this.chartConfigs);
@@ -410,7 +412,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       r.Options.StartTime = st;
       r.Options.EndTime = now;
     });
-    const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart));
+    const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, _period));
     const res: DashboardResHistorian[] = await this.httpService.getPlotData(req);
     //console.log(res);
     this.dashboardInverterService.data = res;
@@ -425,7 +427,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
     await this.store.dispatch(new ChangePeriod1(tagChart, _period.startTime, _period.endTime)).toPromise();
 
-    const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart));
+    const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
     const res: DashboardResHistorian[] = await this.httpService.getPlotData(req);
     // console.log(req);
     // console.log(res);

@@ -8,6 +8,7 @@ import { CoreModule } from './core/core.module';
 import { ServerErrorsInterceptor } from './routings/interceptors/server-error.interceptor';
 import { TokenInterceptor } from './routings/interceptors/token.interceptor';
 import { AppLoadService } from './share/services/app-load.service';
+import { MatSelect, MatSidenav, MatToolbar } from '@angular/material';
 
 
 @NgModule({
@@ -18,7 +19,7 @@ import { AppLoadService } from './share/services/app-load.service';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
-    AppRoutingModule,
+    AppRoutingModule
   ],
   providers: [
     AppLoadService,

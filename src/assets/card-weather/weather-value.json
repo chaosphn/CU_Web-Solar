@@ -1,0 +1,21 @@
+{
+"realtimeConfig": [
+    
+    {
+        "Title": "weather_amb",
+        "Name": "SLOGGER06.AMBTEMP"
+    },
+    {
+        "Title": "weather_pv",
+        "Name": "SLOGGER06.PVTEMP"
+    },
+    {
+        "Title": "weather_irrtoday",
+        "Name": "SLOGGER06.IRR_TODAY"
+    },
+    {
+        "Title": "weather_co2",
+        "Name": "CALC06.CO2_TODAY"
+    }
+]
+}

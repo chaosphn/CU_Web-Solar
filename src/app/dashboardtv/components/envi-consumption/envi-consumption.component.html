@@ -7,41 +7,41 @@
       <div class="imgItem d-flex-ct red-bg" ><img src="/assets/images/sun3.png" ></div>
       <div class="infoItem d-col">
         <span class="tpc">Solar Irradient</span>
-        <span class="val">--- W/m <sup>2</sup></span>
+        <span class="val">{{Irr || '---'}} W/m <sup>2</sup></span>
+      </div>
+    </div>
+    <div class="gridItem d-flex-ct">
+      <div class="imgItem d-flex-ct yel-bg" ><img src="/assets/images/wind1.png" ></div>
+      <div class="infoItem d-col">
+        <span class="tpc">Solar Insolation</span>
+        <span class="val">{{Inso || '---'}}  kWh/m <sup>2</sup></span>
       </div>
     </div>
     <div class="gridItem d-flex-ct">
       <div class="imgItem d-flex-ct yel-bg" ><img src="/assets/images/cloudy.png" ></div>
       <div class="infoItem d-col">
         <span class="tpc">Ambient Temp.</span>
-        <span class="val">--- &deg;C </span>
+        <span class="val">{{Amb || '---'}} &deg;C </span>
       </div>
     </div>
     <div class="gridItem d-flex-ct">
       <div class="imgItem d-flex-ct red-bg" ><img src="/assets/images/solar-panel.png" ></div>
       <div class="infoItem d-col ">
         <span class="tpc">Module Temp.</span>
-        <span class="val">--- &deg;C </span>
-      </div>
-    </div>
-    <div class="gridItem d-flex-ct">
-      <div class="imgItem d-flex-ct yel-bg" ><img src="/assets/images/wind1.png" ></div>
-      <div class="infoItem d-col">
-        <span class="tpc">Wind Speed</span>
-        <span class="val">--- m/s</span>
+        <span class="val">{{Pv || '---'}} &deg;C </span>
       </div>
     </div>
     <div class="enviItem red-bd d-flex">
       <div class="imgItem d-flex-ct"><img src="/assets/images/carbon.png" alt="" width="50px"></div>
       <div class="infoItem d-col">
-        <span class="tpc">---</span>
+        <span class="tpc">{{Co2 || '---'}}</span>
         <span class="val">(Ton)<br>Co<sup>2</sup> Saving </span>
       </div>
     </div>
     <div class="enviItem yel-bd d-flex">
       <div class="imgItem d-flex-ct"><img src="/assets/images/money.png" alt="" width="50px"></div>
       <div class="infoItem d-col">
-        <span class="tpc">---</span>
+        <span class="tpc">{{Saving || '---'}}</span>
         <span class="val">(Bath)<br>Today Saving </span>
       </div>
     </div>

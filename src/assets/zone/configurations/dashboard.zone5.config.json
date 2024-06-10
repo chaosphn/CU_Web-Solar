@@ -13,28 +13,76 @@
 			"Name": "CALC.ZONE00.WH"
 		},
 		{
-			"Title": "SAT000_power",
-			"Name": ""
+			"Title": "LAW003_power",
+			"Name": "SLOGGER08.INV_WAC"
 		},
 		{
-			"Title": "SAT000_energy",
-			"Name": ""
+			"Title": "LAW003_energy",
+			"Name": "SLOGGER08.WH_TODAY"
 		},
 		{
-			"Title": "SAT000_pr",
-			"Name": ""
+			"Title": "LAW003_pr",
+			"Name": "CALC08.PR"
 		},
 		{
-			"Title": "SAT000_irr",
-			"Name": ""
+			"Title": "LAW003_irr",
+			"Name": "SLOGGER08.PYRANO"
 		},
 		{
-			"Title": "SAT000_pv",
-			"Name": ""
+			"Title": "LAW003_pv",
+			"Name": "SLOGGER08.PVTEMP"
 		},
 		{
-			"Title": "SAT000_amb",
-			"Name": ""
+			"Title": "LAW003_amb",
+			"Name": "SLOGGER08.AMBTEMP"
+		},
+		{
+			"Title": "CEN099_power",
+			"Name": "SLOGGER19.INV_WAC"
+		},
+		{
+			"Title": "CEN099_energy",
+			"Name": "SLOGGER19.WH_TODAY"
+		},
+		{
+			"Title": "CEN099_pr",
+			"Name": "CALC19.PR"
+		},
+		{
+			"Title": "CEN099_irr",
+			"Name": "SLOGGER19.PYRANO"
+		},
+		{
+			"Title": "CEN099_pv",
+			"Name": "SLOGGER19.PVTEMP"
+		},
+		{
+			"Title": "CEN099_amb",
+			"Name": "SLOGGER19.AMBTEMP"
+		},
+		{
+			"Title": "ESC008_power",
+			"Name": "SLOGGER33.INV_WAC"
+		},
+		{
+			"Title": "ESC008_energy",
+			"Name": "SLOGGER33.WH_TODAY"
+		},
+		{
+			"Title": "ESC008_pr",
+			"Name": "CALC33.PR"
+		},
+		{
+			"Title": "ESC008_irr",
+			"Name": "SLOGGER33.PYRANO"
+		},
+		{
+			"Title": "ESC008_pv",
+			"Name": "SLOGGER33.PVTEMP"
+		},
+		{
+			"Title": "ESC008_amb",
+			"Name": "SLOGGER33.AMBTEMP"
 		}
 	],
 	"historianConfig": [

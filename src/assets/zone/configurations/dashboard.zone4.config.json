@@ -22,7 +22,7 @@
 		},
 		{
 			"Title": "CEN001_pr",
-			"Name": ""
+			"Name": "CALC02.PR"
 		},
 		{
 			"Title": "CEN001_irr",
@@ -46,7 +46,7 @@
 		},
 		{
 			"Title": "CEN005_pr",
-			"Name": ""
+			"Name": "CALC03.PR"
 		},
 		{
 			"Title": "CEN005_irr",
@@ -70,7 +70,7 @@
 		},
 		{
 			"Title": "CEN003_pr",
-			"Name": ""
+			"Name": "CALC04.PR"
 		},
 		{
 			"Title": "CEN003_irr",
@@ -94,7 +94,7 @@
 		},
 		{
 			"Title": "PSC012_pr",
-			"Name": ""
+			"Name": "CALC17.PR"
 		},
 		{
 			"Title": "PSC012_irr",
@@ -118,7 +118,7 @@
 		},
 		{
 			"Title": "CEN087_pr",
-			"Name": ""
+			"Name": "CALC21.PR"
 		},
 		{
 			"Title": "CEN087_irr",
@@ -142,7 +142,7 @@
 		},
 		{
 			"Title": "CEN006_pr",
-			"Name": ""
+			"Name": "CALC40.PR"
 		},
 		{
 			"Title": "CEN006_irr",
@@ -158,6 +158,26 @@
 		}
 	],
 	"historianConfig": [
+		{
+			"Name": "CALC.ZONE04.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER06.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
 		{
 			"Name": "SLOGGER02.INV_WAC",
 			"Title": "X1",
@@ -274,16 +294,6 @@
 			"Options" : {
 				"Interval": 5,
 				"Time" : "t",
-				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-12-24T23:59:59"
-			}
-		},
-		{
-			"Name": "CALC.ZONE04.W",
-			"Title": "X1",
-			"Options" : {
-				"Interval": 5,
-				"Time" :"t",
 				"StartTime" : "2021-06-24T00:00:00",
 				"EndTime" : "2023-12-24T23:59:59"
 			}
@@ -642,7 +652,7 @@
 			"name": "ZONE_CHART",
 			"tags": [
 				{
-					"name": "",
+					"name": "SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {

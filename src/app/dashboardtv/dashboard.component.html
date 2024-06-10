@@ -1,13 +1,11 @@
-<div class="container-fluid">
-    <div [ngClass]="!isFullmap? 'main-container' : 'extend-container'">
-        <section id="main" class="">
-            <aside class="left-content ">
-                <div class="headerCard w-100 ">
+<div class="container-fluid w-100 bz">
+    <div class="main-container bz">
+        <div class="main bz brd">
+            <!-- <div class="left-content bz">
+                <div class="headerCard w-100 bz">
                     <app-cu-container>
                         <ng-template #gradient>
-                            <div class="headerContent  "   >
-                                <!-- <img src="/assets/images/mea.png" loading="lazy" alt="" height="70px" (click)="isChange()"> -->
-                                <!-- <img src="/assets/images/cu.png" loading="lazy" alt="" height="70px" (click)="increaseValue()"> -->
+                            <div class="headerContent">
                                 <img src="/assets/images/mea.png" id="mea" loading="lazy" alt="" height="70px" (click)="increaseValue()">
                                 <img src="/assets/images/cu.png" id="cu" loading="lazy" alt="" height="70px" (click)="increaseValue()">
                                 <div class="h-info ">
@@ -18,30 +16,35 @@
                         </ng-template>
                     </app-cu-container>
                 </div>
-                <div class="overviewCard w-100">
+                <div class="overviewCard w-100 bz">
                     <app-cu-container>
-                        <ng-template #gradient>
-                            
+                        <ng-template #gradient>                           
                            <app-overview-consumption class=""
                           [power]="data?.singleValue['total_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
                            [today]="data?.singleValue['today_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
                            [total]="data?.singleValue['total_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                           [pr]="'---'"
+                           [pr]="getAverageValue('_pr')"
                            >
                            </app-overview-consumption>
                         </ng-template>
                     </app-cu-container>
                 </div>
-                <div class="enviCard w-100">
+                <div class="enviCard w-100 bz">
                     <app-cu-container>
                         <ng-template #gradient>
-                           <app-envi-consumption class="">
+                           <app-envi-consumption class=""
+                           [Irr]="getAverageValue('irr_value')"
+                           [Amb]="getAverageValue('amb_value')"
+                           [Pv]="getAverageValue('pv_value')"
+                           [Inso]="getAverageValue('inso')"
+                           [Co2]="getSumValue('_co2')"
+                           [Saving]="getSumValue('_energy') * 2.7">
                            </app-envi-consumption>
                         </ng-template>
                     </app-cu-container>
                 </div>
-            </aside>
-            <aside class="right-content ">
+            </div>
+            <div class="right-content bz">
                 <div class="mapCard   w-100 h-100" (click)="modeFullmap()">
                     <app-cu-container>
                         <ng-template #gradient>
@@ -148,10 +151,10 @@
                         </ng-template>
                     </app-cu-container>
                 </div>
-            </aside>
-        </section>
-        <section id="footer" class="" >
-            <app-cu-container>
+            </div> -->
+        </div>
+        <div class="footer bz brd" >
+            <!-- <app-cu-container>
                 <ng-template #gradient>
                     <div class="chart-container   w-100">
                         <div class="cardTopic ">BUILDING GENERATION ( kWh )</div>
@@ -167,8 +170,8 @@
                         </div>
                       </div>
                 </ng-template>
-            </app-cu-container>
-        </section>
+            </app-cu-container> -->
+        </div>
         <section  class="mobileTable w-100" >
             <app-cu-container>
                 <ng-template #gradient>
@@ -348,7 +351,7 @@
             </ng-template>
         </app-cu-container>
     </div> -->
-    <div class="headerCard-full " *ngIf="isFullmap" (click)="isChange()">
+    <!-- <div class="headerCard-full " *ngIf="isFullmap" (click)="isChange()">
         <app-cu-container>
             <ng-template #gradient>
                 <div class="headerContent1  "  (click)="isChange()" >
@@ -361,5 +364,5 @@
                 </div>
             </ng-template>
         </app-cu-container>
-    </div>
+    </div> -->
 </div>

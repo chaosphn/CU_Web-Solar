@@ -30,7 +30,7 @@
 		},
 		{
 			"Title": "energy_expected",
-			"Name": "CALC06.WH_EXPECT"
+			"Name": "CALC06.WH_EXPECT_TODAY"
 		},
 		{
 			"Title": "energy_today",
@@ -119,7 +119,17 @@
 				"StartTime" : "2021-06-24T00:00:00",
 				"EndTime" : "2023-12-24T23:59:59"
 			}
-		}				
+		},
+		{
+			"Name": "CALC06.PR_HOUR",
+			"Title": "X6",
+			"Options" : {
+				"Interval": 60,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}					
 	],
 	"chartConfig":[
 		{

@@ -13,28 +13,100 @@
 			"Name": "CALC.ZONE00.WH"
 		},
 		{
-			"Title": "SAT000_power",
-			"Name": ""
+			"Title": "INS009_power",
+			"Name": "SLOGGER12.INV_WAC"
 		},
 		{
-			"Title": "SAT000_energy",
-			"Name": ""
+			"Title": "INS009_energy",
+			"Name": "SLOGGER12.WH_TODAY"
 		},
 		{
-			"Title": "SAT000_pr",
-			"Name": ""
+			"Title": "INS009_pr",
+			"Name": "CALC12.PR"
 		},
 		{
-			"Title": "SAT000_irr",
-			"Name": ""
+			"Title": "INS009_irr",
+			"Name": "SLOGGER12.PYRANO"
 		},
 		{
-			"Title": "SAT000_pv",
-			"Name": ""
+			"Title": "INS009_pv",
+			"Name": "SLOGGER12.PVTEMP"
 		},
 		{
-			"Title": "SAT000_amb",
-			"Name": ""
+			"Title": "INS009_amb",
+			"Name": "SLOGGER12.AMBTEMP"
+		},
+		{
+			"Title": "CEN093_power",
+			"Name": "SLOGGER22.INV_WAC"
+		},
+		{
+			"Title": "CEN093_energy",
+			"Name": "SLOGGER22.WH_TODAY"
+		},
+		{
+			"Title": "CEN093_pr",
+			"Name": "CALC22.PR"
+		},
+		{
+			"Title": "CEN093_irr",
+			"Name": "SLOGGER22.PYRANO"
+		},
+		{
+			"Title": "CEN093_pv",
+			"Name": "SLOGGER22.PVTEMP"
+		},
+		{
+			"Title": "CEN093_amb",
+			"Name": "SLOGGER22.AMBTEMP"
+		},
+		{
+			"Title": "CEN068_power",
+			"Name": "SLOGGER29.INV_WAC"
+		},
+		{
+			"Title": "CEN068_energy",
+			"Name": "SLOGGER29.WH_TODAY"
+		},
+		{
+			"Title": "CEN068_pr",
+			"Name": "CALC29.PR"
+		},
+		{
+			"Title": "CEN068_irr",
+			"Name": "SLOGGER29.PYRANO"
+		},
+		{
+			"Title": "CEN068_pv",
+			"Name": "SLOGGER29.PVTEMP"
+		},
+		{
+			"Title": "CEN068_amb",
+			"Name": "SLOGGER29.AMBTEMP"
+		},
+		{
+			"Title": "ECO001_power",
+			"Name": "SLOGGER36.INV_WAC"
+		},
+		{
+			"Title": "ECO001_energy",
+			"Name": "SLOGGER36.WH_TODAY"
+		},
+		{
+			"Title": "ECO001_pr",
+			"Name": "CALC36.PR"
+		},
+		{
+			"Title": "ECO001_irr",
+			"Name": "SLOGGER36.PYRANO"
+		},
+		{
+			"Title": "ECO001_pv",
+			"Name": "SLOGGER36.PVTEMP"
+		},
+		{
+			"Title": "ECO001_amb",
+			"Name": "SLOGGER36.AMBTEMP"
 		}
 	],
 	"historianConfig": [

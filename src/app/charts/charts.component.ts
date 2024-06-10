@@ -115,7 +115,7 @@ export class ChartsComponent implements OnInit {
     let grpName = "";
     tags.forEach( (item , index) => {
       const invInfo = item.Name.split(".");
-      if(invInfo[0] != grpName){
+      if(invInfo[0] != grpName && !tagGroup.find(x => x.Display == invInfo[0])){
         tagGroup.push({
           Name: invInfo[0],
           FullPath: item.Address,

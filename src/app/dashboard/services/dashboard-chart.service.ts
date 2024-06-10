@@ -35,6 +35,7 @@ export class DashboardChartService {
             if (period) {
                 xAxis.max = new Date(period.endTime).getTime();
                 xAxis.min = new Date(period.startTime).getTime();
+                // console.log("min : " + period.startTime + "\n max : " + period.endTime);
             }
             //console.log(xAxis);
             chartParams.addXAxis(xAxis);

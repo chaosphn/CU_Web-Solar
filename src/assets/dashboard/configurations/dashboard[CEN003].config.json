@@ -30,7 +30,7 @@
 		},
 		{
 			"Title": "energy_expected",
-			"Name": "CALC04.WH_EXPECT"
+			"Name": "CALC04.WH_EXPECT_TODAY"
 		},
 		{
 			"Title": "energy_today",
@@ -50,19 +50,19 @@
 		},
 		{
 			"Title": "weather_irr",
-			"Name": "SLOGGER04.PYRANO"
+			"Name": "SLOGGER06.PYRANO"
 		},
 		{
 			"Title": "weather_amb",
-			"Name": "SLOGGER04.AMBTEMP"
+			"Name": "SLOGGER06.AMBTEMP"
 		},
 		{
 			"Title": "weather_pv",
-			"Name": "SLOGGER04.PVTEMP"
+			"Name": "SLOGGER06.PVTEMP"
 		},
 		{
 			"Title": "weather_irrtoday",
-			"Name": "SLOGGER04.IRR_TODAY"
+			"Name": "SLOGGER06.IRR_TODAY"
 		},
 		{
 			"Title": "weather_co2",
@@ -81,7 +81,7 @@
 			}
 		},
 		{
-			"Name": "SLOGGER04.PYRANO",
+			"Name": "SLOGGER06.PYRANO",
 			"Title": "X2",
 			"Options" : {
 				"Interval": 5,
@@ -119,14 +119,24 @@
 				"StartTime" : "2021-06-24T00:00:00",
 				"EndTime" : "2023-12-24T23:59:59"
 			}
-		}				
+		},
+		{
+			"Name": "CALC04.PR_HOUR",
+			"Title": "X6",
+			"Options" : {
+				"Interval": 60,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}					
 	],
 	"chartConfig":[
 		{
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "SLOGGER04.PYRANO",
+					"name": "SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {

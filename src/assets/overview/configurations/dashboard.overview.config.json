@@ -142,7 +142,7 @@
 			"name": "allzoneGeneration",
 			"tags": [
 				{
-					"name": "",
+					"name": "SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {
@@ -200,7 +200,7 @@
 			"name": "zone1Generation",
 			"tags": [
 				{
-					"name": "",
+					"name": "SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {
@@ -316,7 +316,7 @@
 			"name": "zone3Generation",
 			"tags": [
 				{
-					"name": "",
+					"name": "SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {
@@ -374,7 +374,7 @@
 			"name": "zone4Generation",
 			"tags": [
 				{
-					"name": "",
+					"name": "SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {

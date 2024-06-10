@@ -13,28 +13,124 @@
 			"Name": "CALC.ZONE00.WH"
 		},
 		{
-			"Title": "SAT000_power",
-			"Name": ""
+			"Title": "SCI028_power",
+			"Name": "SLOGGER26.INV_WAC"
 		},
 		{
-			"Title": "SAT000_energy",
-			"Name": ""
+			"Title": "SCI028_energy",
+			"Name": "SLOGGER26.WH_TODAY"
 		},
 		{
-			"Title": "SAT000_pr",
-			"Name": ""
+			"Title": "SCI028_pr",
+			"Name": "CALC26.PR"
 		},
 		{
-			"Title": "SAT000_irr",
-			"Name": ""
+			"Title": "SCI028_irr",
+			"Name": "SLOGGER26.PYRANO"
 		},
 		{
-			"Title": "SAT000_pv",
-			"Name": ""
+			"Title": "SCI028_pv",
+			"Name": "SLOGGER26.PVTEMP"
 		},
 		{
-			"Title": "SAT000_amb",
-			"Name": ""
+			"Title": "SCI028_amb",
+			"Name": "SLOGGER26.AMBTEMP"
+		},
+		{
+			"Title": "ENG028_power",
+			"Name": "SLOGGER28.INV_WAC"
+		},
+		{
+			"Title": "ENG028_energy",
+			"Name": "SLOGGER28.WH_TODAY"
+		},
+		{
+			"Title": "ENG028_pr",
+			"Name": "CALC28.PR"
+		},
+		{
+			"Title": "ENG028_irr",
+			"Name": "SLOGGER28.PYRANO"
+		},
+		{
+			"Title": "ENG028_pv",
+			"Name": "SLOGGER28.PVTEMP"
+		},
+		{
+			"Title": "ENG028_amb",
+			"Name": "SLOGGER28.AMBTEMP"
+		},
+		{
+			"Title": "ENG026_power",
+			"Name": "SLOGGER30.INV_WAC"
+		},
+		{
+			"Title": "ENG026_energy",
+			"Name": "SLOGGER30.WH_TODAY"
+		},
+		{
+			"Title": "ENG026_pr",
+			"Name": "CALC30.PR"
+		},
+		{
+			"Title": "ENG026_irr",
+			"Name": "SLOGGER30.PYRANO"
+		},
+		{
+			"Title": "ENG026_pv",
+			"Name": "SLOGGER30.PVTEMP"
+		},
+		{
+			"Title": "ENG026_amb",
+			"Name": "SLOGGER30.AMBTEMP"
+		},
+		{
+			"Title": "ENG030_power",
+			"Name": "SLOGGER31.INV_WAC"
+		},
+		{
+			"Title": "ENG030_energy",
+			"Name": "SLOGGER31.WH_TODAY"
+		},
+		{
+			"Title": "ENG030_pr",
+			"Name": "CALC31.PR"
+		},
+		{
+			"Title": "ENG030_irr",
+			"Name": "SLOGGER31.PYRANO"
+		},
+		{
+			"Title": "ENG030_pv",
+			"Name": "SLOGGER31.PVTEMP"
+		},
+		{
+			"Title": "ENG030_amb",
+			"Name": "SLOGGER31.AMBTEMP"
+		},
+		{
+			"Title": "SCI025_power",
+			"Name": "SLOGGER34.INV_WAC"
+		},
+		{
+			"Title": "SCI025_energy",
+			"Name": "SLOGGER34.WH_TODAY"
+		},
+		{
+			"Title": "SCI025_pr",
+			"Name": "CALC34.PR"
+		},
+		{
+			"Title": "SCI025_irr",
+			"Name": "SLOGGER34.PYRANO"
+		},
+		{
+			"Title": "SCI025_pv",
+			"Name": "SLOGGER34.PVTEMP"
+		},
+		{
+			"Title": "SCI025_amb",
+			"Name": "SLOGGER34.AMBTEMP"
 		}
 	],
 	"historianConfig": [

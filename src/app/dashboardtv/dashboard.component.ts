@@ -417,6 +417,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.initloadInverterValues();
     // console.log(this.data.singleValue['CEN091_energy'].dataRecords[0].Value);
     this.updateZone();
+    console.log(this.getSumValue("_co2"))
     this.startTimer(this.appLoadService.Config.Timer * 60000);
     // console.log(this.data)
   }
@@ -693,6 +694,32 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.subscriptions.forEach(sub => {
       sub.unsubscribe();
     });
+  }
+
+  getSumValue(key: string){
+    const data = Object.entries(this.data.singleValue)
+    .filter(x => x[0].endsWith(key))
+      .map(d => parseFloat(d[1].dataRecords[0].Value))
+        .reduce((pre, cur) => { pre += cur; return pre; }, 0);
+    console.log(data)
+    if(data){
+      return data.toFixed(2);
+    } else {
+      return 0;
+    }
+  }
+
+  getAverageValue(key: string){
+    const data = Object.entries(this.data.singleValue)
+    .filter(x => x[0].endsWith(key))
+      .map(d => parseFloat(d[1].dataRecords[0].Value))
+        .reduce((pre, cur, idx, arr) => { pre += (cur/arr.length); return pre; }, 0);
+    console.log(data)
+    if(data){
+      return data.toFixed(2);
+    } else {
+      return 0;
+    }
   }
 
 

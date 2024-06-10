@@ -29,60 +29,132 @@
 			"Name": "TOU02.W"
 		},
 		{
-			"Title": "CEN001_energy",
-			"Name": "CALC02.WH_TODAY"
-		},
-		{
 			"Title": "ARC003_power",
 			"Name": "TOU01.W"
-		},
-		{
-			"Title": "ARC003_energy",
-			"Name": "CALC01.WH_TODAY"
 		},
 		{
 			"Title": "CEN003_power",
 			"Name": "TOU04.W"
 		},
 		{
-			"Title": "CEN003_energy",
-			"Name": "CALC04.WH_TODAY"
-		},
-		{
 			"Title": "CEN005_power",
 			"Name": "TOU03.W"
-		},
-		{
-			"Title": "CEN005_energy",
-			"Name": "CALC03.WH_TODAY"
 		},
 		{
 			"Title": "CEN072_power",
 			"Name": "TOU05.W"
 		},
 		{
-			"Title": "CEN072_energy",
-			"Name": "CALC05.WH_TODAY"
-		},
-		{
 			"Title": "CEN091_power",
 			"Name": "TOU06.W"
 		},
 		{
+			"Title": "CEN001_energy",
+			"Name": "SLOGGER02.WH_TODAY"
+		},
+		{
+			"Title": "ARC003_energy",
+			"Name": "SLOGGER01.WH_TODAY"
+		},
+		{
+			"Title": "CEN003_energy",
+			"Name": "SLOGGER04.WH_TODAY"
+		},
+		{
+			"Title": "CEN005_energy",
+			"Name": "SLOGGER03.WH_TODAY"
+		},
+		{
+			"Title": "CEN072_energy",
+			"Name": "SLOGGER05.WH_TODAY"
+		},
+		{
 			"Title": "CEN091_energy",
-			"Name": "CALC06.WH_TODAY"
+			"Name": "SLOGGER06.WH_TODAY"
+		},
+		{
+			"Title": "CEN001_pr",
+			"Name": "CALC02.PR"
+		},
+		{
+			"Title": "ARC003_pr",
+			"Name": "CALC01.PR"
+		},
+		{
+			"Title": "CEN003_pr",
+			"Name": "CALC04.PR"
+		},
+		{
+			"Title": "CEN005_pr",
+			"Name": "CALC03.PR"
+		},
+		{
+			"Title": "CEN072_pr",
+			"Name": "CALC05.PR"
+		},
+		{
+			"Title": "CEN091_pr",
+			"Name": "CALC06.PR"
+		},
+		{
+			"Title": "CEN001_co2",
+			"Name": "CALC02.CO2_TODAY"
+		},
+		{
+			"Title": "ARC003_co2",
+			"Name": "CALC01.CO2_TODAY"
+		},
+		{
+			"Title": "CEN003_co2",
+			"Name": "CALC04.CO2_TODAY"
+		},
+		{
+			"Title": "CEN005_co2",
+			"Name": "CALC03.CO2_TODAY"
+		},
+		{
+			"Title": "CEN072_co2",
+			"Name": "CALC05.CO2_TODAY"
+		},
+		{
+			"Title": "CEN091_co2",
+			"Name": "CALC06.CO2_TODAY"
+		},
+		{
+			"Title": "CEN001_inso",
+			"Name": "SLOGGER02.IRR_TODAY"
+		},
+		{
+			"Title": "ARC003_inso",
+			"Name": "SLOGGER01.IRR_TODAY"
+		},
+		{
+			"Title": "CEN003_inso",
+			"Name": "SLOGGER04.IRR_TODAY"
+		},
+		{
+			"Title": "CEN005_inso",
+			"Name": "SLOGGER03.IRR_TODAY"
+		},
+		{
+			"Title": "CEN072_inso",
+			"Name": "SLOGGER05.IRR_TODAY"
+		},
+		{
+			"Title": "CEN091_inso",
+			"Name": "SLOGGER06.IRR_TODAY"
 		},
 		{
 			"Title": "irr_value",
-			"Name": ""
+			"Name": "SLOGGER06.PYRANO"
 		},
 		{
 			"Title": "pv_value",
-			"Name": ""
+			"Name": "SLOGGER06.PVTEMP"
 		},
 		{
 			"Title": "amb_value",
-			"Name": ""
+			"Name": "SLOGGER06.AMBTEMP"
 		},
 		{
 			"Title": "today_energy",

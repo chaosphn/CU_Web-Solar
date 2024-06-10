@@ -22,7 +22,7 @@
 		},
 		{
 			"Title": "CEN072_pr",
-			"Name": ""
+			"Name": "CALC05.PR"
 		},
 		{
 			"Title": "CEN072_irr",
@@ -46,7 +46,7 @@
 		},
 		{
 			"Title": "CEN091_pr",
-			"Name": ""
+			"Name": "CALC06.PR"
 		},
 		{
 			"Title": "CEN091_irr",
@@ -70,7 +70,7 @@
 		},
 		{
 			"Title": "CEN089_pr",
-			"Name": ""
+			"Name": "CALC13.PR"
 		},
 		{
 			"Title": "CEN089_irr",
@@ -94,7 +94,7 @@
 		},
 		{
 			"Title": "CEN103_pr",
-			"Name": ""
+			"Name": "CALC14.PR"
 		},
 		{
 			"Title": "CEN103_irr",
@@ -118,7 +118,7 @@
 		},
 		{
 			"Title": "INS011_pr",
-			"Name": ""
+			"Name": "CALC15.PR"
 		},
 		{
 			"Title": "INS011_irr",
@@ -142,7 +142,7 @@
 		},
 		{
 			"Title": "CEN027_pr",
-			"Name": ""
+			"Name": "CALC16.PR"
 		},
 		{
 			"Title": "CEN027_irr",
@@ -166,7 +166,7 @@
 		},
 		{
 			"Title": "INS010_pr",
-			"Name": ""
+			"Name": "CALC38.PR"
 		},
 		{
 			"Title": "INS010_irr",
@@ -745,7 +745,7 @@
 			"name": "ZONE_CHART",
 			"tags": [
 				{
-					"name": "",
+					"name": "SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {

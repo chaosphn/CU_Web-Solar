@@ -22,7 +22,7 @@
 		},
 		{
 			"Title": "ARC003_pr",
-			"Name": ""
+			"Name": "CALC01.PR"
 		},
 		{
 			"Title": "ARC003_irr",
@@ -46,7 +46,7 @@
 		},
 		{
 			"Title": "CEN079_pr",
-			"Name": ""
+			"Name": "CALC18.PR"
 		},
 		{
 			"Title": "CEN079_irr",
@@ -70,7 +70,7 @@
 		},
 		{
 			"Title": "ART005_pr",
-			"Name": ""
+			"Name": "CALC24.PR"
 		},
 		{
 			"Title": "ART005_irr",
@@ -94,7 +94,7 @@
 		},
 		{
 			"Title": "CEN053_pr",
-			"Name": ""
+			"Name": "CALC37.PR"
 		},
 		{
 			"Title": "CEN053_irr",
@@ -118,7 +118,7 @@
 		},
 		{
 			"Title": "CEN069_pr",
-			"Name": ""
+			"Name": "CALC39.PR"
 		},
 		{
 			"Title": "CEN069_irr",
@@ -134,6 +134,26 @@
 		}
 	],
 	"historianConfig": [
+		{
+			"Name": "CALC.ZONE03.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER06.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
 		{
 			"Name": "SLOGGER01.INV_WAC",
 			"Title": "X1",
@@ -530,7 +550,7 @@
 			"name": "ZONE_CHART",
 			"tags": [
 				{
-					"name": "",
+					"name": "SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {

@@ -23,6 +23,8 @@ export class TooltipVerticalComponent implements OnInit, OnChanges  {
 
   @Input() display: boolean = true;
   @Input() classDisplay: string = "top";
+  
+  @Input() cbStatus: boolean = false;
   constructor() { }
 
   ngOnInit(): void {

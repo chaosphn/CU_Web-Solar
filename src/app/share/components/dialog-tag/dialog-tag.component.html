@@ -1,6 +1,6 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-lg-11 col-md-12 order-lg-1 order-2  tag-groups">
+<div class="container-fluid ">
+  <div class="row ">
+    <div class="col-lg-11 col-md-12 order-lg-1 order-2  tag-groups ">
       <!-- <div class="card-columns">
         <div class="card" *ngFor="let d of data">
           <div class="card-body">
@@ -29,8 +29,9 @@
           </div>
         </div>
       </div> -->
+      
       <ngx-masonry [options]="masonryOptions">
-        <ngxMasonryItem class="masonry-item" *ngFor="let d of data">
+        <ngxMasonryItem class="masonry-item " *ngFor="let d of data">
           <!-- <div class="card-body"> -->
           <div class="">
             <h5 class="card-title">{{d.Category}}</h5>
@@ -40,7 +41,8 @@
                   <p class="card-text group-name" (click)="selectAllOnceGroup(d)"
                     [ngClass]="{'active': getActiveOnceGroup(d)}">ALL</p>
                   <p class="card-text group-name" *ngFor="let a of d.Aliases | orderBy: 'Name'" (click)="selectOnceGroup(d, a)"
-                    [ngClass]="{'active': a.active }">{{a.Name}}</p>
+                    [ngClass]="{'active': a.active }">{{a.Name}}
+                  </p>
                 </div>
               </div>
             </ng-container>
@@ -49,8 +51,10 @@
                 <div class="col-6 border-right pd-r-5 bd">
                   <p class="card-text group-name half" (click)="selectAllGroup(d)"
                     [ngClass]="{'active': getActiveAllGroup(d)}">ALL</p>
-                  <p class="card-text group-name half" *ngFor="let g of d.Groups | orderBy: 'Name'" [ngClass]="{'active': g.active }"
-                    (click)="selectGroup(d, g)">{{g.Name}}</p>
+                  <div class="card-text group-name half" *ngFor="let g of d.Groups | orderBy: 'Name'" [ngClass]="{'active': g.active }"
+                    (click)="selectGroup(d, g)">{{g.Name}}
+                    <div class="tooltip bz w-100" >{{getBuildingName(g.Name)}}</div>
+                  </div>
                 </div>
                 <div class="col-6 pd-l-5 bd">
                   <p class="card-text group-name half" (click)="selectAllAlias(d)"

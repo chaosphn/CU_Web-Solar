@@ -20,6 +20,7 @@ export class DashboardInverterService {
             const tagName = this.getTagName(c);
             if (tagName) {
                 const inv = this.getValue(tagName, c);
+                //console.log(inv);
                 inverters.push(inv);
             }
         });
@@ -45,6 +46,7 @@ export class DashboardInverterService {
                 // +"\nEnd Time :" + today.records[0].TimeStamp);
                 // console.log("End Data : " +today.records[today.records.length - 1].Value
                 // +"\nEnd Time :" + today.records[today.records.length - 1].TimeStamp);
+                //console.log(today)
                 inverter.Name = name;
                 inverter.Timestamp = today.records[0].TimeStamp;
                 inverter.Value = Math.abs(diff).toFixed(4).toString()/*'500'*/;

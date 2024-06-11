@@ -112,6 +112,38 @@
     display: none;
 }
 
+.test-box{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1500px;
+    height: 750px;
+    margin: 0;
+    transform-style: preserve-3d;
+    //background-color: skyblue;
+    transform:  rotateY(-47deg) rotateX(45deg) scale(1) translate(-50%, -50%);
+    z-index: 5;
+    .line1{
+        z-index: 4;
+        width: 1500px;
+        height: 750px;
+        transform: translateZ(-40px);
+    }
+    .line2{
+        z-index: 6;
+        width: 1500px;
+        height: 750px;
+        transform: translateZ(-80px);
+    }
+}
+
+// .test-box div{
+//     transform: rotateX(90deg) rotateY(0deg) translate(-48px, -120px) translateZ(100px) scale(0);
+//     width: 100px;
+//     height: 100px;
+//     background-color: lime;
+// }
+
 @media screen and (max-width: 1024px) {
     
     .svgBox{
@@ -135,7 +167,6 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-
     }
 }
 

@@ -169,7 +169,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       const realtimeData = await this.requestRawData();
       const historianData = await this.requestPlotData();
       if (historianData) {
-        this.dashboardInverterService.data = historianData;
+        this.dashboardInverterService.data = historianData.filter(x => x.Name.includes("INV"));
       }
       //await this.addDataToStore(rawData);
       const rawTF = await this.addRealtimeDataToStore(realtimeData);
@@ -329,9 +329,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   async requestPlotData(): Promise<any[]> {
     const requests = this.store.selectSnapshot(DashboardRequestState.getRequestHistorian());
     //console.log(requests);
-    const data = await this.httpService.getPlotData(requests);
-    //console.log(data);
-    return data;
+    let data: DashboardResHistorian[] = await this.httpService.getHistorian(requests);
+    return this.getMaxValueRecord(data);
+  }
+
+  getMaxValueRecord(data: DashboardResHistorian[]) {
+    return data.map(item => {
+      const maxValues = {};
+      item.records.forEach(record => {
+        const TimeStamp = record.TimeStamp;
+        const value = parseFloat(record.Value.replace(",", ""));
+
+        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value.replace(",",""))) {
+          maxValues[TimeStamp] = {...record,Value:value.toString() };
+        }
+      });
+
+
+      const maxRecords = Object.values(maxValues)
+      return  {...item, records:maxRecords}
+    })
   }
 
   async addDataToStore(data: any[]) {
@@ -418,26 +435,25 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       r.Options.StartTime = st;
       r.Options.EndTime = now;
     });
-    const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, _period));
-    const res: DashboardResHistorian[] = await this.httpService.getPlotData(req);
-    //console.log(res);
-    this.dashboardInverterService.data = res;
+    const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
+    const res: DashboardResHistorian[] = await this.httpService.getHistorian(this.dashboardInverterService.requests);
+    // console.log(req);
+    // console.log(res);
+    this.dashboardInverterService.data = this.getMaxValueRecord(res);
     this.loadInverterValues();
   }
 
   // emit event from view (period component)
   async selectPeriod(period: Period, chartName: string) {
-    console.log("Chart: "+chartName+"\nStart :"+period.name);
+    //console.log("Chart: "+chartName+"\nStart :"+period.name);
     await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
     const _period = this.dateTimeService.parseDate(period.name);
     const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
     await this.store.dispatch(new ChangePeriod1(tagChart, _period.startTime, _period.endTime, period.name)).toPromise();
 
     const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
-    const res: DashboardResHistorian[] = await this.httpService.getPlotData(req);
-    console.log(req);
-    console.log(res);
-    await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
+    const res: DashboardResHistorian[] = await this.httpService.getHistorian(req);
+    await this.store.dispatch(new ChangeLastValues1(tagChart, this.getMaxValueRecord(res))).toPromise();
     const charts = this.chartConfigs.find(d => d.name == chartName);
     const type = charts.type;
     let data: MultipleValue = {};
@@ -448,7 +464,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       data = this.dashboardLastValuesService.getPlotGroupDataWithName(chartName, period.name, this.chartConfigs);
     }
     if (data && data[chartName] && data[chartName].data.length > 0) {
-      console.log(data);
+      //console.log(data);
       this.chartOptions[chartName] = this.dashboardChartService.getChartOptions(chartName, data[chartName]);
     }
 

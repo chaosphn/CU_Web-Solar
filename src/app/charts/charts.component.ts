@@ -242,7 +242,7 @@ export class ChartsComponent implements OnInit {
     res.forEach(r => {
       const data: [number, number][] = [];
       r.records.forEach(r1 => {
-        const val = parseFloat(r1.Value);
+        const val = parseFloat(r1.Value.replace(",", ""));
         const time = new Date(r1.TimeStamp).getTime();
         data.push([time, val]);
       });
@@ -251,6 +251,7 @@ export class ChartsComponent implements OnInit {
         name: strtmp + ' (' + r.Unit + ')',
         data: data
       };
+      console.log(serie);
       series.push(serie);
     });
     if (series.length > 0) {
@@ -315,23 +316,21 @@ export class ChartsComponent implements OnInit {
 
   getMaxValueRecord(data) {
     return data.map(item => {
-    const maxValues = {};
-    item.records.forEach(record => {
-      const TimeStamp = record.TimeStamp;
-      const value = parseFloat(record.Value);
+      const maxValues = {};
+      item.records.forEach(record => {
+        const TimeStamp = record.TimeStamp;
+        const value = parseFloat(record.Value.replace(",", ""));
 
-      if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value)) {
-        maxValues[TimeStamp] = {...record,Value:value.toString() };
-      }
-    });
+        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value.replace(",", ""))) {
+          maxValues[TimeStamp] = {...record,Value:value.toString() };
+        }
+      });
 
 
-  const maxRecords = Object.values(maxValues)
-  return  {...item,
-  records:maxRecords}
-  
-})
-}
+      const maxRecords = Object.values(maxValues)
+      return  {...item, records:maxRecords}
+    })
+  }
 
   startTimer(dueTimer: number) {
     // const _timer = timer(dueTimer, 3000).pipe(take(1)).subscribe(x => {

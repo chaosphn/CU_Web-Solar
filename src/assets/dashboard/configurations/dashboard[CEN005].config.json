@@ -91,7 +91,7 @@
 			}
 		},
 		{
-			"Name": "INV0301.WH_TODAY",
+			"Name": "INV0301.WH",
 			"Title": "X3",
 			"Options" : {
 				"Interval": 5,
@@ -101,7 +101,7 @@
 			}
 		},
 		{
-			"Name": "INV0302.WH_TODAY",
+			"Name": "INV0302.WH",
 			"Title": "X4",
 			"Options" : {
 				"Interval": 5,
@@ -362,7 +362,7 @@
 			"name": "interverEnergy",
 			"tags": [
 				{
-					"name": "INV0301.WH_TODAY",
+					"name": "INV0301.WH",
 					"title": "SINV01",
 					"period": "t",
 					"options": {
@@ -374,7 +374,7 @@
 					}
 				},
 				{
-					"name": "INV0302.WH_TODAY",
+					"name": "INV0302.WH",
 					"title": "SINV02",
 					"period": "t",
 					"options": {

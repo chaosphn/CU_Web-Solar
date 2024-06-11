@@ -27,7 +27,7 @@ export class SitesState {
 
   static getSites() {
     return createSelector([SitesState], (state: SiteStateModel) => {
-      return state
+      return state.building;
     });
   }
 

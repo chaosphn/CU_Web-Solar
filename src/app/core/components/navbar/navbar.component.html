@@ -24,13 +24,13 @@
             (input)="filter($event.target.value)"
             class="nav-search"/>
             
-            <label class="zone-select-style">
+            <!-- <label class="zone-select-style">
               <div style="width: 100%;"><div style="text-align: center;">Sort by :</div>
               <select class="custom_select_zone" [(ngModel)]="selectedZone" (change)="onZoneChange($event.target.value)">
                 <option value="" disabled selected>ZONE</option>
                 <option *ngFor="let zone of [1, 2, 3, 4, 5, 6, 7]" [value]="zone">ZONE _ {{zone}}</option>
               </select></div>
-            </label>
+            </label> -->
             
             <ng-container *ngFor="let item of buildingList.building; let i = index">
               <mat-option *ngIf="tagShowList.includes(i)" [value]="item"

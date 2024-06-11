@@ -29,6 +29,58 @@
     column-gap: 12px;
 }
 
+.status-card{
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 6%;
+    right: 3%;
+    border: 1px solid rgb(105, 105, 105);
+    background-color: crimson;
+    animation: blinker 2s linear infinite;
+}
+
+.cboff{
+    scale: 1.8;
+    background-color: rgba(255, 149, 149, 0.1);
+    //animation: blinker2 2s linear infinite;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    z-index: 1;
+    background-color: #a9a9a92c;
+    .circleInner{
+        scale: 0.7;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        z-index: 2;
+        background-color: #ffffff;
+        .circle{
+            scale: 0.7;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            z-index: 3;
+            //border-radius: 94px;
+            background: crimson;
+        }
+    }
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0.4;
+    }
+}
+
+@keyframes blinker2 {
+    50% {
+      background-color: rgba(255, 149, 149, 0.295);
+    }
+}
+
+
 .imgBox{
     border: 2px solid rgba(0, 0, 0, 0.35);
     box-sizing: border-box;

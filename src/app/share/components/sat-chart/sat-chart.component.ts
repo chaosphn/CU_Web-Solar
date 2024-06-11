@@ -70,7 +70,7 @@ export class SatChartComponent implements OnInit, OnDestroy, OnChanges {
   @ViewChild('excelTable') excelTable: ElementRef;
 
   constructor(private cd: ChangeDetectorRef, private store: Store) {
-
+    
   }
 
   public ngOnInit() {

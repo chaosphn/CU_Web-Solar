@@ -392,8 +392,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async requestPlotData(): Promise<any[]> {
     const requests = this.store.selectSnapshot(DashboardRequestState.getRequestHistorian());
-    const data = await this.httpService.getPlotData(requests);
-    return data;
+    const data: DashboardResHistorian[] = await this.httpService.getHistorian(requests);
+    return this.getMaxValueRecord(data);
+  }
+
+  getMaxValueRecord(data: DashboardResHistorian[]) {
+    return data.map(item => {
+      const maxValues = {};
+      item.records.forEach(record => {
+        const TimeStamp = record.TimeStamp;
+        const value = parseFloat(record.Value.replace(",", ""));
+
+        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value.replace(",",""))) {
+          maxValues[TimeStamp] = {...record,Value:value.toString() };
+        }
+      });
+
+
+      const maxRecords = Object.values(maxValues)
+      return  {...item, records:maxRecords}
+    })
   }
 
   async addDataToStore(data: any[]) {
@@ -532,7 +550,38 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
- 
+  getSaving(dt: string){
+    const value = parseFloat(dt);
+    if(value){
+      return (value*2.7).toFixed(2);
+    } else {
+      return "0";
+    }
+  }
+
+  getSumValue(key: string){
+    const data = Object.entries(this.data.singleValue)
+    .filter(x => x[0].includes(key))
+      .map(d => parseFloat(d[1].dataRecords[0].Value))
+        .reduce((pre, cur) => { pre += cur; return pre; }, 0);
+    if(data){
+      return data.toFixed(2);
+    } else {
+      return 0;
+    }
+  }
+
+  getAverageValue(key: string){
+    const data = Object.entries(this.data.singleValue)
+    .filter(x => x[0].includes(key))
+      .map(d => parseFloat(d[1].dataRecords[0].Value))
+        .reduce((pre, cur, idx, arr) => { pre += (cur/arr.length); return pre; }, 0);
+    if(data){
+      return data.toFixed(2);
+    } else {
+      return 0;
+    }
+  }
 
   openBreaker() {
     const dialogRef = this.dialog.open(DialogbreakerComponent, {

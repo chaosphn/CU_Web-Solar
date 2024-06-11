@@ -2,6 +2,9 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { NgxMasonryOptions } from 'ngx-masonry';
 import { AliasItem, Group, TagGrouping } from '../../models/tag-group.model';
+import { BuildingModel } from 'src/app/core/stores/sites/sites.model';
+import { Store } from '@ngxs/store';
+import { SitesState } from 'src/app/core/stores/sites/sites.state';
 
 @Component({
   selector: 'app-dialog-tag',
@@ -14,13 +17,46 @@ export class DialogTagComponent implements OnInit {
     transitionDuration: '0s'
   };
 
+  x: number = 0;
+  y: number = 0;
+  buildings: BuildingModel[] = [];
+  tooltipContent: string | HTMLElement = '';
+
   constructor(public dialogRef: MatDialogRef<DialogTagComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: TagGrouping[]) { }
+    @Inject(MAT_DIALOG_DATA) public data: TagGrouping[],
+    private store: Store) { }
 
   ngOnInit() {
+    this.buildings = this.store.selectSnapshot(SitesState.getSites());
+  }
+
+
+  onMouseOver(event: MouseEvent){
+    this.x = event.clientX;
+    this.y = event.clientY;
+    console.log("mouse pos  X :" + this.x + " Y :" +this.y  );
     
   }
 
+  getBuildingName(name: string){
+    if(name.includes("INV")){
+      const id = name.replace("INV", "").substring(0, 2);
+      const res = this.buildings.find(x => parseInt(x.no) == parseInt(id));
+      if(res){
+        return res.name;
+      } else {
+        return "---";
+      }
+    } else {
+      const id = name.substring(name.length-2, name.length);
+      const res = this.buildings.find(x => parseInt(x.no) == parseInt(id));
+      if(res){
+        return res.name;
+      } else {
+        return "---";
+      }
+    }
+  }
 
   selectOnceGroup(d: TagGrouping , a: AliasItem) {
     a.active = !a.active;

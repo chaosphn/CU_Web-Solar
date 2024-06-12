@@ -62,6 +62,14 @@ export class DailyConsumptionComponent implements OnInit {
     }
   }
 
+  getCalRange(){
+    if(this.expectValue > this.maxValue){
+      return 'calc(' + (((this.maxValue * 70) / this.maxValue) + 10) + '% - 40px)';
+    } else {
+      return 'calc(' + (((this.expectValue * 70) / this.maxValue) + 10) + '% - 40px)';
+    }
+  }
+
 
   
 

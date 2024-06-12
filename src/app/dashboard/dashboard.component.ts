@@ -4,7 +4,7 @@ import { Store } from '@ngxs/store';
 import { Subscription, timer, Observable } from 'rxjs';
 import { DashboardConfigStateModel, DashboardConfigs, DashboardConfigsHistorian, DashboardConfigsRealtime } from '../core/stores/configs/dashboard/dashboard-configs.model';
 import { ChangePeriodName, DashboardConfigsState, SetDashboardConfigs } from '../core/stores/configs/dashboard/dashboard-configs.state';
-import { DashboardLastValuesModel, DashboardLastValuesStateModel, DashboardResHistorian, DashboardResRealtime } from '../core/stores/last-values/dashboard/dashboard-last-values.model';
+import { DashboardLastValuesModel, DashboardLastValuesStateModel, DashboardResHistorian, DashboardResRealtime, Record } from '../core/stores/last-values/dashboard/dashboard-last-values.model';
 import { ChangeLastValues, ChangeLastValues1, DashboardLastValuesState, SetDashboardValues } from '../core/stores/last-values/dashboard/dashboard-last-values.state';
 import { DashboardReqHistorian, DashboardRequestModel, DashboardRequestStateModel } from '../core/stores/requests/dashboard/dashboard-request.model';
 import { ChangePeriod, ChangePeriod1, ChangeTagIds, SetDashboardRequest } from '../core/stores/requests/dashboard/dashboard-request.state';
@@ -343,11 +343,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value.replace(",",""))) {
           maxValues[TimeStamp] = {...record,Value:value.toString() };
         }
-      });
-
-
-      const maxRecords = Object.values(maxValues)
-      return  {...item, records:maxRecords}
+      })
+      const maxRecords: Record[] = Object.values(maxValues)
+      return  { ...item, records:maxRecords.filter((d, i, a) => 
+          i === a.findIndex((t) => (
+            t.TimeStamp === d.TimeStamp && t.Value === d.Value
+          ))
+        )
+      }
     })
   }
 
@@ -453,6 +456,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
     const res: DashboardResHistorian[] = await this.httpService.getHistorian(req);
+    if(period.display == "12m"){
+      res.map(item => {
+        let rec: Record[] = [];
+        if(item.Name.endsWith("MONTH")){
+          rec = item.records.filter(x => x.TimeStamp.includes("31T17:00:00.000Z"));
+        } else {
+          rec = item.records;
+        }
+        return { ...item, records: rec };
+      })
+    }
     await this.store.dispatch(new ChangeLastValues1(tagChart, this.getMaxValueRecord(res))).toPromise();
     const charts = this.chartConfigs.find(d => d.name == chartName);
     const type = charts.type;

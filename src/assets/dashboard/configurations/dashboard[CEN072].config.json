@@ -121,7 +121,7 @@
 			}
 		},
 		{
-			"Name": "CALC06.PR_HOUR",
+			"Name": "CALC05.PR_HOUR",
 			"Title": "X6",
 			"Options" : {
 				"Interval": 60,

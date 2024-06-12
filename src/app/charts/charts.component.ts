@@ -125,7 +125,7 @@ export class ChartsComponent implements OnInit {
       }
       grpName = invInfo[0];
     }) 
-    return tagGroup;
+    return tagGroup.filter(x => !x.Display.includes("ZONE"));
   }
 
   getAlias(tags: TagInfo[]){

@@ -137,9 +137,14 @@ export class ReportComponent implements OnInit, OnChanges, OnDestroy {
       const num = this.decimalPipe.transform(value, '1.0-1');
       return num;
     }
-    else if (value) {
+    else if (typeof value === 'string') {
       //console.log(value)
-      return value.toString();
+      const val = parseFloat(value.replace(",", ""));
+      if(val > 0){
+        return this.decimalPipe.transform(val, '1.0-1');
+      } else {
+        return value;
+      }
     }
     else {
       return '---';

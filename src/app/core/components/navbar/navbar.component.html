@@ -14,7 +14,7 @@
 
       <a class="box site-box" style="display: flex; flex-direction: column; justify-content: center; row-gap: 5px;">
         <p>LOCATION</p>
-        <div class="dropDown">
+        <div class="dropDown" *ngIf="buildingList && buildingList.building">
           <mat-select disableOptionCentering [placeholder]="buildingList.building[0].name" panelClass="myPanelClass"
             class="mySelectClass" style="color: white;" *ngIf="buildingList">
             <!-- <mat-option *ngFor="let item of buildingList.building"  [value]="item" (click)="selectSite(item)">

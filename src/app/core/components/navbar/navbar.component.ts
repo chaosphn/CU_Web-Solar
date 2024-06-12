@@ -95,14 +95,18 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     this.today = this.dateTimeSrv.getDateTime(new Date()).substring(0,10)
     this.getConfig();
     this.toggleBackground(this.currentRoute);
-    this.filteredBuildingList = [...this.buildingList.building]
-    this.tagShowList = this.buildingList.building.map((_, index) => index);
+    if(this.buildingList){
+      this.filteredBuildingList = [...this.buildingList.building]
+      this.tagShowList = this.buildingList.building.map((_, index) => index);
+    }
   }
 
   async getConfig() {
     //this.siteList = await this.httpService.getConfig('assets/main/location.json');
     this.buildingList = await this.httpService.getNavConfig('assets/main/BuildingList.json');
-    this.store.dispatch(new AddSite(this.buildingList));
+    if(this.buildingList){
+      this.store.dispatch(new AddSite(this.buildingList));
+    }
     // console.log(this.buildingList)
   }
 

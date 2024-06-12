@@ -9,7 +9,7 @@
                 <app-circle-progress [Ids]="'00'" 
                 [title]="'POWER'" 
                 [unit]="data?.singleValue['ZONE_power']?.unit" 
-                [value]="data?.singleValue['ZONE_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'" 
+                [value]="data?.singleValue['ZONE_power']?.dataRecords[0]?.Value | myNumber2 : '1.0-2'" 
               [maxValue]="data?.singleValue['ZONE_power']?.maxValue"
               [titleFont]="'22'"
                 [valueFont]="'36'"
@@ -25,10 +25,10 @@
           <ng-template #content>
             <div class="energy-item">
               <div class="topic">TODAY</div>
-              <div class="value">{{data?.singleValue['ZONE_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'}}</div>
+              <div class="value">{{data?.singleValue['ZONE_energy']?.dataRecords[0]?.Value | myNumber2 : '1.0-0'}}</div>
               <div class="unit">{{data?.singleValue['ZONE_energy']?.unit}}</div>
               <div class="topic">TOTAL</div>
-              <div class="value">{{data?.singleValue['TOTAL_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'}}</div>
+              <div class="value">{{data?.singleValue['TOTAL_energy']?.dataRecords[0]?.Value | myNumber2 : '1.0-0'}}</div>
               <div class="unit">{{data?.singleValue['TOTAL_energy']?.unit}}</div>
             </div>
           </ng-template>
@@ -100,7 +100,7 @@
               [percentValue]="1"></app-circle-progress></div>
           </div>
           <div class="site-chart ">
-            <app-sat-chart3 [height]="'100px'" [chartParameters]="chartOptions[item.id+'_CHART']"></app-sat-chart3>
+            <app-sat-chart2 [height]="'100px'" [chartParameters]="chartOptions[item.id+'_CHART']"></app-sat-chart2>
           </div>
       </div>
     </section>

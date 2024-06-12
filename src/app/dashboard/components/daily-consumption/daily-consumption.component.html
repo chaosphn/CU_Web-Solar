@@ -3,18 +3,18 @@
     <div class="col-12 bar-group">
       <span class="title"> {{title}}</span>
       <div class="min-value">
-        {{(minValue | myNumber : '1.0-2') || '---'}}
+        {{(minValue | myNumber2 : '1.0-2') || '---'}}
       </div>
       <div class="max-value">
         {{maxValue}}
       </div>
       <div class="actual-value">
-        {{actualValue | myNumber : '1.0-2'}} {{actualUnit}}
+        {{actualValue | myNumber2 : '1.0-2'}} {{actualUnit}}
       </div>
       <div class="expected-text">
         {{ expectText | uppercase}}
       </div>
-      <div class="arrow-group" *ngIf="showArrow" [style.left]="'calc(' + (((expectValue * 70) / maxValue) + 10) + '% - 40px)'">
+      <div class="arrow-group" *ngIf="showArrow" [style.left]="getCalRange()">
         <div class="arrow">
           <i class="material-icons">
             navigation

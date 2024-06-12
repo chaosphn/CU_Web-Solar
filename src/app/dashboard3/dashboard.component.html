@@ -14,7 +14,7 @@
           [g2Value]="data?.singleValue['power_value']?.dataRecords[0]?.Value || '---'"
           [g2Unit]="'kW'"
           [display]="true"
-          [cbStatus]="true"
+          [cbStatus]="data?.singleValue['cb_status']?.dataRecords[0]?.Value"
           [classDisplay]="'top'"
           ></app-tooltip-vertical>
       </div>

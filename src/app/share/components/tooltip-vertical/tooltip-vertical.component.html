@@ -20,12 +20,12 @@
           </div>  
         </div>
       </div>
-      <div class="status-card" *ngIf="cbStatus">
+      <div *ngIf="cbStatus" class="status-card" [className]="(cbStatus | myNumber: '1.0-2') == 0 ? 'cboff-status-card' : 'status-card'">
         <div class="w-100 h-100 btn"></div>
       </div>
     </div>
   </div>
-  <div class="circleOuter d-flex-ct" [className]="cbStatus ? 'cboff d-flex-ct' : 'circleOuter d-flex-ct'">
+  <div class="circleOuter d-flex-ct" [className]="(cbStatus | myNumber: '1.0-2') == 0 ? 'cboff d-flex-ct' : 'circleOuter d-flex-ct'">
     <div class="circleInner d-flex-ct">
       <div class="circle"></div>
     </div>

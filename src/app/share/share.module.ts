@@ -29,6 +29,8 @@ import { TooltipVerticalComponent } from './components/tooltip-vertical/tooltip-
 import { SatChart3Component } from './components/sat-chart3/sat-chart3.component';
 import { DialogbreakerComponent } from './components/dialogbreaker/dialogbreaker.component';
 import { OrderByPipe } from './pipe/order-by.pipe';
+import { FilterNamePipe } from './pipe/filter-name.pipe';
+import { Number2Pipe } from './pipe/my-number2.pipe';
 
 
 
@@ -78,7 +80,9 @@ export const MY_MOMENT_FORMATS = {
     TooltipVerticalComponent,
     SatChart3Component,
     DialogbreakerComponent,
-    OrderByPipe
+    OrderByPipe,
+    FilterNamePipe,
+    Number2Pipe
   ],
   entryComponents: [
     DialogTagComponent,
@@ -112,7 +116,9 @@ export const MY_MOMENT_FORMATS = {
     TooltipVerticalComponent,
     SatChart3Component,
     DialogbreakerComponent,
-    OrderByPipe
+    OrderByPipe,
+    FilterNamePipe,
+    Number2Pipe
   ],
   providers: [
     {provide: OWL_DATE_TIME_FORMATS, useValue: MY_MOMENT_FORMATS},

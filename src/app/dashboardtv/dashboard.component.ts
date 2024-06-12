@@ -86,19 +86,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   isFullmap: boolean = false;
   public getScreenWidth: any;
   public getScreenHeight: any;
-  // tablerow:DataModel[] = [
-  //   { buiding: "AAA",power: "1",energy:"3"},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-  //   ,{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""},{ buiding: "",power: "",energy:""}
-  // ];
-    
-    //[1,1,1,11,1,1,,1,1,1,11,1,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,11,1,1,1,1,1,1,1,1,1,1,11,1,1,1,1,1,1,1,11,];
   buildingList: SiteStateModel;
   displayedColumns: string[] = ['No', 'Building', 'Power', 'Energy'];
   dataSource: MatTableDataSource<any>
@@ -132,7 +119,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.getScreenWidth = window.innerWidth;
     this.getScreenHeight = window.innerHeight;
     if(window.innerWidth > 2559){
-        //console.log(this.getScreenWidth);
+        ////console.log(this.getScreenWidth);
         this.diameter = 180;
         this.stroke = 30;
     }
@@ -143,14 +130,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     localStorage.setItem('nowUrl',this.router.url.toString());
     // this.currentRoute = this.router.url.toString()
     // this.siteName = localStorage.getItem('location');
-    // //console.log("component: "+this.currentRoute.slice(6)+" & site: " + this.siteName.toString());
+    // ////console.log("component: "+this.currentRoute.slice(6)+" & site: " + this.siteName.toString());
     /*this.storageService.getStorageChanges().subscribe(newValue => {
       this.currentRoute = newValue || '';
     });*/
     await this.init02();
     await this.getConfig();
     this.onWindowResize();
-    // console.log(this.data.singleValue)
+    // //console.log(this.data.singleValue)
   }
 
   async getConfig() {
@@ -160,7 +147,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     
     this.dataSource = await new MatTableDataSource(this.getTabel());
     this.dataSource.paginator = this.paginator;
-    // console.log(this.buildingList.building);
+    // //console.log(this.buildingList.building);
   }
 
   isChange(){
@@ -171,7 +158,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   isShow(id){
     const nowLocation = localStorage.getItem('location')
     const tuneLocation = JSON.parse(nowLocation)
-    localStorage.setItem('location','{"id":"'+tuneLocation.id+'","zone":"'+id+'","name":"'+tuneLocation.name+'","capacity":'+tuneLocation.capacity+'}')
+    localStorage.setItem('location','{"id":"'+tuneLocation.id+'","zone":"'+id+'","name":"'+tuneLocation.name+'","capacity":'+tuneLocation.capacity+'}');
+    localStorage.setItem('zone', id)
     this.event.changeNavbar();
     this.router.navigate(['/main/dashboard2']);
   }
@@ -198,14 +186,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   updateInit(){
     this.siteName = localStorage.getItem('location');
-    //console.log("Update Dashboard Component in site:"+ this.siteName);
+    ////console.log("Update Dashboard Component in site:"+ this.siteName);
     //this.init02();
   }
 
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator;
     this.paginator.page.subscribe((event) =>{
-      // console.log(this.dataSource)
+      // //console.log(this.dataSource)
     })
   }
 
@@ -243,56 +231,56 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.event.changeNavbar();
     this.router.navigate(['/main/dashboard1']);
     // this.value = this.value + 100;
-    //console.log(this.value)
+    ////console.log(this.value)
   }
 
   hoverEffect(id: string){
     switch(id){
       case "card1":
         const element1 = Array.from(document.querySelectorAll('#img-card1'));
-        ////console.log(elements);
+        //////console.log(elements);
         element1.forEach((item) => {
           item.classList.add('scale-in-ver-bottom');
         });
         break;
       case "card2":
         const element2 = Array.from(document.querySelectorAll('#img-card2'));
-        ////console.log(element2);
+        //////console.log(element2);
         element2.forEach((item) => {
           item.classList.add('scale-in-ver-bottom');
         });
         break;
       case "card3":
         const element3 = Array.from(document.querySelectorAll('#img-card3'));
-        ////console.log(element3);
+        //////console.log(element3);
         element3.forEach((item) => {
           item.classList.add('scale-in-ver-bottom');
         });
         break;
       case "card4":
         const element4 = Array.from(document.querySelectorAll('#img-card4'));
-        ////console.log(element4);
+        //////console.log(element4);
         element4.forEach((item) => {
           item.classList.add('scale-in-ver-bottom');
         });
         break;
       case "card5":
         const element5 = Array.from(document.querySelectorAll('#img-card5'));
-        ////console.log(element5);
+        //////console.log(element5);
         element5.forEach((item) => {
           item.classList.add('scale-in-ver-bottom');
         });
         break;
       case "card6":
         const element6 = Array.from(document.querySelectorAll('#img-card6'));
-        ////console.log(element6);
+        //////console.log(element6);
         element6.forEach((item) => {
           item.classList.add('scale-in-ver-bottom');
         });
         break;
       case "card7":
         const element7 = Array.from(document.querySelectorAll('#img-card7'));
-        ////console.log(element7);
+        //////console.log(element7);
         element7.forEach((item) => {
           item.classList.add('scale-in-ver-bottom');
         });
@@ -305,49 +293,49 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     switch(id){
       case "card1":
         const element1 = Array.from(document.querySelectorAll('#img-card1'));
-        ////console.log(elements);
+        //////console.log(elements);
         element1.forEach((item) => {
           item.classList.remove('scale-in-ver-bottom');
         });
         break;
       case "card2":
         const element2 = Array.from(document.querySelectorAll('#img-card2'));
-        ////console.log(element2);
+        //////console.log(element2);
         element2.forEach((item) => {
           item.classList.remove('scale-in-ver-bottom');
         });
         break;
       case "card3":
         const element3 = Array.from(document.querySelectorAll('#img-card3'));
-        ////console.log(element3);
+        //////console.log(element3);
         element3.forEach((item) => {
           item.classList.remove('scale-in-ver-bottom');
         });
         break;
       case "card4":
         const element4 = Array.from(document.querySelectorAll('#img-card4'));
-        ////console.log(element4);
+        //////console.log(element4);
         element4.forEach((item) => {
           item.classList.remove('scale-in-ver-bottom');
         });
         break;
       case "card5":
         const element5 = Array.from(document.querySelectorAll('#img-card5'));
-        ////console.log(element5);
+        //////console.log(element5);
         element5.forEach((item) => {
           item.classList.remove('scale-in-ver-bottom');
         });
         break;
       case "card6":
         const element6 = Array.from(document.querySelectorAll('#img-card6'));
-        ////console.log(element6);
+        //////console.log(element6);
         element6.forEach((item) => {
           item.classList.remove('scale-in-ver-bottom');
         });
         break;
       case "card7":
         const element7 = Array.from(document.querySelectorAll('#img-card7'));
-        ////console.log(element7);
+        //////console.log(element7);
         element7.forEach((item) => {
           item.classList.remove('scale-in-ver-bottom');
         });
@@ -359,7 +347,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   
   addAllEffect(){
     const element1 = Array.from(document.querySelectorAll('.effect'));
-    ////console.log(elements);
+    //////console.log(elements);
     element1.forEach((item) => {
       item.classList.add('scale-in-ver-bottom');
     });
@@ -389,10 +377,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private async init02()
   {
-    //console.log("Init Page");
+    ////console.log("Init Page");
     {
       const dashboardConfigs = await this.getDashboardConfigs();
-      //console.log(dashboardConfigs);
+      ////console.log(dashboardConfigs);
       this.configs01 = dashboardConfigs.realtimeConfig;
       this.configs02 = dashboardConfigs.historianConfig;
       this.dashboardInverterService.config = dashboardConfigs.chartConfig.find(c => c.name === "interverEnergy");
@@ -408,17 +396,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       const rawTF = await this.addRealtimeDataToStore(realtimeData);
       const hisTF = await  this.addHistorianDataToStore(historianData);
       let dataTranform = rawTF.concat(hisTF);
-      ////console.log(dataTranform);
+      //////console.log(dataTranform);
       await this.addDataToStore(dataTranform);
 
     }
     this.loadSingleValue();
     this.loadMultipleValues();
     this.initloadInverterValues();
-    // console.log(this.data.singleValue['CEN091_energy'].dataRecords[0].Value);
+    // //console.log(this.data.singleValue['CEN091_energy'].dataRecords[0].Value);
     this.updateZone();
     this.startTimer(this.appLoadService.Config.Timer * 60000);
-    // console.log(this.data)
+    // //console.log(this.data)
   }
 
   private async createRequests02()
@@ -436,7 +424,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.dashboardInverterService.requests = requests2;
         //requests.push(...requests2);
       }
-      //console.log(request);
+      ////console.log(request);
       await this.store.dispatch(new SetDashboardRequest(request)).toPromise();
   }
 
@@ -450,10 +438,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       if (this.configs02) {
         
         const singleConfig = this.store.selectSnapshot(DashboardRequestState.getRealTimeCurrentConfig());
-        ////console.log(singleConfig);
+        //////console.log(singleConfig);
 
         const requests2  = singleConfig.filter(x => x.RequestId.substring(0,10) === 's_inverter');
-        ////console.log(requests2);
+        //////console.log(requests2);
 
         this.dashboardInverterService.requests = requests2;
         
@@ -475,7 +463,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const rawTF = await this.addRealtimeDataToStore(realtimeData);
     const hisTF = await  this.addHistorianDataToStore(historianData);
     let dataTranform = rawTF.concat(hisTF);
-    //console.log(dataTranform);
+    ////console.log(dataTranform);
     await this.addDataToStore(dataTranform);
 
     this.loadSingleValue();
@@ -523,7 +511,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/map-overview/configurations/dashboard.map.config.json');
     //const ChartsConfigs: DashboardConfigStateModel[] = await this.httpService.getConfig('assets/dashboard/configurations/dashboard.chart.config.json');
     this.chartConfigs = [].concat(dashboardConfigs.chartConfig);
-    //console.log(this.chartConfigs);
+    ////console.log(this.chartConfigs);
     //this.dashboardTagService.addServerName(dashboardConfigs);
     this.store.dispatch(new SetDashboardConfigs(dashboardConfigs));
     return dashboardConfigs;
@@ -583,7 +571,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       newData.push(record);
     });
     return newData;
-    ////console.log(newData)
+    //////console.log(newData)
     //await this.store.dispatch(new SetDashboardValues(newData)).toPromise();
   }
 
@@ -602,13 +590,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       newData.push(record);
     });
     return newData;
-    ////console.log(newData)
+    //////console.log(newData)
     //await this.store.dispatch(new SetDashboardValues(newData)).toPromise();
   }
 
   loadSingleValue() {
     const curr = this.dashboardLastValuesService.getCurrentGroupData();
-    // console.log(curr);
+    // //console.log(curr);
     this.data.singleValue = { ...curr };
     this.cd.markForCheck();
   }
@@ -629,7 +617,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   // emit event from view (period component)
   async selectPeriodInverter(period: Period, chartName: string) {
-    //console.log("Chart: "+chartName+"\nStart :"+period.name);
+    ////console.log("Chart: "+chartName+"\nStart :"+period.name);
     const st = this.dateTimeService.parseDate(period.name).startTime;
     const now = this.dateTimeService.getDateTime(new Date());
     await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
@@ -644,14 +632,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
     const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, _period));
     const res: DashboardResHistorian[] = await this.httpService.getHistorian(req);
-    //console.log(res);
+    ////console.log(res);
     this.dashboardInverterService.data = res;
     this.loadInverterValues();
   }
 
   // emit event from view (period component)
   async selectPeriod(period: Period, chartName: string) {
-    //console.log("Chart: "+chartName+"\nStart :"+period.name);
+    ////console.log("Chart: "+chartName+"\nStart :"+period.name);
     await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
     const _period = this.dateTimeService.parseDate(period.name);
     const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
@@ -659,7 +647,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, _period));
     const res: DashboardResHistorian[] = await this.httpService.getHistorian(req);
-    //console.log(res);
+    ////console.log(res);
     await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
     const charts = this.chartConfigs.find(d => d.name == chartName);
     const type = charts.type;
@@ -671,7 +659,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       data = this.dashboardLastValuesService.getPlotGroupDataWithName(chartName, period.name, this.chartConfigs);
     }
     if (data && data[chartName] && data[chartName].data.length > 0) {
-      //console.log(data);
+      ////console.log(data);
       this.chartOptions[chartName] = this.dashboardChartService.getChartOptions(chartName, data[chartName]);
     }
 

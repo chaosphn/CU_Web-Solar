@@ -21,20 +21,24 @@
 			"Name": "CALC.ZONE01.WH_DAY"
 		},
 		{
-			"Title": "zone1_pr",
-			"Name": ""
+			"Title": "zone1_pr1",
+			"Name": "CALC05.PR"
+		},
+		{
+			"Title": "zone1_pr2",
+			"Name": "CALC06.PR"
 		},
 		{
 			"Title": "zone1_irr",
-			"Name": ""
+			"Name": "SLOGGER06.PYRANO"
 		},
 		{
 			"Title": "zone1_pv",
-			"Name": ""
+			"Name": "SLOGGER06.PVTEMP"
 		},
 		{
 			"Title": "zone1_amb",
-			"Name": ""
+			"Name": "SLOGGER06.AMBTEMP"
 		},
 		{
 			"Title": "zone3_power",
@@ -45,20 +49,20 @@
 			"Name": "CALC.ZONE03.WH_DAY"
 		},
 		{
-			"Title": "zone3_pr",
-			"Name": "ZONE03.PR"
+			"Title": "zone3_pr1",
+			"Name": "CALC01.PR"
 		},
 		{
 			"Title": "zone3_irr",
-			"Name": ""
+			"Name": "SLOGGER06.PYRANO"
 		},
 		{
 			"Title": "zone3_pv",
-			"Name": ""
+			"Name": "SLOGGER06.PVTEMP"
 		},
 		{
 			"Title": "zone3_amb",
-			"Name": ""
+			"Name": "SLOGGER06.AMBTEMP"
 		},
 		{
 			"Title": "zone4_power",
@@ -69,8 +73,16 @@
 			"Name": "CALC.ZONE04.WH_DAY"
 		},
 		{
-			"Title": "zone4_pr",
-			"Name": "ZONE04.PR"
+			"Title": "zone4_pr1",
+			"Name": "CALC02.PR"
+		},
+		{
+			"Title": "zone4_pr2",
+			"Name": "CALC03.PR"
+		},
+		{
+			"Title": "zone4_pr2",
+			"Name": "CALC04.PR"
 		},
 		{
 			"Title": "zone4_irr",

@@ -1,110 +1,58 @@
 [
 	{
-		"Tags": "WEATHER_ABTEMP",
-		"Mode": "Realtime"
+		"Title": "power_value",
+		"Name": "TOU06.W"
 	},
 	{
-		"Tags": "WEATHER_PVTEMP",
-		"Mode": "Realtime"
+		"Title": "energy_value",
+		"Name": "CALC06.WH_TODAY"
 	},
 	{
-		"Tags": "WEATHER_PYRANO",
-		"Mode": "Realtime"
+		"Title": "pr_value",
+		"Name": "CALC06.PR"
 	},
 	{
-		"Tags": "PQM_I",
-		"Mode": "Realtime"
+		"Title": "saving_value",
+		"Name": ""
 	},
 	{
-		"Tags": "PQM_V",
-		"Mode": "Realtime"
+		"Title": "weather_co2",
+		"Name": "CALC06.CO2_TODAY"
 	},
 	{
-		"Tags": "PQM_W",
-		"Mode": "Realtime"
+		"Title": "energy_inv1",
+		"Name": "INV0601.WH_TODAY"
 	},
 	{
-		"Tags": "PQM_WH",
-		"Mode": "Realtime"
+		"Title": "energy_inv2",
+		"Name": "INV0602.WH_TODAY"
 	},
 	{
-		"Tags": "INV01_WAC",
-		"Mode": "Realtime"
+		"Title": "performance_inv1",
+		"Name": "INV0601.EFF"
 	},
 	{
-		"Tags": "INV02_WAC",
-		"Mode": "Realtime"
+		"Title": "performance_inv2",
+		"Name": "INV0602.EFF"
 	},
 	{
-		"Tags": "INV03_WAC",
-		"Mode": "Realtime"
+		"Title": "power_inv1",
+		"Name": "INV0601.WAC"
 	},
 	{
-		"Tags": "INV04_WAC",
-		"Mode": "Realtime"
+		"Title": "power_inv2",
+		"Name": "INV0602.WAC"
 	},
 	{
-		"Tags": "INV05_WAC",
-		"Mode": "Realtime"
+		"Title": "volt_inv1",
+		"Name": "INV0601.VDC"
 	},
 	{
-		"Tags": "INV06_WAC",
-		"Mode": "Realtime"
+		"Title": "volt_inv2",
+		"Name": "INV0602.VDC"
 	},
 	{
-		"Tags": "INV07_WAC",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV08_WAC",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV09_WAC",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV10_WAC",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV01_WH",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV02_WH",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV03_WH",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV04_WH",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV05_WH",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV06_WH",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV07_WH",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV08_WH",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV09_WH",
-		"Mode": "Realtime"
-	},
-	{
-		"Tags": "INV10_WH",
-		"Mode": "Realtime"
+		"Title": "cb_status",
+		"Name": "cb06.status"
 	}
 ]

@@ -54,7 +54,7 @@
 		},
 		{
 			"Title": "cb_status",
-			"Name": "INV0602.MBFAIL"
+			"Name": "cb06.status"
 		}
 	],
 
@@ -169,7 +169,7 @@
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "area",
-							"color": "rgba(253, 103, 78, 1)"
+							"color": "#01204E"
 						}
 					}
 				},
@@ -180,7 +180,7 @@
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "area",
-							"color": "rgb(253, 221, 78)"
+							"color": "#028391"
 						}
 					}
 				}

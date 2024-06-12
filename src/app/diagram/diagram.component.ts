@@ -25,6 +25,7 @@ import { SitesState } from '../core/stores/sites/sites.state';
 import { Select } from '@ngxs/store';
 import {debounceTime, takeUntil, distinctUntilChanged } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -47,6 +48,7 @@ export class DiagramComponent implements OnInit, OnDestroy {
   newName: string = ''; 
   siteName: string = ''; 
   value = '8846546';
+  templateContent: string = '';
   private unsubscribe$: Subject<void> = new Subject();
 
   constructor(
@@ -59,7 +61,8 @@ export class DiagramComponent implements OnInit, OnDestroy {
     private cd: ChangeDetectorRef,
     private mockDataService: MockDataService,
     private store: Store,
-    private router: Router) { }
+    private router: Router,
+    private http: HttpClient) { }
 
 
   
@@ -69,7 +72,11 @@ export class DiagramComponent implements OnInit, OnDestroy {
     this.currentRoute = this.router.url.toString()
     this.siteName = localStorage.getItem('location');
     console.log("component: "+this.currentRoute.slice(6)+" & site: " + this.siteName.toString());
-    this.init();
+    this.http.get('assets/css/svg/CEN091.diagram.html', {responseType: 'text'}).subscribe(data => {
+      console.log(data)
+      this.templateContent = data;
+    })
+    //this.init();
   }
 
   async updateInit(){

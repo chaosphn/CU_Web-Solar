@@ -86,7 +86,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   isFullmap: boolean = false;
   public getScreenWidth: any;
   public getScreenHeight: any;
-  buildingList: SiteStateModel;
+  buildingList: BuildingModel[] = [];
   displayedColumns: string[] = ['No', 'Building', 'Power', 'Energy'];
   dataSource: MatTableDataSource<any>
 
@@ -134,6 +134,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     /*this.storageService.getStorageChanges().subscribe(newValue => {
       this.currentRoute = newValue || '';
     });*/
+    const building: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
+    if(building && building.building){
+      this.buildingList = building.building;
+    }
     await this.init02();
     await this.getConfig();
     this.onWindowResize();
@@ -142,7 +146,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async getConfig() {
     //this.siteList = await this.httpService.getConfig('assets/main/location.json');
-    this.buildingList = await this.httpService.getNavConfig('assets/main/BuildingList.json');
+    //this.buildingList = await this.httpService.getNavConfig('assets/main/BuildingList.json');
     const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/dashboard/configurations/dashboard[CEN091].config.json');
     
     this.dataSource = await new MatTableDataSource(this.getTabel());
@@ -213,8 +217,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   getTabel(){
     let showlist = [0,4,5,6,7,8]
-      return this.buildingList.building
-      .filter((item,index) => showlist.includes(index))
+      return this.buildingList.filter((item,index) => showlist.includes(index))
       .map((item, index) => {
         const powerData = this.data.singleValue[item.id + '_power'];
         const energyData = this.data.singleValue[item.id + '_energy'];

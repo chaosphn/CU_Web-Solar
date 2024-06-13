@@ -16,7 +16,7 @@
         <p>LOCATION</p>
         <div class="dropDown" *ngIf="buildingList && buildingList.building">
           <mat-select disableOptionCentering [placeholder]="buildingList.building[0].name" panelClass="myPanelClass"
-            class="mySelectClass" style="color: white;" *ngIf="buildingList">
+            class="mySelectClass" style="color: white;" *ngIf="buildingList  && buildingList.building">
             <!-- <mat-option *ngFor="let item of buildingList.building"  [value]="item" (click)="selectSite(item)">
               {{item.name}} 
             </mat-option> -->
@@ -212,23 +212,24 @@
           <!-- <i class="material-icons icon-material-icons">
             format_list_bulleted
           </i> -->
-          <mat-select style="padding-top: 10px;">
+          <mat-select *ngIf="buildingList && buildingList.building" style="padding-top: 10px;">
             <Input matInput placeholder="Search"
             (input)="filter($event.target.value)"
             class="nav-search"/>
             <label class="zone-select-style">
               <div style="width: 100%;"><div style="text-align: center;">Sort by :</div>
-              <select class="custom_select_zone" [(ngModel)]="selectedZone" (change)="onZoneChange($event.target.value)">
+              <!-- <select class="custom_select_zone" [(ngModel)]="selectedZone" (change)="onZoneChange($event.target.value)">
                 <option value="" disabled selected>ZONE</option>
                 <option *ngFor="let zone of [1, 2, 3, 4, 5, 6, 7]" [value]="zone">ZONE _ {{zone}}</option>
-              </select></div>
+              </select> -->
+              </div>
             </label>
-              <!-- <ng-container *ngFor="let item of buildingList.building; let i = index">
+              <ng-container *ngFor="let item of buildingList.building; let i = index">
                 <mat-option *ngIf="tagShowList.includes(i)" [value]="item"
                   (click)="selectSite(item)" class="custom_select">
                   {{item.name}}
                 </mat-option>
-              </ng-container> -->
+              </ng-container>
           <!-- <div class="list1" style="overflow-y: auto; height: 300px; width: 300px; background-color: #fafdfd;">
             <mat-option *ngFor="let item of buildingList.building">
               <mat-option
@@ -237,7 +238,7 @@
               </mat-option>
               </mat-option>
           </div> -->
-        </mat-select>
+          </mat-select>
         </div>
         <div mat-list-item href="#" class="icon-box dashboard" routerLinkActive="icon-active"routerLink="/main/dashboard">
           <i class="material-icons icon-material-icons">

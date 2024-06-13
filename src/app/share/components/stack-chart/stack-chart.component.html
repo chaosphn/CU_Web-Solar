@@ -7,7 +7,7 @@
         </div>
       <div class="innerBox w-100 h-100">
         <div class="chartItem1" id="idx1" *ngFor="let item of chartItems; let i = index" 
-         [style.background-color]="getColor(9-i)"></div>
+         [style.background-color]="getColor(rangeVal-1-i)"></div>
       </div>
     </div>
   </div>

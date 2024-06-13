@@ -19,7 +19,6 @@
           ></app-tooltip-vertical>
       </div>
     </div>
-    
     <div class="cardBoxs col h-100">
       <div class="cardList" id="1" *ngIf="data && data.singleValue">
         <app-card-buiding  
@@ -40,28 +39,27 @@
         </app-card-buiding>
       </div>
 
-      <div class="cardList" id="2" *ngIf="data && data.singleValue">
+      <div class="cardList inv-card" id="2" *ngIf="data && data.singleValue">
         <app-card-buiding  
         [header]="'Inverter Summary'"
-
         [topic1]="'WAC'"
         [value1]="getSumValue('power_inv')"
         [unit1]="'kW'"
-
         [topic2]="'VAC'"
         [value2]="getSumValue('volt_inv')"
         [unit2]="'V'"
-
         [topic3]="'Efficiency'"
         [value3]="getAverageValue('performance_inv')"
         [unit3]="'%'"
-
         [topic4]="'Today Energy'"
         [value4]="getSumValue('energy_inv')"
         [unit4]="'kWh'"
-
         [chartOptions]="chartChildOptions['inverterGeneration']">
         </app-card-buiding>
+      </div>
+
+      <div class="images-box d-col" (click)="openBreaker()">
+        <img [src]="'assets/images/building/'+siteName.id+'.png'" alt="" width="100%" height="100%">
       </div>
     </div>
   </div>

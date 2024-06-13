@@ -1,5 +1,6 @@
 import { EventEmitter } from 'events';
 import { range } from 'rxjs';
+import { min } from 'rxjs/operators';
 
 export interface SatChart {
     data: [number | string[], number[]];
@@ -245,6 +246,7 @@ export class ChartParametersAdapter {
                         lineWidth: y.lineWidth || 2,
                         endOnTick: false,
                         tickAmount: 5,
+                        min: 0,
                         labels: {
                             enabled: y.labelEnable || true,
                             // format: y.labelFormat || '{value:,.0f}',

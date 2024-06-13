@@ -198,3 +198,11 @@ input {
    100% { transform:translate(0,0) }
   }
   
+  @media screen and (max-width: 500px) {
+    .contentBox{
+      padding: 10px;
+      position: relative;
+      min-height: 200px;
+  }
+  
+  }

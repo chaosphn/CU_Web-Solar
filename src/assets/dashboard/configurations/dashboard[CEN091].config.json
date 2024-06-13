@@ -169,13 +169,17 @@
 							"text": "IRR (W/sq.m)",
 							"useMax": true,
 							"opposite": true,
-							"visible": false
+							"visible": false,
+							"min": "0",
+							"max": "100"
 						},
 						{
 							"color": "#7CB5EC",
 							"text": "Power (kW)",
 							"useMax": true,
-							"visible": false
+							"visible": false,
+							"min": "0",
+							"max": "1200"
 						}
 					],
 					"xAxis": {

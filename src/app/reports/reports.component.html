@@ -18,13 +18,13 @@
                 </div>
                 <div class="d-flex align-items-center">
                         <span class="btn-ok" (click)="selectReport()">VIEW</span>
-                        <span class="btn-ok" (click)="download()">SAVE XLS</span>
+                        <!-- <span class="btn-ok" (click)="download()">SAVE XLS</span> -->
                         <span class="btn-ok" (click)="downloadPdf()">SAVE PDF</span>
                 </div>
             </div>
-            <div class="content" [ngClass]="{'full-height': !pdf}">
+            <div class="content bz" [ngClass]="{'full-height bz': !pdf}">
                 <pdf-viewer [src]="pdf" [render-text]="true"></pdf-viewer>
-                <button mat-fab class="download" *ngIf="pdf" (click)="download()">
+                <button mat-fab class="download" *ngIf="pdf" (click)="downloadPdf()">
                     <i class="material-icons">
                         play_for_work
                     </i>

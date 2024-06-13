@@ -162,8 +162,8 @@ export class DashboardRequestState {
         return createSelector([DashboardRequestState], (state: DashboardRequestModel) => {
             const stateHis = state.Historian;
             let reqHis: DashboardReqHistorian[] = [];
-            console.log(chartName[0])
-            console.log(stateHis);
+            //console.log(chartName[0])
+            //console.log(stateHis);
             chartName[0].filter(x => x.period == period.name || !x.period).forEach((item) => {
                 let request = stateHis.find(d => d.Name == item.name);
                 if(request){

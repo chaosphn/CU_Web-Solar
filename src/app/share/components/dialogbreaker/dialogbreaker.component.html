@@ -15,7 +15,7 @@
       </div>
       <span class="outerbox d-flex-ct">
         <label class="switch ">
-          <input class="chk" type="checkbox" [disabled]="false" (click)="this.linkBreaker()">
+          <input class="chk" type="checkbox" [checked]="cbStatus" [disabled]="false" (change)="this.linkBreaker($event)">
           <span class="slider"></span>                
         </label>
       </span>

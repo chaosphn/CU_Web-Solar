@@ -60,8 +60,8 @@ export class DashboardLastValuesState {
     @Action(ChangeLastValues1)
     changeLastValues1(ctx: StateContext<DashboardLastValuesModel[]>, action: ChangeLastValues1) {
         let state = ctx.getState();
-        console.log(state)
-        console.log(action)
+        //console.log(state)
+        //console.log(action)
         action.values.forEach((item) => {
             let lastValue = state.find(d => d.Name == item.Name && d.Mode == "Historian");
             // let res = action.values.find(d => d.Name == item.Name);
@@ -78,7 +78,7 @@ export class DashboardLastValuesState {
                 });
             }
         });
-        console.log(state);
+        //console.log(state);
         // action.tags[0].forEach((item) => {
         //     let lastValue = state.find(d => d.Name == item.name && d.Mode == "Historian");
         //     let res = action.values.find(d => d.Name == item.name);

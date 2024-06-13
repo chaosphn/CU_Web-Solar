@@ -366,7 +366,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async requestPlotData(): Promise<any[]> {
     const requests = this.store.selectSnapshot(DashboardRequestState.getRequestHistorian());
-    const data = await this.httpService.getPlotData(requests);
+    const data = await this.httpService.getHistorian(requests);
     return data;
   }
 

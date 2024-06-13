@@ -17,7 +17,7 @@ export class StackChartComponent implements OnInit, OnChanges {
   @Input() activeColor: string 
   @Input() bgColor: string 
   @Input() bdRadius: string 
-  @Input() rangeVal: number
+  @Input() rangeVal: number = 10;
   @Input() label: string
   @Input() subLabel: string
   @Input() subTitle: string

@@ -111,7 +111,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     localStorage.setItem('nowUrl',this.router.url.toString());
     this.currentRoute = this.router.url.toString()
     const building = localStorage.getItem('location');
-    ////console.log("component: "+this.currentRoute.slice(6)+" & site: " + this.siteName.toString());
     this.siteName = JSON.parse(building);
     this.init02();
   }
@@ -145,10 +144,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const time = new Date();
     const timeISO = time.toISOString().split('.')[0];
     time.setHours(0, 0, 0, 0);
-    time.setSeconds(sec);
-    const timeStr = this.datePipe.transform(timeISO, 'HH:mm');
-    this.cd.markForCheck();
-    return timeStr;
+    if(sec > 0){
+      const timeStamp = new Date(time).getTime() + (sec*60*60);
+      const timeStr = this.datePipe.transform(new Date(timeStamp).toISOString().split('.')[0],'HH:mm');
+      this.cd.markForCheck();
+      return timeStr;
+    } else {
+      this.cd.markForCheck();
+      return "---";
+    }
   }
 
   configs01: DashboardConfigsRealtime[];

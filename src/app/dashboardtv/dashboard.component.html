@@ -1,7 +1,7 @@
-<div class="container-fluid">
-    <div [ngClass]="!isFullmap? 'main-container' : 'extend-container'">
-        <section id="main" class="">
-            <aside class="left-content ">
+<div class="container-box">
+    <div [ngClass]="!isFullmap? 'content-box' : 'extend-box'" >
+        <div class="group-box bz">
+            <div class="left-box bz">
                 <div class="headerCard w-100 ">
                     <app-cu-container>
                         <ng-template #gradient>
@@ -22,9 +22,9 @@
                     <app-cu-container>
                         <ng-template #gradient>
                            <app-overview-consumption class=""
-                          [power]="data?.singleValue['total_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                           [today]="data?.singleValue['today_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                           [total]="data?.singleValue['total_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                          [power]="data?.singleValue['total_power']?.dataRecords[0]?.Value | myNumber2 : '1.0-0'"
+                           [today]="data?.singleValue['today_energy']?.dataRecords[0]?.Value | myNumber2 : '1.0-0'"
+                           [total]="data?.singleValue['total_energy']?.dataRecords[0]?.Value | myNumber2 : '1.0-0'"
                            [pr]="getAverageValue('_pr')"
                            >
                            </app-overview-consumption>
@@ -45,126 +45,125 @@
                         </ng-template>
                     </app-cu-container>
                 </div>
-            </aside>
-            <aside class="right-content ">
-                <div class="mapCard   w-100 h-100" (click)="modeFullmap()">
-                    <app-cu-container>
-                        <ng-template #gradient>
-                            <div class="mapContent w-100 h-100   ">
-                                <img src="/assets/images/map3D.png" class="mapImg " >
-                                <div class="zoneCard" id="card1" (mouseover)="hoverEffect('card1')" (mouseout)="removeEffect('card1')" (click)="isShow(1)">
-                                    <app-tooltip-vertical
-                                    [titleText]="'01'"
-                                    [imgSrc]="'/assets/images/building/zone/zone1.png'" 
-                                    [g1Title]="'Energy'"
-                                    [g1Value]="data?.singleValue['zone1_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g1Unit]="'kWh'"
-                                    [g2Title]="'Active Power'"
-                                    [g2Value]="data?.singleValue['zone1_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g2Unit]="'kW'"
-                                    [display]="true"
-                                    [classDisplay]="'top'"
-                                    ></app-tooltip-vertical>
-                                </div>
-                                <div class="zoneCard" id="card2" (mouseover)="hoverEffect('card2')" (mouseout)="removeEffect('card2')" (click)="isShow(2)">
-                                    <app-tooltip-vertical
-                                    [titleText]="'02'"
-                                    [imgSrc]="'/assets/images/building/zone/zone2.png'" 
-                                    [g1Title]="'Energy'"
-                                    [g1Value]="data?.singleValue['zone2_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g1Unit]="'kWh'"
-                                    [g2Title]="'Active Power'"
-                                    [g2Value]="data?.singleValue['zone2_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g2Unit]="'kW'"
-                                    [display]="true"
-                                    ></app-tooltip-vertical>
-                                </div>
-                                <div class="zoneCard" id="card3" (mouseover)="hoverEffect('card3')" (mouseout)="removeEffect('card3')" (click)="isShow(6)">
-                                    <app-tooltip-vertical
-                                    [titleText]="'06'"
-                                    [imgSrc]="'/assets/images/building/zone/zone6.png'" 
-                                    [g1Title]="'Energy'"
-                                    [g1Value]="data?.singleValue['zone6_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g1Unit]="'kWh'"
-                                    [g2Title]="'Active Power'"
-                                    [g2Value]="data?.singleValue['zone6_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g2Unit]="'kW'"
-                                    [display]="true"
-                                    [classDisplay]="'top'"
-                                    ></app-tooltip-vertical>
-                                </div>
-                                <div class="zoneCard" id="card4" (mouseover)="hoverEffect('card4')" (mouseout)="removeEffect('card4')" (click)="isShow(3)">
-                                    <app-tooltip-horizontal
-                                    [titleText]="'03'"
-                                    [imgSrc]="'/assets/images/building/zone/zone3.png'" 
-                                    [g1Title]="'Energy'"
-                                    [g1Value]="data?.singleValue['zone3_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g1Unit]="'kWh'"
-                                    [g2Title]="'Active Power'"
-                                    [g2Value]="data?.singleValue['zone3_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g2Unit]="'kW'"
-                                    [display]="true"
-                                    [classDisplay]="'left'"
-                                    ></app-tooltip-horizontal>
-                                </div>
-                                <div class="zoneCard" id="card5" (mouseover)="hoverEffect('card5')" (mouseout)="removeEffect('card5')" (click)="isShow(4)">
-                                    <app-tooltip-horizontal
-                                    [titleText]="'04'"
-                                    [imgSrc]="'/assets/images/building/zone/zone4.png'" 
-                                    [g1Title]="'Energy'"
-                                    [g1Value]="data?.singleValue['zone4_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g1Unit]="'kWh'"
-                                    [g2Title]="'Active Power'"
-                                    [g2Value]="data?.singleValue['zone4_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g2Unit]="'kW'"
-                                    [display]="true"
-                                    [classDisplay]="'right'"
-                                    ></app-tooltip-horizontal>
-                                </div>
-                                <div class="zoneCard" id="card6" (mouseover)="hoverEffect('card6')" (mouseout)="removeEffect('card6')" (click)="isShow(5)">
-                                    <app-tooltip-vertical
-                                    [titleText]="'05'"
-                                    [imgSrc]="'/assets/images/building/zone/zone5.png'" 
-                                    [g1Title]="'Energy'"
-                                    [g1Value]="data?.singleValue['zone5_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g1Unit]="'kWh'"
-                                    [g2Title]="'Active Power'"
-                                    [g2Value]="data?.singleValue['zone5_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g2Unit]="'kW'"
-                                    [display]="true"
-                                    [classDisplay]="'bottom'"
-                                    ></app-tooltip-vertical>
-                                </div>
-                                <div class="zoneCard" id="card7" (mouseover)="hoverEffect('card7')" (mouseout)="removeEffect('card7')" (click)="isShow(7)">
-                                    <app-tooltip-vertical
-                                    [titleText]="'07'"
-                                    [imgSrc]="'/assets/images/building/zone/zone7.png'" 
-                                    [g1Title]="'Energy'"
-                                    [g1Value]="data?.singleValue['zone7_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g1Unit]="'kWh'"
-                                    [g2Title]="'Active Power'"
-                                    [g2Value]="data?.singleValue['zone7_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                                    [g2Unit]="'kW'"
-                                    [display]="true"
-                                    [classDisplay]="'bottom'"
-                                    ></app-tooltip-vertical>
-                                </div>
+            </div>
+            <div class="right-box bz">
+                <app-cu-container>
+                    <ng-template #gradient>
+                        <div class="mapContent w-100 h-100   ">
+                            <img src="/assets/images/map3D.png" class="mapImg" width="auto" (click)="modeFullmap()">
+                            <div class="zoneCard" id="card1" (mouseover)="hoverEffect('card1')" (mouseout)="removeEffect('card1')" (click)="isShow(1)">
+                                <app-tooltip-vertical
+                                [titleText]="'01'"
+                                [imgSrc]="'/assets/images/building/zone/zone1.png'" 
+                                [g1Title]="'Energy'"
+                                [g1Value]="data?.singleValue['zone1_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g1Unit]="'kWh'"
+                                [g2Title]="'Active Power'"
+                                [g2Value]="data?.singleValue['zone1_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g2Unit]="'kW'"
+                                [display]="true"
+                                [classDisplay]="'top'"
+                                ></app-tooltip-vertical>
                             </div>
-                        </ng-template>
-                    </app-cu-container>
-                </div>
-            </aside>
-        </section>
-        <section id="footer" class="" >
+                            <div class="zoneCard" id="card2" (mouseover)="hoverEffect('card2')" (mouseout)="removeEffect('card2')" (click)="isShow(2)">
+                                <app-tooltip-vertical
+                                [titleText]="'02'"
+                                [imgSrc]="'/assets/images/building/zone/zone2.png'" 
+                                [g1Title]="'Energy'"
+                                [g1Value]="data?.singleValue['zone2_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g1Unit]="'kWh'"
+                                [g2Title]="'Active Power'"
+                                [g2Value]="data?.singleValue['zone2_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g2Unit]="'kW'"
+                                [display]="true"
+                                ></app-tooltip-vertical>
+                            </div>
+                            <div class="zoneCard" id="card3" (mouseover)="hoverEffect('card3')" (mouseout)="removeEffect('card3')" (click)="isShow(6)">
+                                <app-tooltip-vertical
+                                [titleText]="'06'"
+                                [imgSrc]="'/assets/images/building/zone/zone6.png'" 
+                                [g1Title]="'Energy'"
+                                [g1Value]="data?.singleValue['zone6_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g1Unit]="'kWh'"
+                                [g2Title]="'Active Power'"
+                                [g2Value]="data?.singleValue['zone6_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g2Unit]="'kW'"
+                                [display]="true"
+                                [classDisplay]="'top'"
+                                ></app-tooltip-vertical>
+                            </div>
+                            <div class="zoneCard" id="card4" (mouseover)="hoverEffect('card4')" (mouseout)="removeEffect('card4')" (click)="isShow(3)">
+                                <app-tooltip-horizontal
+                                [titleText]="'03'"
+                                [imgSrc]="'/assets/images/building/zone/zone3.png'" 
+                                [g1Title]="'Energy'"
+                                [g1Value]="data?.singleValue['zone3_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g1Unit]="'kWh'"
+                                [g2Title]="'Active Power'"
+                                [g2Value]="data?.singleValue['zone3_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g2Unit]="'kW'"
+                                [display]="true"
+                                [classDisplay]="'left'"
+                                ></app-tooltip-horizontal>
+                            </div>
+                            <div class="zoneCard" id="card5" (mouseover)="hoverEffect('card5')" (mouseout)="removeEffect('card5')" (click)="isShow(4)">
+                                <app-tooltip-horizontal
+                                [titleText]="'04'"
+                                [imgSrc]="'/assets/images/building/zone/zone4.png'" 
+                                [g1Title]="'Energy'"
+                                [g1Value]="data?.singleValue['zone4_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g1Unit]="'kWh'"
+                                [g2Title]="'Active Power'"
+                                [g2Value]="data?.singleValue['zone4_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g2Unit]="'kW'"
+                                [display]="true"
+                                [classDisplay]="'right'"
+                                ></app-tooltip-horizontal>
+                            </div>
+                            <div class="zoneCard" id="card6" (mouseover)="hoverEffect('card6')" (mouseout)="removeEffect('card6')" (click)="isShow(5)">
+                                <app-tooltip-vertical
+                                [titleText]="'05'"
+                                [imgSrc]="'/assets/images/building/zone/zone5.png'" 
+                                [g1Title]="'Energy'"
+                                [g1Value]="data?.singleValue['zone5_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g1Unit]="'kWh'"
+                                [g2Title]="'Active Power'"
+                                [g2Value]="data?.singleValue['zone5_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g2Unit]="'kW'"
+                                [display]="true"
+                                [classDisplay]="'bottom'"
+                                ></app-tooltip-vertical>
+                            </div>
+                            <div class="zoneCard" id="card7" (mouseover)="hoverEffect('card7')" (mouseout)="removeEffect('card7')" (click)="isShow(7)">
+                                <app-tooltip-vertical
+                                [titleText]="'07'"
+                                [imgSrc]="'/assets/images/building/zone/zone7.png'" 
+                                [g1Title]="'Energy'"
+                                [g1Value]="data?.singleValue['zone7_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g1Unit]="'kWh'"
+                                [g2Title]="'Active Power'"
+                                [g2Value]="data?.singleValue['zone7_power']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                                [g2Unit]="'kW'"
+                                [display]="true"
+                                [classDisplay]="'bottom'"
+                                ></app-tooltip-vertical>
+                            </div>
+                        </div>
+                    </ng-template>
+                </app-cu-container>
+            </div>
+        </div>
+        <div class="building-box bz h-100" *ngIf="buildingList">
             <app-cu-container>
                 <ng-template #gradient>
-                    <div class="chart-container   w-100">
-                        <div class="cardTopic ">BUILDING GENERATION ( kWh )</div>
-                        <div class="cardContent " *ngIf="buildingList">
-                          <app-stack-chart [data]="5" class="chartBox" *ngFor="let item of buildingList.building; index as i;"
+                    <div class="chart-container w-100">
+                        <div class="cardTopic bz">BUILDING GENERATION ( kWh )</div>
+                        <div class="cardContent bz">
+                          <app-stack-chart [data]="5" class="chartBox bz" *ngFor="let item of buildingList"
                           [subTitle]="getLabel(item.name)"
                           [label]="getLabel(item.id, 0, 3)"
                           [subLabel]="getLabel(item.id, 3, 6)"
+                          [rangeVal]="20"
                           [value]="data?.singleValue[item.id+'_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
                           [maxVal]="data?.singleValue[item.id+'_energy']?.maxValue"
                           >
@@ -173,186 +172,8 @@
                       </div>
                 </ng-template>
             </app-cu-container>
-        </section>
-        <section  class="mobileTable w-100" >
-            <app-cu-container>
-                <ng-template #gradient>
-                    <div class="container-table w-100">
-                        <div class="topic">BUILDING SUMMARY</div>
-                        <div class="mat-elevation-z8">
-                            <mat-form-field appearance="standard" class="custom-form-field">
-                                <i class="small material-icons">search</i>
-                                <input matInput (keyup)="applyFilter($event)" placeholder="Search"/>
-                            </mat-form-field>
-                            <table mat-table [dataSource]="dataSource">
-                                <!-- Position Column -->
-                                <ng-container class="block" matColumnDef="No">
-                                  <th mat-header-cell *matHeaderCellDef style="padding: 0%;"> # </th>
-                                  <td mat-cell *matCellDef="let tablerow" style="text-align: center;">{{tablerow.no}}
-                                </td>
-                                </ng-container>
-                            
-                                <!-- Name Column -->
-                                <ng-container class="block" matColumnDef="Building">
-                                  <th mat-header-cell *matHeaderCellDef> Building </th>
-                                  <td mat-cell *matCellDef="let tablerow"> {{tablerow.building}} </td>
-                                </ng-container>
-                            
-                                <!-- Weight Column -->
-                                <ng-container class="block" matColumnDef="Power">
-                                  <th mat-header-cell *matHeaderCellDef> Power (kW) </th>
-                                  <td mat-cell *matCellDef="let tablerow"> {{tablerow.power | number: '1.0-2'}} </td>
-                                </ng-container>
-                            
-                                <!-- Symbol Column -->
-                                <ng-container class="block" matColumnDef="Energy">
-                                  <th mat-header-cell *matHeaderCellDef> Energy (kWh)</th>
-                                  <td mat-cell *matCellDef="let tablerow"> {{tablerow.energy}}</td>
-                                </ng-container>
-            
-                                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                            </table>
-                            <mat-paginator id="arrow-paginator" [pageSize]="6" [pageSizeOptions]="[4,6,12,24,48]"></mat-paginator>
-                        </div>
-                    </div>
-                </ng-template>
-            </app-cu-container>
-        </section>
+        </div>
     </div>
-    <!-- <div class="mapCard-full   " *ngIf="isFullmap" (click)="modeFullmap()">
-        <app-cu-container>
-            <ng-template #gradient>
-                <div class="mapContent w-100   ">
-                    <img src="/assets/images/map3D.png" class="mapImg " >
-                    <img src="/assets/images/effect/x1.png" alt="" class="x1 effect" id="img-card6">
-                    <img src="/assets/images/effect/x2.png" alt="" class="x2 effect" id="img-card6">
-                    <img src="/assets/images/effect/x3.png" alt="" class="x3 effect" id="img-card6">
-                    <img src="/assets/images/effect/x4.png" alt="" class="x4 effect" id="img-card5">
-                    <img src="/assets/images/effect/x5.png" alt="" class="x5 effect" id="img-card5">
-                    <img src="/assets/images/effect/x6.png" alt="" class="x6 effect" id="img-card7">
-                    <img src="/assets/images/effect/x7.png" alt="" class="x7 effect" id="img-card7">
-                    <img src="/assets/images/effect/x8.png" alt="" class="x8 effect" id="img-card7">
-                    <img src="/assets/images/effect/x9.png" alt="" class="x9 effect" id="img-card4">
-                    <img src="/assets/images/effect/x10.png" alt="" class="x10 effect" id="img-card4">
-                    <img src="/assets/images/effect/x11.png" alt="" class="x11 effect" id="img-card4">
-                    <img src="/assets/images/effect/x12.png" alt="" class="x12 effect" id="img-card4">
-                    <img src="/assets/images/effect/x13.png" alt="" class="x13 effect" id="img-card4">
-                    <img src="/assets/images/effect/x14.png" alt="" class="x14 effect" id="img-card2">
-                    <img src="/assets/images/effect/x15.png" alt="" class="x15 effect" id="img-card1">
-                    <img src="/assets/images/effect/x16.png" alt="" class="x16 effect" id="img-card1">
-                    <img src="/assets/images/effect/x17.png" alt="" class="x17 effect" id="img-card1">
-                    <img src="/assets/images/effect/x18.png" alt="" class="x18 effect" id="img-card2">
-                    <img src="/assets/images/effect/x19.png" alt="" class="x19 effect" id="img-card2">
-                    <img src="/assets/images/effect/x20.png" alt="" class="x20 effect" id="img-card2">
-                    <img src="/assets/images/effect/x21.png" alt="" class="x21 effect" id="img-card2">
-                    <img src="/assets/images/effect/x22.png" alt="" class="x22 effect" id="img-card3">
-                    <img src="/assets/images/effect/x23.png" alt="" class="x23 effect" id="img-card3">
-                    <img src="/assets/images/effect/x24.png" alt="" class="x24 effect" id="img-card3">
-                    <img src="/assets/images/effect/x25.png" alt="" class="x25 effect" id="img-card3">
-                    <img src="/assets/images/effect/x26.png" alt="" class="x26 effect" id="img-card3">
-                    <div class="zoneCard" id="card1" (mouseover)="hoverEffect('card1')" (mouseout)="removeEffect('card1')">
-                        <app-tooltip-horizontal
-                        [titleText]="'Xxx 1'"
-                        [imgSrc]="'/assets/images/building/อาคารจุฬานิวาส.jpg'" 
-                        [g1Title]="'Energy'"
-                        [g1Value]="value"
-                        [g1Unit]="'kWh'"
-                        [g2Title]="'Active Power'"
-                        [g2Value]="15684"
-                        [g2Unit]="'kW'"
-                        [display]="true"
-                        [classDisplay]="'right'"
-                        ></app-tooltip-horizontal>
-                    </div>
-                    <div class="zoneCard" id="card2" (mouseover)="hoverEffect('card2')" (mouseout)="removeEffect('card2')">
-                        <app-tooltip-vertical
-                        [titleText]="'Xxx 1'"
-                        [imgSrc]="'/assets/images/building/อาคารจุฬานิวาส.jpg'" 
-                        [g1Title]="'Energy'"
-                        [g1Value]="value"
-                        [g1Unit]="'kWh'"
-                        [g2Title]="'Active Power'"
-                        [g2Value]="15684"
-                        [g2Unit]="'kW'"
-                        [display]="true"
-                        [classDisplay]="'top'"
-                        ></app-tooltip-vertical>
-                    </div>
-                    <div class="zoneCard" id="card3" (mouseover)="hoverEffect('card3')" (mouseout)="removeEffect('card3')">
-                        <app-tooltip-vertical
-                        [titleText]="'Xxx 1'"
-                        [imgSrc]="'/assets/images/building/อาคารจุฬานิวาส.jpg'" 
-                        [g1Title]="'Energy'"
-                        [g1Value]="value"
-                        [g1Unit]="'kWh'"
-                        [g2Title]="'Active Power'"
-                        [g2Value]="15684"
-                        [g2Unit]="'kW'"
-                        [display]="true"
-                        [classDisplay]="'bottom'"
-                        ></app-tooltip-vertical>
-                    </div>
-                    <div class="zoneCard" id="card4" (mouseover)="hoverEffect('card4')" (mouseout)="removeEffect('card4')">
-                        <app-tooltip-vertical
-                        [titleText]="'Xxx 1'"
-                        [imgSrc]="'/assets/images/building/อาคารจุฬานิวาส.jpg'" 
-                        [g1Title]="'Energy'"
-                        [g1Value]="value"
-                        [g1Unit]="'kWh'"
-                        [g2Title]="'Active Power'"
-                        [g2Value]="15684"
-                        [g2Unit]="'kW'"
-                        [display]="true"
-                        [classDisplay]="'top'"
-                        ></app-tooltip-vertical>
-                    </div>
-                    <div class="zoneCard" id="card5" (mouseover)="hoverEffect('card5')" (mouseout)="removeEffect('card5')">
-                        <app-tooltip-horizontal
-                        [titleText]="'Xxx 1'"
-                        [imgSrc]="'/assets/images/building/อาคารจุฬานิวาส.jpg'" 
-                        [g1Title]="'Energy'"
-                        [g1Value]="value"
-                        [g1Unit]="'kWh'"
-                        [g2Title]="'Active Power'"
-                        [g2Value]="'12,953'"
-                        [g2Unit]="'kW'"
-                        [display]="true"
-                        [classDisplay]="'left'"
-                        ></app-tooltip-horizontal>
-                    </div>
-                    <div class="zoneCard" id="card6" (mouseover)="hoverEffect('card6')" (mouseout)="removeEffect('card6')">
-                        <app-tooltip-vertical
-                        [titleText]="'Xxx 1'"
-                        [imgSrc]="'/assets/images/building/อาคารจุฬานิวาส.jpg'" 
-                        [g1Title]="'Energy'"
-                        [g1Value]="value"
-                        [g1Unit]="'kWh'"
-                        [g2Title]="'Active Power'"
-                        [g2Value]="15684"
-                        [g2Unit]="'kW'"
-                        [display]="true"
-                        [classDisplay]="'bottom'"
-                        ></app-tooltip-vertical>
-                    </div>
-                    <div class="zoneCard" id="card7" (mouseover)="hoverEffect('card7')" (mouseout)="removeEffect('card7')">
-                        <app-tooltip-horizontal
-                        [titleText]="'Xxx 1'"
-                        [imgSrc]="'/assets/images/building/อาคารจุฬานิวาส.jpg'" 
-                        [g1Title]="'Energy'"
-                        [g1Value]="15684"
-                        [g1Unit]="'kWh'"
-                        [g2Title]="'Active Power'"
-                        [g2Value]="15684"
-                        [g2Unit]="'kW'"
-                        [display]="true"
-                        [classDisplay]="'left'"
-                        ></app-tooltip-horizontal>
-                    </div>
-                </div>
-            </ng-template>
-        </app-cu-container>
-    </div> -->
     <div class="headerCard-full " *ngIf="isFullmap" (click)="isChange()">
         <app-cu-container>
             <ng-template #gradient>

@@ -1,11 +1,11 @@
-<div class="container w-100 ">
-  <div class="card-container w-100 ">
+<div class="container w-100 bz">
+  <div class="card-container w-100">
     <div class="headBox d-flex">
      <span class="headText">{{header || 'อาคาร XXXXX'}}</span>
      <!-- <img class="" src="assets/images/tuk.png" alt="" height="20px">  -->
     </div>
     <div class="contentBox w-100">
-      <aside class="cardBox ">   
+      <aside class="cardBox bz">   
           <div class="cardItem">
             <div class="iconBox d-flex-ct "><img src="assets/images/thunder.png" alt="" height="20px"></div>
             <div class="infoBox  d-flex">
@@ -46,59 +46,6 @@
               </div>
             </div>
           </div>
-          <span class="cardItem-mobile">
-            <div class="infoBox  d-flex">
-              <span class="infoTopic ">
-                <img src="assets/images/thunder.png" alt="" height="20px" class="img-mobile">
-                {{topic1 || 'Power'}}
-              </span>
-              <div id="value" class="mobile-value">
-                {{value1 | myNumber : '1.0-2'}}
-                
-              </div>
-              <div class="infoValue  d-flex">
-                <!-- <div id="value" class="">{{value1 | myNumber : '1.0-2'}}</div> -->
-                <span id="unit" class="">{{unit1 || 'kW'}}</span>
-              </div>
-            </div>
-            <div class="infoBox  d-flex">
-              <span class="infoTopic ">
-                <img src="assets/images/solar-cell1.png" class="img-mobile">
-                {{topic2 || 'Energy'}}
-              </span>
-              <div id="value" class="mobile-value">{{value2 | myNumber : '1.0-2'}}</div>
-              <div class="infoValue  d-flex">
-                <!-- <span id="value" class="">{{value2 | myNumber : '1.0-2'}}</span> -->
-                <span id="unit" class="">{{unit2 || 'kWh'}}</span>
-              </div>
-            </div>
-          </span>
-          <span class="cardItem-mobile">
-            <div class="infoBox  d-flex">
-              <span class="infoTopic ">
-                <img src="assets/images/speedometer.png" class="img-mobile">
-                {{topic3 || 'Performance'}}
-              </span>
-              <div id="value" class="mobile-value">{{value3 | myNumber : '1.0-2'}}</div>
-              <!-- <div id="value" class="mobile-value">0</div> -->
-              <div class="infoValue  d-flex">
-                <!-- <span id="value" class="">{{value3 | myNumber : '1.0-2'}}</span> -->
-                <span id="unit" class="">{{unit3 || '%'}}</span>
-              </div>
-            </div>
-            <div class="infoBox  d-flex">
-              <span class="infoTopic ">
-                <img src="assets/images/bath.png" class="img-mobile">
-                {{topic4 || 'Today Saving'}}
-              </span>
-              <div id="value" class="mobile-value">{{value4 | myNumber : '1.0-2'}}</div>
-              <!-- <div id="value" class="mobile-value">0</div> -->
-              <div class="infoValue  d-flex">
-                <!-- <span id="value" class="">{{value4 | myNumber : '1.0-2'}}</span> -->
-                <span id="unit" class="">{{unit4 || 'Bath'}}</span>
-              </div>
-            </div>
-          </span>
       </aside>
       <aside class="chartBox">
         <div class="chart-content h-100 bz">

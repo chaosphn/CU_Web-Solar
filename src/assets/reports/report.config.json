@@ -1,10 +1,10 @@
 [
     {
-        "Name": "Daily Report",
-        "Type": "Daily"
+        "Name": "DailyReport",
+        "Type": "daily"
     },
     {
-        "Name": "Monthly Report",
-        "Type": "Monthly"
+        "Name": "MonthlyReport",
+        "Type": "monthly"
     }
 ]

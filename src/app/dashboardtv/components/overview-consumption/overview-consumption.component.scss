@@ -21,11 +21,12 @@
 }
 .cardInfo{
     column-gap: 24px;
+    align-items: center;
 }
 .Icon{
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     //background-color: #F8A300;
     background-color: #F8A300;
     //background: linear-gradient(90deg, #fe4f10 0%, #ff9e0c 100%);
@@ -38,7 +39,7 @@
 .cardValue{
     display: flex;
     justify-content: center;
-    align-items: end;
+    align-items: center;
     font-weight: 500;
     color: white;
     font-size: 20px;

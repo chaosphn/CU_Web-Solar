@@ -2,7 +2,7 @@ import { DatePipe } from '@angular/common';
 import { AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { Subscription, timer, Observable } from 'rxjs';
-import { DashboardConfigStateModel, DashboardConfigs, DashboardConfigsHistorian, DashboardConfigsRealtime } from '../core/stores/configs/dashboard/dashboard-configs.model';
+import { DashboardConfigStateModel, DashboardConfigs, DashboardConfigsHistorian, DashboardConfigsRealtime, Options } from '../core/stores/configs/dashboard/dashboard-configs.model';
 import { ChangePeriodName, DashboardConfigsState, SetDashboardConfigs } from '../core/stores/configs/dashboard/dashboard-configs.state';
 import { DashboardLastValuesModel, DashboardLastValuesStateModel, DashboardResHistorian, DashboardResRealtime, Record } from '../core/stores/last-values/dashboard/dashboard-last-values.model';
 import { ChangeLastValues, ChangeLastValues1, DashboardLastValuesState, SetDashboardValues } from '../core/stores/last-values/dashboard/dashboard-last-values.state';
@@ -31,6 +31,7 @@ import { Router,NavigationEnd  } from '@angular/router';
 import { LocalStorageService } from '../share/services/localstorage.service';
 import { EventService } from '../share/services/event.service';
 import { NavbarComponent } from '../core/components/navbar/navbar.component';
+import { Timestamp } from 'rxjs/internal/operators/timestamp';
 
 @Component({
   selector: 'app-dashboard',
@@ -459,19 +460,37 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     await this.store.dispatch(new ChangePeriod1(tagChart, _period.startTime, _period.endTime, period.name)).toPromise();
 
     const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
-    const res: DashboardResHistorian[] = await this.httpService.getHistorian(req);
-    if(period.display == "12m"){
-      res.map(item => {
-        let rec: Record[] = [];
-        if(item.Name.endsWith("MONTH")){
-          rec = item.records.filter(x => x.TimeStamp.includes("31T17:00:00.000Z"));
-        } else {
-          rec = item.records;
+    let res: DashboardResHistorian[] = [];
+    switch(chartName){
+      case "powerGeneration":
+        const request: DashboardReqHistorian[] = req.map( x => {
+          const opt:Options = {
+            StartTime: x.Options.StartTime,
+            EndTime: x.Options.EndTime,
+            Time: x.Options.Time,
+            Interval: 60,
+          }
+          return {...x, Options: opt}
+        });
+        res = await this.httpService.getPlotData(request);
+        await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
+        break;
+      default:
+        res = await this.httpService.getHistorian(req);
+        if(period.display == "12m"){
+          res.map(item => {
+            let rec: Record[] = [];
+            if(item.Name.endsWith("MONTH")){
+              rec = item.records.filter(x => x.TimeStamp.includes("31T17:00:00.000Z"));
+            } else {
+              rec = item.records;
+            }
+            return { ...item, records: rec };
+          })
         }
-        return { ...item, records: rec };
-      })
+        await this.store.dispatch(new ChangeLastValues1(tagChart, this.getMaxValueRecord(res))).toPromise();
+        break;
     }
-    await this.store.dispatch(new ChangeLastValues1(tagChart, this.getMaxValueRecord(res))).toPromise();
     const charts = this.chartConfigs.find(d => d.name == chartName);
     const type = charts.type;
     let data: MultipleValue = {};
@@ -506,6 +525,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
+  checkPRValue(val: string){
+    const value = parseFloat(val);
+    if(value > 100){
+      return '100';
+    } else {
+      return val;
+    }
+  }
  
 
   private cloneHisReqs(hisReqs: DashboardRequestStateModel[]): DashboardRequestStateModel[] {

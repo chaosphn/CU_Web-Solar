@@ -91,8 +91,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   dataSource: MatTableDataSource<any>
 
   @ViewChild('progressBar') progressBar: ElementRef;
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort : MatSort
 
   constructor(private httpService: HttpService,
     private datePipe: DatePipe,
@@ -149,8 +147,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //this.buildingList = await this.httpService.getNavConfig('assets/main/BuildingList.json');
     const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/dashboard/configurations/dashboard[CEN091].config.json');
     
-    this.dataSource = await new MatTableDataSource(this.getTabel());
-    this.dataSource.paginator = this.paginator;
+    // this.dataSource = await new MatTableDataSource(this.getTabel());
+    // this.dataSource.paginator = this.paginator;
     // //console.log(this.buildingList.building);
   }
 
@@ -195,10 +193,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.paginator.page.subscribe((event) =>{
-      // //console.log(this.dataSource)
-    })
+    // this.dataSource.paginator = this.paginator;
+    // this.paginator.page.subscribe((event) =>{
+    //   // //console.log(this.dataSource)
+    // })
   }
 
   ngOnDestroy() {

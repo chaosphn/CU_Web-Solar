@@ -134,9 +134,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit() {
-    //this.init();
-    localStorage.setItem('nowUrl',this.router.url.toString());
-    
     this.sub1 = this.sites$.pipe(debounceTime(0))
     .subscribe( item => {
       // //console.log(this.loadImgSite())
@@ -144,13 +141,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const zoneId = localStorage.getItem('zone');
     const Bx:BuildingModel[] = this.store.selectSnapshot(SitesState.getSites());
     if(Bx){
-      console
       this.buildingList = Bx.filter(x => x.zone == zoneId);
-      //console.log(this.buildingList)
+      if(this.buildingList.length > 0){
+        this.init02();
+        this.onWindowResize()
+      } else {
+        this.router.navigate(['/main/dashboard1']);
+      }
     }
     //console.log(Bx)
-    this.init02();
-    this.onWindowResize()
   }
   
   updateZone(){
@@ -197,6 +196,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     // //console.log(id)
     localStorage.setItem('location', JSON.stringify(id));
     this.updateInit();
+    this.event.triggerFunction();
     if(parseInt(id.no) <= 6){
       this.router.navigate(['/main/dashboard3']);
     }
@@ -533,6 +533,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.subscriptions.forEach(sub => {
       sub.unsubscribe();
     });
+  }
+
+  checkPRValue(val: string){
+    const value = parseFloat(val);
+    if(value > 100){
+      return '100';
+    } else {
+      return val;
+    }
   }
 
 }

@@ -10,3 +10,7 @@ export interface DiagramConfigModel {
     Title: string;
 }
 
+export interface DiagramEquipmentModel{
+    name: string;
+    status: boolean;
+}

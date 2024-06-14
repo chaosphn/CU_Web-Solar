@@ -108,7 +108,7 @@ export class DashboardChartService {
             const _dataRecords = d.dataRecords.map(x => {
                 let _data: [number, number];
                 //if (x.Quality.toString().toLowerCase() !== 'bad') {
-                    _data = [new Date(new Date(x.TimeStamp).getTime() ).getTime(), +x.Value];
+                    _data = [new Date(new Date(x.TimeStamp).getTime() ).getTime(), +(x.Value.replace(",", ""))];
                 //}
                 return _data;
               });

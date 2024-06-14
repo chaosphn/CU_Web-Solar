@@ -36,7 +36,7 @@
             [g3Value]="((data?.singleValue['power_capacity']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2')*10) | myNumber : '1.0-2'" 
             [g3Unit]="data?.singleValue['power_capacity']?.unit" 
             [g4Title]="'PR'" 
-            [g4Value]="data?.singleValue['power_pr']?.dataRecords[0]?.Value | myNumber2 : '1.0-2'" 
+            [g4Value]="checkPRValue(data?.singleValue['power_pr']?.dataRecords[0]?.Value) | myNumber2 : '1.0-2'" 
             [g4Unit]="data?.singleValue['power_pr']?.unit" 
             ></app-daily-consumption>
         </ng-template>
@@ -49,9 +49,9 @@
           <app-daily-consumption [title]="'TODAY ENERGY'" [expectText]="'EXPECTED'" 
           [minValue]="data?.singleValue['energy_today']?.minValue" 
           [maxValue]="data?.singleValue['energy_today']?.maxValue"
-            [actualValue]="data?.singleValue['energy_today']?.dataRecords[0]?.Value" 
+            [actualValue]="data?.singleValue['energy_today']?.dataRecords[0]?.Value | myNumber : '1.0-1'" 
             [actualUnit]="data?.singleValue['energy_today']?.unit" 
-            [expectValue]="data?.singleValue['energy_expected']?.dataRecords[0]?.Value" 
+            [expectValue]="data?.singleValue['energy_expected']?.dataRecords[0]?.Value | myNumber : '1.0-1'" 
             [expectUnit]="data?.singleValue['energy_expected']?.unit" 
             [g1Title]="'TODAY'"
             [g1Value]="data?.singleValue['energy_today']?.dataRecords[0]?.Value | myNumber2 : '1.0-1'" 

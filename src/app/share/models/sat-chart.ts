@@ -192,7 +192,7 @@ export class ChartParametersAdapter {
         const _yAxis: any | any[] = [];
         if (this.chartParams.yAxis) {
             this.chartParams.yAxis.forEach(y => {
-
+    
                 const _x = (y.opposite) ? -75 : 10;
                 if (y.ymin && y.ymax) {
                     _yAxis.push({
@@ -222,7 +222,7 @@ export class ChartParametersAdapter {
                             format: '{value:,.0f}',
                         },
                         max: +y.ymax,
-                        min: +y.ymin,
+                        min: 0,
                         opposite: y.opposite,
                         title: {
                             reserveSpace: false,
@@ -355,30 +355,60 @@ export class ChartParametersAdapter {
                     });
                 }
                 else {
-                    _yAxis.push({
-                        lineColor: y.lineColor || 'gray',
-                        lineWidth: y.lineWidth || 2,
-                        endOnTick: false,
-                        tickAmount: 5,
-                        labels: {
-                            enabled: y.labelEnable || true,
-                            // format: y.labelFormat || '{value:,.0f}',
-                            format: '{value:,.0f}',
-                        },
-                        opposite: y.opposite,
-                        title: {
-                            reserveSpace: false,
-                            text: y.title || null,
-                            align: 'high',
-                            style: {
-                                'text-anchor': 'start'
+                    if(y.title.includes("IRR")){
+                        _yAxis.push({
+                            lineColor: y.lineColor || 'gray',
+                            lineWidth: 0 || 2,
+                            endOnTick: false,
+                            tickAmount: 5,
+                            min: 0,
+                            max: 1600,
+                            labels: {
+                                enabled: y.labelEnable || true,
+                                // format: y.labelFormat || '{value:,.0f}',
+                                format: '{value:,.0f}',
                             },
-                            rotation: 0,
-                            y: -15,
-                            x: _x
-                        },
-                        visible: y.visible || false
-                    });
+                            opposite: y.opposite,
+                            title: {
+                                reserveSpace: false,
+                                text: y.title || null,
+                                align: 'high',
+                                style: {
+                                    'text-anchor': 'start'
+                                },
+                                rotation: 0,
+                                y: -15,
+                                x: _x
+                            },
+                            visible: false
+                        });
+                    } else {
+                        _yAxis.push({
+                            lineColor: y.lineColor || 'gray',
+                            lineWidth: 0 || 2,
+                            endOnTick: false,
+                            tickAmount: 5,
+                            min: 0,
+                            labels: {
+                                enabled: y.labelEnable || true,
+                                // format: y.labelFormat || '{value:,.0f}',
+                                format: '{value:,.0f}',
+                            },
+                            opposite: y.opposite,
+                            title: {
+                                reserveSpace: false,
+                                text: y.title || null,
+                                align: 'high',
+                                style: {
+                                    'text-anchor': 'start'
+                                },
+                                rotation: 0,
+                                y: -15,
+                                x: _x
+                            },
+                            visible: false
+                        });
+                    }
                 }
 
 

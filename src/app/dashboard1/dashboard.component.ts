@@ -531,6 +531,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
   
+  checkPRValue(val: string){
+    const value = parseFloat(val);
+    if(value > 100){
+      return '100';
+    } else {
+      return val;
+    }
+  }
  
 
   private cloneHisReqs(hisReqs: DashboardRequestStateModel[]): DashboardRequestStateModel[] {

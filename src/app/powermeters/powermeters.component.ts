@@ -114,6 +114,8 @@ export class PowermetersComponent implements OnInit, AfterViewInit,  OnDestroy {
   async updateInit(){
     const building = localStorage.getItem('location');
     this.siteName = JSON.parse(building);
+    this.initChart();
+    this.initDateTime();
     await this.init();
     await this.Init2();
     //console.log(JSON.parse(building))
@@ -314,11 +316,6 @@ export class PowermetersComponent implements OnInit, AfterViewInit,  OnDestroy {
         }
       });
     })
-    ////console.log(powerConfig)
-    //this.powerTagService.addServerName(powerConfig);
-    //const models = this.transformDiagramConfig(powerConfig);
-    //this.store.dispatch(new SetPowerConfigs(models));
-    //Promise.all(powerConfig);
     return powerConfig;
   }
 
@@ -508,6 +505,7 @@ export class PowermetersComponent implements OnInit, AfterViewInit,  OnDestroy {
       }
   
       else if (diff <= 0) {
+        this.initDateTime();
         alert('Start time should be less than end time.');
         throw new Error('Start time should be less than end time.');
       }

@@ -25,16 +25,16 @@ export class DiagramLastValuesService {
         currConfigs.forEach(config => {
             const tag = config;
             if (tag) {
-                //console.log(tag)
-                const lastValues:DiagramLastValuesModel[] = this.store.selectSnapshot(DiagramLastValuesState.getLastValues1());
-                //console.log(this.store.selectSnapshot(DashboardLastValuesState.getLastValuesRealtime(tag)));
-                singValues[tag.Title] = {
-                    tagNames: [lastValues[0].Name],
-                    dataRecords: lastValues[0].DataRecord,
-                    unit:lastValues[0].Unit,
-                    minValue: lastValues[0].Min,
-                    maxValue: lastValues[0].Max
-                };
+                const lastValues:DiagramLastValuesModel[] = this.store.selectSnapshot(DiagramLastValuesState.getLastValuesWithName(tag.Name));
+                if(lastValues.length > 0){
+                    singValues[tag.Title] = {
+                        tagNames: [lastValues[0].Name],
+                        dataRecords: lastValues[0].DataRecord,
+                        unit:lastValues[0].Unit,
+                        minValue: lastValues[0].Min,
+                        maxValue: lastValues[0].Max
+                    };
+                }
 
             }
         });

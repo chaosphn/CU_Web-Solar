@@ -47,5 +47,11 @@ export class DiagramLastValuesState {
             return state;
         });
     }
+
+    static getLastValuesWithName(name: string) {
+        return createSelector([DiagramLastValuesState], (state: DiagramLastValuesModel[]) => {
+            return state.filter(x => x.Name == name);
+        });
+    }
 }
 

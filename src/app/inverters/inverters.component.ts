@@ -106,7 +106,8 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
     async updateInit(){
       const building = localStorage.getItem('location');
       this.siteName = JSON.parse(building);
-      //console.log(JSON.parse(building))
+      this.initChart();
+      this.initDateTime();
       await this.init();
       await this.Init2();
     }
@@ -497,6 +498,7 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
         }
     
         else if (diff <= 0) {
+          this.initDateTime();
           alert('Start time should be less than end time.');
           throw new Error('Start time should be less than end time.');
         }

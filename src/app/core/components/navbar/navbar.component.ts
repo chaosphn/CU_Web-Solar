@@ -50,7 +50,13 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   currentRoute: string;
   diagramSelecter:any = false;
   diagramRouter:any = '/main/diagram';
-  siteSelected: string = "OrangeMarket";
+  siteSelected: BuildingModel = {
+    no:"1",
+    id:"ARC003",
+    zone:"3",
+    name:"อาคารเลิศ อุรัสยะนันทน์",
+    capacity: 113.4
+  };
   nowUrl: string;
   buildingList: SiteStateModel;
   today: string;
@@ -74,7 +80,8 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     });
     this.currentRoute = router.url;
     this.sub1 = this.event.triggerFunction$.subscribe(() => {
-      this.diagramRouting();
+      const site = localStorage.getItem('location');
+      this.siteSelected = JSON.parse(site);
     });  
     this.isChange = event.triggerNavbar$.subscribe(()=>{
       this.toggleBackground("/main/dashboard1");
@@ -86,8 +93,10 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     this.pages = userState.PageNames;
     this.pages = this.pages.map(x => x.toLowerCase().split(' ').join(''));
     this.role = userState.Username;
-    this.siteSelected = localStorage.getItem('location');
-    localStorage.setItem('location',this.siteSelected);
+    const site = localStorage.getItem('location');
+    if(site){
+      this.siteSelected = JSON.parse(site);
+    }
     //console.log(this.siteSelected)
     this.currentRoute = this.router.url.toString()
     //this.readStatus();
@@ -160,22 +169,10 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   }
 
   async selectSite(data:BuildingModel){
-    this.siteSelected = data.id;
+    this.siteSelected = data;
     localStorage.setItem('location', JSON.stringify(data));
     this.event.triggerFunction()
     await this.store.dispatch( new SetBulding(data)).toPromise();
-    this.diagramRouting();
-  }
-
-  async selectSiteMobile(data:string,links:string){
-    this.nowUrl = this.router.url.toString()
-    this.siteSelected = data;
-    //console.log(this.nowUrl);
-    //console.log(this.siteSelected);
-    localStorage.setItem('location', JSON.stringify(data));
-    this.event.triggerFunction()
-    this.diagramRouting();
-    // window.location.reload()
   }
 
   updateData(){
@@ -234,49 +231,6 @@ export class NavbarComponent implements AfterViewInit, OnInit {
       localStorage.setItem('location', data);
     }
   }
-
-  diagramRouting(){
-    this.siteSelected = localStorage.getItem('location');
-    this.currentRoute = this.router.url.toString()
-    //console.log(this.currentRoute)
-    if(this.currentRoute.includes('diagram'))
-    {
-      this.diagramSelecter = true;
-      //console.log(this.diagramRouter);
-    } else{
-      this.diagramSelecter = false;
-    }
-    switch(this.siteSelected){
-        case 'OrangeMarket': {
-          this.diagramRouter = ['/main/diagram'];
-          //this.clickDiagram(this.diagramRouter);
-          //this.routing1('diagram');
-          break;
-        }
-        case 'FruitMarket': {
-          this.diagramRouter = ['/main/diagram1'];
-          //this.clickDiagram(this.diagramRouter);
-          //this.routing1('diagram1');
-          break;
-        }
-        case 'FreshMarket': {
-          this.diagramRouter = ['/main/diagram2'];
-          //this.clickDiagram(this.diagramRouter);
-          //this.routing1('diagram2');
-          break;
-        }
-        case 'ContainerYard': {
-          this.diagramRouter = ['/main/diagram3'];
-          //this.clickDiagram(this.diagramRouter);
-          //this.routing1('diagram3');
-          break;
-        }
-      }
-    
-  }
-
-
-
 
 }
 export interface Site{

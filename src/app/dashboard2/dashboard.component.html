@@ -76,7 +76,7 @@
               [percentValue]="1"></app-circle-progress></div>
             <div class="site-progress "><app-circle-progress [Ids]="i+'03'" 
               [title]="'PR'"
-              [value]="data?.singleValue[item.id+'_pr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [value]="checkPRValue(data?.singleValue[item.id+'_pr']?.dataRecords[0]?.Value) | myNumber : '1.0-2'"
               [unit]="data?.singleValue[item.id+'_pr']?.unit || '%'"
               [maxValue]="data?.singleValue[item.id+'_pr']?.maxValue"
               [percentValue]="1"></app-circle-progress></div>

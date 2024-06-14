@@ -8,7 +8,7 @@ import { DiagramRequestStateModel } from '../core/stores/requests/diagram/diagra
 import { DiagramRequestState, SetDiagramRequest } from '../core/stores/requests/diagram/diagram-request.state';
 import { AddTags } from '../core/stores/tags/tags.state';
 import { MockDataService } from '../dashboard/services/mock-data.service';
-import { DiagramConfig, DiagramConfigModel } from '../share/models/diagram-config.model';
+import { DiagramConfig, DiagramConfigModel, DiagramEquipmentModel } from '../share/models/diagram-config.model';
 import { GroupData, GroupData1 } from '../share/models/value-models/group-data.model';
 import { ValueType } from '../share/models/value-models/value-type.model';
 import { AppLoadService } from '../share/services/app-load.service';
@@ -20,12 +20,13 @@ import { DiagramRequestService } from './services/diagram-request.service';
 import { DigramTagService } from './services/diagram-tag.service';
 import { MatDialog } from '@angular/material/dialog';
 import { retry, single } from 'rxjs/operators';
-import { SiteStateModel } from '../core/stores/sites/sites.model';
+import { BuildingModel, SiteStateModel } from '../core/stores/sites/sites.model';
 import { SitesState } from '../core/stores/sites/sites.state';
 import { Select } from '@ngxs/store';
 import {debounceTime, takeUntil, distinctUntilChanged } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { EventService } from '../share/services/event.service';
 
 
 @Component({
@@ -46,9 +47,12 @@ export class DiagramComponent implements OnInit, OnDestroy {
   siteSelected: SiteStateModel[];
   currentRoute: string;
   newName: string = ''; 
-  siteName: string = ''; 
+  siteName: BuildingModel;
   value = '8846546';
   templateContent: string = '';
+  testStatus: boolean = false;
+  equipmentList: DiagramEquipmentModel[] = [];
+  sub1: Subscription;
   private unsubscribe$: Subject<void> = new Subject();
 
   constructor(
@@ -62,7 +66,12 @@ export class DiagramComponent implements OnInit, OnDestroy {
     private mockDataService: MockDataService,
     private store: Store,
     private router: Router,
-    private http: HttpClient) { }
+    private http: HttpClient,
+    private event: EventService,) { 
+      this.sub1 = this.event.triggerFunction$.subscribe(() => {
+        this.updateInit();
+      });
+  }
 
 
   
@@ -70,17 +79,19 @@ export class DiagramComponent implements OnInit, OnDestroy {
     
     localStorage.setItem('nowUrl',this.router.url.toString());
     this.currentRoute = this.router.url.toString()
-    this.siteName = localStorage.getItem('location');
-    console.log("component: "+this.currentRoute.slice(6)+" & site: " + this.siteName.toString());
-    this.http.get('assets/css/svg/CEN091.diagram.html', {responseType: 'text'}).subscribe(data => {
-      console.log(data)
-      this.templateContent = data;
-    })
-    //this.init();
+    const building = localStorage.getItem('location');
+    this.siteName = JSON.parse(building);
+    if(this.siteName){
+      this.init();
+    }
   }
 
   async updateInit(){
-    console.log("update Data in Diagram")
+    const building = localStorage.getItem('location');
+    this.siteName = JSON.parse(building);
+    //console.log(JSON.parse(building))
+    this.init();
+    this.cd.markForCheck();
   }
 
   ngOnDestroy() {
@@ -95,7 +106,7 @@ export class DiagramComponent implements OnInit, OnDestroy {
     var value : string;
     if (this.data && this.data.singleValue[tagName]) {
       value = this.data.singleValue[tagName].dataRecords[0].Value
-      isAlarm = value.toString() == 'true'
+      isAlarm = value.toString() == 'True'
     }
     //console.log(isAlarm)
     if (isAlarm){
@@ -110,13 +121,12 @@ export class DiagramComponent implements OnInit, OnDestroy {
     var value : string;
     if (this.data && this.data.singleValue[tagName]) {
       value = this.data.singleValue[tagName].dataRecords[0].Value
-      isAlarm = value.toString() == 'true'
+      isAlarm = value.toString() == 'True'
     }
-    //console.log(isAlarm)
-    if (isAlarm){
+    if (!isAlarm){
       return { fill:'red',opacity: 1, animation: 'blinker 2s linear infinite'}
     }else{
-      return { fill:'#f2f2f2',stroke:'#cccccc',opacity: 1}
+      return { fill:'#00c300',stroke:'#b8b8b8',opacity: 1}
     }
   }
 
@@ -132,6 +142,20 @@ export class DiagramComponent implements OnInit, OnDestroy {
       return 'ALARM'
     }else{
       return 'NORMAL'
+    }
+  }
+
+  getRunTxt(tagName){
+    let isAlarm = false;
+    var value : string;
+    if (this.data && this.data.singleValue[tagName]) {
+      value = this.data.singleValue[tagName].dataRecords[0].Value
+      isAlarm = value.toString() == 'True'
+    }
+    if (isAlarm){
+      return 'RUN'
+    }else{
+      return 'STOP'
     }
   }
 
@@ -283,22 +307,23 @@ export class DiagramComponent implements OnInit, OnDestroy {
 
 
   async init() {
-    const hasLastValues: DiagramLastValuesStateModel[] = this.store.selectSnapshot(DiagramLastValuesState);
-
-    if (hasLastValues.length === 0) {
-      const dashboardConfigs = await this.getDiagramConfigs();
-      const requests = this.createRequests(dashboardConfigs);
-      await this.store.dispatch(new SetDiagramRequest(requests)).toPromise();
-      const data = await this.requestData();
-      await this.addDataToStore(data);
-    }
+    const dashboardConfigs = await this.getDiagramConfigs();
+    const requests = this.createRequests(dashboardConfigs);
+    await this.store.dispatch(new SetDiagramRequest(requests)).toPromise();
+    const data = await this.requestData();
+    await this.addDataToStore(data);
+    
     this.loadSingleValue();
-    this.startTimer(this.appLoadService.Config.Timer * 5000);
+    this.startTimer(this.appLoadService.Config.Timer * 30000);
 
   }
 
   async getDiagramConfigs() {
-    const diagramConfig: DiagramConfigModel[] = await this.httpService.getConfig('assets/diagram/configurations/diagram.solar2.config.json');
+    const diagramConfig: DiagramConfigModel[] = await this.httpService.getConfig('assets/diagram/configurations/' + this.siteName.id + '.diagram.config.json');
+    const diagramEquip: DiagramEquipmentModel[] = await this.httpService.getConfig('assets/diagram/equipments/' + this.siteName.id + '.equipment.json');
+    if(diagramEquip){
+      this.equipmentList = diagramEquip;
+    }
     this.store.dispatch(new SetDiagramConfigs(diagramConfig));
     return diagramConfig;
   }
@@ -362,7 +387,6 @@ export class DiagramComponent implements OnInit, OnDestroy {
     const curr = this.diagramLastValuesService.getCurrentGroupData();
     //const atTime = this.diagramLastValuesService.getAtTimeGroupData();
     this.data.singleValue = { ...curr };
-    console.log(this.data.singleValue);
     this.cd.markForCheck();
   }
 
@@ -403,5 +427,14 @@ export class DiagramComponent implements OnInit, OnDestroy {
 
   isNumber(e) {
     return typeof e === 'number';
+  }
+
+  checkEquipment(eq: string){
+    const res = this.equipmentList.find(x => x.name == eq);
+    if(res){
+      return res.status;
+    } else {
+      return true;
+    }
   }
 }

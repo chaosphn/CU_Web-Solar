@@ -259,7 +259,6 @@ export class SatChart2Component implements OnInit, OnDestroy, OnChanges {
       plotOptions: _config.getPlotOption()
     });
     this.chart = chart;
-    ////console.log(this.chart);
     this.cd.markForCheck();
     
   }

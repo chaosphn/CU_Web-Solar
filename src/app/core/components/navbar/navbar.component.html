@@ -15,7 +15,7 @@
       <a class="box site-box" style="display: flex; flex-direction: column; justify-content: center; row-gap: 5px;">
         <p>LOCATION</p>
         <div class="dropDown" *ngIf="buildingList && buildingList.building">
-          <mat-select disableOptionCentering [placeholder]="buildingList.building[0].name" panelClass="myPanelClass"
+          <mat-select disableOptionCentering [placeholder]="siteSelected.name" panelClass="myPanelClass"
             class="mySelectClass" style="color: white;" *ngIf="buildingList  && buildingList.building">
             <!-- <mat-option *ngFor="let item of buildingList.building"  [value]="item" (click)="selectSite(item)">
               {{item.name}} 
@@ -23,14 +23,6 @@
             <Input matInput placeholder="Search"
             (input)="filter($event.target.value)"
             class="nav-search"/>
-            
-            <!-- <label class="zone-select-style">
-              <div style="width: 100%;"><div style="text-align: center;">Sort by :</div>
-              <select class="custom_select_zone" [(ngModel)]="selectedZone" (change)="onZoneChange($event.target.value)">
-                <option value="" disabled selected>ZONE</option>
-                <option *ngFor="let zone of [1, 2, 3, 4, 5, 6, 7]" [value]="zone">ZONE _ {{zone}}</option>
-              </select></div>
-            </label> -->
             
             <ng-container *ngFor="let item of buildingList.building; let i = index">
               <mat-option *ngIf="tagShowList.includes(i)" [value]="item"
@@ -70,7 +62,7 @@
         <p>BUILDING</p>
       </a>
       <a mat-list-item href="#" class="box" routerLink="/main/diagram" routerLinkActive="active"
-        *ngIf="pages.indexOf('diagram') > -1" (click)="toggleBackground('/main/diagram')">
+         (click)="toggleBackground('/main/diagram')">
         <i class="material-icons">
           device_hub
         </i>

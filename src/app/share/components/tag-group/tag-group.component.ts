@@ -81,7 +81,6 @@ export class TagGroupComponent implements OnInit, OnChanges {
       });
     }
     // if (tagNames.length > 0) {
-      console.log(tagNames)
       this.selectTags.emit(tagNames);
     // }
   }

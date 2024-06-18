@@ -76,7 +76,7 @@
             [expectText]="" 
             [minValue]="0" 
             [maxValue]="1600"
-            [actualValue]="data?.singleValue['weather_irr']?.dataRecords[0]?.Value" 
+            [actualValue]="data?.singleValue['weather_irr']?.dataRecords[0]?.Value | myNumber : '1.0-0'" 
             [actualUnit]="data?.singleValue['weather_irr']?.unit" 
             [expectValue]="300" 
             [expectUnit]="'kW'" 

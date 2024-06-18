@@ -174,6 +174,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   updateInit(){
+    this.unSubscribeTimer();
     const building = localStorage.getItem('location');
     const coBuilding = JSON.parse(building)
     this.siteName = {
@@ -198,6 +199,12 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
     this.sub1.unsubscribe();
     //this.sub2.unsubscribe();
+  }
+
+  unSubscribeTimer(){
+    this.subscriptions.forEach(sub => {
+      sub.unsubscribe();
+    });
   }
 
   

@@ -110,7 +110,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.periodSelected = this.periods[0];
     
     this.sub1 = this.event.triggerFunction$.subscribe(() => {
-      this.updateInit();
+      //this.updateInit();
     });
   }
 
@@ -134,10 +134,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit() {
-    this.sub1 = this.sites$.pipe(debounceTime(0))
-    .subscribe( item => {
-      // //console.log(this.loadImgSite())
-    })
     const zoneId = localStorage.getItem('zone');
     const Bx:BuildingModel[] = this.store.selectSnapshot(SitesState.getSites());
     if(Bx){
@@ -163,11 +159,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     return zoneID;
   }
 
-  updateInit(){
-    this.siteName = localStorage.getItem('location');
-    ////console.log("Update Dashboard Component in site:"+ this.siteName);
-    this.init02();
-  }
+  // updateInit(){
+  //   this.siteName = localStorage.getItem('location');
+  //   ////console.log("Update Dashboard Component in site:"+ this.siteName);
+  //   this.init02();
+  // }
 
   ngAfterViewInit() {
     
@@ -195,7 +191,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   isShow(id:BuildingModel){
     // //console.log(id)
     localStorage.setItem('location', JSON.stringify(id));
-    this.updateInit();
+    //this.updateInit();
     this.event.triggerFunction();
     if(parseInt(id.no) <= 6){
       this.router.navigate(['/main/dashboard3']);

@@ -1,0 +1,98 @@
+[
+	{
+		"Title": "inv1_pr",
+		"Name": "INV0701.EFF"
+	},
+	{
+		"Title": "inv2_pr",
+		"Name": "INV0702.EFF"
+	},
+	{
+		"Title": "inv1_energy",
+		"Name": "INV0701.WH_TODAY"
+	},
+	{
+		"Title": "inv2_energy",
+		"Name": "INV0702.WH_TODAY"
+	},
+	{
+		"Title": "inv1_power",
+		"Name": "INV0701.WAC"
+	},
+	{
+		"Title": "inv2_power",
+		"Name": "INV0702.WAC"
+	},
+	{
+		"Title": "tou_energy",
+		"Name": "CALC07.WH_TODAY"
+	},
+	{
+		"Title": "tou_power",
+		"Name": "TOU07.W"
+	},
+	{
+		"Title": "tou_volt",
+		"Name": "TOU07.V"
+	},
+	{
+		"Title": "tou_amp",
+		"Name": "TOU07.I"
+	},
+	{
+		"Title": "pqm_energy",
+		"Name": "PQM07.WH"
+	},
+	{
+		"Title": "pqm_power",
+		"Name": "PQM07.W"
+	},
+	{
+		"Title": "pqm_volt",
+		"Name": "PQM07.V"
+	},
+	{
+		"Title": "pqm_amp",
+		"Name": "PQM07.I"
+	},
+	{
+		"Title": "slog_irr",
+		"Name": "SLOGGER07.PYRANO"
+	},
+	{
+		"Title": "slog_amb",
+		"Name": "SLOGGER07.AMBTEMP"
+	},
+	{
+		"Title": "slog_pv",
+		"Name": "SLOGGER07.PVTEMP"
+	},
+	{
+		"Title": "slog_power",
+		"Name": "SLOGGER07.INV_WAC"
+	},
+	{
+		"Title": "slog_energy",
+		"Name": "SLOGGER07.WH_TODAY"
+	},
+	{
+		"Title": "inv1_run",
+		"Name": "INV0701.RUN"
+	},
+	{
+		"Title": "inv2_run",
+		"Name": "INV0702.RUN"
+	},
+	{
+		"Title": "inv1_status",
+		"Name": "INV0701.ALARM"
+	},
+	{
+		"Title": "inv2_status",
+		"Name": "INV0702.ALARM"
+	},
+	{
+		"Title": "slog_status",
+		"Name": "SLOGGER07.MBFAIL"
+	}
+]

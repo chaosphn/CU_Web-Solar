@@ -87,11 +87,18 @@ export class DiagramComponent implements OnInit, OnDestroy {
   }
 
   async updateInit(){
+    this.unSubscribeTimer();
     const building = localStorage.getItem('location');
     this.siteName = JSON.parse(building);
     //console.log(JSON.parse(building))
     this.init();
     this.cd.markForCheck();
+  }
+
+  unSubscribeTimer(){
+    this.subscriptions.forEach(sub => {
+      sub.unsubscribe();
+    });
   }
 
   ngOnDestroy() {
@@ -391,7 +398,7 @@ export class DiagramComponent implements OnInit, OnDestroy {
   }
 
   startTimer(dueTimer: number) {
-    const _timer = timer(5000, dueTimer).subscribe(x => {
+    const _timer = timer(dueTimer, dueTimer).subscribe(x => {
       this.timerTick();
     });
     this.subscriptions.push(_timer);

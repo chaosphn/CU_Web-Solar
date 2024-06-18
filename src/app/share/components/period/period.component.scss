@@ -22,17 +22,8 @@
     font-size: 12px;
     display: inline-block;
     width: 35px;
-    // background: #efefef;
-    // color: rgba(0, 0, 0, 0.8);
-    // text-align: center;
-    // margin: 0px 2px;
-    // font-weight: bold;
-    // cursor: pointer;
-    // font-size: 10px;
-    // width: 30px;
-    // float: left;
-    // width: 33px;
-    //border: 2px outset #7a7a7a;
+    border: none;
+    outline: none;
 }
 
 .period:last-child {
@@ -40,6 +31,8 @@
 }
 
 .active {
+    border: none;
+    outline: none;
     background: #FD674E;
     color: white;
     

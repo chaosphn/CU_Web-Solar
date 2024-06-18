@@ -1,0 +1,16 @@
+[
+    {
+        "Name": "TOU19",
+        "kWH": "TOU19.WH",
+        "kW": "TOU19.W",
+        "kVAR": "TOU19.VAR",
+        "HZ": "TOU19.HZ",
+        "PF": "TOU19.PF",
+        "VACA": "TOU19.V1",
+        "VACB": "TOU19.V2",
+        "VACC": "TOU19.V3",
+        "IACA": "TOU19.I1",
+        "IACB": "TOU19.I2",
+        "IACC": "TOU19.I3"
+    }
+]

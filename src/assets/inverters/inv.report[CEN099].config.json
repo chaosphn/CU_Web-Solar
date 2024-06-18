@@ -1,0 +1,26 @@
+[
+        {
+                "Name": "INV1901",
+                "WH": "INV1901.WH",
+                "WAC": "INV1901.WAC",
+                "WDC": "INV1901.WDC",
+                "IAC": "INV1901.IAC",
+                "IDC": "INV1901.IDC",
+                "VAC": "INV1901.VAC",
+                "VDC": "INV1901.VDC",
+                "VAR": "INV1901.VAR",               
+                "HZ": "INV1901.HZ"
+        },
+		{
+                "Name": "INV1902",
+                "WH": "INV1902.WH",
+                "WAC": "INV1902.WAC",
+                "WDC": "INV1902.WDC",
+                "IAC": "INV1902.IAC",
+                "IDC": "INV1902.IDC",              
+                "VAC": "INV1902.VAC",
+                "VDC": "INV1902.VDC",
+                "VAR": "INV1902.VAR",
+                "HZ": "INV1902.HZ"
+        }
+]

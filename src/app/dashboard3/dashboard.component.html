@@ -3,7 +3,7 @@
     <div class="svgBox w-100 h-100">
       <img [src]="'assets/images/building/'+siteName.id+'.png'" alt="" width="100%" height="100%">
       <div class="zoneCard " id="card2" [style.top.%]="35" [style.left.%]="30" *ngIf="data && data.singleValue" (click)="openBreaker()">
-          <app-tooltip-vertical
+          <app-tooltip
           [title]="'Bx.'"
           [titleText]="siteName.id"
           [imgSrc]="'assets/images/building/dashboard/'+siteName.id+'.png'" 
@@ -16,7 +16,7 @@
           [display]="true"
           [cbStatus]="data?.singleValue['cb_status']?.dataRecords[0]?.Value"
           [classDisplay]="'top'"
-          ></app-tooltip-vertical>
+          ></app-tooltip>
       </div>
     </div>
     <div class="cardBoxs col h-100">

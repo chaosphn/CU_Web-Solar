@@ -1,0 +1,16 @@
+[
+    {
+        "Name": "TOU17",
+        "kWH": "TOU17.WH",
+        "kW": "TOU17.W",
+        "kVAR": "TOU17.VAR",
+        "HZ": "TOU17.HZ",
+        "PF": "TOU17.PF",
+        "VACA": "TOU17.V1",
+        "VACB": "TOU17.V2",
+        "VACC": "TOU17.V3",
+        "IACA": "TOU17.I1",
+        "IACB": "TOU17.I2",
+        "IACC": "TOU17.I3"
+    }
+]

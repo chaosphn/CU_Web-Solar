@@ -1,0 +1,38 @@
+[
+        {
+                "Name": "INV2101",
+                "WH": "INV2101.WH",
+                "WAC": "INV2101.WAC",
+                "WDC": "INV2101.WDC",
+                "IAC": "INV2101.IAC",
+                "IDC": "INV2101.IDC",
+                "VAC": "INV2101.VAC",
+                "VDC": "INV2101.VDC",
+                "VAR": "INV2101.VAR",               
+                "HZ": "INV2101.HZ"
+        },
+	{
+                "Name": "INV2102",
+                "WH": "INV2102.WH",
+                "WAC": "INV2102.WAC",
+                "WDC": "INV2102.WDC",
+                "IAC": "INV2102.IAC",
+                "IDC": "INV2102.IDC",              
+                "VAC": "INV2102.VAC",
+                "VDC": "INV2102.VDC",
+                "VAR": "INV2102.VAR",
+                "HZ": "INV2102.HZ"
+        },
+	{
+                "Name": "INV2103",
+                "WH": "INV2103.WH",
+                "WAC": "INV2103.WAC",
+                "WDC": "INV2103.WDC",
+                "IAC": "INV2103.IAC",
+                "IDC": "INV2103.IDC",              
+                "VAC": "INV2103.VAC",
+                "VDC": "INV2103.VDC",
+                "VAR": "INV2103.VAR",
+                "HZ": "INV2103.HZ"
+        }
+]

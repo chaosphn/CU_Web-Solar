@@ -1,0 +1,14 @@
+[
+        {
+                "Name": "INV1201",
+                "WH": "INV1201.WH",
+                "WAC": "INV1201.WAC",
+                "WDC": "INV1201.WDC",
+                "IAC": "INV1201.IAC",
+                "IDC": "INV1201.IDC",
+                "VAC": "INV1201.VAC",
+                "VDC": "INV1201.VDC",
+                "VAR": "INV1201.VAR",               
+                "HZ": "INV1201.HZ"
+        }
+]

@@ -44,8 +44,9 @@
     background: #136286;
 }
 .infoBox{
-    width: calc(100% - 40px);
+    width: calc(100% - 30px);
     justify-content: space-between;
+    align-items: center;
     padding: 0 10px;
     .infoTopic{
         font-size: 12px;
@@ -53,7 +54,7 @@
     }
     
     .infoValue{
-        align-items:end;
+        align-items:center;
         column-gap: 10px;
     }
     .infoValue #value{

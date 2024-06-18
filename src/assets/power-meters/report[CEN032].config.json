@@ -1,0 +1,16 @@
+[
+    {
+        "Name": "TOU23",
+        "kWH": "TOU23.WH",
+        "kW": "TOU23.W",
+        "kVAR": "TOU23.VAR",
+        "HZ": "TOU23.HZ",
+        "PF": "TOU23.PF",
+        "VACA": "TOU23.V1",
+        "VACB": "TOU23.V2",
+        "VACC": "TOU23.V3",
+        "IACA": "TOU23.I1",
+        "IACB": "TOU23.I2",
+        "IACC": "TOU23.I3"
+    }
+]

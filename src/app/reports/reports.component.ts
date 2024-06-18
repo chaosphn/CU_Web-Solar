@@ -22,6 +22,7 @@ export class ReportsComponent implements OnInit {
   startView: string;
   currentRoute: string;
   siteName: string = ''; 
+  siteSelected?: BuildingModel;
   sub1: Subscription;
 
   constructor(private httpService: HttpService,
@@ -39,6 +40,7 @@ export class ReportsComponent implements OnInit {
   async ngOnInit() {
     const building: BuildingModel = JSON.parse(localStorage.getItem('location'));
     if(building && building.id){
+      this.siteSelected = building;
       this.siteName = building.id;
     }
     this.dateTime = new Date(new Date().setDate(new Date().getDate()-1));
@@ -50,6 +52,7 @@ export class ReportsComponent implements OnInit {
   updateInit(){
     const building: BuildingModel = JSON.parse(localStorage.getItem('location'));
     if(building && building.id){
+      this.siteSelected = building;
       this.siteName = building.id;
     }
     this.cd.markForCheck();
@@ -117,12 +120,35 @@ export class ReportsComponent implements OnInit {
   }
   
   async downloadPdf() {
-    let timestamp = this.datePipe.transform(this.dateTime, 'yyMMdd');
-    if(this.selectedReport.Type == "monthly"){
-      timestamp = this.datePipe.transform(this.dateTime, 'yyMM');
+    if (this.validateParameters()) {
+      // this.pdf = 'assets/reports/mock.pdf';
+      try {
+        let timestamp = this.datePipe.transform(this.dateTime, 'yyMMdd');
+        if(this.selectedReport.Type == "monthly"){
+          timestamp = this.datePipe.transform(this.dateTime, 'yyMM');
+        }
+        const reportName = this.siteName + this.selectedReport.Name + "_" + timestamp + ".pdf";
+        const report = await this.reportHttpService.getPdfFile(reportName, this.selectedReport.Type);
+      } catch (error) {
+        alert('File not found.');
+      }
     }
-    const reportName = this.siteName + this.selectedReport.Name + "_" + timestamp + ".pdf";
-    await this.reportHttpService.getPdfFile(reportName, this.selectedReport.Type);
+  }
+
+  async downloadXls() {
+    if (this.validateParameters()) {
+      // this.pdf = 'assets/reports/mock.pdf';
+      try {
+        let timestamp = this.datePipe.transform(this.dateTime, 'yyMMdd');
+        if(this.selectedReport.Type == "monthly"){
+          timestamp = this.datePipe.transform(this.dateTime, 'yyMM');
+        }
+        const reportName = this.siteName + this.selectedReport.Name + "_" + timestamp + ".xlsx";
+        const report = await this.reportHttpService.getXlsxFile(reportName, this.selectedReport.Type);
+      } catch (error) {
+        alert('File not found.');
+      }
+    }
   }
 
   download() {

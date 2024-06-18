@@ -11,7 +11,6 @@ import { ValueType } from '../../share/models/value-models/value-type.model';
 import { ChangePeriodName, DashboardConfigsState } from './../../core/stores/configs/dashboard/dashboard-configs.state';
 import { DashboardRequestState } from './../../core/stores/requests/dashboard/dashboard-request.state';
 import { DateTimeService } from './../../share/services/datetime.service';
-import { Record } from 'src/app/diagram2/diagram.component';
 
 @Injectable({
     providedIn: 'root'

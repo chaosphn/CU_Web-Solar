@@ -3,6 +3,7 @@ import { ChartParameters, HAlign, LegendParameter, Series, VAlingn, XAxisParamet
 import { MultipleData } from './../../share/models/value-models/group-data.model';
 import { DateTimeService } from './../../share/services/datetime.service';
 import { InverterValue } from './dashboard-inverter.service';
+import { isString } from 'util';
 
 @Injectable({
     providedIn: 'root'
@@ -108,9 +109,11 @@ export class DashboardChartService {
         data.data.forEach(d => {
             const _dataRecords = d.dataRecords.map(x => {
                 let _data: [number, number];
-                //if (x.Quality.toString().toLowerCase() !== 'bad') {
+                if (isString(x.Value)) {
                     _data = [new Date(new Date(x.TimeStamp).getTime() ).getTime(), +(x.Value.replace(",", ""))];
-                //}
+                } else {
+                    _data = [new Date(new Date(x.TimeStamp).getTime() ).getTime(), +(x.Value)];
+                }
                 return _data;
               });
               //console.log("dd : " + d.options && d.options.chartOptions && d.options.chartOptions.yAxis);

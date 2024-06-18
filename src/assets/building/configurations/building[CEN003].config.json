@@ -171,7 +171,7 @@
 					"yAxis": [
 						{
 							"color": "rgba(253, 103, 78, 1)",
-							"text": "IRR (W/sq.m)",
+							"text": " (W/sq.m)",
 							"useMax": true,
 							"opposite": true,
 							"visible": false

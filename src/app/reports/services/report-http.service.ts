@@ -45,7 +45,7 @@ export class ReportHttpService {
             // Create a temporary link element
             const a = document.createElement('a');
             a.href = url;
-            a.download = name + '.pdf'; // Specify the file name
+            a.download = name; // Specify the file name
             a.target = '_blank'; // Open in a new tab
             document.body.appendChild(a);
             
@@ -55,12 +55,54 @@ export class ReportHttpService {
             // Clean up
             document.body.removeChild(a);
             window.URL.revokeObjectURL(url);
+            return res;
             
         } catch (error) {
-            console.error('Error downloading report:', error);
+            alert('File not found.');
+            //console.error('Error downloading report:', error);
             // Handle errors, if any
         }
     }
+
+    async getXlsxFile(name: string, type: string) {
+        try {
+            const body = {
+                FileName: name,
+                Type: type
+            };
+    
+            // Make sure the responseType is set to 'blob' for binary data
+            const res: any = await this.httpClient.post(this.appLoadService.Config.UrlApi + 'getreport', body, {
+                headers: new HttpHeaders().set('Content-Type', 'application/json'),
+                responseType: 'blob'
+            }).toPromise();
+            
+            // Create a blob URL for the Excel content
+            const blob = new Blob([res], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
+            const url = window.URL.createObjectURL(blob);
+            
+            // Create a temporary link element
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = name; // Specify the file name with .xlsx extension
+            a.target = '_blank'; // Open in a new tab
+            document.body.appendChild(a);
+            
+            // Trigger the download
+            a.click();
+            
+            // Clean up
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+            return res;
+            
+        } catch (error) {
+            alert('File not found.');
+            //console.error('Error downloading report:', error);
+            // Handle errors, if any
+        }
+    }
+    
 
     // getFile1(params: ReportRequest) {
     //     const body = `?Name=${params.Name}&Type=${params.Type}&Folder=${params.Folder}&FilePrefix=${params.FilePrefix}&DateFormat=${params.DateFormat}&FileExtension=${params.FileExtension}&Date=${params.Date}`;

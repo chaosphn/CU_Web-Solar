@@ -221,7 +221,7 @@ export class DateTimeService {
             period = {  
                 startTime: this.getDateTime(this.getPreviousDate(numDate, tomorrow)),
                 // endTime: this.getToday()
-                endTime: this.getDateTime(now)
+                endTime: this.getTomorrow()
             };
         }
         else if (_key.includes('m')) {

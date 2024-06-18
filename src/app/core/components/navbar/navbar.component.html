@@ -15,7 +15,7 @@
       <a class="box site-box" style="display: flex; flex-direction: column; justify-content: center; row-gap: 5px;">
         <p>LOCATION</p>
         <div class="dropDown" *ngIf="buildingList && buildingList.building">
-          <mat-select disableOptionCentering [placeholder]="siteSelected.name" panelClass="myPanelClass"
+          <mat-select [(ngModel)]="siteSelected.name" disableOptionCentering [placeholder]="siteSelected.name" panelClass="myPanelClass"
             class="mySelectClass" style="color: white;" *ngIf="buildingList  && buildingList.building">
             <!-- <mat-option *ngFor="let item of buildingList.building"  [value]="item" (click)="selectSite(item)">
               {{item.name}} 
@@ -25,7 +25,7 @@
             class="nav-search"/>
             
             <ng-container *ngFor="let item of buildingList.building; let i = index">
-              <mat-option *ngIf="tagShowList.includes(i)" [value]="item"
+              <mat-option *ngIf="item.display" [value]="item"
                 (click)="selectSite(item)">
                 {{item.name}}
               </mat-option>

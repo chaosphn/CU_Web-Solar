@@ -117,6 +117,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   updateInit(){
+    this.unSubscribeTimer();
     const building = localStorage.getItem('location');
     this.siteName = JSON.parse(building);
     //console.log(JSON.parse(building))
@@ -140,14 +141,20 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     
   }
 
+  unSubscribeTimer(){
+    this.subscriptions.forEach(sub => {
+      sub.unsubscribe();
+    });
+  }
+
   
   getPeakTime(sec: number) {
     const time = new Date();
     const timeISO = time.toISOString().split('.')[0];
     time.setHours(0, 0, 0, 0);
     if(sec > 0){
-      const timeStamp = new Date(time).getTime() + (sec*60*60);
-      const timeStr = this.datePipe.transform(new Date(timeStamp).toISOString().split('.')[0],'HH:mm');
+      const timeStamp = new Date(time).getTime() + ((sec/3600)*60*60*1000);
+      const timeStr = this.datePipe.transform(this.dateTimeService.getDateTime(new Date(timeStamp)).split('.')[0],'HH:mm');
       this.cd.markForCheck();
       return timeStr;
     } else {
@@ -188,7 +195,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.loadMultipleValues();
     this.initloadInverterValues();
     //console.log(this.data);
-    this.startTimer(this.appLoadService.Config.Timer * 60000);
+    this.startTimer(this.appLoadService.Config.Timer * 12000);
   }
 
   private async createRequests02()
@@ -472,7 +479,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           }
           return {...x, Options: opt}
         });
-        res = await this.httpService.getPlotData(request);
+        res = await this.httpService.getHistorian(request);
         await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
         break;
       default:

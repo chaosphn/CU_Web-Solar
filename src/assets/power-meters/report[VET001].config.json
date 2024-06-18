@@ -1,0 +1,16 @@
+[
+    {
+        "Name": "TOU11",
+        "kWH": "TOU11.WH",
+        "kW": "TOU11.W",
+        "kVAR": "TOU11.VAR",
+        "HZ": "TOU11.HZ",
+        "PF": "TOU11.PF",
+        "VACA": "TOU11.V1",
+        "VACB": "TOU11.V2",
+        "VACC": "TOU11.V3",
+        "IACA": "TOU11.I1",
+        "IACB": "TOU11.I2",
+        "IACC": "TOU11.I3"
+    }
+]

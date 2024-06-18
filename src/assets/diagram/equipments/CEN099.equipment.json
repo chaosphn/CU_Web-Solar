@@ -1,0 +1,38 @@
+[
+    {
+        "name": "TOU",
+        "status": true
+    },
+    {
+        "name": "PQM",
+        "status": false
+    },
+    {
+        "name": "SLOGGER",
+        "status": false
+    },
+    {
+        "name": "SLOGGEREMI",
+        "status": true
+    },
+    {
+        "name": "INV01",
+        "status": true
+    },
+    {
+        "name": "INV02",
+        "status": true
+    },
+    {
+        "name": "INV03",
+        "status": false
+    },
+    {
+        "name": "INV04",
+        "status": false
+    },
+    {
+        "name": "INV05",
+        "status": false
+    }
+]

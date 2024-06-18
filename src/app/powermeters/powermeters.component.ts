@@ -296,7 +296,7 @@ export class PowermetersComponent implements OnInit, AfterViewInit,  OnDestroy {
 
   async init() {
     //console.log("Init Page");
-    this.config = await this.httpService.getNavConfig('assets/power-meters/tag-req['+this.siteName.id+'].json');
+    this.config = await this.httpService.getNavConfig('assets/power-meters/tag-req.json');
     this.reportConfig = await this.httpService.getConfig('assets/power-meters/report['+this.siteName.id+'].config.json');
     // console.log(this.siteName.id);
     this.initDateTime();
@@ -516,14 +516,14 @@ export class PowermetersComponent implements OnInit, AfterViewInit,  OnDestroy {
   startTimer(dueTimer: number) {
     // const _timer = timer(dueTimer, 3000).pipe(take(1)).subscribe(x => {
     this.unsubscribe();
-    const _timer = timer(5000, dueTimer).subscribe(x => {
+    const _timer = timer(dueTimer, dueTimer).subscribe(x => {
       this.timerTick();
     });
     this.timerSubscription = _timer;
   }
 
   startTimer2(dueTimer: number) {
-    const _timer = timer(5000, dueTimer).subscribe(x => {
+    const _timer = timer(dueTimer, dueTimer).subscribe(x => {
       this.timerTick();
     });
     this.subscriptions.push(_timer);

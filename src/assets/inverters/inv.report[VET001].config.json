@@ -1,0 +1,14 @@
+[
+        {
+                "Name": "INV1101",
+                "WH": "INV1101.WH",
+                "WAC": "INV1101.WAC",
+                "WDC": "INV1101.WDC",
+                "IAC": "INV1101.IAC",
+                "IDC": "INV1101.IDC",
+                "VAC": "INV1101.VAC",
+                "VDC": "INV1101.VDC",
+                "VAR": "INV1101.VAR",               
+                "HZ": "INV1101.HZ"
+        }
+]

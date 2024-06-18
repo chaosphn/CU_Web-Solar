@@ -55,22 +55,7 @@ const routes: Routes = [
             {
                 path: 'diagram',
                 loadChildren: 'src/app/diagram/diagram.module#DiagramModule',
-                /*canActivateChild: [ AuthGuard ]*/
-            },
-            {
-                path: 'diagram1',
-                loadChildren: 'src/app/diagram1/diagram.module#DiagramModule',
-                /*canActivateChild: [ AuthGuard ]*/
-            },
-            {
-                path: 'diagram2',
-                loadChildren: 'src/app/diagram2/diagram.module#DiagramModule',
-                /*canActivateChild: [ AuthGuard ]*/
-            },
-            {
-                path: 'diagram3',
-                loadChildren: 'src/app/diagram3/diagram.module#DiagramModule',
-                /*canActivateChild: [ AuthGuard ]*/
+                // canActivateChild: [ AuthGuard ]
             },
             {
                 path: 'powermeters',

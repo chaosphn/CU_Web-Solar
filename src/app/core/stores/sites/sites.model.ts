@@ -11,4 +11,5 @@ export interface BuildingModel{
     zone: string;
     name: string;
     capacity: number;
+    display?: boolean;
 }

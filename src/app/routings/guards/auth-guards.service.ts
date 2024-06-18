@@ -58,15 +58,10 @@ export class AuthGuard implements CanActivate, CanActivateChild  {
             const checkPages = pages.filter(x => pathName.replace(' ', '').toLowerCase() === x.replace(' ', '').toLowerCase());
             if (checkPages.length > 0) {
                 return true;
-            } 
-            /*else if(userState.Username == "Chin"){
-                return true;
-            }*/ 
-            else {
+            } else {
                 return false;
             }
         }
-        alert("หาไม่เจอค้าบ พี่ชาย 5555");
         this.router.navigate(['/not-found']);
     }
 

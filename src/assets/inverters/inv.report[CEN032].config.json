@@ -1,0 +1,26 @@
+[
+        {
+                "Name": "INV2301",
+                "WH": "INV2301.WH",
+                "WAC": "INV2301.WAC",
+                "WDC": "INV2301.WDC",
+                "IAC": "INV2301.IAC",
+                "IDC": "INV2301.IDC",
+                "VAC": "INV2301.VAC",
+                "VDC": "INV2301.VDC",
+                "VAR": "INV2301.VAR",               
+                "HZ": "INV2301.HZ"
+        },
+		{
+                "Name": "INV2302",
+                "WH": "INV2302.WH",
+                "WAC": "INV2302.WAC",
+                "WDC": "INV2302.WDC",
+                "IAC": "INV2302.IAC",
+                "IDC": "INV2302.IDC",              
+                "VAC": "INV2302.VAC",
+                "VDC": "INV2302.VDC",
+                "VAR": "INV2302.VAR",
+                "HZ": "INV2302.HZ"
+        }
+]

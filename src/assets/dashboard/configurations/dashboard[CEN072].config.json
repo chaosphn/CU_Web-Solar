@@ -71,7 +71,7 @@
 	],
 	"historianConfig": [
 		{
-			"Name": "TOU05.W",
+			"Name": "CALC05.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -147,7 +147,7 @@
 					}
 				},
 				{
-					"name": "TOU05.W",
+					"name": "CALC05.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {

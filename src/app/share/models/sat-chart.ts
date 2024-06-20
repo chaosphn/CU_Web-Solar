@@ -458,7 +458,7 @@ export class ChartParametersAdapter {
                     align: this.chartParams.legend.HorizontalAlign,
                     verticalAlign: (this.chartParams.legend.legendEnable) ? this.chartParams.legend.VerticalAlign : null,
                     x: this.chartParams.legend.XPostion,
-                    y: this.chartParams.legend.YPosition,
+                    y: this.chartParams.legend.YPosition || 25,
                     layout: this.chartParams.legend.layout || LegendLayout.horizontal,
                     reversed: true
                 };
@@ -471,7 +471,7 @@ export class ChartParametersAdapter {
                     verticalAlign: VAlingn.top,
                     align: 'center',
                     x: 0,
-                    y: -13,
+                    y: -18,
                 };
             }
         }
@@ -489,10 +489,10 @@ export class ChartParametersAdapter {
                 },
                 style: {
                     letterSpacing: '-0.5px'
-                }
+                },
                 // x: 0,
-                // y: 0,
-                // itemMarginTop: -25,
+                y: -13
+                //itemMarginTop: -25,
                 // squareSymbol: true,
                 // align: 'right',
                 // verticalAlign: 'top',

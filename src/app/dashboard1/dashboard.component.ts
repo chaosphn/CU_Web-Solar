@@ -139,8 +139,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   ngOnInit() {
     //this.init();
-    localStorage.setItem('nowUrl',this.router.url.toString());
-    localStorage.setItem('location','{"no" : "1","id":"ARC003","zone":"1","name":"อาคารเลิศ อุรัสยะนันทน์","capacity":113.4}');    
+    //localStorage.setItem('nowUrl',this.router.url.toString());
+    //localStorage.setItem('location','{"no" : "1","id":"ARC003","zone":"1","name":"อาคารเลิศ อุรัสยะนันทน์","capacity":113.4}');    
     this.currentRoute = this.router.url.toString()
     this.init02();
     this.onWindowResize()

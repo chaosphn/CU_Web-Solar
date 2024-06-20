@@ -1,0 +1,30 @@
+<div class="container w-100 bz">
+  <div class="card-container w-100">
+    <div class="headBox d-flex">
+     <span class="headText">{{header || '---'}}</span>
+     <!-- <img class="" src="assets/images/tuk.png" alt="" height="20px">  -->
+    </div>
+    <div class="contentBox w-100">
+      <div class="breaker-box">
+        <span class="outerbox d-flex-ct">
+          <label class="switch ">
+            <input class="chk" type="checkbox" [checked]="checkStatus" [disabled]="true">
+            <span class="slider"></span>                
+          </label>
+        </span>
+      </div>
+      <div class="status-box bz h-100 w-100">
+        <div class="cardItem bz">
+          <div class="iconBox d-flex-ct "><img src="assets/images/circuit-breaker.png" alt="" height="25px"></div>
+          <div class="infoBox  d-flex">
+              <span class="">Breaker Status : </span>
+              <span class="status-text" [className]="getBreakerStatus()">{{getBreakerStatus()}}</span>
+          </div>
+        </div>
+        <div class="buttonItem bz">
+          <button (click)="openBreaker()" type="submit" [disabled]="false" >CMD BREAKER</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

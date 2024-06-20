@@ -13,13 +13,13 @@ export class PeriodComponent implements OnInit, AfterViewChecked, OnChanges {
   @Input() periods: Period[] = [];
   @Output() select = new EventEmitter();
   period: Period[] = [];
+  @Input() disableButton: boolean = false;
   constructor(private cdRef: ChangeDetectorRef) { }
 
   ngOnInit() {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    
   }
 
   ngAfterViewChecked() {

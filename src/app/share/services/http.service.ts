@@ -70,6 +70,21 @@ export class HttpService {
         ).toPromise();
     }
 
+    async getAggData(requests: DashboardReqHistorian[]) {
+        const body = requests;
+        //console.log()
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });
+
+        return this.httpClient.post( this.appLoadService.Config.UrlApi + 'getaggdata', body, {headers} ).pipe(
+            map((x: any) => {
+                
+                return x;
+            })
+        ).toPromise();
+    }
+
     getConfig(path: string): Promise<any[]> {
         return this.httpClient.get<any[]>(path).toPromise();
     }

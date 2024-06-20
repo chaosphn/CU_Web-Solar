@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Store } from '@ngxs/store';
 import { UUID } from 'angular2-uuid';
@@ -19,6 +19,11 @@ import { DateTimeService } from './../share/services/datetime.service';
 import { HttpService } from './../share/services/http.service';
 import { InverterReqHistorian } from '../core/stores/requests/inverter/inverter-request.model';
 import { InverterResHistorian } from '../core/stores/last-values/inverter/inverter-last-values.model';
+import * as XLSX from 'xlsx';
+import * as FileSaver from 'file-saver';
+import html2canvas from 'html2canvas';
+import { saveAs } from 'file-saver';
+
 
 @Component({
   selector: 'app-charts',
@@ -35,7 +40,9 @@ export class ChartsComponent implements OnInit {
   periodName: string;
   periodNames = ['T', '7D', '30D', '3M', '12M'];
   timerSubscription: Subscription;
-
+  chartData: InverterResHistorian[] = [];
+  downLoading: boolean = true;
+  @ViewChild('htmlData', { read: false }) htmlData?: ElementRef
   uuid: string;
   constructor(public dialog: MatDialog,
     private store: Store,
@@ -238,6 +245,7 @@ export class ChartsComponent implements OnInit {
   }
 
   renderChart(res: InverterResHistorian[]) {
+    this.chartData = res;
     const series: Series[] = [];
     res.forEach(r => {
       const data: [number, number][] = [];
@@ -251,7 +259,6 @@ export class ChartsComponent implements OnInit {
         name: strtmp + ' (' + r.Unit + ')',
         data: data
       };
-      console.log(serie);
       series.push(serie);
     });
     if (series.length > 0) {
@@ -373,13 +380,51 @@ export class ChartsComponent implements OnInit {
     return (dateTime) ? this.dateTimeService.getDateTime(dateTime) : this.dateTimeService.getDateTime(this.startTime);
   }
 
-  // appendData(res: ResponseData) {
-  //   res.DataSets.forEach(item => {
-  //     const data = this.getPoints(item);
-  //     this.chartParameters.addPoint(item.ItemName, data);
-  //   });
-  //   this.chartParameters.redraw();
-  // }
+  exportToExcel(): void {
+    const headers = ['TimeStamp'];
+    const rows:any[] = [];
+
+    if(this.chartData.length > 0){
+      this.chartData.forEach(record => {
+        headers.push(record.Name);
+      });
+  
+      this.chartData[0].records.forEach((item, index)=> {
+        const row = [item.TimeStamp];
+        this.chartData.forEach( x => {
+          if(x.records && x.records[index] && x.records[index].Value){
+            row.push(x.records[index].Value);
+          }
+        });
+        rows.push(row);
+      })
+
+      const sheet: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([headers, ...rows]);
+      const workbook: XLSX.WorkBook = { Sheets: { 'data': sheet }, SheetNames: ['data'] };
+      const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+      this.saveAsExcelFile(excelBuffer, 'export data');
+    }
+  }
+
+  private saveAsExcelFile(buffer: any, fileName: string): void {
+    const data: Blob = new Blob([buffer], { type: 'application/octet-stream' });
+    const link: HTMLAnchorElement = document.createElement('a');
+    link.href = window.URL.createObjectURL(data);
+    link.download = fileName + '.xlsx';
+    link.click();
+  }
+
+  captureScreen() {
+    const chart = document.getElementById('htmlData') as HTMLElement;
+    if(chart){
+      html2canvas(chart).then((canvas) => {
+        canvas.toBlob((blob) => {
+          saveAs(blob, 'screenshot.png');
+        });
+      });
+
+    }
+  }
 
   private getPoints(item: Record[]): [number, number][] {
     const data: [number, number][] = [];
@@ -388,6 +433,8 @@ export class ChartsComponent implements OnInit {
     });
     return data;
   }
+
+
 
 
 }

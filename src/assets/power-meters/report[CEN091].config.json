@@ -4,7 +4,7 @@
         "kWH": "PQM06.WH",
         "kW": "PQM06.W",
         "kVAR": "PQM06.VAR",
-        "HZ": "PQM06.HZ",
+        "HZ": "TOU06.HZ",
         "PF": "PQM06.PF",
         "VACA": "PQM06.V1",
         "VACB": "PQM06.V2",

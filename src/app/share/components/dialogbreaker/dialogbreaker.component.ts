@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { HttpService } from '../../services/http.service';
 import { EventService } from '../../services/event.service';
+import { BuildingModel } from 'src/app/core/stores/sites/sites.model';
 
 @Component({
   selector: 'app-dialogbreaker',
@@ -19,7 +20,7 @@ export class DialogbreakerComponent implements OnInit {
   isBreaker: boolean = false;
   cbStatus: boolean = false;
   constructor(public dialogRef: MatDialogRef<DialogbreakerComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any,
+    @Inject(MAT_DIALOG_DATA) public data: BuildingModel,
     private httpService: HttpService,
     private event: EventService
   ) { }
@@ -27,13 +28,11 @@ export class DialogbreakerComponent implements OnInit {
   ngOnInit() {
   }
 
-  async linkBreaker(event: any){
+  async linkBreaker(){
       const url = 'setbreaker';
       const buildNumber = this.data.no;
       const username = localStorage.getItem('username');
       const st = confirm('Please make sure before pressed !');
-      console.log(st)
-      console.log(event)
       if(st){
         this.cbStatus = true;
         this.isBreaker = !this.isBreaker;
@@ -44,14 +43,12 @@ export class DialogbreakerComponent implements OnInit {
       } else {
         this.cbStatus = false;
       }
-      
-      // console.log("URL :"+url+"   "+"No."+buildNumber+"   "+"User:"+username)
+      this.close();
   }
 
   login(){
       if(this.username == localStorage.getItem('username') && this.password == '1234'){
-        //localStorage.setItem('username',this.username);
-        this.isLogIn = true;
+        this.linkBreaker();
       } else {
         this.invalid = true;
         this.animateClass = 'invalid-animate';

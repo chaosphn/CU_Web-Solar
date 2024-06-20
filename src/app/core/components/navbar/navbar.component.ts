@@ -93,6 +93,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     this.pages = userState.PageNames;
     this.pages = this.pages.map(x => x.toLowerCase().split(' ').join(''));
     this.role = userState.Username;
+    this.getConfig();
     const site = localStorage.getItem('location');
     if(site){
       this.siteSelected = JSON.parse(site);
@@ -101,11 +102,10 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     this.currentRoute = this.router.url.toString()
     //this.readStatus();
     //this.startTimer(2000);
-    this.today = this.dateTimeSrv.getDateTime(new Date()).substring(0,10)
-    this.getConfig();
+    this.today = this.dateTimeSrv.getDateTime(new Date()).substring(0,10);
     this.toggleBackground(this.currentRoute);
     if(this.buildingList){
-      this.filteredBuildingList = [...this.buildingList.building]
+      this.filteredBuildingList = this.buildingList.building;
       this.tagShowList = this.buildingList.building.map((_, index) => index);
     }
   }
@@ -122,17 +122,22 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   }
 
   toggleBackground(data:string){
-    this.currentRoute = data;
-    const nav = document.querySelector(".sidenav") as HTMLElement;
-    //console.log(this.currentRoute);
     if( data == '/main/dashboardtv' ){
       this.bgStatus = true;
       //console.log('special bg1');
     } else{
-      this.bgStatus = false
+      this.bgStatus = false;
       //console.log('normal bg1');
     }
-    this.routing1(data);
+  }
+
+  checkRoute(){
+    const rout = this.router.url.toString();
+    if( rout == '/main/dashboardtv' ){
+      return false;
+    } else{
+      return true;
+    }
   }
 
   logout() {
@@ -199,41 +204,29 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   }
 
   filter(query: string) {
-  this.tagShowList = []
-    this.filteredBuildingList = this.buildingList.building.filter((building, index) => {
-      const matches = building.name.toLowerCase().includes(query.toLowerCase());
-      if (matches) {
-        this.tagShowList.push(index);
-      }
-      return matches;
-    });
-
-    if (this.filteredBuildingList.length === 0) {
-      // this.tagShowList = this.buildingList.building.map((_, index) => index); ////all build
-      this.tagShowList = [0,4,5,6,7,8]
+    if(query){
+      this.filteredBuildingList = this.buildingList.building.filter((building, index) => {
+        const matches = building.name.toLowerCase().includes(query.toLowerCase());
+        if (matches) {
+          this.tagShowList.push(index);
+          building.display = true;
+        } else {
+          building.display = false;
+        }
+        return building;
+      });
+    } else {
+      this.filteredBuildingList = this.buildingList.building.filter((building, index) => {
+        if (index <= 5) {
+          building.display = true;
+        } else {
+          building.display = false;
+        }
+        return building;
+      });
     }
 
-    if (query.length == 0) {
-      this.tagShowList = [0,4,5,6,7,8] //////ลบได้หลังข้อมูลตึกครบ
-      query = '';
-      this.searchInput.nativeElement.value = '';
-      this.filter('')
-    }
   }
-
-  routing1(data:string){
-    const url = localStorage.getItem('nowUrl');
-    if(data.includes('diagram'))
-    {
-      this.diagramSelecter = true;
-    } else{
-      this.diagramSelecter = false;
-    }
-    if( data.includes('logout')){
-      localStorage.setItem('location', data);
-    }
-  }
-
 }
 export interface Site{
   value: string,

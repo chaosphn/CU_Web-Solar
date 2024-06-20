@@ -35,12 +35,12 @@
                     <app-cu-container>
                         <ng-template #gradient>
                            <app-envi-consumption class=""
-                           [Irr]="getAverageValue('irr_value') | myNumber : '1.0-1'"
+                           [Irr]="getAverageValue('irr_value') | myNumber2 : '1.0-1'"
                            [Amb]="getAverageValue('amb_value') | myNumber : '1.0-1'"
                            [Pv]="getAverageValue('pv_value') | myNumber : '1.0-1'"
                            [Inso]="getAverageValue('inso') | myNumber : '1.0-1'"
                            [Co2]="getSumValue('_co2') | myNumber : '1.0-1'"
-                           [Saving]="getSumValue('_energy') * 2.7 | myNumber : '1.0-0'">
+                           [Saving]="getSumValue('today_energy') * 2.7 | myNumber : '1.0-0'">
                            </app-envi-consumption>
                         </ng-template>
                     </app-cu-container>

@@ -2,7 +2,8 @@
   <div class="svg-container bz w-100 h-100">
     <div class="svgBox w-100 h-100">
       <img [src]="'assets/images/building/'+siteName.id+'.png'" alt="" width="100%" height="100%">
-      <div class="zoneCard " id="card2" [style.top.%]="35" [style.left.%]="30" *ngIf="data && data.singleValue" (click)="openBreaker()">
+      <!-- <img [src]="'assets/images/map.png'" alt="" width="100%" height="100%"> -->
+      <div class="zoneCard" [id]="siteName.id" *ngIf="data && data.singleValue">
           <app-tooltip
           [title]="'Bx.'"
           [titleText]="siteName.id"
@@ -13,8 +14,7 @@
           [g2Title]="'Active Power'"
           [g2Value]="data?.singleValue['power_value']?.dataRecords[0]?.Value || '---'"
           [g2Unit]="'kW'"
-          [display]="true"
-          [cbStatus]="data?.singleValue['cb_status']?.dataRecords[0]?.Value"
+          [display]="false"
           [classDisplay]="'top'"
           ></app-tooltip>
       </div>
@@ -58,8 +58,17 @@
         </app-card-buiding>
       </div>
 
-      <div class="images-box d-col" (click)="openBreaker()">
-        <img [src]="'assets/images/building/'+siteName.id+'.png'" alt="" width="100%" height="100%">
+      <div class="cardList inv-card" id="2" *ngIf="siteName">
+        <app-card-breaker
+        [header]="'Breaker'"
+        [site]="siteName"
+        [cbStatus]="data?.singleValue['cb_status']?.dataRecords[0]?.Value"
+        >
+        </app-card-breaker>
+      </div>
+
+      <div class="images-box d-col">
+        <img [src]="'assets/images/building/dashboard/'+siteName.id+'.png'" alt="" width="100%" height="185px">
       </div>
     </div>
   </div>

@@ -2,8 +2,16 @@
     <div class="row no-gutters h-100 ">
         <div class="col-12 group h-100">
             <div class="header row no-gutters">
-                <div class="d-flex align-items-center">
-                    <span class="btn-ok">Building : {{siteSelected.name}}</span>
+                <div class="d-flex align-items-center selector" *ngIf="buildingList.length > 0" style="margin-right: 7px;">
+                    <mat-form-field class="mat-selects">
+                        <mat-select [(ngModel)]="siteSelected">
+                            <ng-container *ngFor="let item of buildingList; let i = index">
+                                <mat-option *ngIf="item.display" [value]="item" (click)="selectSite(item)">
+                                  {{item.name}}
+                                </mat-option>
+                              </ng-container>
+                        </mat-select>
+                    </mat-form-field>
                 </div>
                 <div class="d-flex align-items-center selector" style="margin-right: 7px;">
                     <mat-form-field class="mat-selects">

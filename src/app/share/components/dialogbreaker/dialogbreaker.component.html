@@ -1,7 +1,7 @@
 <div class="container w-100 ">
   <div class="card-container w-100 ">
     <div class="headBox d-flex-sb">
-     <span class="">{{data.id}} Switch Breaker</span>
+     <span class="">{{data.name}} Switch Breaker</span>
      <span (click)="close()">
       <i class="material-icons">
         close
@@ -9,7 +9,7 @@
      </span>
     </div>
       
-    <div class="contentBox w-100 d-flex-ct " *ngIf="isLogIn">
+    <!-- <div class="contentBox w-100 d-flex-ct " *ngIf="isLogIn">
       <div class="statusBreaker" *ngIf="isBreaker">
         Breaker Offline.
       </div>
@@ -23,7 +23,7 @@
         this button will be open circuit breaker at building.
         <br> please make sure before pressed !
       </span>
-    </div>
+    </div> -->
     
     <div class="contentBox w-100 d-flex-ct " *ngIf="!isLogIn">
       <div class=" w-100 h-100">

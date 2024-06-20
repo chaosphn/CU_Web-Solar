@@ -79,7 +79,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   siteName: BuildingModel;
   dataRealtime?: DashboardResRealtime[] = [];
   dataHistorian?: DashboardResHistorian[] = []
-
+  disableButton: boolean = false;
+  chartSelected?: string;
 
   @ViewChild('period1') period1: PeriodComponent;
   @ViewChild('period2') period2: PeriodComponent;
@@ -290,6 +291,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.dashboardInverterService.config.options.runtimeConfigs ) {
           const config = this.dashboardInverterService.config;
           this.chartOptions[config.name] = this.dashboardChartService.getChartInverter(config.name, invs, config.options);
+          this.chartSelected = undefined;
+          this.disableButton = false;
           this.cd.markForCheck();
         }
     }
@@ -450,6 +453,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       r.Options.StartTime = st;
       r.Options.EndTime = now;
     });
+    this.chartSelected = chartName;
+    this.disableButton = true;
     const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
     const res: DashboardResHistorian[] = await this.httpService.getHistorian(this.dashboardInverterService.requests);
     // console.log(req);
@@ -468,6 +473,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
     const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
     let res: DashboardResHistorian[] = [];
+    this.chartSelected = chartName;
+    this.disableButton = true;
     switch(chartName){
       case "powerGeneration":
         const request: DashboardReqHistorian[] = req.map( x => {
@@ -475,12 +482,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             StartTime: x.Options.StartTime,
             EndTime: x.Options.EndTime,
             Time: x.Options.Time,
-            Interval: 60,
+            Interval: 30,
           }
           return {...x, Options: opt}
         });
-        res = await this.httpService.getHistorian(request);
-        await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
+        if(period.display.toLowerCase() != "t"){
+          res = await this.httpService.getPlotData(request);
+          await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
+        } else {
+          res = await this.httpService.getHistorian(request);
+          await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
+        }
         break;
       default:
         res = await this.httpService.getHistorian(req);
@@ -511,7 +523,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       //console.log(data);
       this.chartOptions[chartName] = this.dashboardChartService.getChartOptions(chartName, data[chartName]);
     }
-
+    this.disableButton = false;
+    this.chartSelected = undefined;
     this.cd.markForCheck();
   }
 

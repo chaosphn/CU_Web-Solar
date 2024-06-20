@@ -7,8 +7,7 @@
               <!-- [style.width]="getWidth(groups.length)" -->
             <div class="flex-container groups" [style.height]="height" [style.width]="getWidth(groups.length)">
               <p class="card-text group-name" [ngClass]="{'active': getGroupActive() }" (click)="selectAllGroup()">ALL</p>
-              <p class="card-text group-name" *ngFor="let g of groups" [ngClass]="{'active': g.active }" (click)="selectGroup(g)">{{g.Display
-                }}</p>
+              <p class="card-text group-name" *ngFor="let g of groups" [ngClass]="{'active': g.active }" (click)="selectGroup(g)">{{g.Display}}</p>
             </div>
           </ng-container>
           <ng-container *ngIf="true">

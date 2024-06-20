@@ -11,7 +11,7 @@ export class AppLoadService {
         Timer: 60,
     };
 
-    defaultRoute = '/main/dashboard1';
+    defaultRoute = '/main/dashboardtv';
 
   constructor(private httpClient: HttpClient) { }
  

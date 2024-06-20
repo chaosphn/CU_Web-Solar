@@ -1,4 +1,4 @@
-import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { UUID } from 'angular2-uuid';
 import { Subscription, timer, Observable, Subject } from 'rxjs';
@@ -73,6 +73,7 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
   private unsubscribe$: Subject<void> = new Subject();
   private isInitialized = false;
   testGroup: any[][] = [];
+  
 
   constructor(private httpService: HttpService,
     private store: Store,
@@ -106,6 +107,7 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
     async updateInit(){
       const building = localStorage.getItem('location');
       this.siteName = JSON.parse(building);
+      this.unSubscribeTimer();
       this.initChart();
       this.initDateTime();
       await this.init();
@@ -116,6 +118,9 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
       this.subscriptions.forEach(sub => {
         sub.unsubscribe();
       });
+      if(this.timerSubscription){
+        this.timerSubscription.unsubscribe();
+      }
     }
   
     ngOnDestroy() {
@@ -126,6 +131,9 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
         sub.unsubscribe();
       });
       this.sub1.unsubscribe();
+      if(this.timerSubscription){
+        this.timerSubscription.unsubscribe();
+      }
     }
   
     async Init2(){
@@ -434,7 +442,7 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
       res.forEach(r => {
         const data: [number, number][] = [];
         r.records.forEach(r1 => {
-          const val = parseFloat(r1.Value);
+          const val = parseFloat(r1.Value.replace(",", ""));
           const time = new Date(r1.TimeStamp).getTime();
           data.push([time, val]);
         });
@@ -538,9 +546,11 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
       const startTime = this.getLastTime();
       const endTime = this.dateTimeService.getDateTime(new Date());
       this.reqCurrs = this.getReqDataConfig(this.tagNames, startTime, endTime);
-      const res: InverterResHistorian[] = await this.httpService.getHistorian(this.reqCurrs);
-      if (res.length > 0) {
-        this.updateChart(res);
+      if(this.reqCurrs.length > 0){
+        const res: InverterResHistorian[] = await this.httpService.getHistorian(this.reqCurrs);
+        if (res.length > 0) {
+          this.updateChart(res);
+        }
       }
     }
   

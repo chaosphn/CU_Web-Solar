@@ -97,7 +97,7 @@ export class AuthService {
     }
 
     logout() {
-        this.removeUserInfo();
+        //this.removeUserInfo();
         this.router.navigate(['login']);
     }
 }

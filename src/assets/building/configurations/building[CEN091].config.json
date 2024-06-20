@@ -70,6 +70,16 @@
 			}
 		},
 		{
+			"Name": "cb06.status",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
 			"Name": "SLOGGER06.PYRANO",
 			"Title": "X2",
 			"Options" : {

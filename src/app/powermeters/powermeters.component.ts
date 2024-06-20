@@ -114,6 +114,7 @@ export class PowermetersComponent implements OnInit, AfterViewInit,  OnDestroy {
   async updateInit(){
     const building = localStorage.getItem('location');
     this.siteName = JSON.parse(building);
+    this.unSubscribeTimer();
     this.initChart();
     this.initDateTime();
     await this.init();
@@ -129,12 +130,22 @@ export class PowermetersComponent implements OnInit, AfterViewInit,  OnDestroy {
       sub.unsubscribe();
     });
     this.sub1.unsubscribe();
+    if(this.timerSubscription){
+      this.timerSubscription.unsubscribe();
+    }
+  }
+
+  unSubscribeTimer(){
+    this.subscriptions.forEach(sub => {
+      sub.unsubscribe();
+    });
+    if(this.timerSubscription){
+      this.timerSubscription.unsubscribe();
+    }
   }
 
   async Init2(){
     const hasval: PowerLastValuesStateModel[] = this.store.selectSnapshot(PowerLastValuesState)
-
-    
       //const powerConfig = await this.getPowerConfigs();
       const powerConfig = await this.convertConfig();
       ////console.log(powerConfig)
@@ -435,7 +446,7 @@ export class PowermetersComponent implements OnInit, AfterViewInit,  OnDestroy {
       // r.Records = r.Records.filter(x => x.Quality !== 'Bad');
 
       r.records.forEach(r1 => {
-        const val = parseFloat(r1.Value);
+        const val = parseFloat(r1.Value.replace(",", ""));
         const time = new Date(r1.TimeStamp).getTime();
         data.push([time, val]);
       });
@@ -539,9 +550,11 @@ export class PowermetersComponent implements OnInit, AfterViewInit,  OnDestroy {
     const startTime = this.getLastTime();
     const endTime = this.dateTimeService.getDateTime(new Date());
     this.reqCurrs = this.getReqDataConfig(this.tagNames, startTime, endTime);
-    const res: PowerResHistorian[] = await this.httpService.getHistorian(this.reqCurrs);
-    if (res.length > 0) {
-      this.updateChart(res);
+    if(this.reqCurrs.length > 0){
+      const res: PowerResHistorian[] = await this.httpService.getHistorian(this.reqCurrs);
+      if (res.length > 0) {
+        this.updateChart(res);
+      }
     }
   }
 

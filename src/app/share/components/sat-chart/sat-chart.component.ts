@@ -5,9 +5,10 @@ import { Chart, Highcharts} from 'angular-highcharts';
 import { HIGHCHARTS_MODULES } from 'angular-highcharts';
 import { ChartEvent, ChartParameters, ChartParametersAdapter } from '../../models/sat-chart';
 import { ResetZoom, SetZoom } from './../../../core/stores/configs/dashboard/dashboard-configs.state';
-import { chart, charts } from 'highcharts';
+import * as XLSX from 'xlsx';
 import * as FileSaver from 'file-saver';
-//import * as XLSX from 'xlsx';
+
+
 
 const EXCEL_TYPE = 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=UTF-8';
 const EXCEL_EXTENSION = '.xlsx';
@@ -39,6 +40,7 @@ export class SatChartComponent implements OnInit, OnDestroy, OnChanges {
   _ylabel = false;
   _xlabel = false;
   @Input() data: any[];
+  @Input() export: boolean = false;
 
   x = [[3743366400, 55], [3743366401, 80]];
   seriesData: Highcharts.IndividualSeriesOptions[] = [
@@ -180,8 +182,8 @@ export class SatChartComponent implements OnInit, OnDestroy, OnChanges {
         allowHTML: true,
         buttons: {
           contextButton:{
-            enabled: false,
-            menuItems: ["viewFullscreen", "printChart", "separator", "downloadPNG", "downloadJPEG", "downloadPDF", "downloadSVG"],
+            enabled: this.export,
+            menuItems: ["printChart", "downloadPNG", "downloadJPEG", "downloadSVG"],
           }
         }
 
@@ -279,7 +281,7 @@ export class SatChartComponent implements OnInit, OnDestroy, OnChanges {
     // const worksheet: XLSX.WorkSheet = XLSX.utils.json_to_sheet(json);  
     // const workbook: XLSX.WorkBook = { Sheets: { 'data': worksheet }, SheetNames: ['data'] };  
     // const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });  
-    //this.saveAsExcelFile(excelBuffer, excelFileName);
+    // this.saveAsExcelFile(excelBuffer, excelFileName);
   }
   private saveAsExcelFile(buffer: any, fileName: string): void {
     const data: Blob = new Blob([buffer], {type: EXCEL_TYPE});   

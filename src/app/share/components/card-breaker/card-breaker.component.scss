@@ -1,0 +1,209 @@
+.container{
+    background-color: rgba(62, 148, 192, 0.1);
+    //filter: drop-shadow(-4px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(4px 0px 4px rgba(0, 0, 0, 0.25));
+    box-shadow: -4px 4px 4px rgba(0, 0, 0, 0.25), 4px 0px 4px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(15px);
+    padding: 0;
+    margin: 0;
+}
+.headBox{
+    justify-content: space-between;
+    background: #136286;
+    color: white;
+    padding: 8px 10px;
+    span {
+        font-size: 16px;
+        font-weight: 500;
+    }
+}
+
+.contentBox{
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    padding: 10px;
+    column-gap: 5px;
+}
+
+.status-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0px 8px;
+}
+
+.cardBox{
+    //border: 1px solid lime;
+    display: grid;
+    row-gap: 10px;
+
+}
+
+.cardItem{
+    //border: 1px solid rgb(255, 174, 0);
+    display: flex;
+    background: #f3f3f3;
+}
+.iconBox{
+    width: 35px;
+    height: 35px;
+    background: #136286;
+}
+.infoBox{
+    justify-content: space-around;
+    align-items: center;
+    column-gap: 12px;
+    padding: 0 10px;
+}
+.OFF{
+    color: crimson;
+    font-weight: 500;
+}
+.ON{
+    color: limegreen;
+    font-weight: 500;
+}
+.NULL{
+    color: tomato;
+    font-weight: 500;
+}
+.buttonItem{
+    display: flex;
+    justify-content: center;
+}
+.buttonItem button{
+    width: 50%;
+    padding: 4px 8px;
+    font-size: 14px;
+    color: whitesmoke;
+    background-color: #FD674E;
+    outline: none;
+    border: 1px solid rgb(75, 75, 75);
+}
+
+.outerbox{
+    padding: 20px;
+    border-radius: 8px;
+    background: #EDEDED;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    //transform: translate(-25%, -25%);
+}
+/* The switch - the box around the slider */
+.switch {
+    scale: 1.25;
+    font-size: 17px;
+    position: relative;
+    display: inline-block;
+    width: 1.6em;
+    height: 3.9em;
+    z-index: 5;
+    margin: 0 !important;
+  }
+  
+  /* Hide default HTML checkbox */
+  .switch .chk {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* The slider */
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #bcbcbc;
+    transition: .4s;
+    border-radius: 5px;
+  }
+  
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: .5em;
+    width: 2.4em;
+    border-radius: 5px;
+    left: -0.4em;
+    top: 0.4em;
+    background-color: rgb(68, 66, 66);
+    box-shadow: 0 6px 7px rgba(0,0,0,0.3);
+    transition: .4s;
+  }
+  
+  .slider:before, .slider:after {
+    content: "";
+    display: block;
+  }
+  
+  .slider:after {
+    background: linear-gradient(transparent 50%, rgba(255, 255, 255, 0.15) 0) 0 50% / 50% 100%,
+          repeating-linear-gradient(90deg,rgb(78, 78, 78) 0,rgb(141, 135, 135),rgb(97, 96, 96) 20%,rgb(97, 95, 95) 20%,rgb(99, 99, 99) 40%) 0 50% / 50% 100%,
+          radial-gradient(circle at 50% 50%,rgb(95, 94, 94) 25%, transparent 26%);
+    background-repeat: no-repeat;
+    border: 0.25em solid transparent;
+    border-left: 0.4em solid #464646;
+    border-right: 0 solid transparent;
+    transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+    transform: translateX(-22.5%) rotate(90deg);
+    transform-origin: 25% 50%;
+    position: relative;
+    top: 0.8em;
+    left: 0.75em;
+    width: 2em;
+    height: 1em;
+    box-sizing: border-box;
+  }
+  
+  .chk:checked + .slider {
+    background-color: #c14c4c;
+  }
+  
+  .chk:focus + .slider {
+    box-shadow: 0 0 1px #c14c4c;
+  }
+  
+  .chk:checked + .slider:before {
+    transform: translateY(2.0em);
+  }
+  
+  .chk:checked + .slider:after {
+    transform: rotateZ(90deg) rotateY(180deg) translateY(0.45em) translateX(-0.6em);
+}
+
+.chartBox{
+    padding: 0;
+}
+.cardItem-mobile{
+    display: none;
+}
+.headText{
+    font-size: 24px;
+}
+
+.material-icons{
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .card-container{
+        height: 255px;
+        width: calc(100vw - 16px);
+    }
+    .contentBox{
+        display: grid;
+        width: calc(100vw - 16px);
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 80px;
+        padding: 10px;
+        column-gap: 5px;
+        row-gap: 12px;
+    }
+
+    .cardItem{
+        width: 350px;
+        display: flex;
+        background: #ffffff;
+    }
+}

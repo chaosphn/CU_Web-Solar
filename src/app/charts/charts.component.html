@@ -16,13 +16,29 @@
                     <div class="d-inline-block">
                         <span class="btn-ok" (click)="selectChart()">OK</span>
                     </div>
+                    <div class="d-inline-block">
+                        <span class="btn-ok" *ngIf="chartData.length > 0" (click)="captureScreen()">SAVE PNG</span>
+                    </div>
+                    <div class="d-inline-block">
+                        <span class="btn-ok" *ngIf="chartData.length > 0" (click)="exportToExcel()">SAVE XLS</span>
+                    </div>
                 </div>
                 <div class="row-header">
                     <app-time-preset [periodSelected]="periodName" [periodNames]="periodNames" (select)="selectedPeriod($event)"></app-time-preset>
                 </div>
             </div>
-            <div class="content">
+            <div class="content" id="htmlData">
                 <app-sat-chart [chartParameters]="chartParameters"></app-sat-chart>
+                <!-- <button mat-fab class="icon-button btn-2" *ngIf="chartData.length > 0 && downLoading" (click)="captureScreen()">
+                    <i class="material-icons">
+                        image
+                    </i>
+                </button>
+                <button mat-fab class="icon-button btn-1" *ngIf="chartData.length > 0 && downLoading" (click)="exportToExcel()">
+                    <i class="material-icons">
+                        description
+                    </i>
+                </button> -->
             </div>
         </div>
     </div>

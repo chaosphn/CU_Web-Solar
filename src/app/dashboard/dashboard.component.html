@@ -104,11 +104,11 @@
     <div class="powerChartCard">
       <app-solar-container [title]="'SOLAR POWER GENERATION VS. IRRADIANCE'">
         <ng-template #period>
-          <app-period (select)="selectPeriod($event, 'powerGeneration')" [periodSelected]="periodSelected" [periods]="periods" #period1></app-period>
+          <app-period (select)="selectPeriod($event, 'powerGeneration')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period1></app-period>
         </ng-template>
 
         <ng-template #content>
-          <div class="chart-content">
+          <div class="chart-content"  [ngClass]="{'loading': disableButton && chartSelected == 'powerGeneration'}">
             <app-sat-chart [height]="'222px'" [chartParameters]="chartOptions['powerGeneration']"></app-sat-chart>
           </div>
         </ng-template>
@@ -118,11 +118,11 @@
     <div class="energyChartCard">
       <app-solar-container [title]="'SOLAR ENERGY GENERATION'">
         <ng-template #period>
-          <app-period (select)="selectPeriod($event, 'energyExported')" [periodSelected]="periodSelected" [periods]="periods" #period2></app-period>
+          <app-period (select)="selectPeriod($event, 'energyExported')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period2></app-period>
         </ng-template>
 
         <ng-template #content>
-          <div class="chart-content">
+          <div class="chart-content" [ngClass]="{'loading': disableButton && chartSelected == 'energyExported'}">
             <app-sat-chart [chartParameters]="chartOptions['energyExported']"></app-sat-chart>
           </div>
         </ng-template>
@@ -132,10 +132,10 @@
     <div class="prChartCard">
       <app-solar-container [title]="'PERFORMANCE RATIO'">
         <ng-template #period>
-          <app-period (select)="selectPeriod($event, 'performanceRatio')" [periodSelected]="periodSelected" [periods]="periods" #period3></app-period>
+          <app-period (select)="selectPeriod($event, 'performanceRatio')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period3></app-period>
         </ng-template>
         <ng-template #content>
-          <div class="chart-content">
+          <div class="chart-content" [ngClass]="{'loading': disableButton && chartSelected == 'performanceRatio'}" >
             <app-sat-chart [chartParameters]="chartOptions['performanceRatio']"></app-sat-chart>
           </div>
         </ng-template>
@@ -145,10 +145,10 @@
     <div class="invertersChartCard">
       <app-solar-container [title]="'ENERGY GENERATION BY INVERTERS'">
         <ng-template #period>
-          <app-period (select)="selectPeriodInverter($event, 'interverEnergy')" [periodSelected]="periodSelected" [periods]="periods" #period4></app-period>
+          <app-period (select)="selectPeriodInverter($event, 'interverEnergy')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period4></app-period>
         </ng-template>
         <ng-template #content>
-          <div class="chart-content">
+          <div class="chart-content"  [ngClass]="{'loading': disableButton && chartSelected == 'interverEnergy'}">
             <app-sat-chart [chartParameters]="chartOptions['interverEnergy']"></app-sat-chart>
           </div>
         </ng-template>

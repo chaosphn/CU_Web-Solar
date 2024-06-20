@@ -126,15 +126,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   async ngOnInit() {
     //this.init();
     localStorage.setItem('nowUrl',this.router.url.toString());
-    // this.currentRoute = this.router.url.toString()
-    // this.siteName = localStorage.getItem('location');
-    // ////console.log("component: "+this.currentRoute.slice(6)+" & site: " + this.siteName.toString());
-    /*this.storageService.getStorageChanges().subscribe(newValue => {
-      this.currentRoute = newValue || '';
-    });*/
     const building: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
     if(building && building.building){
-      this.buildingList = building.building;
+      this.buildingList = building.building.sort((a,b) => parseInt(a.no) - parseInt(b.no));
     }
     await this.init02();
     await this.getConfig();
@@ -229,7 +223,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
 
   increaseValue(){
-    this.event.changeNavbar();
+    //this.event.changeNavbar();
     this.router.navigate(['/main/dashboard1']);
     // this.value = this.value + 100;
     ////console.log(this.value)
@@ -687,7 +681,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   getSumValue(key: string){
     const data = Object.entries(this.data.singleValue)
     .filter(x => x[0].endsWith(key))
-      .map(d => parseFloat(d[1].dataRecords[0].Value))
+      .map(d => parseFloat(d[1].dataRecords[0].Value.replace(",", "")))
         .reduce((pre, cur) => { pre += cur; return pre; }, 0);
     if(data){
       return data.toFixed(2);
@@ -699,7 +693,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   getAverageValue(key: string){
     const data = Object.entries(this.data.singleValue)
     .filter(x => x[0].endsWith(key))
-      .map(d => parseFloat(d[1].dataRecords[0].Value))
+      .map(d => parseFloat(d[1].dataRecords[0].Value.replace(",", "")))
         .reduce((pre, cur, idx, arr) => { pre += (cur/arr.length); return pre; }, 0);
     if(data){
       return data.toFixed(2);

@@ -31,6 +31,7 @@ import { DialogbreakerComponent } from './components/dialogbreaker/dialogbreaker
 import { OrderByPipe } from './pipe/order-by.pipe';
 import { FilterNamePipe } from './pipe/filter-name.pipe';
 import { Number2Pipe } from './pipe/my-number2.pipe';
+import { CardBreakerComponent } from './components/card-breaker/card-breaker.component';
 
 
 
@@ -80,6 +81,7 @@ export const MY_MOMENT_FORMATS = {
     TooltipVerticalComponent,
     SatChart3Component,
     DialogbreakerComponent,
+    CardBreakerComponent,
     OrderByPipe,
     FilterNamePipe,
     Number2Pipe
@@ -116,6 +118,7 @@ export const MY_MOMENT_FORMATS = {
     TooltipVerticalComponent,
     SatChart3Component,
     DialogbreakerComponent,
+    CardBreakerComponent,
     OrderByPipe,
     FilterNamePipe,
     Number2Pipe

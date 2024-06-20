@@ -1,4 +1,6 @@
 <button class="period" *ngFor="let period of periods" 
+type="submit"
+[disabled]="disableButton"
 [ngClass]="{'active': periodSelected.name == period.name}" 
 (click)="selectPeriod(period)">
   {{period.display | uppercase}}

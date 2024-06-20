@@ -1,7 +1,7 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" *ngIf="!bgStatus" [position]="(isHandset$ | async) ? 'end' : 'start'"
+  <mat-sidenav #drawer class="sidenav" *ngIf="checkRoute()" [position]="(isHandset$ | async) ? 'end' : 'start'"
     [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
-    [opened]="!(isHandset$ | async)" [ngClass]="{'special': bgStatus}">
+    [opened]="!(isHandset$ | async)">
     <mat-toolbar class="title">
       <img src="assets/images/mea.png" class="logo" alt="" (click)="callHome()">
     </mat-toolbar>
@@ -14,7 +14,7 @@
 
       <a class="box site-box" style="display: flex; flex-direction: column; justify-content: center; row-gap: 5px;">
         <p>LOCATION</p>
-        <div class="dropDown" *ngIf="buildingList && buildingList.building">
+        <div class="dropDown">
           <mat-select [(ngModel)]="siteSelected.name" disableOptionCentering [placeholder]="siteSelected.name" panelClass="myPanelClass"
             class="mySelectClass" style="color: white;" *ngIf="buildingList  && buildingList.building">
             <!-- <mat-option *ngFor="let item of buildingList.building"  [value]="item" (click)="selectSite(item)">
@@ -68,30 +68,6 @@
         </i>
         <p>DIAGRAM</p>
       </a>
-      <!--<a mat-list-item href="#" class="box-option" >
-        <i class="material-icons">
-          device_hub
-        </i>
-        <p>DIAGRAM</p>
-        <mat-select placeholder="LOCATION" >
-          <mat-option value="Diagram01" routerLink="/main/diagram" >OrangeMarket</mat-option>
-          <mat-option value="Diagram02" routerLink="/main/diagram1">FruitMarket</mat-option>
-          <mat-option value="Diagram03" routerLink="/main/diagram2">FreshMarket</mat-option>
-          <mat-option value="Diagram04" routerLink="/main/diagram3">ContainerYard</mat-option>
-        </mat-select>
-      </a>-->
-      <!--<a mat-list-item href="#" class="box" routerLink="/main/diagram2" routerLinkActive="active" *ngIf="pages.indexOf('diagram2') > -1" [ngStyle]="getStyle('D2')">
-        <i class="material-icons">
-          device_hub
-        </i>
-        <p>MDB 1</p>
-      </a>
-      <a mat-list-item href="#" class="box" routerLink="/main/diagram3" routerLinkActive="active" *ngIf="pages.indexOf('diagram3') > -1" [ngStyle]="getStyle('D3')">
-        <i class="material-icons">
-          device_hub
-        </i>
-        <p>MDB 2</p>
-      </a>-->
       <a mat-list-item href="#" class="box" routerLink="/main/powermeters" routerLinkActive="active"
         *ngIf="pages.indexOf('powermeters') > -1" (click)="toggleBackground('/main/powermeter')">
         <i class="material-icons">
@@ -120,76 +96,12 @@
         </i>
         <p>REPORTS</p>
       </a>
-      <!-- <a mat-list-item href="#" class="box" routerLink="/main/events" routerLinkActive="active" *ngIf="pages.indexOf('events') > -1" (click)="toggleBackground('/main/powermeter')" >
-        <i class="material-icons">
-          warning
-        </i>
-        <p>EVENTS</p>
-      </a> -->
-      <!--<a mat-list-item href="#" class="box" routerLink="/main/ctl" routerLinkActive="active" (click)="routing1('/main/ctl')">
-        <i class="material-icons">
-          edit
-        </i>
-        <p>CONTROL</p>
-      </a>-->
     </mat-nav-list>
   </mat-sidenav>
 
   <mat-sidenav-content class="content">
     <mat-toolbar [style.display]="(isHandset$ | async) ? 'inherit': 'none'" class="header-control"
       [ngClass]="{'special': bgStatus}">
-      <!--<span class="example-fill-remaining-space"></span>
-      <div class="owl-carousel owl-theme">
-        <a mat-list-item href="#" class="icon-box" routerLink="/main/dashboard" routerLinkActive="icon-active">
-          <i class="material-icons icon-material-icons">
-            dashboard
-          </i>
-        </a>
-        <a mat-list-item href="#" class="icon-box" routerLink="/main/diagram" routerLinkActive="icon-active" (click)="routing(address[0])">
-          <i class="material-icons icon-material-icons">
-            device_hub
-          </i>
-        </a>
-        <a mat-list-item href="#" class="icon-box" routerLink="/main/powermeter" routerLinkActive="icon-active" (click)="routing(address[1])">
-          <i class="material-icons icon-material-icons">
-            offline_bolt
-          </i>
-        </a>
-        <a mat-list-item href="#" class="icon-box" routerLink="/main/inverters" routerLinkActive="icon-active" (click)="routing(address[2])">
-          <i class="material-icons icon-material-icons">
-            waves
-          </i>
-        </a>
-        <a mat-list-item href="#" class="icon-box" routerLink="/main/charts" routerLinkActive="icon-active">
-          <i class="material-icons icon-material-icons">
-            timeline
-          </i>
-        </a>
-        <a mat-list-item href="#" class="icon-box" routerLink="/main/reports" routerLinkActive="icon-active">
-          <i class="material-icons icon-material-icons">
-            file_copy
-          </i>
-        </a>
-        <a mat-list-item href="#" class="icon-box" routerLink="/main/events" routerLinkActive="icon-active">
-          <i class="material-icons icon-material-icons">
-            warning
-          </i>
-        </a>
-        <a mat-list-item href="#" class="icon-box" routerLink="/main/write" routerLinkActive="icon-active">
-          <i class="material-icons icon-material-icons">
-            edit
-          </i>
-        </a>
-
-        <a (click)="logout()">
-          <i class="material-icons icon-material-icons icon-logout">
-            exit_to_app
-          </i>
-        </a>
-        <button type="button" class="btn-toggle" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
-          <mat-icon class="toggle-icon" aria-label="Side nav toggle icon">menu</mat-icon>
-        </button> 
-      </div>-->
       <div class="nav-content">
         <a mat-list-item href="#" class="icon-box diagram" routerLinkActive="icon-active">
           <i class="material-icons icon-material-icons">
@@ -201,35 +113,17 @@
           </div>
         </a>
         <div class="icon-box dashboard" routerLinkActive="icon-active">
-          <!-- <i class="material-icons icon-material-icons">
-            format_list_bulleted
-          </i> -->
           <mat-select *ngIf="buildingList && buildingList.building" style="padding-top: 10px;">
             <Input matInput placeholder="Search"
             (input)="filter($event.target.value)"
             class="nav-search"/>
-            <label class="zone-select-style">
-              <div style="width: 100%;"><div style="text-align: center;">Sort by :</div>
-              <!-- <select class="custom_select_zone" [(ngModel)]="selectedZone" (change)="onZoneChange($event.target.value)">
-                <option value="" disabled selected>ZONE</option>
-                <option *ngFor="let zone of [1, 2, 3, 4, 5, 6, 7]" [value]="zone">ZONE _ {{zone}}</option>
-              </select> -->
-              </div>
-            </label>
-              <ng-container *ngFor="let item of buildingList.building; let i = index">
-                <mat-option *ngIf="tagShowList.includes(i)" [value]="item"
-                  (click)="selectSite(item)" class="custom_select">
-                  {{item.name}}
-                </mat-option>
-              </ng-container>
-          <!-- <div class="list1" style="overflow-y: auto; height: 300px; width: 300px; background-color: #fafdfd;">
-            <mat-option *ngFor="let item of buildingList.building">
-              <mat-option
-                (click)="selectSiteMobile(item)">
+            
+            <ng-container *ngFor="let item of buildingList.building; let i = index">
+              <mat-option *ngIf="item.display" [value]="item"
+                (click)="selectSite(item)">
                 {{item.name}}
               </mat-option>
-              </mat-option>
-          </div> -->
+            </ng-container>
           </mat-select>
         </div>
         <div mat-list-item href="#" class="icon-box dashboard" routerLinkActive="icon-active"routerLink="/main/dashboard">
@@ -271,8 +165,6 @@
         </a>
       </div>
     </mat-toolbar>
-
-    <!-- <header><app-weather-card></app-weather-card></header> -->
     <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

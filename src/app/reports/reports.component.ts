@@ -7,7 +7,9 @@ import { ReportHttpService } from './services/report-http.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { EventService } from '../share/services/event.service';
-import { BuildingModel } from '../core/stores/sites/sites.model';
+import { BuildingModel, SiteStateModel } from '../core/stores/sites/sites.model';
+import { Store } from '@ngxs/store';
+import { SitesState } from '../core/stores/sites/sites.state';
 
 @Component({
   selector: 'app-reports',
@@ -22,7 +24,8 @@ export class ReportsComponent implements OnInit {
   startView: string;
   currentRoute: string;
   siteName: string = ''; 
-  siteSelected?: BuildingModel;
+  siteSelected: BuildingModel;
+  buildingList: BuildingModel[] = [];
   sub1: Subscription;
 
   constructor(private httpService: HttpService,
@@ -31,31 +34,28 @@ export class ReportsComponent implements OnInit {
     private dateTimeService: DateTimeService,
     private router: Router,
     private cd: ChangeDetectorRef,
-    private event: EventService) {
+    private event: EventService,
+    private store: Store) {
       this.sub1 = this.event.triggerFunction$.subscribe(() => {
         this.updateInit();
       });
     }
 
   async ngOnInit() {
-    const building: BuildingModel = JSON.parse(localStorage.getItem('location'));
-    if(building && building.id){
-      this.siteSelected = building;
-      this.siteName = building.id;
-    }
     this.dateTime = new Date(new Date().setDate(new Date().getDate()-1));
     await this.getConfig();
     this.initReportSelect();
+    this.initSiteSelect();
     //console.log(this.selectedReport.Name);
   }
 
   updateInit(){
-    const building: BuildingModel = JSON.parse(localStorage.getItem('location'));
-    if(building && building.id){
-      this.siteSelected = building;
-      this.siteName = building.id;
-    }
-    this.cd.markForCheck();
+    // const building: BuildingModel = JSON.parse(localStorage.getItem('location'));
+    // if(building && building.id){
+    //   this.siteSelected = building;
+    //   this.siteName = building.id;
+    // }
+    // this.cd.markForCheck();
   }
 
   ngOnDestroy() {
@@ -68,7 +68,19 @@ export class ReportsComponent implements OnInit {
     }
   }
 
+  initSiteSelect() {
+    if (this.buildingList.length > 0) {
+      this.siteSelected = this.buildingList[0];
+      this.siteName = this.buildingList[0].id;
+    }
+  }
+
   async getConfig() {
+    const config: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
+    if(config){
+      config.building.sort((a,b) => parseInt(a.no) - parseInt(b.no));
+      this.buildingList = config.building;
+    }
     this.reportConfig = await this.httpService.getConfig('assets/reports/report.config.json');
   }
 
@@ -194,4 +206,9 @@ export class ReportsComponent implements OnInit {
       return 'multi-years';
     }
   } 
+
+  selectSite(data:BuildingModel){
+    this.siteSelected = data;
+    this.siteName = data.id;
+  }
 }

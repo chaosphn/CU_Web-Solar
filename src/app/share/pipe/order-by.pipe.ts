@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'orderBy'
 })
 export class OrderByPipe implements PipeTransform {
-  transform(array: any[], field: string): any[] {
+  transform(array: any[], field: number): any[] {
     if (!Array.isArray(array)) {
       return [];
     }

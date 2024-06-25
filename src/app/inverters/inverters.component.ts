@@ -207,7 +207,8 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
           const currRes = curr[tagName];
           let dataRecord: Record = null;
           if (currRes) {
-            dataRecord = currRes.dataRecords[0];
+            dataRecord.TimeStamp = currRes.dataRecords[0].Timestamp;
+            dataRecord.Value = currRes.dataRecords[0].Value;
           }
           report.push({
             name: key.toString(),

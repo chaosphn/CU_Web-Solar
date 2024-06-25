@@ -142,7 +142,7 @@ export class SatChartComponent implements OnInit, OnDestroy, OnChanges {
         animation: false,
         marginTop: 30,
         zoomType: 'x',
-        backgroundColor: '#f8f8f8',
+        backgroundColor: 'white',
         events: {
           selection: this.zoomChart.bind(this)
       },

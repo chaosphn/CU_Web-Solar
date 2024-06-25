@@ -77,6 +77,17 @@ export class Series {
     showInLegend? = true;
 }
 
+export class columns {
+    name: string;
+    type?= SerieType.bar;
+    color?= 'blue';
+    yaxis?= 0;
+    xaxis?=0;
+    data: [number, number][] | [string, number][] | Highcharts.DataPoint[];
+    visible?= true;
+    showInLegend? = true;
+}
+
 export class PushData {
     name: string;
     data: [number, number][] | [string, number][] | Highcharts.DataPoint[];
@@ -93,6 +104,7 @@ export class YAxisParameters {
     labelUnit?= '';
     opposite?= false;
     visible?= false; 
+    align?="high";
 }
 
 export class XAxisParameters {
@@ -227,7 +239,7 @@ export class ChartParametersAdapter {
                         title: {
                             reserveSpace: false,
                             text: y.title || null,
-                            align: 'high',
+                            align: y.align || 'high',
                             style: {
                                 'text-anchor': 'start'
                             },
@@ -341,7 +353,7 @@ export class ChartParametersAdapter {
                         title: {
                             reserveSpace: false,
                             text: y.title || null,
-                            align: 'high',
+                            align: y.align || 'high',
                             style: {
                                 'text-anchor': 'start'
                             },
@@ -362,7 +374,7 @@ export class ChartParametersAdapter {
                             endOnTick: false,
                             tickAmount: 5,
                             min: 0,
-                            max: 1600,
+                            max: 1200,
                             labels: {
                                 enabled: y.labelEnable || true,
                                 // format: y.labelFormat || '{value:,.0f}',

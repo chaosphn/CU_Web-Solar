@@ -71,7 +71,7 @@
 	],
 	"historianConfig": [
 		{
-			"Name": "TOU03.W",
+			"Name": "CALC03.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -147,7 +147,7 @@
 					}
 				},
 				{
-					"name": "TOU03.W",
+					"name": "CALC03.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {
@@ -363,7 +363,7 @@
 			"tags": [
 				{
 					"name": "INV0301.WH",
-					"title": "SINV01",
+					"title": "INV01",
 					"period": "t",
 					"options": {
 						"chartOptions": {
@@ -375,7 +375,7 @@
 				},
 				{
 					"name": "INV0302.WH",
-					"title": "SINV02",
+					"title": "INV02",
 					"period": "t",
 					"options": {
 						"chartOptions": {
@@ -404,8 +404,8 @@
 					},
 					"xAxis": {
 						"categories": [
-							"SINV01",
-							"SINV02"
+							"INV01",
+							"INV02"
 						]
 					}
 				}

@@ -56,4 +56,9 @@ export class CardBreakerComponent implements OnInit, OnChanges {
     });
   }
 
+  setTestBreaker(){
+    this.cbStatus = "0";
+    this.checkStatus = true;
+  }
+
 }

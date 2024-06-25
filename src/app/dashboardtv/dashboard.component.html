@@ -157,9 +157,10 @@
             <app-cu-container>
                 <ng-template #gradient>
                     <div class="chart-container w-100">
-                        <div class="cardTopic bz">BUILDING GENERATION ( kWh )</div>
+                        <div class="cardTopic bz">TODAY ENERGY ( kWh )</div>
                         <div class="cardContent bz">
                           <app-stack-chart [data]="5" class="chartBox bz" *ngFor="let item of buildingList"
+                          (click)="navigateToDashboard(item)"
                           [subTitle]="getLabel(item.name)"
                           [label]="getLabel(item.id, 0, 3)"
                           [subLabel]="getLabel(item.id, 3, 6)"

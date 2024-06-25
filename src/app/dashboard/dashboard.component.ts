@@ -348,26 +348,36 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     return this.getMaxValueRecord(data);
   }
 
-  getMaxValueRecord(data: DashboardResHistorian[]) {
+  getMaxValueRecord(data: DashboardResHistorian[]): DashboardResHistorian[] {
     return data.map(item => {
-      const maxValues = {};
+      const maxValues: { [key: string]: Record } = {};
+  
       item.records.forEach(record => {
         const TimeStamp = record.TimeStamp;
         const value = parseFloat(record.Value.replace(",", ""));
-
-        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value.replace(",",""))) {
-          maxValues[TimeStamp] = {...record,Value:value.toString() };
+  
+        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value.replace(",", ""))) {
+          maxValues[TimeStamp] = { ...record, Value: value.toString() };
+        } else if (value === parseFloat(maxValues[TimeStamp].Value.replace(",", ""))) {
+          // Additional criteria for handling ties can be added here
+          // For now, keeping the first encountered record
         }
-      })
-      const maxRecords: Record[] = Object.values(maxValues)
-      return  { ...item, records:maxRecords.filter((d, i, a) => 
-          i === a.findIndex((t) => (
-            t.TimeStamp === d.TimeStamp && t.Value === d.Value
-          ))
-        )
-      }
-    })
+      });
+  
+      const maxRecords: Record[] = Object.values(maxValues);
+      let rec: Record[] = [];
+      return {
+        ...item,
+        records: maxRecords.reduce((acc, cur) => {
+          if(acc.find(x => x.TimeStamp == cur.TimeStamp && x.Value == cur.Value )){}else if(parseFloat(cur.Value) > 0){
+            acc.push(cur);
+          }
+          return acc;
+        },rec)
+      };
+    });
   }
+  
 
   async addDataToStore(data: any[]) {
     await this.store.dispatch(new SetDashboardValues(data)).toPromise();

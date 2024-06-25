@@ -2,7 +2,7 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "TOU04.W"
+			"Name": "CALC04.W"
 		},
 		{
 			"Title": "power_expected",
@@ -46,7 +46,7 @@
 		},
 		{
 			"Title": "energy_cod",
-			"Name": "TOU04.WH"
+			"Name": "CALC04.WH"
 		},
 		{
 			"Title": "weather_irr",
@@ -71,7 +71,7 @@
 	],
 	"historianConfig": [
 		{
-			"Name": "TOU04.W",
+			"Name": "CALC04.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -147,7 +147,7 @@
 					}
 				},
 				{
-					"name": "TOU04.W",
+					"name": "CALC04.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {
@@ -363,7 +363,7 @@
 			"tags": [
 				{
 					"name": "INV0401.WH",
-					"title": "SINV01",
+					"title": "INV01",
 					"period": "t",
 					"options": {
 						"chartOptions": {
@@ -375,7 +375,7 @@
 				},
 				{
 					"name": "INV0402.WH",
-					"title": "SINV02",
+					"title": "INV02",
 					"period": "t",
 					"options": {
 						"chartOptions": {
@@ -404,8 +404,8 @@
 					},
 					"xAxis": {
 						"categories": [
-							"SINV01",
-							"SINV02"
+							"INV01",
+							"INV02"
 						]
 					}
 				}

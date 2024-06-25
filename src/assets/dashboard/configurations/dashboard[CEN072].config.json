@@ -363,7 +363,7 @@
 			"tags": [
 				{
 					"name": "INV0501.WH",
-					"title": "SINV01",
+					"title": "INV01",
 					"period": "t",
 					"options": {
 						"chartOptions": {
@@ -375,7 +375,7 @@
 				},
 				{
 					"name": "INV0502.WH",
-					"title": "SINV02",
+					"title": "INV02",
 					"period": "t",
 					"options": {
 						"chartOptions": {
@@ -404,8 +404,8 @@
 					},
 					"xAxis": {
 						"categories": [
-							"SINV01",
-							"SINV02"
+							"INV01",
+							"INV02"
 						]
 					}
 				}

@@ -10,6 +10,16 @@ import { EventService } from '../share/services/event.service';
 import { BuildingModel, SiteStateModel } from '../core/stores/sites/sites.model';
 import { Store } from '@ngxs/store';
 import { SitesState } from '../core/stores/sites/sites.state';
+import { DashboardReqHistorian } from '../core/stores/requests/dashboard/dashboard-request.model';
+import { DashboardResHistorian, Record } from '../core/stores/last-values/dashboard/dashboard-last-values.model';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+import { DashboardConfigStateModel } from '../core/stores/configs/dashboard/dashboard-configs.model';
+import { ChartParameters, HAlign, LegendParameter, Series, VAlingn, columns } from '../share/models/sat-chart';
+import { UUID } from 'angular2-uuid';
+import { ReportChartService } from './services/report-chart.service';
+import { Chart } from 'angular-highcharts';
+import { OrderByPipe } from '../share/pipe/order-by.pipe';
 
 @Component({
   selector: 'app-reports',
@@ -18,15 +28,24 @@ import { SitesState } from '../core/stores/sites/sites.state';
 })
 export class ReportsComponent implements OnInit {
   dateTime: Date;
-  reportConfig: ReportRequest[] = [];
+  reportConfig: ReportConfigModel[] = [];
   pdf: string;
-  selectedReport: ReportRequest;
+  selectedReport: ReportConfigModel;
   startView: string;
   currentRoute: string;
   siteName: string = ''; 
   siteSelected: BuildingModel;
   buildingList: BuildingModel[] = [];
   sub1: Subscription;
+  startTime: string;
+  endTime: string;
+  request: DashboardReqHistorian[] = [];
+  response: DashboardResHistorian[] = [];
+  dateColumn: Date[] = [];
+  dataTable: any[][] = [];
+  chartParameters: ChartParameters;
+  uuid: string;
+  chart: Chart;
 
   constructor(private httpService: HttpService,
     private reportHttpService: ReportHttpService,
@@ -35,27 +54,70 @@ export class ReportsComponent implements OnInit {
     private router: Router,
     private cd: ChangeDetectorRef,
     private event: EventService,
-    private store: Store) {
+    private store: Store,
+    private chartService: ReportChartService) {
       this.sub1 = this.event.triggerFunction$.subscribe(() => {
-        this.updateInit();
       });
     }
 
   async ngOnInit() {
+    this.uuid = UUID.UUID();
     this.dateTime = new Date(new Date().setDate(new Date().getDate()-1));
     await this.getConfig();
     this.initReportSelect();
     this.initSiteSelect();
-    //console.log(this.selectedReport.Name);
   }
 
-  updateInit(){
-    // const building: BuildingModel = JSON.parse(localStorage.getItem('location'));
-    // if(building && building.id){
-    //   this.siteSelected = building;
-    //   this.siteName = building.id;
-    // }
-    // this.cd.markForCheck();
+  updateChart(){
+    const orderPipe = new OrderByPipe();
+    this.chart = new Chart({
+      credits: {
+        enabled: false,
+      },
+      chart: {
+        type: 'column',
+        height: 220
+      },
+      title: {
+        text: '',
+        align: ''
+        
+      },
+      exporting: {
+        enabled: false,
+      },
+      xAxis: {
+        categories: orderPipe.transform(this.dataTable, 0).map(x => this.datePipe.transform(x[0], this.selectedReport.Header[0].type))
+      },
+      yAxis: {
+        min: 0,
+        title: {
+          text: 'Energy (kWh)'
+        }
+      },
+      tooltip: {
+        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y} kWh</b> ({point.percentage:.0f}%)<br/>',
+        shared: true
+      },
+      plotOptions: {
+        column: {
+          stacking: 'normal',
+          dataLabels: {
+            enabled: false,
+          }
+        }
+      },
+      series: [{
+        name: 'Energy Offpeak',
+        data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[3].replace(",", ""))),
+        color: '#0DD141'
+      }, {
+        name: 'Energy Peak',
+        data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[2].replace(",", ""))),
+        color: '#F05C5C'
+      }]
+    });
+    this.cd.markForCheck();
   }
 
   ngOnDestroy() {
@@ -81,118 +143,414 @@ export class ReportsComponent implements OnInit {
       config.building.sort((a,b) => parseInt(a.no) - parseInt(b.no));
       this.buildingList = config.building;
     }
-    this.reportConfig = await this.httpService.getConfig('assets/reports/report.config.json');
-  }
-
-  async selectReport() {
-    if (this.validateParameters()) {
-      // this.pdf = 'assets/reports/mock.pdf';
-      try {
-        let timestamp = this.datePipe.transform(this.dateTime, 'yyMMdd');
-        if(this.selectedReport.Type == "monthly"){
-          timestamp = this.datePipe.transform(this.dateTime, 'yyMM');
-        }
-        const reportName = this.siteName + this.selectedReport.Name + "_" + timestamp + ".pdf";
-        const blob = await this.reportHttpService.getReport(reportName, this.selectedReport.Type);
-        this.pdf = URL.createObjectURL(blob); 
-      } catch (error) {
-        alert('File not found.');
-      }
-    }
-  }
-
-  validateParameters(): boolean {
-    if (!this.dateTime) {
-      alert('Please select date');
-      return false;
-    }
-    if (!this.selectedReport) {
-      alert('Please select report');
-      return false;
-    }
-    if (!this.siteName) {
-      alert('Please select building');
-      return false;
-    }
-    return true;
-  }
-
-  download1() {
-    const a = document.createElement('a');
-    a.href = this.pdf;
-    const filename = this.getFileName();
-
-    a.download = filename;
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(function(){
-      document.body.removeChild(a);
-      window.URL.revokeObjectURL(this.pdf);  
-  }, 100);  
-  }
-  
-  async downloadPdf() {
-    if (this.validateParameters()) {
-      // this.pdf = 'assets/reports/mock.pdf';
-      try {
-        let timestamp = this.datePipe.transform(this.dateTime, 'yyMMdd');
-        if(this.selectedReport.Type == "monthly"){
-          timestamp = this.datePipe.transform(this.dateTime, 'yyMM');
-        }
-        const reportName = this.siteName + this.selectedReport.Name + "_" + timestamp + ".pdf";
-        const report = await this.reportHttpService.getPdfFile(reportName, this.selectedReport.Type);
-      } catch (error) {
-        alert('File not found.');
-      }
-    }
-  }
-
-  async downloadXls() {
-    if (this.validateParameters()) {
-      // this.pdf = 'assets/reports/mock.pdf';
-      try {
-        let timestamp = this.datePipe.transform(this.dateTime, 'yyMMdd');
-        if(this.selectedReport.Type == "monthly"){
-          timestamp = this.datePipe.transform(this.dateTime, 'yyMM');
-        }
-        const reportName = this.siteName + this.selectedReport.Name + "_" + timestamp + ".xlsx";
-        const report = await this.reportHttpService.getXlsxFile(reportName, this.selectedReport.Type);
-      } catch (error) {
-        alert('File not found.');
-      }
-    }
-  }
-
-  download() {
-    const timestamp = this.datePipe.transform(this.dateTime, 'yyyy-MM-dd');
-    this.reportHttpService.getFile(this.selectedReport.Name, timestamp);
-  }
-
-  getFileName(): string {
-    let filename = '';
-    const year = this.addZeroPrefix(this.dateTime.getFullYear(), 4);
-    const month = this.addZeroPrefix(this.dateTime.getMonth() + 1);
-    const date = this.addZeroPrefix(this.dateTime.getDate());
-    
-    if (this.selectedReport.Type === 'Monthly') {
-      filename = this.selectedReport.Name + year + '_' + month + '.pdf';
-    }
-    else if (this.selectedReport.Type === 'Yearly') {
-      filename = this.selectedReport.Name + year + '.pdf';
-    }
-    else if (this.selectedReport.Type === 'Daily') {
-      filename = this.selectedReport.Name + year + '_' + month  + '_' + date  + '.pdf';
-    }
-    return filename;
-  }
-
-
- addZeroPrefix(number: number, decimal = 2): string {
-   return ('0' + number).slice(-(decimal));
+    this.reportConfig = await this.httpService.getConfig('assets/reports/report.config2.json');
+    console.log(this.reportConfig)
   }
 
   onDateTimeChange(event) {
     this.dateTime = event;
+    switch(this.selectedReport.Type){
+      case "daily":
+        this.dateColumn = [];
+        this.startTime = this.dateTimeService.getDateTime(this.dateTime);
+        const endD = this.dateTime.setHours(23,59,0,0);
+        this.endTime = this.dateTimeService.getDateTime(new Date(endD));
+        let startHour = this.dateTime.getTime()+(60*1000);
+        let endHour = startHour+(24*60*60*1000);
+        let hourRate = 60*60*1000;
+        for (let dt = startHour; dt < endHour; dt = dt+hourRate) {
+            let newDate = new Date(dt).getTime() - (24*60*60*1000);
+            this.dateColumn.push(new Date(newDate));
+        }
+        break;
+      case "monthly":
+        this.dateColumn = [];
+        this.startTime = this.dateTimeService.getDateTime(this.dateTime);
+        let endDate = new Date(this.dateTime);
+        endDate.setMonth(endDate.getMonth() + 1, 1);
+        this.endTime = this.dateTimeService.getDateTime(endDate);
+        let startDay = this.dateTime.getTime(); 
+        let endDay = new Date(this.endTime).getTime();
+        let dayRate = 24 * 60 * 60 * 1000; 
+        for (let dt = startDay; dt < endDay; dt += dayRate) {
+            let newDate = new Date(dt);
+            this.dateColumn.push(newDate);
+        }
+        break;
+      case "yearly":
+        this.dateColumn = [];
+        this.startTime = this.dateTimeService.getDateTime(this.dateTime);
+        let endMonth = new Date(this.dateTime);
+        endMonth.setFullYear(endMonth.getFullYear(), 12, 1);
+        this.endTime = this.dateTimeService.getDateTime(endMonth);
+        for (let dt = 1; dt <= 12; dt++) {
+            let newDate = new Date(this.startTime).setMonth(dt-1, 1);
+            this.dateColumn.push(new Date(newDate));
+        }
+        break;
+    }
+    this.getRequestData();
+  }
+
+  getRequestData(){
+    if(this.selectedReport.Header){
+      const req: DashboardReqHistorian[] = this.selectedReport.Header.reduce((acc, cur) => {
+        if(cur.tagname && !acc.find(x => x.Name == cur.tagname)){
+          let reqItem: DashboardReqHistorian = {
+            Name: cur.tagname,
+            Options: {
+              Time: "",
+              StartTime: this.startTime,
+              EndTime: this.endTime
+            }
+          };
+          acc.push(reqItem);
+        }
+        return acc;
+      },[]);
+      if(req){this.request = req;}
+    }
+  }
+
+  getRequestWithType(type: string, time: Date){
+    let start: string = "";
+    let end: string = "";
+    switch(type){
+      case 'daily':
+        start = this.dateTimeService.getDateTime(time);
+        const endD = time.getTime() + (60*60*1000);
+        end = this.dateTimeService.getDateTime(new Date(endD));
+        break;
+      case 'monthly':
+        start = this.dateTimeService.getDateTime(time);
+        const endM = time.setHours(23,59,0,0);
+        end = this.dateTimeService.getDateTime(new Date(endM));
+        break;
+      case 'yearly':
+        
+        break;
+    }
+    const req: DashboardReqHistorian[] = this.selectedReport.Header.reduce((acc, cur) => {
+      if(cur.tagname && !acc.find(x => x.Name == cur.tagname)){
+        let reqItem: DashboardReqHistorian = {
+          Name: cur.tagname,
+          Options: {
+            Time: "",
+            StartTime: start,
+            EndTime: end
+          }
+        };
+        acc.push(reqItem);
+      }
+      return acc;
+    },[]);
+    return req;
+  }
+
+  async getResponseData(){
+    // const table: any[] = [];
+    // let idx = 0;
+    // const res = await this.httpService.getHistorian(this.request);
+    // if(res){this.response = res;}
+    // this.dateColumn.forEach(async (rw, index) => {
+    //   let row: any[] = [];
+    //   this.selectedReport.Header.forEach((cl, i) => {
+    //     switch(cl.option){
+    //       case "TIME":
+    //         row.push(rw);
+    //         break;
+    //       case "DIFF":
+    //         row.push(this.getDiffValue(cl.tagname, rw));
+    //         break;
+    //       case "MAX":
+    //         row.push(this.getMaxValue(cl.tagname, rw));
+    //         break;
+    //       case "AVG":
+    //         row.push(this.getAverageValue(cl.tagname, rw));
+    //         break;
+    //       case "ONPEAK":
+    //         if(rw.getHours() >= 9 && rw.getHours() <= 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")){
+    //           row.push(this.getDiffValue(cl.tagname, rw));
+    //         } else {
+    //           row.push("0.00");
+    //         }
+    //         break;
+    //       case "OFFPEAK":
+    //         if( rw.getHours() < 9 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun") ){
+    //           row.push(this.getDiffValue(cl.tagname, rw));
+    //         } else if( rw.getHours() > 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun") ){
+    //           row.push(this.getDiffValue(cl.tagname, rw));
+    //         } else if( rw.toString().includes("Sat") || rw.toString().includes("Sun") ){
+    //           row.push(this.getDiffValue(cl.tagname, rw));
+    //         } else {
+    //           row.push("0.00");
+    //         }
+    //         break;
+    //       case "ONMAX":
+    //         row.push(this.getDiffPeakValue(cl.tagname, rw));
+    //         break;
+    //       case "OFFMAX":
+    //         let diff = parseFloat(row[1]) - parseFloat(row[2])
+    //         row.push(diff.toFixed(2));
+    //         break;
+    //       default:
+    //         row.push("0.00"); 
+    //         break;
+    //     }
+    //   }); 
+    //   table.push(row);
+    //   idx++;
+    // }); 
+    
+    // this.dataTable = table.sort((a,b) => new Date(a[0]).getHours() - new Date(b[0]).getHours());
+    // if(this.dataTable){
+    //   this.dataTable = this.dataTable.sort((a,b) => new Date(a[0]).getHours() - new Date(b[0]).getHours());
+    //   this.updateChart();
+    // }
+    const table: any[] = [];
+
+    const fetchData = async () => {
+      const promises = this.dateColumn.map(async rw => {
+        const res = await this.httpService.getHistorian(this.getRequestWithType(this.selectedReport.Type, rw));
+        if (res) {
+          this.response = res;
+        }
+        let row: any[] = [];
+        this.selectedReport.Header.forEach((cl, i) => {
+          switch (cl.option) {
+            case "TIME":
+              row.push(rw);
+              break;
+            case "DIFF":
+              row.push(this.getDiffValue(cl.tagname, rw));
+              break;
+            case "MAX":
+              row.push(this.getMaxValue(cl.tagname, rw));
+              break;
+            case "AVG":
+              row.push(this.getAverageValue(cl.tagname, rw));
+              break;
+            case "ONPEAK":
+              if (rw.getHours() >= 9 && rw.getHours() <= 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
+                row.push(this.getDiffValue(cl.tagname, rw));
+              } else {
+                row.push("0.00");
+              }
+              break;
+            case "OFFPEAK":
+              if (rw.getHours() < 9 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
+                row.push(this.getDiffValue(cl.tagname, rw));
+              } else if (rw.getHours() > 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
+                row.push(this.getDiffValue(cl.tagname, rw));
+              } else if (rw.toString().includes("Sat") || rw.toString().includes("Sun")) {
+                row.push(this.getDiffValue(cl.tagname, rw));
+              } else {
+                row.push("0.00");
+              }
+              break;
+            case "ONMAX":
+              row.push(this.getDiffPeakValue(cl.tagname, rw));
+              break;
+            case "OFFMAX":
+              let diff = parseFloat(row[1]) - parseFloat(row[2]);
+              row.push(diff.toFixed(2));
+              break;
+            default:
+              row.push("0.00");
+              break;
+          }
+        });
+        table.push(row);
+      });
+      await Promise.all(promises);
+      this.dataTable = table.sort((a, b) => new Date(a[0]).getHours() - new Date(b[0]).getHours());
+      if (this.dataTable) {
+        this.updateChart();
+      }
+    };
+    fetchData();
+  }
+
+  // getResponseData(){
+  //   const table: any[] = [];
+  //   const fetchData = async () => {
+  //     for (const rw of this.dateColumn) {
+  //       const res = await this.httpService.getHistorian(this.getRequestWithType(this.selectedReport.Type, rw));
+  //       if (res) {
+  //         this.response = res;
+  //       }
+  //       let row: any[] = [];
+  //       this.selectedReport.Header.forEach((cl, i) => {
+  //         switch (cl.option) {
+  //           case "TIME":
+  //             row.push(rw);
+  //             break;
+  //           case "DIFF":
+  //             row.push(this.getDiffValue(cl.tagname, rw));
+  //             break;
+  //           case "MAX":
+  //             row.push(this.getMaxValue(cl.tagname, rw));
+  //             break;
+  //           case "AVG":
+  //             row.push(this.getAverageValue(cl.tagname, rw));
+  //             break;
+  //           case "ONPEAK":
+  //             if (rw.getHours() >= 9 && rw.getHours() <= 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
+  //               row.push(this.getDiffValue(cl.tagname, rw));
+  //             } else {
+  //               row.push("0.00");
+  //             }
+  //             break;
+  //           case "OFFPEAK":
+  //             if (rw.getHours() < 9 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
+  //               row.push(this.getDiffValue(cl.tagname, rw));
+  //             } else if (rw.getHours() > 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
+  //               row.push(this.getDiffValue(cl.tagname, rw));
+  //             } else if (rw.toString().includes("Sat") || rw.toString().includes("Sun")) {
+  //               row.push(this.getDiffValue(cl.tagname, rw));
+  //             } else {
+  //               row.push("0.00");
+  //             }
+  //             break;
+  //           case "ONMAX":
+  //             row.push(this.getDiffPeakValue(cl.tagname, rw));
+  //             break;
+  //           case "OFFMAX":
+  //             let diff = parseFloat(row[1]) - parseFloat(row[2]);
+  //             row.push(diff.toFixed(2));
+  //             break;
+  //           default:
+  //             row.push("0.00");
+  //             break;
+  //         }
+  //       });
+  //       table.push(row);
+  //     }
+  //     this.dataTable = table.sort((a, b) => new Date(a[0]).getHours() - new Date(b[0]).getHours());
+  //     if (this.dataTable) {
+  //       this.updateChart();
+  //     }
+  //   };
+  //   fetchData();
+  // }
+
+  getDiffValue(tag: string, date: Date){
+    let res: string = "0.00";
+    const dateTime = date.getTime() - (7*60*60*1000);
+    let findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
+    if(this.selectedReport.Type != "daily"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
+    const data:Record[] = this.response.find(x => x.Name == tag).records
+      .filter(d => d.TimeStamp.includes(findDate))
+        .sort((a,b) => new Date(a.TimeStamp).getTime() - new Date(b.TimeStamp).getTime());
+    const firstVal = data[0];
+    const lastVal = data[data.length - 1];
+    if(firstVal && lastVal && firstVal.Value && lastVal.Value){
+      const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
+      if(diff >= 0){res = diff.toFixed(2);}
+    }
+    return res;
+  }
+
+  getDiffPeakValue(tag: string, date: Date){
+    let res: string = "0.00";
+    const dateTime = date.getTime() - (7*60*60*1000);
+    let findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
+    if(this.selectedReport.Type != "daily"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
+    const data:Record[] = this.response.find(x => x.Name == tag).records
+      .filter(d => d.TimeStamp.includes(findDate) && 
+          new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).getHours() >= 9 &&  
+          new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).getHours() <= 18 && 
+          !new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).toString().startsWith('Sat') &&
+          !new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).toString().startsWith('Sun')
+        )
+        .sort((a,b) => new Date(a.TimeStamp).getTime() - new Date(b.TimeStamp).getTime());
+    const firstVal = data[0];
+    const lastVal = data[data.length - 1];
+    if(firstVal && lastVal && firstVal.Value && lastVal.Value){
+      const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
+      if(diff >= 0){res = diff.toFixed(2);}
+    }
+    return res;
+  }
+
+  getDiffOffPeakValue(tag: string, date: Date){
+    let res: string = "0.00";
+    const dateTime = date.getTime() - (7*60*60*1000);
+    let findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
+    if(this.selectedReport.Type != "daily"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
+    const data:Record[] = this.response.find(x => x.Name == tag).records
+      .filter(d => d.TimeStamp.includes(findDate) && new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).getHours() < 9 &&  new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).getHours() > 18)
+        .sort((a,b) => new Date(a.TimeStamp).getTime() - new Date(b.TimeStamp).getTime());
+    const firstVal = data[0];
+    const lastVal = data[data.length - 1];
+    if(firstVal && lastVal && firstVal.Value && lastVal.Value){
+      const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
+      if(diff >= 0){res = diff.toFixed(2);}
+    }
+    return res;
+  }
+
+  getAverageValue(tag: string, date: Date){
+    let res: string = "0.00";
+    const dateTime = date.getTime() - (7*60*60*1000);
+    let findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
+    if(this.selectedReport.Type != "daily"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
+    const data:Record[] = this.response.find(x => x.Name == tag).records
+      .filter(d => d.TimeStamp.includes(findDate));
+    const avgVal = data.reduce((acc, cur) => {
+      acc += parseFloat(cur.Value.replace(",", ""));
+      return acc;
+    },0);
+
+    if(tag.endsWith("PYRANO")){
+      console.log(data)
+    console.log(avgVal)
+    }
+    if(avgVal){
+      const diff = avgVal/data.length;
+      if(diff >= 0){res = diff.toFixed(2);}
+    }
+    return res;
+  }
+
+  getMaxValue(tag: string, date: Date){
+    let res: string = "0.00";
+    const dateTime = date.getTime() - (7*60*60*1000);
+    const findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
+    const data:Record[] = this.response.find(x => x.Name == tag).records
+      .filter(d => d.TimeStamp.includes(findDate))
+        .sort((a,b) => parseFloat(a.Value.replace(",", "")) - parseFloat(b.Value.replace(",", "")));
+    const lastVal = data[data.length - 1];
+    if(lastVal && lastVal.Value){
+      const diff = parseFloat(lastVal.Value);
+      if(diff >= 0){res = diff.toFixed(2);}
+    }
+    return res;
+  }
+  
+  getSummaryData(type: string, index: number){
+    let res: string = "0.00";
+    switch(type){
+      case "SUM":
+        const sum = this.dataTable.reduce((acc, cur) => {
+          acc += parseFloat(cur[index]);
+          return acc;
+        },0);
+        if(sum){
+          res = sum.toFixed(2);
+        }
+        break;
+      case "AVG":
+        const avg = this.dataTable.reduce((acc, cur) => {
+          acc += parseFloat(cur[index]);
+          return acc;
+        },0);
+        if(avg){
+          res = (avg/this.dataTable.length).toFixed(2);
+        }
+        break;
+    }
+    return res;
   }
 
   getStartView(type: string) {
@@ -207,8 +565,51 @@ export class ReportsComponent implements OnInit {
     }
   } 
 
+  htmltoPDF(){
+    const chart = document.getElementById('htmlTable') as HTMLElement;
+    const reportName = this.siteSelected.id + " " + this.selectedReport.Name + "[" + this.datePipe.transform(this.dateTime, this.selectedReport.DateFormat) + "]" + ".pdf" 
+    html2canvas(chart).then(canvas => {
+
+      var pdf = new jsPDF('p', 'pt', [canvas.width, canvas.height]);
+
+      var imgData  = canvas.toDataURL("image/jpeg", 1.0);
+      pdf.addImage(imgData,0,0,canvas.width, canvas.height);
+      pdf.save(reportName);
+    });
+  }
+
   selectSite(data:BuildingModel){
     this.siteSelected = data;
     this.siteName = data.id;
   }
+
+  initChart() {
+    const chart = this.chartService.getChartOptions(this.selectedReport.ChartConfig.name, this.dataTable, this.selectedReport.ChartConfig, this.dateColumn);
+    console.log(chart);
+    if(chart){
+      this.chartParameters = chart;
+      this.cd.markForCheck();
+    }
+  }
+}
+
+export interface ReportConfigModel{
+  Name: string;
+  Type: string;
+  DateFormat: string;
+  ExchangeRate: number;
+  Co2Rate: number;
+  OilRate: number;
+  TreeRate: number;
+  Header: ReportHeaderModel[];
+  ChartConfig?: DashboardConfigStateModel;
+}
+
+export interface ReportHeaderModel{
+  title: string;
+  tagname: string;
+  option: string;
+  width: string;
+  type: string;
+  display?: string;
 }

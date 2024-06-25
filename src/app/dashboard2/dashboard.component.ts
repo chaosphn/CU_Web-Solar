@@ -134,10 +134,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit() {
-    const zoneId = localStorage.getItem('zone');
+    const zone = localStorage.getItem('zone');
     const Bx:BuildingModel[] = this.store.selectSnapshot(SitesState.getSites());
     if(Bx){
-      this.buildingList = Bx.filter(x => x.zone == zoneId);
+      this.buildingList = Bx.filter(x => x.zone == zone);
       if(this.buildingList.length > 0){
         this.init02();
         this.onWindowResize()
@@ -185,7 +185,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   getzone(){
     const zone = localStorage.getItem('location')
     const parseZone = JSON.parse(zone)
-    return "SITE_LOCATIONS_ZONE_"+parseZone.zone
+    return "ZONE "+parseZone.zone
   }
 
   isShow(id:BuildingModel){

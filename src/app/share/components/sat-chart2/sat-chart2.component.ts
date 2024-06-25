@@ -186,8 +186,8 @@ export class SatChart2Component implements OnInit, OnDestroy, OnChanges {
           enabled: false
         },
         lineWidth: 0,
-        min: new Date(this.period.startTime).getTime(),
-        max: new Date(this.period.endTime).getTime()
+        min: new Date(this.period.startTime).getTime() || null,
+        max: new Date(this.period.endTime).getTime() || null
       },
       legend: _config.getLegend1(),
       series: _config.getSeries(),

@@ -54,6 +54,6 @@ export interface DashboardResHistorian{
 }
 
 export interface Record{
-    TimeStamp?:string;
-    Value?:string;
+    TimeStamp:string;
+    Value:string;
 }

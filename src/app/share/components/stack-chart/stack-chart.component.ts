@@ -75,8 +75,8 @@ export class StackChartComponent implements OnInit, OnChanges {
 
   getPercentage(): number{
     if(this.value && this.maxVal){
-      const percent = ((this.value/this.maxVal)*10).toFixed(0);
-      return parseInt(percent);
+      const percent = ((this.value/this.maxVal)*this.rangeVal).toFixed(0);
+      return parseFloat(percent);
     } else {
       return 0;
     }

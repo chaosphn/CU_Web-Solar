@@ -32,13 +32,13 @@ export class DialogbreakerComponent implements OnInit {
       const url = 'setbreaker';
       const buildNumber = this.data.no;
       const username = localStorage.getItem('username');
-      const st = confirm('Please make sure before pressed !');
+      const st = confirm('Please make sure before send trip command !');
       if(st){
         this.cbStatus = true;
         this.isBreaker = !this.isBreaker;
         const res = await this.httpService.getBreaker(url,username,buildNumber);
         if(res){
-          alert(res);
+          alert('Send command ' + res);
         }
       } else {
         this.cbStatus = false;

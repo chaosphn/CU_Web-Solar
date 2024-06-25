@@ -1,0 +1,228 @@
+[
+    {
+        "Name": "Daily Energy Report",
+        "Type": "daily",
+        "DateFormat": "dd MMMM yyyy",
+        "ExchangeRate": 2.75,
+        "Co2Rate": 0.23314,
+        "OilRate": 0.30283,
+        "TreeRate": 0.0193,
+        "Header": [
+            {
+                "title": "Time",
+                "tagname": "",
+                "option": "TIME",
+                "width": "4rem",
+                "type": "HH:mm",
+                "display": "Total/Average"
+            },
+            {
+                "title": "Energy\nProduction\n(kWh)",
+                "tagname": "TOU01.WH",
+                "option": "DIFF",
+                "width": "7rem",
+                "type": "SUM"
+            },
+            {
+                "title": "Energy On Peak\n(kWh)",
+                "tagname": "TOU01.WH",
+                "option": "ONPEAK",
+                "width": "8rem",
+                "type": "SUM"
+            },
+            {
+                "title": "Energy Off Peak\n(kWh)",
+                "tagname": "TOU01.WH",
+                "option": "OFFPEAK",
+                "width": "8rem",
+                "type": "SUM"
+            },
+            {
+                "title": "Irradiance\n(Wh/m2)",
+                "tagname": "SLOGGER06.IRR_TODAY",
+                "option": "DIFF",
+                "width": "7rem",
+                "type": "SUM"
+            },
+            {
+                "title": "Ambient Temp.\n(°C)",
+                "tagname": "SLOGGER06.AMBTEMP",
+                "option": "AVG",
+                "width": "7rem",
+                "type": "AVG"
+            },
+            {
+                "title": "Module Temp.\n(°C)",
+                "tagname": "SLOGGER06.PVTEMP",
+                "option": "AVG",
+                "width": "7rem",
+                "type": "AVG"
+            }
+        ],
+        "ChartConfig": {
+			"name": "energyExported",
+			"type": "Raw",
+			"tags": [
+				{
+					"name": "3",
+					"title": "Energy Off Peak",
+					"period": "t",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#0DD141"
+						}
+					}
+				},
+                {
+					"name": "2",
+					"title": "Energy On Peak",
+					"period": "t",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#F05C5C"
+						}
+					}
+				}
+			],
+			"title": "Energy Exported",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "#E6E6E6",
+							"text": "ENERGY (kWh)"
+						}
+					],
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		}
+    },
+    {
+        "Name": "Monthly Energy Report",
+        "Type": "monthly",
+        "DateFormat": "MMMM yyyy",
+        "ExchangeRate": 2.75,
+        "Co2Rate": 0.23314,
+        "OilRate": 0.30283,
+        "TreeRate": 0.0193,
+        "Header": [
+            {
+                "title": "Time",
+                "tagname": "",
+                "option": "TIME",
+                "width": "4rem",
+                "type": "dd"
+            },
+            {
+                "title": "Energy\nProduction\n(kWh)",
+                "tagname": "TOU01.WH",
+                "option": "DIFF",
+                "width": "7rem",
+                "type": "SUM"
+            },
+            {
+                "title": "Energy On Peak\n(kWh)",
+                "tagname": "TOU01.WH",
+                "option": "ONMAX",
+                "width": "8rem",
+                "type": "SUM"
+            },
+            {
+                "title": "Energy Off Peak\n(kWh)",
+                "tagname": "TOU01.WH",
+                "option": "OFFMAX",
+                "width": "8rem",
+                "type": "SUM"
+            },
+            {
+                "title": "Irradiance\n(Wh/m2)",
+                "tagname": "SLOGGER06.IRR_TODAY",
+                "option": "DIFF",
+                "width": "7rem",
+                "type": "SUM"
+            },
+            {
+                "title": "Ambient Temp.\n(°C)",
+                "tagname": "SLOGGER06.AMBTEMP",
+                "option": "AVG",
+                "width": "7rem",
+                "type": "AVG"
+            },
+            {
+                "title": "Module Temp.\n(°C)",
+                "tagname": "SLOGGER06.PVTEMP",
+                "option": "AVG",
+                "width": "7rem",
+                "type": "AVG"
+            }
+        ],
+        "ChartConfig": {
+			"name": "energyExported",
+			"type": "Raw",
+			"tags": [
+				{
+					"name": "3",
+					"title": "Energy Off Peak",
+					"period": "t",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#0DD141"
+						}
+					}
+				},
+                {
+					"name": "2",
+					"title": "Energy On Peak",
+					"period": "t",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#F05C5C"
+						}
+					}
+				}
+			],
+			"title": "Energy Exported",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "#E6E6E6",
+							"text": "ENERGY (kWh)"
+						}
+					],
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		}
+    },
+    {
+        "Name": "Yearly Energy Report",
+        "Type": "yearly",
+        "DateFormat": "yyyy",
+        "ExchangeRate": 2.75,
+        "Co2Rate": 0.23314,
+        "OilRate": 0.30283,
+        "TreeRate": 0.0193,
+        "Header": [],
+        "ChartConfig": {}
+    }
+]

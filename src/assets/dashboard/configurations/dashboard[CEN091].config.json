@@ -2,7 +2,7 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "TOU06.W"
+			"Name": "CALC06.W"
 		},
 		{
 			"Title": "power_expected",
@@ -46,7 +46,7 @@
 		},
 		{
 			"Title": "energy_cod",
-			"Name": "TOU06.WH"
+			"Name": "CALC06.WH"
 		},
 		{
 			"Title": "weather_irr",
@@ -367,7 +367,7 @@
 			"tags": [
 				{
 					"name": "INV0601.WH",
-					"title": "SINV01",
+					"title": "INV01",
 					"period": "t",
 					"options": {
 						"chartOptions": {
@@ -379,7 +379,7 @@
 				},
 				{
 					"name": "INV0602.WH",
-					"title": "SINV02",
+					"title": "INV02",
 					"period": "t",
 					"options": {
 						"chartOptions": {
@@ -408,8 +408,8 @@
 					},
 					"xAxis": {
 						"categories": [
-							"SINV01",
-							"SINV02"
+							"INV01",
+							"INV02"
 						]
 					}
 				}

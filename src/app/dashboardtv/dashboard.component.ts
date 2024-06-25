@@ -159,6 +159,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.event.changeNavbar();
     this.router.navigate(['/main/dashboard2']);
   }
+
+  navigateToDashboard(item: BuildingModel){
+    localStorage.setItem('location', JSON.stringify(item));
+    this.event.changeNavbar();
+    this.router.navigate(['/main/dashboard']);
+  }
+
   updateZone(){
     const siteName = localStorage.getItem('location');
     const parseZone = JSON.parse(siteName)

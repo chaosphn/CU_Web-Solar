@@ -42,7 +42,8 @@ export class TimeControlComponent implements OnInit, OnChanges {
   constructor(private dateTimeAdapter: DateTimeAdapter<any>) { }
 
   ngOnInit() {
-
+    const newDate = new Date(this.dateTime);
+    this.selectDatetime.emit(newDate);
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -50,9 +51,12 @@ export class TimeControlComponent implements OnInit, OnChanges {
       if (propName === 'startView') {
         if (this.startView === 'year' || this.startView === 'multi-years') {
           this.setCustomDateTime();
+          const newDate = new Date(this.dateTimeCustom);
+          this.selectDatetime.emit(newDate);
         }
       }
     }
+    
   }
 
   afterPickerClosed() {

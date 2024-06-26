@@ -16,25 +16,25 @@
                 <div class="d-flex align-items-center selector" style="margin-right: 7px;">
                     <mat-form-field class="mat-selects">
                         <mat-select [(value)]="selectedReport">
-                            <mat-option *ngFor="let report of reportConfig" [value]="report">
+                            <mat-option *ngFor="let report of reportConfig" [value]="report" (click)="resetTable()">
                                 {{report.Name}}
                             </mat-option>
                         </mat-select>
                     </mat-form-field>
                 </div>
-                <div class="d-flex align-items-center">
+                <div class="d-flex align-items-center" *ngIf="selectedReport && selectedReport.Type">
                     <app-time-control [pickerType]="'calendar'" [startView]="getStartView(selectedReport?.Type)"
                     style="margin-right: 7px;"
                     (selectDatetime)="onDateTimeChange($event)" [dateTime]="dateTime"></app-time-control>
                 </div>
                 <div class="d-flex align-items-center">
-                        <span class="btn-ok" (click)="getResponseData()">VIEW</span>
-                        <span class="btn-ok" >SAVE XLS</span>
-                        <span class="btn-ok" (click)="htmltoPDF()">SAVE PDF</span>
+                        <button class="btn-ok" (click)="getResponseData()">VIEW</button>
+                        <button class="btn-ok" (click)="exportToExcel()">SAVE XLS</button>
+                        <button class="btn-ok" (click)="htmltoPDF()">SAVE PDF</button>
                 </div>
             </div>
             <div class="content bz">
-                <div id="htmlTable" class="report-content bz" *ngIf="selectedReport && selectedReport.ExchangeRate && selectedReport.Co2Rate && selectedReport.OilRate && selectedReport.TreeRate && dataTable.length > 0">
+                <div id="htmlTable" class="report-content bz" *ngIf="selectedReport && dataTable.length > 0">
                     <div class="report-header d-flex-sb w-100 bz">
                         <div><img src="assets/images/cu.png" alt="" srcset=""></div>
                         <div class="d-col header-info">
@@ -46,22 +46,22 @@
                     </div>
                     <div class="report-info w-100 bz">
                         <div class="row-info">
-                            <span class="bz topic">Energy Production:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1) | myNumber2: '1.0-2') }} kWh</span>
+                            <span class="bz">Energy Production:</span>
+                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber2: '1.0-2') }} kWh</span>
                             <span class="bz"></span>
-                            <span class="bz topic">Financial Saving:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1) | myNumber: '1.0-2') * selectedReport.ExchangeRate | myNumber: '1.0-2' }} THB</span>
+                            <span class="bz">Financial Saving:</span>
+                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * selectedReport.ExchangeRate | myNumber: '1.0-2' }} THB</span>
                         </div>
                         <div class="row-info">
-                            <span class="bz topic">CO<sub>2</sub> Reduction:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1) | myNumber: '1.0-2') * selectedReport.Co2Rate | myNumber: '1.0-2' }} Kg</span>
+                            <span class="bz">CO<sub>2</sub> Reduction:</span>
+                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * selectedReport.Co2Rate | myNumber: '1.0-2' }} Kg</span>
                             <span class="bz"></span>
-                            <span class="bz topic">Oil Saving:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1) | myNumber: '1.0-2') * selectedReport.OilRate | myNumber: '1.0-2' }} Liters</span>
+                            <span class="bz">Oil Saving:</span>
+                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * selectedReport.OilRate | myNumber: '1.0-2' }} Liters</span>
                         </div>
                         <div class="row-info">
-                            <span class="bz topic">Tree Saving:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1) | myNumber: '1.0-2') * selectedReport.TreeRate | myNumber: '1.0-2' }} Trees</span>
+                            <span class="bz">Tree Saving:</span>
+                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * selectedReport.TreeRate | myNumber: '1.0-2' }} Trees</span>
                             <span class="bz"></span>
                             <span class="bz"></span>
                             <span class="bz"></span>
@@ -78,13 +78,13 @@
                                 <tr *ngFor="let row of dataTable | orderBy: 0">
                                     <td class="brd" *ngFor="let col of row; index as j;">
                                         <span *ngIf="j==0">{{col | date: selectedReport.Header[0].type}}</span>
-                                        <span *ngIf="j!=0">{{col}}</span>
+                                        <span *ngIf="j!=0">{{ (col | myNumber: '1.0-4') * selectedReport.Header[j].factor | myNumber2: '1.0-2'}}</span>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="brd row-summary" *ngFor="let sum of selectedReport.Header; index as i;">
                                         <span *ngIf="sum.display">{{sum.display}}</span>
-                                        <span *ngIf="!sum.display">{{getSummaryData(sum.type, i) | myNumber2: '1.0-2'}}</span>
+                                        <span *ngIf="!sum.display">{{getSummaryData(sum.type, i, sum.factor) | myNumber2}}</span>
                                     </td>
                                 </tr>
                             </tbody>
@@ -94,6 +94,12 @@
                         <div [style.height]="'100%'" [chart]="chart">
                         </div>
                     </div>
+                </div>
+                <div class="loading-wave" *ngIf="loading">
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
                 </div>
             </div>
         </div>

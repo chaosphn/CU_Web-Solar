@@ -20,6 +20,7 @@ import { UUID } from 'angular2-uuid';
 import { ReportChartService } from './services/report-chart.service';
 import { Chart } from 'angular-highcharts';
 import { OrderByPipe } from '../share/pipe/order-by.pipe';
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-reports',
@@ -46,6 +47,7 @@ export class ReportsComponent implements OnInit {
   chartParameters: ChartParameters;
   uuid: string;
   chart: Chart;
+  loading: boolean = false;
 
   constructor(private httpService: HttpService,
     private reportHttpService: ReportHttpService,
@@ -107,15 +109,18 @@ export class ReportsComponent implements OnInit {
           }
         }
       },
-      series: [{
-        name: 'Energy Offpeak',
-        data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[3].replace(",", ""))),
-        color: '#0DD141'
-      }, {
-        name: 'Energy Peak',
-        data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[2].replace(",", ""))),
-        color: '#F05C5C'
-      }]
+      series: [
+        {
+          name: 'Energy Peak',
+          data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[2].replace(",", ""))),
+          color: '#F05C5C'
+        },
+        {
+          name: 'Energy Offpeak',
+          data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[3].replace(",", ""))),
+          color: '#0DD141'
+        }
+      ]
     });
     this.cd.markForCheck();
   }
@@ -144,11 +149,11 @@ export class ReportsComponent implements OnInit {
       this.buildingList = config.building;
     }
     this.reportConfig = await this.httpService.getConfig('assets/reports/report.config2.json');
-    console.log(this.reportConfig)
   }
 
   onDateTimeChange(event) {
     this.dateTime = event;
+    this.dataTable = [];
     switch(this.selectedReport.Type){
       case "daily":
         this.dateColumn = [];
@@ -179,7 +184,7 @@ export class ReportsComponent implements OnInit {
         break;
       case "yearly":
         this.dateColumn = [];
-        this.startTime = this.dateTimeService.getDateTime(this.dateTime);
+        this.startTime = this.dateTimeService.getDateTime(this.dateTime.toISOString());
         let endMonth = new Date(this.dateTime);
         endMonth.setFullYear(endMonth.getFullYear(), 12, 1);
         this.endTime = this.dateTimeService.getDateTime(endMonth);
@@ -227,7 +232,10 @@ export class ReportsComponent implements OnInit {
         end = this.dateTimeService.getDateTime(new Date(endM));
         break;
       case 'yearly':
-        
+        start = this.dateTimeService.getDateTime(time);
+        const endY = time.setMonth(time.getMonth()+1, 0);
+        const lastDate = new Date(endY).setHours(23,59,59,0)
+        end = this.dateTimeService.getDateTime(new Date(lastDate));
         break;
     }
     const req: DashboardReqHistorian[] = this.selectedReport.Header.reduce((acc, cur) => {
@@ -248,68 +256,10 @@ export class ReportsComponent implements OnInit {
   }
 
   async getResponseData(){
-    // const table: any[] = [];
-    // let idx = 0;
-    // const res = await this.httpService.getHistorian(this.request);
-    // if(res){this.response = res;}
-    // this.dateColumn.forEach(async (rw, index) => {
-    //   let row: any[] = [];
-    //   this.selectedReport.Header.forEach((cl, i) => {
-    //     switch(cl.option){
-    //       case "TIME":
-    //         row.push(rw);
-    //         break;
-    //       case "DIFF":
-    //         row.push(this.getDiffValue(cl.tagname, rw));
-    //         break;
-    //       case "MAX":
-    //         row.push(this.getMaxValue(cl.tagname, rw));
-    //         break;
-    //       case "AVG":
-    //         row.push(this.getAverageValue(cl.tagname, rw));
-    //         break;
-    //       case "ONPEAK":
-    //         if(rw.getHours() >= 9 && rw.getHours() <= 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")){
-    //           row.push(this.getDiffValue(cl.tagname, rw));
-    //         } else {
-    //           row.push("0.00");
-    //         }
-    //         break;
-    //       case "OFFPEAK":
-    //         if( rw.getHours() < 9 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun") ){
-    //           row.push(this.getDiffValue(cl.tagname, rw));
-    //         } else if( rw.getHours() > 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun") ){
-    //           row.push(this.getDiffValue(cl.tagname, rw));
-    //         } else if( rw.toString().includes("Sat") || rw.toString().includes("Sun") ){
-    //           row.push(this.getDiffValue(cl.tagname, rw));
-    //         } else {
-    //           row.push("0.00");
-    //         }
-    //         break;
-    //       case "ONMAX":
-    //         row.push(this.getDiffPeakValue(cl.tagname, rw));
-    //         break;
-    //       case "OFFMAX":
-    //         let diff = parseFloat(row[1]) - parseFloat(row[2])
-    //         row.push(diff.toFixed(2));
-    //         break;
-    //       default:
-    //         row.push("0.00"); 
-    //         break;
-    //     }
-    //   }); 
-    //   table.push(row);
-    //   idx++;
-    // }); 
-    
-    // this.dataTable = table.sort((a,b) => new Date(a[0]).getHours() - new Date(b[0]).getHours());
-    // if(this.dataTable){
-    //   this.dataTable = this.dataTable.sort((a,b) => new Date(a[0]).getHours() - new Date(b[0]).getHours());
-    //   this.updateChart();
-    // }
     const table: any[] = [];
 
     const fetchData = async () => {
+      this.loading = true;
       const promises = this.dateColumn.map(async rw => {
         const res = await this.httpService.getHistorian(this.getRequestWithType(this.selectedReport.Type, rw));
         if (res) {
@@ -331,29 +281,20 @@ export class ReportsComponent implements OnInit {
               row.push(this.getAverageValue(cl.tagname, rw));
               break;
             case "ONPEAK":
-              if (rw.getHours() >= 9 && rw.getHours() <= 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
-                row.push(this.getDiffValue(cl.tagname, rw));
-              } else {
-                row.push("0.00");
-              }
-              break;
-            case "OFFPEAK":
-              if (rw.getHours() < 9 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
-                row.push(this.getDiffValue(cl.tagname, rw));
-              } else if (rw.getHours() > 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
-                row.push(this.getDiffValue(cl.tagname, rw));
-              } else if (rw.toString().includes("Sat") || rw.toString().includes("Sun")) {
-                row.push(this.getDiffValue(cl.tagname, rw));
-              } else {
-                row.push("0.00");
-              }
-              break;
-            case "ONMAX":
               row.push(this.getDiffPeakValue(cl.tagname, rw));
               break;
-            case "OFFMAX":
+            case "OFFPEAK":
               let diff = parseFloat(row[1]) - parseFloat(row[2]);
               row.push(diff.toFixed(2));
+              break;
+            case "SUMMAX":
+              row.push(this.getSumMaxValue(cl.tagname, rw));
+              break;
+            case "AVGALL":
+              row.push(this.getAverageAllValue(cl.tagname, rw));
+              break;
+            case "PEAKMONTH":
+              row.push(this.getDiffValueForMonth(cl.tagname));
               break;
             default:
               row.push("0.00");
@@ -363,6 +304,7 @@ export class ReportsComponent implements OnInit {
         table.push(row);
       });
       await Promise.all(promises);
+      this.loading = false;
       this.dataTable = table.sort((a, b) => new Date(a[0]).getHours() - new Date(b[0]).getHours());
       if (this.dataTable) {
         this.updateChart();
@@ -371,84 +313,45 @@ export class ReportsComponent implements OnInit {
     fetchData();
   }
 
-  // getResponseData(){
-  //   const table: any[] = [];
-  //   const fetchData = async () => {
-  //     for (const rw of this.dateColumn) {
-  //       const res = await this.httpService.getHistorian(this.getRequestWithType(this.selectedReport.Type, rw));
-  //       if (res) {
-  //         this.response = res;
-  //       }
-  //       let row: any[] = [];
-  //       this.selectedReport.Header.forEach((cl, i) => {
-  //         switch (cl.option) {
-  //           case "TIME":
-  //             row.push(rw);
-  //             break;
-  //           case "DIFF":
-  //             row.push(this.getDiffValue(cl.tagname, rw));
-  //             break;
-  //           case "MAX":
-  //             row.push(this.getMaxValue(cl.tagname, rw));
-  //             break;
-  //           case "AVG":
-  //             row.push(this.getAverageValue(cl.tagname, rw));
-  //             break;
-  //           case "ONPEAK":
-  //             if (rw.getHours() >= 9 && rw.getHours() <= 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
-  //               row.push(this.getDiffValue(cl.tagname, rw));
-  //             } else {
-  //               row.push("0.00");
-  //             }
-  //             break;
-  //           case "OFFPEAK":
-  //             if (rw.getHours() < 9 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
-  //               row.push(this.getDiffValue(cl.tagname, rw));
-  //             } else if (rw.getHours() > 18 && !rw.toString().includes("Sat") && !rw.toString().includes("Sun")) {
-  //               row.push(this.getDiffValue(cl.tagname, rw));
-  //             } else if (rw.toString().includes("Sat") || rw.toString().includes("Sun")) {
-  //               row.push(this.getDiffValue(cl.tagname, rw));
-  //             } else {
-  //               row.push("0.00");
-  //             }
-  //             break;
-  //           case "ONMAX":
-  //             row.push(this.getDiffPeakValue(cl.tagname, rw));
-  //             break;
-  //           case "OFFMAX":
-  //             let diff = parseFloat(row[1]) - parseFloat(row[2]);
-  //             row.push(diff.toFixed(2));
-  //             break;
-  //           default:
-  //             row.push("0.00");
-  //             break;
-  //         }
-  //       });
-  //       table.push(row);
-  //     }
-  //     this.dataTable = table.sort((a, b) => new Date(a[0]).getHours() - new Date(b[0]).getHours());
-  //     if (this.dataTable) {
-  //       this.updateChart();
-  //     }
-  //   };
-  //   fetchData();
-  // }
-
   getDiffValue(tag: string, date: Date){
     let res: string = "0.00";
     const dateTime = date.getTime() - (7*60*60*1000);
     let findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
-    if(this.selectedReport.Type != "daily"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
-    const data:Record[] = this.response.find(x => x.Name == tag).records
+    if(this.selectedReport.Type == "monthly"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
+    else if(this.selectedReport.Type == "yearly"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,8) }
+    const tags = this.response.find(x => x.Name == tag);
+    if(tags && tags.records){
+      const data:Record[] = tags.records
       .filter(d => d.TimeStamp.includes(findDate))
         .sort((a,b) => new Date(a.TimeStamp).getTime() - new Date(b.TimeStamp).getTime());
-    const firstVal = data[0];
-    const lastVal = data[data.length - 1];
-    if(firstVal && lastVal && firstVal.Value && lastVal.Value){
-      const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
-      if(diff >= 0){res = diff.toFixed(2);}
+      const firstVal = data[this.findFirstValueIndex(data)];
+      const lastVal = data[this.findLastValueIndex(data)];
+      if(firstVal && lastVal && firstVal.Value && lastVal.Value){
+        const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
+        if(diff >= 0){res = diff.toFixed(2);}
+      }
     }
     return res;
+  }
+
+  findFirstValueIndex(data: Record[]): number{
+    for (let index = 0; index < data.length; index++) {
+      let val = data[index].Value;
+      if(parseFloat(val.replace(",", ""))){
+        return index;
+      }
+    }
+    return 0;
+  }
+
+  findLastValueIndex(data: Record[]): number{
+    for (let index = data.length - 1; index >= 0; index--) {
+      let val = data[index].Value;
+      if(parseFloat(val.replace(",", ""))){
+        return index;
+      }
+    }
+    return data.length - 1;
   }
 
   getDiffPeakValue(tag: string, date: Date){
@@ -464,8 +367,8 @@ export class ReportsComponent implements OnInit {
           !new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).toString().startsWith('Sun')
         )
         .sort((a,b) => new Date(a.TimeStamp).getTime() - new Date(b.TimeStamp).getTime());
-    const firstVal = data[0];
-    const lastVal = data[data.length - 1];
+    const firstVal = data[this.findFirstValueIndex(data)];
+    const lastVal = data[this.findLastValueIndex(data)];
     if(firstVal && lastVal && firstVal.Value && lastVal.Value){
       const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
       if(diff >= 0){res = diff.toFixed(2);}
@@ -501,11 +404,20 @@ export class ReportsComponent implements OnInit {
       acc += parseFloat(cur.Value.replace(",", ""));
       return acc;
     },0);
-
-    if(tag.endsWith("PYRANO")){
-      console.log(data)
-    console.log(avgVal)
+    if(avgVal){
+      const diff = avgVal/data.length;
+      if(diff >= 0){res = diff.toFixed(2);}
     }
+    return res;
+  }
+
+  getAverageAllValue(tag: string, date: Date){
+    let res: string = "0.00";
+    const data:Record[] = this.response.find(x => x.Name == tag).records;
+    const avgVal = data.reduce((acc, cur) => {
+      acc += parseFloat(cur.Value.replace(",", ""));
+      return acc;
+    },0);
     if(avgVal){
       const diff = avgVal/data.length;
       if(diff >= 0){res = diff.toFixed(2);}
@@ -516,7 +428,8 @@ export class ReportsComponent implements OnInit {
   getMaxValue(tag: string, date: Date){
     let res: string = "0.00";
     const dateTime = date.getTime() - (7*60*60*1000);
-    const findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
+    let findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
+    if(this.selectedReport.Type != "daily"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
     const data:Record[] = this.response.find(x => x.Name == tag).records
       .filter(d => d.TimeStamp.includes(findDate))
         .sort((a,b) => parseFloat(a.Value.replace(",", "")) - parseFloat(b.Value.replace(",", "")));
@@ -527,8 +440,92 @@ export class ReportsComponent implements OnInit {
     }
     return res;
   }
+
+  getSumMaxValue(tag: string, date: Date){
+    let res: string = "0.00";
+    const data: DashboardResHistorian = this.response.find(x => x.Name == tag);
+    const sumValue = this.getMaxValueForEachDate(data.records)
+      .reduce((acc, cur) => {
+        acc += parseFloat(cur.Value.replace(",", ""));
+        return acc;
+      }, 0);
+    if(sumValue){
+      res = sumValue.toFixed(2);
+    }
+    return res;
+  }
+
+  getMaxValueForEachDate(records: Record[]): Record[] {
+    const groupedByDate: { [key: string]: Record[] } = {};
   
-  getSummaryData(type: string, index: number){
+    records.forEach(record => {
+      const date = record.TimeStamp.split('T')[0];
+      if (!groupedByDate[date]) {
+        groupedByDate[date] = [];
+      }
+      groupedByDate[date].push(record);
+    });
+  
+    const maxValuesForEachDate: Record[] = Object.keys(groupedByDate).map(date => {
+      const recordsForDate = groupedByDate[date];
+      const maxRecord = recordsForDate.reduce((max, record) => {
+        return parseFloat(record.Value) > parseFloat(max.Value) ? record : max;
+      }, recordsForDate[0]);
+      return maxRecord;
+    });
+  
+    return maxValuesForEachDate;
+  }
+
+  getDiffValueForMonth(tag: string) {
+    const tags = this.response.find(x => x.Name == tag);
+    const groupedByDate: { [key: string]: Record[] } = {};
+    if(tags && tags.records){
+      tags.records.forEach(record => {
+        const date = record.TimeStamp.split('T')[0];
+        if (!groupedByDate[date]) {
+          groupedByDate[date] = [];
+        }
+        groupedByDate[date].push(record);
+      });
+    }
+    let diffVal: number = 0;
+    const maxValuesForEachDate = Object.keys(groupedByDate).map(date => {
+      const recordsForDate = groupedByDate[date];
+      const maxRecord = recordsForDate.filter(d =>
+          new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).getHours() >= 9 &&  
+          new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).getHours() <= 18 && 
+          !new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).toString().startsWith('Sat') &&
+          !new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).toString().startsWith('Sun')
+      ).sort((a,b) => new Date(a.TimeStamp).getTime() - new Date(b.TimeStamp).getTime());
+      const firstVal = maxRecord[this.findFirstValueIndex(maxRecord)];
+      const lastVal = maxRecord[this.findLastValueIndex(maxRecord)];
+      if(firstVal && lastVal && firstVal.Value && lastVal.Value){
+        const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
+        if(diff >= 0){diffVal += diff}
+      }
+      return maxRecord;
+    });
+    
+  
+    return diffVal.toFixed(2);
+  }
+
+  getMaxValueRecord(record: Record[]): Record[] {
+      const maxValues = {};
+      record.forEach(record => {
+        const TimeStamp = record.TimeStamp;
+        const value = parseFloat(record.Value.replace(",", ""));
+
+        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value.replace(",", ""))) {
+          maxValues[TimeStamp] = {...record,Value:value.toString() };
+        }
+      });
+      const maxRecords: Record[] = Object.values(maxValues)
+      return  maxRecords;
+  }
+  
+  getSummaryData(type: string, index: number, factor: number){
     let res: string = "0.00";
     switch(type){
       case "SUM":
@@ -537,7 +534,7 @@ export class ReportsComponent implements OnInit {
           return acc;
         },0);
         if(sum){
-          res = sum.toFixed(2);
+          res = (sum*factor).toFixed(2);
         }
         break;
       case "AVG":
@@ -546,7 +543,7 @@ export class ReportsComponent implements OnInit {
           return acc;
         },0);
         if(avg){
-          res = (avg/this.dataTable.length).toFixed(2);
+          res = ((avg/this.dataTable.length)*factor).toFixed(2);
         }
         break;
     }
@@ -565,31 +562,67 @@ export class ReportsComponent implements OnInit {
     }
   } 
 
+  resetTable(){
+    this.dataTable = [];
+  }
+
   htmltoPDF(){
     const chart = document.getElementById('htmlTable') as HTMLElement;
     const reportName = this.siteSelected.id + " " + this.selectedReport.Name + "[" + this.datePipe.transform(this.dateTime, this.selectedReport.DateFormat) + "]" + ".pdf" 
-    html2canvas(chart).then(canvas => {
+    html2canvas(chart, { scale: 2 }).then(canvas => {
+      const imgWidth = 208;
+      const imgHeight = canvas.height * imgWidth / canvas.width;
+      
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const imgData = canvas.toDataURL("image/png", 1.0);
 
-      var pdf = new jsPDF('p', 'pt', [canvas.width, canvas.height]);
-
-      var imgData  = canvas.toDataURL("image/jpeg", 1.0);
-      pdf.addImage(imgData,0,0,canvas.width, canvas.height);
+      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
       pdf.save(reportName);
     });
   }
 
-  selectSite(data:BuildingModel){
+  async selectSite(data:BuildingModel){
     this.siteSelected = data;
     this.siteName = data.id;
+    this.resetTable();
+    this.reportConfig = await this.httpService.getConfig('assets/reports/report['+data.id+'].config.json');
+    if(this.reportConfig){
+      this.initReportSelect();
+    }
+
   }
 
-  initChart() {
-    const chart = this.chartService.getChartOptions(this.selectedReport.ChartConfig.name, this.dataTable, this.selectedReport.ChartConfig, this.dateColumn);
-    console.log(chart);
-    if(chart){
-      this.chartParameters = chart;
-      this.cd.markForCheck();
+  exportToExcel(): void {
+    const headers: string[] = [];
+    const rows:any[] = [];
+
+    if(this.selectedReport && this.selectedReport.Header.length > 0 && this.dataTable.length > 0){
+      this.selectedReport.Header.forEach(record => {
+        headers.push(record.title);
+      });
+      this.dataTable.forEach((item, index)=> {
+        const row = [this.datePipe.transform(item[0], this.selectedReport.Header[0].type)];
+        item.forEach( (x, i) => {
+          if(i > 0){row.push(x);}
+        });
+        rows.push(row);
+      })
+      const reportName = this.siteSelected.id + " " + this.selectedReport.Name + "[" + this.datePipe.transform(this.dateTime, this.selectedReport.DateFormat) + "]"
+      const sheet: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([headers, ...rows]);
+      const workbook: XLSX.WorkBook = { Sheets: { 'data': sheet }, SheetNames: ['data'] };
+      const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
+      this.saveAsExcelFile(excelBuffer, reportName);
+    } else {
+      alert('please select report!');
     }
+  }
+
+  private saveAsExcelFile(buffer: any, fileName: string): void {
+    const data: Blob = new Blob([buffer], { type: 'application/octet-stream' });
+    const link: HTMLAnchorElement = document.createElement('a');
+    link.href = window.URL.createObjectURL(data);
+    link.download = fileName + '.xlsx';
+    link.click();
   }
 }
 
@@ -611,5 +644,6 @@ export interface ReportHeaderModel{
   option: string;
   width: string;
   type: string;
+  factor: number;
   display?: string;
 }

@@ -18,7 +18,7 @@
             },
             {
                 "title": "Energy\nProduction\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "TOU03.WH",
                 "option": "DIFF",
                 "width": "7rem",
                 "type": "SUM",
@@ -26,7 +26,7 @@
             },
             {
                 "title": "Energy On Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "TOU03.WH",
                 "option": "ONPEAK",
                 "width": "8rem",
                 "type": "SUM",
@@ -34,7 +34,7 @@
             },
             {
                 "title": "Energy Off Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "TOU03.WH",
                 "option": "OFFPEAK",
                 "width": "8rem",
                 "type": "SUM",
@@ -85,7 +85,7 @@
             },
             {
                 "title": "Energy\nProduction\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "TOU03.WH",
                 "option": "DIFF",
                 "width": "7rem",
                 "type": "SUM",
@@ -93,7 +93,7 @@
             },
             {
                 "title": "Energy On Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "TOU03.WH",
                 "option": "ONPEAK",
                 "width": "8rem",
                 "type": "SUM",
@@ -101,7 +101,7 @@
             },
             {
                 "title": "Energy Off Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "TOU03.WH",
                 "option": "OFFPEAK",
                 "width": "8rem",
                 "type": "SUM",
@@ -152,7 +152,7 @@
             },
             {
                 "title": "Energy\nProduction\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "TOU03.WH",
                 "option": "DIFF",
                 "width": "7rem",
                 "type": "SUM",
@@ -160,7 +160,7 @@
             },
             {
                 "title": "Energy On Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "TOU03.WH",
                 "option": "PEAKMONTH",
                 "width": "8rem",
                 "type": "SUM",
@@ -168,7 +168,7 @@
             },
             {
                 "title": "Energy Off Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "TOU03.WH",
                 "option": "OFFPEAK",
                 "width": "8rem",
                 "type": "SUM",

@@ -58,6 +58,11 @@ const routes: Routes = [
                 // canActivateChild: [ AuthGuard ]
             },
             {
+                path: 'diagrams',
+                loadChildren: 'src/app/diagrams/diagrams.module#DiagramsModule',
+                // canActivateChild: [ AuthGuard ]
+            },
+            {
                 path: 'powermeters',
                 loadChildren: 'src/app/powermeters/powermeters.module#PowermetersModule',
                 canActivateChild: [ AuthGuard ]

@@ -2,7 +2,7 @@ import { AfterViewInit, ChangeDetectorRef, Component, OnDestroy, OnInit, OnChang
 import { Store } from '@ngxs/store';
 import { UUID } from 'angular2-uuid';
 import { Subscription, timer, Observable, Subject } from 'rxjs';
-import { DashboardLastValuesModel, ItemParameters, Record } from '../core/stores/last-values/dashboard/dashboard-last-values.model';
+import { DashboardLastValuesModel, DataRecords, ItemParameters, Record } from '../core/stores/last-values/dashboard/dashboard-last-values.model';
 import { TagsStateModel } from '../core/stores/tags/tags.model';
 import { AddTags, TagsState } from '../core/stores/tags/tags.state';
 import { DataRead } from '../share/models/data-read.model';
@@ -16,7 +16,7 @@ import { DashboardLastValuesStateModel } from './../core/stores/last-values/dash
 import { MockDataService } from './../dashboard/services/mock-data.service';
 import { DateTimeService } from './../share/services/datetime.service';
 import { HttpService } from './../share/services/http.service';
-import { GroupData1, SingleValue } from './../share/models/value-models/group-data.model';
+import { Data, GroupData1, SingleValue } from './../share/models/value-models/group-data.model';
 import { PowerConfigStateModel } from '../core/stores/configs/powermeter/power-config.model';
 import { PowerConfigsState } from '../core/stores/configs/powermeter/power-config.state';
 import { PowerLastValuesModel, PowerLastValuesStateModel, PowerResHistorian, PowerResRealtime } from '../core/stores/last-values/powermeter/power-last-values.model';
@@ -210,17 +210,18 @@ export class PowermetersComponent implements OnInit, AfterViewInit,  OnDestroy {
     this.reportConfig.forEach((grp) => {   
       const report: ReportData[] = [];  
       (Object.keys(grp) as (keyof typeof grp)[]).forEach((key, index) => {
-        const tagName = grp[key];
-        const currRes = curr[tagName];
-        let dataRecord: Record = null;
-        if (currRes) {
-            dataRecord.TimeStamp = currRes.dataRecords[0].Timestamp;
-            dataRecord.Value = currRes.dataRecords[0].Value;
+        let tagName = grp[key];
+        let currRes: any = {};
+        if(curr[tagName] && curr[tagName].dataRecords.length > 0){currRes= curr[tagName].dataRecords[0];}
+        let dataRecord: any = {};
+        if (currRes && currRes.TimeStamp && currRes.Value) {
+            dataRecord.TimeStamp = currRes.TimeStamp;
+            dataRecord.Value = currRes.Value;
         }
         report.push({
           name: key.toString(),
           tagName: tagName,
-          value: (key === 'Name') ? grp[key] : (dataRecord) ? dataRecord.Value : '---',
+          value: (key === 'Name') ? grp[key] : (dataRecord && dataRecord.Value) ? dataRecord.Value : '---',
           quality: (dataRecord) ? 'Good' : 'Good',
           timestamp: (dataRecord) ? dataRecord.TimeStamp : '---'
         });

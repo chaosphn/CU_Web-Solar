@@ -76,7 +76,7 @@
         "TreeRate": 0.0193,
         "Header": [
             {
-                "title": "DATE",
+                "title": "Day",
                 "tagname": "",
                 "option": "TIME",
                 "width": "4rem",
@@ -143,7 +143,7 @@
         "TreeRate": 0.0193,
         "Header": [
             {
-                "title": "MONTH",
+                "title": "Month",
                 "tagname": "",
                 "option": "TIME",
                 "width": "4rem",

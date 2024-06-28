@@ -32,6 +32,7 @@ import { OrderByPipe } from './pipe/order-by.pipe';
 import { FilterNamePipe } from './pipe/filter-name.pipe';
 import { Number2Pipe } from './pipe/my-number2.pipe';
 import { CardBreakerComponent } from './components/card-breaker/card-breaker.component';
+import { ReportPipe } from './pipe/report.pipr';
 
 
 
@@ -84,7 +85,8 @@ export const MY_MOMENT_FORMATS = {
     CardBreakerComponent,
     OrderByPipe,
     FilterNamePipe,
-    Number2Pipe
+    Number2Pipe,
+    ReportPipe
   ],
   entryComponents: [
     DialogTagComponent,
@@ -121,7 +123,8 @@ export const MY_MOMENT_FORMATS = {
     CardBreakerComponent,
     OrderByPipe,
     FilterNamePipe,
-    Number2Pipe
+    Number2Pipe,
+    ReportPipe
   ],
   providers: [
     {provide: OWL_DATE_TIME_FORMATS, useValue: MY_MOMENT_FORMATS},

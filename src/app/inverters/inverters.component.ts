@@ -203,17 +203,18 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
       this.reportConfig.forEach((grp) => {   
         const report: ReportData[] = [];  
         (Object.keys(grp) as (keyof typeof grp)[]).forEach((key, index) => {
-          const tagName = grp[key];
-          const currRes = curr[tagName];
-          let dataRecord: Record = null;
-          if (currRes) {
-            dataRecord.TimeStamp = currRes.dataRecords[0].Timestamp;
-            dataRecord.Value = currRes.dataRecords[0].Value;
+          let tagName = grp[key];
+          let currRes: any = {};
+          if(curr[tagName] && curr[tagName].dataRecords.length > 0){currRes= curr[tagName].dataRecords[0];}
+          let dataRecord: any = {};
+          if (currRes && currRes.TimeStamp && currRes.Value) {
+              dataRecord.TimeStamp = currRes.TimeStamp;
+              dataRecord.Value = currRes.Value;
           }
           report.push({
             name: key.toString(),
             tagName: tagName,
-            value: (key === 'Name') ? grp[key] : (dataRecord) ? dataRecord.Value : '---',
+            value: (key === 'Name') ? grp[key] : (dataRecord && dataRecord.Value) ? dataRecord.Value : '---',
             quality: (dataRecord) ? 'Good' : 'Good',
             timestamp: (dataRecord) ? dataRecord.TimeStamp : '---'
           });

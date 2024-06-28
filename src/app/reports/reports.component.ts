@@ -222,14 +222,19 @@ export class ReportsComponent implements OnInit {
     let end: string = "";
     switch(type){
       case 'daily':
-        start = this.dateTimeService.getDateTime(time);
+        // start = this.dateTimeService.getDateTime(time);
+        // const endD = time.getTime() + (60*60*1000);
+        // end = this.dateTimeService.getDateTime(new Date(endD));
+        // const startM = time.setHours(0,0,0,0)
+        start = new Date(time).toISOString();
         const endD = time.getTime() + (60*60*1000);
-        end = this.dateTimeService.getDateTime(new Date(endD));
+        end = new Date(endD).toISOString();
         break;
       case 'monthly':
-        start = this.dateTimeService.getDateTime(time);
+        const startM = time.setHours(0,0,0,0)
+        start = new Date(startM).toISOString();
         const endM = time.setHours(23,59,0,0);
-        end = this.dateTimeService.getDateTime(new Date(endM));
+        end = new Date(endM).toISOString();
         break;
       case 'yearly':
         start = this.dateTimeService.getDateTime(time);
@@ -261,9 +266,17 @@ export class ReportsComponent implements OnInit {
     const fetchData = async () => {
       this.loading = true;
       const promises = this.dateColumn.map(async rw => {
-        const res = await this.httpService.getHistorian(this.getRequestWithType(this.selectedReport.Type, rw));
+        const res:DashboardResHistorian[] = await this.httpService.getHistorian(this.getRequestWithType(this.selectedReport.Type, rw));
         if (res) {
           this.response = res;
+          // .map((x,i) => {
+          //   x.records.forEach((d, j) => {
+          //     d.TimeStamp = this.dateTimeService.getDateTime(d.TimeStamp);
+          //     if(i==0){console.log(d);}
+          //     return d;
+          //   });
+          //   return x;
+          // });
         }
         let row: any[] = [];
         this.selectedReport.Header.forEach((cl, i) => {
@@ -285,7 +298,7 @@ export class ReportsComponent implements OnInit {
               break;
             case "OFFPEAK":
               let diff = parseFloat(row[1]) - parseFloat(row[2]);
-              row.push(diff.toFixed(2));
+              row.push(diff.toString());
               break;
             case "SUMMAX":
               row.push(this.getSumMaxValue(cl.tagname, rw));
@@ -315,20 +328,20 @@ export class ReportsComponent implements OnInit {
 
   getDiffValue(tag: string, date: Date){
     let res: string = "0.00";
-    const dateTime = date.getTime() - (7*60*60*1000);
-    let findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
-    if(this.selectedReport.Type == "monthly"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
-    else if(this.selectedReport.Type == "yearly"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,8) }
+    // const dateTime = date.getTime() - (7*60*60*1000);
+    // let findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
+    // if(this.selectedReport.Type == "monthly"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
+    // else if(this.selectedReport.Type == "yearly"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,8) }
     const tags = this.response.find(x => x.Name == tag);
     if(tags && tags.records){
       const data:Record[] = tags.records
-      .filter(d => d.TimeStamp.includes(findDate))
+      //.filter(d => d.TimeStamp.includes(findDate))
         .sort((a,b) => new Date(a.TimeStamp).getTime() - new Date(b.TimeStamp).getTime());
       const firstVal = data[this.findFirstValueIndex(data)];
       const lastVal = data[this.findLastValueIndex(data)];
       if(firstVal && lastVal && firstVal.Value && lastVal.Value){
         const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
-        if(diff >= 0){res = diff.toFixed(2);}
+        if(diff >= 0){res = diff.toString();}
       }
     }
     return res;
@@ -356,22 +369,22 @@ export class ReportsComponent implements OnInit {
 
   getDiffPeakValue(tag: string, date: Date){
     let res: string = "0.00";
-    const dateTime = date.getTime() - (7*60*60*1000);
-    let findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
-    if(this.selectedReport.Type != "daily"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
+    // const dateTime = date.getTime() - (7*60*60*1000);
+    // let findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,13)
+    // if(this.selectedReport.Type != "daily"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
     const data:Record[] = this.response.find(x => x.Name == tag).records
-      .filter(d => d.TimeStamp.includes(findDate) && 
-          new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).getHours() >= 9 &&  
-          new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).getHours() <= 18 && 
-          !new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).toString().startsWith('Sat') &&
-          !new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).toString().startsWith('Sun')
+      .filter(d => 
+          new Date(this.dateTimeService.getDateTime(new Date(d.TimeStamp))).getHours() >= 9 &&  
+          new Date(this.dateTimeService.getDateTime(new Date(d.TimeStamp))).getHours() <= 18 && 
+          !new Date(this.dateTimeService.getDateTime(new Date(d.TimeStamp))).toString().startsWith('Sat') &&
+          !new Date(this.dateTimeService.getDateTime(new Date(d.TimeStamp))).toString().startsWith('Sun')
         )
         .sort((a,b) => new Date(a.TimeStamp).getTime() - new Date(b.TimeStamp).getTime());
     const firstVal = data[this.findFirstValueIndex(data)];
     const lastVal = data[this.findLastValueIndex(data)];
     if(firstVal && lastVal && firstVal.Value && lastVal.Value){
       const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
-      if(diff >= 0){res = diff.toFixed(2);}
+      if(diff >= 0){res = diff.toString();}
     }
     return res;
   }
@@ -388,7 +401,7 @@ export class ReportsComponent implements OnInit {
     const lastVal = data[data.length - 1];
     if(firstVal && lastVal && firstVal.Value && lastVal.Value){
       const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
-      if(diff >= 0){res = diff.toFixed(2);}
+      if(diff >= 0){res = diff.toString();}
     }
     return res;
   }
@@ -406,7 +419,7 @@ export class ReportsComponent implements OnInit {
     },0);
     if(avgVal){
       const diff = avgVal/data.length;
-      if(diff >= 0){res = diff.toFixed(2);}
+      if(diff >= 0){res = diff.toString();}
     }
     return res;
   }
@@ -420,7 +433,7 @@ export class ReportsComponent implements OnInit {
     },0);
     if(avgVal){
       const diff = avgVal/data.length;
-      if(diff >= 0){res = diff.toFixed(2);}
+      if(diff >= 0){res = diff.toString();}
     }
     return res;
   }
@@ -436,7 +449,7 @@ export class ReportsComponent implements OnInit {
     const lastVal = data[data.length - 1];
     if(lastVal && lastVal.Value){
       const diff = parseFloat(lastVal.Value);
-      if(diff >= 0){res = diff.toFixed(2);}
+      if(diff >= 0){res = diff.toString();}
     }
     return res;
   }
@@ -450,7 +463,7 @@ export class ReportsComponent implements OnInit {
         return acc;
       }, 0);
     if(sumValue){
-      res = sumValue.toFixed(2);
+      res = sumValue.toString();
     }
     return res;
   }
@@ -482,11 +495,15 @@ export class ReportsComponent implements OnInit {
     const groupedByDate: { [key: string]: Record[] } = {};
     if(tags && tags.records){
       tags.records.forEach(record => {
-        const date = record.TimeStamp.split('T')[0];
+        const rec:Record = {
+          Value: record.Value,
+          TimeStamp: this.dateTimeService.getDateTime(new Date(record.TimeStamp))
+        } ;
+        const date = rec.TimeStamp.split('T')[0];
         if (!groupedByDate[date]) {
           groupedByDate[date] = [];
         }
-        groupedByDate[date].push(record);
+        groupedByDate[date].push(rec);
       });
     }
     let diffVal: number = 0;
@@ -508,7 +525,7 @@ export class ReportsComponent implements OnInit {
     });
     
   
-    return diffVal.toFixed(2);
+    return diffVal.toString();
   }
 
   getMaxValueRecord(record: Record[]): Record[] {
@@ -534,7 +551,7 @@ export class ReportsComponent implements OnInit {
           return acc;
         },0);
         if(sum){
-          res = (sum*factor).toFixed(2);
+          res = (sum*factor).toString();
         }
         break;
       case "AVG":
@@ -543,7 +560,7 @@ export class ReportsComponent implements OnInit {
           return acc;
         },0);
         if(avg){
-          res = ((avg/this.dataTable.length)*factor).toFixed(2);
+          res = ((avg/this.dataTable.length)*factor).toString();
         }
         break;
     }

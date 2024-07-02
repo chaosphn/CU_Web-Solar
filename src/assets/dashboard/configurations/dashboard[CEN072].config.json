@@ -2,76 +2,76 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "TOU05.W"
+			"Name": "B005.TOU05.W"
 		},
 		{
 			"Title": "power_expected",
-			"Name": "CALC05.W_EXPECT"
+			"Name": "B005.CALC05.W_EXPECT"
 		},
 		{
 			"Title": "power_peak",
-			"Name": "CALC05.W_PEAK_DAY"
+			"Name": "B005.CALC05.W_PEAK_DAY"
 		},
 		{
 			"Title": "power_peaktime",
-			"Name": "CALC05.W_PEAK_DAY_TIME"
+			"Name": "B005.CALC05.W_PEAK_DAY_TIME"
 		},
 		{
 			"Title": "power_capacity",
-			"Name": "CALC05.CAPACITY"
+			"Name": "B005.CALC05.CAPACITY"
 		},
 		{
 			"Title": "power_pr",
-			"Name": "CALC05.PR"
+			"Name": "B005.CALC05.PR"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "CALC05.WH"
+			"Name": "B005.CALC05.WH"
 		},
 		{
 			"Title": "energy_expected",
-			"Name": "CALC05.WH_EXPECT_TODAY"
+			"Name": "B005.CALC05.WH_EXPECT_TODAY"
 		},
 		{
 			"Title": "energy_today",
-			"Name": "CALC05.WH_TODAY"
+			"Name": "B005.CALC05.WH_TODAY"
 		},
 		{
 			"Title": "energy_yesterday",
-			"Name": "CALC05.WH_YEAR"
+			"Name": "B005.CALC05.WH_YEAR"
 		},
 		{
 			"Title": "energy_mtd",
-			"Name": "CALC05.WH_MONTH"
+			"Name": "B005.CALC05.WH_MONTH"
 		},
 		{
 			"Title": "energy_cod",
-			"Name": "TOU05.WH"
+			"Name": "B005.TOU05.WH"
 		},
 		{
 			"Title": "weather_irr",
-			"Name": "SLOGGER06.PYRANO"
+			"Name": "B006.SLOGGER06.PYRANO"
 		},
 		{
 			"Title": "weather_amb",
-			"Name": "SLOGGER06.AMBTEMP"
+			"Name": "B006.SLOGGER06.AMBTEMP"
 		},
 		{
 			"Title": "weather_pv",
-			"Name": "SLOGGER06.PVTEMP"
+			"Name": "B006.SLOGGER06.PVTEMP"
 		},
 		{
 			"Title": "weather_irrtoday",
-			"Name": "SLOGGER06.IRR_TODAY"
+			"Name": "B006.SLOGGER06.IRR_TODAY"
 		},
 		{
 			"Title": "weather_co2",
-			"Name": "CALC05.CO2_TODAY"
+			"Name": "B005.CALC05.CO2_TODAY"
 		}
 	],
 	"historianConfig": [
 		{
-			"Name": "CALC05.W",
+			"Name": "B005.CALC05.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -81,7 +81,7 @@
 			}
 		},
 		{
-			"Name": "SLOGGER06.PYRANO",
+			"Name": "B006.SLOGGER06.PYRANO",
 			"Title": "X2",
 			"Options" : {
 				"Interval": 5,
@@ -91,7 +91,7 @@
 			}
 		},
 		{
-			"Name": "INV0501.WH",
+			"Name": "B005.INV0501.WH",
 			"Title": "X3",
 			"Options" : {
 				"Interval": 5,
@@ -101,7 +101,7 @@
 			}
 		},
 		{
-			"Name": "INV0502.WH",
+			"Name": "B005.INV0502.WH",
 			"Title": "X4",
 			"Options" : {
 				"Interval": 5,
@@ -111,7 +111,7 @@
 			}
 		},
 		{
-			"Name": "CALC05.WH_HOUR",
+			"Name": "B005.CALC05.WH_HOUR",
 			"Title": "X5",
 			"Options" : {
 				"Interval": 60,
@@ -121,7 +121,7 @@
 			}
 		},
 		{
-			"Name": "CALC05.PR_HOUR",
+			"Name": "B005.CALC05.PR_HOUR",
 			"Title": "X6",
 			"Options" : {
 				"Interval": 60,
@@ -136,18 +136,18 @@
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "SLOGGER06.PYRANO",
+					"name": "B006.SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "area",
-							"color": "rgba(253, 103, 78, 1)"
+							"color": "rgba(253, 105, 78, 1)"
 						}
 					}
 				},
 				{
-					"name": "CALC05.W",
+					"name": "B005.CALC05.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {
@@ -194,11 +194,10 @@
 			"name": "energyExported",
 			"type": "Raw",
 			"tags": [
-				
 				{
-					"name": "CALC05.WH_HOUR",
+					"name": "B005.CALC05.WH_HOUR",
 					"title": "Energy",
-					"period": "t",
+					"period": "daily",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
@@ -208,9 +207,9 @@
 					}
 				},
 				{
-					"name": "CALC05.WH_DAY",
+					"name": "B005.CALC05.WH_DAY",
 					"title": "Energy",
-					"period": "7d",
+					"period": "weekly",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
@@ -220,9 +219,9 @@
 					}
 				},
 				{
-					"name": "CALC05.WH_DAY",
+					"name": "B005.CALC05.WH_DAY",
 					"title": "Energy",
-					"period": "30d",
+					"period": "monthly",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
@@ -232,21 +231,9 @@
 					}
 				},
 				{
-					"name": "CALC05.WH_DAY",
+					"name": "B005.CALC05.WH_MONTH",
 					"title": "Energy",
-					"period": "3m",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "column",
-							"color": "#3DB1FC"
-						}
-					}
-				},
-				{
-					"name": "CALC05.WH_MONTH",
-					"title": "Energy",
-					"period": "12m",
+					"period": "yearly",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
@@ -278,9 +265,9 @@
 			"name": "performanceRatio",
 			"tags": [
 				{
-					"name": "CALC05.PR_HOUR",
+					"name": "B005.CALC05.PR_HOUR",
 					"title": "Performance",
-					"period": "t",
+					"period": "daily",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
@@ -290,9 +277,9 @@
 					}
 				},
 				{
-					"name": "CALC05.PR_DAY",
+					"name": "B005.CALC05.PR_DAY",
 					"title": "Performance",
-					"period": "7d",
+					"period": "weekly",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
@@ -302,9 +289,9 @@
 					}
 				},
 				{
-					"name": "CALC05.PR_DAY",
+					"name": "B005.CALC05.PR_DAY",
 					"title": "Performance",
-					"period": "30d",
+					"period": "monthly",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
@@ -314,21 +301,9 @@
 					}
 				},
 				{
-					"name": "CALC05.PR_DAY",
+					"name": "B005.CALC05.PR_MONTH",
 					"title": "Performance",
-					"period": "3m",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "column",
-							"color": "#3DB1FC"
-						}
-					}
-				},
-				{
-					"name": "CALC05.PR_MONTH",
-					"title": "Performance",
-					"period": "12m",
+					"period": "yearly",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
@@ -362,9 +337,8 @@
 			"name": "interverEnergy",
 			"tags": [
 				{
-					"name": "INV0501.WH",
+					"name": "B005.INV0501.WH",
 					"title": "INV01",
-					"period": "t",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
@@ -374,9 +348,8 @@
 					}
 				},
 				{
-					"name": "INV0502.WH",
+					"name": "B005.INV0502.WH",
 					"title": "INV02",
-					"period": "t",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,

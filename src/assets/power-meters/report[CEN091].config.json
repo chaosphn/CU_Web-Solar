@@ -1,30 +1,30 @@
 [
 	{
         "Name": "PQM06",
-        "kWH": "PQM06.WH",
-        "kW": "PQM06.W",
-        "kVAR": "PQM06.VAR",
-        "HZ": "TOU06.HZ",
-        "PF": "PQM06.PF",
-        "VACA": "PQM06.V1",
-        "VACB": "PQM06.V2",
-        "VACC": "PQM06.V3",
-        "IACA": "PQM06.I1",
-        "IACB": "PQM06.I2",
-        "IACC": "PQM06.I3"
+        "kWH": "B006.PQM06.WH",
+        "kW": "B006.PQM06.W",
+        "kVAR": "B006.PQM06.VAR",
+        "HZ": "B006.TOU06.HZ",
+        "PF": "B006.PQM06.PF",
+        "VACA": "B006.PQM06.V1",
+        "VACB": "B006.PQM06.V2",
+        "VACC": "B006.PQM06.V3",
+        "IACA": "B006.PQM06.I1",
+        "IACB": "B006.PQM06.I2",
+        "IACC": "B006.PQM06.I3"
     },
     {
         "Name": "TOU06",
-        "kWH": "TOU06.WH",
-        "kW": "TOU06.W",
-        "kVAR": "TOU06.VAR",
-        "HZ": "TOU06.HZ",
-        "PF": "TOU06.PF",
-        "VACA": "TOU06.V1",
-        "VACB": "TOU06.V2",
-        "VACC": "TOU06.V3",
-        "IACA": "TOU06.I1",
-        "IACB": "TOU06.I2",
-        "IACC": "TOU06.I3"
+        "kWH": "B006.TOU06.WH",
+        "kW": "B006.TOU06.W",
+        "kVAR": "B006.TOU06.VAR",
+        "HZ": "B006.TOU06.HZ",
+        "PF": "B006.TOU06.PF",
+        "VACA": "B006.TOU06.V1",
+        "VACB": "B006.TOU06.V2",
+        "VACC": "B006.TOU06.V3",
+        "IACA": "B006.TOU06.I1",
+        "IACB": "B006.TOU06.I2",
+        "IACC": "B006.TOU06.I3"
     }
 ]

@@ -104,7 +104,13 @@
     <div class="powerChartCard">
       <app-solar-container [title]="'SOLAR POWER GENERATION VS. IRRADIANCE'">
         <ng-template #period>
-          <app-period (select)="selectPeriod($event, 'powerGeneration')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period1></app-period>
+          <!-- <app-period (select)="selectPeriod($event, 'powerGeneration')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period1></app-period> -->
+          <div class="date-box w-100">
+            <app-time-control [pickerType]="'calendar'" [startView]="getStartView(periodGroupSelected1?.Type)" style="margin-right: 7px;" (selectDatetime)="onDateTimeChange($event, '1')"
+             [dateTime]="dateTime1"></app-time-control>
+            <span class="btn-ok " style="margin-right: 14px;" (click)="selectPeriodChart(periodGroupSelected1, 'powerGeneration', dateTime1)">OK</span>
+            <app-date-control [periodSelected]="periodGroupSelected1" [periodNames]="periodGroup" (select)="selectedPeriodGroup($event, '1')" #period1 ></app-date-control>
+          </div>
         </ng-template>
 
         <ng-template #content>
@@ -118,7 +124,13 @@
     <div class="energyChartCard">
       <app-solar-container [title]="'SOLAR ENERGY GENERATION'">
         <ng-template #period>
-          <app-period (select)="selectPeriod($event, 'energyExported')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period2></app-period>
+          <!-- <app-period (select)="selectPeriod($event, 'energyExported')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period2></app-period> -->
+          <div class="date-box w-100">
+            <app-time-control [pickerType]="'calendar'" [startView]="getStartView(periodGroupSelected2?.Type)" style="margin-right: 7px;" (selectDatetime)="onDateTimeChange($event, '2')"
+             [dateTime]="dateTime2"></app-time-control>
+            <span class="btn-ok " style="margin-right: 14px;" (click)="selectPeriodChart(periodGroupSelected2, 'energyExported', dateTime2)">OK</span>
+            <app-date-control [periodSelected]="periodGroupSelected2" [periodNames]="periodGroup" (select)="selectedPeriodGroup($event, '2')" #period2 ></app-date-control>
+          </div>
         </ng-template>
 
         <ng-template #content>
@@ -132,7 +144,13 @@
     <div class="prChartCard">
       <app-solar-container [title]="'PERFORMANCE RATIO'">
         <ng-template #period>
-          <app-period (select)="selectPeriod($event, 'performanceRatio')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period3></app-period>
+          <!-- <app-period (select)="selectPeriod($event, 'performanceRatio')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period3></app-period> -->
+          <div class="date-box w-100">
+            <app-time-control [pickerType]="'calendar'" [startView]="getStartView(periodGroupSelected3?.Type)" style="margin-right: 7px;" (selectDatetime)="onDateTimeChange($event, '3')"
+             [dateTime]="dateTime3"></app-time-control>
+            <span class="btn-ok " style="margin-right: 14px;" (click)="selectPeriodChart(periodGroupSelected3, 'performanceRatio', dateTime3)">OK</span>
+            <app-date-control [periodSelected]="periodGroupSelected3" [periodNames]="periodGroup" (select)="selectedPeriodGroup($event, '3')" #period3 ></app-date-control>
+          </div>
         </ng-template>
         <ng-template #content>
           <div class="chart-content" [ngClass]="{'loading': disableButton && chartSelected == 'performanceRatio'}" >
@@ -145,7 +163,13 @@
     <div class="invertersChartCard">
       <app-solar-container [title]="'ENERGY GENERATION BY INVERTERS'">
         <ng-template #period>
-          <app-period (select)="selectPeriodInverter($event, 'interverEnergy')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period4></app-period>
+          <!-- <app-period (select)="selectPeriodInverter($event, 'interverEnergy')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period4></app-period> -->
+          <div class="date-box w-100">
+            <app-time-control [pickerType]="'calendar'" [startView]="getStartView(periodGroupSelected4?.Type)" style="margin-right: 7px;" (selectDatetime)="onDateTimeChange($event, '4')"
+             [dateTime]="dateTime3"></app-time-control>
+            <span class="btn-ok " style="margin-right: 14px;" (click)="selectPeriodInverterChart(periodGroupSelected4, 'interverEnergy', dateTime4)">OK</span>
+            <app-date-control [periodSelected]="periodGroupSelected4" [periodNames]="periodGroup" (select)="selectedPeriodGroup($event, '4')" #period4 ></app-date-control>
+          </div>
         </ng-template>
         <ng-template #content>
           <div class="chart-content"  [ngClass]="{'loading': disableButton && chartSelected == 'interverEnergy'}">

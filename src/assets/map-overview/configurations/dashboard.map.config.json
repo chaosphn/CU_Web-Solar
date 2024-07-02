@@ -26,27 +26,27 @@
 		},
 		{
 			"Title": "CEN001_energy",
-			"Name": "SLOGGER02.WH_TODAY"
+			"Name": "B002.SLOGGER02.WH_TODAY"
 		},
 		{
 			"Title": "ARC003_energy",
-			"Name": "SLOGGER01.WH_TODAY"
+			"Name": "B001.SLOGGER01.WH_TODAY"
 		},
 		{
 			"Title": "CEN003_energy",
-			"Name": "SLOGGER04.WH_TODAY"
+			"Name": "B004.SLOGGER04.WH_TODAY"
 		},
 		{
 			"Title": "CEN005_energy",
-			"Name": "SLOGGER03.WH_TODAY"
+			"Name": "B003.SLOGGER03.WH_TODAY"
 		},
 		{
 			"Title": "CEN072_energy",
-			"Name": "SLOGGER05.WH_TODAY"
+			"Name": "B005.SLOGGER05.WH_TODAY"
 		},
 		{
 			"Title": "CEN091_energy",
-			"Name": "SLOGGER06.WH_TODAY"
+			"Name": "B006.SLOGGER06.WH_TODAY"
 		},
 		{
 			"Title": "PHA003_energy",
@@ -314,39 +314,39 @@
 		},
 		{
 			"Title": "CEN001_inso",
-			"Name": "SLOGGER02.IRR_TODAY"
+			"Name": "B002.SLOGGER02.IRR_TODAY"
 		},
 		{
 			"Title": "ARC003_inso",
-			"Name": "SLOGGER01.IRR_TODAY"
+			"Name": "B001.SLOGGER01.IRR_TODAY"
 		},
 		{
 			"Title": "CEN003_inso",
-			"Name": "SLOGGER04.IRR_TODAY"
+			"Name": "B004.SLOGGER04.IRR_TODAY"
 		},
 		{
 			"Title": "CEN005_inso",
-			"Name": "SLOGGER03.IRR_TODAY"
+			"Name": "B003.SLOGGER03.IRR_TODAY"
 		},
 		{
 			"Title": "CEN072_inso",
-			"Name": "SLOGGER05.IRR_TODAY"
+			"Name": "B005.SLOGGER05.IRR_TODAY"
 		},
 		{
 			"Title": "CEN091_inso",
-			"Name": "SLOGGER06.IRR_TODAY"
+			"Name": "B006.SLOGGER06.IRR_TODAY"
 		},
 		{
 			"Title": "irr_value",
-			"Name": "SLOGGER06.PYRANO"
+			"Name": "B006.SLOGGER06.PYRANO"
 		},
 		{
 			"Title": "pv_value",
-			"Name": "SLOGGER06.PVTEMP"
+			"Name": "B006.SLOGGER06.PVTEMP"
 		},
 		{
 			"Title": "amb_value",
-			"Name": "SLOGGER06.AMBTEMP"
+			"Name": "B006.SLOGGER06.AMBTEMP"
 		},
 		{
 			"Title": "today_energy",
@@ -374,7 +374,7 @@
 			}
 		},
 		{
-			"Name": "SLOGGER01.PYRANO",
+			"Name": "B001.SLOGGER01.PYRANO",
 			"Title": "X2",
 			"Options" : {
 				"Interval": 5,
@@ -389,7 +389,7 @@
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "SLOGGER01.PYRANO",
+					"name": "B001.SLOGGER01.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {

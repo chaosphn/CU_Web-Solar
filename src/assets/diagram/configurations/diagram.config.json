@@ -1,0 +1,2131 @@
+[
+
+	{
+		"Title": "ARC003_power",
+		"Name": "B001.TOU01.W"
+	},
+	{
+		"Title": "CEN001_power",
+		"Name": "B002.TOU02.W"
+	},
+	{
+		"Title": "CEN005_power",
+		"Name": "B003.TOU03.W"
+	},
+	{
+		"Title": "CEN003_power",
+		"Name": "B004.TOU04.W"
+	},
+	{
+		"Title": "CEN072_power",
+		"Name": "B005.TOU05.W"
+	},
+	{
+		"Title": "CEN091_power",
+		"Name": "B006.TOU06.W"
+	},
+	{
+		"Title": "PHA003_power",
+		"Name": "B007.TOU07.W"
+	},
+	{
+		"Title": "LAW003_power",
+		"Name": "B008.TOU08.W"
+	},
+	{
+		"Title": "DEN014_power",
+		"Name": "B009.TOU09.W"
+	},
+	{
+		"Title": "PHA007_power",
+		"Name": "B010.TOU10.W"
+	},
+	{
+		"Title": "VET001_power",
+		"Name": "B011.TOU11.W"
+	},
+	{
+		"Title": "INS009_power",
+		"Name": "B012.TOU12.W"
+	},
+	{
+		"Title": "CEN089_power",
+		"Name": "B013.TOU13.W"
+	},
+	{
+		"Title": "CEN103_power",
+		"Name": "B014.TOU14.W"
+	},
+	{
+		"Title": "INS011_power",
+		"Name": "B015.TOU15.W"
+	},
+	{
+		"Title": "CEN027_power",
+		"Name": "B016.TOU16.W"
+	},
+	{
+		"Title": "PSC012_power",
+		"Name": "B017.TOU17.W"
+	},
+	{
+		"Title": "CEN079_power",
+		"Name": "B018.TOU18.W"
+	},
+	{
+		"Title": "CEN099_power",
+		"Name": "B019.TOU19.W"
+	},
+	{
+		"Title": "INS012_power",
+		"Name": "B020.TOU20.W"
+	},
+	{
+		"Title": "CEN087_power",
+		"Name": "B021.TOU21.W"
+	},
+	{
+		"Title": "CEN093_power",
+		"Name": "B022.TOU22.W"
+	},
+	{
+		"Title": "CEN032_power",
+		"Name": "B023.TOU23.W"
+	},
+	{
+		"Title": "ART005_power",
+		"Name": "B024.TOU24.W"
+	},
+	{
+		"Title": "CEN100_power",
+		"Name": "B025.TOU25.W"
+	},
+	{
+		"Title": "SCI028_power",
+		"Name": "B026.TOU26.W"
+	},
+	{
+		"Title": "PHA006_power",
+		"Name": "B027.TOU27.W"
+	},
+	{
+		"Title": "ENG028_power",
+		"Name": "B028.TOU28.W"
+	},
+	{
+		"Title": "CEN068_power",
+		"Name": "B029.TOU29.W"
+	},
+	{
+		"Title": "ENG026_power",
+		"Name": "B030.TOU30.W"
+	},
+	{
+		"Title": "ENG030_power",
+		"Name": "B031.TOU31.W"
+	},
+	{
+		"Title": "EDU011_power",
+		"Name": "B032.TOU32.W"
+	},
+	{
+		"Title": "ESC008_power",
+		"Name": "B033.TOU33.W"
+	},
+	{
+		"Title": "SCI025_power",
+		"Name": "B034.TOU34.W"
+	},
+	{
+		"Title": "CEN060_power",
+		"Name": "B035.TOU35.W"
+	},
+	{
+		"Title": "ECO001_power",
+		"Name": "B036.TOU36.W"
+	},
+	{
+		"Title": "CEN053_power",
+		"Name": "B037.TOU37.W"
+	},
+	{
+		"Title": "INS010_power",
+		"Name": "B038.TOU38.W"
+	},
+	{
+		"Title": "CEN069_power",
+		"Name": "B039.TOU39.W"
+	},
+	{
+		"Title": "CEN006_power",
+		"Name": "B040.TOU40.W"
+	},
+	{
+		"Title": "EDU003_power",
+		"Name": "B041.TOU41.W"
+	},
+	{
+		"Title": "CEN078_power",
+		"Name": "B042.TOU42.W"
+	},
+	{
+		"Title": "DEN001_power",
+		"Name": "B043.TOU43.W"
+	},
+	{
+		"Title": "PHA001_power",
+		"Name": "B044.TOU44.W"
+	},
+	{
+		"Title": "DEN002_power",
+		"Name": "B045.TOU45.W"
+	},
+	{
+		"Title": "SCI020_power",
+		"Name": "B046.TOU46.W"
+	},
+	{
+		"Title": "ENG013_power",
+		"Name": "B047.TOU47.W"
+	},
+	{
+		"Title": "CEN081_power",
+		"Name": "B048.TOU48.W"
+	},
+	{
+		"Title": "ARC003_amp",
+		"Name": "B001.TOU01.I"
+	},
+	{
+		"Title": "CEN001_amp",
+		"Name": "B002.TOU02.I"
+	},
+	{
+		"Title": "CEN005_amp",
+		"Name": "B003.TOU03.I"
+	},
+	{
+		"Title": "CEN003_amp",
+		"Name": "B004.TOU04.I"
+	},
+	{
+		"Title": "CEN072_amp",
+		"Name": "B005.TOU05.I"
+	},
+	{
+		"Title": "CEN091_amp",
+		"Name": "B006.TOU06.I"
+	},
+	{
+		"Title": "PHA003_amp",
+		"Name": "B007.TOU07.I"
+	},
+	{
+		"Title": "LAW003_amp",
+		"Name": "B008.TOU08.I"
+	},
+	{
+		"Title": "DEN014_amp",
+		"Name": "B009.TOU09.I"
+	},
+	{
+		"Title": "PHA007_amp",
+		"Name": "B010.TOU10.I"
+	},
+	{
+		"Title": "VET001_amp",
+		"Name": "B011.TOU11.I"
+	},
+	{
+		"Title": "INS009_amp",
+		"Name": "B012.TOU12.I"
+	},
+	{
+		"Title": "CEN089_amp",
+		"Name": "B013.TOU13.I"
+	},
+	{
+		"Title": "CEN103_amp",
+		"Name": "B014.TOU14.I"
+	},
+	{
+		"Title": "INS011_amp",
+		"Name": "B015.TOU15.I"
+	},
+	{
+		"Title": "CEN027_amp",
+		"Name": "B016.TOU16.I"
+	},
+	{
+		"Title": "PSC012_amp",
+		"Name": "B017.TOU17.I"
+	},
+	{
+		"Title": "CEN079_amp",
+		"Name": "B018.TOU18.I"
+	},
+	{
+		"Title": "CEN099_amp",
+		"Name": "B019.TOU19.I"
+	},
+	{
+		"Title": "INS012_amp",
+		"Name": "B020.TOU20.I"
+	},
+	{
+		"Title": "CEN087_amp",
+		"Name": "B021.TOU21.I"
+	},
+	{
+		"Title": "CEN093_amp",
+		"Name": "B022.TOU22.I"
+	},
+	{
+		"Title": "CEN032_amp",
+		"Name": "B023.TOU23.I"
+	},
+	{
+		"Title": "ART005_amp",
+		"Name": "B024.TOU24.I"
+	},
+	{
+		"Title": "CEN100_amp",
+		"Name": "B025.TOU25.I"
+	},
+	{
+		"Title": "SCI028_amp",
+		"Name": "B026.TOU26.I"
+	},
+	{
+		"Title": "PHA006_amp",
+		"Name": "B027.TOU27.I"
+	},
+	{
+		"Title": "ENG028_amp",
+		"Name": "B028.TOU28.I"
+	},
+	{
+		"Title": "CEN068_amp",
+		"Name": "B029.TOU29.I"
+	},
+	{
+		"Title": "ENG026_amp",
+		"Name": "B030.TOU30.I"
+	},
+	{
+		"Title": "ENG030_amp",
+		"Name": "B031.TOU31.I"
+	},
+	{
+		"Title": "EDU011_amp",
+		"Name": "B032.TOU32.I"
+	},
+	{
+		"Title": "ESC008_amp",
+		"Name": "B033.TOU33.I"
+	},
+	{
+		"Title": "SCI025_amp",
+		"Name": "B034.TOU34.I"
+	},
+	{
+		"Title": "CEN060_amp",
+		"Name": "B035.TOU35.I"
+	},
+	{
+		"Title": "ECO001_amp",
+		"Name": "B036.TOU36.I"
+	},
+	{
+		"Title": "CEN053_amp",
+		"Name": "B037.TOU37.I"
+	},
+	{
+		"Title": "INS010_amp",
+		"Name": "B038.TOU38.I"
+	},
+	{
+		"Title": "CEN069_amp",
+		"Name": "B039.TOU39.I"
+	},
+	{
+		"Title": "CEN006_amp",
+		"Name": "B040.TOU40.I"
+	},
+	{
+		"Title": "EDU003_amp",
+		"Name": "B041.TOU41.I"
+	},
+	{
+		"Title": "CEN078_amp",
+		"Name": "B042.TOU42.I"
+	},
+	{
+		"Title": "DEN001_amp",
+		"Name": "B043.TOU43.I"
+	},
+	{
+		"Title": "PHA001_amp",
+		"Name": "B044.TOU44.I"
+	},
+	{
+		"Title": "DEN002_amp",
+		"Name": "B045.TOU45.I"
+	},
+	{
+		"Title": "SCI020_amp",
+		"Name": "B046.TOU46.I"
+	},
+	{
+		"Title": "ENG013_amp",
+		"Name": "B047.TOU47.I"
+	},
+	{
+		"Title": "CEN081_amp",
+		"Name": "B048.TOU48.I"
+	},
+	{
+		"Title": "ARC003_total",
+		"Name": "B001.TOU01.WH"
+	},
+	{
+		"Title": "CEN001_total",
+		"Name": "B002.TOU02.WH"
+	},
+	{
+		"Title": "CEN005_total",
+		"Name": "B003.TOU03.WH"
+	},
+	{
+		"Title": "CEN003_total",
+		"Name": "B004.TOU04.WH"
+	},
+	{
+		"Title": "CEN072_total",
+		"Name": "B005.TOU05.WH"
+	},
+	{
+		"Title": "CEN091_total",
+		"Name": "B006.TOU06.WH"
+	},
+	{
+		"Title": "PHA003_total",
+		"Name": "B007.TOU07.WH"
+	},
+	{
+		"Title": "LAW003_total",
+		"Name": "B008.TOU08.WH"
+	},
+	{
+		"Title": "DEN014_total",
+		"Name": "B009.TOU09.WH"
+	},
+	{
+		"Title": "PHA007_total",
+		"Name": "B010.TOU10.WH"
+	},
+	{
+		"Title": "VET001_total",
+		"Name": "B011.TOU11.WH"
+	},
+	{
+		"Title": "INS009_total",
+		"Name": "B012.TOU12.WH"
+	},
+	{
+		"Title": "CEN089_total",
+		"Name": "B013.TOU13.WH"
+	},
+	{
+		"Title": "CEN103_total",
+		"Name": "B014.TOU14.WH"
+	},
+	{
+		"Title": "INS011_total",
+		"Name": "B015.TOU15.WH"
+	},
+	{
+		"Title": "CEN027_total",
+		"Name": "B016.TOU16.WH"
+	},
+	{
+		"Title": "PSC012_total",
+		"Name": "B017.TOU17.WH"
+	},
+	{
+		"Title": "CEN079_total",
+		"Name": "B018.TOU18.WH"
+	},
+	{
+		"Title": "CEN099_total",
+		"Name": "B019.TOU19.WH"
+	},
+	{
+		"Title": "INS012_total",
+		"Name": "B020.TOU20.WH"
+	},
+	{
+		"Title": "CEN087_total",
+		"Name": "B021.TOU21.WH"
+	},
+	{
+		"Title": "CEN093_total",
+		"Name": "B022.TOU22.WH"
+	},
+	{
+		"Title": "CEN032_total",
+		"Name": "B023.TOU23.WH"
+	},
+	{
+		"Title": "ART005_total",
+		"Name": "B024.TOU24.WH"
+	},
+	{
+		"Title": "CEN100_total",
+		"Name": "B025.TOU25.WH"
+	},
+	{
+		"Title": "SCI028_total",
+		"Name": "B026.TOU26.WH"
+	},
+	{
+		"Title": "PHA006_total",
+		"Name": "B027.TOU27.WH"
+	},
+	{
+		"Title": "ENG028_total",
+		"Name": "B028.TOU28.WH"
+	},
+	{
+		"Title": "CEN068_total",
+		"Name": "B029.TOU29.WH"
+	},
+	{
+		"Title": "ENG026_total",
+		"Name": "B030.TOU30.WH"
+	},
+	{
+		"Title": "ENG030_total",
+		"Name": "B031.TOU31.WH"
+	},
+	{
+		"Title": "EDU011_total",
+		"Name": "B032.TOU32.WH"
+	},
+	{
+		"Title": "ESC008_total",
+		"Name": "B033.TOU33.WH"
+	},
+	{
+		"Title": "SCI025_total",
+		"Name": "B034.TOU34.WH"
+	},
+	{
+		"Title": "CEN060_total",
+		"Name": "B035.TOU35.WH"
+	},
+	{
+		"Title": "ECO001_total",
+		"Name": "B036.TOU36.WH"
+	},
+	{
+		"Title": "CEN053_total",
+		"Name": "B037.TOU37.WH"
+	},
+	{
+		"Title": "INS010_total",
+		"Name": "B038.TOU38.WH"
+	},
+	{
+		"Title": "CEN069_total",
+		"Name": "B039.TOU39.WH"
+	},
+	{
+		"Title": "CEN006_total",
+		"Name": "B040.TOU40.WH"
+	},
+	{
+		"Title": "EDU003_total",
+		"Name": "B041.TOU41.WH"
+	},
+	{
+		"Title": "CEN078_total",
+		"Name": "B042.TOU42.WH"
+	},
+	{
+		"Title": "DEN001_total",
+		"Name": "B043.TOU43.WH"
+	},
+	{
+		"Title": "PHA001_total",
+		"Name": "B044.TOU44.WH"
+	},
+	{
+		"Title": "DEN002_total",
+		"Name": "B045.TOU45.WH"
+	},
+	{
+		"Title": "SCI020_total",
+		"Name": "B046.TOU46.WH"
+	},
+	{
+		"Title": "ENG013_total",
+		"Name": "B047.TOU47.WH"
+	},
+	{
+		"Title": "CEN081_total",
+		"Name": "B048.TOU48.WH"
+	},
+	{
+		"Title": "ARC003_energy",
+		"Name": "B001.CALC01.WH_TODAY"
+	},
+	{
+		"Title": "CEN001_energy",
+		"Name": "B002.CALC02.WH_TODAY"
+	},
+	{
+		"Title": "CEN005_energy",
+		"Name": "B003.CALC03.WH_TODAY"
+	},
+	{
+		"Title": "CEN003_energy",
+		"Name": "B004.CALC04.WH_TODAY"
+	},
+	{
+		"Title": "CEN072_energy",
+		"Name": "B005.CALC05.WH_TODAY"
+	},
+	{
+		"Title": "CEN091_energy",
+		"Name": "B006.CALC06.WH_TODAY"
+	},
+	{
+		"Title": "PHA003_energy",
+		"Name": "B007.CALC07.WH_TODAY"
+	},
+	{
+		"Title": "LAW003_energy",
+		"Name": "B008.CALC08.WH_TODAY"
+	},
+	{
+		"Title": "DEN014_energy",
+		"Name": "B009.CALC09.WH_TODAY"
+	},
+	{
+		"Title": "PHA007_energy",
+		"Name": "B010.CALC10.WH_TODAY"
+	},
+	{
+		"Title": "VET001_energy",
+		"Name": "B011.CALC11.WH_TODAY"
+	},
+	{
+		"Title": "INS009_energy",
+		"Name": "B012.CALC12.WH_TODAY"
+	},
+	{
+		"Title": "CEN089_energy",
+		"Name": "B013.CALC13.WH_TODAY"
+	},
+	{
+		"Title": "CEN103_energy",
+		"Name": "B014.CALC14.WH_TODAY"
+	},
+	{
+		"Title": "INS011_energy",
+		"Name": "B015.CALC15.WH_TODAY"
+	},
+	{
+		"Title": "CEN027_energy",
+		"Name": "B016.CALC16.WH_TODAY"
+	},
+	{
+		"Title": "PSC012_energy",
+		"Name": "B017.CALC17.WH_TODAY"
+	},
+	{
+		"Title": "CEN079_energy",
+		"Name": "B018.CALC18.WH_TODAY"
+	},
+	{
+		"Title": "CEN099_energy",
+		"Name": "B019.CALC19.WH_TODAY"
+	},
+	{
+		"Title": "INS012_energy",
+		"Name": "B020.CALC20.WH_TODAY"
+	},
+	{
+		"Title": "CEN087_energy",
+		"Name": "B021.CALC21.WH_TODAY"
+	},
+	{
+		"Title": "CEN093_energy",
+		"Name": "B022.CALC22.WH_TODAY"
+	},
+	{
+		"Title": "CEN032_energy",
+		"Name": "B023.CALC23.WH_TODAY"
+	},
+	{
+		"Title": "ART005_energy",
+		"Name": "B024.CALC24.WH_TODAY"
+	},
+	{
+		"Title": "CEN100_energy",
+		"Name": "B025.CALC25.WH_TODAY"
+	},
+	{
+		"Title": "SCI028_energy",
+		"Name": "B026.CALC26.WH_TODAY"
+	},
+	{
+		"Title": "PHA006_energy",
+		"Name": "B027.CALC27.WH_TODAY"
+	},
+	{
+		"Title": "ENG028_energy",
+		"Name": "B028.CALC28.WH_TODAY"
+	},
+	{
+		"Title": "CEN068_energy",
+		"Name": "B029.CALC29.WH_TODAY"
+	},
+	{
+		"Title": "ENG026_energy",
+		"Name": "B030.CALC30.WH_TODAY"
+	},
+	{
+		"Title": "ENG030_energy",
+		"Name": "B031.CALC31.WH_TODAY"
+	},
+	{
+		"Title": "EDU011_energy",
+		"Name": "B032.CALC32.WH_TODAY"
+	},
+	{
+		"Title": "ESC008_energy",
+		"Name": "B033.CALC33.WH_TODAY"
+	},
+	{
+		"Title": "SCI025_energy",
+		"Name": "B034.CALC34.WH_TODAY"
+	},
+	{
+		"Title": "CEN060_energy",
+		"Name": "B035.CALC35.WH_TODAY"
+	},
+	{
+		"Title": "ECO001_energy",
+		"Name": "B036.CALC36.WH_TODAY"
+	},
+	{
+		"Title": "CEN053_energy",
+		"Name": "B037.CALC37.WH_TODAY"
+	},
+	{
+		"Title": "INS010_energy",
+		"Name": "B038.CALC38.WH_TODAY"
+	},
+	{
+		"Title": "CEN069_energy",
+		"Name": "B039.CALC39.WH_TODAY"
+	},
+	{
+		"Title": "CEN006_energy",
+		"Name": "B040.CALC40.WH_TODAY"
+	},
+	{
+		"Title": "EDU003_energy",
+		"Name": "B041.CALC41.WH_TODAY"
+	},
+	{
+		"Title": "CEN078_energy",
+		"Name": "B042.CALC42.WH_TODAY"
+	},
+	{
+		"Title": "DEN001_energy",
+		"Name": "B043.CALC43.WH_TODAY"
+	},
+	{
+		"Title": "PHA001_energy",
+		"Name": "B044.CALC44.WH_TODAY"
+	},
+	{
+		"Title": "DEN002_energy",
+		"Name": "B045.CALC45.WH_TODAY"
+	},
+	{
+		"Title": "SCI020_energy",
+		"Name": "B046.CALC46.WH_TODAY"
+	},
+	{
+		"Title": "ENG013_energy",
+		"Name": "B047.CALC47.WH_TODAY"
+	},
+	{
+		"Title": "CEN081_energy",
+		"Name": "B048.CALC48.WH_TODAY"
+	},
+	{
+		"Title": "inv0101_today",
+		"Name": "B001.INV0101.WH_TODAY"
+	},
+	{
+		"Title": "inv0102_today",
+		"Name": "B001.INV0102.WH_TODAY"
+	},
+	{
+		"Title": "inv0201_today",
+		"Name": "B002.INV0201.WH_TODAY"
+	},
+	{
+		"Title": "inv0202_today",
+		"Name": "B002.INV0202.WH_TODAY"
+	},
+	{
+		"Title": "inv0301_today",
+		"Name": "B003.INV0301.WH_TODAY"
+	},
+	{
+		"Title": "inv0302_today",
+		"Name": "B003.INV0302.WH_TODAY"
+	},
+	{
+		"Title": "inv0401_today",
+		"Name": "B004.INV0401.WH_TODAY"
+	},
+	{
+		"Title": "inv0501_today",
+		"Name": "B005.INV0501.WH_TODAY"
+	},
+	{
+		"Title": "inv0502_today",
+		"Name": "B005.INV0502.WH_TODAY"
+	},
+	{
+		"Title": "inv0601_today",
+		"Name": "B006.INV0601.WH_TODAY"
+	},
+	{
+		"Title": "inv0602_today",
+		"Name": "B006.INV0602.WH_TODAY"
+	},
+	{
+		"Title": "inv0701_today",
+		"Name": "B007.INV0701.WH_TODAY"
+	},
+	{
+		"Title": "inv0801_today",
+		"Name": "B008.INV0801.WH_TODAY"
+	},
+	{
+		"Title": "inv0901_today",
+		"Name": "B009.INV0901.WH_TODAY"
+	},
+	{
+		"Title": "inv0902_today",
+		"Name": "B009.INV0902.WH_TODAY"
+	},
+	{
+		"Title": "inv1001_today",
+		"Name": "B010.INV1001.WH_TODAY"
+	},
+	{
+		"Title": "inv1002_today",
+		"Name": "B010.INV1002.WH_TODAY"
+	},
+	{
+		"Title": "inv1101_today",
+		"Name": "B011.INV1101.WH_TODAY"
+	},
+	{
+		"Title": "inv1201_today",
+		"Name": "B012.INV1201.WH_TODAY"
+	},
+	{
+		"Title": "inv1301_today",
+		"Name": "B013.INV1301.WH_TODAY"
+	},
+	{
+		"Title": "inv1401_today",
+		"Name": "B014.INV1401.WH_TODAY"
+	},
+	{
+		"Title": "inv1501_today",
+		"Name": "B015.INV1501.WH_TODAY"
+	},
+	{
+		"Title": "inv1601_today",
+		"Name": "B016.INV1601.WH_TODAY"
+	},
+	{
+		"Title": "inv1701_today",
+		"Name": "B017.INV1701.WH_TODAY"
+	},
+	{
+		"Title": "inv1801_today",
+		"Name": "B018.INV1801.WH_TODAY"
+	},
+	{
+		"Title": "inv1802_today",
+		"Name": "B018.INV1802.WH_TODAY"
+	},
+	{
+		"Title": "inv1901_today",
+		"Name": "B019.INV1901.WH_TODAY"
+	},
+	{
+		"Title": "inv1902_today",
+		"Name": "B019.INV1902.WH_TODAY"
+	},
+	{
+		"Title": "inv2001_today",
+		"Name": "B020.INV2001.WH_TODAY"
+	},
+	{
+		"Title": "inv2002_today",
+		"Name": "B020.INV2002.WH_TODAY"
+	},
+	{
+		"Title": "inv2101_today",
+		"Name": "B021.INV2101.WH_TODAY"
+	},
+	{
+		"Title": "inv2102_today",
+		"Name": "B021.INV2102.WH_TODAY"
+	},
+	{
+		"Title": "in21803_today",
+		"Name": "B021.INV2103.WH_TODAY"
+	},
+	{
+		"Title": "inv2201_today",
+		"Name": "B022.INV2201.WH_TODAY"
+	},
+	{
+		"Title": "inv2202_today",
+		"Name": "B022.INV2202.WH_TODAY"
+	},
+	{
+		"Title": "inv2301_today",
+		"Name": "B023.INV2301.WH_TODAY"
+	},
+	{
+		"Title": "inv2302_today",
+		"Name": "B023.INV2302.WH_TODAY"
+	},
+	{
+		"Title": "inv2401_today",
+		"Name": "B024.INV2401.WH_TODAY"
+	},
+	{
+		"Title": "inv2501_today",
+		"Name": "B025.INV2501.WH_TODAY"
+	},
+	{
+		"Title": "inv2601_today",
+		"Name": "B026.INV2601.WH_TODAY"
+	},
+	{
+		"Title": "inv2602_today",
+		"Name": "B026.INV2602.WH_TODAY"
+	},
+	{
+		"Title": "inv2701_today",
+		"Name": "B027.INV2701.WH_TODAY"
+	},
+	{
+		"Title": "inv2801_today",
+		"Name": "B028.INV2801.WH_TODAY"
+	},
+	{
+		"Title": "inv2802_today",
+		"Name": "B028.INV2802.WH_TODAY"
+	},
+	{
+		"Title": "inv2901_today",
+		"Name": "B029.INV2901.WH_TODAY"
+	},
+	{
+		"Title": "inv2902_today",
+		"Name": "B029.INV2902.WH_TODAY"
+	},
+	{
+		"Title": "inv3001_today",
+		"Name": "B030.INV3001.WH_TODAY"
+	},
+	{
+		"Title": "inv3002_today",
+		"Name": "B030.INV3002.WH_TODAY"
+	},
+	{
+		"Title": "inv3101_today",
+		"Name": "B031.INV3101.WH_TODAY"
+	},
+	{
+		"Title": "inv3201_today",
+		"Name": "B032.INV3201.WH_TODAY"
+	},
+	{
+		"Title": "inv3202_today",
+		"Name": "B032.INV3202.WH_TODAY"
+	},
+	{
+		"Title": "inv3203_today",
+		"Name": "B032.INV3203.WH_TODAY"
+	},
+	{
+		"Title": "inv3301_today",
+		"Name": "B033.INV3301.WH_TODAY"
+	},
+	{
+		"Title": "inv3302_today",
+		"Name": "B033.INV3302.WH_TODAY"
+	},
+	{
+		"Title": "inv3401_today",
+		"Name": "B034.INV3401.WH_TODAY"
+	},
+	{
+		"Title": "inv3402_today",
+		"Name": "B034.INV3402.WH_TODAY"
+	},
+	{
+		"Title": "inv3403_today",
+		"Name": "B034.INV3403.WH_TODAY"
+	},
+	{
+		"Title": "inv3501_today",
+		"Name": "B035.INV3501.WH_TODAY"
+	},
+	{
+		"Title": "inv3502_today",
+		"Name": "B035.INV3502.WH_TODAY"
+	},
+	{
+		"Title": "inv3601_today",
+		"Name": "B036.INV3601.WH_TODAY"
+	},
+	{
+		"Title": "inv3602_today",
+		"Name": "B036.INV3602.WH_TODAY"
+	},
+	{
+		"Title": "inv3701_today",
+		"Name": "B037.INV3701.WH_TODAY"
+	},
+	{
+		"Title": "inv3702_today",
+		"Name": "B037.INV3702.WH_TODAY"
+	},
+	{
+		"Title": "inv3801_today",
+		"Name": "B038.INV3801.WH_TODAY"
+	},
+	{
+		"Title": "inv3901_today",
+		"Name": "B039.INV3901.WH_TODAY"
+	},
+	{
+		"Title": "inv3902_today",
+		"Name": "B039.INV3902.WH_TODAY"
+	},
+	{
+		"Title": "inv4001_today",
+		"Name": "B040.INV4001.WH_TODAY"
+	},
+	{
+		"Title": "inv4002_today",
+		"Name": "B040.INV4002.WH_TODAY"
+	},
+	{
+		"Title": "inv4003_today",
+		"Name": "B040.INV4003.WH_TODAY"
+	},
+	{
+		"Title": "inv4101_today",
+		"Name": "B041.INV4101.WH_TODAY"
+	},
+	{
+		"Title": "inv4201_today",
+		"Name": "B042.INV4201.WH_TODAY"
+	},
+	{
+		"Title": "inv4202_today",
+		"Name": "B042.INV4202.WH_TODAY"
+	},
+	{
+		"Title": "inv4301_today",
+		"Name": "B043.INV4301.WH_TODAY"
+	},
+	{
+		"Title": "inv4302_today",
+		"Name": "B043.INV4302.WH_TODAY"
+	},
+	{
+		"Title": "inv4401_today",
+		"Name": "B044.INV4401.WH_TODAY"
+	},
+	{
+		"Title": "inv4402_today",
+		"Name": "B044.INV4402.WH_TODAY"
+	},
+	{
+		"Title": "inv4403_today",
+		"Name": "B044.INV4403.WH_TODAY"
+	},
+	{
+		"Title": "inv4404_today",
+		"Name": "B044.INV4404.WH_TODAY"
+	},
+	{
+		"Title": "inv4405_today",
+		"Name": "B044.INV4405.WH_TODAY"
+	},
+	{
+		"Title": "inv4501_today",
+		"Name": "B045.INV4501.WH_TODAY"
+	},
+	{
+		"Title": "inv4601_today",
+		"Name": "B046.INV4601.WH_TODAY"
+	},
+	{
+		"Title": "inv4701_today",
+		"Name": "B047.INV4701.WH_TODAY"
+	},
+	{
+		"Title": "inv4702_today",
+		"Name": "B047.INV4702.WH_TODAY"
+	},
+	{
+		"Title": "inv4703_today",
+		"Name": "B047.INV4703.WH_TODAY"
+	},
+	{
+		"Title": "inv4801_today",
+		"Name": "B048.INV4801.WH_TODAY"
+	},
+	{
+		"Title": "inv0101_power",
+		"Name": "B001.INV0101.WAC"
+	},
+	{
+		"Title": "inv0102_power",
+		"Name": "B001.INV0102.WAC"
+	},
+	{
+		"Title": "inv0201_power",
+		"Name": "B002.INV0201.WAC"
+	},
+	{
+		"Title": "inv0202_power",
+		"Name": "B002.INV0202.WAC"
+	},
+	{
+		"Title": "inv0301_power",
+		"Name": "B003.INV0301.WAC"
+	},
+	{
+		"Title": "inv0302_power",
+		"Name": "B003.INV0302.WAC"
+	},
+	{
+		"Title": "inv0401_power",
+		"Name": "B004.INV0401.WAC"
+	},
+	{
+		"Title": "inv0501_power",
+		"Name": "B005.INV0501.WAC"
+	},
+	{
+		"Title": "inv0502_power",
+		"Name": "B005.INV0502.WAC"
+	},
+	{
+		"Title": "inv0601_power",
+		"Name": "B006.INV0601.WAC"
+	},
+	{
+		"Title": "inv0602_power",
+		"Name": "B006.INV0602.WAC"
+	},
+	{
+		"Title": "inv0701_power",
+		"Name": "B007.INV0701.WAC"
+	},
+	{
+		"Title": "inv0801_power",
+		"Name": "B008.INV0801.WAC"
+	},
+	{
+		"Title": "inv0901_power",
+		"Name": "B009.INV0901.WAC"
+	},
+	{
+		"Title": "inv0902_power",
+		"Name": "B009.INV0902.WAC"
+	},
+	{
+		"Title": "inv1001_power",
+		"Name": "B010.INV1001.WAC"
+	},
+	{
+		"Title": "inv1002_power",
+		"Name": "B010.INV1002.WAC"
+	},
+	{
+		"Title": "inv1101_power",
+		"Name": "B011.INV1101.WAC"
+	},
+	{
+		"Title": "inv1201_power",
+		"Name": "B012.INV1201.WAC"
+	},
+	{
+		"Title": "inv1301_power",
+		"Name": "B013.INV1301.WAC"
+	},
+	{
+		"Title": "inv1401_power",
+		"Name": "B014.INV1401.WAC"
+	},
+	{
+		"Title": "inv1501_power",
+		"Name": "B015.INV1501.WAC"
+	},
+	{
+		"Title": "inv1601_power",
+		"Name": "B016.INV1601.WAC"
+	},
+	{
+		"Title": "inv1701_power",
+		"Name": "B017.INV1701.WAC"
+	},
+	{
+		"Title": "inv1801_power",
+		"Name": "B018.INV1801.WAC"
+	},
+	{
+		"Title": "inv1802_power",
+		"Name": "B018.INV1802.WAC"
+	},
+	{
+		"Title": "inv1901_power",
+		"Name": "B019.INV1901.WAC"
+	},
+	{
+		"Title": "inv1902_power",
+		"Name": "B019.INV1902.WAC"
+	},
+	{
+		"Title": "inv2001_power",
+		"Name": "B020.INV2001.WAC"
+	},
+	{
+		"Title": "inv2002_power",
+		"Name": "B020.INV2002.WAC"
+	},
+	{
+		"Title": "inv2101_power",
+		"Name": "B021.INV2101.WAC"
+	},
+	{
+		"Title": "inv2102_power",
+		"Name": "B021.INV2102.WAC"
+	},
+	{
+		"Title": "in21803_power",
+		"Name": "B021.INV2103.WAC"
+	},
+	{
+		"Title": "inv2201_power",
+		"Name": "B022.INV2201.WAC"
+	},
+	{
+		"Title": "inv2202_power",
+		"Name": "B022.INV2202.WAC"
+	},
+	{
+		"Title": "inv2301_power",
+		"Name": "B023.INV2301.WAC"
+	},
+	{
+		"Title": "inv2302_power",
+		"Name": "B023.INV2302.WAC"
+	},
+	{
+		"Title": "inv2401_power",
+		"Name": "B024.INV2401.WAC"
+	},
+	{
+		"Title": "inv2501_power",
+		"Name": "B025.INV2501.WAC"
+	},
+	{
+		"Title": "inv2601_power",
+		"Name": "B026.INV2601.WAC"
+	},
+	{
+		"Title": "inv2602_power",
+		"Name": "B026.INV2602.WAC"
+	},
+	{
+		"Title": "inv2701_power",
+		"Name": "B027.INV2701.WAC"
+	},
+	{
+		"Title": "inv2801_power",
+		"Name": "B028.INV2801.WAC"
+	},
+	{
+		"Title": "inv2802_power",
+		"Name": "B028.INV2802.WAC"
+	},
+	{
+		"Title": "inv2901_power",
+		"Name": "B029.INV2901.WAC"
+	},
+	{
+		"Title": "inv2902_power",
+		"Name": "B029.INV2902.WAC"
+	},
+	{
+		"Title": "inv3001_power",
+		"Name": "B030.INV3001.WAC"
+	},
+	{
+		"Title": "inv3002_power",
+		"Name": "B030.INV3002.WAC"
+	},
+	{
+		"Title": "inv3101_power",
+		"Name": "B031.INV3101.WAC"
+	},
+	{
+		"Title": "inv3201_power",
+		"Name": "B032.INV3201.WAC"
+	},
+	{
+		"Title": "inv3202_power",
+		"Name": "B032.INV3202.WAC"
+	},
+	{
+		"Title": "inv3203_power",
+		"Name": "B032.INV3203.WAC"
+	},
+	{
+		"Title": "inv3301_power",
+		"Name": "B033.INV3301.WAC"
+	},
+	{
+		"Title": "inv3302_power",
+		"Name": "B033.INV3302.WAC"
+	},
+	{
+		"Title": "inv3401_power",
+		"Name": "B034.INV3401.WAC"
+	},
+	{
+		"Title": "inv3402_power",
+		"Name": "B034.INV3402.WAC"
+	},
+	{
+		"Title": "inv3403_power",
+		"Name": "B034.INV3403.WAC"
+	},
+	{
+		"Title": "inv3501_power",
+		"Name": "B035.INV3501.WAC"
+	},
+	{
+		"Title": "inv3502_power",
+		"Name": "B035.INV3502.WAC"
+	},
+	{
+		"Title": "inv3601_power",
+		"Name": "B036.INV3601.WAC"
+	},
+	{
+		"Title": "inv3602_power",
+		"Name": "B036.INV3602.WAC"
+	},
+	{
+		"Title": "inv3701_power",
+		"Name": "B037.INV3701.WAC"
+	},
+	{
+		"Title": "inv3702_power",
+		"Name": "B037.INV3702.WAC"
+	},
+	{
+		"Title": "inv3801_power",
+		"Name": "B038.INV3801.WAC"
+	},
+	{
+		"Title": "inv3901_power",
+		"Name": "B039.INV3901.WAC"
+	},
+	{
+		"Title": "inv3902_power",
+		"Name": "B039.INV3902.WAC"
+	},
+	{
+		"Title": "inv4001_power",
+		"Name": "B040.INV4001.WAC"
+	},
+	{
+		"Title": "inv4002_power",
+		"Name": "B040.INV4002.WAC"
+	},
+	{
+		"Title": "inv4003_power",
+		"Name": "B040.INV4003.WAC"
+	},
+	{
+		"Title": "inv4101_power",
+		"Name": "B041.INV4101.WAC"
+	},
+	{
+		"Title": "inv4201_power",
+		"Name": "B042.INV4201.WAC"
+	},
+	{
+		"Title": "inv4202_power",
+		"Name": "B042.INV4202.WAC"
+	},
+	{
+		"Title": "inv4301_power",
+		"Name": "B043.INV4301.WAC"
+	},
+	{
+		"Title": "inv4302_power",
+		"Name": "B043.INV4302.WAC"
+	},
+	{
+		"Title": "inv4401_power",
+		"Name": "B044.INV4401.WAC"
+	},
+	{
+		"Title": "inv4402_power",
+		"Name": "B044.INV4402.WAC"
+	},
+	{
+		"Title": "inv4403_power",
+		"Name": "B044.INV4403.WAC"
+	},
+	{
+		"Title": "inv4404_power",
+		"Name": "B044.INV4404.WAC"
+	},
+	{
+		"Title": "inv4405_power",
+		"Name": "B044.INV4405.WAC"
+	},
+	{
+		"Title": "inv4501_power",
+		"Name": "B045.INV4501.WAC"
+	},
+	{
+		"Title": "inv4601_power",
+		"Name": "B046.INV4601.WAC"
+	},
+	{
+		"Title": "inv4701_power",
+		"Name": "B047.INV4701.WAC"
+	},
+	{
+		"Title": "inv4702_power",
+		"Name": "B047.INV4702.WAC"
+	},
+	{
+		"Title": "inv4703_power",
+		"Name": "B047.INV4703.WAC"
+	},
+	{
+		"Title": "inv4801_power",
+		"Name": "B048.INV4801.WAC"
+	},
+	{
+		"Title": "inv0101_eff",
+		"Name": "B001.INV0101.EFF"
+	},
+	{
+		"Title": "inv0102_eff",
+		"Name": "B001.INV0102.EFF"
+	},
+	{
+		"Title": "inv0201_eff",
+		"Name": "B002.INV0201.EFF"
+	},
+	{
+		"Title": "inv0202_eff",
+		"Name": "B002.INV0202.EFF"
+	},
+	{
+		"Title": "inv0301_eff",
+		"Name": "B003.INV0301.EFF"
+	},
+	{
+		"Title": "inv0302_eff",
+		"Name": "B003.INV0302.EFF"
+	},
+	{
+		"Title": "inv0401_eff",
+		"Name": "B004.INV0401.EFF"
+	},
+	{
+		"Title": "inv0501_eff",
+		"Name": "B005.INV0501.EFF"
+	},
+	{
+		"Title": "inv0502_eff",
+		"Name": "B005.INV0502.EFF"
+	},
+	{
+		"Title": "inv0601_eff",
+		"Name": "B006.INV0601.EFF"
+	},
+	{
+		"Title": "inv0602_eff",
+		"Name": "B006.INV0602.EFF"
+	},
+	{
+		"Title": "inv0701_eff",
+		"Name": "B007.INV0701.EFF"
+	},
+	{
+		"Title": "inv0801_eff",
+		"Name": "B008.INV0801.EFF"
+	},
+	{
+		"Title": "inv0901_eff",
+		"Name": "B009.INV0901.EFF"
+	},
+	{
+		"Title": "inv0902_eff",
+		"Name": "B009.INV0902.EFF"
+	},
+	{
+		"Title": "inv1001_eff",
+		"Name": "B010.INV1001.EFF"
+	},
+	{
+		"Title": "inv1002_eff",
+		"Name": "B010.INV1002.EFF"
+	},
+	{
+		"Title": "inv1101_eff",
+		"Name": "B011.INV1101.EFF"
+	},
+	{
+		"Title": "inv1201_eff",
+		"Name": "B012.INV1201.EFF"
+	},
+	{
+		"Title": "inv1301_eff",
+		"Name": "B013.INV1301.EFF"
+	},
+	{
+		"Title": "inv1401_eff",
+		"Name": "B014.INV1401.EFF"
+	},
+	{
+		"Title": "inv1501_eff",
+		"Name": "B015.INV1501.EFF"
+	},
+	{
+		"Title": "inv1601_eff",
+		"Name": "B016.INV1601.EFF"
+	},
+	{
+		"Title": "inv1701_eff",
+		"Name": "B017.INV1701.EFF"
+	},
+	{
+		"Title": "inv1801_eff",
+		"Name": "B018.INV1801.EFF"
+	},
+	{
+		"Title": "inv1802_eff",
+		"Name": "B018.INV1802.EFF"
+	},
+	{
+		"Title": "inv1901_eff",
+		"Name": "B019.INV1901.EFF"
+	},
+	{
+		"Title": "inv1902_eff",
+		"Name": "B019.INV1902.EFF"
+	},
+	{
+		"Title": "inv2001_eff",
+		"Name": "B020.INV2001.EFF"
+	},
+	{
+		"Title": "inv2002_eff",
+		"Name": "B020.INV2002.EFF"
+	},
+	{
+		"Title": "inv2101_eff",
+		"Name": "B021.INV2101.EFF"
+	},
+	{
+		"Title": "inv2102_eff",
+		"Name": "B021.INV2102.EFF"
+	},
+	{
+		"Title": "in21803_eff",
+		"Name": "B021.INV2103.EFF"
+	},
+	{
+		"Title": "inv2201_eff",
+		"Name": "B022.INV2201.EFF"
+	},
+	{
+		"Title": "inv2202_eff",
+		"Name": "B022.INV2202.EFF"
+	},
+	{
+		"Title": "inv2301_eff",
+		"Name": "B023.INV2301.EFF"
+	},
+	{
+		"Title": "inv2302_eff",
+		"Name": "B023.INV2302.EFF"
+	},
+	{
+		"Title": "inv2401_eff",
+		"Name": "B024.INV2401.EFF"
+	},
+	{
+		"Title": "inv2501_eff",
+		"Name": "B025.INV2501.EFF"
+	},
+	{
+		"Title": "inv2601_eff",
+		"Name": "B026.INV2601.EFF"
+	},
+	{
+		"Title": "inv2602_eff",
+		"Name": "B026.INV2602.EFF"
+	},
+	{
+		"Title": "inv2701_eff",
+		"Name": "B027.INV2701.EFF"
+	},
+	{
+		"Title": "inv2801_eff",
+		"Name": "B028.INV2801.EFF"
+	},
+	{
+		"Title": "inv2802_eff",
+		"Name": "B028.INV2802.EFF"
+	},
+	{
+		"Title": "inv2901_eff",
+		"Name": "B029.INV2901.EFF"
+	},
+	{
+		"Title": "inv2902_eff",
+		"Name": "B029.INV2902.EFF"
+	},
+	{
+		"Title": "inv3001_eff",
+		"Name": "B030.INV3001.EFF"
+	},
+	{
+		"Title": "inv3002_eff",
+		"Name": "B030.INV3002.EFF"
+	},
+	{
+		"Title": "inv3101_eff",
+		"Name": "B031.INV3101.EFF"
+	},
+	{
+		"Title": "inv3201_eff",
+		"Name": "B032.INV3201.EFF"
+	},
+	{
+		"Title": "inv3202_eff",
+		"Name": "B032.INV3202.EFF"
+	},
+	{
+		"Title": "inv3203_eff",
+		"Name": "B032.INV3203.EFF"
+	},
+	{
+		"Title": "inv3301_eff",
+		"Name": "B033.INV3301.EFF"
+	},
+	{
+		"Title": "inv3302_eff",
+		"Name": "B033.INV3302.EFF"
+	},
+	{
+		"Title": "inv3401_eff",
+		"Name": "B034.INV3401.EFF"
+	},
+	{
+		"Title": "inv3402_eff",
+		"Name": "B034.INV3402.EFF"
+	},
+	{
+		"Title": "inv3403_eff",
+		"Name": "B034.INV3403.EFF"
+	},
+	{
+		"Title": "inv3501_eff",
+		"Name": "B035.INV3501.EFF"
+	},
+	{
+		"Title": "inv3502_eff",
+		"Name": "B035.INV3502.EFF"
+	},
+	{
+		"Title": "inv3601_eff",
+		"Name": "B036.INV3601.EFF"
+	},
+	{
+		"Title": "inv3602_eff",
+		"Name": "B036.INV3602.EFF"
+	},
+	{
+		"Title": "inv3701_eff",
+		"Name": "B037.INV3701.EFF"
+	},
+	{
+		"Title": "inv3702_eff",
+		"Name": "B037.INV3702.EFF"
+	},
+	{
+		"Title": "inv3801_eff",
+		"Name": "B038.INV3801.EFF"
+	},
+	{
+		"Title": "inv3901_eff",
+		"Name": "B039.INV3901.EFF"
+	},
+	{
+		"Title": "inv3902_eff",
+		"Name": "B039.INV3902.EFF"
+	},
+	{
+		"Title": "inv4001_eff",
+		"Name": "B040.INV4001.EFF"
+	},
+	{
+		"Title": "inv4002_eff",
+		"Name": "B040.INV4002.EFF"
+	},
+	{
+		"Title": "inv4003_eff",
+		"Name": "B040.INV4003.EFF"
+	},
+	{
+		"Title": "inv4101_eff",
+		"Name": "B041.INV4101.EFF"
+	},
+	{
+		"Title": "inv4201_eff",
+		"Name": "B042.INV4201.EFF"
+	},
+	{
+		"Title": "inv4202_eff",
+		"Name": "B042.INV4202.EFF"
+	},
+	{
+		"Title": "inv4301_eff",
+		"Name": "B043.INV4301.EFF"
+	},
+	{
+		"Title": "inv4302_eff",
+		"Name": "B043.INV4302.EFF"
+	},
+	{
+		"Title": "inv4401_eff",
+		"Name": "B044.INV4401.EFF"
+	},
+	{
+		"Title": "inv4402_eff",
+		"Name": "B044.INV4402.EFF"
+	},
+	{
+		"Title": "inv4403_eff",
+		"Name": "B044.INV4403.EFF"
+	},
+	{
+		"Title": "inv4404_eff",
+		"Name": "B044.INV4404.EFF"
+	},
+	{
+		"Title": "inv4405_eff",
+		"Name": "B044.INV4405.EFF"
+	},
+	{
+		"Title": "inv4501_eff",
+		"Name": "B045.INV4501.EFF"
+	},
+	{
+		"Title": "inv4601_eff",
+		"Name": "B046.INV4601.EFF"
+	},
+	{
+		"Title": "inv4701_eff",
+		"Name": "B047.INV4701.EFF"
+	},
+	{
+		"Title": "inv4702_eff",
+		"Name": "B047.INV4702.EFF"
+	},
+	{
+		"Title": "inv4703_eff",
+		"Name": "B047.INV4703.EFF"
+	},
+	{
+		"Title": "inv4801_eff",
+		"Name": "B048.INV4801.EFF"
+	},
+	{
+		"Title": "inv0101_temp",
+		"Name": "B001.INV0101.TEMP_INT"
+	},
+	{
+		"Title": "inv0102_temp",
+		"Name": "B001.INV0102.TEMP_INT"
+	},
+	{
+		"Title": "inv0201_temp",
+		"Name": "B002.INV0201.TEMP_INT"
+	},
+	{
+		"Title": "inv0202_temp",
+		"Name": "B002.INV0202.TEMP_INT"
+	},
+	{
+		"Title": "inv0301_temp",
+		"Name": "B003.INV0301.TEMP_INT"
+	},
+	{
+		"Title": "inv0302_temp",
+		"Name": "B003.INV0302.TEMP_INT"
+	},
+	{
+		"Title": "inv0401_temp",
+		"Name": "B004.INV0401.TEMP_INT"
+	},
+	{
+		"Title": "inv0501_temp",
+		"Name": "B005.INV0501.TEMP_INT"
+	},
+	{
+		"Title": "inv0502_temp",
+		"Name": "B005.INV0502.TEMP_INT"
+	},
+	{
+		"Title": "inv0601_temp",
+		"Name": "B006.INV0601.TEMP_INT"
+	},
+	{
+		"Title": "inv0602_temp",
+		"Name": "B006.INV0602.TEMP_INT"
+	},
+	{
+		"Title": "inv0701_temp",
+		"Name": "B007.INV0701.TEMP_INT"
+	},
+	{
+		"Title": "inv0801_temp",
+		"Name": "B008.INV0801.TEMP_INT"
+	},
+	{
+		"Title": "inv0901_temp",
+		"Name": "B009.INV0901.TEMP_INT"
+	},
+	{
+		"Title": "inv0902_temp",
+		"Name": "B009.INV0902.TEMP_INT"
+	},
+	{
+		"Title": "inv1001_temp",
+		"Name": "B010.INV1001.TEMP_INT"
+	},
+	{
+		"Title": "inv1002_temp",
+		"Name": "B010.INV1002.TEMP_INT"
+	},
+	{
+		"Title": "inv1101_temp",
+		"Name": "B011.INV1101.TEMP_INT"
+	},
+	{
+		"Title": "inv1201_temp",
+		"Name": "B012.INV1201.TEMP_INT"
+	},
+	{
+		"Title": "inv1301_temp",
+		"Name": "B013.INV1301.TEMP_INT"
+	},
+	{
+		"Title": "inv1401_temp",
+		"Name": "B014.INV1401.TEMP_INT"
+	},
+	{
+		"Title": "inv1501_temp",
+		"Name": "B015.INV1501.TEMP_INT"
+	},
+	{
+		"Title": "inv1601_temp",
+		"Name": "B016.INV1601.TEMP_INT"
+	},
+	{
+		"Title": "inv1701_temp",
+		"Name": "B017.INV1701.TEMP_INT"
+	},
+	{
+		"Title": "inv1801_temp",
+		"Name": "B018.INV1801.TEMP_INT"
+	},
+	{
+		"Title": "inv1802_temp",
+		"Name": "B018.INV1802.TEMP_INT"
+	},
+	{
+		"Title": "inv1901_temp",
+		"Name": "B019.INV1901.TEMP_INT"
+	},
+	{
+		"Title": "inv1902_temp",
+		"Name": "B019.INV1902.TEMP_INT"
+	},
+	{
+		"Title": "inv2001_temp",
+		"Name": "B020.INV2001.TEMP_INT"
+	},
+	{
+		"Title": "inv2002_temp",
+		"Name": "B020.INV2002.TEMP_INT"
+	},
+	{
+		"Title": "inv2101_temp",
+		"Name": "B021.INV2101.TEMP_INT"
+	},
+	{
+		"Title": "inv2102_temp",
+		"Name": "B021.INV2102.TEMP_INT"
+	},
+	{
+		"Title": "in21803_temp",
+		"Name": "B021.INV2103.TEMP_INT"
+	},
+	{
+		"Title": "inv2201_temp",
+		"Name": "B022.INV2201.TEMP_INT"
+	},
+	{
+		"Title": "inv2202_temp",
+		"Name": "B022.INV2202.TEMP_INT"
+	},
+	{
+		"Title": "inv2301_temp",
+		"Name": "B023.INV2301.TEMP_INT"
+	},
+	{
+		"Title": "inv2302_temp",
+		"Name": "B023.INV2302.TEMP_INT"
+	},
+	{
+		"Title": "inv2401_temp",
+		"Name": "B024.INV2401.TEMP_INT"
+	},
+	{
+		"Title": "inv2501_temp",
+		"Name": "B025.INV2501.TEMP_INT"
+	},
+	{
+		"Title": "inv2601_temp",
+		"Name": "B026.INV2601.TEMP_INT"
+	},
+	{
+		"Title": "inv2602_temp",
+		"Name": "B026.INV2602.TEMP_INT"
+	},
+	{
+		"Title": "inv2701_temp",
+		"Name": "B027.INV2701.TEMP_INT"
+	},
+	{
+		"Title": "inv2801_temp",
+		"Name": "B028.INV2801.TEMP_INT"
+	},
+	{
+		"Title": "inv2802_temp",
+		"Name": "B028.INV2802.TEMP_INT"
+	},
+	{
+		"Title": "inv2901_temp",
+		"Name": "B029.INV2901.TEMP_INT"
+	},
+	{
+		"Title": "inv2902_temp",
+		"Name": "B029.INV2902.TEMP_INT"
+	},
+	{
+		"Title": "inv3001_temp",
+		"Name": "B030.INV3001.TEMP_INT"
+	},
+	{
+		"Title": "inv3002_temp",
+		"Name": "B030.INV3002.TEMP_INT"
+	},
+	{
+		"Title": "inv3101_temp",
+		"Name": "B031.INV3101.TEMP_INT"
+	},
+	{
+		"Title": "inv3201_temp",
+		"Name": "B032.INV3201.TEMP_INT"
+	},
+	{
+		"Title": "inv3202_temp",
+		"Name": "B032.INV3202.TEMP_INT"
+	},
+	{
+		"Title": "inv3203_temp",
+		"Name": "B032.INV3203.TEMP_INT"
+	},
+	{
+		"Title": "inv3301_temp",
+		"Name": "B033.INV3301.TEMP_INT"
+	},
+	{
+		"Title": "inv3302_temp",
+		"Name": "B033.INV3302.TEMP_INT"
+	},
+	{
+		"Title": "inv3401_temp",
+		"Name": "B034.INV3401.TEMP_INT"
+	},
+	{
+		"Title": "inv3402_temp",
+		"Name": "B034.INV3402.TEMP_INT"
+	},
+	{
+		"Title": "inv3403_temp",
+		"Name": "B034.INV3403.TEMP_INT"
+	},
+	{
+		"Title": "inv3501_temp",
+		"Name": "B035.INV3501.TEMP_INT"
+	},
+	{
+		"Title": "inv3502_temp",
+		"Name": "B035.INV3502.TEMP_INT"
+	},
+	{
+		"Title": "inv3601_temp",
+		"Name": "B036.INV3601.TEMP_INT"
+	},
+	{
+		"Title": "inv3602_temp",
+		"Name": "B036.INV3602.TEMP_INT"
+	},
+	{
+		"Title": "inv3701_temp",
+		"Name": "B037.INV3701.TEMP_INT"
+	},
+	{
+		"Title": "inv3702_temp",
+		"Name": "B037.INV3702.TEMP_INT"
+	},
+	{
+		"Title": "inv3801_temp",
+		"Name": "B038.INV3801.TEMP_INT"
+	},
+	{
+		"Title": "inv3901_temp",
+		"Name": "B039.INV3901.TEMP_INT"
+	},
+	{
+		"Title": "inv3902_temp",
+		"Name": "B039.INV3902.TEMP_INT"
+	},
+	{
+		"Title": "inv4001_temp",
+		"Name": "B040.INV4001.TEMP_INT"
+	},
+	{
+		"Title": "inv4002_temp",
+		"Name": "B040.INV4002.TEMP_INT"
+	},
+	{
+		"Title": "inv4003_temp",
+		"Name": "B040.INV4003.TEMP_INT"
+	},
+	{
+		"Title": "inv4101_temp",
+		"Name": "B041.INV4101.TEMP_INT"
+	},
+	{
+		"Title": "inv4201_temp",
+		"Name": "B042.INV4201.TEMP_INT"
+	},
+	{
+		"Title": "inv4202_temp",
+		"Name": "B042.INV4202.TEMP_INT"
+	},
+	{
+		"Title": "inv4301_temp",
+		"Name": "B043.INV4301.TEMP_INT"
+	},
+	{
+		"Title": "inv4302_temp",
+		"Name": "B043.INV4302.TEMP_INT"
+	},
+	{
+		"Title": "inv4401_temp",
+		"Name": "B044.INV4401.TEMP_INT"
+	},
+	{
+		"Title": "inv4402_temp",
+		"Name": "B044.INV4402.TEMP_INT"
+	},
+	{
+		"Title": "inv4403_temp",
+		"Name": "B044.INV4403.TEMP_INT"
+	},
+	{
+		"Title": "inv4404_temp",
+		"Name": "B044.INV4404.TEMP_INT"
+	},
+	{
+		"Title": "inv4405_temp",
+		"Name": "B044.INV4405.TEMP_INT"
+	},
+	{
+		"Title": "inv4501_temp",
+		"Name": "B045.INV4501.TEMP_INT"
+	},
+	{
+		"Title": "inv4601_temp",
+		"Name": "B046.INV4601.TEMP_INT"
+	},
+	{
+		"Title": "inv4701_temp",
+		"Name": "B047.INV4701.TEMP_INT"
+	},
+	{
+		"Title": "inv4702_temp",
+		"Name": "B047.INV4702.TEMP_INT"
+	},
+	{
+		"Title": "inv4703_temp",
+		"Name": "B047.INV4703.TEMP_INT"
+	},
+	{
+		"Title": "inv4801_temp",
+		"Name": "B048.INV4801.TEMP_INT"
+	}
+]

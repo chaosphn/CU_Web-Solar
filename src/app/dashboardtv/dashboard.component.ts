@@ -688,7 +688,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   getSumValue(key: string){
     const data = Object.entries(this.data.singleValue)
     .filter(x => x[0].endsWith(key))
-      .map(d => parseFloat(d[1].dataRecords[0].Value.replace(",", "")))
+      .map(d => parseFloat(d[1].dataRecords[0].Value))
         .reduce((pre, cur) => { pre += cur; return pre; }, 0);
     if(data){
       return data.toFixed(2);
@@ -700,7 +700,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   getAverageValue(key: string){
     const data = Object.entries(this.data.singleValue)
     .filter(x => x[0].endsWith(key))
-      .map(d => parseFloat(d[1].dataRecords[0].Value.replace(",", "")))
+      .map(d => parseFloat(d[1].dataRecords[0].Value))
         .reduce((pre, cur, idx, arr) => { pre += (cur/arr.length); return pre; }, 0);
     if(data){
       return data.toFixed(2);

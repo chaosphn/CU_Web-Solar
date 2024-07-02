@@ -1,15 +1,15 @@
 [
         {
                 "Name": "INV0401",
-                "WH": "INV0401.WH",
-                "WAC": "INV0401.WAC",
-                "WDC": "INV0401.WDC",
-                "IAC": "INV0401.IAC",
-                "IDC": "INV0401.IDC",
-                "VAC": "INV0401.VAC",
-                "VDC": "INV0401.VDC",
-                "VAR": "INV0401.VAR",               
-                "HZ": "INV0401.HZ"
+                "WH": "B004.INV0401.WH",
+                "WAC": "B004.INV0401.WAC",
+                "WDC": "B004.INV0401.WDC",
+                "IAC": "B004.INV0401.IAC",
+                "IDC": "B004.INV0401.IDC",
+                "VAC": "B004.INV0401.VAC",
+                "VDC": "B004.INV0401.VDC",
+                "VAR": "B004.INV0401.VAR",               
+                "HZ": "B004.INV0401.HZ"
         }
 		
 ]

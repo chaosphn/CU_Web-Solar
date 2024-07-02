@@ -30,6 +30,7 @@ export const MY_MOMENT_DATE_TIME_FORMATS: OwlDateTimeFormats = {
   ]
 })
 export class TimeControlComponent implements OnInit, OnChanges {
+  date: any;
   dateTimeCustom: string;
   @Input() fontSize = '12px';
   @Input() dateTime: Date;
@@ -53,6 +54,9 @@ export class TimeControlComponent implements OnInit, OnChanges {
           this.setCustomDateTime();
           const newDate = new Date(this.dateTimeCustom);
           this.selectDatetime.emit(newDate);
+        } else {
+          const newDate = new Date(this.dateTime);
+          this.selectDatetime.emit(newDate);
         }
       }
     }
@@ -60,6 +64,7 @@ export class TimeControlComponent implements OnInit, OnChanges {
   }
 
   afterPickerClosed() {
+    console.log(this.date)
     this.setDate();
     this.setCustomDateTime();
   }

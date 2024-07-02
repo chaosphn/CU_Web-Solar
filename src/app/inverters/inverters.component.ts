@@ -167,21 +167,22 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
     this.groupConfig = [];
       if(Tag){
         tagConfig.Category = "Inverter";
-        Tag.forEach( i => {
+        Tag.filter(x => x.Name.split(".")[0].endsWith(this.siteName.no)).forEach( i => {
           let display = i.Name.split(".");
-          if(this.reportConfig.find(x => x.Name == display[0]) && !tagConfig.Groups.find(x=>x.Name == display[0])){
+          if(this.reportConfig.find(x => x.Name.includes(display[1])) && !tagConfig.Groups.find(x=>x.Name == display[1])){
+            console.log(this.reportConfig.find(x => x.Name == display[0]))
             tagConfig.Groups.push({
-              Name: display[0],
+              Name: display[1],
               FullPath: i.Group,
               active: false,
-              Display: display[0],
+              Display: display[1],
             });
           } 
-          if(!tagConfig.Aliases.find(x=>x.Name == display[1])){
+          if(!tagConfig.Aliases.find(x=>x.Name == display[2])){
             tagConfig.Aliases.push({
-              Name: display[1],
+              Name: display[2],
               active: false,
-              Display: display[1],
+              Display: display[2],
             });
           }
         });
@@ -379,7 +380,7 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
     }
   
     selectedTag(tagNames: string[]) {
-      this.tagNames = tagNames;
+      this.tagNames = tagNames.map(x => "B0" + this.siteName.no + "." + x);
       //console.log(tagNames);
       // if (this.tagNames.length === 0) {
       //   this.periodName = null;
@@ -444,7 +445,7 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
       res.forEach(r => {
         const data: [number, number][] = [];
         r.records.forEach(r1 => {
-          const val = parseFloat(r1.Value.replace(",", ""));
+          const val = parseFloat(r1.Value);
           const time = new Date(r1.TimeStamp).getTime();
           data.push([time, val]);
         });

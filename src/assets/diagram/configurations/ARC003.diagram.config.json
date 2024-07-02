@@ -1,98 +1,98 @@
 [
 	{
 		"Title": "inv1_pr",
-		"Name": "INV0101.EFF"
+		"Name": "B001.INV0101.EFF"
 	},
 	{
 		"Title": "inv2_pr",
-		"Name": "INV0102.EFF"
+		"Name": "B001.INV0102.EFF"
 	},
 	{
 		"Title": "inv1_energy",
-		"Name": "INV0101.WH_TODAY"
+		"Name": "B001.INV0101.WH_TODAY"
 	},
 	{
 		"Title": "inv2_energy",
-		"Name": "INV0102.WH_TODAY"
+		"Name": "B001.INV0102.WH_TODAY"
 	},
 	{
 		"Title": "inv1_power",
-		"Name": "INV0101.WAC"
+		"Name": "B001.INV0101.WAC"
 	},
 	{
 		"Title": "inv2_power",
-		"Name": "INV0102.WAC"
+		"Name": "B001.INV0102.WAC"
 	},
 	{
 		"Title": "tou_energy",
-		"Name": "CALC01.WH_TODAY"
+		"Name": "B001.CALC01.WH_TODAY"
 	},
 	{
 		"Title": "tou_power",
-		"Name": "TOU01.W"
+		"Name": "B001.TOU01.W"
 	},
 	{
 		"Title": "tou_volt",
-		"Name": "TOU01.V"
+		"Name": "B001.TOU01.V"
 	},
 	{
 		"Title": "tou_amp",
-		"Name": "TOU01.I"
+		"Name": "B001.TOU01.I"
 	},
 	{
 		"Title": "pqm_energy",
-		"Name": "PQM01.WH"
+		"Name": "B001.PQM01.WH"
 	},
 	{
 		"Title": "pqm_power",
-		"Name": "PQM01.W"
+		"Name": "B001.PQM01.W"
 	},
 	{
 		"Title": "pqm_volt",
-		"Name": "PQM01.V"
+		"Name": "B001.PQM01.V"
 	},
 	{
 		"Title": "pqm_amp",
-		"Name": "PQM01.I"
+		"Name": "B001.PQM01.I"
 	},
 	{
 		"Title": "slog_irr",
-		"Name": "SLOGGER01.PYRANO"
+		"Name": "B001.SLOGGER01.PYRANO"
 	},
 	{
 		"Title": "slog_amb",
-		"Name": "SLOGGER01.AMBTEMP"
+		"Name": "B001.SLOGGER01.AMBTEMP"
 	},
 	{
 		"Title": "slog_pv",
-		"Name": "SLOGGER01.PVTEMP"
+		"Name": "B001.SLOGGER01.PVTEMP"
 	},
 	{
 		"Title": "slog_power",
-		"Name": "SLOGGER01.INV_WAC"
+		"Name": "B001.SLOGGER01.INV_WAC"
 	},
 	{
 		"Title": "slog_energy",
-		"Name": "SLOGGER01.WH_TODAY"
+		"Name": "B001.SLOGGER01.WH_TODAY"
 	},
 	{
 		"Title": "inv1_run",
-		"Name": "INV0101.RUN"
+		"Name": "B001.INV0101.RUN"
 	},
 	{
 		"Title": "inv2_run",
-		"Name": "INV0102.RUN"
+		"Name": "B001.INV0102.RUN"
 	},
 	{
 		"Title": "inv1_status",
-		"Name": "INV0101.ALARM"
+		"Name": "B001.INV0101.ALARM"
 	},
 	{
 		"Title": "inv2_status",
-		"Name": "INV0102.ALARM"
+		"Name": "B001.INV0102.ALARM"
 	},
 	{
 		"Title": "slog_status",
-		"Name": "SLOGGER01.MBFAIL"
+		"Name": "B001.SLOGGER01.MBFAIL"
 	}
 ]

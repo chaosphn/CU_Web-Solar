@@ -4,6 +4,7 @@ import { MultipleData } from './../../share/models/value-models/group-data.model
 import { DateTimeService } from './../../share/services/datetime.service';
 import { InverterValue } from './dashboard-inverter.service';
 import { isString } from 'util';
+import { PeriodTime1 } from 'src/app/share/models/period-time';
 
 @Injectable({
     providedIn: 'root'
@@ -55,6 +56,46 @@ export class DashboardChartService {
             }
             return chartParams; 
     }
+
+    getNewChartOptions(name: string, data: MultipleData, period:PeriodTime1): ChartParameters {
+
+        const chartParams = new ChartParameters(name);
+        const series = this.getSeries(data);
+
+        let xAxis;
+ 
+        if (data.options.chartOptions && data.options.chartOptions.xAxis) {
+            xAxis = this.getxAxis(data.options.chartOptions.xAxis.categories);
+            //console.log(xAxis);
+            //console.log(data.options.chartOptions.xAxis);
+            xAxis.tickInterval = data.options.chartOptions.xAxis.tickInterval;
+            //console.log(xAxis);
+        }
+        else {
+            xAxis = this.getxAxis();
+        }
+        if (period) {
+            xAxis.max = new Date(period.endTime).getTime();
+            xAxis.min = new Date(period.startTime).getTime();
+            // console.log("min : " + period.startTime + "\n max : " + period.endTime);
+        }
+        //console.log(xAxis);
+        chartParams.addXAxis(xAxis);
+        let enableLegend = true;
+        if (data.options && data.options.chartOptions && data.options.chartOptions.legend ) {
+            enableLegend = data.options.chartOptions.legend.enable;
+        }
+
+
+        const legend = this.getLegend(enableLegend);
+        const yAxis = this.getyAxis(data.options, data);
+        chartParams.setLegend(legend);
+        chartParams.addSeries(series);
+        if (yAxis) {
+            chartParams.addYAxis(yAxis);
+        }
+        return chartParams; 
+}
 
 
     getChartInverter(name: string, data: InverterValue[], options: any): ChartParameters  {

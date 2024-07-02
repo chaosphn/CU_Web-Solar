@@ -52,7 +52,7 @@
                   <p class="card-text group-name half" (click)="selectAllGroup(d)"
                     [ngClass]="{'active': getActiveAllGroup(d)}">ALL</p>
                   <div class="card-text group-name half" *ngFor="let g of d.Groups | orderBy: 'Name'" [ngClass]="{'active': g.active }"
-                    (click)="selectGroup(d, g)">{{g.Name}}
+                    (click)="selectGroup(d, g)">{{g.Display}}
                     <div class="tooltip bz w-100" >{{getBuildingName(g.Name)}}</div>
                   </div>
                 </div>

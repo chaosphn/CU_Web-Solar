@@ -1,0 +1,7 @@
+<div class="d-flex">
+  <span class="period" 
+  *ngFor="let p of periodNames" 
+  (click)="selectPeriod(p)" 
+  [ngClass]="{'active': getActive(p.Name)}"
+  >{{p.Name}}</span>
+</div>

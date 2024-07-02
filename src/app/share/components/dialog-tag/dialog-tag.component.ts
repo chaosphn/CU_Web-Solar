@@ -39,22 +39,29 @@ export class DialogTagComponent implements OnInit {
   }
 
   getBuildingName(name: string){
-    if(name.includes("INV")){
-      const id = name.replace("INV", "").substring(0, 2);
-      const res = this.buildings.find(x => parseInt(x.no) == parseInt(id));
-      if(res){
-        return res.name;
-      } else {
-        return "---";
-      }
+    // if(name.includes("INV")){
+    //   const id = name.replace("INV", "").substring(0, 2);
+    //   const res = this.buildings.find(x => parseInt(x.no) == parseInt(id));
+    //   if(res){
+    //     return res.name;
+    //   } else {
+    //     return "---";
+    //   }
+    // } else {
+    //   const id = name.split(".")[0].substring(name.length-2, name.length);
+    //   const res = this.buildings.find(x => parseInt(x.no) == parseInt(id));
+    //   if(res){
+    //     return res.name;
+    //   } else {
+    //     return "---";
+    //   }
+    // }
+    const id = name.split(".")[0].substring(name.split(".")[0].length-2, name.split(".")[0].length);
+    const res = this.buildings.find(x => parseInt(x.no) == parseInt(id));
+    if(res){
+      return res.name;
     } else {
-      const id = name.substring(name.length-2, name.length);
-      const res = this.buildings.find(x => parseInt(x.no) == parseInt(id));
-      if(res){
-        return res.name;
-      } else {
-        return "---";
-      }
+      return "---";
     }
   }
 
@@ -151,7 +158,7 @@ export class DialogTagComponent implements OnInit {
       if (_groupActive.length > 0 && _aliasActive.length > 0) {
         _groupActive.forEach(g => {
           _aliasActive.forEach(a => {
-            const fullPath = `${g.Display}.${a.Display}`;
+            const fullPath = `${g.Name}.${a.Display}`;
             strArr.push(fullPath);
           });
         });

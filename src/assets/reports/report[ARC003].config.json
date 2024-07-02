@@ -18,7 +18,7 @@
             },
             {
                 "title": "Energy\nProduction\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "B001.TOU01.WH",
                 "option": "DIFF",
                 "width": "7rem",
                 "type": "SUM",
@@ -26,7 +26,7 @@
             },
             {
                 "title": "Energy On Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "B001.TOU01.WH",
                 "option": "ONPEAK",
                 "width": "8rem",
                 "type": "SUM",
@@ -34,7 +34,7 @@
             },
             {
                 "title": "Energy Off Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "B001.TOU01.WH",
                 "option": "OFFPEAK",
                 "width": "8rem",
                 "type": "SUM",
@@ -42,7 +42,7 @@
             },
             {
                 "title": "Irradiance\n(Wh/m2)",
-                "tagname": "SLOGGER06.PYRANO",
+                "tagname": "B006.SLOGGER06.PYRANO",
                 "option": "AVG",
                 "width": "7rem",
                 "type": "SUM",
@@ -50,7 +50,7 @@
             },
             {
                 "title": "Ambient Temp.\n(°C)",
-                "tagname": "SLOGGER06.AMBTEMP",
+                "tagname": "B006.SLOGGER06.AMBTEMP",
                 "option": "AVG",
                 "width": "7rem",
                 "type": "AVG",
@@ -58,7 +58,7 @@
             },
             {
                 "title": "Module Temp.\n(°C)",
-                "tagname": "SLOGGER06.PVTEMP",
+                "tagname": "B006.SLOGGER06.PVTEMP",
                 "option": "AVG",
                 "width": "7rem",
                 "type": "AVG",
@@ -85,7 +85,7 @@
             },
             {
                 "title": "Energy\nProduction\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "B001.TOU01.WH",
                 "option": "DIFF",
                 "width": "7rem",
                 "type": "SUM",
@@ -93,7 +93,7 @@
             },
             {
                 "title": "Energy On Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "B001.TOU01.WH",
                 "option": "ONPEAK",
                 "width": "8rem",
                 "type": "SUM",
@@ -101,7 +101,7 @@
             },
             {
                 "title": "Energy Off Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "B001.TOU01.WH",
                 "option": "OFFPEAK",
                 "width": "8rem",
                 "type": "SUM",
@@ -109,7 +109,7 @@
             },
             {
                 "title": "Irradiance\n(Wh/m2)",
-                "tagname": "SLOGGER06.IRR_TODAY",
+                "tagname": "B006.SLOGGER06.IRR_TODAY",
                 "option": "DIFF",
                 "width": "7rem",
                 "type": "SUM",
@@ -117,7 +117,7 @@
             },
             {
                 "title": "Ambient Temp.\n(°C)",
-                "tagname": "SLOGGER06.AMBTEMP",
+                "tagname": "B006.SLOGGER06.AMBTEMP",
                 "option": "AVG",
                 "width": "7rem",
                 "type": "AVG",
@@ -125,7 +125,7 @@
             },
             {
                 "title": "Module Temp.\n(°C)",
-                "tagname": "SLOGGER06.PVTEMP",
+                "tagname": "B006.SLOGGER06.PVTEMP",
                 "option": "AVG",
                 "width": "7rem",
                 "type": "AVG",
@@ -152,7 +152,7 @@
             },
             {
                 "title": "Energy\nProduction\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "B001.TOU01.WH",
                 "option": "DIFF",
                 "width": "7rem",
                 "type": "SUM",
@@ -160,7 +160,7 @@
             },
             {
                 "title": "Energy On Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "B001.TOU01.WH",
                 "option": "PEAKMONTH",
                 "width": "8rem",
                 "type": "SUM",
@@ -168,7 +168,7 @@
             },
             {
                 "title": "Energy Off Peak\n(kWh)",
-                "tagname": "TOU01.WH",
+                "tagname": "B001.TOU01.WH",
                 "option": "OFFPEAK",
                 "width": "8rem",
                 "type": "SUM",
@@ -176,7 +176,7 @@
             },
             {
                 "title": "Irradiance\n(Wh/m2)",
-                "tagname": "SLOGGER06.IRR_TODAY",
+                "tagname": "B006.SLOGGER06.IRR_TODAY",
                 "option": "SUMMAX",
                 "width": "7rem",
                 "type": "SUM",
@@ -184,7 +184,7 @@
             },
             {
                 "title": "Ambient Temp.\n(°C)",
-                "tagname": "SLOGGER06.AMBTEMP",
+                "tagname": "B006.SLOGGER06.AMBTEMP",
                 "option": "AVGALL",
                 "width": "7rem",
                 "type": "AVG",
@@ -192,7 +192,7 @@
             },
             {
                 "title": "Module Temp.\n(°C)",
-                "tagname": "SLOGGER06.PVTEMP",
+                "tagname": "B006.SLOGGER06.PVTEMP",
                 "option": "AVGALL",
                 "width": "7rem",
                 "type": "AVG",

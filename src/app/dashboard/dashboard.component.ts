@@ -7,7 +7,7 @@ import { ChangePeriodName, DashboardConfigsState, SetDashboardConfigs } from '..
 import { DashboardLastValuesModel, DashboardLastValuesStateModel, DashboardResHistorian, DashboardResRealtime, Record } from '../core/stores/last-values/dashboard/dashboard-last-values.model';
 import { ChangeLastValues, ChangeLastValues1, DashboardLastValuesState, SetDashboardValues } from '../core/stores/last-values/dashboard/dashboard-last-values.state';
 import { DashboardReqHistorian, DashboardRequestModel, DashboardRequestStateModel } from '../core/stores/requests/dashboard/dashboard-request.model';
-import { ChangePeriod, ChangePeriod1, ChangeTagIds, SetDashboardRequest } from '../core/stores/requests/dashboard/dashboard-request.state';
+import { ChangePeriod, ChangePeriod1, ChangePeriod2, ChangeTagIds, SetDashboardRequest } from '../core/stores/requests/dashboard/dashboard-request.state';
 import { AddTags } from '../core/stores/tags/tags.state';
 import { ChartOptions } from '../share/models/chart-options.model';
 import { Period } from '../share/models/period';
@@ -32,6 +32,7 @@ import { LocalStorageService } from '../share/services/localstorage.service';
 import { EventService } from '../share/services/event.service';
 import { NavbarComponent } from '../core/components/navbar/navbar.component';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
+import { PeriodGroup, PeriodTime, PeriodTime1 } from '../share/models/period-time';
 
 @Component({
   selector: 'app-dashboard',
@@ -46,6 +47,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     multipleValue: {}
   };
   time: Date;
+  dateTime1: Date = new Date();
+  dateTime2: Date = new Date();
+  dateTime3: Date = new Date();
+  dateTime4: Date = new Date();
   subscriptions: Subscription[] = [];
   sub1: Subscription;
   chartConfigs: DashboardConfigStateModel[] = [];
@@ -73,6 +78,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       display: '12m'
     }
   ];
+  periodGroup:PeriodGroup[] = [
+    { Name: 'D', Type: 'daily' }, { Name: 'W', Type: 'weekly' }, { Name: 'M', Type: 'monthly' }, { Name: 'Y', Type: 'yearly' },
+  ];
+  periodGroupSelected1: PeriodGroup;
+  periodGroupSelected2: PeriodGroup;
+  periodGroupSelected3: PeriodGroup;
+  periodGroupSelected4: PeriodGroup;
   siteSelected: SiteStateModel[];
   currentRoute: string;
   private isInitialized = false;
@@ -114,18 +126,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.currentRoute = this.router.url.toString()
     const building = localStorage.getItem('location');
     this.siteName = JSON.parse(building);
+    this.initDateTime();
     this.init02();
   }
 
   updateInit(){
     this.unSubscribeTimer();
     const building = localStorage.getItem('location');
-    this.siteName = JSON.parse(building);
-    //console.log(JSON.parse(building))
-    this.periodSelected = {
-      name: 't',
-      display: 't'
-    };
+    this.siteName = JSON.parse(building)
+    this.initDateTime();
     this.init02();
     this.cd.markForCheck();
   }
@@ -147,6 +156,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       sub.unsubscribe();
     });
   }
+  
 
   
   getPeakTime(sec: number) {
@@ -284,8 +294,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
   loadInverterValues() {
+    console.log('update inv')
     if (this.dashboardInverterService.config) {
       const invs = this.dashboardInverterService.generateInverterValues();
+      console.log(invs)
       if (this.dashboardInverterService.config && 
         this.dashboardInverterService.config.options && 
         this.dashboardInverterService.config.options.runtimeConfigs ) {
@@ -293,6 +305,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           this.chartOptions[config.name] = this.dashboardChartService.getChartInverter(config.name, invs, config.options);
           this.chartSelected = undefined;
           this.disableButton = false;
+          console.log(this.chartOptions[config.name])
           this.cd.markForCheck();
         }
     }
@@ -308,11 +321,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.store.dispatch(new SetDashboardConfigs(dashboardConfigs));
     return dashboardConfigs;
   }
-
-  // async registerTags(dashboardConfigs: any[]) {
-  //   const tagNames = await this.dashboardTagService.getTagNames(dashboardConfigs);
-  //   await this.store.dispatch(new AddTags(tagNames)).toPromise();
-  // }
 
   createRealtimeRequest(config: DashboardConfigsRealtime[]){
     const request = this.dashboardRequestService.createRealtimeRequest(config);
@@ -354,11 +362,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   
       item.records.forEach(record => {
         const TimeStamp = record.TimeStamp;
-        const value = parseFloat(record.Value.replace(",", ""));
+        const value = parseFloat(record.Value);
   
-        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value.replace(",", ""))) {
+        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value)) {
           maxValues[TimeStamp] = { ...record, Value: value.toString() };
-        } else if (value === parseFloat(maxValues[TimeStamp].Value.replace(",", ""))) {
+        } else if (value === parseFloat(maxValues[TimeStamp].Value)) {
           // Additional criteria for handling ties can be added here
           // For now, keeping the first encountered record
         }
@@ -538,6 +546,82 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.cd.markForCheck();
   }
 
+  async selectPeriodChart(period: PeriodGroup, chartName: string, date: Date) {
+    //console.log("Chart: "+chartName+"\nStart :"+period.name);
+    //await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
+    const _period = this.getDateTimePeriod(date, period.Type);
+    const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
+    console.log(tagChart)
+    await this.store.dispatch(new ChangePeriod2(tagChart, _period.startTime, _period.endTime, period.Type)).toPromise();
+    let oldCond = this.getPeriodView(period.Type)
+    const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
+    let res: DashboardResHistorian[] = [];
+    this.chartSelected = chartName;
+    this.disableButton = true;
+    const request: DashboardReqHistorian[] = req.map( x => {
+      const opt:Options = {
+        StartTime: _period.startTime,
+        EndTime: _period.endTime,
+        Time: '',
+        Interval: 30,
+      }
+      return {...x, Options: opt}
+    });
+    console.log(request)
+    switch(chartName){
+      case "powerGeneration":
+        res = await this.httpService.getHistorian(request);
+        await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
+        break;
+      default:
+        res = await this.httpService.getHistorian(request);
+        console.log(res)
+        await this.store.dispatch(new ChangeLastValues1(tagChart, this.getMaxValueRecord(res))).toPromise();
+        break;
+    }
+    const charts = this.chartConfigs.find(d => d.name == chartName);
+    const type = charts.type;
+    let data: MultipleValue = {};
+    if (type === "Raw") {
+      data = this.dashboardLastValuesService.getRawGroupDataWithName(chartName, period.Type, this.chartConfigs);
+    }
+    else if (type === "Plot") {
+      data = this.dashboardLastValuesService.getPlotGroupDataWithName(chartName, period.Type, this.chartConfigs);
+    }
+    if (data && data[chartName] && data[chartName].data.length > 0) {
+      console.log(data);
+      this.chartOptions[chartName] = this.dashboardChartService.getNewChartOptions(chartName, data[chartName], _period);
+    }
+    this.disableButton = false;
+    this.chartSelected = undefined;
+    this.cd.markForCheck();
+  }
+
+  async selectPeriodInverterChart(period: PeriodGroup, chartName: string, date: Date) {
+    const _period = this.getDateTimePeriod(date, period.Type);
+    const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
+    await this.store.dispatch(new ChangePeriod2(tagChart, _period.startTime, _period.endTime, period.Type)).toPromise();
+    this.chartSelected = chartName;
+    this.disableButton = true;
+    
+    this.dashboardInverterService.periodName = period.Type;
+    this.dashboardInverterService.requests.forEach(r => {   
+      r.Options.StartTime = _period.startTime;
+      r.Options.EndTime = _period.endTime;
+    });
+    this.chartSelected = chartName;
+    this.disableButton = true;
+    const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
+    console.log(req)
+    console.log(this.dashboardInverterService.requests)
+    const res: DashboardResHistorian[] = await this.httpService.getHistorian(this.dashboardInverterService.requests);
+    this.dashboardInverterService.data = res;
+    this.loadInverterValues();
+    this.disableButton = false;
+    this.chartSelected = undefined;
+    this.cd.markForCheck();
+  }
+
   startTimer(dueTimer: number) {
     const _timer = timer(dueTimer, dueTimer).subscribe(x => {
       this.timerTick();
@@ -565,18 +649,116 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
  
 
-  private cloneHisReqs(hisReqs: DashboardRequestStateModel[]): DashboardRequestStateModel[] {
-    const cloneReqs: DashboardRequestStateModel[] = JSON.parse(JSON.stringify(hisReqs));
-    const period = this.dateTimeService.parseDate('t');
-    cloneReqs.forEach(req => {
-      const st = period.startTime;
-      const ed = period.endTime;
-      if (period) {
-        req.StartTime = st;
-        req.EndTime = ed;
-      }
-    });
-    return cloneReqs;
+  getStartView(type: string) {
+    if (type === 'daily') {
+      return null;
+    }
+    else if(type === 'weekly') {
+      return undefined;
+    }
+    else if(type === 'monthly') {
+      return 'year';
+    }
+    else if(type === 'yearly') {
+      return 'multi-years';
+    }
+  } 
+
+  getPeriodView(type: string) {
+    if (type === 'daily') {
+      return {name: 't', display: 't'};
+    }
+    else if(type === 'weekly') {
+      return {name: '7d', display: '7d'};
+    }
+    else if(type === 'monthly') {
+      return {name: '7d', display: '7d'};
+    }
+    else if(type === 'yearly') {
+      return {name: '12m', display: '12m'};
+    }
+  } 
+
+  initDateTime() {
+    // this.periodName = 't';
+    this.periodGroupSelected1 = this.periodGroup[0];
+    this.periodGroupSelected2 = this.periodGroup[0];
+    this.periodGroupSelected3 = this.periodGroup[0];
+    this.periodGroupSelected4 = this.periodGroup[0];
+    this.dateTime1 = new Date();
+    this.dateTime2 = new Date();
+    this.dateTime3 = new Date();
+    this.dateTime4 = new Date();
+  }
+
+  selectedPeriodGroup(periodName: PeriodGroup, id: string) {
+    if(id == "1"){
+      this.periodGroupSelected1 = periodName;
+    } else if(id == "2"){
+      this.periodGroupSelected2 = periodName;
+    } else if(id == "3"){
+      this.periodGroupSelected3 = periodName;
+    } else if(id == "4"){
+      this.periodGroupSelected4 = periodName;
+    }
+  }
+
+  onDateTimeChange(event:Date, id: string) {
+    if(id == "1"){
+      this.dateTime1 = new Date(event.setHours(0,0,0,0));
+    } else if(id == "2"){
+      this.dateTime2 = new Date(event.setHours(0,0,0,0));
+    } else if(id == "3"){
+      this.dateTime3 = new Date(event.setHours(0,0,0,0));
+    } else if(id == "4"){
+      this.dateTime4 = new Date(event.setHours(0,0,0,0));
+    }
+  }
+
+  getDateTimePeriod(event:Date, periodType: string):PeriodTime1 {
+    let dateTime = new Date(event.setHours(0,0,0,0));
+    let period: PeriodTime1 = {
+      startTime: '',
+      endTime: ''
+    };
+    console.log(dateTime)
+    switch(periodType){
+      case "daily":
+        period.startTime = this.dateTimeService.getDateTime(dateTime);
+        const endD = dateTime.setHours(23,59,0,0);
+        period.endTime = this.dateTimeService.getDateTime(new Date(endD));
+        break;
+      case "weekly":
+        const date = event.setHours(0,0,0,0);
+        if(new Date(date).getDay() != 0){
+          const startDay = new Date(date).getDate() - new Date(date).getDay();
+          period.startTime = this.dateTimeService.getDateTime(new Date(new Date(date).setDate(startDay+1)));
+          const end = dateTime.setHours(23,59,0,0);
+          const lastDay = new Date(end).setDate(startDay+7);
+          period.endTime = this.dateTimeService.getDateTime(new Date(lastDay));
+        } else {
+          const startDay = new Date(date).getDate() - 7;
+          period.startTime = this.dateTimeService.getDateTime(new Date(new Date(date).setDate(startDay+1)));
+          const end = dateTime.setHours(23,59,0,0);
+          const lastDay = new Date(end).setDate(startDay+7);
+          period.endTime = this.dateTimeService.getDateTime(new Date(lastDay));
+        }
+        break;
+      case "monthly":
+        period.startTime = this.dateTimeService.getDateTime(dateTime);
+        let endDate = new Date(dateTime);
+        endDate.setMonth(endDate.getMonth() + 1, 1);
+        period.endTime = this.dateTimeService.getDateTime(endDate);
+        break;
+      case "yearly":
+        period.startTime = this.dateTimeService.getDateTime(dateTime.toISOString());
+        let endMonth = new Date(dateTime);
+        endMonth.setFullYear(endMonth.getFullYear(), 12, 1);
+          period.endTime = this.dateTimeService.getDateTime(endMonth);
+        break;
+    }
+    return period;
+    //console.log('start : ' + this.startDate + '\nend : '+ this.endDate);
   }
 
 }

@@ -51,7 +51,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   diagramSelecter:any = false;
   diagramRouter:any = '/main/diagram';
   siteSelected: BuildingModel = {
-    no:"1",
+    no:"01",
     id:"ARC003",
     zone:"3",
     name:"อาคารเลิศ อุรัสยะนันทน์",

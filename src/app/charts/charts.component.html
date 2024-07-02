@@ -10,9 +10,11 @@
                         TAGS.</span>
                 </div>
                 <div class="row-header">
-                    <app-time-control [title]="'START'" [dateTime]="startTime" (selectDatetime)="selectStartTime($event)"></app-time-control>
-                    <span class="stroke">-</span>
-                    <app-time-control [title]="'END'" [dateTime]="endTime" (selectDatetime)="selectEndTime($event)"></app-time-control>
+                    <app-time-control *ngIf="isPeriod" [title]="'START'" [dateTime]="startTime" (selectDatetime)="selectStartTime($event)"></app-time-control>
+                    <span *ngIf="isPeriod" class="stroke">-</span>
+                    <app-time-control *ngIf="isPeriod" [title]="'END'" [dateTime]="endTime" (selectDatetime)="selectEndTime($event)"></app-time-control>
+                    <app-time-control *ngIf="!isPeriod" [pickerType]="'calendar'" [startView]="getStartView(periodGroupSelected?.Type)" style="margin-right: 7px;"
+                        (selectDatetime)="onDateTimeChange($event)" [dateTime]="dateTime"></app-time-control>
                     <div class="d-inline-block">
                         <span class="btn-ok" (click)="selectChart()">OK</span>
                     </div>
@@ -24,7 +26,11 @@
                     </div>
                 </div>
                 <div class="row-header">
-                    <app-time-preset [periodSelected]="periodName" [periodNames]="periodNames" (select)="selectedPeriod($event)"></app-time-preset>
+                    <div class="d-inline-block" style="margin-right: 14px;">
+                        <span class="btn-ok"  [ngClass]="{'active': !isPeriod}" (click)="setDateType()">CUSTOM</span>
+                    </div>
+                    <app-time-preset *ngIf="isPeriod" [periodSelected]="periodName" [periodNames]="periodNames" (select)="selectedPeriod($event)"></app-time-preset>
+                    <app-date-control *ngIf="!isPeriod" [periodSelected]="periodGroupSelected" [periodNames]="periodGroup" (select)="selectedPeriodGroup($event)" ></app-date-control>
                 </div>
             </div>
             <div class="content" id="htmlData">

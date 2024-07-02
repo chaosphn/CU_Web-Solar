@@ -1,0 +1,31 @@
+.period {
+    padding: 2px 0px;
+    background: #efefef;
+    color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    margin: 0px 2px;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-block;
+    width: 35px;
+    //border: 2px outset #7a7a7a;
+}
+
+.period:first-child {
+    margin-left: 0px;
+}
+
+.active {
+    background: #FD674E;
+    color: white;
+}
+
+.period:last-child {
+    margin-right: 0px !important; 
+}
+
+.period:active{
+    -webkit-transform: translateY(2px);
+    transform: translateY(2px);
+}

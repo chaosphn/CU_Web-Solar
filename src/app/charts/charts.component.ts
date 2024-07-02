@@ -8,7 +8,7 @@ import { TagsStateModel } from '../core/stores/tags/tags.model';
 import { AddTags, TagsState } from '../core/stores/tags/tags.state';
 import { MockDataService } from '../dashboard/services/mock-data.service';
 import { DialogTagComponent } from '../share/components/dialog-tag/dialog-tag.component';
-import { PeriodTime } from '../share/models/period-time';
+import { PeriodGroup, PeriodTime } from '../share/models/period-time';
 import { ResponseData } from '../share/models/response-data.model';
 import { ChartParameters, HAlign, LegendLayout, LegendParameter, Series, VAlingn, XAxisParameters, XAxisType } from '../share/models/sat-chart';
 import { AliasItem, Group, TagGrouping, TagInfo } from '../share/models/tag-group.model';
@@ -37,11 +37,19 @@ export class ChartsComponent implements OnInit {
   tagNames: string[] = [];
   startTime: Date;
   endTime: Date;
+  startDate: string;
+  endDate: string;
   periodName: string;
   periodNames = ['T', '7D', '30D', '3M', '12M'];
+  periodGroup:PeriodGroup[] = [
+    { Name: 'D', Type: 'daily' }, { Name: 'W', Type: 'weekly' }, { Name: 'M', Type: 'monthly' }, { Name: 'Y', Type: 'yearly' },
+  ];
+  periodGroupSelected: PeriodGroup;
   timerSubscription: Subscription;
   chartData: InverterResHistorian[] = [];
   downLoading: boolean = true;
+  isPeriod: boolean = false;
+  dateTime: Date;
   @ViewChild('htmlData', { read: false }) htmlData?: ElementRef
   uuid: string;
   constructor(public dialog: MatDialog,
@@ -53,6 +61,7 @@ export class ChartsComponent implements OnInit {
 
   ngOnInit() {
     this.uuid = UUID.UUID();
+    this.dateTime = new Date(new Date());
     this.initChart();
     this.getTagConfigs();
     this.initDateTime();
@@ -122,15 +131,15 @@ export class ChartsComponent implements OnInit {
     let grpName = "";
     tags.forEach( (item , index) => {
       const invInfo = item.Name.split(".");
-      if(invInfo[0] != grpName && !tagGroup.find(x => x.Display == invInfo[0])){
+      if(invInfo[1] != grpName && !tagGroup.find(x => x.Display == invInfo[1])){
         tagGroup.push({
-          Name: invInfo[0],
+          Name: invInfo[0] + "." + invInfo[1],
           FullPath: item.Address,
           active: false,
-          Display: invInfo[0],
+          Display: invInfo[1],
         });
       }
-      grpName = invInfo[0];
+      grpName = invInfo[1];
     }) 
     return tagGroup.filter(x => !x.Display.includes("ZONE"));
   }
@@ -140,21 +149,22 @@ export class ChartsComponent implements OnInit {
     let grpName = [];
     tags.forEach( (item , index) => {
       const invInfo = item.Name.split(".");
-      const checkTag = grpName.find( x => x == invInfo[1]);
+      const checkTag = grpName.find( x => x == invInfo[2]);
       if(!checkTag){
         tagGroup.push({
-          Name: invInfo[1],
+          Name: invInfo[2],
           active: false,
-          Display: invInfo[1],
+          Display: invInfo[2],
         });
       }
-      grpName.push(invInfo[1]);
+      grpName.push(invInfo[2]);
     }) 
     return tagGroup;
   }
 
   initDateTime() {
     // this.periodName = 't';
+    this.periodGroupSelected = this.periodGroup[0];
     const period: PeriodTime = this.dateTimeService.parseDate('t');
     this.startTime = new Date(period.startTime);
     this.endTime = new Date(period.endTime);
@@ -194,6 +204,11 @@ export class ChartsComponent implements OnInit {
     this.periodName = null;
   }
 
+  selectedPeriodGroup(periodName: PeriodGroup) {
+    this.periodGroupSelected = periodName;
+    
+  }
+
   selectedPeriod(periodName: string) {
     if (this.checkTagNames()) {
       this.periodName = periodName;
@@ -216,12 +231,18 @@ export class ChartsComponent implements OnInit {
   }
 
   selectChart() {
-    this.render(this.tagNames, this.startTime, this.endTime);
+    if(this.isPeriod){
+      this.render(this.tagNames, this.startTime, this.endTime);
+    } else {
+      this.render(this.tagNames, this.startDate, this.endDate);
+    }
   }
 
+  setDateType() {
+    this.isPeriod = !this.isPeriod;
+  }
 
-
-  async render(tagNames: string[], startTime: Date, endTime: Date) {
+  async render(tagNames: string[], startTime: string | Date, endTime: string | Date) {
     this.validateParameters();
       const st = this.dateTimeService.getDateTime(startTime);
       const ed = this.dateTimeService.getDateTime(endTime);
@@ -250,7 +271,7 @@ export class ChartsComponent implements OnInit {
     res.forEach(r => {
       const data: [number, number][] = [];
       r.records.forEach(r1 => {
-        const val = parseFloat(r1.Value.replace(",", ""));
+        const val = parseFloat(r1.Value);
         const time = new Date(r1.TimeStamp).getTime();
         data.push([time, val]);
       });
@@ -326,9 +347,9 @@ export class ChartsComponent implements OnInit {
       const maxValues = {};
       item.records.forEach(record => {
         const TimeStamp = record.TimeStamp;
-        const value = parseFloat(record.Value.replace(",", ""));
+        const value = parseFloat(record.Value);
 
-        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value.replace(",", ""))) {
+        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value)) {
           maxValues[TimeStamp] = {...record,Value:value.toString() };
         }
       });
@@ -434,7 +455,59 @@ export class ChartsComponent implements OnInit {
     return data;
   }
 
+  getStartView(type: string) {
+    if (type === 'daily') {
+      return null;
+    }
+    else if(type === 'weekly') {
+      return undefined;
+    }
+    else if(type === 'monthly') {
+      return 'year';
+    }
+    else if(type === 'yearly') {
+      return 'multi-years';
+    }
+  } 
 
-
+  onDateTimeChange(event:Date) {
+    this.dateTime = new Date(event.setHours(0,0,0,0));
+    switch(this.periodGroupSelected.Type){
+      case "daily":
+        this.startDate = this.dateTimeService.getDateTime(this.dateTime);
+        const endD = this.dateTime.setHours(23,59,0,0);
+        this.endDate = this.dateTimeService.getDateTime(new Date(endD));
+        break;
+      case "weekly":
+        const date = event.setHours(0,0,0,0);
+        if(new Date(date).getDay() != 0){
+          const startDay = new Date(date).getDate() - new Date(date).getDay();
+          this.startDate = this.dateTimeService.getDateTime(new Date(new Date(date).setDate(startDay+1)));
+          const end = this.dateTime.setHours(23,59,0,0);
+          const lastDay = new Date(end).setDate(startDay+7);
+          this.endDate = this.dateTimeService.getDateTime(new Date(lastDay));
+        } else {
+          const startDay = new Date(date).getDate() - 7;
+          this.startDate = this.dateTimeService.getDateTime(new Date(new Date(date).setDate(startDay+1)));
+          const end = this.dateTime.setHours(23,59,0,0);
+          const lastDay = new Date(end).setDate(startDay+7);
+          this.endDate = this.dateTimeService.getDateTime(new Date(lastDay));
+        }
+        break;
+      case "monthly":
+        this.startDate = this.dateTimeService.getDateTime(this.dateTime);
+        let endDate = new Date(this.dateTime);
+        endDate.setMonth(endDate.getMonth() + 1, 1);
+        this.endDate = this.dateTimeService.getDateTime(endDate);
+        break;
+      case "yearly":
+        this.startDate = this.dateTimeService.getDateTime(this.dateTime.toISOString());
+        let endMonth = new Date(this.dateTime);
+        endMonth.setFullYear(endMonth.getFullYear(), 12, 1);
+        this.endDate = this.dateTimeService.getDateTime(endMonth);
+        break;
+    }
+    //console.log('start : ' + this.startDate + '\nend : '+ this.endDate);
+  }
 
 }

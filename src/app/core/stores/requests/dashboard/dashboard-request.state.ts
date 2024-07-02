@@ -24,6 +24,11 @@ export class ChangePeriod1 {
     constructor(public requestName: any[], public startTime: string, public endTime: string, public period: string) { }
 }
 
+export class ChangePeriod2 {
+    static readonly type = '[DashboardRequest] ChangePeriod2';
+    constructor(public requestName: any[], public startTime: string, public endTime: string, public period: string) { }
+}
+
 export class ChangeTagIds {
     static readonly type = '[DashboardRequest] ChangeTagIds';
     constructor(public groupId: string, public periodName: string) { }
@@ -118,6 +123,39 @@ export class DashboardRequestState {
         ctx.setState(state);
     }
 
+    @Action(ChangePeriod2)
+    ChangePeriod2(ctx: StateContext<DashboardRequestModel>, action: ChangePeriod2) {
+        let state = ctx.getState();
+        
+        const startTimeISO = new Date(action.startTime).toISOString().split('.')[0];
+        const endTimeISO = new Date(action.endTime).toISOString().split('.')[0];
+        const changeItem = action.requestName[0].find(x => x.period == action.period);
+        state.Historian.forEach((req) => {
+            let reqName = req.Name;
+            //console.log(action.requestName[0])
+            let itemName = action.requestName[0].find(x => x.name == req.Name);
+            //console.log(reqName);
+            //console.log(itemName)
+            if ( itemName && itemName.name && reqName == itemName.name) {
+                let request1 = req;
+                if(changeItem && changeItem.name){
+                    //console.log(changeItem)
+                    request1.Name = changeItem.name;
+                }
+                if (request1 && request1.Options.StartTime && request1.Options.EndTime) {
+                    request1.Options.StartTime = startTimeISO;
+                    request1.Options.EndTime = endTimeISO;
+
+                    if (request1.Options.Time !="") {
+                        request1.Options.Time = "";
+                    }
+                }
+                //console.log(request1)
+            }
+        });
+        //console.log(state)
+        ctx.setState(state);
+    }
 
 
     @Action(ChangeTagIds)
@@ -164,7 +202,10 @@ export class DashboardRequestState {
             let reqHis: DashboardReqHistorian[] = [];
             //console.log(chartName[0])
             //console.log(stateHis);
-            chartName[0].filter(x => x.period == period.name || !x.period).forEach((item) => {
+            console.log(period)
+            console.log(chartName[0])
+            console.log(stateHis)
+            chartName[0].filter(x => x.period == period.Type || !x.period).forEach((item) => {
                 let request = stateHis.find(d => d.Name == item.name);
                 if(request){
                     reqHis.push(request);

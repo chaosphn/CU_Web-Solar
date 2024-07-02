@@ -33,6 +33,7 @@ import { FilterNamePipe } from './pipe/filter-name.pipe';
 import { Number2Pipe } from './pipe/my-number2.pipe';
 import { CardBreakerComponent } from './components/card-breaker/card-breaker.component';
 import { ReportPipe } from './pipe/report.pipr';
+import { DateControlComponent } from './components/date-control/date-control.component';
 
 
 
@@ -86,7 +87,8 @@ export const MY_MOMENT_FORMATS = {
     OrderByPipe,
     FilterNamePipe,
     Number2Pipe,
-    ReportPipe
+    ReportPipe,
+    DateControlComponent
   ],
   entryComponents: [
     DialogTagComponent,
@@ -124,7 +126,8 @@ export const MY_MOMENT_FORMATS = {
     OrderByPipe,
     FilterNamePipe,
     Number2Pipe,
-    ReportPipe
+    ReportPipe,
+    DateControlComponent
   ],
   providers: [
     {provide: OWL_DATE_TIME_FORMATS, useValue: MY_MOMENT_FORMATS},

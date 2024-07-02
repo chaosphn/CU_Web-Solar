@@ -35,6 +35,24 @@
     animation: gradient-animation_2 1.2s linear infinite;
 }
 
+.btn-ok {
+    background: #FD674E;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-block;
+    // line-height: 1.4;
+    // padding-bottom: 1px;
+    //margin: 0 7px;
+    padding:2px 8px;
+}
+
+.date-box{
+    display: inline-flex;
+    align-items: baseline;
+}
+
 
 @keyframes gradient-animation_2 {
     0% {

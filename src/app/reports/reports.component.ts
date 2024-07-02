@@ -112,12 +112,12 @@ export class ReportsComponent implements OnInit {
       series: [
         {
           name: 'Energy Peak',
-          data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[2].replace(",", ""))),
+          data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[2])),
           color: '#F05C5C'
         },
         {
           name: 'Energy Offpeak',
-          data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[3].replace(",", ""))),
+          data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[3])),
           color: '#0DD141'
         }
       ]
@@ -264,20 +264,11 @@ export class ReportsComponent implements OnInit {
     const table: any[] = [];
 
     const fetchData = async () => {
+      this.dataTable = [];
       this.loading = true;
       const promises = this.dateColumn.map(async rw => {
         const res:DashboardResHistorian[] = await this.httpService.getHistorian(this.getRequestWithType(this.selectedReport.Type, rw));
-        if (res) {
-          this.response = res;
-          // .map((x,i) => {
-          //   x.records.forEach((d, j) => {
-          //     d.TimeStamp = this.dateTimeService.getDateTime(d.TimeStamp);
-          //     if(i==0){console.log(d);}
-          //     return d;
-          //   });
-          //   return x;
-          // });
-        }
+        this.response = res;        
         let row: any[] = [];
         this.selectedReport.Header.forEach((cl, i) => {
           switch (cl.option) {
@@ -340,7 +331,7 @@ export class ReportsComponent implements OnInit {
       const firstVal = data[this.findFirstValueIndex(data)];
       const lastVal = data[this.findLastValueIndex(data)];
       if(firstVal && lastVal && firstVal.Value && lastVal.Value){
-        const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
+        const diff = parseFloat(lastVal.Value) -  parseFloat(firstVal.Value);
         if(diff >= 0){res = diff.toString();}
       }
     }
@@ -350,7 +341,7 @@ export class ReportsComponent implements OnInit {
   findFirstValueIndex(data: Record[]): number{
     for (let index = 0; index < data.length; index++) {
       let val = data[index].Value;
-      if(parseFloat(val.replace(",", ""))){
+      if(parseFloat(val)){
         return index;
       }
     }
@@ -360,7 +351,7 @@ export class ReportsComponent implements OnInit {
   findLastValueIndex(data: Record[]): number{
     for (let index = data.length - 1; index >= 0; index--) {
       let val = data[index].Value;
-      if(parseFloat(val.replace(",", ""))){
+      if(parseFloat(val)){
         return index;
       }
     }
@@ -383,7 +374,7 @@ export class ReportsComponent implements OnInit {
     const firstVal = data[this.findFirstValueIndex(data)];
     const lastVal = data[this.findLastValueIndex(data)];
     if(firstVal && lastVal && firstVal.Value && lastVal.Value){
-      const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
+      const diff = parseFloat(lastVal.Value) -  parseFloat(firstVal.Value);
       if(diff >= 0){res = diff.toString();}
     }
     return res;
@@ -400,7 +391,7 @@ export class ReportsComponent implements OnInit {
     const firstVal = data[0];
     const lastVal = data[data.length - 1];
     if(firstVal && lastVal && firstVal.Value && lastVal.Value){
-      const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
+      const diff = parseFloat(lastVal.Value) -  parseFloat(firstVal.Value);
       if(diff >= 0){res = diff.toString();}
     }
     return res;
@@ -414,7 +405,7 @@ export class ReportsComponent implements OnInit {
     const data:Record[] = this.response.find(x => x.Name == tag).records
       .filter(d => d.TimeStamp.includes(findDate));
     const avgVal = data.reduce((acc, cur) => {
-      acc += parseFloat(cur.Value.replace(",", ""));
+      acc += parseFloat(cur.Value);
       return acc;
     },0);
     if(avgVal){
@@ -428,7 +419,7 @@ export class ReportsComponent implements OnInit {
     let res: string = "0.00";
     const data:Record[] = this.response.find(x => x.Name == tag).records;
     const avgVal = data.reduce((acc, cur) => {
-      acc += parseFloat(cur.Value.replace(",", ""));
+      acc += parseFloat(cur.Value);
       return acc;
     },0);
     if(avgVal){
@@ -445,7 +436,7 @@ export class ReportsComponent implements OnInit {
     if(this.selectedReport.Type != "daily"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
     const data:Record[] = this.response.find(x => x.Name == tag).records
       .filter(d => d.TimeStamp.includes(findDate))
-        .sort((a,b) => parseFloat(a.Value.replace(",", "")) - parseFloat(b.Value.replace(",", "")));
+        .sort((a,b) => parseFloat(a.Value) - parseFloat(b.Value));
     const lastVal = data[data.length - 1];
     if(lastVal && lastVal.Value){
       const diff = parseFloat(lastVal.Value);
@@ -459,7 +450,7 @@ export class ReportsComponent implements OnInit {
     const data: DashboardResHistorian = this.response.find(x => x.Name == tag);
     const sumValue = this.getMaxValueForEachDate(data.records)
       .reduce((acc, cur) => {
-        acc += parseFloat(cur.Value.replace(",", ""));
+        acc += parseFloat(cur.Value);
         return acc;
       }, 0);
     if(sumValue){
@@ -518,7 +509,7 @@ export class ReportsComponent implements OnInit {
       const firstVal = maxRecord[this.findFirstValueIndex(maxRecord)];
       const lastVal = maxRecord[this.findLastValueIndex(maxRecord)];
       if(firstVal && lastVal && firstVal.Value && lastVal.Value){
-        const diff = parseFloat(lastVal.Value.replace(",", "")) -  parseFloat(firstVal.Value.replace(",", ""));
+        const diff = parseFloat(lastVal.Value) -  parseFloat(firstVal.Value);
         if(diff >= 0){diffVal += diff}
       }
       return maxRecord;
@@ -532,9 +523,9 @@ export class ReportsComponent implements OnInit {
       const maxValues = {};
       record.forEach(record => {
         const TimeStamp = record.TimeStamp;
-        const value = parseFloat(record.Value.replace(",", ""));
+        const value = parseFloat(record.Value);
 
-        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value.replace(",", ""))) {
+        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value)) {
           maxValues[TimeStamp] = {...record,Value:value.toString() };
         }
       });

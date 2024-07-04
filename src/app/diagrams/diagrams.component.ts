@@ -123,17 +123,18 @@ export class DiagramsComponent implements OnInit, OnDestroy {
     }
   }
 
-  getAlm2(tagName){
+  getAlmRun(tagName: string){
     let isAlarm = false;
     var value : string;
     if (this.data && this.data.singleValue[tagName]) {
       value = this.data.singleValue[tagName].dataRecords[0].Value
-      isAlarm = value.toString() == 'True'
+      isAlarm = value.toString() == '1'
     }
+    //, animation: 'blinker 2s linear infinite'
     if (!isAlarm){
-      return { fill:'red',opacity: 1, animation: 'blinker 2s linear infinite'}
+      return { fill:'black',opacity: 1}
     }else{
-      return { fill:'#00c300',stroke:'#b8b8b8',opacity: 1}
+      return { fill:'#00c300', opacity: 1, padding: '10px'}
     }
   }
 
@@ -152,12 +153,12 @@ export class DiagramsComponent implements OnInit, OnDestroy {
     }
   }
 
-  getRunTxt(tagName){
+  getRunTxt(tagName: string){
     let isAlarm = false;
     var value : string;
     if (this.data && this.data.singleValue[tagName]) {
       value = this.data.singleValue[tagName].dataRecords[0].Value
-      isAlarm = value.toString() == 'True'
+      isAlarm = value.toString() == '1';
     }
     if (isAlarm){
       return 'RUN'

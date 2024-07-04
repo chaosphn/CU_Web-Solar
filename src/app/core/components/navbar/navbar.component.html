@@ -54,6 +54,13 @@
         </i>
         <p>DASHBOARD</p>
       </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/meterdashboard" routerLinkActive="active"
+        *ngIf="pages.indexOf('meterdashboard') > -1" (click)="toggleBackground('/main/meterdashboard')">
+        <i class="material-icons">
+          dashboard_customize
+        </i>
+        <p>DASHBOARD M</p>
+      </a>
       <a mat-list-item href="#" class="box" routerLink="/main/dashboard3" routerLinkActive="active"
         *ngIf="pages.indexOf('dashboard3') > -1" (click)="toggleBackground('/main/dashboard')">
         <i class="material-icons">
@@ -61,8 +68,15 @@
         </i>
         <p>BUILDING</p>
       </a>
-      <a mat-list-item href="#" class="box" routerLink="/main/diagrams" routerLinkActive="active"
-         (click)="toggleBackground('/main/diagrams')">
+      <a mat-list-item href="#" class="box" routerLink="/main/topology" routerLinkActive="active"
+        *ngIf="pages.indexOf('topology') > -1" (click)="toggleBackground('/main/topology')">
+        <i class="material-icons">
+          account_tree
+        </i>
+        <p>TOPOLOGY</p>
+      </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/diagram" routerLinkActive="active"
+        *ngIf="pages.indexOf('diagram') > -1" (click)="toggleBackground('/main/diagram')">
         <i class="material-icons">
           device_hub
         </i>

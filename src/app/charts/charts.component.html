@@ -15,8 +15,8 @@
                     <app-time-control *ngIf="isPeriod" [title]="'END'" [dateTime]="endTime" (selectDatetime)="selectEndTime($event)"></app-time-control>
                     <app-time-control *ngIf="!isPeriod" [pickerType]="'calendar'" [startView]="getStartView(periodGroupSelected?.Type)" style="margin-right: 7px;"
                         (selectDatetime)="onDateTimeChange($event)" [dateTime]="dateTime"></app-time-control>
-                    <div class="d-inline-block">
-                        <span class="btn-ok" (click)="selectChart()">OK</span>
+                    <div class="d-inline-block" >
+                        <button type="submit" [disabled]="downLoading" class="btn-ok" (click)="selectChart()">OK</button>
                     </div>
                     <div class="d-inline-block">
                         <span class="btn-ok" *ngIf="chartData.length > 0" (click)="captureScreen()">SAVE PNG</span>
@@ -29,12 +29,12 @@
                     <div class="d-inline-block" style="margin-right: 14px;">
                         <span class="btn-ok"  [ngClass]="{'active': !isPeriod}" (click)="setDateType()">CUSTOM</span>
                     </div>
-                    <app-time-preset *ngIf="isPeriod" [periodSelected]="periodName" [periodNames]="periodNames" (select)="selectedPeriod($event)"></app-time-preset>
-                    <app-date-control *ngIf="!isPeriod" [periodSelected]="periodGroupSelected" [periodNames]="periodGroup" (select)="selectedPeriodGroup($event)" ></app-date-control>
+                    <app-time-preset [disableButton]="downLoading" *ngIf="isPeriod" [periodSelected]="periodName" [periodNames]="periodNames" (select)="selectedPeriod($event)"></app-time-preset>
+                    <app-date-control [disableButton]="downLoading" *ngIf="!isPeriod" [periodSelected]="periodGroupSelected" [periodNames]="periodGroup" (select)="selectedPeriodGroup($event)" ></app-date-control>
                 </div>
             </div>
             <div class="content" id="htmlData">
-                <app-sat-chart [chartParameters]="chartParameters"></app-sat-chart>
+                <app-sat-chart *ngIf="!downLoading" [chartParameters]="chartParameters"></app-sat-chart>
                 <!-- <button mat-fab class="icon-button btn-2" *ngIf="chartData.length > 0 && downLoading" (click)="captureScreen()">
                     <i class="material-icons">
                         image
@@ -45,6 +45,12 @@
                         description
                     </i>
                 </button> -->
+                <div class="loading-wave" *ngIf="downLoading">
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                    <div class="loading-bar"></div>
+                </div>
             </div>
         </div>
     </div>

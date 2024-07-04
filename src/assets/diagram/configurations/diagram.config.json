@@ -1,6 +1,18 @@
 [
 
 	{
+		"Title": "power_active",
+		"Name": "CALC.ALLZONE.W"
+	},
+	{
+		"Title": "energy_today",
+		"Name": "CALC.ALLZONE.WH_TODAY"
+	},
+	{
+		"Title": "energy_total",
+		"Name": "CALC.ALLZONE.WH"
+	},
+	{
 		"Title": "ARC003_power",
 		"Name": "B001.TOU01.W"
 	},
@@ -2127,5 +2139,345 @@
 	{
 		"Title": "inv4801_temp",
 		"Name": "B048.INV4801.TEMP_INT"
+	},
+	{
+		"Title": "inv0101_run",
+		"Name": "B001.INV0101.RUN"
+	},
+	{
+		"Title": "inv0102_run",
+		"Name": "B001.INV0102.RUN"
+	},
+	{
+		"Title": "inv0201_run",
+		"Name": "B002.INV0201.RUN"
+	},
+	{
+		"Title": "inv0202_run",
+		"Name": "B002.INV0202.RUN"
+	},
+	{
+		"Title": "inv0301_run",
+		"Name": "B003.INV0301.RUN"
+	},
+	{
+		"Title": "inv0302_run",
+		"Name": "B003.INV0302.RUN"
+	},
+	{
+		"Title": "inv0401_run",
+		"Name": "B004.INV0401.RUN"
+	},
+	{
+		"Title": "inv0501_run",
+		"Name": "B005.INV0501.RUN"
+	},
+	{
+		"Title": "inv0502_run",
+		"Name": "B005.INV0502.RUN"
+	},
+	{
+		"Title": "inv0601_run",
+		"Name": "B006.INV0601.RUN"
+	},
+	{
+		"Title": "inv0602_run",
+		"Name": "B006.INV0602.RUN"
+	},
+	{
+		"Title": "inv0701_run",
+		"Name": "B007.INV0701.RUN"
+	},
+	{
+		"Title": "inv0801_run",
+		"Name": "B008.INV0801.RUN"
+	},
+	{
+		"Title": "inv0901_run",
+		"Name": "B009.INV0901.RUN"
+	},
+	{
+		"Title": "inv0902_run",
+		"Name": "B009.INV0902.RUN"
+	},
+	{
+		"Title": "inv1001_run",
+		"Name": "B010.INV1001.RUN"
+	},
+	{
+		"Title": "inv1002_run",
+		"Name": "B010.INV1002.RUN"
+	},
+	{
+		"Title": "inv1101_run",
+		"Name": "B011.INV1101.RUN"
+	},
+	{
+		"Title": "inv1201_run",
+		"Name": "B012.INV1201.RUN"
+	},
+	{
+		"Title": "inv1301_run",
+		"Name": "B013.INV1301.RUN"
+	},
+	{
+		"Title": "inv1401_run",
+		"Name": "B014.INV1401.RUN"
+	},
+	{
+		"Title": "inv1501_run",
+		"Name": "B015.INV1501.RUN"
+	},
+	{
+		"Title": "inv1601_run",
+		"Name": "B016.INV1601.RUN"
+	},
+	{
+		"Title": "inv1701_run",
+		"Name": "B017.INV1701.RUN"
+	},
+	{
+		"Title": "inv1801_run",
+		"Name": "B018.INV1801.RUN"
+	},
+	{
+		"Title": "inv1802_run",
+		"Name": "B018.INV1802.RUN"
+	},
+	{
+		"Title": "inv1901_run",
+		"Name": "B019.INV1901.RUN"
+	},
+	{
+		"Title": "inv1902_run",
+		"Name": "B019.INV1902.RUN"
+	},
+	{
+		"Title": "inv2001_run",
+		"Name": "B020.INV2001.RUN"
+	},
+	{
+		"Title": "inv2002_run",
+		"Name": "B020.INV2002.RUN"
+	},
+	{
+		"Title": "inv2101_run",
+		"Name": "B021.INV2101.RUN"
+	},
+	{
+		"Title": "inv2102_run",
+		"Name": "B021.INV2102.RUN"
+	},
+	{
+		"Title": "in21803_run",
+		"Name": "B021.INV2103.RUN"
+	},
+	{
+		"Title": "inv2201_run",
+		"Name": "B022.INV2201.RUN"
+	},
+	{
+		"Title": "inv2202_run",
+		"Name": "B022.INV2202.RUN"
+	},
+	{
+		"Title": "inv2301_run",
+		"Name": "B023.INV2301.RUN"
+	},
+	{
+		"Title": "inv2302_run",
+		"Name": "B023.INV2302.RUN"
+	},
+	{
+		"Title": "inv2401_run",
+		"Name": "B024.INV2401.RUN"
+	},
+	{
+		"Title": "inv2501_run",
+		"Name": "B025.INV2501.RUN"
+	},
+	{
+		"Title": "inv2601_run",
+		"Name": "B026.INV2601.RUN"
+	},
+	{
+		"Title": "inv2602_run",
+		"Name": "B026.INV2602.RUN"
+	},
+	{
+		"Title": "inv2701_run",
+		"Name": "B027.INV2701.RUN"
+	},
+	{
+		"Title": "inv2801_run",
+		"Name": "B028.INV2801.RUN"
+	},
+	{
+		"Title": "inv2802_run",
+		"Name": "B028.INV2802.RUN"
+	},
+	{
+		"Title": "inv2901_run",
+		"Name": "B029.INV2901.RUN"
+	},
+	{
+		"Title": "inv2902_run",
+		"Name": "B029.INV2902.RUN"
+	},
+	{
+		"Title": "inv3001_run",
+		"Name": "B030.INV3001.RUN"
+	},
+	{
+		"Title": "inv3002_run",
+		"Name": "B030.INV3002.RUN"
+	},
+	{
+		"Title": "inv3101_run",
+		"Name": "B031.INV3101.RUN"
+	},
+	{
+		"Title": "inv3201_run",
+		"Name": "B032.INV3201.RUN"
+	},
+	{
+		"Title": "inv3202_run",
+		"Name": "B032.INV3202.RUN"
+	},
+	{
+		"Title": "inv3203_run",
+		"Name": "B032.INV3203.RUN"
+	},
+	{
+		"Title": "inv3301_run",
+		"Name": "B033.INV3301.RUN"
+	},
+	{
+		"Title": "inv3302_run",
+		"Name": "B033.INV3302.RUN"
+	},
+	{
+		"Title": "inv3401_run",
+		"Name": "B034.INV3401.RUN"
+	},
+	{
+		"Title": "inv3402_run",
+		"Name": "B034.INV3402.RUN"
+	},
+	{
+		"Title": "inv3403_run",
+		"Name": "B034.INV3403.RUN"
+	},
+	{
+		"Title": "inv3501_run",
+		"Name": "B035.INV3501.RUN"
+	},
+	{
+		"Title": "inv3502_run",
+		"Name": "B035.INV3502.RUN"
+	},
+	{
+		"Title": "inv3601_run",
+		"Name": "B036.INV3601.RUN"
+	},
+	{
+		"Title": "inv3602_run",
+		"Name": "B036.INV3602.RUN"
+	},
+	{
+		"Title": "inv3701_run",
+		"Name": "B037.INV3701.RUN"
+	},
+	{
+		"Title": "inv3702_run",
+		"Name": "B037.INV3702.RUN"
+	},
+	{
+		"Title": "inv3801_run",
+		"Name": "B038.INV3801.RUN"
+	},
+	{
+		"Title": "inv3901_run",
+		"Name": "B039.INV3901.RUN"
+	},
+	{
+		"Title": "inv3902_run",
+		"Name": "B039.INV3902.RUN"
+	},
+	{
+		"Title": "inv4001_run",
+		"Name": "B040.INV4001.RUN"
+	},
+	{
+		"Title": "inv4002_run",
+		"Name": "B040.INV4002.RUN"
+	},
+	{
+		"Title": "inv4003_run",
+		"Name": "B040.INV4003.RUN"
+	},
+	{
+		"Title": "inv4101_run",
+		"Name": "B041.INV4101.RUN"
+	},
+	{
+		"Title": "inv4201_run",
+		"Name": "B042.INV4201.RUN"
+	},
+	{
+		"Title": "inv4202_run",
+		"Name": "B042.INV4202.RUN"
+	},
+	{
+		"Title": "inv4301_run",
+		"Name": "B043.INV4301.RUN"
+	},
+	{
+		"Title": "inv4302_run",
+		"Name": "B043.INV4302.RUN"
+	},
+	{
+		"Title": "inv4401_run",
+		"Name": "B044.INV4401.RUN"
+	},
+	{
+		"Title": "inv4402_run",
+		"Name": "B044.INV4402.RUN"
+	},
+	{
+		"Title": "inv4403_run",
+		"Name": "B044.INV4403.RUN"
+	},
+	{
+		"Title": "inv4404_run",
+		"Name": "B044.INV4404.RUN"
+	},
+	{
+		"Title": "inv4405_run",
+		"Name": "B044.INV4405.RUN"
+	},
+	{
+		"Title": "inv4501_run",
+		"Name": "B045.INV4501.RUN"
+	},
+	{
+		"Title": "inv4601_run",
+		"Name": "B046.INV4601.RUN"
+	},
+	{
+		"Title": "inv4701_run",
+		"Name": "B047.INV4701.RUN"
+	},
+	{
+		"Title": "inv4702_run",
+		"Name": "B047.INV4702.RUN"
+	},
+	{
+		"Title": "inv4703_run",
+		"Name": "B047.INV4703.RUN"
+	},
+	{
+		"Title": "inv4801_run",
+		"Name": "B048.INV4801.RUN"
 	}
 ]

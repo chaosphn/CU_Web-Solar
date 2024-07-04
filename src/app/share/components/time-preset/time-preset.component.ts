@@ -13,6 +13,7 @@ export class TimePresetComponent implements OnInit {
   @Input() periodNames: string[] = [];
   @Output() select = new EventEmitter();
   @Input() periodSelected: string;
+  @Input() disableButton: boolean = false;
 
   ngOnInit() {
 

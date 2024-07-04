@@ -179,14 +179,14 @@ export class PowermetersComponent implements OnInit, AfterViewInit,  OnDestroy {
           console.log(this.reportConfig.find(x => x.Name == display[0]))
           tagConfig.Groups.push({
             Name: display[1],
-            FullPath: i.Group,
+            FullPath: this.siteName.name,
             active: false,
             Display: display[1],
           });
         } 
-        if(!tagConfig.Aliases.find(x=>x.Name == display[2])){
+        if(!tagConfig.Aliases.find(x=>x.Display == display[2])){
           tagConfig.Aliases.push({
-            Name: display[2],
+            Name: i.Unit ? '('+i.Unit+')' : '(-)',
             active: false,
             Display: display[2],
           });

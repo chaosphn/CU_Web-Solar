@@ -1,0 +1,207 @@
+// div[class^="col"] {
+//    padding-right: 7px;
+//    padding-bottom: 7px;
+// }
+
+.chart-content {
+    height: 181px;
+    position: relative;
+    background-color: #e3e3e3;
+    overflow: hidden;
+}
+
+.container-group {
+    // min-height: 190px;
+}
+
+.weather-card{
+    //height: 5%;
+}
+
+.container-fluid {
+    width: 100%;
+    height: 100%;
+    padding: 7px;
+}
+
+.loading:after {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(110deg, rgba(227, 227, 227, 0) 0%, rgba(227, 227, 227, 0) 40%, rgba(231, 231, 231, 0.8) 50%, rgba(227, 227, 227, 0) 60%, rgba(227, 227, 227, 0) 100%);
+    animation: gradient-animation_2 1.2s linear infinite;
+}
+
+.btn-ok {
+    background: #FD674E;
+    color: white;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 12px;
+    display: inline-block;
+    // line-height: 1.4;
+    // padding-bottom: 1px;
+    //margin: 0 7px;
+    padding:2px 8px;
+}
+
+.date-box{
+    display: inline-flex;
+    align-items: baseline;
+}
+
+
+@keyframes gradient-animation_2 {
+    0% {
+    transform: translateX(-100%);
+    }
+
+    100% {
+    transform: translateX(100%);
+    }
+}
+
+.siteInfoCard { grid-area: siteInfoCard; }
+.powerCard { grid-area: powerCard; }
+.energyCard { grid-area: energyCard; }
+.weatherCard { grid-area: weatherCard; }
+.powerChartCard { grid-area: powerChartCard; }
+.energyChartCard { grid-area: energyChartCard; }
+.prChartCard { grid-area: prChartCard; }
+.invertersChartCard { grid-area: invertersChartCard; }
+
+@media screen and (max-width:720px){
+    .chart-content {
+        height: 100%  !important;
+    }
+    .row-grid{
+        display: grid;
+        height: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 200px) repeat(4, 250px);
+        grid-template-areas: 
+                "siteInfoCard"
+                "powerCard"
+                "energyCard"                
+                "weatherCard"
+                "powerChartCard"
+                "energyChartCard"
+                "prChartCard"
+                "invertersChartCard";
+        grid-gap: 7px;
+    }
+}
+
+@media screen and (min-width:1024px){
+    .chart-content {
+        height: 100%  !important;
+    }
+    .row-grid{
+        display: grid;
+        height: 100%;
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 200px) repeat(4, 250px);
+        grid-template-areas: 
+                "siteInfoCard       powerCard"
+                "energyCard         weatherCard"
+                "powerChartCard     powerChartCard"
+                "energyChartCard    energyChartCard"
+                "prChartCard        prChartCard"
+                "invertersChartCard invertersChartCard";
+        grid-gap: 7px;
+    }
+}
+
+@media screen and (min-width:1300px){
+    .chart-content {
+        height: 100%  !important;
+    }
+    .row-grid{
+        display: grid;
+        height: 100%;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 1.5fr 1.5fr;
+        grid-template-areas: 
+        "siteInfoCard       powerCard       energyCard          weatherCard"
+        "powerChartCard     powerChartCard  energyChartCard     energyChartCard"
+        "prChartCard        prChartCard     invertersChartCard  invertersChartCard";
+        grid-gap: 7px;
+    }
+}
+
+@media screen and (min-width:1400px){
+    .chart-content {
+        height: 100%  !important;
+        }
+
+    .row-grid{
+        display: grid;
+        height: 100%;
+        box-sizing: border-box;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 1fr 2fr 2fr 2fr;
+        grid-template-areas: 
+        "siteInfoCard       powerCard       energyCard          weatherCard"
+        "powerChartCard     powerChartCard  powerChartCard     powerChartCard"
+        "energyChartCard    energyChartCard energyChartCard     energyChartCard"
+        "invertersChartCard invertersChartCard  invertersChartCard  invertersChartCard";
+        grid-gap: 7px;
+    }
+}
+
+
+
+
+
+// @media screen and (min-width:1200px){
+//     .chart-content {
+//         height: 100%  !important;
+//     }
+
+//     .r1 {
+//         height: 23vh;        
+//     }   
+       
+//     .r2, .r3 {
+//         height: 31.75vh;
+//     }
+// }
+// @media screen and (min-width:1300px){
+//     .chart-content {
+//         height: 100%  !important;
+//     }
+
+//     .r1 {
+//         height: 28.5vh;        
+//     }
+
+          
+//     .r2, .r3 {
+//         height: 35vh;
+//     }
+// }
+
+// @media screen and (min-width:1400px){
+//     .chart-content {
+//         height: 100%  !important;
+//     }
+//     .r1,.r2 {
+//         margin-bottom: 2px;
+//     }
+
+//     .r3 {
+//         margin-bottom: 0px;
+//     }    
+
+//     .r1 {
+//         height: 21vh;
+//     }
+    
+//     .r2, .r3 {
+//         height: 38.4vh;
+//     }
+// }
+

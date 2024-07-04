@@ -1,7 +1,9 @@
 <div class="d-flex">
-  <span class="period" 
+  <button class="period" 
+  type="submit"
+  [disabled]="disableButton"
   *ngFor="let p of periodNames" 
   (click)="selectPeriod(p)" 
   [ngClass]="{'active': getActive(p)}"
-  >{{p}}</span>
+  >{{p}}</button>
 </div>

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { PeriodGroup } from '../../models/period-time';
 @Component({
   selector: 'app-date-control',
@@ -6,17 +6,20 @@ import { PeriodGroup } from '../../models/period-time';
   styleUrls: ['./date-control.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DateControlComponent implements OnInit {
+export class DateControlComponent implements OnInit, OnChanges {
 
   constructor() { }
 
   @Input() periodNames: PeriodGroup[] = [];
   @Output() select = new EventEmitter();
   @Input() periodSelected: PeriodGroup;
+  @Input() disableButton: boolean = false;
+
+  ngOnChanges(changes: SimpleChanges): void {
+    
+  }
 
   ngOnInit() {
-
-    
   }
 
 

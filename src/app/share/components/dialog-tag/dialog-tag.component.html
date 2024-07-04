@@ -59,8 +59,11 @@
                 <div class="col-6 pd-l-5 bd">
                   <p class="card-text group-name half" (click)="selectAllAlias(d)"
                     [ngClass]="{'active': getActiveAllAlias(d)}">ALL</p>
-                  <p class="card-text group-name half" *ngFor="let a of d.Aliases | orderBy: 'Name'" [ngClass]="{'active': a.active }"
-                    (click)="selectAlias(d, a)">{{a.Name}}</p>
+                  <div class="card-text group-name half" *ngFor="let a of d.Aliases | orderBy: 'Name'" [ngClass]="{'active': a.active }"
+                    (click)="selectAlias(d, a)">{{!a.active ? a.Display : a.Display+' '+a.Name}}
+                    <div class="tooltip bz w-100" >{{a.Display}} {{a.Name}}</div>
+                  </div>
+                  
                 </div>
               </div>
             </ng-container>

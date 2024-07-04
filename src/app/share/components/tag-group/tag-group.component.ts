@@ -156,4 +156,10 @@ export class TagGroupComponent implements OnInit, OnChanges {
     }
     return true;
   }
+
+  getTooltipLabel(){
+    let res: string = "";
+    
+    return res;
+  }
 }

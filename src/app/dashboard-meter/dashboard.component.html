@@ -140,25 +140,6 @@
         </ng-template>
       </app-solar-container>
     </div>
-  
-    <div class="prChartCard">
-      <app-solar-container [title]="'PERFORMANCE RATIO'">
-        <ng-template #period>
-          <!-- <app-period (select)="selectPeriod($event, 'performanceRatio')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period3></app-period> -->
-          <div class="date-box w-100">
-            <app-time-control [pickerType]="'calendar'" [startView]="getStartView(periodGroupSelected3?.Type)" style="margin-right: 21px;" (selectDatetime)="onDateTimeChange($event, '3')"
-             [dateTime]="dateTime3"></app-time-control>
-            <!-- <span class="btn-ok " style="margin-right: 14px;" (click)="selectPeriodChart(periodGroupSelected3, 'performanceRatio', dateTime3)">OK</span> -->
-            <app-date-control [disableButton]="disableButton" [periodSelected]="periodGroupSelected3" [periodNames]="periodGroup" (select)="selectedPeriodGroup($event, '3')" #period3 ></app-date-control>
-          </div>
-        </ng-template>
-        <ng-template #content>
-          <div class="chart-content" [ngClass]="{'loading': disableButton && chartSelected == 'performanceRatio'}" >
-            <app-sat-chart [chartParameters]="chartOptions['performanceRatio']"></app-sat-chart>
-          </div>
-        </ng-template>
-      </app-solar-container>
-    </div>
 
     <div class="invertersChartCard">
       <app-solar-container [title]="'ENERGY GENERATION BY INVERTERS'">

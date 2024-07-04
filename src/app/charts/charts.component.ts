@@ -1,9 +1,9 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { Store } from '@ngxs/store';
 import { UUID } from 'angular2-uuid';
 import { Subscription, timer } from 'rxjs';
-import { DashboardLastValuesStateModel, ItemParameters, Record } from '../core/stores/last-values/dashboard/dashboard-last-values.model';
+import { DashboardLastValuesStateModel, DashboardResHistorian, ItemParameters, Record } from '../core/stores/last-values/dashboard/dashboard-last-values.model';
 import { TagsStateModel } from '../core/stores/tags/tags.model';
 import { AddTags, TagsState } from '../core/stores/tags/tags.state';
 import { MockDataService } from '../dashboard/services/mock-data.service';
@@ -30,7 +30,7 @@ import { saveAs } from 'file-saver';
   templateUrl: './charts.component.html',
   styleUrls: ['./charts.component.scss']
 })
-export class ChartsComponent implements OnInit {
+export class ChartsComponent implements OnInit, AfterViewInit {
   chartParameters: ChartParameters;
   reqCurrs: any[] = [];
   configs: TagGrouping[] = [];
@@ -47,9 +47,10 @@ export class ChartsComponent implements OnInit {
   periodGroupSelected: PeriodGroup;
   timerSubscription: Subscription;
   chartData: InverterResHistorian[] = [];
-  downLoading: boolean = true;
+  downLoading: boolean = false;
   isPeriod: boolean = false;
   dateTime: Date;
+  isInitialize: boolean = false;
   @ViewChild('htmlData', { read: false }) htmlData?: ElementRef
   uuid: string;
   constructor(public dialog: MatDialog,
@@ -65,6 +66,10 @@ export class ChartsComponent implements OnInit {
     this.initChart();
     this.getTagConfigs();
     this.initDateTime();
+  }
+
+  ngAfterViewInit(): void {
+    this.isInitialize = true;
   }
 
   initChart() {
@@ -152,7 +157,7 @@ export class ChartsComponent implements OnInit {
       const checkTag = grpName.find( x => x == invInfo[2]);
       if(!checkTag){
         tagGroup.push({
-          Name: invInfo[2],
+          Name: '(' + item.Unit + ')',
           active: false,
           Display: invInfo[2],
         });
@@ -206,7 +211,9 @@ export class ChartsComponent implements OnInit {
 
   selectedPeriodGroup(periodName: PeriodGroup) {
     this.periodGroupSelected = periodName;
-    
+    // if(this.isInitialize){
+    //   this.selectChart();
+    // }
   }
 
   selectedPeriod(periodName: string) {
@@ -244,25 +251,19 @@ export class ChartsComponent implements OnInit {
 
   async render(tagNames: string[], startTime: string | Date, endTime: string | Date) {
     this.validateParameters();
-      const st = this.dateTimeService.getDateTime(startTime);
-      const ed = this.dateTimeService.getDateTime(endTime);
-      //console.log("Tags: " + tagNames.length + "\nStart: " + startTime.toISOString()
-      //+ "\nEnd: " + endTime.toISOString());
-      //await this.store.dispatch(new AddTags(tagNames)).toPromise();
-      this.reqCurrs = this.getReqDataConfig(tagNames ,st, ed);
-      // console.log(this.reqCurrs);
-      const res = await this.httpService.getHistorian(this.reqCurrs);
-      // console.log(res)
-      // console.log(this.getMaxValueRecord(res));
-      
-      this.renderChart(this.getMaxValueRecord(res));
-  
-      if (this.periodName && this.periodName.toLowerCase() === 't') {
-        this.startTimer(this.appLoadService.Config.Timer * 1000 * 12);
-      }
-      else {
-        this.unsubscribe();
-      }
+    this.downLoading = true;
+    const st = this.dateTimeService.getDateTime(startTime);
+    const ed = this.dateTimeService.getDateTime(endTime);
+    this.reqCurrs = this.getReqDataConfig(tagNames ,st, ed);
+    const res:DashboardResHistorian[] = await this.httpService.getHistorian(this.reqCurrs);
+    this.downLoading = false;
+    this.renderChart(this.getMaxValueRecord(res));
+    if (this.periodName && this.periodName.toLowerCase() === 't') {
+      this.startTimer(this.appLoadService.Config.Timer * 1000 * 12);
+    }
+    else {
+      this.unsubscribe();
+    }
   }
 
   renderChart(res: InverterResHistorian[]) {
@@ -342,10 +343,10 @@ export class ChartsComponent implements OnInit {
     }
   }
 
-  getMaxValueRecord(data) {
+  getMaxValueRecord(data:any[]) {
     return data.map(item => {
       const maxValues = {};
-      item.records.forEach(record => {
+      item.records.filter(x => parseFloat(x.Value) > 0).forEach(record => {
         const TimeStamp = record.TimeStamp;
         const value = parseFloat(record.Value);
 
@@ -508,6 +509,9 @@ export class ChartsComponent implements OnInit {
         break;
     }
     //console.log('start : ' + this.startDate + '\nend : '+ this.endDate);
+    // if(this.isInitialize){
+    //   this.selectChart();
+    // }
   }
 
 }

@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   animate: any;
   animateClass: string = '';
   siteSelected: BuildingModel = {
-    no:"1",
+    no:"01",
     id:"ARC003",
     zone:"3",
     name:"อาคารเลิศ อุรัสยะนันทน์",

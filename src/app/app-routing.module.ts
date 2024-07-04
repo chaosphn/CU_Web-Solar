@@ -38,6 +38,11 @@ const routes: Routes = [
                 canActivateChild: [ AuthGuard ]
             },
             {
+                path: 'meterdashboard',
+                loadChildren: 'src/app/dashboard-meter/dashboard.module#DashboardModule',
+                canActivateChild: [ AuthGuard ]
+            },
+            {
                 path: 'dashboard1',
                 loadChildren: 'src/app/dashboard1/dashboard.module#DashboardModule',
                 canActivateChild: [ AuthGuard ]
@@ -53,14 +58,14 @@ const routes: Routes = [
                 canActivateChild: [ AuthGuard ]
             },
             {
-                path: 'diagram',
+                path: 'topology',
                 loadChildren: 'src/app/diagram/diagram.module#DiagramModule',
-                // canActivateChild: [ AuthGuard ]
+                canActivateChild: [ AuthGuard ]
             },
             {
-                path: 'diagrams',
+                path: 'diagram',
                 loadChildren: 'src/app/diagrams/diagrams.module#DiagramsModule',
-                // canActivateChild: [ AuthGuard ]
+                canActivateChild: [ AuthGuard ]
             },
             {
                 path: 'powermeters',

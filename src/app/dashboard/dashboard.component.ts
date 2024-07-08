@@ -131,12 +131,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   updateInit(){
+    this.isInitialized = false;
     this.unSubscribeTimer();
     const building = localStorage.getItem('location');
-    this.siteName = JSON.parse(building)
+    this.siteName = JSON.parse(building);
     this.initDateTime();
     this.init02();
     this.cd.markForCheck();
+    this.isInitialized = true;
   }
 
   ngAfterViewInit() {
@@ -198,7 +200,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       const rawTF = await this.addRealtimeDataToStore(realtimeData);
       const hisTF = await  this.addHistorianDataToStore(historianData);
       let dataTranform = rawTF.concat(hisTF);
-      ////console.log(dataTranform);
+      console.log(dataTranform);
       await this.addDataToStore(dataTranform);
 
     }
@@ -294,10 +296,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
   loadInverterValues() {
-    console.log('update inv')
     if (this.dashboardInverterService.config) {
       const invs = this.dashboardInverterService.generateInverterValues();
-      console.log(invs)
       if (this.dashboardInverterService.config && 
         this.dashboardInverterService.config.options && 
         this.dashboardInverterService.config.options.runtimeConfigs ) {
@@ -305,7 +305,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           this.chartOptions[config.name] = this.dashboardChartService.getChartInverter(config.name, invs, config.options);
           this.chartSelected = undefined;
           this.disableButton = false;
-          console.log(this.chartOptions[config.name])
           this.cd.markForCheck();
         }
     }
@@ -313,11 +312,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async getDashboardConfigs() {
     const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/dashboard/configurations/dashboard['+this.siteName.id+'].config.json');
-    // const weatherConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/card-weather/weather-value.json');
-    //const ChartsConfigs: DashboardConfigStateModel[] = await this.httpService.getConfig('assets/dashboard/configurations/dashboard.chart.config.json');
     this.chartConfigs = [].concat(dashboardConfigs.chartConfig);
-    //console.log(this.chartConfigs);
-    //this.dashboardTagService.addServerName(dashboardConfigs);
     this.store.dispatch(new SetDashboardConfigs(dashboardConfigs));
     return dashboardConfigs;
   }
@@ -409,8 +404,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       newData.push(record);
     });
     return newData;
-    ////console.log(newData)
-    //await this.store.dispatch(new SetDashboardValues(newData)).toPromise();
   }
 
   async addHistorianDataToStore(data: any[]) {
@@ -446,7 +439,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const plot = this.dashboardLastValuesService.getPlotGropData1(this.chartConfigs);
     const raw = this.dashboardLastValuesService.getRawGropData1(this.chartConfigs);
     const hisData = { ...plot, ...raw };
-
     for (const name in hisData) {
       if (hisData.hasOwnProperty(name) && name !== 'interverEnergy') {
         const data = hisData[name];
@@ -552,50 +544,43 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     if(this.isInitialized){
       const _period = this.getDateTimePeriod(date, period.Type);
       const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
-      console.log(tagChart)
-      await this.store.dispatch(new ChangePeriod2(tagChart, _period.startTime, _period.endTime, period.Type)).toPromise();
-      let oldCond = this.getPeriodView(period.Type)
+      if(tagChart.length > 0){
+        await this.store.dispatch(new ChangePeriod2(tagChart, _period.startTime, _period.endTime, period.Type)).toPromise();
+      }
       const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
       let res: DashboardResHistorian[] = [];
-      this.chartSelected = chartName;
-      this.disableButton = true;
-      const request: DashboardReqHistorian[] = req.map( x => {
-        const opt:Options = {
-          StartTime: _period.startTime,
-          EndTime: _period.endTime,
-          Time: '',
-          Interval: 30,
-        }
-        return {...x, Options: opt}
-      });
-      console.log(request)
-      switch(chartName){
-        case "powerGeneration":
+      if(req){
+        this.chartSelected = chartName;
+        this.disableButton = true;
+        const request: DashboardReqHistorian[] = req.map( x => {
+          const opt:Options = {
+            StartTime: _period.startTime,
+            EndTime: _period.endTime,
+            Time: '',
+            Interval: 30,
+          }
+          return {...x, Options: opt}
+        });
+        if(request.length > 0){
           res = await this.httpService.getHistorian(request);
           await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
-          break;
-        default:
-          res = await this.httpService.getHistorian(request);
-          console.log(res)
-          await this.store.dispatch(new ChangeLastValues1(tagChart, this.getMaxValueRecord(res))).toPromise();
-          break;
+          const charts = this.chartConfigs.find(d => d.name == chartName);
+          const type = charts.type;
+          let data: MultipleValue = {};
+          if (type === "Raw") {
+            data = this.dashboardLastValuesService.getRawGroupDataWithName(chartName, period.Type, this.chartConfigs);
+          }
+          else if (type === "Plot") {
+            data = this.dashboardLastValuesService.getPlotGroupDataWithName(chartName, period.Type, this.chartConfigs);
+          }
+          if (data && data[chartName] && data[chartName].data.length > 0) {
+            this.chartOptions[chartName] = this.dashboardChartService.getNewChartOptions(chartName, data[chartName], _period);
+          }
+          this.disableButton = false;
+          this.chartSelected = undefined;
+          this.cd.markForCheck();
+        }
       }
-      const charts = this.chartConfigs.find(d => d.name == chartName);
-      const type = charts.type;
-      let data: MultipleValue = {};
-      if (type === "Raw") {
-        data = this.dashboardLastValuesService.getRawGroupDataWithName(chartName, period.Type, this.chartConfigs);
-      }
-      else if (type === "Plot") {
-        data = this.dashboardLastValuesService.getPlotGroupDataWithName(chartName, period.Type, this.chartConfigs);
-      }
-      if (data && data[chartName] && data[chartName].data.length > 0) {
-        console.log(data);
-        this.chartOptions[chartName] = this.dashboardChartService.getNewChartOptions(chartName, data[chartName], _period);
-      }
-      this.disableButton = false;
-      this.chartSelected = undefined;
-      this.cd.markForCheck();
     }
   }
 
@@ -615,8 +600,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.chartSelected = chartName;
       this.disableButton = true;
       const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
-      console.log(req)
-      console.log(this.dashboardInverterService.requests)
       const res: DashboardResHistorian[] = await this.httpService.getHistorian(this.dashboardInverterService.requests);
       this.dashboardInverterService.data = res;
       this.loadInverterValues();
@@ -696,6 +679,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   async selectedPeriodGroup(periodName: PeriodGroup, id: string) {
+    console.log('period')
     if(id == "1"){
       this.periodGroupSelected1 = periodName;
       await this.selectPeriodChart(periodName, 'powerGeneration', this.dateTime1);
@@ -712,18 +696,19 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   async onDateTimeChange(event:Date, id: string) {
+    console.log('date')
     if(id == "1"){
       this.dateTime1 = new Date(event.setHours(0,0,0,0));
-      await this.selectPeriodChart(this.periodGroupSelected1, 'powerGeneration', this.dateTime1);
+      this.selectPeriodChart(this.periodGroupSelected1, 'powerGeneration', this.dateTime1);
     } else if(id == "2"){
       this.dateTime2 = new Date(event.setHours(0,0,0,0));
-      await this.selectPeriodChart(this.periodGroupSelected2, 'energyExported', this.dateTime2);
+      this.selectPeriodChart(this.periodGroupSelected2, 'energyExported', this.dateTime2);
     } else if(id == "3"){
       this.dateTime3 = new Date(event.setHours(0,0,0,0));
-      await this.selectPeriodChart(this.periodGroupSelected3, 'performanceRatio', this.dateTime3);
+      this.selectPeriodChart(this.periodGroupSelected3, 'performanceRatio', this.dateTime3);
     } else if(id == "4"){
       this.dateTime4 = new Date(event.setHours(0,0,0,0));
-      await this.selectPeriodInverterChart(this.periodGroupSelected4, 'interverEnergy', this.dateTime4);
+      this.selectPeriodInverterChart(this.periodGroupSelected4, 'interverEnergy', this.dateTime4);
     }
   }
 
@@ -733,7 +718,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       startTime: '',
       endTime: ''
     };
-    console.log(dateTime)
     switch(periodType){
       case "daily":
         period.startTime = this.dateTimeService.getDateTime(dateTime);

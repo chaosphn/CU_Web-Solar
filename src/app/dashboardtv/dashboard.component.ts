@@ -128,7 +128,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     localStorage.setItem('nowUrl',this.router.url.toString());
     const building: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
     if(building && building.building){
-      this.buildingList = building.building.sort((a,b) => parseInt(a.no) - parseInt(b.no));
+      this.buildingList = building.building.filter(x => !x.building).sort((a,b) => parseInt(a.no) - parseInt(b.no));
     }
     await this.init02();
     await this.getConfig();

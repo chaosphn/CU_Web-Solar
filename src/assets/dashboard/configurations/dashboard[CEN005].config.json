@@ -186,7 +186,7 @@
 					}
 				},
 				"runtimeConfigs": {
-					"periodName": "t"
+					"periodName": "daily"
 				}
 			}
 		},
@@ -257,7 +257,7 @@
 					}
 				},
 				"runtimeConfigs": {
-					"periodName": "t"
+					"periodName": "daily"
 				}
 			}
 		},
@@ -317,7 +317,7 @@
 			"title": "Energy Exported2",
 			"options": {
 				"runtimeConfigs": {
-					"periodName": "t"
+					"periodName": "daily"
 				},
 				"chartOptions": {
 					"yAxis": [
@@ -363,7 +363,7 @@
 			"title": "INVERTER ENERGY",
 			"options": {
 				"runtimeConfigs": {
-					"periodName": "t"
+					"periodName": "daily"
 				},
 				"chartOptions": {
 					"yAxis": [

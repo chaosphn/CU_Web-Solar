@@ -12,4 +12,6 @@ export interface BuildingModel{
     name: string;
     capacity: number;
     display?: boolean;
+    building?: string[];
 }
+

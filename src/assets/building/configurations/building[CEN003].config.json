@@ -2,64 +2,64 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "TOU04.W"
+			"Name": "B004.TOU04.W"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "CALC04.WH_TODAY"
+			"Name": "B004.CALC04.WH_TODAY"
 		},
 		{
 			"Title": "pr_value",
-			"Name": "CALC04.PR"
+			"Name": "B004.CALC04.PR"
 		},
 		{
 			"Title": "saving_value",
-			"Name": ""
+			"Name": "B004."
 		},
 		{
 			"Title": "weather_co2",
-			"Name": "CALC04.CO2_TODAY"
+			"Name": "B004.CALC04.CO2_TODAY"
 		},
 		{
 			"Title": "energy_inv1",
-			"Name": "INV0401.WH_TODAY"
+			"Name": "B004.INV0401.WH_TODAY"
 		},
 		{
 			"Title": "energy_inv2",
-			"Name": "INV0402.WH_TODAY"
+			"Name": "B004.INV0402.WH_TODAY"
 		},
 		{
 			"Title": "performance_inv1",
-			"Name": "INV0401.EFF"
+			"Name": "B004.INV0401.EFF"
 		},
 		{
 			"Title": "performance_inv2",
-			"Name": "INV0402.EFF"
+			"Name": "B004.INV0402.EFF"
 		},
 		{
 			"Title": "power_inv1",
-			"Name": "INV0401.WAC"
+			"Name": "B004.INV0401.WAC"
 		},
 		{
 			"Title": "power_inv2",
-			"Name": "INV0402.WAC"
+			"Name": "B004.INV0402.WAC"
 		},
 		{
 			"Title": "volt_inv1",
-			"Name": "INV0401.VDC"
+			"Name": "B004.INV0401.VDC"
 		},
 		{
 			"Title": "volt_inv2",
-			"Name": "INV0402.VDC"
+			"Name": "B004.INV0402.VDC"
 		},
 		{
 			"Title": "cb_status",
-			"Name": "cb04.status"
+			"Name": "B004.cb04.status"
 		}
 	],
 	"historianConfig": [
 		{
-			"Name": "TOU04.W",
+			"Name": "B004.TOU04.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -69,7 +69,7 @@
 			}
 		},
 		{
-			"Name": "SLOGGER06.PYRANO",
+			"Name": "B006.SLOGGER06.PYRANO",
 			"Title": "X2",
 			"Options" : {
 				"Interval": 5,
@@ -79,7 +79,7 @@
 			}
 		},
 		{
-			"Name": "INV0401.WH_TODAY",
+			"Name": "B004.INV0401.WH_TODAY",
 			"Title": "X3",
 			"Options" : {
 				"Interval": 5,
@@ -94,7 +94,7 @@
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "SLOGGER06.PYRANO",
+					"name": "B006.SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {
@@ -105,7 +105,7 @@
 					}
 				},
 				{
-					"name": "TOU04.W",
+					"name": "B004.TOU04.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {
@@ -152,7 +152,7 @@
 			"name": "inverterGeneration",
 			"tags": [
 				{
-					"name": "INV0401.WH_TODAY",
+					"name": "B004.INV0401.WH_TODAY",
 					"title": "INV01",
 					"options": {
 						"chartOptions": {

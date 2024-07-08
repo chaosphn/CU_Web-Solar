@@ -6,7 +6,7 @@
 	},
 	{
 		"Title": "energy_today",
-		"Name": "CALC.ALLZONE.WH_TODAY"
+		"Name": "CALC.ALLZONE.WH_DAY"
 	},
 	{
 		"Title": "energy_total",

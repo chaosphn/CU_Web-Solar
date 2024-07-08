@@ -1,0 +1,81 @@
+.container-fluid {
+    height: 100%;
+    max-height: 100vh;
+    overflow: hidden;
+    width: auto;
+    padding: 7px 7px 0px 7px;
+}
+
+.head {
+    background: #136286;
+    min-height: 50px;
+    padding: 0px 24px;
+    column-gap: 16px;
+}
+
+.tpc-item{
+    //padding: 8px 16px;
+    //background: #FD674E;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+.inp-item{
+    align-items: center;
+    column-gap: 8px;
+}
+
+ 
+.input-group {
+    background-color: white;
+    height: 24px;
+    .material-icons {
+        // padding-top: 2px;
+        padding-left: 2px;
+    }
+     
+}
+  
+input {
+    border: 0px;
+    height: 24px;
+    font-size: 16px;
+}
+
+.data-row{
+    background: whitesmoke;
+    min-height: 250px;
+    padding: 24px;
+    .material-icons {
+        font-size: 16px;
+    }
+}
+
+.btn-item{
+    display: flex;
+    align-items: center;
+}
+
+.btn-ok {
+    padding: 6px 16px;
+    background: #FD674E;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 12px;
+    line-height: 1;
+    margin-right: 7px;
+    border: none;
+    outline: none;
+}
+
+.chip{
+    font-weight: 500;
+}

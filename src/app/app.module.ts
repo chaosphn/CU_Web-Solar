@@ -9,6 +9,7 @@ import { ServerErrorsInterceptor } from './routings/interceptors/server-error.in
 import { TokenInterceptor } from './routings/interceptors/token.interceptor';
 import { AppLoadService } from './share/services/app-load.service';
 import { MatSelect, MatSidenav, MatToolbar } from '@angular/material';
+import { AdminModule } from './admin/admin.module';
 
 
 @NgModule({

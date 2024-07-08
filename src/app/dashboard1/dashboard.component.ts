@@ -23,7 +23,7 @@ import { DashboardInverterService } from './services/dashboard-inverter.service'
 import { DashboardLastValuesService } from './services/dashboard-last-values.service';
 import { DashboardRequestService } from './services/dashboard-request.service';
 import { DashboardTagService } from './services/dashboard-tag.service';
-import { SiteStateModel } from '../core/stores/sites/sites.model';
+import { BuildingModel, SiteStateModel } from '../core/stores/sites/sites.model';
 import { SitesState } from '../core/stores/sites/sites.state';
 import { Select } from '@ngxs/store';
 import {debounceTime } from 'rxjs/operators';
@@ -82,6 +82,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     {id : 7 ,name : 'zone7'}
   ]
   siteSelected: SiteStateModel[];
+  zoneList: SiteStateModel[] = [];
   currentRoute: string;
   color = 'primary';
   mode = 'determinate';
@@ -137,11 +138,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  ngOnInit() {
-    //this.init();
-    //localStorage.setItem('nowUrl',this.router.url.toString());
-    //localStorage.setItem('location','{"no" : "1","id":"ARC003","zone":"1","name":"อาคารเลิศ อุรัสยะนันทน์","capacity":113.4}');    
+  async ngOnInit() {
     this.currentRoute = this.router.url.toString()
+    await this.getZoneList();
     this.init02();
     this.onWindowResize()
     this.updateZone()
@@ -165,6 +164,29 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     
   }
 
+  async getZoneList(){
+    const config: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
+    if(config){
+      config.building.filter(x => x.building).forEach(i => {
+        let item: SiteStateModel = {
+          project: i.name,
+          capacity: i.capacity,
+          number: parseInt(i.no),
+          building: i.building.map(function(bx){
+            let building: BuildingModel = config.building.find(x => x.id == bx);
+            if(building){
+              return building;
+            } else {
+              return undefined;
+            }
+          })
+        }
+        this.zoneList.push(item)
+      });
+    }
+    console.log(this.zoneList)
+  }
+
   trackBy(index: number, name: string): string {
     return name;
   }
@@ -176,8 +198,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //this.sub1.unsubscribe();
   }
 
-  routNavigate(id){
-    localStorage.setItem('location','{"no" : "1","id":"ARC003","zone":"'+id+'","name":"อาคารเลิศ อุรัสยะนันทน์","capacity":113.4}')
+  routNavigate(id: string){
     localStorage.setItem('zone', id)
     this.router.navigate(['/main/dashboard2']);
   }
@@ -244,31 +265,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       ////console.log(request);
       await this.store.dispatch(new SetDashboardRequest(request)).toPromise();
   }
-
-  private async updateRequests02()
-  {    
-      const requests = [];
-      if (this.configs01) {
-        const requests1 = this.createRealtimeRequest(this.configs01);
-        requests.push(requests1);
-      }
-      if (this.configs02) {
-        
-        const singleConfig = this.store.selectSnapshot(DashboardRequestState.getRealTimeCurrentConfig());
-        //////console.log(singleConfig);
-
-        const requests2  = singleConfig.filter(x => x.RequestId.substring(0,10) === 's_inverter');
-        //////console.log(requests2);
-
-        this.dashboardInverterService.requests = requests2;
-        
-        requests.push(...requests2);
-
-      }
-
-      //await this.store.dispatch(new SetDashboardRequest(requests)).toPromise();
-  }
-
   async timerTick() {
     
     const realtimeData = await this.requestRawData();
@@ -325,10 +321,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async getDashboardConfigs() {
     const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/overview/configurations/dashboard.overview.config.json');
-    //const ChartsConfigs: DashboardConfigStateModel[] = await this.httpService.getConfig('assets/overview/configurations/dashboard.chart.config.json');
-    //this.chartConfigs = [].concat(ChartsConfigs);
-    //////console.log(this.chartConfigs);
-    //this.dashboardTagService.addServerName(dashboardConfigs);
     this.store.dispatch(new SetDashboardConfigs(dashboardConfigs));
     return dashboardConfigs;
   }
@@ -539,20 +531,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       return val;
     }
   }
- 
 
-  private cloneHisReqs(hisReqs: DashboardRequestStateModel[]): DashboardRequestStateModel[] {
-    const cloneReqs: DashboardRequestStateModel[] = JSON.parse(JSON.stringify(hisReqs));
-    const period = this.dateTimeService.parseDate('t');
-    cloneReqs.forEach(req => {
-      const st = period.startTime;
-      const ed = period.endTime;
-      if (period) {
-        req.StartTime = st;
-        req.EndTime = ed;
-      }
-    });
-    return cloneReqs;
+  getSiteTxt(bx: BuildingModel[]){
+    let res: string = "";
+    res = bx.map(x => "     "+x.name).toString();
+    return res;
   }
 
 }

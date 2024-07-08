@@ -114,7 +114,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     //this.siteList = await this.httpService.getConfig('assets/main/location.json');
     const config: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
     if(config){
-      config.building.sort((a,b) => parseInt(a.no) - parseInt(b.no));
+      config.building.sort((a,b) => a.zone.localeCompare(b.zone));
       this.buildingList = config;
       this.store.dispatch(new AddSite(this.buildingList));
     }

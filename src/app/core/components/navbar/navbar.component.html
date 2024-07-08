@@ -25,7 +25,7 @@
             class="nav-search"/>
             
             <ng-container *ngFor="let item of buildingList.building; let i = index">
-              <mat-option *ngIf="item.display" [value]="item"
+              <mat-option *ngIf="item.display" [value]="item" [style.background-color]="item.building ? '#f1f1f1' : null"
                 (click)="selectSite(item)">
                 {{item.name}}
               </mat-option>
@@ -53,13 +53,6 @@
           dashboard_customize
         </i>
         <p>DASHBOARD</p>
-      </a>
-      <a mat-list-item href="#" class="box" routerLink="/main/meterdashboard" routerLinkActive="active"
-        *ngIf="pages.indexOf('meterdashboard') > -1" (click)="toggleBackground('/main/meterdashboard')">
-        <i class="material-icons">
-          dashboard_customize
-        </i>
-        <p>DASHBOARD M</p>
       </a>
       <a mat-list-item href="#" class="box" routerLink="/main/dashboard3" routerLinkActive="active"
         *ngIf="pages.indexOf('dashboard3') > -1" (click)="toggleBackground('/main/dashboard')">
@@ -109,6 +102,13 @@
           file_copy
         </i>
         <p>REPORTS</p>
+      </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/admin" routerLinkActive="active"
+         (click)="toggleBackground('/main/admin')">
+        <i class="material-icons">
+          dashboard_customize
+        </i>
+        <p>ADMIN</p>
       </a>
     </mat-nav-list>
   </mat-sidenav>

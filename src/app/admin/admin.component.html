@@ -1,0 +1,72 @@
+<div class="container-fluid w-100 h-100">
+  <div class="row no-gutters  w-100">
+    <div class="head w-100 bz d-flex">
+      <div class="tpc-item h-100 bz"><span>Report Facror :</span></div>
+      <div class="inp-item d-flex bz">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <i class="material-icons">
+              monetization_on
+            </i>
+          </div>
+          <input name="ex-rate" type="number" class="form-control" placeholder="Exchange Rate" aria-label="Exchange rate"
+            aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <i class="material-icons">
+              cloud
+            </i>
+          </div>
+          <input name="ex-rate" type="number" class="form-control" placeholder="Co2 Rate" aria-label="Co2 rate"
+            aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <i class="material-icons">
+              opacity
+            </i>
+          </div>
+          <input name="ex-rate" type="number" class="form-control" placeholder="Oil Rate" aria-label="Oil rate"
+            aria-describedby="basic-addon1">
+        </div>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <i class="material-icons">
+              terrain
+            </i>
+          </div>
+          <input name="ex-rate" type="number" class="form-control" placeholder="Tree Rate" aria-label="Tree rate"
+            aria-describedby="basic-addon1">
+        </div>
+      </div>
+      <div class="btn-item h-100 bz">
+        <button class="btn-ok" type="submit">SUBMIT</button>
+      </div>
+    </div>
+  </div>
+  <div class="row no-gutters  w-100" style="margin-top: 7px;">
+    <div class="head w-100 bz d-flex">
+      <div class="tpc-item h-100 bz"><span>Holiday Setting :</span></div>
+      <div class="inp-item d-flex bz">
+        <app-time-control [pickerType]="'calendar'"
+          style="margin-right: 7px;" (selectDatetime)="onDateTimeChange($event)"
+         [dateTime]="dateTime"></app-time-control>
+      </div>
+      <div class="btn-item h-100 bz">
+        <button class="btn-ok" type="submit">SUBMIT</button>
+      </div>
+    </div>
+    <div class="data-row w-100 bz">
+      <mat-chip-list #chipList>
+        <mat-chip class="chip bz"
+          *ngFor="let date of holidayArr; index as i;"
+          [removable]="removable"
+          (removed)="remove(i)">
+          {{date | date: 'dd-MMMM-yyyy'}}
+          <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+      </mat-chip-list>
+    </div>
+  </div>
+</div>

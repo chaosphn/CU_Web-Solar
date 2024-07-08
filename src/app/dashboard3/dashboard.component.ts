@@ -87,11 +87,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   value1 = 65;
   value2 = 84;
   siteName: BuildingModel = {
-    no: "11",
-    id: "CEN091",
-    name: "หอพักชวนชม",
-    capacity: 500,
-    zone: "1"
+    no: "01",
+    id: "ARC003",
+    name: "อาคารเลิศ อุรัสยะนันทน์",
+    capacity: 113.4,
+    zone: "13028863"
   };
   diameter:number = 80;
   strokeWidth:number = 5;
@@ -152,23 +152,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.currentRoute = this.router.url.toString()
     const building = localStorage.getItem('location');
     const coBuilding = JSON.parse(building)
-    this.siteName = {
-        no: coBuilding.no,
-        id: coBuilding.id,
-        name: coBuilding.name,
-        capacity: coBuilding.capacity,
-        zone: coBuilding.zone
-      }
-      // //console.log(coBuilding.name)
-    //////console.log("component: "+this.currentRoute.slice(6)+" & site: " + this.siteName.toString());
-    // this.siteName = {
-    //   id: "CEN091",
-    //   name: "หอพักชวนชม",
-    //   capacity: 500,
-    //   zone: "1"
-    // }
-    
-    //JSON.parse(building);
+    if(coBuilding && !coBuilding.building){
+      this.siteName = coBuilding;
+    } else {
+      alert('Please select building !');
+    }
     this.init02();
     this.onWindowResize()
   }
@@ -177,15 +165,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.unSubscribeTimer();
     const building = localStorage.getItem('location');
     const coBuilding = JSON.parse(building)
-    this.siteName = {
-        no: coBuilding.no,
-        id: coBuilding.id,
-        name: coBuilding.name,
-        capacity: coBuilding.capacity,
-        zone: coBuilding.zone
-      }
-    //JSON.parse(building);
-    ////console.log(JSON.parse(building))
+    if(coBuilding && !coBuilding.building){
+      this.siteName = coBuilding;
+    } else {
+      alert('Please select building !');
+    }
     this.init02();
   }
 
@@ -358,18 +342,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async getDashboardConfigs() {
     const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/building/configurations/building['+this.siteName.id+'].config.json');
-    //const ChartsConfigs: DashboardConfigStateModel[] = await this.httpService.getConfig('assets/dashboard/configurations/dashboard.chart.config.json');
-    //this.chartConfigs = [].concat(ChartsConfigs);
-    //////console.log(this.chartConfigs);
-    //this.dashboardTagService.addServerName(dashboardConfigs);
     this.store.dispatch(new SetDashboardConfigs(dashboardConfigs));
     return dashboardConfigs;
   }
-
-  // async registerTags(dashboardConfigs: any[]) {
-  //   const tagNames = await this.dashboardTagService.getTagNames(dashboardConfigs);
-  //   await this.store.dispatch(new AddTags(tagNames)).toPromise();
-  // }
 
   createRealtimeRequest(config: DashboardConfigsRealtime[]){
     const request = this.dashboardRequestService.createRealtimeRequest(config);
@@ -408,10 +383,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       const maxValues = {};
       item.records.forEach(record => {
         const TimeStamp = record.TimeStamp;
-        const value = parseFloat(record.Value.replace(",", ""));
+        const value = parseFloat(record.Value);
 
-        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value.replace(",",""))) {
-          maxValues[TimeStamp] = {...record,Value:value.toString() };
+        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value)) {
+          maxValues[TimeStamp] = {...record,Value:value };
         }
       });
 
@@ -479,7 +454,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const plot = this.dashboardLastValuesService.getPlotGropData1(this.chartConfigs);
     const raw = this.dashboardLastValuesService.getRawGropData1(this.chartConfigs);
     const hisData = { ...plot, ...raw };
-
     for (const name in hisData) {
       if (hisData.hasOwnProperty(name) && name !== 'interverEnergy') {
         const data = hisData[name];

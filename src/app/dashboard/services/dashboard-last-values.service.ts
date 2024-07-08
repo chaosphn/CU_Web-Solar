@@ -59,7 +59,7 @@ export class DashboardLastValuesService {
             const tags: PlotTag[] = config.tags as PlotTag[];
             const listData: Data[] = [];
             tags.forEach(tag => {
-                //const tagInfo: TagsStateModel = this.store.selectSnapshot(TagsState.getTagId(tag.name));
+               
                 const lastValues: DashboardLastValuesModel[] = this.store.selectSnapshot(DashboardLastValuesState.getLastValuesHistorian(tag.name));
                 if (lastValues.length > 0 && lastValues) {
                     const tagMatch = lastValues.find(x => x.Name === tag.name)

@@ -1,12 +1,192 @@
 {
 	"project":"จุฬาลงกรณ์มหาวิทยาลัย",
-	"capacity":"6.36",
+	"capacity":"6364.34",
 	"number":48,
 	"building":[
 		{
+			"no":"100",
+			"id":"13014105",
+			"zone":"13014105",
+			"name":"13014105",
+			"capacity": 603.18,
+			"display": true,
+			"building": [ "CEN001","CEN003","CEN005","CEN103","CEN087","EDU003" ]
+		},
+		{
+			"no":"101",
+			"id":"13017711",
+			"zone":"13017711",
+			"name":"13017711",
+			"capacity": 331.56,
+			"display": true,
+			"building": [ "DEN001","DEN001","DEN014" ]
+		},
+		{
+			"no":"102",
+			"id":"13018215",
+			"zone":"13018215",
+			"name":"13018215",
+			"capacity": 1037.88,
+			"display": true,
+			"building": [ "LAW003","PSC012","EDU011","ESC008","CEN006"  ]
+		},
+		{
+			"no":"103",
+			"id":"13018538",
+			"zone":"13018538",
+			"name":"13018538",
+			"capacity": 849.42,
+			"display": true,
+			"building": [ "INS009","CEN093","ENG028","ENG026","ENG030","ENG013"  ]
+		},
+		{
+			"no":"104",
+			"id":"13023931",
+			"zone":"13023931",
+			"name":"13023931",
+			"capacity": 595.08,
+			"display": true,
+			"building": [ "PHA001","PHA003" ]
+		},
+		{
+			"no":"105",
+			"id":"13024447",
+			"zone":"13024447",
+			"name":"13024447",
+			"capacity": 97.20,
+			"display": true,
+			"building": [ "INS012" ]
+		},
+		{
+			"no":"106",
+			"id":"13028685",
+			"zone":"13028685",
+			"name":"13028685",
+			"capacity": 32.40,
+			"display": true,
+			"building": [ "VET001" ]
+		},
+		{
+			"no":"107",
+			"id":"13028863",
+			"zone":"13028863",
+			"name":"13028863",
+			"capacity": 243.00,
+			"display": true,
+			"building": [ "ARC003","CEN053","CEN081" ]
+		},
+		{
+			"no":"108",
+			"id":"13029461",
+			"zone":"13029461",
+			"name":"13029461",
+			"capacity": 1193.30,
+			"display": true,
+			"building": [ "CEN032","SCI028","CEN068","SCI025","CEN060","ECO001","SCI020" ]
+		},
+		{
+			"no":"109",
+			"id":"13030117",
+			"zone":"13030117",
+			"name":"13030117",
+			"capacity": 120.96,
+			"display": true,
+			"building": [ "INS010" ]
+		},
+		{
+			"no":"110",
+			"id":"13030847",
+			"zone":"13030847",
+			"name":"13030847",
+			"capacity": 153.36,
+			"display": true,
+			"building": [ "CEN072", "CEN027" ]
+		},
+		{
+			"no":"111",
+			"id":"13030979",
+			"zone":"13030979",
+			"name":"13030979",
+			"capacity": 56.70,
+			"display": true,
+			"building": [ "INS011" ]
+		},
+		{
+			"no":"112",
+			"id":"13036201",
+			"zone":"13036201",
+			"name":"13036201",
+			"capacity":131.76,
+			"display": true,
+			"building": [ "PHA006", "PHA007" ]
+		},
+		{
+			"no":"113",
+			"id":"13036565",
+			"zone":"13036565",
+			"name":"13036565",
+			"capacity": 97.20,
+			"display": true,
+			"building": [ "CEN069" ]
+		},
+		{
+			"no":"114",
+			"id":"13037811",
+			"zone":"13037811",
+			"name":"13037811",
+			"capacity": 88.56,
+			"display": true,
+			"building": [ "CEN078" ]
+		},
+		{
+			"no":"115",
+			"id":"13037909",
+			"zone":"13037909",
+			"name":"13037909",
+			"capacity": 224.64,
+			"display": true,
+			"building": [ "CEN099" ]
+		},
+		{
+			"no":"116",
+			"id":"13040996",
+			"zone":"13040996",
+			"name":"13040996",
+			"capacity": 259.20,
+			"display": true,
+			"building": [ "CEN079", "ART005" ]
+		},
+		{
+			"no":"117",
+			"id":"95508259",
+			"zone":"95508259",
+			"name":"95508259",
+			"capacity": 48.06,
+			"display": true,
+			"building": [ "CEN089" ]
+		},
+		{
+			"no":"118",
+			"id":"95772485",
+			"zone":"95772485",
+			"name":"95772485",
+			"capacity": 95.00,
+			"display": true,
+			"building": [ "CEN091" ]
+		},
+		{
+			"no":"119",
+			"id":"96253097",
+			"zone":"96253097",
+			"name":"96253097",
+			"capacity": 105.84,
+			"display": true,
+			"building": [ "CEN100" ]
+		},
+		{
 			"no":"01",
 			"id":"ARC003",
-			"zone":"3",
+			"zone":"13028863",
 			"name":"อาคารเลิศ อุรัสยะนันทน์",
 			"capacity": 113.4,
 			"display": true
@@ -14,31 +194,31 @@
 		{
 			"no":"17",
 			"id":"PSC012",
-			"zone":"4",
+			"zone":"13018215",
 			"name":"อาคาร 50 ปี สาธิตจุฬาลงกรณ์มหาวิทยาลัย",
 			"capacity": 113.4,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"19",
 			"id":"CEN099",
-			"zone":"5",
+			"zone":"13037909",
 			"name":"อาคารจอดรถ 1",
 			"capacity": 224.64,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"21",
 			"id":"CEN087",
-			"zone":"4",
+			"zone":"13014105",
 			"name":"อาคารเฉลิมราชสุดากีฬาสถาน",
 			"capacity": 279.72,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"02",
 			"id":"CEN001",
-			"zone":"4",
+			"zone":"13014105",
 			"name":"อาคารจามจุรี1",
 			"capacity": 90.72,
 			"display": true
@@ -46,7 +226,7 @@
 		{
 			"no":"04",
 			"id":"CEN003",
-			"zone":"4",
+			"zone":"13014105",
 			"name":"โรงอาหารสำนักงานมหาวิทยาลัย",
 			"capacity": 48.6,
 			"display": true
@@ -54,7 +234,7 @@
 		{
 			"no":"03",
 			"id":"CEN005",
-			"zone":"4",
+			"zone":"13014105",
 			"name":"อาคารสำนักงานจัดการทรัพย์สิน",
 			"capacity": 69.12,
 			"display": true
@@ -62,7 +242,7 @@
 		{
 			"no":"05",
 			"id":"CEN072",
-			"zone":"1",
+			"zone":"13030847",
 			"name":"หอพักพุดซ้อน",
 			"capacity": 91.8,
 			"display": true
@@ -70,7 +250,7 @@
 		{
 			"no":"06",
 			"id":"CEN091",
-			"zone":"1",
+			"zone":"95772485",
 			"name":"หอพักชวนชม",
 			"capacity": 95.04,
 			"display": true
@@ -78,210 +258,210 @@
 		{
 			"no":"09",
 			"id":"DEN014",
-			"zone":"2",
+			"zone":"13017711",
 			"name":"อาคารพรีคลินิก",
 			"capacity": 103.68 ,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"07",
 			"id":"PHA003",
-			"zone":"2",
+			"zone":"13023931",
 			"name":"โรงพักสัตว์ทดลอง",
 			"capacity": 38.88,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"10",
 			"id":"PHA007",
-			"zone":"2",
+			"zone":"13036201",
 			"name":"ศูนย์ปฏิบัติการวิจัยและพัฒนาเภสัชภัณฑ์และสมุนไพร",
 			"capacity": 83.16,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"20",
 			"id":"INS012",
-			"zone":"",
+			"zone":"13024447",
 			"name":"อาคารสถาบัน3",
 			"capacity": 97.2 ,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"46",
 			"id":"SCI020",
-			"zone":"",
+			"zone":"13029461",
 			"name":"อาคารแถบ นีละนิธิ",
 			"capacity": 59.3,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"34",
 			"id":"SCI025",
-			"zone":"6",
+			"zone":"13029461",
 			"name":"อาคารมหามกุฎ",
 			"capacity": 197.64,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"26",
 			"id":"SCI028",
-			"zone":"6",
+			"zone":"13029461",
 			"name":"อาคารมหาวชิรุณหิศ",
 			"capacity": 102.6,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"35",
 			"id":"CEN060",
-			"zone":"",
+			"zone":"13029461",
 			"name":"อาคารจุลจักรพงษ์",
 			"capacity": 162,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"12",
 			"id":"INS009",
-			"zone":"7",
+			"zone":"13018538",
 			"name":"อาคารประชาธิปก-รำไพพรรณี",
 			"capacity": 60.48,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"29",
 			"id":"CEN068",
-			"zone":"7",
+			"zone":"13029461",
 			"name":"อาคารมหิตลาธิเบศร",
 			"capacity": 166.32,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"22",
 			"id":"CEN093",
-			"zone":"7",
+			"zone":"13018538",
 			"name":"อาคารจอดรถ3",
 			"capacity": 162,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"36",
 			"id":"ECO001",
-			"zone":"7",
+			"zone":"13029461",
 			"name":"อาคารเศรษฐศาสตร์",
 			"capacity": 265.68,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"23",
 			"id":"CEN032",
-			"zone":"",
+			"zone":"13029461",
 			"name":"อาคารเปรมบุรฉัตร",
 			"capacity": 239.76,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"47",
 			"id":"ENG013",
-			"zone":"",
+			"zone":"13018538",
 			"name":"อาคารปฏิบัติการเจริญวิศวกรรม",
 			"capacity": 288.9,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"30",
 			"id":"ENG026",
-			"zone":"6",
+			"zone":"13018538",
 			"name":"อาคารนิวเคลียร์เทคโนโลยี วิศวกรรมเคมีและวิศวกรรมโลหการ",
 			"capacity": 152.28,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"28",
 			"id":"ENG028",
-			"zone":"6",
+			"zone":"13018538",
 			"name":"อาคารเจริญวิศวกรรม",
 			"capacity": 71.28,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"31",
 			"id":"ENG030",
-			"zone":"6",
+			"zone":"13018538",
 			"name":"อาคารปฏิบัติการวิศวกรรมโยธาและสิ่งแวดล้อม",
 			"capacity": 114.48,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"24",
 			"id":"ART005",
-			"zone":"3",
+			"zone":"13040996",
 			"name":"อาคารมหาจักรีสิรินธร",
 			"capacity": 120.96,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"37",
 			"id":"CEN053",
-			"zone":"3",
+			"zone":"13028863",
 			"name":"อาคารบรมราชกุมารี",
 			"capacity": 77.76 ,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"48",
 			"id":"CEN081",
-			"zone":"",
+			"zone":"13028863",
 			"name":"อาคารพิพิธภัณฑ์จุฬาลงกรณ์มหาวิทยาลัย",
 			"capacity": 51.84,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"18",
 			"id":"CEN079",
-			"zone":"3",
+			"zone":"13040996",
 			"name":"อาคารจอดรถ 2",
 			"capacity": 138.24,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"15",
 			"id":"INS011",
-			"zone":"1",
+			"zone":"13030979",
 			"name":"อาคารวิทยาลัยปิโตรเลียมและปิโตรเคมี",
 			"capacity": 56.7,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"25",
 			"id":"CEN100",
-			"zone":"",
+			"zone":"96253097",
 			"name":"อาคารจุฬาพัฒน์14",
 			"capacity": 105.84,
-			"display": false	
+			"display": true	
 		},
 		{
 			"no":"13",
 			"id":"CEN089",
-			"zone":"1",
+			"zone":"95508259",
 			"name":"จุฬานิวาส",
 			"capacity": 48.06,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"39",
 			"id":"CEN069",
-			"zone":"3",
+			"zone":"13036565",
 			"name":"อาคารจุฬาวิชช์ 1",
 			"capacity": 97.2,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"42",
 			"id":"CEN078",
-			"zone":"2",
+			"zone":"13037811",
 			"name":"อาคารบรมราชชนนีศรีศตพรรษ",
 			"capacity": 88.56,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"40",
@@ -289,103 +469,104 @@
 			"zone":"4",
 			"name":"สนามกีฬาจุฬาลงกรณ์มหาวิทยาลัย",
 			"capacity": 393.12,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"41",
 			"id":"EDU003",
-			"zone":"",
+			"zone":"13014105",
 			"name":"อาคารประชุมสุข อาชวอำรุง",
 			"capacity": 64.8,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"32",
 			"id":"EDU011",
-			"zone":"",
+			"zone":"13018215",
 			"name":"อาคารพระมิ่งขวัญการศึกษาไทย",
 			"capacity": 295.92,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"08",
 			"id":"LAW003",
-			"zone":"5",
+			"zone":"13018215",
 			"name":"อาคารเทพทวาราวดี",
 			"capacity": 62.64,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"14",
 			"id":"CEN103",
-			"zone":"1",
+			"zone":"13014105",
 			"name":"บัณฑิตวิทยาลัย",
 			"capacity": 50.22,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"16",
 			"id":"CEN027",
-			"zone":"1",
+			"zone":"13030847",
 			"name":"หอพักพุดตาน",
 			"capacity": 61.56,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"38",
 			"id":"INS010",
-			"zone":"1",
+			"zone":"13030117",
 			"name":"อาคารศศปาฐศาลา",
 			"capacity": 120.96,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"43",
 			"id":"DEN001",
-			"zone":"2",
+			"zone":"13017711",
 			"name":"อาคารทันตกรรม1",
 			"capacity": 189.2 ,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"45",
 			"id":"DEN002",
-			"zone":"2",
+			"zone":"13017711",
 			"name":"อาคารทันตรักษ์วิจัย",
 			"capacity": 38.88,
-			"display": false 
+			"display": true 
 		},
 		{
 			"no":"44",
 			"id":"PHA001",
-			"zone":"2",
+			"zone":"13023931",
 			"name":"อาคารเภสัชศาสตร์",
 			"capacity": 556.2,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"27",
 			"id":"PHA006",
-			"zone":"2",
+			"zone":"13036201",
 			"name":"สถานปฏิบัติการเภสัชกรรมชุมชน(โอสถศาลา)",
 			"capacity": 48.6,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"11",
 			"id":"VET001",
-			"zone":"2",
+			"zone":"13028685",
 			"name":"อาคารสัตวแพทย์1",
 			"capacity": 32.4,
-			"display": false 
+			"display": true 
 		},
 		{
 			"no":"33",
 			"id":"ESC008",
-			"zone":"5",
+			"zone":"13018215",
 			"name":"อาคารอเนกประสงค์",
 			"capacity": 172.8,
-			"display": false
+			"display": true
 		}
+
 	]
 }

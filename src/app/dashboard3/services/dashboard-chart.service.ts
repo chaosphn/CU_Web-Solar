@@ -3,6 +3,8 @@ import { ChartParameters, HAlign, LegendParameter, Series, VAlingn, XAxisParamet
 import { MultipleData } from './../../share/models/value-models/group-data.model';
 import { DateTimeService } from './../../share/services/datetime.service';
 import { InverterValue } from './dashboard-inverter.service';
+import { isString } from 'util';
+import { PeriodTime1 } from 'src/app/share/models/period-time';
 
 @Injectable({
     providedIn: 'root'
@@ -19,7 +21,7 @@ export class DashboardChartService {
             let period;
             let xAxis;
             if (data.options.runtimeConfigs.periodName) {
-                period = this.dateTimeService.parseDate(data.options.runtimeConfigs.periodName);
+                period = this.dateTimeService.parseDate('t');
             }
      
             if (data.options.chartOptions && data.options.chartOptions.xAxis) {
@@ -35,6 +37,7 @@ export class DashboardChartService {
             if (period) {
                 xAxis.max = new Date(period.endTime).getTime();
                 xAxis.min = new Date(period.startTime).getTime();
+                // console.log("min : " + period.startTime + "\n max : " + period.endTime);
             }
             //console.log(xAxis);
             chartParams.addXAxis(xAxis);
@@ -53,6 +56,46 @@ export class DashboardChartService {
             }
             return chartParams; 
     }
+
+    getNewChartOptions(name: string, data: MultipleData, period:PeriodTime1): ChartParameters {
+
+        const chartParams = new ChartParameters(name);
+        const series = this.getSeries(data);
+
+        let xAxis;
+ 
+        if (data.options.chartOptions && data.options.chartOptions.xAxis) {
+            xAxis = this.getxAxis(data.options.chartOptions.xAxis.categories);
+            //console.log(xAxis);
+            //console.log(data.options.chartOptions.xAxis);
+            xAxis.tickInterval = data.options.chartOptions.xAxis.tickInterval;
+            //console.log(xAxis);
+        }
+        else {
+            xAxis = this.getxAxis();
+        }
+        if (period) {
+            xAxis.max = new Date(period.endTime).getTime();
+            xAxis.min = new Date(period.startTime).getTime();
+            // console.log("min : " + period.startTime + "\n max : " + period.endTime);
+        }
+        //console.log(xAxis);
+        chartParams.addXAxis(xAxis);
+        let enableLegend = true;
+        if (data.options && data.options.chartOptions && data.options.chartOptions.legend ) {
+            enableLegend = data.options.chartOptions.legend.enable;
+        }
+
+
+        const legend = this.getLegend(enableLegend);
+        const yAxis = this.getyAxis(data.options, data);
+        chartParams.setLegend(legend);
+        chartParams.addSeries(series);
+        if (yAxis) {
+            chartParams.addYAxis(yAxis);
+        }
+        return chartParams; 
+}
 
 
     getChartInverter(name: string, data: InverterValue[], options: any): ChartParameters  {
@@ -86,7 +129,7 @@ export class DashboardChartService {
 
     private getSeriesInverter(data: InverterValue[]): Series[] {
         const _series: Series[] = [];
-        data.forEach(x => {
+        data.forEach((x,i) => {
             if (x && x.Timestamp) {
                 let _d: [number, number];
                 //_d = [new Date(x.Timestamp).getTime(), +x.Value];
@@ -107,9 +150,11 @@ export class DashboardChartService {
         data.data.forEach(d => {
             const _dataRecords = d.dataRecords.map(x => {
                 let _data: [number, number];
-                //if (x.Quality.toString().toLowerCase() !== 'bad') {
-                    _data = [new Date(new Date(x.TimeStamp).getTime() ).getTime(), +x.Value];
-                //}
+                if (isString(x.Value)) {
+                    _data = [new Date(new Date(x.TimeStamp).getTime() ).getTime(), +(x.Value.replace(",", ""))];
+                } else {
+                    _data = [new Date(new Date(x.TimeStamp).getTime() ).getTime(), +(x.Value)];
+                }
                 return _data;
               });
               //console.log("dd : " + d.options && d.options.chartOptions && d.options.chartOptions.yAxis);

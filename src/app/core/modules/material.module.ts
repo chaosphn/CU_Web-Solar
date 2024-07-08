@@ -1,6 +1,6 @@
 import { LayoutModule } from '@angular/cdk/layout';
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule, MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule, MatMenuModule, MatProgressBarModule, MatPaginatorModule, MatTooltipModule } from '@angular/material';
+import { MatButtonModule, MatCardModule, MatDialogModule, MatFormFieldModule, MatIconModule, MatInputModule, MatListModule, MatProgressSpinnerModule, MatSelectModule, MatSidenavModule, MatSnackBarModule, MatTableModule, MatTabsModule, MatToolbarModule, MatMenuModule, MatProgressBarModule, MatPaginatorModule, MatTooltipModule, MatChipsModule } from '@angular/material';
 
 const comps = [
     LayoutModule,
@@ -24,7 +24,8 @@ const comps = [
     MatMenuModule,
     MatProgressBarModule,
     MatPaginatorModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatChipsModule
 ];
 
 @NgModule({

@@ -2,51 +2,51 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "B004.CALC04.W"
+			"Name": "B002.CALC02.W"
 		},
 		{
 			"Title": "power_expected",
-			"Name": "B004.CALC04.W_EXPECT"
+			"Name": "B002.CALC02.W_EXPECT"
 		},
 		{
 			"Title": "power_peak",
-			"Name": "B004.CALC04.W_PEAK_DAY"
+			"Name": "B002.CALC02.W_PEAK_DAY"
 		},
 		{
 			"Title": "power_peaktime",
-			"Name": "B004.CALC04.W_PEAK_DAY_TIME"
+			"Name": "B002.CALC02.W_PEAK_DAY_TIME"
 		},
 		{
 			"Title": "power_capacity",
-			"Name": "B004.CALC04.CAPACITY"
+			"Name": "B002.CALC02.CAPACITY"
 		},
 		{
 			"Title": "power_pr",
-			"Name": "B004.CALC04.PR"
+			"Name": "B002.CALC02.PR"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "B004.CALC04.WH"
+			"Name": "B002.CALC02.WH"
 		},
 		{
 			"Title": "energy_expected",
-			"Name": "B004.CALC04.WH_EXPECT_TODAY"
+			"Name": "B002.CALC02.WH_EXPECT_TODAY"
 		},
 		{
 			"Title": "energy_today",
-			"Name": "B004.CALC04.WH_TODAY"
+			"Name": "B002.CALC02.WH_TODAY"
 		},
 		{
 			"Title": "energy_yesterday",
-			"Name": "B004.CALC04.WH_YEAR"
+			"Name": "B002.CALC02.WH_YEAR"
 		},
 		{
 			"Title": "energy_mtd",
-			"Name": "B004.CALC04.WH_MONTH"
+			"Name": "B002.CALC02.WH_MONTH"
 		},
 		{
 			"Title": "energy_cod",
-			"Name": "B004.CALC04.WH"
+			"Name": "B002.CALC02.WH"
 		},
 		{
 			"Title": "weather_irr",
@@ -66,12 +66,22 @@
 		},
 		{
 			"Title": "weather_co2",
-			"Name": "B004.CALC04.CO2_TODAY"
+			"Name": "B002.CALC02.CO2_TODAY"
 		}
 	],
 	"historianConfig": [
 		{
-			"Name": "B004.CALC04.W",
+			"Name": "B006.TOU06.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B006.PQM06.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -91,7 +101,7 @@
 			}
 		},
 		{
-			"Name": "B004.INV0401.WH",
+			"Name": "B006.INV0601.WH",
 			"Title": "X3",
 			"Options" : {
 				"Interval": 5,
@@ -101,7 +111,7 @@
 			}
 		},
 		{
-			"Name": "B004.INV0402.WH",
+			"Name": "B006.INV0602.WH",
 			"Title": "X4",
 			"Options" : {
 				"Interval": 5,
@@ -111,49 +121,49 @@
 			}
 		},
 		{
-			"Name": "B004.CALC04.WH_HOUR",
-			"Title": "X5",
+			"Name": "B002.CALC02.WH_TODAY",
+			"Title": "X1",
 			"Options" : {
-				"Interval": 60,
+				"Interval": 5,
 				"Time" :"t",
 				"StartTime" : "2021-06-24T00:00:00",
 				"EndTime" : "2023-12-24T23:59:59"
 			}
 		},
 		{
-			"Name": "B004.CALC04.PR_HOUR",
-			"Title": "X6",
+			"Name": "B003.CALC03.WH_TODAY",
+			"Title": "X1",
 			"Options" : {
-				"Interval": 60,
+				"Interval": 5,
 				"Time" :"t",
 				"StartTime" : "2021-06-24T00:00:00",
 				"EndTime" : "2023-12-24T23:59:59"
 			}
-		}					
+		}
 	],
 	"chartConfig":[
 		{
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "B006.SLOGGER06.PYRANO",
-					"title": "IRR",
+					"name": "B006.TOU06.W",
+					"title": "TOU06",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "area",
-							"color": "rgba(253, 103, 78, 1)"
+							"color": "#023e8a"
 						}
 					}
 				},
 				{
-					"name": "B004.CALC04.W",
-					"title": "Power",
+					"name": "B006.PQM06.W",
+					"title": "JANITZA06",
 					"options": {
 						"chartOptions": {
-							"yAxis": 1,
+							"yAxis": 0,
 							"type": "area",
-							"color": "#3DB1FC"
+							"color": "#ffb703"
 						}
 					}
 				}
@@ -164,13 +174,6 @@
 			"options": {
 				"chartOptions": {
 					"yAxis": [
-						{
-							"color": "rgba(253, 103, 78, 1)",
-							"text": "IRR (W/sq.m)",
-							"useMax": true,
-							"opposite": true,
-							"visible": false
-						},
 						{
 							"color": "#7CB5EC",
 							"text": "Power (kW)",
@@ -192,144 +195,52 @@
 		},
 		{
 			"name": "energyExported",
-			"type": "Raw",
 			"tags": [
 				{
-					"name": "B004.CALC04.WH_HOUR",
-					"title": "Energy",
-					"period": "daily",
+					"name": "B002.CALC02.WH_TODAY",
+					"title": "TOU02",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
-							"type": "column",
-							"color": "#3DB1FC"
+							"type": "area",
+							"color": "#03045e"
 						}
 					}
 				},
 				{
-					"name": "B004.CALC04.WH_DAY",
-					"title": "Energy",
-					"period": "weekly",
+					"name": "B003.CALC03.WH_TODAY",
+					"title": "TOU03",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
-							"type": "column",
-							"color": "#3DB1FC"
-						}
-					}
-				},
-				{
-					"name": "B004.CALC04.WH_DAY",
-					"title": "Energy",
-					"period": "monthly",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "column",
-							"color": "#3DB1FC"
-						}
-					}
-				},
-				{
-					"name": "B004.CALC04.WH_MONTH",
-					"title": "Energy",
-					"period": "yearly",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "column",
-							"color": "#3DB1FC"
+							"type": "area",
+							"color": "#023e8a"
 						}
 					}
 				}
 			],
+			"type": "Plot",
+			"interval": 1000,
 			"title": "Energy Exported",
 			"options": {
 				"chartOptions": {
 					"yAxis": [
 						{
 							"color": "#7CB5EC",
-							"text": "ENERGY (kWh)"
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
 						}
 					],
+					"xAxis": {
+						
+					},
 					"legend": {
 						"enable": true
 					}
 				},
 				"runtimeConfigs": {
 					"periodName": "daily"
-				}
-			}
-		},
-		{
-			"name": "performanceRatio",
-			"tags": [
-				{
-					"name": "B004.CALC04.PR_HOUR",
-					"title": "Performance",
-					"period": "daily",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "column",
-							"color": "#3DB1FC"
-						}
-					}
-				},
-				{
-					"name": "B004.CALC04.PR_DAY",
-					"title": "Performance",
-					"period": "weekly",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "column",
-							"color": "#3DB1FC"
-						}
-					}
-				},
-				{
-					"name": "B004.CALC04.PR_DAY",
-					"title": "Performance",
-					"period": "monthly",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "column",
-							"color": "#3DB1FC"
-						}
-					}
-				},
-				{
-					"name": "B004.CALC04.PR_MONTH",
-					"title": "Performance",
-					"period": "yearly",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "column",
-							"color": "#3DB1FC"
-						}
-					}
-				}
-			],
-			"type": "Raw",
-			"title": "Energy Exported2",
-			"options": {
-				"runtimeConfigs": {
-					"periodName": "daily"
-				},
-				"chartOptions": {
-					"yAxis": [
-						{
-							"color": "#7CB5EC",
-							"text": "PR (%)",
-							"useMax": true
-						}
-					],
-					"legend": {
-						"enable": true
-					}
 				}
 			}
 		},
@@ -337,24 +248,24 @@
 			"name": "interverEnergy",
 			"tags": [
 				{
-					"name": "B004.INV0401.WH",
-					"title": "INV01",
+					"name": "B006.INV0601.WH",
+					"title": "INV0601",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "column",
-							"color": "#3DB1FC"
+							"color": "#caf0f8"
 						}
 					}
 				},
 				{
-					"name": "B004.INV0402.WH",
-					"title": "INV02",
+					"name": "B006.INV0602.WH",
+					"title": "INV0602",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "column",
-							"color": "#3DB1FC"
+							"color": "#caf0f8"
 						}
 					}
 				}
@@ -377,8 +288,8 @@
 					},
 					"xAxis": {
 						"categories": [
-							"INV01",
-							"INV02"
+							"INV0601",
+							"INV0602"
 						]
 					}
 				}
@@ -386,3 +297,4 @@
 		}
 	]
 }
+

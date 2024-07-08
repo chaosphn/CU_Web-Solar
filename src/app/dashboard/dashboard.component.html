@@ -1,12 +1,12 @@
 <!-- {{getPeakTime(data?.singleValue['power_peaktime']?.dataRecords[0]?.Value)}} -->
 <div class="container-fluid">
-  <div class="row-grid">
+  <div class="row-grid" [ngClass]="{'row-grid-meter': siteName.building}">
     <div class="siteInfoCard">
       <app-solar-container [title]="'SITE INFORMATION'">
         <ng-template #content>
           <app-site-information 
           [name]="siteName.name" 
-          [imgName]="siteName.id+'.png'"
+          [imgName]="siteName.building ? 'janitza.png' : siteName.id+'.png'"
           [location]="'จุฬาลงกรณ์มหาวิทยาลัย'" 
           [capacityValue]="siteName.capacity"
           [capacityUnit]="'kWp'" 
@@ -141,7 +141,7 @@
       </app-solar-container>
     </div>
   
-    <div class="prChartCard">
+    <div class="prChartCard" *ngIf="!siteName.building">
       <app-solar-container [title]="'PERFORMANCE RATIO'">
         <ng-template #period>
           <!-- <app-period (select)="selectPeriod($event, 'performanceRatio')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period3></app-period> -->

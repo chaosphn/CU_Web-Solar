@@ -2,64 +2,64 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "TOU01.W"
+			"Name": "B001.TOU01.W"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "CALC01.WH_TODAY"
+			"Name": "B001.CALC01.WH_TODAY"
 		},
 		{
 			"Title": "pr_value",
-			"Name": "CALC01.PR"
+			"Name": "B001.CALC01.PR"
 		},
 		{
 			"Title": "saving_value",
-			"Name": ""
+			"Name": "B001."
 		},
 		{
 			"Title": "weather_co2",
-			"Name": "CALC01.CO2_TODAY"
+			"Name": "B001.CALC01.CO2_TODAY"
 		},
 		{
 			"Title": "energy_inv1",
-			"Name": "INV0101.WH_TODAY"
+			"Name": "B001.INV0101.WH_TODAY"
 		},
 		{
 			"Title": "energy_inv2",
-			"Name": "INV0102.WH_TODAY"
+			"Name": "B001.INV0102.WH_TODAY"
 		},
 		{
 			"Title": "performance_inv1",
-			"Name": "INV0101.EFF"
+			"Name": "B001.INV0101.EFF"
 		},
 		{
 			"Title": "performance_inv2",
-			"Name": "INV0102.EFF"
+			"Name": "B001.INV0102.EFF"
 		},
 		{
 			"Title": "power_inv1",
-			"Name": "INV0101.WAC"
+			"Name": "B001.INV0101.WAC"
 		},
 		{
 			"Title": "power_inv2",
-			"Name": "INV0102.WAC"
+			"Name": "B001.INV0102.WAC"
 		},
 		{
 			"Title": "volt_inv1",
-			"Name": "INV0101.VDC"
+			"Name": "B001.INV0101.VDC"
 		},
 		{
 			"Title": "volt_inv2",
-			"Name": "INV0102.VDC"
+			"Name": "B001.INV0102.VDC"
 		},
 		{
 			"Title": "cb_status",
-			"Name": "cb01.status"
+			"Name": "B001.cb01.status"
 		}
 	],
 	"historianConfig": [
 		{
-			"Name": "TOU01.W",
+			"Name": "B001.TOU01.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -69,7 +69,7 @@
 			}
 		},
 		{
-			"Name": "SLOGGER06.PYRANO",
+			"Name": "B006.SLOGGER06.PYRANO",
 			"Title": "X2",
 			"Options" : {
 				"Interval": 5,
@@ -79,7 +79,7 @@
 			}
 		},
 		{
-			"Name": "INV0101.WH_TODAY",
+			"Name": "B001.INV0101.WH_TODAY",
 			"Title": "X3",
 			"Options" : {
 				"Interval": 5,
@@ -89,7 +89,7 @@
 			}
 		},
 		{
-			"Name": "INV0102.WH_TODAY",
+			"Name": "B001.INV0102.WH_TODAY",
 			"Title": "X4",
 			"Options" : {
 				"Interval": 5,
@@ -104,7 +104,7 @@
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "SLOGGER06.PYRANO",
+					"name": "B006.SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {
@@ -115,7 +115,7 @@
 					}
 				},
 				{
-					"name": "TOU01.W",
+					"name": "B001.TOU01.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {
@@ -154,7 +154,7 @@
 					}
 				},
 				"runtimeConfigs": {
-					"periodName": "t"
+					"periodName": "daily"
 				}
 			}
 		},
@@ -162,7 +162,7 @@
 			"name": "inverterGeneration",
 			"tags": [
 				{
-					"name": "INV0101.WH_TODAY",
+					"name": "B001.INV0101.WH_TODAY",
 					"title": "INV01",
 					"options": {
 						"chartOptions": {
@@ -173,7 +173,7 @@
 					}
 				},
 				{
-					"name": "INV0102.WH_TODAY",
+					"name": "B001.INV0102.WH_TODAY",
 					"title": "INV02",
 					"options": {
 						"chartOptions": {
@@ -212,7 +212,7 @@
 					}
 				},
 				"runtimeConfigs": {
-					"periodName": "t"
+					"periodName": "daily"
 				}
 			}
 		}

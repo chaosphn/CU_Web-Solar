@@ -38,11 +38,6 @@ const routes: Routes = [
                 canActivateChild: [ AuthGuard ]
             },
             {
-                path: 'meterdashboard',
-                loadChildren: 'src/app/dashboard-meter/dashboard.module#DashboardModule',
-                canActivateChild: [ AuthGuard ]
-            },
-            {
                 path: 'dashboard1',
                 loadChildren: 'src/app/dashboard1/dashboard.module#DashboardModule',
                 canActivateChild: [ AuthGuard ]
@@ -91,6 +86,11 @@ const routes: Routes = [
                 path: 'events',
                 loadChildren: 'src/app/events/events.module#EventsModule',
                 canActivateChild: [ AuthGuard ]
+            },
+            {
+                path: 'admin',
+                loadChildren: 'src/app/admin/admin.module#AdminModule',
+                //canActivateChild: [ AuthGuard ]
             }
         ]
     },

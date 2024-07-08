@@ -1,7 +1,3 @@
-// div[class^="col"] {
-//    padding-right: 7px;
-//    padding-bottom: 7px;
-// }
 
 .chart-content {
     height: 181px;
@@ -148,6 +144,23 @@
         "powerChartCard     powerChartCard  energyChartCard     energyChartCard"
         "prChartCard        prChartCard     invertersChartCard  invertersChartCard";
         grid-gap: 7px;
+    }
+    .row-grid-meter{
+        display: grid;
+        height: calc(100vh - 14px);
+        box-sizing: border-box;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: 20% repeat(3, 2fr);
+        grid-template-areas: 
+        "siteInfoCard       powerCard       energyCard          weatherCard"
+        "powerChartCard     powerChartCard  powerChartCard     powerChartCard"
+        "energyChartCard    energyChartCard energyChartCard     energyChartCard"
+        "invertersChartCard invertersChartCard  invertersChartCard  invertersChartCard";
+        grid-gap: 7px;
+        .chart-content {
+            height: 100% !important;
+            min-height: 200px;
+        }
     }
 }
 

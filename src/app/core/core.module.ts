@@ -10,7 +10,6 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { MaterialModule } from './modules/material.module';
 import { StoreModule } from './modules/store.module';
-import { TvDashboardComponent } from './components/tv-dashboard/tv-dashboard.component';
 import { DashboardComponent } from '../dashboardtv/dashboard.component';
 
 
@@ -29,8 +28,7 @@ import { DashboardComponent } from '../dashboardtv/dashboard.component';
   declarations: [
       NavbarComponent,
       LoginComponent,
-      PageNotFoundComponent,
-      TvDashboardComponent
+      PageNotFoundComponent
   ],
   exports: [
     

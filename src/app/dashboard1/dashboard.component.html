@@ -1,6 +1,6 @@
 <!-- {{getPeakTime(data?.singleValue['power_peaktime']?.dataRecords[0]?.Value)}} -->
 <div class="container-fluid">
-  <div class="row-grid">
+  <div class="row-grid" *ngIf="zoneList">
     <section class="summary-card">
       <div class="power-content" >
         <app-solar-container [title]="'TOTAL POWER'">
@@ -52,19 +52,19 @@
         </app-solar-container>
       </div>
     </section>
-    <section class="site-card">
+    <section class="site-card" *ngFor="let item of zoneList;">
       <div class="site-content ">
-          <div class="site-info " (click)="routNavigate(1)">
-            <div class="site-img"><img src="assets/images/building/zone/zone1.png" alt="" ></div>
+          <div class="site-info " (click)="routNavigate(item.project)">
+            <div class="site-img "><img src="assets/images/building/dashboard/janitza.png" alt="" ></div>
             <div class="site-topic">
-              <p class="zone no-pm">ZONE 1</p>    
-              <div class="longlist-container"><p class="tlist" id="zone1">บัณฑิตวิทยาลัย, หอพักพุตตาน, หอพักพุดซ้อน, หอพักชวนชม, อาคารวิทยาลัยปิโตรเลียมและปิโตเคมี, อาคารศศปาฐศาลา, จุฬานิวาส </p></div>     
-              <p class="capacity no-pm">524.34 kWp</p>
+              <p class="zone no-pm">{{item.project}}</p>    
+              <div class="longlist-container bz"><p class="tlist" [id]="item.building.length > 2 ? 'zone1': ''">{{getSiteTxt(item.building)}} </p></div>     
+              <p class="capacity no-pm">{{item.capacity}} kWp</p>
               <p class="location no-pm">จุฬาลงกรณ์มหาวิทยาลัย</p>
             </div>
           </div>
           <div class="progress-group ">
-            <div class="site-progress " *ngIf="data?.singleValue['zone1_power']?.dataRecords[0]?.Value"><app-circle-progress [Ids]="'01'" 
+            <div class="site-progress " *ngIf="data?.singleValue['zone1_power']?.dataRecords[0]?.Value"><app-circle-progress [Ids]="item.project" 
               [title]="'POWER'"
               [value]="data?.singleValue['zone1_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
               [unit]="'kW'"
@@ -82,19 +82,19 @@
               [unit]="'%'"
               [maxValue]="100"
               [percentValue]="getAverageValue('zone1_pr')"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'04'" 
+            <div class="site-progress "><app-circle-progress [Ids]="item.project+'04'" 
               [title]="'PYRANO'"
               [value]="data?.singleValue['zone4_irr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
               [unit]="data?.singleValue['zone4_irr']?.unit"
               [maxValue]="data?.singleValue['zone4_irr']?.maxValue"
               [percentValue]="setValueBar(data?.singleValue['zone4_irr']?.dataRecords[0]?.Value,data?.singleValue['zone4_irr']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'05'" 
+            <div class="site-progress "><app-circle-progress [Ids]="item.project+'05'" 
               [title]="'PVTEMP'"
               [value]="data?.singleValue['zone4_pv']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
               [unit]="data?.singleValue['zone4_pv']?.unit"
               [maxValue]="data?.singleValue['zone4_pv']?.maxValue"
               [percentValue]="setValueBar(data?.singleValue['zone4_pv']?.dataRecords[0]?.Value,data?.singleValue['zone4_pv']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'06'" 
+            <div class="site-progress "><app-circle-progress [Ids]="item.project+'06'" 
               [title]="'AMBTEMP'"
               [value]="data?.singleValue['zone4_amb']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
               [unit]="data?.singleValue['zone4_amb']?.unit"
@@ -102,332 +102,7 @@
               [percentValue]="setValueBar(data?.singleValue['zone4_amb']?.dataRecords[0]?.Value,data?.singleValue['zone4_amb']?.maxValue)|| 0"></app-circle-progress></div>
           </div>
           <div class="site-chart ">
-            <app-sat-chart2 [height]="'100px'" [chartParameters]="chartOptions['zone1Generation']"></app-sat-chart2>
-            </div>
-      </div>
-    </section>
-    <section class="site-card">
-      <div class="site-content ">
-          <div class="site-info " (click)="routNavigate(2)">
-            <div class="site-img"><img src="assets/images/building/zone/zone2.png" alt="" ></div>
-            <div class="site-topic">
-              <p class="zone no-pm">ZONE 2</p>             
-              <div class="longlist-container"><p class="tlist" id="zone2">อาคารทันตกรรม1, อาคารทันตรักษ์วิจัย, อาคารพรีคลินิก, อาคารเภสัชศาสตร์, โรงพักสัตว์ทดลอง, สถานปฏิบัติการเภสัชกรรมชุมชน(โอสถศาลา), ศุนย์ปฏิบัติการวิจัยและพัฒนาเภสัชฑ์และสมุนไพร, อาคารสัตวแพทย์1, อาคารบรมราชชนนีศรีศตพรรษ </p></div>     
-              <p class="capacity no-pm">1,179.36 kWp</p>
-              <p class="location no-pm">จุฬาลงกรณ์มหาวิทยาลัย</p>
-            </div>
-          </div>
-          <div class="progress-group ">
-            <div class="site-progress "><app-circle-progress [Ids]="'11'" 
-              [title]="'POWER'"
-              [value]="data?.singleValue['zone2_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="'kW'"
-              [maxValue]="data?.singleValue['zone2_power']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone2_power']?.dataRecords[0]?.Value,data?.singleValue['zone2_power']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'12'" 
-              [title]="'TODAY'"
-              [value]="data?.singleValue['zone2_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone2_energy']?.unit"
-              [maxValue]="data?.singleValue['zone2_energy']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone2_energy']?.dataRecords[0]?.Value,data?.singleValue['zone2_energy']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'13'" 
-              [title]="'PR'"
-              [value]="data?.singleValue['zone2_pr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone2_pr']?.unit || '%'"
-              [maxValue]="data?.singleValue['zone2_pr']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone2_pr']?.dataRecords[0]?.Value,data?.singleValue['zone2_pr']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'14'" 
-              [title]="'PYRANO'"
-              [value]="data?.singleValue['zone2_irr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone2_irr']?.unit"
-              [maxValue]="data?.singleValue['zone2_irr']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone2_irr']?.dataRecords[0]?.Value,data?.singleValue['zone2_irr']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'15'" 
-              [title]="'PVTEMP'"
-              [value]="data?.singleValue['zone2_pv']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone2_pv']?.unit"
-              [maxValue]="data?.singleValue['zone2_pv']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone2_pv']?.dataRecords[0]?.Value,data?.singleValue['zone2_pv']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'16'" 
-              [title]="'AMBTEMP'"
-              [value]="data?.singleValue['zone2_amb']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone2_amb']?.unit"
-              [maxValue]="data?.singleValue['zone2_amb']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone2_amb']?.dataRecords[0]?.Value,data?.singleValue['zone2_amb']?.maxValue)|| 0"></app-circle-progress></div>
-          </div>
-          <div class="site-chart ">
-            <app-sat-chart2 [height]="'100px'" [chartParameters]="chartOptions['zone2Generation']"></app-sat-chart2>
-            
-          </div>
-      </div>
-    </section>
-    <section class="site-card">
-      <div class="site-content ">
-          <div class="site-info " (click)="routNavigate(3)">
-            <div class="site-img"><img src="assets/images/building/zone/zone3.png" alt="" ></div>
-            <div class="site-topic">
-              <p class="zone no-pm">ZONE 3</p>             
-              <div class="longlist-container"><p class="tlist" id="zone3">อาคารเลิศอุรัสยะนันทน์, อาคารมหาจักรีสิรินธร, อาคารบรมราชกุมารี, อาคารจอดรถ2, อาคารจุฬาวิชช์1</p></div>     
-              <p class="capacity no-pm">547.56 kWp</p>
-              <p class="location no-pm">จุฬาลงกรณ์มหาวิทยาลัย</p>
-            </div>
-          </div>
-          <div class="progress-group ">
-            <div class="site-progress "><app-circle-progress [Ids]="'21'" 
-              [title]="'POWER'"
-              [value]="data?.singleValue['zone3_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="'kW'"
-              [maxValue]="data?.singleValue['zone3_power']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone3_power']?.dataRecords[0]?.Value,data?.singleValue['zone3_power']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'22'" 
-              [title]="'TODAY'"
-              [value]="data?.singleValue['zone3_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone3_energy']?.unit"
-              [maxValue]="data?.singleValue['zone3_energy']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone3_energy']?.dataRecords[0]?.Value,data?.singleValue['zone3_energy']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'23'" 
-              [title]="'PR'"
-              [value]="getAverageValue('zone3_pr')"
-              [unit]="'%'"
-              [maxValue]="100"
-              [percentValue]="getAverageValue('zone3_pr')"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'24'" 
-              [title]="'PYRANO'"
-              [value]="data?.singleValue['zone4_irr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone4_irr']?.unit"
-              [maxValue]="data?.singleValue['zone4_irr']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone4_irr']?.dataRecords[0]?.Value,data?.singleValue['zone4_irr']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'25'" 
-              [title]="'PVTEMP'"
-              [value]="data?.singleValue['zone4_pv']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone4_pv']?.unit"
-              [maxValue]="data?.singleValue['zone4_pv']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone4_pv']?.dataRecords[0]?.Value,data?.singleValue['zone4_pv']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'26'" 
-              [title]="'AMBTEMP'"
-              [value]="data?.singleValue['zone4_amb']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone4_amb']?.unit"
-              [maxValue]="data?.singleValue['zone4_amb']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone4_amb']?.dataRecords[0]?.Value,data?.singleValue['zone4_amb']?.maxValue)|| 0"></app-circle-progress></div>
-          </div>
-          <div class="site-chart ">
-            <app-sat-chart2 [height]="'100px'" [chartParameters]="chartOptions['zone3Generation']"></app-sat-chart2>
-          </div>
-      </div>
-    </section>
-    <section class="site-card">
-      <div class="site-content ">
-          <div class="site-info " (click)="routNavigate(4)">
-            <div class="site-img"><img src="assets/images/building/zone/zone4.png" alt="" ></div>
-            <div class="site-topic">
-              <p class="zone no-pm">ZONE 4</p>             
-              <div class="longlist-container"><p class="tlist" id="zone4">อาคาร50ปี สาธิตจุฬาลงกรณ์มหาวิทยาลัย, อาคารเฉลิมราชสุดากีฬาสถาน, อาคารจามจุรี1, โรงอาหารสำนักงานมหาวิทยาลัย, อาคารสำนักงานจัดการทรัพย์สิน, สนามกีฬาจุฬาลงกรณ์มหาวิทยาลัย</p></div>     
-              <p class="capacity no-pm">994.68 kWp</p>
-              <p class="location no-pm">จุฬาลงกรณ์มหาวิทยาลัย</p>
-            </div>
-          </div>
-          <div class="progress-group ">
-            <div class="site-progress " *ngIf="data?.singleValue['zone4_power']?.dataRecords[0]?.Value"><app-circle-progress [Ids]="'31'" 
-              [title]="'POWER'"
-              [value]="data?.singleValue['zone4_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="'kW'"
-              [maxValue]="data?.singleValue['zone4_power']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone4_power']?.dataRecords[0]?.Value,data?.singleValue['zone4_power']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'32'" 
-              [title]="'TODAY'"
-              [value]="data?.singleValue['zone4_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone4_energy']?.unit"
-              [maxValue]="data?.singleValue['zone4_energy']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone4_energy']?.dataRecords[0]?.Value,data?.singleValue['zone4_energy']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'33'" 
-              [title]="'PR'"
-              [value]="getAverageValue('zone4_pr')"
-              [unit]="'%'"
-              [maxValue]="100"
-              [percentValue]="getAverageValue('zone4_pr')"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'34'" 
-              [title]="'PYRANO'"
-              [value]="data?.singleValue['zone4_irr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone4_irr']?.unit"
-              [maxValue]="data?.singleValue['zone4_irr']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone4_irr']?.dataRecords[0]?.Value,data?.singleValue['zone4_irr']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'35'" 
-              [title]="'PVTEMP'"
-              [value]="data?.singleValue['zone4_pv']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone4_pv']?.unit"
-              [maxValue]="data?.singleValue['zone4_pv']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone4_pv']?.dataRecords[0]?.Value,data?.singleValue['zone4_pv']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'36'" 
-              [title]="'AMBTEMP'"
-              [value]="data?.singleValue['zone4_amb']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone4_amb']?.unit"
-              [maxValue]="data?.singleValue['zone4_amb']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone4_amb']?.dataRecords[0]?.Value,data?.singleValue['zone4_amb']?.maxValue)|| 0"></app-circle-progress></div>
-          </div>
-          <div class="site-chart ">
-            <app-sat-chart2 [height]="'100px'" [chartParameters]="chartOptions['zone4Generation']"></app-sat-chart2>
-          </div>
-      </div>
-    </section>
-    <section class="site-card">
-      <div class="site-content ">
-          <div class="site-info " (click)="routNavigate(5)">
-            <div class="site-img"><img src="assets/images/building/zone/zone5.png" alt="" ></div>
-            <div class="site-topic">
-              <p class="zone no-pm">ZONE 5</p>             
-              <div class="longlist-container"><p class="tlist" id="zone5">อาคารจอดรถ1, อาคารเทพทวาราวดี</p></div>     
-              <p class="capacity no-pm">460.08 kWp</p>
-              <p class="location no-pm">จุฬาลงกรณ์มหาวิทยาลัย</p>
-            </div>
-          </div>
-          <div class="progress-group ">
-            <div class="site-progress "><app-circle-progress [Ids]="'41'" 
-              [title]="'POWER'"
-              [value]="data?.singleValue['zone5_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="'kW'"
-              [maxValue]="data?.singleValue['zone5_power']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone5_power']?.dataRecords[0]?.Value,data?.singleValue['zone5_power']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'42'" 
-              [title]="'TODAY'"
-              [value]="data?.singleValue['zone5_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone5_energy']?.unit"
-              [maxValue]="data?.singleValue['zone5_energy']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone5_energy']?.dataRecords[0]?.Value,data?.singleValue['zone5_energy']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'43'" 
-              [title]="'PR'"
-              [value]="data?.singleValue['zone5_pr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone5_pr']?.unit || '%'"
-              [maxValue]="data?.singleValue['zone5_pr']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone5_pr']?.dataRecords[0]?.Value,data?.singleValue['zone5_pr']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'44'" 
-              [title]="'PYRANO'"
-              [value]="data?.singleValue['zone5_irr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone5_irr']?.unit"
-              [maxValue]="data?.singleValue['zone5_irr']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone5_irr']?.dataRecords[0]?.Value,data?.singleValue['zone5_irr']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'45'" 
-              [title]="'PVTEMP'"
-              [value]="data?.singleValue['zone5_pv']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone5_pv']?.unit"
-              [maxValue]="data?.singleValue['zone5_pv']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone5_pv']?.dataRecords[0]?.Value,data?.singleValue['zone5_pv']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'46'" 
-              [title]="'AMBTEMP'"
-              [value]="data?.singleValue['zone5_amb']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone5_amb']?.unit"
-              [maxValue]="data?.singleValue['zone5_amb']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone5_amb']?.dataRecords[0]?.Value,data?.singleValue['zone5_amb']?.maxValue)|| 0"></app-circle-progress></div>
-          </div>
-          <div class="site-chart ">
-            <app-sat-chart2 [height]="'100px'" [chartParameters]="chartOptions['zone5Generation']"></app-sat-chart2>
-          </div>
-      </div>
-    </section>
-    <section class="site-card">
-      <div class="site-content ">
-          <div class="site-info " (click)="routNavigate(6)">
-            <div class="site-img"><img src="assets/images/building/zone/zone6.png" alt="" ></div>
-            <div class="site-topic">
-              <p class="zone no-pm">ZONE 6</p>             
-              <div class="longlist-container"><p class="tlist" id="zone6">อาคารมหามกุฎ, อาคารมหาวชิรุณหิศ, อาคารนิวเคลียร์เทคโนโลยี วิศวกรรมเคมีและวิศวกรรมโลหการ, อาคารเจริญวิศวกรรม, อาคารปฏิบัติการวิศวกรรมโยธาและสิ่งแวดล้อม</p></div>     
-              <p class="capacity no-pm">638.28 kWp</p>
-              <p class="location no-pm">จุฬาลงกรณ์มหาวิทยาลัย</p>
-            </div>
-          </div>
-          <div class="progress-group ">
-            <div class="site-progress "><app-circle-progress [Ids]="'51'" 
-              [title]="'POWER'"
-              [value]="data?.singleValue['zone6_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="'kW'"
-              [maxValue]="data?.singleValue['zone6_power']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone6_power']?.dataRecords[0]?.Value,data?.singleValue['zone6_power']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'52'" 
-              [title]="'TODAY'"
-              [value]="data?.singleValue['zone6_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone6_energy']?.unit"
-              [maxValue]="data?.singleValue['zone6_energy']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone6_energy']?.dataRecords[0]?.Value,data?.singleValue['zone6_energy']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'53'" 
-              [title]="'PR'"
-              [value]="data?.singleValue['zone6_pr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone6_pr']?.unit || '%'"
-              [maxValue]="data?.singleValue['zone6_pr']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone6_pr']?.dataRecords[0]?.Value,data?.singleValue['zone6_pr']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'54'" 
-              [title]="'PYRANO'"
-              [value]="data?.singleValue['zone6_irr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone6_irr']?.unit"
-              [maxValue]="data?.singleValue['zone6_irr']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone6_irr']?.dataRecords[0]?.Value,data?.singleValue['zone6_irr']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'55'" 
-              [title]="'PVTEMP'"
-              [value]="data?.singleValue['zone6_pv']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone6_pv']?.unit"
-              [maxValue]="data?.singleValue['zone6_pv']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone6_pv']?.dataRecords[0]?.Value,data?.singleValue['zone6_pv']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'56'" 
-              [title]="'AMBTEMP'"
-              [value]="data?.singleValue['zone6_amb']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone6_amb']?.unit"
-              [maxValue]="data?.singleValue['zone6_amb']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone6_amb']?.dataRecords[0]?.Value,data?.singleValue['zone6_amb']?.maxValue)|| 0"></app-circle-progress></div>
-          </div>
-          <div class="site-chart ">
-            <app-sat-chart2 [height]="'100px'" [chartParameters]="chartOptions['zone6Generation']"></app-sat-chart2>
-          </div>
-      </div>
-    </section>
-    <section class="site-card">
-      <div class="site-content ">
-          <div class="site-info " (click)="routNavigate(7)">
-            <div class="site-img"><img src="assets/images/building/zone/zone7.png" alt="" ></div>
-            <div class="site-topic">
-              <p class="zone no-pm">ZONE 7</p>             
-              <div class="longlist-container"><p class="tlist" id="zone7">อาคารมหิตลาธิเบศร, อาคารจอดรถ 3, อาคารเศรษฐศาสตร์, อาคารประชาธิปก-รำไพพรรณี </p></div>     
-              <p class="capacity no-pm">654.48 kWp</p>
-              <p class="location no-pm">จุฬาลงกรณ์มหาวิทยาลัย</p>
-            </div>
-          </div>
-          <div class="progress-group ">
-            <div class="site-progress "><app-circle-progress [Ids]="'61'" 
-              [title]="'POWER'"
-              [value]="data?.singleValue['zone7_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="'kW'"
-              [maxValue]="data?.singleValue['zone7_power']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone7_power']?.dataRecords[0]?.Value,data?.singleValue['zone7_power']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'62'" 
-              [title]="'TODAY'"
-              [value]="data?.singleValue['zone7_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone7_energy']?.unit"
-              [maxValue]="data?.singleValue['zone7_energy']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone7_energy']?.dataRecords[0]?.Value,data?.singleValue['zone7_energy']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'63'" 
-              [title]="'PR'"
-              [value]="data?.singleValue['zone7_pr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone7_pr']?.unit || '%'"
-              [maxValue]="data?.singleValue['zone7_pr']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone7_pr']?.dataRecords[0]?.Value,data?.singleValue['zone7_pr']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'64'" 
-              [title]="'PYRANO'"
-              [value]="data?.singleValue['zone7_irr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone7_irr']?.unit"
-              [maxValue]="data?.singleValue['zone7_irr']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone7_irr']?.dataRecords[0]?.Value,data?.singleValue['zone7_irr']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'65'" 
-              [title]="'PVTEMP'"
-              [value]="data?.singleValue['zone7_pv']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone7_pv']?.unit"
-              [maxValue]="data?.singleValue['zone7_pv']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone7_pv']?.dataRecords[0]?.Value,data?.singleValue['zone7_pv']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'66'" 
-              [title]="'AMBTEMP'"
-              [value]="data?.singleValue['zone7_amb']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone7_amb']?.unit"
-              [maxValue]="data?.singleValue['zone7_amb']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone7_amb']?.dataRecords[0]?.Value,data?.singleValue['zone7_amb']?.maxValue)|| 0"></app-circle-progress></div>
-          </div>
-          <div class="site-chart ">
-            <app-sat-chart2 [height]="'100px'" [chartParameters]="chartOptions['zone7Generation']"></app-sat-chart2>
+            <!-- <app-sat-chart2 [height]="'100px'" [chartParameters]="chartOptions['zone1Generation']"></app-sat-chart2> -->
           </div>
       </div>
     </section>

@@ -21,7 +21,7 @@ export class DashboardChartService {
             let period;
             let xAxis;
             if (data.options.runtimeConfigs.periodName) {
-                period = this.dateTimeService.parseDate(data.options.runtimeConfigs.periodName);
+                period = this.dateTimeService.parseDate('t');
             }
      
             if (data.options.chartOptions && data.options.chartOptions.xAxis) {
@@ -129,7 +129,7 @@ export class DashboardChartService {
 
     private getSeriesInverter(data: InverterValue[]): Series[] {
         const _series: Series[] = [];
-        data.forEach(x => {
+        data.forEach((x,i) => {
             if (x && x.Timestamp) {
                 let _d: [number, number];
                 //_d = [new Date(x.Timestamp).getTime(), +x.Value];

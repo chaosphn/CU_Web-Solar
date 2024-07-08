@@ -22,7 +22,7 @@
                     <app-cu-container>
                         <ng-template #gradient>
                            <app-overview-consumption class=""
-                          [power]="data?.singleValue['total_power']?.dataRecords[0]?.Value | myNumber2 : '1.0-0'"
+                            [power]="data?.singleValue['total_power']?.dataRecords[0]?.Value | myNumber2 : '1.0-0'"
                            [today]="data?.singleValue['today_energy']?.dataRecords[0]?.Value | myNumber2 : '1.0-0'"
                            [total]="data?.singleValue['total_energy']?.dataRecords[0]?.Value | myNumber2 : '1.0-0'"
                            [pr]="getAverageValue('_pr')"
@@ -153,24 +153,31 @@
                 </app-cu-container>
             </div>
         </div>
-        <div class="building-box bz h-100" *ngIf="buildingList">
+        <div class="building-box w-100 bz h-100" >
             <app-cu-container>
                 <ng-template #gradient>
-                    <div class="chart-container w-100">
+                    <div class="chart-container w-100 h-100" >
                         <div class="cardTopic bz">TODAY ENERGY ( kWh )</div>
-                        <div class="cardContent bz">
-                          <app-stack-chart [data]="5" class="chartBox bz" *ngFor="let item of buildingList"
-                          (click)="navigateToDashboard(item)"
-                          [subTitle]="getLabel(item.name)"
-                          [label]="getLabel(item.id, 0, 3)"
-                          [subLabel]="getLabel(item.id, 3, 6)"
-                          [rangeVal]="20"
-                          [value]="data?.singleValue[item.id+'_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
-                          [maxVal]="data?.singleValue[item.id+'_energy']?.maxValue"
-                          >
-                          </app-stack-chart>
+                        <div class="cardContent bz" *ngIf="buildingList">
+                          <div class="chartRef bz" *ngFor="let item of buildingList">
+                            <app-stack-chart [data]="5" class="chartBox bz w-100 h-100"
+                            (click)="navigateToDashboard(item)"
+                            [subTitle]="item.name"
+                            [unit]="'kWh'"
+                            [label]="getLabel(item.id, 0, 3)"
+                            [subLabel]="getLabel(item.id, 3, 6)"
+                            [rangeVal]="20"
+                            [value]="data?.singleValue[item.id+'_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'"
+                            [maxVal]="data?.singleValue[item.id+'_energy']?.maxValue"
+                            >
+                            </app-stack-chart>
+                            <!-- <div class="tooltip brd w-100">
+                                <span class="bz w-100 no-pm">{{ item.name }}</span>
+                                <span class="bz w-100 no-pm">{{data?.singleValue[item.id+'_energy']?.dataRecords[0]?.Value | myNumber : '1.0-0'}}  {{unit}}</span>
+                            </div> -->
+                          </div>
                         </div>
-                      </div>
+                    </div>
                 </ng-template>
             </app-cu-container>
         </div>

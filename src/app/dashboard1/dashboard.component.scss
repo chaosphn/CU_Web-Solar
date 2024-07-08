@@ -212,7 +212,7 @@
     }
 }
 .longlist-container {
-    width: 200px;
+    width: 250px;
     height: auto;
     overflow: hidden;
 }
@@ -237,8 +237,8 @@
             place-items: center;
 
             img {
-                max-height: 80px;
-                width: 150px;
+                max-height: 120px;
+                width: auto;
                 height: 100px;
             }
         }
@@ -264,31 +264,7 @@
             }
             #zone1{
                 animation-name: marquee;
-                animation-duration: 15s;
-            }
-            #zone2{
-                animation-name: marquee2;
-                animation-duration: 25s;
-            }
-            #zone3{
-                animation-name: marquee3;
-                animation-duration: 15s;
-            }
-            #zone4{
-                animation-name: marquee4;
-                animation-duration: 30s;
-            }
-            #zone5{
-                animation-name: marquee5;
-                animation-duration: 15s;
-            }
-            #zone6{
-                animation-name: marquee6;
-                animation-duration: 30s;
-            }
-            #zone7{
-                animation-name: marquee7;
-                animation-duration: 15s;
+                animation-duration: 10s;
             }
 
             .capacity {

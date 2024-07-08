@@ -10,17 +10,18 @@ import { Component, OnInit, ChangeDetectionStrategy, ChangeDetectorRef, Input, O
 })
 export class StackChartComponent implements OnInit, OnChanges {
 
-  @Input() value: number
-  @Input() data: number
-  @Input() minVal: number
-  @Input() maxVal: number
-  @Input() activeColor: string 
-  @Input() bgColor: string 
-  @Input() bdRadius: string 
+  @Input() value: number;
+  @Input() unit: string;
+  @Input() data: number;
+  @Input() minVal: number;
+  @Input() maxVal: number;
+  @Input() activeColor: string ;
+  @Input() bgColor: string ;
+  @Input() bdRadius: string ;
   @Input() rangeVal: number = 10;
-  @Input() label: string
-  @Input() subLabel: string
-  @Input() subTitle: string
+  @Input() label: string;
+  @Input() subLabel: string;
+  @Input() subTitle: string;
   range: number = 20;
   active: string = "#69EDFF"; 
   bg: string = "rgba(0, 0, 0, 0.05)";

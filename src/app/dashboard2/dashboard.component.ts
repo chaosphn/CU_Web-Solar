@@ -137,7 +137,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const zone = localStorage.getItem('zone');
     const Bx:BuildingModel[] = this.store.selectSnapshot(SitesState.getSites());
     if(Bx){
-      this.buildingList = Bx.filter(x => x.zone == zone);
+      this.buildingList = Bx.filter(x => x.zone == zone && !x.building);
       if(this.buildingList.length > 0){
         this.init02();
         this.onWindowResize()

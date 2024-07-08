@@ -1,7 +1,7 @@
 import { Action,createSelector,State,StateContext } from "@ngxs/store";
 import produce from "immer";
 import { HttpService } from "src/app/share/services/http.service";
-import { SiteStateModel } from "./sites.model";
+import { BuildingModel, SiteStateModel } from "./sites.model";
 
 export class AddSite {
     static readonly type = '[Sites] AddSite';
@@ -41,6 +41,30 @@ export class SitesState {
   static getSiteWithId(id: string){
     return createSelector([SitesState], (state: SiteStateModel) => {
       const res = state.building.find( x => x.id == id);
+      return res;
+    })
+  }
+
+  static getAllZone(){
+    return createSelector([SitesState], (state: SiteStateModel) => {
+      let res: SiteStateModel[] = [];
+      console.log(state)
+      state.building.filter(x => x.building.length > 0).forEach(i => {
+        let item: SiteStateModel = {
+          project: i.name,
+          capacity: i.capacity,
+          number: parseInt(i.no),
+          building: i.building.map(function(bx){
+            let building: BuildingModel = state.building.find(x => x.id == bx);
+            if(building){
+              return building;
+            } else {
+              return undefined;
+            }
+          })
+        }
+        res.push(item)
+      })
       return res;
     })
   }

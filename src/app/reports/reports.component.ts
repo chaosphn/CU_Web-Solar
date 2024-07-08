@@ -48,6 +48,7 @@ export class ReportsComponent implements OnInit {
   uuid: string;
   chart: Chart;
   loading: boolean = false;
+  holiday: string[] = [];
 
   constructor(private httpService: HttpService,
     private reportHttpService: ReportHttpService,
@@ -133,6 +134,10 @@ export class ReportsComponent implements OnInit {
     if (this.reportConfig.length > 0) {
       this.selectedReport = this.reportConfig[0];
     }
+    const date = new Date();
+    date.setDate(2);
+    this.holiday.push(this.dateTimeService.getDateTime(new Date(date)));
+    console.log(this.holiday)
   }
 
   initSiteSelect() {
@@ -368,7 +373,8 @@ export class ReportsComponent implements OnInit {
           new Date(this.dateTimeService.getDateTime(new Date(d.TimeStamp))).getHours() >= 9 &&  
           new Date(this.dateTimeService.getDateTime(new Date(d.TimeStamp))).getHours() <= 18 && 
           !new Date(this.dateTimeService.getDateTime(new Date(d.TimeStamp))).toString().startsWith('Sat') &&
-          !new Date(this.dateTimeService.getDateTime(new Date(d.TimeStamp))).toString().startsWith('Sun')
+          !new Date(this.dateTimeService.getDateTime(new Date(d.TimeStamp))).toString().startsWith('Sun') && 
+          !this.holiday.find(x => x.substring(0, 11) == this.dateTimeService.getDateTime(new Date(d.TimeStamp)).substring(0, 11))
         )
         .sort((a,b) => new Date(a.TimeStamp).getTime() - new Date(b.TimeStamp).getTime());
     const firstVal = data[this.findFirstValueIndex(data)];
@@ -504,7 +510,8 @@ export class ReportsComponent implements OnInit {
           new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).getHours() >= 9 &&  
           new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).getHours() <= 18 && 
           !new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).toString().startsWith('Sat') &&
-          !new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).toString().startsWith('Sun')
+          !new Date(this.dateTimeService.getDateTime1(new Date(d.TimeStamp))).toString().startsWith('Sun') && 
+          !this.holiday.find(x => x.substring(0, 11) == this.dateTimeService.getDateTime(new Date(d.TimeStamp)).substring(0, 11))
       ).sort((a,b) => new Date(a.TimeStamp).getTime() - new Date(b.TimeStamp).getTime());
       const firstVal = maxRecord[this.findFirstValueIndex(maxRecord)];
       const lastVal = maxRecord[this.findLastValueIndex(maxRecord)];

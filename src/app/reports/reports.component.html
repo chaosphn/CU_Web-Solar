@@ -50,18 +50,18 @@
                             <span class="bz">{{ (getSummaryData("SUM", 1, 1) | report: 2) }} kWh</span>
                             <span class="bz"></span>
                             <span class="bz">Financial Saving:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * selectedReport.ExchangeRate | report: 2 }} THB</span>
+                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * reportFactors.ExchangeRate | report: 2 }} THB</span>
                         </div>
                         <div class="row-info">
                             <span class="bz">CO<sub>2</sub> Reduction:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * selectedReport.Co2Rate | report: 2 }} Kg</span>
+                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * reportFactors.CO2Rate | report: 2 }} Kg</span>
                             <span class="bz"></span>
                             <span class="bz">Oil Saving:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * selectedReport.OilRate | report: 2 }} Liters</span>
+                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * reportFactors.OilRate | report: 2 }} Liters</span>
                         </div>
                         <div class="row-info">
                             <span class="bz">Tree Saving:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * selectedReport.TreeRate | report: 2 }} Trees</span>
+                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * reportFactors.TreeRate | report: 2 }} Trees</span>
                             <span class="bz"></span>
                             <span class="bz"></span>
                             <span class="bz"></span>

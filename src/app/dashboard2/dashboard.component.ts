@@ -343,7 +343,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async getDashboardConfigs() {
     const zoneID = localStorage.getItem('zone')
-    const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/zone/configurations/dashboard.zone'+zoneID+'.config.json');
+    const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/zone/configurations/dashboard.['+zoneID+'].config.json');
     //const ChartsConfigs: DashboardConfigStateModel[] = await this.httpService.getConfig('assets/dashboard/configurations/dashboard.chart.config.json');
     //this.chartConfigs = [].concat(ChartsConfigs);
     //////console.log(this.chartConfigs);

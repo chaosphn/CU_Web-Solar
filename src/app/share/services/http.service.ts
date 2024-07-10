@@ -13,6 +13,8 @@ import { WriteDataRequest } from 'src/app/core/stores/last-values/dashboard/dash
 import { DashboardConfigs } from 'src/app/core/stores/configs/dashboard/dashboard-configs.model';
 import { TagInfo } from '../models/tag-group.model';
 import { PowerTagConfig } from '../models/power-config.model';
+import { HolidayRequestModel, ReportFactorModel, SetHolidayModel } from '../models/report.model';
+import { RequestOptions } from '@angular/http';
 
 @Injectable({
     providedIn: 'root'
@@ -23,7 +25,6 @@ export class HttpService {
     constructor(private httpClient: HttpClient,
         private appLoadService: AppLoadService,
         private router: Router) { 
-
     }
 
     async getRealtime(requests: DashboardReqRealtime) {
@@ -217,6 +218,34 @@ export class HttpService {
             no: n
         }
         const res: any = await this.httpClient.post<EventModel[]>(this.appLoadService.Config.UrlApiAuthen+url,body).toPromise();
+        // console.log(res)
+        return res;
+    }
+
+    async setReportfactor(item: ReportFactorModel) {
+        const body = item
+        const res: any = await this.httpClient.post<ReportFactorModel>(this.appLoadService.Config.UrlApiAuthen + 'savefactors' ,body).toPromise();
+        // console.log(res)
+        return res;
+    }
+
+    async getReportfactor() {
+        const res: any = await this.httpClient.get(this.appLoadService.Config.UrlApiAuthen + 'getfactors').toPromise();
+        // console.log(res)
+        return res;
+    }
+
+    async getReportHoliday(req: HolidayRequestModel) {
+        const body = req;
+
+        const res: any = await this.httpClient.post<HolidayRequestModel>(this.appLoadService.Config.UrlApiAuthen + 'getholidays', body).toPromise();
+        // console.log(res)
+        return res;
+    }
+
+    async setReportHoliday(item: any[]) {
+        const body = item;
+        const res: any = await this.httpClient.post(this.appLoadService.Config.UrlApiAuthen + 'customholidays' ,body).toPromise();
         // console.log(res)
         return res;
     }

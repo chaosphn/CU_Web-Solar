@@ -1,30 +1,6 @@
 {
 	"realtimeConfig": [
 		{
-			"Title": "zone1_power",
-			"Name": "CALC.ZONE01.W"
-		},
-		{
-			"Title": "zone1_energy",
-			"Name": "CALC.ZONE01.WH_DAY"
-		},
-		{
-			"Title": "zone3_power",
-			"Name": "CALC.ZONE03.W"
-		},
-		{
-			"Title": "zone3_energy",
-			"Name": "CALC.ZONE03.WH_DAY"
-		},
-		{
-			"Title": "zone4_power",
-			"Name": "CALC.ZONE04.W"
-		},
-		{
-			"Title": "zone4_energy",
-			"Name": "CALC.ZONE04.WH_DAY"
-		},
-		{
 			"Title": "CEN001_energy",
 			"Name": "B002.SLOGGER02.WH_TODAY"
 		},
@@ -349,16 +325,28 @@
 			"Name": "B006.SLOGGER06.AMBTEMP"
 		},
 		{
+			"Title": "yearly_energy",
+			"Name": "B000.ALLZONE.WH_YEAR"
+		},
+		{
+			"Title": "monthly_energy",
+			"Name": "B000.ALLZONE.WH_MONTH"
+		},
+		{
 			"Title": "today_energy",
 			"Name": "CALC.ALLZONE.WH_DAY"
 		},
 		{
 			"Title": "total_energy",
-			"Name": "CALC.ALLZONE.WH"
+			"Name": "B000.ALLZONE.WH"
 		},
 		{
 			"Title": "total_power",
 			"Name": "CALC.ALLZONE.W"
+		},
+		{
+			"Title": "all_pr",
+			"Name": "B000.ALLZONE.PR_DAY"
 		}
 		
 	],

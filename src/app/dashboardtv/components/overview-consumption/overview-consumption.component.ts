@@ -11,6 +11,8 @@ export class OverviewConsumptionComponent implements OnInit, OnChanges {
   @Input() power?: string;
   @Input() today?: string;
   @Input() total?: string;
+  @Input() month?: string;
+  @Input() year?: string;
   @Input() pr?: string;
   constructor() { }
 

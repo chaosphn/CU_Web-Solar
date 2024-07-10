@@ -21,6 +21,7 @@ import { ReportChartService } from './services/report-chart.service';
 import { Chart } from 'angular-highcharts';
 import { OrderByPipe } from '../share/pipe/order-by.pipe';
 import * as XLSX from 'xlsx';
+import { HolidayRequestModel, HolidayResponseModel, ReportFactorModel } from '../share/models/report.model';
 
 @Component({
   selector: 'app-reports',
@@ -32,6 +33,13 @@ export class ReportsComponent implements OnInit {
   reportConfig: ReportConfigModel[] = [];
   pdf: string;
   selectedReport: ReportConfigModel;
+  reportFactors: ReportFactorModel = {
+    ExchangeRate: 1,
+    CO2Rate: 1,
+    OilRate: 1,
+    TreeRate: 1,
+    TimeStamp:''
+  };
   startView: string;
   currentRoute: string;
   siteName: string = ''; 
@@ -69,6 +77,7 @@ export class ReportsComponent implements OnInit {
     await this.getConfig();
     this.initReportSelect();
     this.initSiteSelect();
+    await this.getFactors();
   }
 
   updateChart(){
@@ -130,20 +139,53 @@ export class ReportsComponent implements OnInit {
     this.sub1.unsubscribe();
   }
 
+
+  async getFactors(){
+    const fct = await this.httpService.getReportfactor();
+    if(fct){
+      this.reportFactors = fct;
+    } else {
+      alert('Report factor not found!');
+    }
+  }
+
   initReportSelect() {
     if (this.reportConfig.length > 0) {
       this.selectedReport = this.reportConfig[0];
     }
-    const date = new Date();
-    date.setDate(2);
-    this.holiday.push(this.dateTimeService.getDateTime(new Date(date)));
-    console.log(this.holiday)
   }
 
   initSiteSelect() {
     if (this.buildingList.length > 0) {
       this.siteSelected = this.buildingList[0];
       this.siteName = this.buildingList[0].id;
+    }
+  }
+
+  async initHolidays(){
+    if(this.dateTime){
+      this.holiday = [];
+      const req: HolidayRequestModel = {
+        StartDate: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 0, 1)),
+        EndDate: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 11, 31))
+      };
+      const res: HolidayResponseModel[] = await this.httpService.getReportHoliday(req); 
+      if(res){
+        res.forEach(item => {
+          let start = new Date(item.StartDate).getTime();
+          let end = new Date(item.EndDate).getTime();
+          let dayMillisec = 24*60*60*1000;
+          if(end - start <= dayMillisec ){
+            this.holiday.push(this.dateTimeService.getDateTime(new Date(item.StartDate)));
+          } else {
+            for (let stD = start; stD < end; stD += (dayMillisec)) {
+              this.holiday.push(this.dateTimeService.getDateTime(new Date(stD)));
+            }
+          }
+        })
+      } else {
+        alert('Report factor not found!');
+      }
     }
   }
 
@@ -159,6 +201,7 @@ export class ReportsComponent implements OnInit {
   onDateTimeChange(event) {
     this.dateTime = event;
     this.dataTable = [];
+    this.initHolidays();
     switch(this.selectedReport.Type){
       case "daily":
         this.dateColumn = [];

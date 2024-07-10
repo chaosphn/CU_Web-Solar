@@ -5,7 +5,6 @@ import { NavbarComponent } from './core/components/navbar/navbar.component';
 import { PageNotFoundComponent } from './core/components/page-not-found/page-not-found.component';
 import { AuthGuard } from './routings/guards/auth-guards.service';
 import { ServerResolver } from './routings/resolvers/server.resolver';
-import { TvDashboardComponent } from './core/components/tv-dashboard/tv-dashboard.component';
 import { DashboardComponent } from './dashboardtv/dashboard.component';
 
 

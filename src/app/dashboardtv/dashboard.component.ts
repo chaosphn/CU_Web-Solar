@@ -83,7 +83,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   value1:number = 0;
   value2:number = 0;
   siteName: string = '';
-  isFullmap: boolean = false;
+  isFullmap: boolean = true;
   public getScreenWidth: any;
   public getScreenHeight: any;
   buildingList: BuildingModel[] = [];
@@ -147,8 +147,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   isChange(){
-    this.event.changeNavbar();
-    this.router.navigate(['/main/dashboard1']);
+    //this.event.changeNavbar();
+    //this.router.navigate(['/main/dashboard1']);
+    this.isFullmap = !this.isFullmap;
   }
 
   isShow(id){

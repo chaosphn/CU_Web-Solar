@@ -19,7 +19,7 @@
 }
 .group-box{
     display: grid;
-    grid-template-columns: 550px calc(100vw - 574px);
+    grid-template-columns: 600px calc(100vw - 624px);
     grid-template-rows: 1fr;
     column-gap: 8px;
 }
@@ -147,7 +147,7 @@
 }
 
 .fullmap-box{
-    position: relative;
+    //position: relative;
     // //align-items: center;
     // //justify-content: center;
     width: calc(100vw - 16px);
@@ -155,9 +155,16 @@
     overflow: hidden;
     // //padding: 8px;
     display: flex;
+    background-image: url("/assets/images/bgmap.png");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
     .fullmap-content{
         width: 100%;
         height: 100%;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.20);
+        backdrop-filter: blur(10px);
     }
     .headerContent1{
         position: absolute;

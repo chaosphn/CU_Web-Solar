@@ -36,7 +36,7 @@ import { MatPaginator, MatTableDataSource, MatSort } from '@angular/material';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss','./dashboard.component-effect.scss','./dashboard.component-effect1.scss'],
+  styleUrls: ['./dashboard.component.scss','./dashboard.component-effect.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
@@ -87,6 +87,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public getScreenWidth: any;
   public getScreenHeight: any;
   buildingList: BuildingModel[] = [];
+  allBuilding: BuildingModel[] = [];
   displayedColumns: string[] = ['No', 'Building', 'Power', 'Energy'];
   dataSource: MatTableDataSource<any>
 
@@ -129,6 +130,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const building: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
     if(building && building.building){
       this.buildingList = building.building.filter(x => !x.building).sort((a,b) => parseInt(a.no) - parseInt(b.no));
+      this.allBuilding = building.building;
     }
     await this.init02();
     await this.getConfig();
@@ -166,6 +168,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.event.changeNavbar();
     this.router.navigate(['/main/dashboard']);
   }
+
 
   updateZone(){
     const siteName = localStorage.getItem('location');

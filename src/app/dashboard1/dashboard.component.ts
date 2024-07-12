@@ -96,8 +96,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   public getScreenHeight: any;
   dataRealtime?: DashboardResRealtime[] = [];
   dataHistorian?: DashboardResHistorian[] = []
-  test: string[] = ["178", "193", "149", "103", "100", "158", "168", "113", "167", "160", "124", "179", "192", "183", "172", "199", "105", "173", "180", "174", "177", "142", "186", "163", "105", "116", "119", "154", "118", "200", "137", "196", "154", "189", "113", "148", "160", "141", "140", "191", "166", "171", "150", "170", "125", "149", "178", "186", "123", "109", "107", "108", "163", "194", "133", "161", "144", "137", "111", "130", "110", "124", "122", "189", "200", "109", "149", "133", "148", "106", "164", "131", "167", "121", "146", "150", "141", "139", "144", "167", "198", "150", "175", "176", "106", "156", "160", "185", "160", "107", "156", "109", "142", "142", "106", "118", "158", "162", "191", "124"]
-
+  
   @ViewChild('period1') period1: PeriodComponent;
   @ViewChild('period2') period2: PeriodComponent;
   @ViewChild('period3') period3: PeriodComponent;
@@ -181,10 +180,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
             }
           })
         }
-        this.zoneList.push(item)
+        if(i.display){this.zoneList.push(item);}
       });
     }
-    console.log(this.zoneList)
   }
 
   trackBy(index: number, name: string): string {
@@ -243,7 +241,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.loadSingleValue();
     this.loadMultipleValues();
     this.initloadInverterValues();
-    // //console.log(this.data);
     this.startTimer(this.appLoadService.Config.Timer * 60000);
   }
 

@@ -9,6 +9,7 @@
     background-color: rgba(245, 245, 245, 0.301);
     position: relative;
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .svg{
@@ -16,48 +17,44 @@
     height: 100%;
     border: 1px solid rgb(255, 174, 0);
     .content{
+        
         width: 100%;
         height: 100%;
         //border: 1px solid rgb(255, 0, 0);
     }
 }
 
-#ARC003{
+.goback{
+    cursor: pointer;
     position: absolute;
-    top: 40%;
-    left: 45%;
+    top: 25px;
+    left: 25px;
+    z-index: 20;
+    padding: 6px 8px;
+    align-items: center;
+    column-gap: 8px;
+    font-weight: 500;
+    color: whitesmoke;
+    background-color: #136286af;
+    border: 2px solid #136286;
+    .material-icons{
+        font-weight: bold;
+        font-size: 24px;
+        color: white;
+    }
 }
 
-#CEN001{
+.close-box{
     position: absolute;
-    top: 35%;
-    left: 35%;
+    top: 13px;
+    right: 20px;
+    z-index: 20;
+    .material-icons{
+        font-weight: 500;
+        font-size: 32px;
+        color: crimson;
+    }
 }
-
-#CEN005{
-    position: absolute;
-    top: 20%;
-    left: 40%;
-}
-
-#CEN003{
-    position: absolute;
-    top: 35%;
-    left: 30%;
-}
-
-#CEN072{
-    position: absolute;
-    top: 35%;
-    left: 30%;
-}
-
-#CEN091{
-    position: absolute;
-    top: 35%;
-    left: 40%;
-}
-
 
 .cardBoxs{
     position: absolute;
@@ -192,6 +189,7 @@
     }
 
     .cardList{
+        position: relative;
         display: flex;
         flex-direction: column;
         align-items: center;

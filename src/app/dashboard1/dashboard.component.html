@@ -64,45 +64,45 @@
             </div>
           </div>
           <div class="progress-group ">
-            <div class="site-progress " *ngIf="data?.singleValue['zone1_power']?.dataRecords[0]?.Value"><app-circle-progress [Ids]="item.project" 
+            <div class="site-progress "><app-circle-progress [Ids]="item.project" 
               [title]="'POWER'"
-              [value]="data?.singleValue['zone1_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [value]="data?.singleValue[item.project+'_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
               [unit]="'kW'"
-              [maxValue]="data?.singleValue['zone1_power']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone1_power']?.dataRecords[0]?.Value,data?.singleValue['zone1_power']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'02'" 
+              [maxValue]="data?.singleValue[item.project+'_power']?.maxValue"
+              [percentValue]="setValueBar(data?.singleValue[item.project+'_power']?.dataRecords[0]?.Value,data?.singleValue[item.project+'_power']?.maxValue)|| 0"></app-circle-progress></div>
+            <div class="site-progress "><app-circle-progress [Ids]="item.project+'02'" 
               [title]="'TODAY'"
-              [value]="data?.singleValue['zone1_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone1_energy']?.unit"
-              [maxValue]="data?.singleValue['zone1_energy']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone1_energy']?.dataRecords[0]?.Value,data?.singleValue['zone1_energy']?.maxValue)|| 0"></app-circle-progress></div>
-            <div class="site-progress "><app-circle-progress [Ids]="'03'" 
+              [value]="data?.singleValue[item.project+'_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [unit]="data?.singleValue[item.project+'_energy']?.unit"
+              [maxValue]="data?.singleValue[item.project+'_energy']?.maxValue"
+              [percentValue]="setValueBar(data?.singleValue[item.project+'_energy']?.dataRecords[0]?.Value,data?.singleValue[item.project+'_energy']?.maxValue)|| 0"></app-circle-progress></div>
+            <!-- <div class="site-progress "><app-circle-progress [Ids]="item.project+'03'" 
               [title]="'PR'"
-              [value]="getAverageValue('zone1_pr')"
+              [value]="getAverageValue(item.project+'_pr')"
               [unit]="'%'"
               [maxValue]="100"
-              [percentValue]="getAverageValue('zone1_pr')"></app-circle-progress></div>
+              [percentValue]="getAverageValue(item.project+'_pr')"></app-circle-progress></div> -->
             <div class="site-progress "><app-circle-progress [Ids]="item.project+'04'" 
               [title]="'PYRANO'"
-              [value]="data?.singleValue['zone4_irr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone4_irr']?.unit"
-              [maxValue]="data?.singleValue['zone4_irr']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone4_irr']?.dataRecords[0]?.Value,data?.singleValue['zone4_irr']?.maxValue)|| 0"></app-circle-progress></div>
+              [value]="data?.singleValue[item.project+'_irr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [unit]="data?.singleValue[item.project+'_irr']?.unit"
+              [maxValue]="data?.singleValue[item.project+'_irr']?.maxValue"
+              [percentValue]="setValueBar(data?.singleValue['zone4_irr']?.dataRecords[0]?.Value,data?.singleValue[item.project+'_irr']?.maxValue)|| 0"></app-circle-progress></div>
             <div class="site-progress "><app-circle-progress [Ids]="item.project+'05'" 
               [title]="'PVTEMP'"
-              [value]="data?.singleValue['zone4_pv']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone4_pv']?.unit"
-              [maxValue]="data?.singleValue['zone4_pv']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone4_pv']?.dataRecords[0]?.Value,data?.singleValue['zone4_pv']?.maxValue)|| 0"></app-circle-progress></div>
+              [value]="data?.singleValue[item.project+'_pv']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [unit]="data?.singleValue[item.project+'_pv']?.unit"
+              [maxValue]="data?.singleValue[item.project+'_pv']?.maxValue"
+              [percentValue]="setValueBar(data?.singleValue[item.project+'_pv']?.dataRecords[0]?.Value,data?.singleValue[item.project+'_pv']?.maxValue)|| 0"></app-circle-progress></div>
             <div class="site-progress "><app-circle-progress [Ids]="item.project+'06'" 
               [title]="'AMBTEMP'"
-              [value]="data?.singleValue['zone4_amb']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
-              [unit]="data?.singleValue['zone4_amb']?.unit"
-              [maxValue]="data?.singleValue['zone4_amb']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue['zone4_amb']?.dataRecords[0]?.Value,data?.singleValue['zone4_amb']?.maxValue)|| 0"></app-circle-progress></div>
+              [value]="data?.singleValue[item.project+'_amb']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [unit]="data?.singleValue[item.project+'_amb']?.unit"
+              [maxValue]="data?.singleValue[item.project+'_amb']?.maxValue"
+              [percentValue]="setValueBar(data?.singleValue[item.project+'_amb']?.dataRecords[0]?.Value,data?.singleValue[item.project+'_amb']?.maxValue)|| 0"></app-circle-progress></div>
           </div>
           <div class="site-chart ">
-            <!-- <app-sat-chart2 [height]="'100px'" [chartParameters]="chartOptions['zone1Generation']"></app-sat-chart2> -->
+            <app-sat-chart2 *ngIf="chartOptions[item.project]" [height]="'100px'" [chartParameters]="chartOptions[item.project]"></app-sat-chart2>
           </div>
       </div>
     </section>

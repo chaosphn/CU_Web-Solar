@@ -251,87 +251,14 @@
 }
 
 
+
 .nav-content{
   display: flex;
   justify-content: space-around;
   background-color:#136286;
   width: 100vw !important;
 }
-.dashboard{
-  position: relative;
-}
-.dashboard .list1{
-  display: none;
-}
-.dashboard:hover{
-  background-color: #305364;
-  padding: 0px 8px;
-}
-.dashboard:hover .list1{
-  display: grid;
-  grid-template-columns: 1fr;
-  position: absolute;
-  bottom: 5;
-  left: 0;
-  z-index: 50;
-  background-color: #3e94c0;
-}
-.list1 a{
-  text-align: start;
-  padding: 2px 6px;
-  font-size: 12px;
-  font-weight: 500;
-  color: #f1f1f1;
-  text-decoration: none;
-}
-.list1 a:hover{
-  background-color: #305364;
-}
 
-
-
-.diagram{
-  position: relative;
-}
-.diagram .list1{
-  display: none;
-}
-.diagram:hover{
-  background-color: #305364;
-  padding: 0px 8px;
-}
-.diagram:hover .list1{
-  display: grid;
-  grid-template-columns: 1fr;
-  position: absolute;
-  bottom: 5;
-  left: 0;
-  z-index: 50;
-  background-color: #3e94c0;
-  text-align: start;
-}
-
-
-.inverters{
-  position: relative;
-}
-.inverters .list1{
-  display: none;
-}
-.inverters:hover{
-  background-color: #305364;
-  padding: 0px 8px;
-}
-.inverters:hover .list1{
-  display: grid;
-  grid-template-columns: 1fr;
-  position: absolute;
-  bottom: 5;
-  left: 0;
-  z-index: 50;
-  background-color: #3e94c0;
-  text-align: start;
-}
 
 .nav-search{
   width: 100%;
@@ -355,25 +282,31 @@
   border-top: 0;  */
 }
 
-.powermeter{
-  position: relative;
+
+.option-icon .material-icons{
+  width: 30px;
+  height: 30px;
+  color: whitesmoke;
+  font-weight: 500;
+  padding: 0;
+  margin: 0;
+  font-size: 34px;
 }
-.powermeter .list1{
-  display: none;
+
+.meter-option{
+  background-color: #4d4d4d;
+  color: white;
+  font-weight: 500;
 }
-.powermeter:hover{
-  background-color: #305364;
-  padding: 0px 8px;
+
+.meter-option:hover{
+  background-color: #797979;
+  color: white;
+  font-weight: 500;
 }
-.powermeter:hover .list1{
-  display: grid;
-  grid-template-columns: 1fr;
-  position: absolute;
-  bottom: 5;
-  left: 0;
-  z-index: 50;
-  background-color: #3e94c0;
-  text-align: start;
+
+.building-option{
+
 }
 
 @media screen and (min-width:2561px) {

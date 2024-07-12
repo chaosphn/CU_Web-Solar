@@ -2,51 +2,51 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "B002.CALC02.W"
+			"Name": "M006.JNZC06.W"
 		},
 		{
 			"Title": "power_expected",
-			"Name": "B002.CALC02.W_EXPECT"
+			"Name": "M006.JNZC06.W_EXPECT"
 		},
 		{
 			"Title": "power_peak",
-			"Name": "B002.CALC02.W_PEAK_DAY"
+			"Name": "M006.JNZC06.W_PEAK_DAY"
 		},
 		{
 			"Title": "power_peaktime",
-			"Name": "B002.CALC02.W_PEAK_DAY_TIME"
+			"Name": "M006.JNZC06.W_PEAK_DAY_TIME"
 		},
 		{
 			"Title": "power_capacity",
-			"Name": "B002.CALC02.CAPACITY"
+			"Name": "M006.JNZC06.CAPACITY"
 		},
 		{
 			"Title": "power_pr",
-			"Name": "B002.CALC02.PR"
+			"Name": "M006.JNZC06.PR"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "B002.CALC02.WH"
+			"Name": "M006.JNZC06.WH"
 		},
 		{
 			"Title": "energy_expected",
-			"Name": "B002.CALC02.WH_EXPECT_TODAY"
+			"Name": "M006.JNZC06.WH_EXPECT_TODAY"
 		},
 		{
 			"Title": "energy_today",
-			"Name": "B002.CALC02.WH_TODAY"
+			"Name": "M006.JNZC06.WH_TODAY"
 		},
 		{
 			"Title": "energy_yesterday",
-			"Name": "B002.CALC02.WH_YEAR"
+			"Name": "M006.JNZC06.WH_YEAR"
 		},
 		{
 			"Title": "energy_mtd",
-			"Name": "B002.CALC02.WH_MONTH"
+			"Name": "M006.JNZC06.WH_MONTH"
 		},
 		{
 			"Title": "energy_cod",
-			"Name": "B002.CALC02.WH"
+			"Name": "M006.JNZC06.WH"
 		},
 		{
 			"Title": "weather_irr",
@@ -121,7 +121,7 @@
 			}
 		},
 		{
-			"Name": "B002.CALC02.WH_TODAY",
+			"Name": "B006.CALC06.WH_TODAY",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -131,7 +131,7 @@
 			}
 		},
 		{
-			"Name": "B003.CALC03.WH_TODAY",
+			"Name": "M006.JNZC06.WH_TODAY",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -158,7 +158,7 @@
 				},
 				{
 					"name": "B006.PQM06.W",
-					"title": "JANITZA06",
+					"title": "95772485",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
@@ -197,7 +197,7 @@
 			"name": "energyExported",
 			"tags": [
 				{
-					"name": "B002.CALC02.WH_TODAY",
+					"name": "B006.CALC06.WH_TODAY",
 					"title": "TOU02",
 					"options": {
 						"chartOptions": {
@@ -208,13 +208,13 @@
 					}
 				},
 				{
-					"name": "B003.CALC03.WH_TODAY",
-					"title": "TOU03",
+					"name": "M006.JNZC06.WH_TODAY",
+					"title": "95772485",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "area",
-							"color": "#023e8a"
+							"color": "#ffb703"
 						}
 					}
 				}

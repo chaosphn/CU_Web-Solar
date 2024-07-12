@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnInit, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-tooltip',
@@ -8,8 +8,8 @@ import { ChangeDetectionStrategy, Component, Input, OnInit, OnChanges, SimpleCha
 })
 export class TooltipComponent implements OnInit, OnChanges  {
 
-  @Input() title: string = "Zone"; 
-  @Input() titleText: string = "Xxx 1";
+  @Input() title: string; 
+  @Input() titleText: string;
 
   @Input() imgSrc: string;
 
@@ -25,6 +25,7 @@ export class TooltipComponent implements OnInit, OnChanges  {
   @Input() classDisplay: string = "top";
   
   @Input() cbStatus: string = '';
+  @Output() emitBuilding = new EventEmitter<string>();
   constructor() { }
 
   ngOnInit(): void {
@@ -47,6 +48,16 @@ export class TooltipComponent implements OnInit, OnChanges  {
     element.forEach(item => {
       item.classList.remove('active');
     })
+  }
+
+  selectBuilding(){
+    if(this.title){
+      this.emitBuilding.emit(this.title);
+    }
+  }
+
+  handleImageError(event: Event): void {
+    (event.target as HTMLImageElement).src = 'assets/images/notfound.jpg';
   }
   
 

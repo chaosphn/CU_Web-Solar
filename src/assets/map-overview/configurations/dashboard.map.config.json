@@ -1,6 +1,38 @@
 {
 	"realtimeConfig": [
 		{
+			"Title": "13028863_power",
+			"Name": "B001.PQM01.W"
+		},
+		{
+			"Title": "95772485_power",
+			"Name": "B006.PQM06.W"
+		},
+		{
+			"Title": "CEN001_power",
+			"Name": "B002.TOU02.W"
+		},
+		{
+			"Title": "ARC003_power",
+			"Name": "B001.TOU01.W"
+		},
+		{
+			"Title": "CEN003_power",
+			"Name": "B004.TOU04.W"
+		},
+		{
+			"Title": "CEN005_power",
+			"Name": "B003.TOU03.W"
+		},
+		{
+			"Title": "CEN072_power",
+			"Name": "B005.TOU05.W"
+		},
+		{
+			"Title": "CEN091_power",
+			"Name": "B006.TOU06.W"
+		},
+		{
 			"Title": "CEN001_energy",
 			"Name": "B002.SLOGGER02.WH_TODAY"
 		},

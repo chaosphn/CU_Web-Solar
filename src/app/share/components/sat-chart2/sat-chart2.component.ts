@@ -8,7 +8,7 @@ import { ResetZoom, SetZoom } from './../../../core/stores/configs/dashboard/das
 import { chart, charts } from 'highcharts';
 import * as FileSaver from 'file-saver';
 import { DateTimeService } from '../../services/datetime.service';
-import { PeriodTime } from '../../models/period-time';
+import { PeriodTime1 } from '../../models/period-time';
 //import * as XLSX from 'xlsx';
 
 
@@ -65,7 +65,7 @@ export class SatChart2Component implements OnInit, OnDestroy, OnChanges {
   _series: any[];
   _yaxis: any[];
   _xaxis: any[];
-  period: PeriodTime;
+  period: PeriodTime1;
 
   @Input() chartParameters: ChartParameters;
 
@@ -79,7 +79,12 @@ export class SatChart2Component implements OnInit, OnDestroy, OnChanges {
   }
 
   ngOnInit() {
-    this.period = this.dateTime.parseDate("t");
+    // const prd = this.dateTime.parseDate("t");
+    // if(prd){
+    //   this.period.startTime = prd.startTime;
+    //   this.period.endTime = prd.endTime;
+    // }
+    // console.log(this.period)
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -186,8 +191,8 @@ export class SatChart2Component implements OnInit, OnDestroy, OnChanges {
           enabled: false
         },
         lineWidth: 0,
-        min: new Date(this.period.startTime).getTime() || null,
-        max: new Date(this.period.endTime).getTime() || null
+        min: new Date(new Date().setHours(0,0,0,0)).getTime() || null,
+        max: new Date(new Date().setHours(23,59,0,0)).getTime() || null
       },
       legend: _config.getLegend1(),
       series: _config.getSeries(),

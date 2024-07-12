@@ -50,6 +50,7 @@ export class TimeControlComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     for (const propName in changes) {
       if (propName === 'startView') {
+        this.dateTime = new Date();
         if (this.startView === 'year' || this.startView === 'multi-years') {
           this.setCustomDateTime();
           const newDate = new Date(this.dateTimeCustom);
@@ -64,7 +65,6 @@ export class TimeControlComponent implements OnInit, OnChanges {
   }
 
   afterPickerClosed() {
-    console.log(this.date)
     this.setDate();
     this.setCustomDateTime();
   }

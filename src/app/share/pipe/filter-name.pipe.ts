@@ -4,6 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'filterName'
 })
 export class FilterNamePipe implements PipeTransform {
+  constructor() { }
   transform(array: any[], field: string): any[] {
     if (!Array.isArray(array)) {
       return [];

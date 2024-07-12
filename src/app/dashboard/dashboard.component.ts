@@ -33,6 +33,7 @@ import { EventService } from '../share/services/event.service';
 import { NavbarComponent } from '../core/components/navbar/navbar.component';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
 import { PeriodGroup, PeriodTime, PeriodTime1 } from '../share/models/period-time';
+import { d } from '@angular/core/src/render3';
 
 @Component({
   selector: 'app-dashboard',
@@ -136,6 +137,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const building = localStorage.getItem('location');
     this.siteName = JSON.parse(building);
     this.initDateTime();
+    this.data.singleValue = {};
     this.init02();
     this.cd.markForCheck();
     this.isInitialized = true;
@@ -200,7 +202,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       const rawTF = await this.addRealtimeDataToStore(realtimeData);
       const hisTF = await  this.addHistorianDataToStore(historianData);
       let dataTranform = rawTF.concat(hisTF);
-      console.log(dataTranform);
       await this.addDataToStore(dataTranform);
 
     }
@@ -348,7 +349,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const requests = this.store.selectSnapshot(DashboardRequestState.getRequestHistorian());
     //console.log(requests);
     let data: DashboardResHistorian[] = await this.httpService.getHistorian(requests);
-    return this.getMaxValueRecord(data);
+    return this.filterMaxValueRecord(data);
   }
 
   getMaxValueRecord(data: DashboardResHistorian[]): DashboardResHistorian[] {
@@ -381,6 +382,49 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
   
+  filterMaxValueRecord(data: DashboardResHistorian[]): DashboardResHistorian[] {
+    let index:number = 14;
+    return data.map(item => {
+      const maxValues: { [key: string]: Record } = {};
+      if(item.Name.endsWith('_DAY')){
+        index = 11;
+      } else
+      if(item.Name.endsWith('_MONTH')){
+        index = 8;
+      } else
+      if(item.Name.endsWith('_YEAR')){
+        index = 5;
+      } else
+      if(item.Name.endsWith('_HOUR')){
+        index = 14;
+      } else {
+        index = 20;
+      }
+      item.records.forEach(record => {
+        const TimeStamp = record.TimeStamp.substring(0,index);
+        const value = parseFloat(record.Value);
+  
+        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value)) {
+          maxValues[TimeStamp] = { ...record, Value: value.toString() };
+        } else if (value === parseFloat(maxValues[TimeStamp].Value)) {
+          // Additional criteria for handling ties can be added here
+          // For now, keeping the first encountered record
+        }
+      });
+  
+      const maxRecords: Record[] = Object.values(maxValues);
+      let rec: Record[] = [];
+      return {
+        ...item,
+        records: maxRecords.reduce((acc, cur) => {
+          if(acc.find(x => x.TimeStamp == cur.TimeStamp && x.Value == cur.Value )){}else if(parseFloat(cur.Value) > 0){
+            acc.push(cur);
+          }
+          return acc;
+        },rec)
+      };
+    });
+  }
 
   async addDataToStore(data: any[]) {
     await this.store.dispatch(new SetDashboardValues(data)).toPromise();
@@ -469,7 +513,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const res: DashboardResHistorian[] = await this.httpService.getHistorian(this.dashboardInverterService.requests);
     // console.log(req);
     // console.log(res);
-    this.dashboardInverterService.data = this.getMaxValueRecord(res);
+    this.dashboardInverterService.data = res;
     this.loadInverterValues();
   }
 
@@ -496,13 +540,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           }
           return {...x, Options: opt}
         });
-        if(period.display.toLowerCase() != "t"){
-          res = await this.httpService.getPlotData(request);
-          await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
-        } else {
-          res = await this.httpService.getHistorian(request);
-          await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
-        }
+        res = await this.httpService.getHistorian(request);
+        await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
         break;
       default:
         res = await this.httpService.getHistorian(req);
@@ -563,7 +602,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         });
         if(request.length > 0){
           res = await this.httpService.getHistorian(request);
-          await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
+          await this.store.dispatch(new ChangeLastValues1(tagChart, this.filterMaxValueRecord(res))).toPromise();
           const charts = this.chartConfigs.find(d => d.name == chartName);
           const type = charts.type;
           let data: MultipleValue = {};
@@ -679,24 +718,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   async selectedPeriodGroup(periodName: PeriodGroup, id: string) {
-    console.log('period')
     if(id == "1"){
+      this.dateTime1 = new Date();
       this.periodGroupSelected1 = periodName;
       await this.selectPeriodChart(periodName, 'powerGeneration', this.dateTime1);
     } else if(id == "2"){
+      this.dateTime2 = new Date();
       this.periodGroupSelected2 = periodName;
       await this.selectPeriodChart(periodName, 'energyExported', this.dateTime2);
     } else if(id == "3"){
+      this.dateTime3 = new Date();
       this.periodGroupSelected3 = periodName;
       await this.selectPeriodChart(periodName, 'performanceRatio', this.dateTime3);
     } else if(id == "4"){
+      this.dateTime4 = new Date();
       this.periodGroupSelected4 = periodName;
       await this.selectPeriodInverterChart(periodName, 'interverEnergy', this.dateTime4);
     }
   }
 
   async onDateTimeChange(event:Date, id: string) {
-    console.log('date')
     if(id == "1"){
       this.dateTime1 = new Date(event.setHours(0,0,0,0));
       this.selectPeriodChart(this.periodGroupSelected1, 'powerGeneration', this.dateTime1);

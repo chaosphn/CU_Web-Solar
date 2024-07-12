@@ -27,8 +27,8 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     const date = new Date();
-    date.setDate(2);
-    this.holidayArr.push(new Date(date));
+    // date.setDate(2);
+    // this.holidayArr.push(new Date(date));
     this.getFactors();
     //console.log(this.holiday)
   }
@@ -72,7 +72,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
   setHolidays(){
-    if(this.holidayArr){
+    if(this.holidayArr.length > 0){
       const req: SetHolidayModel[] = this.holidayArr.map(function(item){
         let dateTime = item.getTime(); 
         let hld: SetHolidayModel =  {
@@ -83,8 +83,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
         };
         return hld;
       });
-      console.log(req);
-      if(req){ this.httpSrv.setReportHoliday(req); }
+      if(req.length > 0){ this.httpSrv.setReportHoliday(req); }
     } else {
       alert('Please select date!');
     }

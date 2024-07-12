@@ -37,4 +37,5 @@ export interface TagInfo{
     PointSource: string;
     Group: string;
     Unit: string;
+    Calculation: number;
 }

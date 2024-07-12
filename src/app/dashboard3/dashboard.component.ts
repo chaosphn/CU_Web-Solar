@@ -79,7 +79,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       display: '12m'
     }
   ];
-  siteSelected: SiteStateModel[];
+  siteSelected: BuildingModel;
+  displayCard: boolean = false;
   currentRoute: string;
   color = 'primary';
   mode = 'determinate';
@@ -152,25 +153,38 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.currentRoute = this.router.url.toString()
     const building = localStorage.getItem('location');
     const coBuilding = JSON.parse(building)
-    if(coBuilding && !coBuilding.building){
+    if(coBuilding){
       this.siteName = coBuilding;
     } else {
       alert('Please select building !');
     }
-    this.init02();
+    //this.init02();
     this.onWindowResize()
   }
 
   updateInit(){
     this.unSubscribeTimer();
     const building = localStorage.getItem('location');
-    const coBuilding = JSON.parse(building)
-    if(coBuilding && !coBuilding.building){
+    const coBuilding = JSON.parse(building);
+    if(coBuilding){
+      console.log(coBuilding)
       this.siteName = coBuilding;
-    } else {
-      alert('Please select building !');
     }
-    this.init02();
+    this.cd.markForCheck();
+    //this.init02();
+  }
+
+  selectBuilding(id: string){
+    this.displayCard = false;
+    const slcBx = this.store.selectSnapshot(SitesState.getSiteWithId(id));
+    if(slcBx){
+      this.siteSelected = slcBx;
+      this.init02();
+    }
+  }
+
+  closeCard(){
+    this.displayCard = false;
   }
 
   ngAfterViewInit() {
@@ -206,29 +220,26 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private async init02()
   {
-    //////console.log("Init Page");
-    {
-      const dashboardConfigs = await this.getDashboardConfigs();
-      //////console.log(dashboardConfigs);
-      this.configs01 = dashboardConfigs.realtimeConfig;
-      this.configs02 = dashboardConfigs.historianConfig;
-      this.dashboardInverterService.config = dashboardConfigs.chartConfig.find(c => c.name === "interverEnergy");
+    const dashboardConfigs = await this.getDashboardConfigs();
+    //////console.log(dashboardConfigs);
+    this.configs01 = dashboardConfigs.realtimeConfig;
+    this.configs02 = dashboardConfigs.historianConfig;
+    this.dashboardInverterService.config = dashboardConfigs.chartConfig.find(c => c.name === "interverEnergy");
 
-      await this.createRequests02();
-    
-      const realtimeData = await this.requestRawData();
-      const historianData = await this.requestPlotData();
-      if (historianData) {
-        this.dashboardInverterService.data = historianData;
-      }
-      //await this.addDataToStore(rawData);
-      const rawTF = await this.addRealtimeDataToStore(realtimeData);
-      const hisTF = await  this.addHistorianDataToStore(historianData);
-      let dataTranform = rawTF.concat(hisTF);
-      //////console.log(dataTranform);
-      await this.addDataToStore(dataTranform);
-
+    await this.createRequests02();
+  
+    const realtimeData = await this.requestRawData();
+    const historianData = await this.requestPlotData();
+    if (historianData) {
+      this.dashboardInverterService.data = historianData;
     }
+    //await this.addDataToStore(rawData);
+    const rawTF = await this.addRealtimeDataToStore(realtimeData);
+    const hisTF = await  this.addHistorianDataToStore(historianData);
+    let dataTranform = rawTF.concat(hisTF);
+    //////console.log(dataTranform);
+    await this.addDataToStore(dataTranform);
+
     this.loadSingleValue();
     this.loadMultipleValues();
     this.initloadInverterValues();
@@ -257,30 +268,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
       //////console.log(request);
       await this.store.dispatch(new SetDashboardRequest(request)).toPromise();
-  }
-
-  private async updateRequests02()
-  {    
-      const requests = [];
-      if (this.configs01) {
-        const requests1 = this.createRealtimeRequest(this.configs01);
-        requests.push(requests1);
-      }
-      if (this.configs02) {
-        
-        const singleConfig = this.store.selectSnapshot(DashboardRequestState.getRealTimeCurrentConfig());
-        //////console.log(singleConfig);
-
-        const requests2  = singleConfig.filter(x => x.RequestId.substring(0,10) === 's_inverter');
-        //////console.log(requests2);
-
-        this.dashboardInverterService.requests = requests2;
-        
-        requests.push(...requests2);
-
-      }
-
-      //await this.store.dispatch(new SetDashboardRequest(requests)).toPromise();
   }
 
   async timerTick() {
@@ -341,7 +328,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   async getDashboardConfigs() {
-    const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/building/configurations/building['+this.siteName.id+'].config.json');
+    const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/building/configurations/building['+this.siteSelected.id+'].config.json');
+    if(dashboardConfigs){this.displayCard = true;}
     this.store.dispatch(new SetDashboardConfigs(dashboardConfigs));
     return dashboardConfigs;
   }
@@ -389,8 +377,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           maxValues[TimeStamp] = {...record,Value:value };
         }
       });
-
-
       const maxRecords = Object.values(maxValues)
       return  {...item, records:maxRecords}
     })
@@ -418,8 +404,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       newData.push(record);
     });
     return newData;
-    //////console.log(newData)
-    //await this.store.dispatch(new SetDashboardValues(newData)).toPromise();
   }
 
   async addHistorianDataToStore(data: any[]) {
@@ -437,8 +421,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       newData.push(record);
     });
     return newData;
-    //////console.log(newData)
-    //await this.store.dispatch(new SetDashboardValues(newData)).toPromise();
   }
 
 
@@ -460,57 +442,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.chartOptions[name] = this.dashboardChartService.getChartOptions(name, data);
       }
     }
-    this.cd.markForCheck();
-  }
-
-  // emit event from view (period component)
-  async selectPeriodInverter(period: Period, chartName: string) {
-    //////console.log("Chart: "+chartName+"\nStart :"+period.name);
-    const st = this.dateTimeService.parseDate(period.name).startTime;
-    const now = this.dateTimeService.getDateTime(new Date());
-    await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
-    const _period = this.dateTimeService.parseDate(period.name);
-    const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
-    await this.store.dispatch(new ChangePeriod1(tagChart, st, now, period.name)).toPromise();
-
-    this.dashboardInverterService.periodName = period.name;
-    this.dashboardInverterService.requests.forEach(r => {   
-      r.Options.StartTime = st;
-      r.Options.EndTime = now;
-    });
-    const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, _period));
-    const res: DashboardResHistorian[] = await this.httpService.getHistorian(req);
-    //////console.log(res);
-    this.dashboardInverterService.data = res;
-    this.loadInverterValues();
-  }
-
-  // emit event from view (period component)
-  async selectPeriod(period: Period, chartName: string) {
-    //////console.log("Chart: "+chartName+"\nStart :"+period.name);
-    await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
-    const _period = this.dateTimeService.parseDate(period.name);
-    const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
-    await this.store.dispatch(new ChangePeriod1(tagChart, _period.startTime, _period.endTime, period.name)).toPromise();
-
-    const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, _period));
-    const res: DashboardResHistorian[] = await this.httpService.getHistorian(req);
-    //////console.log(res);
-    await this.store.dispatch(new ChangeLastValues1(tagChart, res)).toPromise();
-    const charts = this.chartConfigs.find(d => d.name == chartName);
-    const type = charts.type;
-    let data: MultipleValue = {};
-    if (type === "Raw") {
-      data = this.dashboardLastValuesService.getRawGroupDataWithName(chartName, period.name, this.chartConfigs);
-    }
-    else if (type === "Plot") {
-      data = this.dashboardLastValuesService.getPlotGroupDataWithName(chartName, period.name, this.chartConfigs);
-    }
-    if (data && data[chartName] && data[chartName].data.length > 0) {
-      //////console.log(data);
-      this.chartOptions[chartName] = this.dashboardChartService.getChartOptions(chartName, data[chartName]);
-    }
-
     this.cd.markForCheck();
   }
 
@@ -567,7 +498,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   openBreaker() {
     const dialogRef = this.dialog.open(DialogbreakerComponent, {
       width: '650px',
-      data: this.siteName,
+      data: this.siteSelected,
       backdropClass: 'dialog-backdrop',
       panelClass: ['dialog-panel']
     });

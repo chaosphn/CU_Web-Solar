@@ -2,7 +2,7 @@
   <div class="shadow-wrap">
     <div class="tooltip-hoz " id="tooltip1">
       <div class="info-card d-flex">
-        <div class="imgBox"><img [src]="imgSrc" alt="" width="130px" height="100%"></div>
+        <div class="imgBox"><img [src]="imgSrc" (error)="handleImageError($event)" alt="" width="130px" height="100%"></div>
       </div>
       <div *ngIf="cbStatus" class="status-card" [className]="(cbStatus | myNumber: '1.0-2') == 0 ? 'cboff-status-card' : 'status-card'">
         <div class="w-100 h-100 btn"></div>

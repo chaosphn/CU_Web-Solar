@@ -26,7 +26,7 @@
       </div>
       <div class="max-bar">
       </div>
-      <div class="actual-bar" [style.width]="actualValue * 70 / maxValue + '%'">
+      <div class="actual-bar" [style.width]="getBarValue() + '%'">
       </div>
     </div>
     <div class="col-12 daily-value">

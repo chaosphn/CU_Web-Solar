@@ -11,8 +11,8 @@ import { BuildingModel } from '../../stores/sites/sites.model';
 })
 export class LoginComponent implements OnInit {
 
-  username: string = 'admin';
-  password: string = '1234';
+  username: string = '';
+  password: string = '';
   invalid: boolean = false;
   animate: any;
   animateClass: string = '';
@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
     //   this.invalid = true;
     // }
     try {
-      await this.authService.login(this.username, this.password); 
+      await this.authService.login(this.username.trim(), this.password.trim()); 
       //console.log("login success")   
       localStorage.setItem('location', JSON.stringify(this.siteSelected));
       this.router.navigate([this.appLoadService.defaultRoute]);

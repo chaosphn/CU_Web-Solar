@@ -190,9 +190,8 @@ export class ReportsComponent implements OnInit {
   }
 
   async getConfig() {
-    const config: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
+    const config: SiteStateModel = await this.httpService.getNavConfig('assets/reports/BuildingList.json');
     if(config){
-      config.building.sort((a,b) => parseInt(a.no) - parseInt(b.no));
       this.buildingList = config.building;
     }
     this.reportConfig = await this.httpService.getConfig('assets/reports/report.config2.json');

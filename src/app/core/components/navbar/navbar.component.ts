@@ -62,6 +62,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   today: string;
   filteredBuildingList: any[] = [];
   selectedZone: string = ''
+  meterSelected: string;
 
   @ViewChild('searchInput') searchInput: any;
   @ViewChild('selectDropdown') selectDropdown: MatSelect;
@@ -129,6 +130,17 @@ export class NavbarComponent implements AfterViewInit, OnInit {
       this.bgStatus = false;
       //console.log('normal bg1');
     }
+  }
+
+  selectMeter(id: string[]){
+    this.buildingList.building.map(function(item){
+      if(id.includes(item.id) && !item.building){
+        item.display = true;
+      } else if(!item.building){
+        item.display = false;
+      }
+      return item;
+    })
   }
 
   checkRoute(){
@@ -216,14 +228,14 @@ export class NavbarComponent implements AfterViewInit, OnInit {
         return building;
       });
     } else {
-      this.filteredBuildingList = this.buildingList.building.filter((building, index) => {
-        if (index <= 5) {
-          building.display = true;
+      this.filteredBuildingList = this.buildingList.building.map(function(item){
+        if(item.building){
+          item.display = true;
         } else {
-          building.display = false;
+          item.display = false;
         }
-        return building;
-      });
+        return item;
+      })
     }
 
   }

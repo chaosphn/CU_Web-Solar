@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-daily-consumption2',
@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
   styleUrls: ['./daily-consumption.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DailyConsumptionComponent2 implements OnInit {
+export class DailyConsumptionComponent2 implements OnInit, OnChanges {
 
   @Input() title: string;
   @Input() minValue: number;
@@ -54,6 +54,10 @@ export class DailyConsumptionComponent2 implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    
   }
 
   // getV1Value(str: string | number) {

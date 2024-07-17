@@ -384,46 +384,68 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   
   filterMaxValueRecord(data: DashboardResHistorian[]): DashboardResHistorian[] {
     let index:number = 14;
-    return data.map(item => {
-      const maxValues: { [key: string]: Record } = {};
-      if(item.Name.endsWith('_DAY')){
-        index = 11;
-      } else
-      if(item.Name.endsWith('_MONTH')){
-        index = 8;
-      } else
-      if(item.Name.endsWith('_YEAR')){
-        index = 5;
-      } else
-      if(item.Name.endsWith('_HOUR')){
-        index = 14;
-      } else {
-        index = 20;
-      }
-      item.records.forEach(record => {
-        const TimeStamp = record.TimeStamp.substring(0,index);
-        const value = parseFloat(record.Value);
-  
-        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value)) {
-          maxValues[TimeStamp] = { ...record, Value: value.toString() };
-        } else if (value === parseFloat(maxValues[TimeStamp].Value)) {
-          // Additional criteria for handling ties can be added here
-          // For now, keeping the first encountered record
+    if(data){
+      return data.map(item => {
+        const maxValues: { [key: string]: Record } = {};
+        if(item.Name.endsWith('_DAY')){
+          index = 11;
+        } else
+        if(item.Name.endsWith('_MONTH')){
+          index = 7;
+        } else
+        if(item.Name.endsWith('_YEAR')){
+          index = 5;
+        } else
+        if(item.Name.endsWith('_HOUR')){
+          index = 14;
+        } else {
+          index = 20;
         }
-      });
-  
-      const maxRecords: Record[] = Object.values(maxValues);
-      let rec: Record[] = [];
-      return {
-        ...item,
-        records: maxRecords.reduce((acc, cur) => {
-          if(acc.find(x => x.TimeStamp == cur.TimeStamp && x.Value == cur.Value )){}else if(parseFloat(cur.Value) > 0){
-            acc.push(cur);
+        item.records.forEach(record => {
+          const TimeStamp = this.dateTimeService.getDateTime(record.TimeStamp).substring(0,index);
+          const value = parseFloat(record.Value);
+          const _ts = new Date(record.TimeStamp).getTime();
+    
+          if (!maxValues[TimeStamp] || _ts > new Date(maxValues[TimeStamp].TimeStamp).getTime()) {
+            if(item.Name.endsWith('_DAY')){
+              let d  = new Date(record.TimeStamp);
+              d.setHours(0,0,0,0);
+              record.TimeStamp = new Date(d).toISOString();
+            } else
+            if(item.Name.endsWith('_MONTH')){
+              let d  = new Date(record.TimeStamp);
+              d.setDate(1);
+              record.TimeStamp = new Date(d).toISOString();
+            } else
+            if(item.Name.endsWith('_YEAR')){
+              let d  = new Date(record.TimeStamp);
+              d.setMonth(1,1);
+              record.TimeStamp = new Date(d).toISOString();
+            } else
+            if(item.Name.endsWith('_HOUR')){
+              let d  = new Date(record.TimeStamp);
+              d.setMinutes(0,0,0);
+              record.TimeStamp = new Date(d).toISOString();
+            } 
+            maxValues[TimeStamp] = { ...record, Value: value.toString() };
           }
-          return acc;
-        },rec)
-      };
-    });
+        });
+    
+        const maxRecords: Record[] = Object.values(maxValues);
+        let rec: Record[] = [];
+        return {
+          ...item,
+          records: maxRecords.reduce((acc, cur) => {
+            if(acc.find(x => x.TimeStamp == cur.TimeStamp && x.Value == cur.Value )){}else if(parseFloat(cur.Value) > 0){
+              acc.push(cur);
+            }
+            return acc;
+          },rec)
+        };
+      });
+    } else {
+      return [];
+    }
   }
 
   async addDataToStore(data: any[]) {
@@ -580,6 +602,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   async selectPeriodChart(period: PeriodGroup, chartName: string, date: Date) {
     //console.log("Chart: "+chartName+"\nStart :"+period.name);
     //await this.store.dispatch(new ChangePeriodName(period.name, chartName)).toPromise();
+    this.unSubscribeTimer();
     if(this.isInitialized){
       const _period = this.getDateTimePeriod(date, period.Type);
       const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
@@ -590,7 +613,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       let res: DashboardResHistorian[] = [];
       if(req){
         this.chartSelected = chartName;
-        this.disableButton = true;
+        //this.disableButton = true;
         const request: DashboardReqHistorian[] = req.map( x => {
           const opt:Options = {
             StartTime: _period.startTime,
@@ -615,15 +638,16 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           if (data && data[chartName] && data[chartName].data.length > 0) {
             this.chartOptions[chartName] = this.dashboardChartService.getNewChartOptions(chartName, data[chartName], _period);
           }
+          this.cd.markForCheck();
           this.disableButton = false;
           this.chartSelected = undefined;
-          this.cd.markForCheck();
         }
       }
     }
   }
 
   async selectPeriodInverterChart(period: PeriodGroup, chartName: string, date: Date) {
+    this.unSubscribeTimer();
     if(this.isInitialized){
       const _period = this.getDateTimePeriod(date, period.Type);
       const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
@@ -637,14 +661,14 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         r.Options.EndTime = _period.endTime;
       });
       this.chartSelected = chartName;
-      this.disableButton = true;
+      //this.disableButton = true;
       const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
       const res: DashboardResHistorian[] = await this.httpService.getHistorian(this.dashboardInverterService.requests);
       this.dashboardInverterService.data = res;
       this.loadInverterValues();
+      this.cd.markForCheck();
       this.disableButton = false;
       this.chartSelected = undefined;
-      this.cd.markForCheck();
     }
   }
 
@@ -796,6 +820,19 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
     return period;
     //console.log('start : ' + this.startDate + '\nend : '+ this.endDate);
+  }
+
+  getSumPowerValue(){
+    let res = 0;
+    if(this.siteName.building){
+      const data = this.siteName.building.reduce((acc,pre) => {
+        let d = this.data.singleValue[pre+'_power'];
+        if(d && d.dataRecords && d.dataRecords[0] && d.dataRecords[0].Value && parseFloat(d.dataRecords[0].Value) > 0){acc += parseFloat(d.dataRecords[0].Value);}
+        return acc;
+      },0)
+      if(data > 0){res = data}
+    }
+    return res;
   }
 
 }

@@ -67,6 +67,30 @@
 		{
 			"Title": "weather_co2",
 			"Name": "B002.CALC02.CO2_TODAY"
+		},
+		{
+			"Title": "CEN001_power",
+			"Name": "B002.TOU02.W"
+		},
+		{
+			"Title": "CEN005_power",
+			"Name": "B003.TOU03.W"
+		},
+		{
+			"Title": "CEN003_power",
+			"Name": "B004.TOU04.W"
+		},
+		{
+			"Title": "CEN103_power",
+			"Name": "B014.TOU14.W"
+		},
+		{
+			"Title": "CEN087_power",
+			"Name": "B021.TOU21.W"
+		},
+		{
+			"Title": "EDU003_power",
+			"Name": "B041.TOU41.W"
 		}
 	],
 	"historianConfig": [

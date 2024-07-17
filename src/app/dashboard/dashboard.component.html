@@ -16,12 +16,37 @@
       </app-solar-container>
     </div>
     
-    <div class="powerCard">
+    <div class="powerCard" *ngIf="siteName.building ? true : false">
+      <app-solar-container [title]="'POWER GENERATION'">
+        <ng-template #content>
+          <app-daily-consumption2 [title]="'ACTIVE POWER'" [expectText]="''" 
+          [minValue]="data?.singleValue['power_value']?.minValue" 
+              [maxValue]="data?.singleValue['power_value']?.maxValue"
+            [actualValue]="data?.singleValue['power_value']?.dataRecords[0]?.Value" 
+            [actualUnit]="data?.singleValue['power_value']?.unit"
+            [expectValue]="data?.singleValue['power_expected']?.dataRecords[0]?.Value" 
+            [expectUnit]="data?.singleValue['power_expected']?.unit"
+            [g1Title]="'PEAK'" 
+            [g1Value]="data?.singleValue['power_peak']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'" 
+            [g1Unit]="data?.singleValue['power_peak']?.unit" 
+            [g2Title]="'PEAK TIME'" 
+            [g2Value]="getPeakTime(data?.singleValue['power_peaktime']?.dataRecords[0]?.Value)" 
+            [g2Unit]=""
+            [g3Title]="'SOLAR POWER'" 
+            [g3Value]="getSumPowerValue() | myNumber : '1.0-2'" 
+            [g3Unit]="'kW'" 
+            [showArrow]="false" 
+            ></app-daily-consumption2>
+        </ng-template>
+      </app-solar-container>       
+    </div>
+
+    <div class="powerCard" *ngIf="siteName.building ? false : true">
       <app-solar-container [title]="'POWER GENERATION'">
         <ng-template #content>
           <app-daily-consumption [title]="'ACTIVE POWER'" [expectText]="'EXPECTED'" 
           [minValue]="data?.singleValue['power_value']?.minValue" 
-          [maxValue]="data?.singleValue['power_value']?.maxValue"
+              [maxValue]="data?.singleValue['power_value']?.maxValue"
             [actualValue]="data?.singleValue['power_value']?.dataRecords[0]?.Value" 
             [actualUnit]="data?.singleValue['power_value']?.unit"
             [expectValue]="data?.singleValue['power_expected']?.dataRecords[0]?.Value" 
@@ -33,25 +58,26 @@
             [g2Value]="getPeakTime(data?.singleValue['power_peaktime']?.dataRecords[0]?.Value)" 
             [g2Unit]=""
             [g3Title]="'CAPACITY'" 
-            [g3Value]="((data?.singleValue['power_capacity']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2')*10) | myNumber : '1.0-2'" 
+            [g3Value]="((data?.singleValue['power_capacity']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2')) | myNumber : '1.0-2'" 
             [g3Unit]="data?.singleValue['power_capacity']?.unit" 
             [g4Title]="'PR'" 
             [g4Value]="checkPRValue(data?.singleValue['power_pr']?.dataRecords[0]?.Value) | myNumber2 : '1.0-2'" 
-            [g4Unit]="data?.singleValue['power_pr']?.unit" 
+            [g4Unit]="data?.singleValue['power_pr']?.unit"
+            [showArrow]="true" 
             ></app-daily-consumption>
         </ng-template>
       </app-solar-container>       
     </div>
     
-    <div class="energyCard">
+    <div class="energyCard" *ngIf="siteName.building ? false : true">
       <app-solar-container [title]="'ENERGY PRODUCTION'">
         <ng-template #content>
           <app-daily-consumption [title]="'TODAY ENERGY'" [expectText]="'EXPECTED'" 
           [minValue]="data?.singleValue['energy_today']?.minValue" 
           [maxValue]="data?.singleValue['energy_today']?.maxValue"
-            [actualValue]="data?.singleValue['energy_today']?.dataRecords[0]?.Value | myNumber : '1.0-1'" 
+            [actualValue]="data?.singleValue['energy_today']?.dataRecords[0]?.Value | myNumber2 : '1.0-1'" 
             [actualUnit]="data?.singleValue['energy_today']?.unit" 
-            [expectValue]="data?.singleValue['energy_expected']?.dataRecords[0]?.Value | myNumber : '1.0-1'" 
+            [expectValue]="data?.singleValue['energy_expected']?.dataRecords[0]?.Value | myNumber2 : '1.0-1'" 
             [expectUnit]="data?.singleValue['energy_expected']?.unit" 
             [g1Title]="'TODAY'"
             [g1Value]="data?.singleValue['energy_today']?.dataRecords[0]?.Value | myNumber2 : '1.0-1'" 
@@ -63,8 +89,34 @@
             [g2Value]="data?.singleValue['energy_mtd']?.dataRecords[0]?.Value | myNumber2 : '1.0-1'" 
             [g2Unit]="data?.singleValue['energy_mtd']?.unit"
             [g4Title]="'COD'" 
-            [g4Value]="((data?.singleValue['energy_cod']?.dataRecords[0]?.Value  | myNumber : '1.0-2')/1000) | myNumber : '1.0-2'"
-            [g4Unit]="'MWh'" ></app-daily-consumption>
+            [g4Value]="(data?.singleValue['energy_cod']?.dataRecords[0]?.Value /1000) | myNumber : '1.0-2'"
+            [g4Unit]="'MWh'" 
+            [showArrow]="true" 
+            ></app-daily-consumption>
+        </ng-template>
+      </app-solar-container>
+    </div>
+
+    <div class="energyCard" *ngIf="siteName.building ? true : false">
+      <app-solar-container [title]="'ENERGY PRODUCTION'">
+        <ng-template #content>
+          <app-daily-consumption2 [title]="'TODAY ENERGY'" 
+          [expectText]=""  
+          [minValue]="0" 
+          [maxValue]="data?.singleValue['energy_today']?.maxValue"
+            [actualValue]="data?.singleValue['energy_today']?.dataRecords[0]?.Value" 
+            [actualUnit]="data?.singleValue['energy_today']?.unit" 
+            [g2Title]="'YEARLY'" 
+            [g2Value]="data?.singleValue['energy_yesterday']?.dataRecords[0]?.Value | myNumber2 : '1.0-1'" 
+            [g2Unit]="data?.singleValue['energy_yesterday']?.unit" 
+            [g1Title]="'MONTHLY'"
+            [g1Value]="data?.singleValue['energy_mtd']?.dataRecords[0]?.Value | myNumber2 : '1.0-1'" 
+            [g1Unit]="data?.singleValue['energy_mtd']?.unit"
+            [g3Title]="'COD'" 
+            [g3Value]="(data?.singleValue['energy_cod']?.dataRecords[0]?.Value /1000) | myNumber : '1.0-2'"
+            [g3Unit]="'MWh'" 
+            [showArrow]="false" 
+            ></app-daily-consumption2>
         </ng-template>
       </app-solar-container>
     </div>

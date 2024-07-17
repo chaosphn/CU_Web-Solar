@@ -69,7 +69,13 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
   sub1:Subscription;
   siteSelected: SiteStateModel[];
   currentRoute: string;
-  siteName: BuildingModel; 
+  siteName: BuildingModel = {
+    no: "01",
+    id: "ARC003",
+    name: "อาคารเลิศ อุรัสยะนันทน์",
+    capacity: 113.4,
+    zone: "13028863"
+  }; 
   private unsubscribe$: Subject<void> = new Subject();
   private isInitialized = false;
   testGroup: any[][] = [];
@@ -97,8 +103,12 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
       this.uuid = UUID.UUID();
       this.currentRoute = this.router.url.toString()
       const building = localStorage.getItem('location');
-      ////console.log("component: "+this.currentRoute.slice(6)+" & site: " + this.siteName.toString());
-      this.siteName = JSON.parse(building);
+      const coBuilding = JSON.parse(building)
+      if(coBuilding && !coBuilding.building){
+        this.siteName = coBuilding;
+      } else {
+        alert('Please select building !');
+      }
       await this.init();
       await this.Init2();
        
@@ -106,12 +116,18 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
   
     async updateInit(){
       const building = localStorage.getItem('location');
-      this.siteName = JSON.parse(building);
+      const coBuilding = JSON.parse(building)
+      if(coBuilding  && !coBuilding.building){
+        this.siteName = coBuilding;
+      } else {
+        alert('Please select building !');
+      }
       this.unSubscribeTimer();
       this.initChart();
       this.initDateTime();
       await this.init();
       await this.Init2();
+      //console.log(JSON.parse(building))
     }
 
     unSubscribeTimer(){
@@ -170,7 +186,6 @@ export class InvertersComponent implements OnInit, AfterViewInit, OnDestroy {
         Tag.filter(x => x.Name.split(".")[0].endsWith(this.siteName.no)).forEach( i => {
           let display = i.Name.split(".");
           if(this.reportConfig.find(x => x.Name.includes(display[1])) && !tagConfig.Groups.find(x=>x.Name == display[1])){
-            console.log(this.reportConfig.find(x => x.Name == display[0]))
             tagConfig.Groups.push({
               Name: display[1],
               FullPath: this.siteName.name,

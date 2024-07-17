@@ -211,9 +211,9 @@ export class ChartsComponent implements OnInit, AfterViewInit {
 
   selectedPeriodGroup(periodName: PeriodGroup) {
     this.periodGroupSelected = periodName;
-    // if(this.isInitialize){
-    //   this.selectChart();
-    // }
+    this.onDateTimeChange(this.dateTime);
+    //console.log('start: '+this.startDate+'\nend: '+this.endDate);
+    this.render(this.tagNames, this.startDate, this.endDate);
   }
 
   selectedPeriod(periodName: string) {
@@ -251,12 +251,11 @@ export class ChartsComponent implements OnInit, AfterViewInit {
 
   async render(tagNames: string[], startTime: string | Date, endTime: string | Date) {
     this.validateParameters();
-    this.downLoading = true;
+    //this.downLoading = true;
     const st = this.dateTimeService.getDateTime(startTime);
     const ed = this.dateTimeService.getDateTime(endTime);
     this.reqCurrs = this.getReqDataConfig(tagNames ,st, ed);
     const res:DashboardResHistorian[] = await this.httpService.getHistorian(this.reqCurrs);
-    this.downLoading = false;
     this.renderChart(this.getMaxValueRecord(res));
     if (this.periodName && this.periodName.toLowerCase() === 't') {
       this.startTimer(this.appLoadService.Config.Timer * 1000 * 12);
@@ -264,6 +263,7 @@ export class ChartsComponent implements OnInit, AfterViewInit {
     else {
       this.unsubscribe();
     }
+    //this.downLoading = false;
   }
 
   renderChart(res: InverterResHistorian[]) {
@@ -344,21 +344,25 @@ export class ChartsComponent implements OnInit, AfterViewInit {
   }
 
   getMaxValueRecord(data:any[]) {
-    return data.map(item => {
-      const maxValues = {};
-      item.records.filter(x => parseFloat(x.Value) > 0).forEach(record => {
-        const TimeStamp = record.TimeStamp;
-        const value = parseFloat(record.Value);
-
-        if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value)) {
-          maxValues[TimeStamp] = {...record,Value:value.toString() };
-        }
+    if(data){
+      return data.map(item => {
+        const maxValues = {};
+        item.records.forEach(record => {
+          const TimeStamp = record.TimeStamp;
+          const value = parseFloat(record.Value);
+  
+          if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value)) {
+            maxValues[TimeStamp] = {...record,Value:value.toString() };
+          }
+        });
+  
+  
+        const maxRecords = Object.values(maxValues)
+        return  {...item, records:maxRecords}
       });
-
-
-      const maxRecords = Object.values(maxValues)
-      return  {...item, records:maxRecords}
-    })
+    } else {
+      return [];
+    }
   }
 
   startTimer(dueTimer: number) {
@@ -475,9 +479,9 @@ export class ChartsComponent implements OnInit, AfterViewInit {
     this.dateTime = new Date(event.setHours(0,0,0,0));
     switch(this.periodGroupSelected.Type){
       case "daily":
-        this.startDate = this.dateTimeService.getDateTime(this.dateTime);
-        const endD = this.dateTime.setHours(23,59,0,0);
-        this.endDate = this.dateTimeService.getDateTime(new Date(endD));
+        this.startDate = this.dateTime.toISOString();
+        const endD = this.dateTime.setDate(this.dateTime.getDate()+1);
+        this.endDate = new Date(endD).toISOString();
         break;
       case "weekly":
         const date = event.setHours(0,0,0,0);
@@ -496,13 +500,15 @@ export class ChartsComponent implements OnInit, AfterViewInit {
         }
         break;
       case "monthly":
-        this.startDate = this.dateTimeService.getDateTime(this.dateTime);
+        let startDate = this.dateTime.setDate(1);
+        this.startDate = this.dateTimeService.getDateTime(new Date(startDate));
         let endDate = new Date(this.dateTime);
         endDate.setMonth(endDate.getMonth() + 1, 1);
         this.endDate = this.dateTimeService.getDateTime(endDate);
         break;
       case "yearly":
-        this.startDate = this.dateTimeService.getDateTime(this.dateTime.toISOString());
+        let startMonth = this.dateTime.setMonth(1, 1);
+        this.startDate = this.dateTimeService.getDateTime(new Date(startMonth));
         let endMonth = new Date(this.dateTime);
         endMonth.setFullYear(endMonth.getFullYear(), 12, 1);
         this.endDate = this.dateTimeService.getDateTime(endMonth);

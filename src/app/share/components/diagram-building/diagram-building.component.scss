@@ -1,0 +1,27 @@
+.container-fluid {
+    text-align: center;
+    //background-color: white;
+    //overflow: hidden;
+    box-sizing: border-box;
+    // //border: 1px solid red;
+    // background-color: rgba(0, 0, 0, 0.3);
+}
+
+.row{
+    position: relative;
+    padding: 27px;
+    cursor: pointer;
+    background-color: rgb(255, 255, 255);
+}
+
+.close-box{
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    //z-index: 20;
+    .material-icons{
+        font-weight: 500;
+        font-size: 32px;
+        color: crimson;
+    }
+}

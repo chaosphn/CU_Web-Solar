@@ -1,0 +1,467 @@
+<div class="container-fluid bz d-flex-ct">
+  <div class="row d-flex-ct bz">
+    <div class="close-box" (click)="close()">
+      <i class="material-icons">cancel</i>
+    </div>
+    <svg class="bz" width="949" height="648" viewBox="0 0 949 648" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g id="Group 1896">
+      <text id="text5673-13-4-7-9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="13.3333" font-weight="bold" letter-spacing="0em"><tspan x="448" y="12.8485">TO MEA</tspan></text>
+      <path id="Polygon 1" d="M474.5 48L492.254 24.75H456.746L474.5 48Z" fill="black"/>
+      <path id="Line 48" d="M475 46V288" stroke="black" stroke-width="3"/>
+      <path id="Line 49" d="M475 349V391.5" stroke="black" stroke-width="3"/>
+      <path id="Line 50" d="M468.633 283.227L480.5 293" stroke="black" stroke-width="2"/>
+      <path id="Line 51" d="M480.673 282.741L469 293.501" stroke="black" stroke-width="2"/>
+      <g id="BREAKER">
+      <g id="Group 1878" *ngIf="!getCbStatus('cb_status')">
+      <path id="Line 52" d="M475.032 349.539L439.374 293" stroke="#00F536" stroke-width="3"/>
+      <g id="Vector 637">
+      <mask id="path-8-inside-1_503_25675" fill="white">
+      <path d="M458.874 324.5L452.874 315L446.874 318.5L452.874 328L458.874 324.5Z"/>
+      </mask>
+      <path d="M458.874 324.5L452.874 315L446.874 318.5L452.874 328L458.874 324.5Z" fill="#00F536" stroke="#00F536" stroke-width="6" mask="url(#path-8-inside-1_503_25675)"/>
+      </g>
+      </g>
+      <g id="Group 1879" *ngIf="getCbStatus('cb_status')">
+      <line id="Line 53" x1="475.5" y1="289" x2="475.5" y2="350" stroke="#DC143C" stroke-width="3"/>
+      <rect id="Rectangle 883" x="467" y="309" width="7" height="11" fill="#DC143C"/>
+      </g>
+      <g id="Group 1895" (click)="openBreaker()">
+      <rect id="Rectangle 884" x="513.5" y="298.5" width="88" height="49" fill="#F0F0F0" stroke="#DC143C" stroke-width="3" [ngStyle]="getAlmCB('cb_status')"/>
+      <text id="CMD MCCB" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="541.238" y="317.591">CMD&#10;</tspan><tspan x="536.439" y="334.591">MCCB</tspan></text>
+      </g>
+      </g>
+      <g id="TOU">
+      <line id="Line 55" x1="475" y1="207.5" x2="702" y2="207.5" stroke="black" stroke-width="3"/>
+      <path id="rect4147-8-3-3-2-9-4-6-3-3-2-57-4-6" d="M869 86H677V219H869V86Z" fill="#F2F2F2" stroke="#757575" stroke-width="4.47585"/>
+      <text id="text4464-0-8-9-22-8-1-0-8-6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="20" font-weight="bold" letter-spacing="0em"><tspan x="718" y="115.336">TOU METER</tspan></text>
+      <g id="Group 1894">
+      <g id="Group 1890">
+      <text id="text4464-4-4-6-3-4-0-3-8-3-9-6-4-0-0-1-0-5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="696" y="142.361">E TODAY</tspan></text>
+      <text id="text4464-4-4-6-3-4-0-3-8-3-9-6-4-0-0-1-0-5-8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="795" y="142.102">{{ value['energy_value']?.dataRecords[0]?.Value | myNumber : '1.0-0' }}  kWh</tspan></text>
+      </g>
+      <g id="Group 1891">
+      <text id="text4464-4-4-6-3-4-0-3-82-2-0-7-31-2-7-6-7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="703" y="163.361">POWER</tspan></text>
+      <text id="text4464-4-4-6-3-4-0-3-8-3-9-6-4-0-0-1-0-5-8-7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="795" y="163.102">{{ value['power_value']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}  kW</tspan></text>
+      </g>
+      <g id="Group 1892">
+      <text id="text4464-4-4-0-0-2-1-2-2-8-5-1-1-47-4-9-8-6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="693" y="184.361">VOLTAGE</tspan></text>
+      <text id="text4464-4-4-6-3-4-0-3-8-3-9-6-4-0-0-1-0-5-8-7-1" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="795" y="184.102">{{ value['volt_value']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}  V</tspan></text>
+      </g>
+      <g id="Group 1893">
+      <text id="text4464-4-4-0-0-2-1-2-2-8-5-1-1-4-0-9-4-5-4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="690" y="205.357">CURRENT</tspan></text>
+      <text id="text4464-4-4-6-3-4-0-3-8-3-9-6-4-0-0-1-0-5-8-7-1-5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="795" y="205.102">{{ value['current_value']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}  I</tspan></text>
+      </g>
+      </g>
+      </g>
+      <g id="SLOGGER">
+      <line id="Line 54" x1="248" y1="207.5" x2="475" y2="207.5" stroke="black" stroke-width="3"/>
+      <path id="rect4147-8-3-3-2-9-4-6-3-0-0-1-5-5-1" d="M297 59H50V241H297V59Z" fill="#F2F2F2" stroke="#757575" stroke-width="4.57058"/>
+      <text id="text4464-0-8-9-22-5-1-9-1-5-4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="20" font-weight="bold" letter-spacing="0em"><tspan x="99" y="88.3359">SMART LOGGER</tspan></text>
+      <g id="Group 1873">
+      <text id="text4464-4-4-0-0-2-1-2-2-8-5-1-1-8-6-5-5-6-4-6-9-7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="11" font-weight="bold" letter-spacing="0em"><tspan x="131" y="231.26">STATUS.</tspan></text>
+      <path id="WEATHER_COM_ALM-5-4-4" d="M186.712 232.23C189.866 232.23 192.424 229.716 192.424 226.615C192.424 223.514 189.866 221 186.712 221C183.557 221 181 223.514 181 226.615C181 229.716 183.557 232.23 186.712 232.23Z" fill="#14FF11" stroke="black" stroke-width="1.24509"/>
+      <text id="WEATHER_COM_ALM_TXT-8-7-4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="11.9757" font-weight="bold" letter-spacing="0em"><tspan x="200" y="231.093">OK</tspan></text>
+      </g>
+      <g id="g956-5-9">
+      <text id="text4464-4-4-6-3-4-0-3-82-2-0-7-9-9-1-1-7-8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="73" y="116.102">IRRADIATION</tspan></text>
+      <text id="text4464-4-4-6-3-4-0-3-82-2-0-7-9-9-1-1-4-9-6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="210" y="116.225">{{ value['irr_slog']?.dataRecords[0]?.Value | myNumber : '1.0-0' }}     W/m2</tspan></text>
+      </g>
+      <g id="g962-9-2">
+      <text id="text4464-4-4-0-0-2-1-2-2-8-5-1-1-8-4-1-3-5-7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="79" y="139.035">AMB. TEMP.</tspan></text>
+      <text id="text4464-4-4-6-3-4-0-3-82-2-0-7-9-9-1-1-4-8-9-2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="210" y="138.102">{{ value['ambtemp_slog']?.dataRecords[0]?.Value | myNumber : '1.0-0' }}    Deg. C</tspan></text>
+      </g>
+      <g id="g968-5-8">
+      <text id="text4464-4-4-6-3-4-0-3-8-3-9-6-4-7-0-4-8-5-0" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="88" y="161.605">PV. TEMP.</tspan></text>
+      <text id="text4464-4-4-6-3-4-0-3-82-2-0-7-9-9-1-1-4-8-2-4-4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="210" y="161.102">{{ value['pvtemp_slog']?.dataRecords[0]?.Value | myNumber : '1.0-0' }}   Deg. C</tspan></text>
+      </g>
+      <g id="g974-0-9">
+      <text id="text4464-4-4-6-3-4-0-3-82-2-0-7-9-4-3-5-5-1" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="64" y="184.305">INVERTER WAC</tspan></text>
+      <text id="text4464-4-4-6-3-4-0-3-82-2-0-7-9-9-1-1-4-8-2-8-8-8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="210" y="184.102">{{ value['power_slog']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}   kW</tspan></text>
+      </g>
+      <g id="g980-3-5">
+      <text id="text4464-4-4-0-0-2-1-2-2-8-5-1-1-8-6-3-3-1-2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="84" y="206.102">WH TODAY</tspan></text>
+      <text id="text4464-4-4-6-3-4-0-3-82-2-0-7-9-9-1-1-4-8-2-8-6-9-4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="12" font-weight="bold" letter-spacing="0em"><tspan x="210" y="206.225">{{ value['energy_slog']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}   kWh</tspan></text>
+      </g>
+      </g>
+      <circle id="Ellipse 63" cx="475" cy="208" r="6" fill="black"/>
+      <g id="GROUP-INV-TYPE">
+      <g id="GROUP5INV" *ngIf="data.invNum == 5 ? true : false">
+      <g id="Group 1885">
+      <path id="Line 56" d="M475 394V459" stroke="black" stroke-width="3"/>
+      <circle id="Ellipse 64" cx="475" cy="394" r="6" fill="black"/>
+      <circle id="Ellipse 65" cx="475" cy="394" r="6" fill="black"/>
+      <g id="Group 1881">
+      <rect id="Rectangle 570" x="394" y="461" width="161" height="185" fill="#F2F2F2" stroke="#757575" stroke-width="4"/>
+      <text id="SINV03" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="437" y="488.273">SINV03</tspan></text>
+      <g id="Group 1070">
+      <text id="TODAY" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="548.864">TODAY</tspan></text>
+      <text id="100" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="468.189" y="549.591">{{ value['energy_inv3']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="KWh" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="518.39" y="548.864">KWh</tspan></text>
+      </g>
+      <g id="Group 1071">
+      <text id="WAC" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="573.864">WAC</tspan></text>
+      <text id="101" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="469.104" y="575.591">{{ value['power_inv3']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="kW" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="527" y="574.864">kW</tspan></text>
+      </g>
+      <g id="Group 1072">
+      <text id="EFF" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="600.864">EFF</tspan></text>
+      <text id="102" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="468.12" y="601.591">{{ value['performance_inv3']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="%" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="537" y="600.864">%</tspan></text>
+      </g>
+      <g id="Group 1073">
+      <text id="TEMP" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="626.864">TEMP</tspan></text>
+      <text id="50" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="469.901" y="627.591">{{ value['temp_inv3']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="&#194;&#176;C" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="531" y="626.864">&#xb0;C</tspan></text>
+      </g>
+      <g id="Group 1069">
+      <rect id="Rectangle 571" x="405" y="500" width="139" height="22" fill="#D9D9D9" stroke="#757575" [ngStyle]="getAlmRun('run_inv3')" stroke-width="2"/>
+      <text id="STOP" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="455" y="515.591">{{getRunTxt('run_inv3')}}</tspan></text>
+      </g>
+      </g>
+      </g>
+      <g id="Group 1886">
+      <path id="Line 56_2" d="M279 394V459" stroke="black" stroke-width="3"/>
+      <circle id="Ellipse 64_2" cx="279" cy="394" r="6" fill="black"/>
+      <g id="Group 1881_2">
+      <rect id="Rectangle 570_2" x="198" y="461" width="161" height="185" fill="#F2F2F2" stroke="#757575" stroke-width="4"/>
+      <text id="SINV02" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="241" y="488.273">SINV02</tspan></text>
+      <g id="Group 1070_2">
+      <text id="TODAY_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="548.864">TODAY</tspan></text>
+      <text id="100_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="271.799" y="549.591">{{ value['energy_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="KWh_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="322.39" y="548.864">KWh</tspan></text>
+      </g>
+      <g id="Group 1071_2">
+      <text id="WAC_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="573.864">WAC</tspan></text>
+      <text id="101_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="273.104" y="575.591">{{ value['power_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="kW_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="331" y="574.864">kW</tspan></text>
+      </g>
+      <g id="Group 1072_2">
+      <text id="EFF_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="600.864">EFF</tspan></text>
+      <text id="102_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="272.12" y="601.591">{{ value['performance_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="%_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="341" y="600.864">%</tspan></text>
+      </g>
+      <g id="Group 1073_2">
+      <text id="TEMP_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="626.864">TEMP</tspan></text>
+      <text id="50_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="273.901" y="627.591">{{ value['temp_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="&#194;&#176;C_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="335" y="626.864">&#xb0;C</tspan></text>
+      </g>
+      <g id="Group 1069_2">
+      <rect id="Rectangle 571_2" x="209" y="500" width="139" height="22" fill="#D9D9D9" stroke="#757575" [ngStyle]="getAlmRun('run_inv2')" stroke-width="2"/>
+      <text id="STOP_2" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="259" y="515.591">{{getRunTxt('run_inv2')}}</tspan></text>
+      </g>
+      </g>
+      </g>
+      <g id="Group 1888">
+      <path id="Line 56_3" d="M83 394V459" stroke="black" stroke-width="3"/>
+      <circle id="Ellipse 64_3" cx="83" cy="394" r="6" fill="black"/>
+      <g id="Group 1881_3">
+      <rect id="Rectangle 570_3" x="2" y="461" width="161" height="185" fill="#F2F2F2" stroke="#757575" stroke-width="4"/>
+      <text id="SINV01" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="47" y="488.273">SINV01</tspan></text>
+      <g id="Group 1070_3">
+      <text id="TODAY_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="11" y="548.864">TODAY</tspan></text>
+      <text id="100_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="75.7988" y="549.591">{{ value['energy_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="KWh_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="126.39" y="548.864">KWh</tspan></text>
+      </g>
+      <g id="Group 1071_3">
+      <text id="WAC_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="11" y="573.864">WAC</tspan></text>
+      <text id="101_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="77.1045" y="575.591">{{ value['power_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="kW_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="135" y="574.864">kW</tspan></text>
+      </g>
+      <g id="Group 1072_3">
+      <text id="EFF_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="11" y="600.864">EFF</tspan></text>
+      <text id="102_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="76.1201" y="601.591">{{ value['performance_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="%_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="145" y="600.864">%</tspan></text>
+      </g>
+      <g id="Group 1073_3">
+      <text id="TEMP_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="11" y="626.864">TEMP</tspan></text>
+      <text id="50_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="77.9014" y="627.591">{{ value['temp_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="&#194;&#176;C_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="139" y="626.864">&#xb0;C</tspan></text>
+      </g>
+      <g id="Group 1069_3">
+      <rect id="Rectangle 571_3" x="13" y="500" width="139" height="22" fill="#D9D9D9" stroke="#757575" [ngStyle]="getAlmRun('run_inv1')" stroke-width="2"/>
+      <text id="STOP_3" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="63" y="515.591">{{getRunTxt('run_inv1')}}</tspan></text>
+      </g>
+      </g>
+      </g>
+      <g id="Group 1887">
+      <path id="Line 56_4" d="M671 394V459" stroke="black" stroke-width="3"/>
+      <circle id="Ellipse 64_4" cx="671" cy="394" r="6" fill="black"/>
+      <g id="Group 1881_4">
+      <rect id="Rectangle 570_4" x="590" y="461" width="161" height="185" fill="#F2F2F2" stroke="#757575" stroke-width="4"/>
+      <text id="SINV04" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="633" y="488.273">SINV04</tspan></text>
+      <g id="Group 1070_4">
+      <text id="TODAY_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="548.864">TODAY</tspan></text>
+      <text id="100_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="664.799" y="549.591">{{ value['energy_inv4']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="KWh_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="714.39" y="548.864">KWh</tspan></text>
+      </g>
+      <g id="Group 1071_4">
+      <text id="WAC_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="573.864">WAC</tspan></text>
+      <text id="101_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="666.104" y="575.591">{{ value['power_inv4']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="kW_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="723" y="574.864">kW</tspan></text>
+      </g>
+      <g id="Group 1072_4">
+      <text id="EFF_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="600.864">EFF</tspan></text>
+      <text id="102_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="665.12" y="601.591">{{ value['performance_inv4']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="%_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="733" y="600.864">%</tspan></text>
+      </g>
+      <g id="Group 1073_4">
+      <text id="TEMP_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="626.864">TEMP</tspan></text>
+      <text id="50_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="665.901" y="627.591">{{ value['temp_inv4']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="&#194;&#176;C_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="727" y="626.864">&#xb0;C</tspan></text>
+      </g>
+      <g id="Group 1069_4">
+      <rect id="Rectangle 571_4" x="601" y="500" width="139" height="22" fill="#D9D9D9" stroke="#757575" [ngStyle]="getAlmRun('run_inv4')" stroke-width="2"/>
+      <text id="STOP_4" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="651" y="515.591">{{getRunTxt('run_inv4')}}</tspan></text>
+      </g>
+      </g>
+      </g>
+      <g id="Group 1889">
+      <path id="Line 56_5" d="M867 394V459" stroke="black" stroke-width="3"/>
+      <circle id="Ellipse 64_5" cx="867" cy="394" r="6" fill="black"/>
+      <g id="Group 1881_5">
+      <rect id="Rectangle 570_5" x="786" y="461" width="161" height="185" fill="#F2F2F2" stroke="#757575" stroke-width="4"/>
+      <text id="SINV05" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="830" y="488.273">SINV05</tspan></text>
+      <g id="Group 1070_5">
+      <text id="TODAY_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="795" y="548.864">TODAY</tspan></text>
+      <text id="100_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="859.799" y="549.591">{{ value['energy_inv5']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="KWh_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="910.39" y="548.864">KWh</tspan></text>
+      </g>
+      <g id="Group 1071_5">
+      <text id="WAC_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="795" y="573.864">WAC</tspan></text>
+      <text id="101_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="861.104" y="575.591">{{ value['power_inv5']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="kW_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="919" y="574.864">kW</tspan></text>
+      </g>
+      <g id="Group 1072_5">
+      <text id="EFF_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="795" y="600.864">EFF</tspan></text>
+      <text id="102_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="860.12" y="601.591">{{ value['performance_inv5']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="%_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="929" y="600.864">%</tspan></text>
+      </g>
+      <g id="Group 1073_5">
+      <text id="TEMP_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="795" y="626.864">TEMP</tspan></text>
+      <text id="50_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="861.901" y="627.591">{{ value['temp_inv5']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="&#194;&#176;C_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="923" y="626.864">&#xb0;C</tspan></text>
+      </g>
+      <g id="Group 1069_5">
+      <rect id="Rectangle 571_5" x="797" y="500" width="139" height="22" fill="#D9D9D9" stroke="#757575" [ngStyle]="getAlmRun('run_inv5')" stroke-width="2"/>
+      <text id="STOP_5" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="847" y="515.591">{{getRunTxt('run_inv5')}}</tspan></text>
+      </g>
+      </g>
+      </g>
+      <line id="Line 57" x1="83" y1="392.5" x2="279" y2="392.5" stroke="black" stroke-width="3"/>
+      <line id="Line 58" x1="279" y1="392.5" x2="475" y2="392.5" stroke="black" stroke-width="3"/>
+      <line id="Line 59" x1="475" y1="392.5" x2="671" y2="392.5" stroke="black" stroke-width="3"/>
+      <line id="Line 60" x1="671" y1="392.5" x2="867" y2="392.5" stroke="black" stroke-width="3"/>
+      </g>
+      <g id="GROUP3INV" *ngIf="data.invNum == 3 ? true : false">
+      <g id="Group 1885_2">
+      <path id="Line 56_6" d="M475 394V459" stroke="black" stroke-width="3"/>
+      <circle id="Ellipse 64_6" cx="475" cy="394" r="6" fill="black"/>
+      <circle id="Ellipse 65_2" cx="475" cy="394" r="6" fill="black"/>
+      <g id="Group 1881_6">
+      <rect id="Rectangle 570_6" x="394" y="461" width="161" height="185" fill="#F2F2F2" stroke="#757575" stroke-width="4"/>
+      <text id="SINV02_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="439" y="488.273">SINV02</tspan></text>
+      <g id="Group 1070_6">
+      <text id="TODAY_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="548.864">TODAY</tspan></text>
+      <text id="100_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="467.799" y="549.591">{{ value['energy_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="KWh_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="518.39" y="548.864">KWh</tspan></text>
+      </g>
+      <g id="Group 1071_6">
+      <text id="WAC_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="573.864">WAC</tspan></text>
+      <text id="101_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="469.104" y="575.591">{{ value['power_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="kW_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="527" y="574.864">kW</tspan></text>
+      </g>
+      <g id="Group 1072_6">
+      <text id="EFF_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="600.864">EFF</tspan></text>
+      <text id="102_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="468.12" y="601.591">{{ value['performance_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="%_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="537" y="600.864">%</tspan></text>
+      </g>
+      <g id="Group 1073_6">
+      <text id="TEMP_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="626.864">TEMP</tspan></text>
+      <text id="50_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="469.901" y="627.591">{{ value['temp_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="&#194;&#176;C_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="531" y="626.864">&#xb0;C</tspan></text>
+      </g>
+      <g id="Group 1069_6">
+      <rect id="Rectangle 571_6" x="405" y="500" width="139" height="22" fill="#D9D9D9" stroke="#757575" [ngStyle]="getAlmRun('run_inv2')" stroke-width="2"/>
+      <text id="STOP_6" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="455" y="515.591">{{getRunTxt('run_inv2')}}</tspan></text>
+      </g>
+      </g>
+      </g>
+      <g id="Group 1886_2">
+      <path id="Line 56_7" d="M279 394V459" stroke="black" stroke-width="3"/>
+      <circle id="Ellipse 64_7" cx="279" cy="394" r="6" fill="black"/>
+      <g id="Group 1881_7">
+      <rect id="Rectangle 570_7" x="198" y="461" width="161" height="185" fill="#F2F2F2" stroke="#757575" stroke-width="4"/>
+      <text id="SINV01_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="243" y="488.273">SINV01</tspan></text>
+      <g id="Group 1070_7">
+      <text id="TODAY_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="548.864">TODAY</tspan></text>
+      <text id="100_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="272.189" y="549.591">{{ value['energy_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="KWh_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="322.39" y="548.864">KWh</tspan></text>
+      </g>
+      <g id="Group 1071_7">
+      <text id="WAC_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="573.864">WAC</tspan></text>
+      <text id="101_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="273.104" y="575.591">{{ value['power_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="kW_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="331" y="574.864">kW</tspan></text>
+      </g>
+      <g id="Group 1072_7">
+      <text id="EFF_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="600.864">EFF</tspan></text>
+      <text id="102_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="272.12" y="601.591">{{ value['performance_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="%_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="341" y="600.864">%</tspan></text>
+      </g>
+      <g id="Group 1073_7">
+      <text id="TEMP_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="626.864">TEMP</tspan></text>
+      <text id="50_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="273.901" y="627.591">{{ value['temp_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="&#194;&#176;C_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="335" y="626.864">&#xb0;C</tspan></text>
+      </g>
+      <g id="Group 1069_7">
+      <rect id="Rectangle 571_7" x="209" y="500" width="139" height="22" fill="#D9D9D9" stroke="#757575" [ngStyle]="getAlmRun('run_inv1')" stroke-width="2"/>
+      <text id="STOP_7" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="259" y="515.591">{{getRunTxt('run_inv1')}}</tspan></text>
+      </g>
+      </g>
+      </g>
+      <g id="Group 1887_2">
+      <path id="Line 56_8" d="M671 394V459" stroke="black" stroke-width="3"/>
+      <circle id="Ellipse 64_8" cx="671" cy="394" r="6" fill="black"/>
+      <g id="Group 1881_8">
+      <rect id="Rectangle 570_8" x="590" y="461" width="161" height="185" fill="#F2F2F2" stroke="#757575" stroke-width="4"/>
+      <text id="SINV03_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="633" y="488.273">SINV03</tspan></text>
+      <g id="Group 1070_8">
+      <text id="TODAY_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="548.864">TODAY</tspan></text>
+      <text id="100_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="663.799" y="549.591">{{ value['energy_inv3']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="KWh_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="714.39" y="548.864">KWh</tspan></text>
+      </g>
+      <g id="Group 1071_8">
+      <text id="WAC_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="573.864">WAC</tspan></text>
+      <text id="101_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="665.104" y="575.591">{{ value['power_inv3']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="kW_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="723" y="574.864">kW</tspan></text>
+      </g>
+      <g id="Group 1072_8">
+      <text id="EFF_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="600.864">EFF</tspan></text>
+      <text id="102_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="664.12" y="601.591">{{ value['performance_inv3']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="%_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="733" y="600.864">%</tspan></text>
+      </g>
+      <g id="Group 1073_8">
+      <text id="TEMP_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="626.864">TEMP</tspan></text>
+      <text id="50_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="665.901" y="627.591">{{ value['temp_inv3']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="&#194;&#176;C_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="727" y="626.864">&#xb0;C</tspan></text>
+      </g>
+      <g id="Group 1069_8">
+      <rect id="Rectangle 571_8" x="601" y="500" width="139" height="22" fill="#D9D9D9" stroke="#757575" [ngStyle]="getAlmRun('run_inv3')" stroke-width="2"/>
+      <text id="STOP_8" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="651" y="515.591">{{getRunTxt('run_inv3')}}</tspan></text>
+      </g>
+      </g>
+      </g>
+      <line id="Line 58_2" x1="279" y1="392.5" x2="475" y2="392.5" stroke="black" stroke-width="3"/>
+      <line id="Line 59_2" x1="475" y1="392.5" x2="671" y2="392.5" stroke="black" stroke-width="3"/>
+      </g>
+      <g id="GROUP2INV" *ngIf="data.invNum == 2 ? true : false">
+      <g id="Group 1885_3">
+      <circle id="Ellipse 64_9" cx="475" cy="394" r="6" fill="black"/>
+      <circle id="Ellipse 65_3" cx="475" cy="394" r="6" fill="black"/>
+      </g>
+      <g id="Group 1886_3">
+      <path id="Line 56_9" d="M279 394V459" stroke="black" stroke-width="3"/>
+      <circle id="Ellipse 64_10" cx="279" cy="394" r="6" fill="black"/>
+      <g id="Group 1881_9">
+      <rect id="Rectangle 570_9" x="198" y="461" width="161" height="185" fill="#F2F2F2" stroke="#757575" stroke-width="4"/>
+      <text id="SINV01_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="243" y="488.273">SINV01</tspan></text>
+      <g id="Group 1070_9">
+      <text id="TODAY_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="548.864">TODAY</tspan></text>
+      <text id="100_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="273.104" y="549.591">{{ value['energy_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="KWh_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="322.39" y="548.864">KWh</tspan></text>
+      </g>
+      <g id="Group 1071_9">
+      <text id="WAC_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="573.864">WAC</tspan></text>
+      <text id="101_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="273.104" y="575.591">{{ value['power_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="kW_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="331" y="574.864">kW</tspan></text>
+      </g>
+      <g id="Group 1072_9">
+      <text id="EFF_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="600.864">EFF</tspan></text>
+      <text id="102_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="273.104" y="601.591">{{ value['performance_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="%_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="341" y="600.864">%</tspan></text>
+      </g>
+      <g id="Group 1073_9">
+      <text id="TEMP_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="207" y="626.864">TEMP</tspan></text>
+      <text id="50_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="273.901" y="627.591">{{ value['temp_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="&#194;&#176;C_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="335" y="626.864">&#xb0;C</tspan></text>
+      </g>
+      <g id="Group 1069_9">
+      <rect id="Rectangle 571_9" x="209" y="500" width="139" height="22" fill="#D9D9D9" stroke="#757575" [ngStyle]="getAlmRun('run_inv1')" stroke-width="2"/>
+      <text id="STOP_9" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="259" y="515.591">{{getRunTxt('run_inv1')}}</tspan></text>
+      </g>
+      </g>
+      </g>
+      <g id="Group 1887_3">
+      <path id="Line 56_10" d="M671 394V459" stroke="black" stroke-width="3"/>
+      <circle id="Ellipse 64_11" cx="671" cy="394" r="6" fill="black"/>
+      <g id="Group 1881_10">
+      <rect id="Rectangle 570_10" x="590" y="461" width="161" height="185" fill="#F2F2F2" stroke="#757575" stroke-width="4"/>
+      <text id="SINV01_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="635" y="488.273">SINV02</tspan></text>
+      <g id="Group 1070_10">
+      <text id="TODAY_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="548.864">TODAY</tspan></text>
+      <text id="100_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="665.104" y="549.591">{{ value['energy_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="KWh_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="714.39" y="548.864">KWh</tspan></text>
+      </g>
+      <g id="Group 1071_10">
+      <text id="WAC_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="573.864">WAC</tspan></text>
+      <text id="101_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="665.104" y="575.591">{{ value['power_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="kW_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="723" y="574.864">kW</tspan></text>
+      </g>
+      <g id="Group 1072_10">
+      <text id="EFF_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="600.864">EFF</tspan></text>
+      <text id="102_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="665.104" y="601.591">{{ value['performance_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="%_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="733" y="600.864">%</tspan></text>
+      </g>
+      <g id="Group 1073_10">
+      <text id="TEMP_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="599" y="626.864">TEMP</tspan></text>
+      <text id="50_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="665.901" y="627.591">{{ value['temp_inv2']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="&#194;&#176;C_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="727" y="626.864">&#xb0;C</tspan></text>
+      </g>
+      <g id="Group 1069_10">
+      <rect id="Rectangle 571_10" x="601" y="500" width="139" height="22" fill="#D9D9D9" stroke="#757575" [ngStyle]="getAlmRun('run_inv2')" stroke-width="2"/>
+      <text id="STOP_10" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="651" y="515.591">{{getRunTxt('run_inv2')}}</tspan></text>
+      </g>
+      </g>
+      </g>
+      <line id="Line 58_3" x1="279" y1="392.5" x2="475" y2="392.5" stroke="black" stroke-width="3"/>
+      <line id="Line 59_3" x1="475" y1="392.5" x2="671" y2="392.5" stroke="black" stroke-width="3"/>
+      </g>
+      <g id="GROUP1INV" *ngIf="data.invNum == 1 ? true : false">
+      <g id="Group 1885_4">
+      <path id="Line 56_11" d="M475 393V458" stroke="black" stroke-width="3"/>
+      <circle id="Ellipse 64_12" cx="475" cy="393" r="6" fill="black"/>
+      <circle id="Ellipse 65_4" cx="475" cy="393" r="6" fill="black"/>
+      <g id="Group 1881_11">
+      <rect id="Rectangle 570_11" x="394" y="460" width="161" height="185" fill="#F2F2F2" stroke="#757575" stroke-width="4"/>
+      <text id="SINV01_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="20" font-weight="600" letter-spacing="0em"><tspan x="439" y="487.273">SINV01</tspan></text>
+      <g id="Group 1070_11">
+      <text id="TODAY_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="547.864">TODAY</tspan></text>
+      <text id="100_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="467.799" y="548.591">{{ value['energy_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="KWh_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="518.39" y="547.864">KWh</tspan></text>
+      </g>
+      <g id="Group 1071_11">
+      <text id="WAC_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="572.864">WAC</tspan></text>
+      <text id="101_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="469.104" y="574.591">{{ value['power_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="kW_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="527" y="573.864">kW</tspan></text>
+      </g>
+      <g id="Group 1072_11">
+      <text id="EFF_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="599.864">EFF</tspan></text>
+      <text id="102_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="468.12" y="600.591">{{ value['performance_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="%_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="537" y="599.864">%</tspan></text>
+      </g>
+      <g id="Group 1073_11">
+      <text id="TEMP_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="403" y="625.864">TEMP</tspan></text>
+      <text id="50_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="600" letter-spacing="0em"><tspan x="469.901" y="626.591">{{ value['temp_inv1']?.dataRecords[0]?.Value | myNumber : '1.0-2' }}</tspan></text>
+      <text id="&#194;&#176;C_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="12" font-weight="600" letter-spacing="0em"><tspan x="531" y="625.864">&#xb0;C</tspan></text>
+      </g>
+      <g id="Group 1069_11">
+      <rect id="Rectangle 571_11" x="405" y="499" width="139" height="22" fill="#D9D9D9" stroke="#757575" [ngStyle]="getAlmRun('run_inv1')" stroke-width="2"/>
+      <text id="STOP_11" fill="white" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="455" y="514.591">{{getRunTxt('run_inv1')}}</tspan></text>
+      </g>
+      </g>
+      </g>
+      </g>
+      </g>
+      </g>
+    </svg>  
+  </div>
+</div>

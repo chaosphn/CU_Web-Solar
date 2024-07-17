@@ -9,12 +9,40 @@
 			"Name": "B005.CALC05.WH_TODAY"
 		},
 		{
+			"Title": "current_value",
+			"Name": "B005.TOU05.I"
+		},
+		{
+			"Title": "volt_value",
+			"Name": "B005.TOU05.V"
+		},
+		{
 			"Title": "pr_value",
 			"Name": "B005.CALC05.PR"
 		},
 		{
-			"Title": "saving_value",
-			"Name": "B005."
+			"Title": "power_slog",
+			"Name": "B005.SLOGGER05.INV_WAC"
+		},
+		{
+			"Title": "energy_slog",
+			"Name": "B005.SLOGGER05.WH_TODAY"
+		},
+		{
+			"Title": "ambtemp_slog",
+			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+		{
+			"Title": "pvtemp_slog",
+			"Name": "B006.SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "irr_slog",
+			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "status_slog",
+			"Name": "B005.SLOGGER05.MBFAIL"
 		},
 		{
 			"Title": "weather_co2",
@@ -53,8 +81,24 @@
 			"Name": "B005.INV0502.VDC"
 		},
 		{
+			"Title": "temp_inv1",
+			"Name": "B005.INV0501.TEMP_INT"
+		},
+		{
+			"Title": "temp_inv2",
+			"Name": "B005.INV0502.TEMP_INT"
+		},
+		{
+			"Title": "run_inv1",
+			"Name": "B005.INV0501.RUN"
+		},
+		{
+			"Title": "run_inv2",
+			"Name": "B005.INV0502.RUN"
+		},
+		{
 			"Title": "cb_status",
-			"Name": "B005.cb05.status"
+			"Name": "cb05.status"
 		}
 	],
 

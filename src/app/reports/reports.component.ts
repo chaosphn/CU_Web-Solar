@@ -314,7 +314,7 @@ export class ReportsComponent implements OnInit {
       this.dataTable = [];
       this.loading = true;
       const promises = this.dateColumn.map(async rw => {
-        const res:DashboardResHistorian[] = await this.httpService.getHistorian(this.getRequestWithType(this.selectedReport.Type, rw));
+        const res:DashboardResHistorian[] = await this.httpService.getReportData(this.getRequestWithType(this.selectedReport.Type, rw));
         this.response = res;        
         let row: any[] = [];
         this.selectedReport.Header.forEach((cl, i) => {

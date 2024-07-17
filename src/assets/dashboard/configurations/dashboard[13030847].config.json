@@ -67,6 +67,14 @@
 		{
 			"Title": "weather_co2",
 			"Name": "B002.CALC02.CO2_TODAY"
+		},
+		{
+			"Title": "CEN072_power",
+			"Name": "B005.TOU05.W"
+		},
+		{
+			"Title": "CEN027_power",
+			"Name": "B016.TOU16.W"
 		}
 	],
 	"historianConfig": [

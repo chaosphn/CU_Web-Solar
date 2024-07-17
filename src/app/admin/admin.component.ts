@@ -14,6 +14,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
   dateTime: Date = new Date();
   isInitialize: boolean = false;
   holidayArr: Date[] = [];
+  holidays: HolidayResponseModel[] = [];
   reportFactors: ReportFactorModel = {
     ExchangeRate: 0.000,
     CO2Rate: 0,
@@ -30,6 +31,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     // date.setDate(2);
     // this.holidayArr.push(new Date(date));
     this.getFactors();
+    this.initHolidays();
     //console.log(this.holiday)
   }
 
@@ -60,20 +62,22 @@ export class AdminComponent implements OnInit, AfterViewInit {
   }
 
   async setFactors(){
-    if(this.validateFactors(this.reportFactors)){
+    const set = confirm('Please make sure before setFactors!');
+    if(this.validateFactors(this.reportFactors) && set){
       this.reportFactors.TimeStamp = this.dateTimeService.getDateTime(new Date());
       const setFct = await this.httpSrv.setReportfactor(this.reportFactors);
       if(setFct && setFct.acknowledged){
         alert('Update report factor success!');
       }
-    } else {
-      alert('Factors is incorrect !');
     }
   }
 
   setHolidays(){
-    if(this.holidayArr.length > 0){
-      const req: SetHolidayModel[] = this.holidayArr.map(function(item){
+    const set = confirm('Please make sure before setHolidays!');
+    if(this.holidayArr.length > 0 && set){
+      const req: SetHolidayModel[] = this.holidayArr
+      .filter(x => !this.holidays.find(d => new Date(d.StartDate).getTime() == x.getTime()))
+      .map(function(item){
         let dateTime = item.getTime(); 
         let hld: SetHolidayModel =  {
           Name: "Custom Holiday",
@@ -83,8 +87,9 @@ export class AdminComponent implements OnInit, AfterViewInit {
         };
         return hld;
       });
+      //console.log(req)
       if(req.length > 0){ this.httpSrv.setReportHoliday(req); }
-    } else {
+    } else if(this.holidayArr.length == 0 ){
       alert('Please select date!');
     }
   }
@@ -93,7 +98,27 @@ export class AdminComponent implements OnInit, AfterViewInit {
     if(item && item.ExchangeRate > 0 && item.CO2Rate > 0 && item.OilRate > 0 && item.TreeRate > 0){
       return true;
     } else {
+      alert('Factors is incorrect !');
       return false;
+    }
+  }
+
+  async initHolidays(){
+    const req: HolidayRequestModel = {
+      StartDate: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 0, 1)),
+      EndDate: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 11, 31))
+    };
+    const res: HolidayResponseModel[] = await this.httpSrv.getReportHoliday(req); 
+    if(res){
+      res.forEach(item => {
+        let start = new Date(item.StartDate).getTime();
+        let end = new Date(item.EndDate).getTime();
+        let dayMillisec = 24*60*60*1000;
+        this.holidayArr.push(new Date(item.StartDate));
+      });
+      this.holidays = res;
+    } else {
+      alert('Report factor not found!');
     }
   }
 

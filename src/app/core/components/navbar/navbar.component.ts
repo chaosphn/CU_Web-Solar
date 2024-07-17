@@ -134,7 +134,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
 
   selectMeter(id: string[]){
     this.buildingList.building.map(function(item){
-      if(id.includes(item.id) && !item.building){
+      if(id.includes(item.id) && parseInt(item.no) <= 6 && !item.building){
         item.display = true;
       } else if(!item.building){
         item.display = false;

@@ -1,0 +1,815 @@
+[
+
+	{
+		"Title": "power_active",
+		"Name": "CALC.ALLZONE.W"
+	},
+	{
+		"Title": "energy_today",
+		"Name": "CALC.ALLZONE.WH_DAY"
+	},
+	{
+		"Title": "energy_total",
+		"Name": "CALC.ALLZONE.WH"
+	},
+	{
+		"Title": "13028863_power",
+		"Name": "B001.PQM01.W"
+	},
+	{
+		"Title": "95772485_power",
+		"Name": "B006.PQM06.W"
+	},
+	{
+		"Title": "ARC003_power",
+		"Name": "B001.TOU01.W"
+	},
+	{
+		"Title": "CEN001_power",
+		"Name": "B002.TOU02.W"
+	},
+	{
+		"Title": "CEN005_power",
+		"Name": "B003.TOU03.W"
+	},
+	{
+		"Title": "CEN003_power",
+		"Name": "B004.TOU04.W"
+	},
+	{
+		"Title": "CEN072_power",
+		"Name": "B005.TOU05.W"
+	},
+	{
+		"Title": "CEN091_power",
+		"Name": "B006.TOU06.W"
+	},
+	{
+		"Title": "PHA003_power",
+		"Name": "B007.TOU07.W"
+	},
+	{
+		"Title": "LAW003_power",
+		"Name": "B008.TOU08.W"
+	},
+	{
+		"Title": "DEN014_power",
+		"Name": "B009.TOU09.W"
+	},
+	{
+		"Title": "PHA007_power",
+		"Name": "B010.TOU10.W"
+	},
+	{
+		"Title": "VET001_power",
+		"Name": "B011.TOU11.W"
+	},
+	{
+		"Title": "INS009_power",
+		"Name": "B012.TOU12.W"
+	},
+	{
+		"Title": "CEN089_power",
+		"Name": "B013.TOU13.W"
+	},
+	{
+		"Title": "CEN103_power",
+		"Name": "B014.TOU14.W"
+	},
+	{
+		"Title": "INS011_power",
+		"Name": "B015.TOU15.W"
+	},
+	{
+		"Title": "CEN027_power",
+		"Name": "B016.TOU16.W"
+	},
+	{
+		"Title": "PSC012_power",
+		"Name": "B017.TOU17.W"
+	},
+	{
+		"Title": "CEN079_power",
+		"Name": "B018.TOU18.W"
+	},
+	{
+		"Title": "CEN099_power",
+		"Name": "B019.TOU19.W"
+	},
+	{
+		"Title": "INS012_power",
+		"Name": "B020.TOU20.W"
+	},
+	{
+		"Title": "CEN087_power",
+		"Name": "B021.TOU21.W"
+	},
+	{
+		"Title": "CEN093_power",
+		"Name": "B022.TOU22.W"
+	},
+	{
+		"Title": "CEN032_power",
+		"Name": "B023.TOU23.W"
+	},
+	{
+		"Title": "ART005_power",
+		"Name": "B024.TOU24.W"
+	},
+	{
+		"Title": "CEN100_power",
+		"Name": "B025.TOU25.W"
+	},
+	{
+		"Title": "SCI028_power",
+		"Name": "B026.TOU26.W"
+	},
+	{
+		"Title": "PHA006_power",
+		"Name": "B027.TOU27.W"
+	},
+	{
+		"Title": "ENG028_power",
+		"Name": "B028.TOU28.W"
+	},
+	{
+		"Title": "CEN068_power",
+		"Name": "B029.TOU29.W"
+	},
+	{
+		"Title": "ENG026_power",
+		"Name": "B030.TOU30.W"
+	},
+	{
+		"Title": "ENG030_power",
+		"Name": "B031.TOU31.W"
+	},
+	{
+		"Title": "EDU011_power",
+		"Name": "B032.TOU32.W"
+	},
+	{
+		"Title": "ESC008_power",
+		"Name": "B033.TOU33.W"
+	},
+	{
+		"Title": "SCI025_power",
+		"Name": "B034.TOU34.W"
+	},
+	{
+		"Title": "CEN060_power",
+		"Name": "B035.TOU35.W"
+	},
+	{
+		"Title": "ECO001_power",
+		"Name": "B036.TOU36.W"
+	},
+	{
+		"Title": "CEN053_power",
+		"Name": "B037.TOU37.W"
+	},
+	{
+		"Title": "INS010_power",
+		"Name": "B038.TOU38.W"
+	},
+	{
+		"Title": "CEN069_power",
+		"Name": "B039.TOU39.W"
+	},
+	{
+		"Title": "CEN006_power",
+		"Name": "B040.TOU40.W"
+	},
+	{
+		"Title": "EDU003_power",
+		"Name": "B041.TOU41.W"
+	},
+	{
+		"Title": "CEN078_power",
+		"Name": "B042.TOU42.W"
+	},
+	{
+		"Title": "DEN001_power",
+		"Name": "B043.TOU43.W"
+	},
+	{
+		"Title": "PHA001_power",
+		"Name": "B044.TOU44.W"
+	},
+	{
+		"Title": "DEN002_power",
+		"Name": "B045.TOU45.W"
+	},
+	{
+		"Title": "SCI020_power",
+		"Name": "B046.TOU46.W"
+	},
+	{
+		"Title": "ENG013_power",
+		"Name": "B047.TOU47.W"
+	},
+	{
+		"Title": "CEN081_power",
+		"Name": "B048.TOU48.W"
+	},
+	{
+		"Title": "13028863_amp",
+		"Name": "B001.PQM01.I"
+	},
+	{
+		"Title": "95772485_amp",
+		"Name": "B006.PQM06.I"
+	},
+	{
+		"Title": "ARC003_amp",
+		"Name": "B001.TOU01.I"
+	},
+	{
+		"Title": "CEN001_amp",
+		"Name": "B002.TOU02.I"
+	},
+	{
+		"Title": "CEN005_amp",
+		"Name": "B003.TOU03.I"
+	},
+	{
+		"Title": "CEN003_amp",
+		"Name": "B004.TOU04.I"
+	},
+	{
+		"Title": "CEN072_amp",
+		"Name": "B005.TOU05.I"
+	},
+	{
+		"Title": "CEN091_amp",
+		"Name": "B006.TOU06.I"
+	},
+	{
+		"Title": "PHA003_amp",
+		"Name": "B007.TOU07.I"
+	},
+	{
+		"Title": "LAW003_amp",
+		"Name": "B008.TOU08.I"
+	},
+	{
+		"Title": "DEN014_amp",
+		"Name": "B009.TOU09.I"
+	},
+	{
+		"Title": "PHA007_amp",
+		"Name": "B010.TOU10.I"
+	},
+	{
+		"Title": "VET001_amp",
+		"Name": "B011.TOU11.I"
+	},
+	{
+		"Title": "INS009_amp",
+		"Name": "B012.TOU12.I"
+	},
+	{
+		"Title": "CEN089_amp",
+		"Name": "B013.TOU13.I"
+	},
+	{
+		"Title": "CEN103_amp",
+		"Name": "B014.TOU14.I"
+	},
+	{
+		"Title": "INS011_amp",
+		"Name": "B015.TOU15.I"
+	},
+	{
+		"Title": "CEN027_amp",
+		"Name": "B016.TOU16.I"
+	},
+	{
+		"Title": "PSC012_amp",
+		"Name": "B017.TOU17.I"
+	},
+	{
+		"Title": "CEN079_amp",
+		"Name": "B018.TOU18.I"
+	},
+	{
+		"Title": "CEN099_amp",
+		"Name": "B019.TOU19.I"
+	},
+	{
+		"Title": "INS012_amp",
+		"Name": "B020.TOU20.I"
+	},
+	{
+		"Title": "CEN087_amp",
+		"Name": "B021.TOU21.I"
+	},
+	{
+		"Title": "CEN093_amp",
+		"Name": "B022.TOU22.I"
+	},
+	{
+		"Title": "CEN032_amp",
+		"Name": "B023.TOU23.I"
+	},
+	{
+		"Title": "ART005_amp",
+		"Name": "B024.TOU24.I"
+	},
+	{
+		"Title": "CEN100_amp",
+		"Name": "B025.TOU25.I"
+	},
+	{
+		"Title": "SCI028_amp",
+		"Name": "B026.TOU26.I"
+	},
+	{
+		"Title": "PHA006_amp",
+		"Name": "B027.TOU27.I"
+	},
+	{
+		"Title": "ENG028_amp",
+		"Name": "B028.TOU28.I"
+	},
+	{
+		"Title": "CEN068_amp",
+		"Name": "B029.TOU29.I"
+	},
+	{
+		"Title": "ENG026_amp",
+		"Name": "B030.TOU30.I"
+	},
+	{
+		"Title": "ENG030_amp",
+		"Name": "B031.TOU31.I"
+	},
+	{
+		"Title": "EDU011_amp",
+		"Name": "B032.TOU32.I"
+	},
+	{
+		"Title": "ESC008_amp",
+		"Name": "B033.TOU33.I"
+	},
+	{
+		"Title": "SCI025_amp",
+		"Name": "B034.TOU34.I"
+	},
+	{
+		"Title": "CEN060_amp",
+		"Name": "B035.TOU35.I"
+	},
+	{
+		"Title": "ECO001_amp",
+		"Name": "B036.TOU36.I"
+	},
+	{
+		"Title": "CEN053_amp",
+		"Name": "B037.TOU37.I"
+	},
+	{
+		"Title": "INS010_amp",
+		"Name": "B038.TOU38.I"
+	},
+	{
+		"Title": "CEN069_amp",
+		"Name": "B039.TOU39.I"
+	},
+	{
+		"Title": "CEN006_amp",
+		"Name": "B040.TOU40.I"
+	},
+	{
+		"Title": "EDU003_amp",
+		"Name": "B041.TOU41.I"
+	},
+	{
+		"Title": "CEN078_amp",
+		"Name": "B042.TOU42.I"
+	},
+	{
+		"Title": "DEN001_amp",
+		"Name": "B043.TOU43.I"
+	},
+	{
+		"Title": "PHA001_amp",
+		"Name": "B044.TOU44.I"
+	},
+	{
+		"Title": "DEN002_amp",
+		"Name": "B045.TOU45.I"
+	},
+	{
+		"Title": "SCI020_amp",
+		"Name": "B046.TOU46.I"
+	},
+	{
+		"Title": "ENG013_amp",
+		"Name": "B047.TOU47.I"
+	},
+	{
+		"Title": "CEN081_amp",
+		"Name": "B048.TOU48.I"
+	},
+	{
+		"Title": "13028863_total",
+		"Name": "B001.PQM01.WH"
+	},
+	{
+		"Title": "95772485_total",
+		"Name": "B006.PQM06.WH"
+	},
+	{
+		"Title": "ARC003_total",
+		"Name": "B001.TOU01.WH"
+	},
+	{
+		"Title": "CEN001_total",
+		"Name": "B002.TOU02.WH"
+	},
+	{
+		"Title": "CEN005_total",
+		"Name": "B003.TOU03.WH"
+	},
+	{
+		"Title": "CEN003_total",
+		"Name": "B004.TOU04.WH"
+	},
+	{
+		"Title": "CEN072_total",
+		"Name": "B005.TOU05.WH"
+	},
+	{
+		"Title": "CEN091_total",
+		"Name": "B006.TOU06.WH"
+	},
+	{
+		"Title": "PHA003_total",
+		"Name": "B007.TOU07.WH"
+	},
+	{
+		"Title": "LAW003_total",
+		"Name": "B008.TOU08.WH"
+	},
+	{
+		"Title": "DEN014_total",
+		"Name": "B009.TOU09.WH"
+	},
+	{
+		"Title": "PHA007_total",
+		"Name": "B010.TOU10.WH"
+	},
+	{
+		"Title": "VET001_total",
+		"Name": "B011.TOU11.WH"
+	},
+	{
+		"Title": "INS009_total",
+		"Name": "B012.TOU12.WH"
+	},
+	{
+		"Title": "CEN089_total",
+		"Name": "B013.TOU13.WH"
+	},
+	{
+		"Title": "CEN103_total",
+		"Name": "B014.TOU14.WH"
+	},
+	{
+		"Title": "INS011_total",
+		"Name": "B015.TOU15.WH"
+	},
+	{
+		"Title": "CEN027_total",
+		"Name": "B016.TOU16.WH"
+	},
+	{
+		"Title": "PSC012_total",
+		"Name": "B017.TOU17.WH"
+	},
+	{
+		"Title": "CEN079_total",
+		"Name": "B018.TOU18.WH"
+	},
+	{
+		"Title": "CEN099_total",
+		"Name": "B019.TOU19.WH"
+	},
+	{
+		"Title": "INS012_total",
+		"Name": "B020.TOU20.WH"
+	},
+	{
+		"Title": "CEN087_total",
+		"Name": "B021.TOU21.WH"
+	},
+	{
+		"Title": "CEN093_total",
+		"Name": "B022.TOU22.WH"
+	},
+	{
+		"Title": "CEN032_total",
+		"Name": "B023.TOU23.WH"
+	},
+	{
+		"Title": "ART005_total",
+		"Name": "B024.TOU24.WH"
+	},
+	{
+		"Title": "CEN100_total",
+		"Name": "B025.TOU25.WH"
+	},
+	{
+		"Title": "SCI028_total",
+		"Name": "B026.TOU26.WH"
+	},
+	{
+		"Title": "PHA006_total",
+		"Name": "B027.TOU27.WH"
+	},
+	{
+		"Title": "ENG028_total",
+		"Name": "B028.TOU28.WH"
+	},
+	{
+		"Title": "CEN068_total",
+		"Name": "B029.TOU29.WH"
+	},
+	{
+		"Title": "ENG026_total",
+		"Name": "B030.TOU30.WH"
+	},
+	{
+		"Title": "ENG030_total",
+		"Name": "B031.TOU31.WH"
+	},
+	{
+		"Title": "EDU011_total",
+		"Name": "B032.TOU32.WH"
+	},
+	{
+		"Title": "ESC008_total",
+		"Name": "B033.TOU33.WH"
+	},
+	{
+		"Title": "SCI025_total",
+		"Name": "B034.TOU34.WH"
+	},
+	{
+		"Title": "CEN060_total",
+		"Name": "B035.TOU35.WH"
+	},
+	{
+		"Title": "ECO001_total",
+		"Name": "B036.TOU36.WH"
+	},
+	{
+		"Title": "CEN053_total",
+		"Name": "B037.TOU37.WH"
+	},
+	{
+		"Title": "INS010_total",
+		"Name": "B038.TOU38.WH"
+	},
+	{
+		"Title": "CEN069_total",
+		"Name": "B039.TOU39.WH"
+	},
+	{
+		"Title": "CEN006_total",
+		"Name": "B040.TOU40.WH"
+	},
+	{
+		"Title": "EDU003_total",
+		"Name": "B041.TOU41.WH"
+	},
+	{
+		"Title": "CEN078_total",
+		"Name": "B042.TOU42.WH"
+	},
+	{
+		"Title": "DEN001_total",
+		"Name": "B043.TOU43.WH"
+	},
+	{
+		"Title": "PHA001_total",
+		"Name": "B044.TOU44.WH"
+	},
+	{
+		"Title": "DEN002_total",
+		"Name": "B045.TOU45.WH"
+	},
+	{
+		"Title": "SCI020_total",
+		"Name": "B046.TOU46.WH"
+	},
+	{
+		"Title": "ENG013_total",
+		"Name": "B047.TOU47.WH"
+	},
+	{
+		"Title": "CEN081_total",
+		"Name": "B048.TOU48.WH"
+	},
+	{
+		"Title": "13028863_energy",
+		"Name": "M001.JNZC01.WH_TODAY"
+	},
+	{
+		"Title": "95772485_energy",
+		"Name": "M006.JNZC06.WH_TODAY"
+	},
+	{
+		"Title": "ARC003_energy",
+		"Name": "B001.CALC01.WH_TODAY"
+	},
+	{
+		"Title": "CEN001_energy",
+		"Name": "B002.CALC02.WH_TODAY"
+	},
+	{
+		"Title": "CEN005_energy",
+		"Name": "B003.CALC03.WH_TODAY"
+	},
+	{
+		"Title": "CEN003_energy",
+		"Name": "B004.CALC04.WH_TODAY"
+	},
+	{
+		"Title": "CEN072_energy",
+		"Name": "B005.CALC05.WH_TODAY"
+	},
+	{
+		"Title": "CEN091_energy",
+		"Name": "B006.CALC06.WH_TODAY"
+	},
+	{
+		"Title": "PHA003_energy",
+		"Name": "B007.CALC07.WH_TODAY"
+	},
+	{
+		"Title": "LAW003_energy",
+		"Name": "B008.CALC08.WH_TODAY"
+	},
+	{
+		"Title": "DEN014_energy",
+		"Name": "B009.CALC09.WH_TODAY"
+	},
+	{
+		"Title": "PHA007_energy",
+		"Name": "B010.CALC10.WH_TODAY"
+	},
+	{
+		"Title": "VET001_energy",
+		"Name": "B011.CALC11.WH_TODAY"
+	},
+	{
+		"Title": "INS009_energy",
+		"Name": "B012.CALC12.WH_TODAY"
+	},
+	{
+		"Title": "CEN089_energy",
+		"Name": "B013.CALC13.WH_TODAY"
+	},
+	{
+		"Title": "CEN103_energy",
+		"Name": "B014.CALC14.WH_TODAY"
+	},
+	{
+		"Title": "INS011_energy",
+		"Name": "B015.CALC15.WH_TODAY"
+	},
+	{
+		"Title": "CEN027_energy",
+		"Name": "B016.CALC16.WH_TODAY"
+	},
+	{
+		"Title": "PSC012_energy",
+		"Name": "B017.CALC17.WH_TODAY"
+	},
+	{
+		"Title": "CEN079_energy",
+		"Name": "B018.CALC18.WH_TODAY"
+	},
+	{
+		"Title": "CEN099_energy",
+		"Name": "B019.CALC19.WH_TODAY"
+	},
+	{
+		"Title": "INS012_energy",
+		"Name": "B020.CALC20.WH_TODAY"
+	},
+	{
+		"Title": "CEN087_energy",
+		"Name": "B021.CALC21.WH_TODAY"
+	},
+	{
+		"Title": "CEN093_energy",
+		"Name": "B022.CALC22.WH_TODAY"
+	},
+	{
+		"Title": "CEN032_energy",
+		"Name": "B023.CALC23.WH_TODAY"
+	},
+	{
+		"Title": "ART005_energy",
+		"Name": "B024.CALC24.WH_TODAY"
+	},
+	{
+		"Title": "CEN100_energy",
+		"Name": "B025.CALC25.WH_TODAY"
+	},
+	{
+		"Title": "SCI028_energy",
+		"Name": "B026.CALC26.WH_TODAY"
+	},
+	{
+		"Title": "PHA006_energy",
+		"Name": "B027.CALC27.WH_TODAY"
+	},
+	{
+		"Title": "ENG028_energy",
+		"Name": "B028.CALC28.WH_TODAY"
+	},
+	{
+		"Title": "CEN068_energy",
+		"Name": "B029.CALC29.WH_TODAY"
+	},
+	{
+		"Title": "ENG026_energy",
+		"Name": "B030.CALC30.WH_TODAY"
+	},
+	{
+		"Title": "ENG030_energy",
+		"Name": "B031.CALC31.WH_TODAY"
+	},
+	{
+		"Title": "EDU011_energy",
+		"Name": "B032.CALC32.WH_TODAY"
+	},
+	{
+		"Title": "ESC008_energy",
+		"Name": "B033.CALC33.WH_TODAY"
+	},
+	{
+		"Title": "SCI025_energy",
+		"Name": "B034.CALC34.WH_TODAY"
+	},
+	{
+		"Title": "CEN060_energy",
+		"Name": "B035.CALC35.WH_TODAY"
+	},
+	{
+		"Title": "ECO001_energy",
+		"Name": "B036.CALC36.WH_TODAY"
+	},
+	{
+		"Title": "CEN053_energy",
+		"Name": "B037.CALC37.WH_TODAY"
+	},
+	{
+		"Title": "INS010_energy",
+		"Name": "B038.CALC38.WH_TODAY"
+	},
+	{
+		"Title": "CEN069_energy",
+		"Name": "B039.CALC39.WH_TODAY"
+	},
+	{
+		"Title": "CEN006_energy",
+		"Name": "B040.CALC40.WH_TODAY"
+	},
+	{
+		"Title": "EDU003_energy",
+		"Name": "B041.CALC41.WH_TODAY"
+	},
+	{
+		"Title": "CEN078_energy",
+		"Name": "B042.CALC42.WH_TODAY"
+	},
+	{
+		"Title": "DEN001_energy",
+		"Name": "B043.CALC43.WH_TODAY"
+	},
+	{
+		"Title": "PHA001_energy",
+		"Name": "B044.CALC44.WH_TODAY"
+	},
+	{
+		"Title": "DEN002_energy",
+		"Name": "B045.CALC45.WH_TODAY"
+	},
+	{
+		"Title": "SCI020_energy",
+		"Name": "B046.CALC46.WH_TODAY"
+	},
+	{
+		"Title": "ENG013_energy",
+		"Name": "B047.CALC47.WH_TODAY"
+	},
+	{
+		"Title": "CEN081_energy",
+		"Name": "B048.CALC48.WH_TODAY"
+	}
+]

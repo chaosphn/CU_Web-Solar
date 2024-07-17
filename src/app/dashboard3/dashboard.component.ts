@@ -49,6 +49,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     singleValue: {},
     multipleValue: {}
   };
+  data02: GroupData1 = {
+    singleValue: {},
+    multipleValue: {}
+  };
   time: Date;
   subscriptions: Subscription[] = [];
   sub1: Subscription;
@@ -155,20 +159,23 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     const coBuilding = JSON.parse(building)
     if(coBuilding){
       this.siteName = coBuilding;
+      this.siteSelected = coBuilding;
+      this.init01();
     } else {
       alert('Please select building !');
     }
-    //this.init02();
     this.onWindowResize()
   }
 
   updateInit(){
     this.unSubscribeTimer();
+    this.displayCard = false;
     const building = localStorage.getItem('location');
     const coBuilding = JSON.parse(building);
     if(coBuilding){
-      console.log(coBuilding)
       this.siteName = coBuilding;
+      this.siteSelected = coBuilding;
+      this.init01();
     }
     this.cd.markForCheck();
     //this.init02();
@@ -181,6 +188,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       this.siteSelected = slcBx;
       this.init02();
     }
+  }
+
+  getBuildingName(id: string){
+    let res: string = "";
+    const slcBx:BuildingModel = this.store.selectSnapshot(SitesState.getSiteWithId(id));
+    if(slcBx){
+      res = slcBx.name;
+    }
+    return res;
   }
 
   closeCard(){
@@ -220,6 +236,40 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   private async init02()
   {
+    const dashboardConfigs = await this.getDashboardConfigs02();
+    //////console.log(dashboardConfigs);
+    this.configs01 = dashboardConfigs.realtimeConfig;
+    this.configs02 = dashboardConfigs.historianConfig;
+    this.dashboardInverterService.config = dashboardConfigs.chartConfig.find(c => c.name === "interverEnergy");
+    this.displayCard = true;
+    await this.createRequests02();
+  
+    const realtimeData = await this.requestRawData();
+    const historianData = await this.requestPlotData();
+    if (historianData) {
+      this.dashboardInverterService.data = historianData;
+    }
+    //await this.addDataToStore(rawData);
+    const rawTF = await this.addRealtimeDataToStore(realtimeData);
+    const hisTF = await  this.addHistorianDataToStore(historianData);
+    let dataTranform = rawTF.concat(hisTF);
+    //////console.log(dataTranform);
+    await this.addDataToStore(dataTranform);
+
+    this.loadSingleValue02();
+    
+    this.loadMultipleValues();
+    //this.initloadInverterValues();
+    //this.startTimer(this.appLoadService.Config.Timer * 60000);
+    if(this.chartOptions != null){
+      this.chartChildOptions = this.chartOptions;
+    }
+    ////console.log(this.data);
+    this.cd.markForCheck()
+  }
+
+  private async init01()
+  {
     const dashboardConfigs = await this.getDashboardConfigs();
     //////console.log(dashboardConfigs);
     this.configs01 = dashboardConfigs.realtimeConfig;
@@ -247,7 +297,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     if(this.chartOptions != null){
       this.chartChildOptions = this.chartOptions;
     }
-    ////console.log(this.data);
+    //console.log(this.data);
     this.cd.markForCheck()
   }
 
@@ -328,8 +378,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   async getDashboardConfigs() {
+    const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/building/configurations/building['+this.siteSelected.zone+'].config.json');
+    this.store.dispatch(new SetDashboardConfigs(dashboardConfigs));
+    return dashboardConfigs;
+  }
+
+  async getDashboardConfigs02() {
     const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/building/configurations/building['+this.siteSelected.id+'].config.json');
-    if(dashboardConfigs){this.displayCard = true;}
     this.store.dispatch(new SetDashboardConfigs(dashboardConfigs));
     return dashboardConfigs;
   }
@@ -363,7 +418,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   async requestPlotData(): Promise<any[]> {
     const requests = this.store.selectSnapshot(DashboardRequestState.getRequestHistorian());
     const data: DashboardResHistorian[] = await this.httpService.getHistorian(requests);
-    return this.getMaxValueRecord(data);
+    return data;
   }
 
   getMaxValueRecord(data: DashboardResHistorian[]) {
@@ -432,6 +487,13 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.cd.markForCheck();
   }
 
+  loadSingleValue02() {
+    const curr = this.dashboardLastValuesService.getCurrentGroupData();
+    //////console.log(curr);
+    this.data02.singleValue = { ...curr };
+    this.cd.markForCheck();
+  }
+
   loadMultipleValues() {
     const plot = this.dashboardLastValuesService.getPlotGropData1(this.chartConfigs);
     const raw = this.dashboardLastValuesService.getRawGropData1(this.chartConfigs);
@@ -472,7 +534,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   getSumValue(key: string){
-    const data = Object.entries(this.data.singleValue)
+    const data = Object.entries(this.data02.singleValue)
     .filter(x => x[0].includes(key))
       .map(d => parseFloat(d[1].dataRecords[0].Value))
         .reduce((pre, cur) => { pre += cur; return pre; }, 0);
@@ -484,7 +546,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   getAverageValue(key: string){
-    const data = Object.entries(this.data.singleValue)
+    const data = Object.entries(this.data02.singleValue)
     .filter(x => x[0].includes(key))
       .map(d => parseFloat(d[1].dataRecords[0].Value))
         .reduce((pre, cur, idx, arr) => { pre += (cur/arr.length); return pre; }, 0);

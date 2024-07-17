@@ -1,8 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { flatMap, map, takeUntil } from 'rxjs/operators';
 import { TagsStateModel } from '../../core/stores/tags/tags.model';
 import { UserStateModel } from '../../core/stores/user/user.model';
 import { EventModel } from '../../events/events.component';
@@ -21,6 +21,7 @@ import { RequestOptions } from '@angular/http';
 })
 export class HttpService {
 
+    private cancelRequest = new Subject<void>();
 
     constructor(private httpClient: HttpClient,
         private appLoadService: AppLoadService,
@@ -41,7 +42,36 @@ export class HttpService {
         ).toPromise();
     }
 
-    async getHistorian(requests: DashboardReqHistorian[]) {
+    // async getHistorian(requests: DashboardReqHistorian[]) {
+    //     const body = requests;
+    //     //console.log()
+    //     const headers = new HttpHeaders({
+    //         'Content-Type': 'application/json'
+    //     });
+
+    //     return this.httpClient.post( this.appLoadService.Config.UrlApi + 'gethisdata', body, {headers} ).pipe(
+    //         map((x: any) => {
+                
+    //             return x;
+    //         })
+    //     ).toPromise();
+    // }
+    async getHistorian(requests: DashboardReqHistorian[]): Promise<any> {
+        // Notify the previous request to cancel
+        this.cancelRequest.next();
+    
+        const body = requests;
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/json'
+        });
+    
+        return this.httpClient.post(this.appLoadService.Config.UrlApi + 'gethisdata', body, { headers }).pipe(
+          takeUntil(this.cancelRequest),  // Cancel the previous request
+          map((x: any) => x)
+        ).toPromise();
+    }
+
+    async getReportData(requests: DashboardReqHistorian[]) {
         const body = requests;
         //console.log()
         const headers = new HttpHeaders({

@@ -1,0 +1,28 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "CEN091_power",
+			"Name": "B006.TOU06.W"
+		},
+		{
+			"Title": "CEN081_energy",
+			"Name": "B048.CALC48.WH_TODAY"
+		}
+
+	],
+	"historianConfig": [
+		{
+			"Name": "B001.TOU01.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}
+	],
+	"chartConfig":[
+		
+	]
+}

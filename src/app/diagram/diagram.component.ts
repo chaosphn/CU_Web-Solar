@@ -27,6 +27,7 @@ import {debounceTime, takeUntil, distinctUntilChanged } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { EventService } from '../share/services/event.service';
+import { DiagramBuildingComponent, DiagramInfo } from '../share/components/diagram-building/diagram-building.component';
 
 
 @Component({
@@ -69,7 +70,7 @@ export class DiagramComponent implements OnInit, OnDestroy {
     private http: HttpClient,
     private event: EventService,) { 
       this.sub1 = this.event.triggerFunction$.subscribe(() => {
-        this.updateInit();
+        //this.updateInit();
       });
   }
 
@@ -79,18 +80,11 @@ export class DiagramComponent implements OnInit, OnDestroy {
     
     localStorage.setItem('nowUrl',this.router.url.toString());
     this.currentRoute = this.router.url.toString()
-    const building = localStorage.getItem('location');
-    this.siteName = JSON.parse(building);
-    if(this.siteName){
-      this.init();
-    }
+    this.init();
   }
 
   async updateInit(){
     this.unSubscribeTimer();
-    const building = localStorage.getItem('location');
-    this.siteName = JSON.parse(building);
-    //console.log(JSON.parse(building))
     this.init();
     this.cd.markForCheck();
   }
@@ -326,11 +320,7 @@ export class DiagramComponent implements OnInit, OnDestroy {
   }
 
   async getDiagramConfigs() {
-    const diagramConfig: DiagramConfigModel[] = await this.httpService.getConfig('assets/diagram/configurations/' + this.siteName.id + '.diagram.config.json');
-    const diagramEquip: DiagramEquipmentModel[] = await this.httpService.getConfig('assets/diagram/equipments/' + this.siteName.id + '.equipment.json');
-    if(diagramEquip){
-      this.equipmentList = diagramEquip;
-    }
+    const diagramConfig: DiagramConfigModel[] = await this.httpService.getConfig('assets/topology/configurations/diagram.config.json');
     this.store.dispatch(new SetDiagramConfigs(diagramConfig));
     return diagramConfig;
   }
@@ -444,4 +434,20 @@ export class DiagramComponent implements OnInit, OnDestroy {
       return true;
     }
   }
+
+  openDialog(id: string, num: number) {
+    const val: DiagramInfo = {
+      ids: id,
+      invNum: num 
+    }
+    const dialogRef = this.dialog.open(DiagramBuildingComponent, {
+      width: '100%',
+      minWidth: '95%',
+      minHeight: '95%',
+      data: val,
+      backdropClass: 'dialog-backdrop',
+      panelClass: ['dialog-panel']
+    })
+  }
+
 }

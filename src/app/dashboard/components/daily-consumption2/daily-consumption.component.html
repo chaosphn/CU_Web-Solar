@@ -14,7 +14,7 @@
       <div class="expected-text">
         {{ expectText | uppercase }}
       </div>
-      <div class="arrow-group" *ngIf="showArrow" [style.left]="'calc(' + (((expectValue * 70) / maxValue) + 10) + '% - 40px)'">
+      <div class="arrow-group" *ngIf="showArrow" [style.left]="getCalRange()">
         <div class="arrow">
           <i class="material-icons">
             navigation
@@ -26,7 +26,7 @@
       </div>
       <div class="max-bar">
       </div>
-      <div class="actual-bar" [style.width]="actualValue * 70 / maxValue + '%'">
+      <div class="actual-bar" [style.width]="getBarValue() + '%'">
       </div>
     </div>
     <div class="col-12 daily-value">

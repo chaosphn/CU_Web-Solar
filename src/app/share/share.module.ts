@@ -35,6 +35,7 @@ import { CardBreakerComponent } from './components/card-breaker/card-breaker.com
 import { ReportPipe } from './pipe/report.pipr';
 import { DateControlComponent } from './components/date-control/date-control.component';
 import { MapContainerComponent } from './components/map-container/map-container.component';
+import { DiagramBuildingComponent } from './components/diagram-building/diagram-building.component';
 
 
 
@@ -90,13 +91,15 @@ export const MY_MOMENT_FORMATS = {
     Number2Pipe,
     ReportPipe,
     DateControlComponent,
-    MapContainerComponent
+    MapContainerComponent,
+    DiagramBuildingComponent
   ],
   entryComponents: [
     DialogTagComponent,
     DialogCtlComponent,
     DialogSiteComponent,
-    DialogbreakerComponent
+    DialogbreakerComponent,
+    DiagramBuildingComponent
   ],
   exports: [
     FormsModule,
@@ -130,7 +133,8 @@ export const MY_MOMENT_FORMATS = {
     Number2Pipe,
     ReportPipe,
     DateControlComponent,
-    MapContainerComponent
+    MapContainerComponent,
+    DiagramBuildingComponent
   ],
   providers: [
     {provide: OWL_DATE_TIME_FORMATS, useValue: MY_MOMENT_FORMATS},

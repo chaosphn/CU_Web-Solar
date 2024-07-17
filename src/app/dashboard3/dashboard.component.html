@@ -6,13 +6,13 @@
       <div class="zoneCard" [id]="siteName.id + '_pos'" *ngIf="!siteName.building && data && data.singleValue" >
           <app-tooltip (click)="selectBuilding(siteName.id)"
           [title]="'Bx.'"
-          [titleText]="siteName.id"
+          [titleText]="siteName.name"
           [imgSrc]="'assets/images/building/dashboard/'+siteName.id+'.png'" 
           [g1Title]="'Energy'"
-          [g1Value]="data?.singleValue['energy_value']?.dataRecords[0]?.Value || '---'"
+          [g1Value]="data?.singleValue[siteName.id+'_energy']?.dataRecords[0]?.Value"
           [g1Unit]="'kWh'"
           [g2Title]="'Active Power'"
-          [g2Value]="data?.singleValue['power_value']?.dataRecords[0]?.Value || '---'"
+          [g2Value]="data?.singleValue[siteName.id+'_power']?.dataRecords[0]?.Value"
           [g2Unit]="'kW'"
           [display]="false"
           [classDisplay]="'top'"
@@ -21,13 +21,13 @@
       <div class="zoneCard" [id]="item + '_pos'" *ngFor="let item of siteName.building" >
         <app-tooltip (click)="selectBuilding(item)"
         [title]="'Bx.'"
-        [titleText]="item"
+        [titleText]="getBuildingName(item)"
         [imgSrc]="'assets/images/building/dashboard/'+item+'.png'" 
         [g1Title]="'Energy'"
-        [g1Value]="data?.singleValue['energy_value']?.dataRecords[0]?.Value || '---'"
+        [g1Value]="data?.singleValue[item+'_energy']?.dataRecords[0]?.Value"
         [g1Unit]="'kWh'"
         [g2Title]="'Active Power'"
-        [g2Value]="data?.singleValue['power_value']?.dataRecords[0]?.Value || '---'"
+        [g2Value]="data?.singleValue[item+'_power']?.dataRecords[0]?.Value"
         [g2Unit]="'kW'"
         [display]="false"
         [classDisplay]="'top'"
@@ -35,20 +35,20 @@
     </div>
     </div>
     <div class="cardBoxs col h-100" *ngIf="siteSelected && displayCard">
-      <div class="cardList" id="1" *ngIf="data && data.singleValue">
+      <div class="cardList" id="1" *ngIf="data02 && data02.singleValue">
         <app-card-buiding  
         [header]="siteSelected.name"
         [topic1]="'Power'"
-        [value1]="data?.singleValue['power_value']?.dataRecords[0]?.Value || '---'"
+        [value1]="data02?.singleValue['power_value']?.dataRecords[0]?.Value || '---'"
         [unit1]="'kW'"
         [topic2]="'Energy'"
-        [value2]="data?.singleValue['energy_value']?.dataRecords[0]?.Value || '---'"
+        [value2]="data02?.singleValue['energy_value']?.dataRecords[0]?.Value || '---'"
         [unit2]="'kWh'"
         [topic3]="'Performance'"
-        [value3]="data?.singleValue['pr_value']?.dataRecords[0]?.Value || '---'"
+        [value3]="data02?.singleValue['pr_value']?.dataRecords[0]?.Value || '---'"
         [unit3]="'%'"
         [topic4]="'Today Saving'"
-        [value4]="getSaving(data?.singleValue['energy_value']?.dataRecords[0]?.Value)"
+        [value4]="getSaving(data02?.singleValue['energy_value']?.dataRecords[0]?.Value)"
         [unit4]="'Bath'"
         [chartOptions]="chartChildOptions['powerGeneration']">
         </app-card-buiding>
@@ -57,7 +57,7 @@
         </div>
       </div>
 
-      <div class="cardList inv-card" id="2" *ngIf="data && data.singleValue">
+      <div class="cardList inv-card" id="2" *ngIf="data02 && data02.singleValue">
         <app-card-buiding  
         [header]="'Inverter Summary'"
         [topic1]="'WAC'"
@@ -80,7 +80,7 @@
         <app-card-breaker
         [header]="'Breaker'"
         [site]="siteSelected"
-        [cbStatus]="data?.singleValue['cb_status']?.dataRecords[0]?.Value"
+        [cbStatus]="data02?.singleValue['cb_status']?.dataRecords[0]?.Value"
         >
         </app-card-breaker>
       </div>

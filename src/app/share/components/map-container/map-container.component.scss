@@ -8,4 +8,13 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    position: relative;
+}
+
+.compass-box{
+    position: absolute;
+    top: 25px;
+    right: 45px;
+    z-index: 100;
+    transform: rotate(-60deg);
 }

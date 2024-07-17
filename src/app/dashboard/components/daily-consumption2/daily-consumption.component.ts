@@ -60,9 +60,18 @@ export class DailyConsumptionComponent2 implements OnInit, OnChanges {
     
   }
 
-  // getV1Value(str: string | number) {
-  //   if ()
-  // }
+  getCalRange(){
+    if(this.expectValue > this.maxValue){
+      return ((this.maxValue * 70) / this.maxValue) ? 'calc(' + (((this.maxValue * 70) / this.maxValue) + 10) + '% - 40px)' : 'calc(' + (10) + '% - 40px)';
+    } else {
+      return ((this.expectValue * 70) / this.maxValue) ? 'calc(' + (((this.expectValue * 70) / this.maxValue) + 10) + '% - 40px)' : 'calc(' + (10) + '% - 40px)';
+    }
+  }
+
+  getBarValue(){
+    return ((this.actualValue * 70) / this.maxValue) ? ((this.actualValue * 70) / this.maxValue) : 0;
+  }
+
 
   getNumber(val) {
     if (typeof val === 'number') {

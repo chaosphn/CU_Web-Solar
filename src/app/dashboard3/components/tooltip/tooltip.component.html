@@ -1,11 +1,21 @@
 <div class="tooltip-container no-pm d-col" [className]="classDisplay">
   <div class="shadow-wrap bz">
     <div class="tooltip-hoz " id="tooltip1">
-      <div class="info-card d-flex bz">
+      <!-- <div class="info-card d-flex brd">
         <div class="imgBox d-flex-ct"><img [src]="imgSrc" (error)="handleImageError($event)" alt="" width="120px" height="75px"></div>
         <div class="infoBox bz">
           <span class="bz">{{titleText}}</span>
           <span class="bz">{{g2Value | myNumber: '1.0-2'}} {{g2Unit}}</span>
+        </div>
+      </div> -->
+      <div class="grid-box w-100 bz">
+        <div class="row-text d-flex-ct bz"><span>{{titleText}}</span></div>
+        <div class="row-img bz">
+          <div class="img-box bz"><img [src]="imgSrc" (error)="handleImageError($event)" alt="" width="100%" height="65px"></div>
+          <div class="text-box bz">
+            <div class="bz w-100 d-flex-sb"><span>AC (P)</span><span>{{g2Value | myNumber: '1.0-2'}}</span><span>kW</span></div>
+            <div class="bz w-100 d-flex-sb"><span>E. TODAY</span><span>{{g1Value | myNumber: '1.0-2'}}</span><span>kWh</span></div>
+          </div>
         </div>
       </div>
       <div *ngIf="cbStatus" class="status-card" [className]="(cbStatus | myNumber: '1.0-2') == 0 ? 'cboff-status-card' : 'status-card'">

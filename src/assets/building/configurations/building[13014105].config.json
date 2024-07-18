@@ -25,16 +25,28 @@
 			"Name": "B041.TOU41.W"
 		},
 		{
-			"Title": "CEN053_energy",
-			"Name": "B037.CALC37.WH_TODAY"
+			"Title": "CEN001_energy",
+			"Name": "B002.CALC02.WH_TODAY"
 		},
 		{
-			"Title": "ARC003_energy",
-			"Name": "B001.CALC01.WH_TODAY"
+			"Title": "CEN005_energy",
+			"Name": "B003.CALC03.WH_TODAY"
 		},
 		{
-			"Title": "CEN081_energy",
-			"Name": "B048.CALC48.WH_TODAY"
+			"Title": "CEN003_energy",
+			"Name": "B004.CALC04.WH_TODAY"
+		},
+		{
+			"Title": "CEN103_energy",
+			"Name": "B014.CALC14.WH_TODAY"
+		},
+		{
+			"Title": "CEN087_energy",
+			"Name": "B021.CALC21.WH_TODAY"
+		},
+		{
+			"Title": "EDU003_energy",
+			"Name": "B041.CALC41.WH_TODAY"
 		}
 
 	],

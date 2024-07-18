@@ -1,15 +1,15 @@
 {
 	"realtimeConfig": [
 		{
-			"Title": "ZONE_power",
+			"Title": "ZONE_powerX",
 			"Name": "CALC.ZONE01.W"
 		},
 		{
-			"Title": "ZONE_energy",
+			"Title": "ZONE_energyX",
 			"Name": "CALC.ZONE01.WH_DAY"
 		},
 		{
-			"Title": "TOTAL_energy",
+			"Title": "TOTAL_energyX",
 			"Name": "CALC.ZONE01.WH"
 		},
 
@@ -20,6 +20,10 @@
 		{
 			"Title": "ARC003_energy",
 			"Name": "B001.SLOGGER01.WH_TODAY"
+		},
+		{
+			"Title": "ARC003_total",
+			"Name": "B001.TOU01.WH"
 		},
 		{
 			"Title": "ARC003_pr",
@@ -358,7 +362,7 @@
 					}
 				},
 				{
-					"name": "CALC.ZONE01.W",
+					"name": "B001.SLOGGER01.INV_WAC",
 					"title": "Power",
 					"options": {
 						"chartOptions": {

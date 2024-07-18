@@ -51,6 +51,54 @@
 		{
 			"Title": "95772485_amb",
 			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+		{
+			"Title": "power01_13028863",
+			"Name": "B001.SLOGGER01.INV_WAC"
+		},
+		{
+			"Title": "ARC003_energy1",
+			"Name": "B001.SLOGGER01.WH_TODAY"
+		},
+		{
+			"Title": "power02_13014105",
+			"Name": "B002.SLOGGER02.INV_WAC"
+		},
+		{
+			"Title": "CEN001_energy1",
+			"Name": "B002.SLOGGER02.WH_TODAY"
+		},
+		{
+			"Title": "power04_13014105",
+			"Name": "B004.SLOGGER04.INV_WAC"
+		},
+		{
+			"Title": "CEN003_energy1",
+			"Name": "B004.SLOGGER04.WH_TODAY"
+		},
+		{
+			"Title": "power03_13014105",
+			"Name": "B003.SLOGGER03.INV_WAC"
+		},
+		{
+			"Title": "CEN005_energy1",
+			"Name": "B003.SLOGGER03.WH_TODAY"
+		},
+		{
+			"Title": "power05_13030847",
+			"Name": "B005.SLOGGER05.INV_WAC"
+		},
+		{
+			"Title": "CEN072_energy1",
+			"Name": "B005.SLOGGER05.WH_TODAY"
+		},
+		{
+			"Title": "power06_95772485",
+			"Name": "B006.SLOGGER06.INV_WAC"
+		},
+		{
+			"Title": "CEN091_energy1",
+			"Name": "B006.SLOGGER06.WH_TODAY"
 		}
 	],
 	"historianConfig": [

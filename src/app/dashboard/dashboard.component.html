@@ -154,7 +154,7 @@
     </div>
   
     <div class="powerChartCard">
-      <app-solar-container [title]="'SOLAR POWER GENERATION VS. IRRADIANCE'">
+      <app-solar-container [title]="!siteName.building ? 'SOLAR POWER GENERATION VS. IRRADIANCE' : 'SOLAR POWER VS. MEA POWER' ">
         <ng-template #period>
           <!-- <app-period (select)="selectPeriod($event, 'powerGeneration')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period1></app-period> -->
           <div class="date-box w-100">
@@ -174,7 +174,7 @@
     </div>
 
     <div class="energyChartCard">
-      <app-solar-container [title]="'SOLAR ENERGY GENERATION'">
+      <app-solar-container [title]="!siteName.building ? 'SOLAR ENERGY GENERATION' : 'SOLAR ENERGY GENERATION VS. MEA ENERGY USED'">
         <ng-template #period>
           <!-- <app-period (select)="selectPeriod($event, 'energyExported')" [disableButton]="disableButton" [periodSelected]="periodSelected" [periods]="periods" #period2></app-period> -->
           <div class="date-box w-100">

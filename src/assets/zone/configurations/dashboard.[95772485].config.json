@@ -1,16 +1,16 @@
 {
 	"realtimeConfig": [
 		{
-			"Title": "ZONE_power",
-			"Name": "CALC.ZONE01.W"
+			"Title": "ZONE_powerX",
+			"Name": "B006.SLOGGER06.INV_WAC"
 		},
 		{
-			"Title": "ZONE_energy",
-			"Name": "CALC.ZONE01.WH_DAY"
+			"Title": "ZONE_energyX",
+			"Name": "B006.CALC06.WH_TODAY"
 		},
 		{
-			"Title": "TOTAL_energy",
-			"Name": "CALC.ZONE01.WH"
+			"Title": "TOTAL_energyX",
+			"Name": "B006.TOU06.WH"
 		},
 
 		{
@@ -20,6 +20,10 @@
 		{
 			"Title": "CEN091_energy",
 			"Name": "B006.SLOGGER06.WH_TODAY"
+		},
+		{
+			"Title": "CEN091_total",
+			"Name": "B006.TOU06.WH"
 		},
 		{
 			"Title": "CEN091_pr",
@@ -154,7 +158,7 @@
 					}
 				},
 				{
-					"name": "CALC.ZONE01.W",
+					"name": "B006.SLOGGER06.INV_WAC",
 					"title": "Power",
 					"options": {
 						"chartOptions": {

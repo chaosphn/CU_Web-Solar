@@ -34,8 +34,7 @@
                 person
               </i>
             </div>
-            <input [(ngModel)]="username" name="username" type="text" class="form-control" placeholder="USERNAME" aria-label="Username"
-              aria-describedby="basic-addon1">
+            <input [(ngModel)]="username" name="username" type="text" class="form-control" placeholder="USERNAME" aria-label="Username" autocomplete="off">
           </div>
           <div class="input-group mb-3">
             <div class="input-group-prepend">
@@ -43,8 +42,7 @@
                 lock
               </i>
             </div>
-            <input [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="PASSWORD" aria-label="Username"
-              aria-describedby="basic-addon1">
+            <input [(ngModel)]="password" name="password" type="password" class="form-control" placeholder="PASSWORD" aria-label="Username" autocomplete="off">
           </div>
           <div>
             <button type="submit" (click)="login()" mat-raised-button color="primary" class="full-width btn-login">Login</button>

@@ -26,7 +26,6 @@ export class DashboardLastValuesService {
         currConfigs.forEach(config => {
             const tag = config;
             if (tag) {
-                ////console.log(tag)
                 const lastValues:DashboardLastValuesModel[] = this.store.selectSnapshot(DashboardLastValuesState.getLastValuesRealtime(tag.Name));
                 ////console.log(this.store.selectSnapshot(DashboardLastValuesState.getLastValuesRealtime(tag)));
                 if (lastValues.length > 0 && lastValues[0].DataRecord) {

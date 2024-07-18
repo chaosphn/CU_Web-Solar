@@ -80,7 +80,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   value1 = 65;
   value2 = 84;
   siteName: string = " ";
-  zoneId: any = "1";
+  zoneId: string = "";
   diameter:number = 80;
   strokeWidth:number = 5;
   public getScreenWidth: any;
@@ -134,10 +134,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   ngOnInit() {
-    const zone = localStorage.getItem('zone');
+    this.zoneId = localStorage.getItem('zone');
     const Bx:BuildingModel[] = this.store.selectSnapshot(SitesState.getSites());
     if(Bx){
-      this.buildingList = Bx.filter(x => x.zone == zone && !x.building);
+      this.buildingList = Bx.filter(x => x.zone == this.zoneId && !x.building);
       if(this.buildingList.length > 0){
         this.init02();
         this.onWindowResize()
@@ -239,7 +239,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.loadSingleValue();
     this.loadMultipleValues();
     this.initloadInverterValues();
-    this.updateZone()
+    //this.updateZone()
     ////console.log(this.data);
     this.startTimer(this.appLoadService.Config.Timer * 60000);
   }
@@ -342,8 +342,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   async getDashboardConfigs() {
-    const zoneID = localStorage.getItem('zone')
-    const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/zone/configurations/dashboard.['+zoneID+'].config.json');
+    const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/zone/configurations/dashboard.['+this.zoneId+'].config.json');
     //const ChartsConfigs: DashboardConfigStateModel[] = await this.httpService.getConfig('assets/dashboard/configurations/dashboard.chart.config.json');
     //this.chartConfigs = [].concat(ChartsConfigs);
     //////console.log(this.chartConfigs);
@@ -537,6 +536,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       return '100';
     } else {
       return val;
+    }
+  }
+
+  getSumValue(key: string){
+    const data = Object.entries(this.data.singleValue)
+    .filter(x => x[0].endsWith(key))
+      .map(d => parseFloat(d[1].dataRecords[0].Value))
+        .reduce((pre, cur) => { pre += cur; return pre; }, 0);
+    if(data){
+      return data.toString();
+    } else {
+      return 0;
     }
   }
 

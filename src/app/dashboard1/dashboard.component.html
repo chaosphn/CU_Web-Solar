@@ -38,7 +38,7 @@
       <div class="map-content">
         <app-solar-container [title]="'SITE LOCATIONS'">
           <ng-template #content>
-            <img src="assets/images/cumap2.png" alt="" width="100%" height="100%">
+            <img src="assets/images/CU3Dmap.png" alt="" width="100%" height="100%">
           </ng-template>
         </app-solar-container>
       </div>
@@ -70,18 +70,18 @@
               [unit]="'kW'"
               [maxValue]="data?.singleValue[item.project+'_power']?.maxValue"
               [percentValue]="setValueBar(data?.singleValue[item.project+'_power']?.dataRecords[0]?.Value,data?.singleValue[item.project+'_power']?.maxValue)|| 0"></app-circle-progress></div>
+            <div class="site-progress "><app-circle-progress [Ids]="item.project+'03'" 
+                [title]="'SOLAR'"
+                [value]="getSumValue('_'+item.project) | myNumber : '1.0-2'"
+                [unit]="'kW'"
+                [maxValue]="item.capacity | myNumber : '1.0-2'"
+                [percentValue]="setValueBar((getSumValue('_'+item.project) | myNumber : '1.0-2'), (item.capacity | myNumber : '1.0-2'))|| 0"></app-circle-progress></div>
             <div class="site-progress "><app-circle-progress [Ids]="item.project+'02'" 
               [title]="'TODAY'"
               [value]="data?.singleValue[item.project+'_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
               [unit]="data?.singleValue[item.project+'_energy']?.unit"
               [maxValue]="data?.singleValue[item.project+'_energy']?.maxValue"
               [percentValue]="setValueBar(data?.singleValue[item.project+'_energy']?.dataRecords[0]?.Value,data?.singleValue[item.project+'_energy']?.maxValue)|| 0"></app-circle-progress></div>
-            <!-- <div class="site-progress "><app-circle-progress [Ids]="item.project+'03'" 
-              [title]="'PR'"
-              [value]="getAverageValue(item.project+'_pr')"
-              [unit]="'%'"
-              [maxValue]="100"
-              [percentValue]="getAverageValue(item.project+'_pr')"></app-circle-progress></div> -->
             <div class="site-progress "><app-circle-progress [Ids]="item.project+'04'" 
               [title]="'PYRANO'"
               [value]="data?.singleValue[item.project+'_irr']?.dataRecords[0]?.Value | myNumber : '1.0-2'"

@@ -9,7 +9,7 @@
 			"Name": ""
 		},
 		{
-			"Title": "ARC003_power1",
+			"Title": "ARC003_power1_13028863",
 			"Name": "SLOGGER01.INV_WAC"
 		},
 		{
@@ -33,7 +33,7 @@
 			"Name": "SLOGGER01.AMBTEMP"
 		},
 		{
-			"Title": "CEN001_power1",
+			"Title": "CEN001_power1_13014105",
 			"Name": "SLOGGER02.INV_WAC"
 		},
 		{
@@ -57,7 +57,7 @@
 			"Name": "SLOGGER02.AMBTEMP"
 		},
 		{
-			"Title": "CEN003_power1",
+			"Title": "CEN003_power1_13014105",
 			"Name": "SLOGGER04.INV_WAC"
 		},
 		{
@@ -81,7 +81,7 @@
 			"Name": "SLOGGER04.AMBTEMP"
 		},
 		{
-			"Title": "CEN005_power1",
+			"Title": "CEN005_power1_13014105",
 			"Name": "SLOGGER03.INV_WAC"
 		},
 		{
@@ -105,7 +105,7 @@
 			"Name": "SLOGGER03.AMBTEMP"
 		},
 		{
-			"Title": "CEN072_power1",
+			"Title": "CEN072_power1_13030847",
 			"Name": "SLOGGER05.INV_WAC"
 		},
 		{
@@ -129,7 +129,7 @@
 			"Name": "SLOGGER05.AMBTEMP"
 		},
 		{
-			"Title": "CEN091_power1",
+			"Title": "CEN091_power1_95772485",
 			"Name": "SLOGGER06.INV_WAC"
 		},
 		{

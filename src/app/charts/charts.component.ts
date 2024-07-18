@@ -211,6 +211,7 @@ export class ChartsComponent implements OnInit, AfterViewInit {
 
   selectedPeriodGroup(periodName: PeriodGroup) {
     this.periodGroupSelected = periodName;
+    //this.dateTime = new Date(new Date());
     this.onDateTimeChange(this.dateTime);
     //console.log('start: '+this.startDate+'\nend: '+this.endDate);
     this.render(this.tagNames, this.startDate, this.endDate);
@@ -251,19 +252,19 @@ export class ChartsComponent implements OnInit, AfterViewInit {
 
   async render(tagNames: string[], startTime: string | Date, endTime: string | Date) {
     this.validateParameters();
-    //this.downLoading = true;
+    this.downLoading = true;
     const st = this.dateTimeService.getDateTime(startTime);
     const ed = this.dateTimeService.getDateTime(endTime);
     this.reqCurrs = this.getReqDataConfig(tagNames ,st, ed);
-    const res:DashboardResHistorian[] = await this.httpService.getHistorian(this.reqCurrs);
+    const res:DashboardResHistorian[] = await this.httpService.getReportData(this.reqCurrs);
     this.renderChart(this.getMaxValueRecord(res));
     if (this.periodName && this.periodName.toLowerCase() === 't') {
-      this.startTimer(this.appLoadService.Config.Timer * 1000 * 12);
+      //this.startTimer(this.appLoadService.Config.Timer * 1000 * 12);
     }
     else {
       this.unsubscribe();
     }
-    //this.downLoading = false;
+    this.downLoading = false;
   }
 
   renderChart(res: InverterResHistorian[]) {
@@ -479,9 +480,9 @@ export class ChartsComponent implements OnInit, AfterViewInit {
     this.dateTime = new Date(event.setHours(0,0,0,0));
     switch(this.periodGroupSelected.Type){
       case "daily":
-        this.startDate = this.dateTime.toISOString();
-        const endD = this.dateTime.setDate(this.dateTime.getDate()+1);
-        this.endDate = new Date(endD).toISOString();
+        this.startDate = this.dateTimeService.getDateTime(this.dateTime);
+        const endD = this.dateTime.setHours(23,59,59,0);
+        this.endDate = this.dateTimeService.getDateTime(new Date(endD));
         break;
       case "weekly":
         const date = event.setHours(0,0,0,0);
@@ -505,6 +506,7 @@ export class ChartsComponent implements OnInit, AfterViewInit {
         let endDate = new Date(this.dateTime);
         endDate.setMonth(endDate.getMonth() + 1, 1);
         this.endDate = this.dateTimeService.getDateTime(endDate);
+        this.dateTime = new Date();
         break;
       case "yearly":
         let startMonth = this.dateTime.setMonth(1, 1);
@@ -512,6 +514,7 @@ export class ChartsComponent implements OnInit, AfterViewInit {
         let endMonth = new Date(this.dateTime);
         endMonth.setFullYear(endMonth.getFullYear(), 12, 1);
         this.endDate = this.dateTimeService.getDateTime(endMonth);
+        this.dateTime = new Date();
         break;
     }
     //console.log('start : ' + this.startDate + '\nend : '+ this.endDate);

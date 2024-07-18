@@ -164,9 +164,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   navigateToDashboard(item: BuildingModel){
-    localStorage.setItem('location', JSON.stringify(item));
-    this.event.changeNavbar();
-    this.router.navigate(['/main/dashboard']);
+    if(parseInt(item.no) <= 6){
+      localStorage.setItem('location', JSON.stringify(item));
+      this.event.changeNavbar();
+      this.router.navigate(['/main/dashboard']);
+    }
   }
 
 
@@ -695,7 +697,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       .map(d => parseFloat(d[1].dataRecords[0].Value))
         .reduce((pre, cur) => { pre += cur; return pre; }, 0);
     if(data){
-      return data.toFixed(2);
+      return data.toString();
     } else {
       return 0;
     }

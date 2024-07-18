@@ -613,7 +613,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       let res: DashboardResHistorian[] = [];
       if(req){
         this.chartSelected = chartName;
-        //this.disableButton = true;
+        this.disableButton = true;
         const request: DashboardReqHistorian[] = req.map( x => {
           const opt:Options = {
             StartTime: _period.startTime,
@@ -638,10 +638,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           if (data && data[chartName] && data[chartName].data.length > 0) {
             this.chartOptions[chartName] = this.dashboardChartService.getNewChartOptions(chartName, data[chartName], _period);
           }
-          this.cd.markForCheck();
-          this.disableButton = false;
-          this.chartSelected = undefined;
         }
+        this.disableButton = false;
+        this.chartSelected = undefined;
+        this.cd.markForCheck();
       }
     }
   }

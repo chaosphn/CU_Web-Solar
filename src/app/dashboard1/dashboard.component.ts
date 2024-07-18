@@ -198,9 +198,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   routNavigate(id: string){
     localStorage.setItem('zone', id)
-    this.router.navigate(['/main/dashboard2']);
+    if(localStorage.getItem('zone') == id){
+      this.router.navigate(['/main/dashboard2']);
+    }
   }
-  
+
   getPeakTime(sec: number) {
     const time = new Date();
     time.setHours(0, 0, 0, 0);
@@ -495,19 +497,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
   }
 
-
-  getSumValue(key: string){
-    const data = Object.entries(this.data.singleValue)
-    .filter(x => x[0].includes(key))
-      .map(d => parseFloat(d[1].dataRecords[0].Value))
-        .reduce((pre, cur) => { pre += cur; return pre; }, 0);
-    if(data){
-      return data.toFixed(2);
-    } else {
-      return 0;
-    }
-  }
-
   getAverageValue(key: string){
     const data = Object.entries(this.data.singleValue)
     .filter(x => x[0].includes(key))
@@ -535,6 +524,18 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     return res;
   }
 
+  getSumValue(key: string){
+    const data = Object.entries(this.data.singleValue)
+    .filter(x => x[0].endsWith(key))
+      .map(d => parseFloat(d[1].dataRecords[0].Value))
+        .reduce((pre, cur) => { pre += cur; return pre; }, 0);
+    
+    if(data){
+      return data.toString();
+    } else {
+      return 0;
+    }
+  }
 }
 
 

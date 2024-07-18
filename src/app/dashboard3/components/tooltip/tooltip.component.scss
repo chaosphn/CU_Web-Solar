@@ -10,24 +10,43 @@
 
 .tooltip-hoz{
     position: relative;
-    width: 150px;
-    height: 115px;
+    width: 280px;
+    height: 150px;
     clip-path: polygon(0% 0%, 100% 0%, 100% 80%, 55% 80%, 50% 100%, 45% 80%, 0 80%);
     background-color: #F0F0F0;
     z-index: 5;
 }
 
-.info-card{
-    width: 151px;
-    //height: 75px;
-    position: absolute;
-    top: 6%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    box-sizing: border-box;
-    column-gap: 12px;
-    justify-content: center;
-    //flex-direction: column;
+.grid-box{
+    height: 80%;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 60%;
+    border: 1px solid rgb(110, 110, 110);
+}
+
+.row-text{
+    background-color: #cacaca;
+    text-align: center;
+    border: 1px solid rgb(110, 110, 110);
+}
+
+.row-img{
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    .img-box{
+        padding: 2px;
+        border: 1px solid rgb(110, 110, 110);
+    }
+    .text-box{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding: 0px 8px;
+        font-weight: 500;
+        font-size: 14px;
+        border: 1px solid rgb(110, 110, 110);
+    }
 }
 
 .status-card{
@@ -122,7 +141,15 @@
 }
 
 .infoBox{
-    display: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 4px;
+    row-gap: 8px;
+    font-size: 12px;
+    width: 150px;
+    color: black;
+    font-weight: 500;
 }
 
 
@@ -153,18 +180,17 @@
 
 
 .top:hover{
-    .infoBox{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        padding: 4px;
-        row-gap: 8px;
-        font-size: 12px;
-        width: 150px;
+
+    .row-text{
+        background: none !important;
         color: whitesmoke;
-        font-weight: 500;
     }
-    .info-card{width: 290px; padding: 0 10px;}
+    
+    .row-img{
+        .text-box{
+            color: whitesmoke;
+        }
+    }
 
     .circleOuter{
         scale: 1.8;
@@ -177,7 +203,6 @@
         }
     }
     .tooltip-hoz{
-        width: 280px;
         //height: 100%;
         background: linear-gradient(90deg, #22B5BE 0%, #161464 100%);
     }
@@ -194,6 +219,17 @@
 }
 
 .active{
+    .row-text{
+        background: none !important;
+        color: whitesmoke;
+    }
+    
+    .row-img{
+        .text-box{
+            color: whitesmoke;
+        }
+    }
+
     background: linear-gradient(90deg, #22B5BE 0%, #161464 100%);
     .titleBox{
         text-shadow: 0px 2px 2px rgba(0,0,0,0.6);

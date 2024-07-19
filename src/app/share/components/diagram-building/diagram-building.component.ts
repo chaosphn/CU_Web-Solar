@@ -119,7 +119,7 @@ export class DiagramBuildingComponent implements OnInit {
       isAlarm = value.toString() == '1';
     }
     if (isAlarm){
-      return 'RUN'
+      return ' RUN'
     }else{
       return 'STOP'
     }

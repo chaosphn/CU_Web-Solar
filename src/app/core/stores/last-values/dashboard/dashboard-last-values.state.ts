@@ -153,5 +153,11 @@ export class DashboardLastValuesState {
         });
     }
 
+    static getLastValuesGroup(alias: string, group: string){
+        return createSelector([DashboardLastValuesState], (state: DashboardLastValuesModel[]) => {
+            return state.filter(s => s.Name.includes(group) && s.Name.endsWith(alias) && s.Mode === 'Historian');
+        });
+    }
+
 }
 

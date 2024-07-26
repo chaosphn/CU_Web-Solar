@@ -282,4 +282,30 @@ table td{
       height: 20px;
     }
 }
-  
+
+@media screen and (max-width: 500px) {
+    .report-content{
+        // scale: 0.6;
+        width: 794px !important;
+        height: 1200px !important;
+        align-items: center;
+        .report-header{ width: 778px !important;}
+        .report-info{ width: 778px !important;}
+        .report-table{ width: 778px !important;}
+        .report-chart{ width: 778px !important;}
+    }
+
+    .content {
+        background-color: #f8f8f8;
+        margin-bottom: 10px;
+        width: calc(100vw - 16px);
+        height: 95vh;
+        overflow: auto;
+        display: flex;
+        justify-content: start;
+        align-items: start;
+        position: relative;
+        //border: 1px solid rgb(255, 0, 0);
+    }
+    
+}

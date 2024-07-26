@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { DashboardConfigStateModel, DashboardConfigsRealtime, PlotTag, RawTag } from '../../core/stores/configs/dashboard/dashboard-configs.model';
-import { DashboardLastValuesModel, DashboardLastValuesStateModel, DataRecords } from '../../core/stores/last-values/dashboard/dashboard-last-values.model';
+import { DashboardLastValuesModel, DashboardLastValuesStateModel, DataRecords, Record } from '../../core/stores/last-values/dashboard/dashboard-last-values.model';
 import { DashboardLastValuesState } from '../../core/stores/last-values/dashboard/dashboard-last-values.state';
 import { DashboardRequestStateModel } from '../../core/stores/requests/dashboard/dashboard-request.model';
 import { TagsStateModel } from '../../core/stores/tags/tags.model';
@@ -77,6 +77,39 @@ export class DashboardLastValuesService {
                         listData.push(data);
                     }
 
+                }
+                if(tag.title == "SOLAR"){
+                    const tagInfo = tag.name.split('.');
+                    const lastValues: DashboardLastValuesModel[] = this.store.selectSnapshot(DashboardLastValuesState.getLastValuesGroup(tagInfo[1], tagInfo[0]));
+                    //console.log(lastValues)
+                    if (lastValues.length > 0 && lastValues) {
+                        //console.log(lastValues.filter(i => i.DataRecord.length > 0).sort((a, b) => a.DataRecord.length - b.DataRecord.length))
+                        const record = lastValues.filter(i => i.DataRecord.length > 0).sort((a, b) => a.DataRecord.length - b.DataRecord.length)[0].DataRecord.map(function(item, index){
+                            let res:Record = {
+                                TimeStamp: '',
+                                Value: '0'
+                            }; 
+                            lastValues.filter(i => i.DataRecord.length > 0).forEach(x => {
+                                let data = x.DataRecord[index];
+                                if(data && data.Value){
+                                    res.Value = (parseFloat(res.Value) + parseFloat(data.Value)).toString();
+                                }
+                            })
+                            res.TimeStamp = item.TimeStamp;
+                            return res;
+                        })
+                        const data: Data = {
+                            dataRecords: record,
+                            maxValue: lastValues[0].Max,
+                            minValue: lastValues[0].Min,
+                            tagNames: ['---'],
+                            title: tag.title,
+                            name: tag.name,
+                            unit: lastValues[0].Unit,
+                            options: tag.options,
+                        };
+                        listData.push(data);
+                    }
                 }
 
             });

@@ -124,7 +124,7 @@
 			}
 		},
 		{
-			"Name": "B005.INV0501.WH_TODAY",
+			"Name": "B005.INV0501.WAC",
 			"Title": "X3",
 			"Options" : {
 				"Interval": 5,
@@ -134,7 +134,7 @@
 			}
 		},
 		{
-			"Name": "B005.INV0502.WH_TODAY",
+			"Name": "B005.INV0502.WAC",
 			"Title": "X4",
 			"Options" : {
 				"Interval": 5,
@@ -207,7 +207,7 @@
 			"name": "inverterGeneration",
 			"tags": [
 				{
-					"name": "B005.INV0501.WH_TODAY",
+					"name": "B005.INV0501.WAC",
 					"title": "INV01",
 					"options": {
 						"chartOptions": {
@@ -218,7 +218,7 @@
 					}
 				},
 				{
-					"name": "B005.INV0502.WH_TODAY",
+					"name": "B005.INV0502.WAC",
 					"title": "INV02",
 					"options": {
 						"chartOptions": {

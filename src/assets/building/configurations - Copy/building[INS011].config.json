@@ -1,0 +1,199 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "power_value",
+			"Name": "TOU15.W"
+		},
+		{
+			"Title": "energy_value",
+			"Name": "CALC15.WH_TODAY"
+		},
+		{
+			"Title": "pr_value",
+			"Name": "CALC15.PR"
+		},
+		{
+			"Title": "saving_value",
+			"Name": ""
+		},
+		{
+			"Title": "weather_co2",
+			"Name": "CALC15.CO2_TODAY"
+		},
+		{
+			"Title": "energy_inv1",
+			"Name": "INV1501.WH_TODAY"
+		},
+		{
+			"Title": "energy_inv2",
+			"Name": "INV1502.WH_TODAY"
+		},
+		{
+			"Title": "performance_inv1",
+			"Name": "INV1501.EFF"
+		},
+		{
+			"Title": "performance_inv2",
+			"Name": "INV1502.EFF"
+		},
+		{
+			"Title": "power_inv1",
+			"Name": "INV1501.WAC"
+		},
+		{
+			"Title": "power_inv2",
+			"Name": "INV1502.WAC"
+		},
+		{
+			"Title": "volt_inv1",
+			"Name": "INV1501.VDC"
+		},
+		{
+			"Title": "volt_inv2",
+			"Name": "INV1502.VDC"
+		},
+		{
+			"Title": "cb_status",
+			"Name": "cb15.status"
+		}
+	],
+	"historianConfig": [
+		{
+			"Name": "TOU15.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-15-24T23:59:59"
+			}
+		},
+		{
+			"Name": "SLOGGER06.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-15-24T23:59:59"
+			}
+		},
+		{
+			"Name": "INV1501.WH_TODAY",
+			"Title": "X3",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-15-24T23:59:59"
+			}
+		}		
+	],
+	"chartConfig":[
+		{
+			"name": "powerGeneration",
+			"tags": [
+				{
+					"name": "SLOGGER06.PYRANO",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "TOU15.W",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		},
+		{
+			"name": "inverterGeneration",
+			"tags": [
+				{
+					"name": "INV1501.WH_TODAY",
+					"title": "INV01",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#01515E"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": " (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		}
+	]
+}

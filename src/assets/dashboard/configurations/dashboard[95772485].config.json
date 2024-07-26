@@ -151,7 +151,7 @@
 			"tags": [
 				{
 					"name": "B006.TOU06.W",
-					"title": "TOU06",
+					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
@@ -165,7 +165,7 @@
 					"title": "95772485",
 					"options": {
 						"chartOptions": {
-							"yAxis": 0,
+							"yAxis": 1,
 							"type": "area",
 							"color": "#ffb703"
 						}
@@ -180,7 +180,14 @@
 					"yAxis": [
 						{
 							"color": "#7CB5EC",
-							"text": "Power (kW)",
+							"text": "Solar (kW)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#ffb703",
+							"text": "MEA (kW)",
 							"useMax": true,
 							"visible": false
 						}
@@ -201,24 +208,13 @@
 			"name": "energyExported",
 			"tags": [
 				{
-					"name": "B006.CALC06.WH_TODAY",
-					"title": "TOU02",
+					"name": "B006.TOU06.W",
+					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "area",
-							"color": "#03045e"
-						}
-					}
-				},
-				{
-					"name": "M006.JNZC06.WH_TODAY",
-					"title": "95772485",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "area",
-							"color": "#ffb703"
+							"color": "#023e8a"
 						}
 					}
 				}

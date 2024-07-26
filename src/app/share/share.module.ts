@@ -36,6 +36,7 @@ import { ReportPipe } from './pipe/report.pipr';
 import { DateControlComponent } from './components/date-control/date-control.component';
 import { MapContainerComponent } from './components/map-container/map-container.component';
 import { DiagramBuildingComponent } from './components/diagram-building/diagram-building.component';
+import { FixPointPipe } from './pipe/fix-point.pipe';
 
 
 
@@ -92,7 +93,8 @@ export const MY_MOMENT_FORMATS = {
     ReportPipe,
     DateControlComponent,
     MapContainerComponent,
-    DiagramBuildingComponent
+    DiagramBuildingComponent,
+    FixPointPipe
   ],
   entryComponents: [
     DialogTagComponent,
@@ -134,7 +136,8 @@ export const MY_MOMENT_FORMATS = {
     ReportPipe,
     DateControlComponent,
     MapContainerComponent,
-    DiagramBuildingComponent
+    DiagramBuildingComponent,
+    FixPointPipe
   ],
   providers: [
     {provide: OWL_DATE_TIME_FORMATS, useValue: MY_MOMENT_FORMATS},

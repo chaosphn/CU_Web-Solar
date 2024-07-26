@@ -110,6 +110,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     private changeDetectorRefs: ChangeDetectorRef,
     private event: EventService) {
     this.periodSelected = this.periods[0];
+    this.onWindowResize();
   }
   
 
@@ -122,6 +123,9 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.diameter = 180;
         this.stroke = 30;
     }
+    if(window.innerWidth < 500){
+      this.isFullmap = false;
+  }
   }
 
   async ngOnInit() {

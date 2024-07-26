@@ -363,8 +363,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         if (!maxValues[TimeStamp] || value > parseFloat(maxValues[TimeStamp].Value)) {
           maxValues[TimeStamp] = { ...record, Value: value.toString() };
         } else if (value === parseFloat(maxValues[TimeStamp].Value)) {
-          // Additional criteria for handling ties can be added here
-          // For now, keeping the first encountered record
+
         }
       });
   
@@ -618,8 +617,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           const opt:Options = {
             StartTime: _period.startTime,
             EndTime: _period.endTime,
-            Time: '',
-            Interval: 30,
+            Time: ''
           }
           return {...x, Options: opt}
         });

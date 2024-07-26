@@ -93,6 +93,16 @@
 			}
 		},
 		{
+			"Name": "CALC.ZONE21.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
 			"Name": "B001.TOU01.W",
 			"Title": "X1",
 			"Options" : {
@@ -114,46 +124,6 @@
 		},
 		{
 			"Name": "B048.TOU48.W",
-			"Title": "X1",
-			"Options" : {
-				"Interval": 5,
-				"Time" :"t",
-				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-12-24T23:59:59"
-			}
-		},
-		{
-			"Name": "M001.JNZC01.WH_TODAY",
-			"Title": "X1",
-			"Options" : {
-				"Interval": 5,
-				"Time" :"t",
-				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-12-24T23:59:59"
-			}
-		},
-		{
-			"Name": "B001.CALC01.WH_TODAY",
-			"Title": "X1",
-			"Options" : {
-				"Interval": 5,
-				"Time" :"t",
-				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-12-24T23:59:59"
-			}
-		},
-		{
-			"Name": "B037.CALC37.WH_TODAY",
-			"Title": "X1",
-			"Options" : {
-				"Interval": 5,
-				"Time" :"t",
-				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-12-24T23:59:59"
-			}
-		},
-		{
-			"Name": "B048.CALC48.WH_TODAY",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -228,6 +198,64 @@
 			"name": "powerGeneration",
 			"tags": [
 				{
+					"name": "CALC.ZONE21.W",
+					"title": "SOLAR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#023e8a"
+						}
+					}
+				},
+				{
+					"name": "B001.PQM01.W",
+					"title": "13028863",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#ffb703"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "#7CB5EC",
+							"text": "Solar (kW)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#ffb703",
+							"text": "MEA (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "daily"
+				}
+			}
+		},
+		{
+			"name": "energyExported",
+			"tags": [
+				{
 					"name": "B001.TOU01.W",
 					"title": "TOU01",
 					"options": {
@@ -257,90 +285,6 @@
 							"yAxis": 0,
 							"type": "area",
 							"color": "#0096c7"
-						}
-					}
-				},
-				{
-					"name": "B001.PQM01.W",
-					"title": "13028863",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "area",
-							"color": "#ffb703"
-						}
-					}
-				}
-			],
-			"type": "Plot",
-			"interval": 1000,
-			"title": "Power Generation",
-			"options": {
-				"chartOptions": {
-					"yAxis": [
-						{
-							"color": "#7CB5EC",
-							"text": "Power (kW)",
-							"useMax": true,
-							"visible": false
-						}
-					],
-					"xAxis": {
-						
-					},
-					"legend": {
-						"enable": true
-					}
-				},
-				"runtimeConfigs": {
-					"periodName": "daily"
-				}
-			}
-		},
-		{
-			"name": "energyExported",
-			"tags": [
-				{
-					"name": "B001.CALC01.WH_TODAY",
-					"title": "TOU01",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "area",
-							"color": "#03045e"
-						}
-					}
-				},
-				{
-					"name": "B037.CALC37.WH_TODAY",
-					"title": "TOU37",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "area",
-							"color": "#023e8a"
-						}
-					}
-				},
-				{
-					"name": "B048.CALC48.WH_TODAY",
-					"title": "TOU48",
-					"options": {
-						"chartOptions": {
-							"yAxis": 0,
-							"type": "area",
-							"color": "#0096c7"
-						}
-					}
-				},
-				{
-					"name": "M001.JNZC01.WH_TODAY",
-					"title": "13028863",
-					"options": {
-						"chartOptions": {
-							"yAxis": 1,
-							"type": "area",
-							"color": "#ffb703"
 						}
 					}
 				}

@@ -2,15 +2,15 @@
 	"realtimeConfig": [
 		{
 			"Title": "ZONE_powerX",
-			"Name": "CALC.ZONE05.W"
+			"Name": "CALC.ZONE12.W"
 		},
 		{
 			"Title": "ZONE_energyX",
-			"Name": "CALC.ZONE05.WH_DAY"
+			"Name": "CALC.ZONE12.WH_DAY"
 		},
 		{
 			"Title": "TOTAL_energyX",
-			"Name": "CALC.ZONE05.WH"
+			"Name": "CALC.ZONE12.WH"
 		},
 
 		{
@@ -108,7 +108,7 @@
 			}
 		},
 		{
-			"Name": "CALC.ZONE05.W",
+			"Name": "CALC.ZONE12.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -260,7 +260,7 @@
 					}
 				},
 				{
-					"name": "B005.SLOGGER05.INV_WAC",
+					"name": "CALC.ZONE12.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {

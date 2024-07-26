@@ -1,5 +1,5 @@
 <div class="container-box">
-    <div *ngIf="!isFullmap" [ngClass]="!isFullmap? 'content-box' : 'extend-box'" >
+    <div *ngIf="!isFullmap" class="content-box bz" >
         <div class="group-box bz">
             <div class="left-box bz">
                 <div class="headerCard w-100 ">
@@ -8,11 +8,11 @@
                             <div class="headerContent  "   >
                                 <!-- <img src="/assets/images/mea.png" loading="lazy" alt="" height="70px" (click)="isChange()"> -->
                                 <!-- <img src="/assets/images/cu.png" loading="lazy" alt="" height="70px" (click)="increaseValue()"> -->
-                                <img src="/assets/images/mea.png" id="mea" loading="lazy" alt="" height="70px" (click)="increaseValue()">
-                                <img src="/assets/images/cu.png" id="cu" loading="lazy" alt="" height="70px" (click)="increaseValue()">
-                                <div class="h-info ">
-                                    <span class="th ">การไฟฟ้านครหลวง </span>
-                                    <span class="en ">Metropolitan Electricity Authority (63.64 MWp)</span>
+                                <img class="bz" src="/assets/images/mea.png" id="mea" loading="lazy" alt="" height="70px" (click)="increaseValue()">
+                                <img class="bz" src="/assets/images/cu.png" id="cu" loading="lazy" alt="" height="70px" (click)="increaseValue()">
+                                <div class="h-info bz">
+                                    <span class="th bz">การไฟฟ้านครหลวง </span>
+                                    <span class="en bz">Metropolitan Electricity Authority (63.64 MWp)</span>
                                 </div>
                             </div>
                         </ng-template>
@@ -90,7 +90,7 @@
     </div>
     <div class="fullmap-box bz" *ngIf="isFullmap" >
        <div class="fullmap-content bz">
-             <app-map-container [data]="data" [building]="allBuilding"
+             <app-map-container class="map-box" [data]="data" [building]="allBuilding"
              ></app-map-container>
              <div class="headerContent1  "  (click)="isChange()" >
                 <img src="/assets/images/mea.png" alt="" height="70px">

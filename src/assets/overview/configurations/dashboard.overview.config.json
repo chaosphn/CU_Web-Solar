@@ -133,6 +133,46 @@
 			}
 		},
 		{
+			"Name": "CALC.ZONE10.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "CALC.ZONE12.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "CALC.ZONE21.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B006.TOU06.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
 			"Name": "B006.SLOGGER06.PYRANO",
 			"Title": "X2",
 			"Options" : {
@@ -203,30 +243,31 @@
 			}
 		},
 		{
-			"name": "13028863",
+			"name": "13014105",
 			"tags": [
 				{
-					"name": "B006.SLOGGER06.PYRANO",
-					"title": "IRR",
+					"name": "CALC.ZONE10.W",
+					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "area",
-							"color": "rgba(253, 103, 78, 1)"
+							"color": "#023e8a"
 						}
 					}
 				},
 				{
-					"name": "B001.PQM01.W",
-					"title": "Power",
+					"name": "B00X.PQM0X.W",
+					"title": "MEA",
 					"options": {
 						"chartOptions": {
 							"yAxis": 1,
 							"type": "area",
-							"color": "#3DB1FC"
+							"color": "#ffb703"
 						}
 					}
 				}
+				
 			],
 			"type": "Plot",
 			"interval": 1000,
@@ -235,8 +276,8 @@
 				"chartOptions": {
 					"yAxis": [
 						{
-							"color": "rgba(253, 103, 78, 1)",
-							"text": "IRR (W/sq.m)",
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
 							"useMax": true,
 							"opposite": true,
 							"visible": false
@@ -256,7 +297,125 @@
 					}
 				},
 				"runtimeConfigs": {
-					"periodName": "t"
+					"periodName": "daily"
+				}
+			}
+		},
+		{
+			"name": "13030847",
+			"tags": [
+				{
+					"name": "CALC.ZONE12.W",
+					"title": "SOLAR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#023e8a"
+						}
+					}
+				},
+				{
+					"name": "B00X.PQM0X.W",
+					"title": "MEA",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#ffb703"
+						}
+					}
+				}
+				
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "daily"
+				}
+			}
+		},
+		{
+			"name": "13028863",
+			"tags": [
+				{
+					"name": "CALC.ZONE21.W",
+					"title": "SOLAR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#023e8a"
+						}
+					}
+				},
+				{
+					"name": "B001.PQM01.W",
+					"title": "MEA",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#ffb703"
+						}
+					}
+				}
+				
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "daily"
 				}
 			}
 		},
@@ -264,27 +423,28 @@
 			"name": "95772485",
 			"tags": [
 				{
-					"name": "B006.SLOGGER06.PYRANO",
-					"title": "IRR",
+					"name": "B006.TOU06.W",
+					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "area",
-							"color": "rgba(253, 103, 78, 1)"
+							"color": "#023e8a"
 						}
 					}
 				},
 				{
 					"name": "B006.PQM06.W",
-					"title": "Power",
+					"title": "MEA",
 					"options": {
 						"chartOptions": {
 							"yAxis": 1,
 							"type": "area",
-							"color": "#3DB1FC"
+							"color": "#ffb703"
 						}
 					}
 				}
+				
 			],
 			"type": "Plot",
 			"interval": 1000,
@@ -293,8 +453,8 @@
 				"chartOptions": {
 					"yAxis": [
 						{
-							"color": "rgba(253, 103, 78, 1)",
-							"text": "IRR (W/sq.m)",
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
 							"useMax": true,
 							"opposite": true,
 							"visible": false
@@ -314,7 +474,7 @@
 					}
 				},
 				"runtimeConfigs": {
-					"periodName": "t"
+					"periodName": "daily"
 				}
 			}
 		}

@@ -2,84 +2,153 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "TOU07.W"
+			"Name": "B007.TOU07.W"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "CALC07.WH_TODAY"
+			"Name": "B007.CALC07.WH_TODAY"
+		},
+		{
+			"Title": "current_value",
+			"Name": "B007.TOU07.I"
+		},
+		{
+			"Title": "volt_value",
+			"Name": "B007.TOU07.V"
 		},
 		{
 			"Title": "pr_value",
-			"Name": "CALC07.PR"
+			"Name": "B007.CALC07.PR"
 		},
 		{
-			"Title": "saving_value",
-			"Name": ""
+			"Title": "power_slog",
+			"Name": "B007.SLOGGER07.INV_WAC"
+		},
+		{
+			"Title": "energy_slog",
+			"Name": "B007.SLOGGER07.WH_TODAY"
+		},
+		{
+			"Title": "ambtemp_slog",
+			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+		{
+			"Title": "pvtemp_slog",
+			"Name": "B006.SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "irr_slog",
+			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "status_slog",
+			"Name": "B007.SLOGGER07.MBFAIL"
 		},
 		{
 			"Title": "weather_co2",
-			"Name": "CALC07.CO2_TODAY"
+			"Name": "B007.CALC07.CO2_TODAY"
 		},
 		{
 			"Title": "energy_inv1",
-			"Name": "INV0701.WH_TODAY"
+			"Name": "B007.INV0701.WH_TODAY"
+		},
+		{
+			"Title": "energy_inv2",
+			"Name": "B007.INV0702.WH_TODAY"
 		},
 		{
 			"Title": "performance_inv1",
-			"Name": "INV0701.EFF"
+			"Name": "B007.INV0701.EFF"
+		},
+		{
+			"Title": "performance_inv2",
+			"Name": "B007.INV0702.EFF"
 		},
 		{
 			"Title": "power_inv1",
-			"Name": "INV0701.WAC"
+			"Name": "B007.INV0701.WAC"
+		},
+		{
+			"Title": "power_inv2",
+			"Name": "B007.INV0702.WAC"
 		},
 		{
 			"Title": "volt_inv1",
-			"Name": "INV0701.VDC"
+			"Name": "B007.INV0701.VDC"
+		},
+		{
+			"Title": "volt_inv2",
+			"Name": "B007.INV0702.VDC"
+		},
+		{
+			"Title": "temp_inv1",
+			"Name": "B007.INV0701.TEMP_INT"
+		},
+		{
+			"Title": "temp_inv2",
+			"Name": "B007.INV0702.TEMP_INT"
+		},
+		{
+			"Title": "run_inv1",
+			"Name": "B007.INV0701.RUN"
+		},
+		{
+			"Title": "run_inv2",
+			"Name": "B007.INV0702.RUN"
 		},
 		{
 			"Title": "cb_status",
 			"Name": "cb07.status"
 		}
 	],
-
 	"historianConfig": [
 		{
-			"Name": "TOU07.W",
+			"Name": "B007.TOU07.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
 				"Time" :"t",
-				"StartTime" : "2021-07-24T00:00:00",
+				"StartTime" : "2021-06-24T00:00:00",
 				"EndTime" : "2023-12-24T23:59:59"
 			}
 		},
 		{
-			"Name": "SLOGGER06.PYRANO",
+			"Name": "B006.SLOGGER06.PYRANO",
 			"Title": "X2",
 			"Options" : {
 				"Interval": 5,
 				"Time" : "t",
-				"StartTime" : "2021-07-24T00:00:00",
+				"StartTime" : "2021-06-24T00:00:00",
 				"EndTime" : "2023-12-24T23:59:59"
 			}
 		},
 		{
-			"Name": "INV0701.WH_TODAY",
+			"Name": "B007.INV0701.WAC",
 			"Title": "X3",
 			"Options" : {
 				"Interval": 5,
 				"Time" : "t",
-				"StartTime" : "2021-07-24T00:00:00",
+				"StartTime" : "2021-06-24T00:00:00",
 				"EndTime" : "2023-12-24T23:59:59"
 			}
-		}
+		},
+		{
+			"Name": "B007.INV0702.WAC",
+			"Title": "X4",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}			
 	],
 	"chartConfig":[
 		{
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "SLOGGER06.PYRANO",
+					"name": "B006.SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {
@@ -90,7 +159,7 @@
 					}
 				},
 				{
-					"name": "TOU07.W",
+					"name": "B007.TOU07.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {
@@ -137,7 +206,7 @@
 			"name": "inverterGeneration",
 			"tags": [
 				{
-					"name": "INV0701.WH_TODAY",
+					"name": "B007.INV0701.WAC",
 					"title": "INV01",
 					"options": {
 						"chartOptions": {
@@ -182,4 +251,3 @@
 		}
 	]
 }
-

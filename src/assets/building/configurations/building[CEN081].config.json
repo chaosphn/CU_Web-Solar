@@ -1,0 +1,254 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "power_value",
+			"Name": "B048.TOU48.W"
+		},
+		{
+			"Title": "energy_value",
+			"Name": "B048.CALC48.WH_TODAY"
+		},
+		{
+			"Title": "current_value",
+			"Name": "B048.TOU48.I"
+		},
+		{
+			"Title": "volt_value",
+			"Name": "B048.TOU48.V"
+		},
+		{
+			"Title": "pr_value",
+			"Name": "B048.CALC48.PR"
+		},
+		{
+			"Title": "power_slog",
+			"Name": "B048.SLOGGER48.INV_WAC"
+		},
+		{
+			"Title": "energy_slog",
+			"Name": "B048.SLOGGER48.WH_TODAY"
+		},
+		{
+			"Title": "ambtemp_slog",
+			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+		{
+			"Title": "pvtemp_slog",
+			"Name": "B006.SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "irr_slog",
+			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "status_slog",
+			"Name": "B048.SLOGGER48.MBFAIL"
+		},
+		{
+			"Title": "weather_co2",
+			"Name": "B048.CALC48.CO2_TODAY"
+		},
+		{
+			"Title": "energy_inv1",
+			"Name": "B048.INV4801.WH_TODAY"
+		},
+		{
+			"Title": "energy_inv2",
+			"Name": "B048.INV4802.WH_TODAY"
+		},
+		{
+			"Title": "performance_inv1",
+			"Name": "B048.INV4801.EFF"
+		},
+		{
+			"Title": "performance_inv2",
+			"Name": "B048.INV4802.EFF"
+		},
+		{
+			"Title": "power_inv1",
+			"Name": "B048.INV4801.WAC"
+		},
+		{
+			"Title": "power_inv2",
+			"Name": "B048.INV4802.WAC"
+		},
+		{
+			"Title": "volt_inv1",
+			"Name": "B048.INV4801.VDC"
+		},
+		{
+			"Title": "volt_inv2",
+			"Name": "B048.INV4802.VDC"
+		},
+		{
+			"Title": "temp_inv1",
+			"Name": "B048.INV4801.TEMP_INT"
+		},
+		{
+			"Title": "temp_inv2",
+			"Name": "B048.INV4802.TEMP_INT"
+		},
+		{
+			"Title": "run_inv1",
+			"Name": "B048.INV4801.RUN"
+		},
+		{
+			"Title": "run_inv2",
+			"Name": "B048.INV4802.RUN"
+		},
+		{
+			"Title": "cb_status",
+			"Name": "cb48.status"
+		}
+	],
+
+	"historianConfig": [
+		{
+			"Name": "B048.TOU48.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B006.SLOGGER06.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B048.INV4801.WAC",
+			"Title": "X3",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B048.INV4802.WAC",
+			"Title": "X4",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}				
+	],
+	"chartConfig":[
+		{
+			"name": "powerGeneration",
+			"tags": [
+				{
+					"name": "B006.SLOGGER06.PYRANO",
+					"title": "IRR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "rgba(253, 103, 78, 1)"
+						}
+					}
+				},
+				{
+					"name": "B048.TOU48.W",
+					"title": "Power",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#3DB1FC"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": "IRR (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		},
+		{
+			"name": "inverterGeneration",
+			"tags": [
+				{
+					"name": "B048.INV4801.WAC",
+					"title": "INV01",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#01204E"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "rgba(253, 103, 78, 1)",
+							"text": " (W/sq.m)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		}
+	]
+}

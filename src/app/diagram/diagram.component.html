@@ -40,11 +40,11 @@
         <g id="Group 1768">
         <text id="AC (P)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="29" y="155.909">AC (P)</tspan></text>
         <text id="kW" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="102" y="155.909">kW</tspan></text>
-        <text id="000" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="155.773">{{ data?.singleValue['13030117_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="155.773">{{ data?.singleValue['13030117_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769">
         <text id="A" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="109" y="174.909">A</tspan></text>
-        <text id="222" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="174.773">{{ data?.singleValue['13030117_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="174.773">{{ data?.singleValue['13030117_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="29" y="174.909">AC (I)</tspan></text>
         </g>
         <g id="Group 1770">
@@ -67,16 +67,16 @@
         <g id="Group 1768_2">
         <text id="AC (P)_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="116" y="443.909">AC (P)</tspan></text>
         <text id="kW_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="191.391" y="443.909">kW</tspan></text>
-        <text id="111" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="156" y="443.773">{{ data?.singleValue['INS010_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="156" y="443.773">{{ data?.singleValue['INS010_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_2">
         <text id="kWh_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="186.484" y="464.909">kWh</tspan></text>
-        <text id="XXX" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="153" y="464.773">{{ data?.singleValue['INS010_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="153" y="464.773">{{ data?.singleValue['INS010_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="116" y="464.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_2">
         <text id="MWh_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="183.789" y="485.909">MWh</tspan></text>
-        <text id="555" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="153" y="485.773">{{ data?.singleValue['INS010_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="153" y="485.773">{{ data?.singleValue['INS010_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="116" y="485.909">TOTAL</tspan></text>
         </g>
         </g>
@@ -117,11 +117,11 @@
         <g id="Group 1768_3">
         <text id="AC (P)_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="266" y="156.909">AC (P)</tspan></text>
         <text id="kW_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="339" y="156.909">kW</tspan></text>
-        <text id="000_2" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="305" y="156.773">{{ data?.singleValue['13030979_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_2" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="305" y="156.773">{{ data?.singleValue['13030979_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_2">
         <text id="A_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="346" y="175.909">A</tspan></text>
-        <text id="222_2" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="305" y="175.773">{{ data?.singleValue['13030979_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_2" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="305" y="175.773">{{ data?.singleValue['13030979_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_2" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="266" y="175.909">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_3">
@@ -144,16 +144,16 @@
         <g id="Group 1768_4">
         <text id="AC (P)_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="353" y="448.909">AC (P)</tspan></text>
         <text id="kW_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="428.391" y="448.909">kW</tspan></text>
-        <text id="111_2" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="393" y="448.773">{{ data?.singleValue['INS011_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_2" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="393" y="448.773">{{ data?.singleValue['INS011_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_4">
         <text id="kWh_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="423.484" y="469.909">kWh</tspan></text>
-        <text id="XXX_2" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="390" y="469.773">{{ data?.singleValue['INS011_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_2" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="390" y="469.773">{{ data?.singleValue['INS011_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="353" y="469.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_4">
         <text id="MWh_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="420.789" y="490.909">MWh</tspan></text>
-        <text id="555_2" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="390" y="490.773">{{ data?.singleValue['INS011_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_2" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="390" y="490.773">{{ data?.singleValue['INS011_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="353" y="490.909">TOTAL</tspan></text>
         </g>
         </g>
@@ -194,11 +194,11 @@
         <g id="Group 1768_5">
         <text id="AC (P)_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="504" y="156.909">AC (P)</tspan></text>
         <text id="kW_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="577" y="156.909">kW</tspan></text>
-        <text id="000_3" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="543" y="156.773">{{ data?.singleValue['13037811_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_3" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="543" y="156.773">{{ data?.singleValue['13037811_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_3">
         <text id="A_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="584" y="175.909">A</tspan></text>
-        <text id="222_3" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="543" y="175.773">{{ data?.singleValue['13037811_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_3" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="543" y="175.773">{{ data?.singleValue['13037811_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_3" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="504" y="175.909">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_5">
@@ -221,16 +221,16 @@
         <g id="Group 1768_6">
         <text id="AC (P)_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="594" y="448.909">AC (P)</tspan></text>
         <text id="kW_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="669.391" y="448.909">kW</tspan></text>
-        <text id="111_3" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="634" y="448.773">{{ data?.singleValue['CEN078_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_3" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="634" y="448.773">{{ data?.singleValue['CEN078_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_6">
         <text id="kWh_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="664.484" y="469.909">kWh</tspan></text>
-        <text id="XXX_3" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="631" y="469.773">{{ data?.singleValue['CEN078_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_3" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="631" y="469.773">{{ data?.singleValue['CEN078_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="594" y="469.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_6">
         <text id="MWh_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="661.789" y="490.909">MWh</tspan></text>
-        <text id="555_3" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="631" y="490.773">{{ data?.singleValue['CEN078_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_3" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="631" y="490.773">{{ data?.singleValue['CEN078_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_6" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="594" y="490.909">TOTAL</tspan></text>
         </g>
         </g>
@@ -271,11 +271,11 @@
         <g id="Group 1768_7">
         <text id="AC (P)_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="758" y="156.909">AC (P)</tspan></text>
         <text id="kW_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="831" y="156.909">kW</tspan></text>
-        <text id="000_4" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="797" y="156.773">{{ data?.singleValue['13037909_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_4" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="797" y="156.773">{{ data?.singleValue['13037909_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_4">
         <text id="A_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="838" y="175.909">A</tspan></text>
-        <text id="222_4" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="797" y="175.773">{{ data?.singleValue['13037909_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_4" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="797" y="175.773">{{ data?.singleValue['13037909_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_4" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="758" y="175.909">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_7">
@@ -298,16 +298,16 @@
         <g id="Group 1768_8">
         <text id="AC (P)_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="845" y="448.909">AC (P)</tspan></text>
         <text id="kW_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="920.391" y="448.909">kW</tspan></text>
-        <text id="111_4" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="885" y="448.773">{{ data?.singleValue['CEN099_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_4" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="885" y="448.773">{{ data?.singleValue['CEN099_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_8">
         <text id="kWh_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="915.484" y="469.909">kWh</tspan></text>
-        <text id="XXX_4" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="882" y="469.773">{{ data?.singleValue['CEN099_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_4" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="882" y="469.773">{{ data?.singleValue['CEN099_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="845" y="469.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_8">
         <text id="MWh_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="912.789" y="490.909">MWh</tspan></text>
-        <text id="555_4" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="882" y="490.773">{{ data?.singleValue['CEN099_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_4" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="882" y="490.773">{{ data?.singleValue['CEN099_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="845" y="490.909">TOTAL</tspan></text>
         </g>
         </g>
@@ -348,11 +348,11 @@
         <g id="Group 1768_9">
         <text id="AC (P)_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="994" y="156.909">AC (P)</tspan></text>
         <text id="kW_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1067" y="156.909">kW</tspan></text>
-        <text id="000_5" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1033" y="156.773">{{ data?.singleValue['95508259_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_5" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1033" y="156.773">{{ data?.singleValue['95508259_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_5">
         <text id="A_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1074" y="175.909">A</tspan></text>
-        <text id="222_5" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1033" y="175.773">{{ data?.singleValue['95508259_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_5" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1033" y="175.773">{{ data?.singleValue['95508259_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_5" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="994" y="175.909">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_9">
@@ -375,16 +375,16 @@
         <g id="Group 1768_10">
         <text id="AC (P)_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1084" y="448.909">AC (P)</tspan></text>
         <text id="kW_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1159.39" y="448.909">kW</tspan></text>
-        <text id="111_5" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1124" y="448.773">{{ data?.singleValue['CEN089_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_5" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1124" y="448.773">{{ data?.singleValue['CEN089_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_10">
         <text id="kWh_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1154.48" y="469.909">kWh</tspan></text>
-        <text id="XXX_5" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1121" y="469.773">{{ data?.singleValue['CEN089_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_5" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1121" y="469.773">{{ data?.singleValue['CEN089_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1084" y="469.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_10">
         <text id="MWh_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1151.79" y="490.909">MWh</tspan></text>
-        <text id="555_5" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1121" y="490.773">{{ data?.singleValue['CEN089_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_5" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1121" y="490.773">{{ data?.singleValue['CEN089_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1084" y="490.909">TOTAL</tspan></text>
         </g>
         </g>
@@ -586,16 +586,16 @@
         <g id="Group 1768_12">
         <text id="AC (P)_12" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1296" y="448.909">AC (P)</tspan></text>
         <text id="kW_12" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1371.39" y="448.909">kW</tspan></text>
-        <text id="111_6" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1336" y="448.773">{{ data?.singleValue['CEN091_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_6" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1336" y="448.773">{{ data?.singleValue['CEN091_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_12">
         <text id="kWh_12" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1366.48" y="469.909">kWh</tspan></text>
-        <text id="XXX_6" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1333" y="469.773">{{ data?.singleValue['CEN091_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_6" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1333" y="469.773">{{ data?.singleValue['CEN091_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_12" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1296" y="469.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_12">
         <text id="MWh_12" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1363.79" y="490.909">MWh</tspan></text>
-        <text id="555_6" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1333" y="490.773">{{ (data?.singleValue['CEN091_total']?.dataRecords[0]?.Value)/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_6" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1333" y="490.773">{{ (data?.singleValue['CEN091_total']?.dataRecords[0]?.Value)/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_12" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1296" y="490.909">TOTAL</tspan></text>
         </g>
         </g>
@@ -636,11 +636,11 @@
         <g id="Group 1768_13">
         <text id="AC (P)_13" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1482" y="156.909">AC (P)</tspan></text>
         <text id="kW_13" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1555" y="156.909">kW</tspan></text>
-        <text id="000_7" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1521" y="156.773">{{ data?.singleValue['96253097_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_7" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1521" y="156.773">{{ data?.singleValue['96253097_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_7">
         <text id="A_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1562" y="175.909">A</tspan></text>
-        <text id="222_7" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1521" y="175.773">{{ data?.singleValue['96253097_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_7" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1521" y="175.773">{{ data?.singleValue['96253097_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_7" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1482" y="175.909">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_13">
@@ -663,16 +663,16 @@
         <g id="Group 1768_14">
         <text id="AC (P)_14" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1547" y="448.909">AC (P)</tspan></text>
         <text id="kW_14" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1622.39" y="448.909">kW</tspan></text>
-        <text id="111_7" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1587" y="448.773">{{ data?.singleValue['CEN100_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_7" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1587" y="448.773">{{ data?.singleValue['CEN100_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_14">
         <text id="kWh_14" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1617.48" y="469.909">kWh</tspan></text>
-        <text id="XXX_7" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1584" y="469.773">{{ data?.singleValue['CEN100_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_7" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1584" y="469.773">{{ data?.singleValue['CEN100_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_14" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1547" y="469.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_14">
         <text id="MWh_14" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1614.79" y="490.909">MWh</tspan></text>
-        <text id="555_7" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1584" y="490.773">{{ data?.singleValue['CEN100_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_7" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1584" y="490.773">{{ data?.singleValue['CEN100_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_14" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1547" y="490.909">TOTAL</tspan></text>
         </g>
         </g>
@@ -1798,11 +1798,11 @@
         <g id="Group 1768_15">
         <text id="AC (P)_15" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="123" y="611.909">AC (P)</tspan></text>
         <text id="kW_15" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="196" y="611.909">kW</tspan></text>
-        <text id="000_8" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="162" y="611.773">{{ data?.singleValue['13018215_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_8" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="162" y="611.773">{{ data?.singleValue['13018215_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_8">
         <text id="A_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="203" y="630.909">A</tspan></text>
-        <text id="222_8" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="162" y="630.773">{{ data?.singleValue['13018215_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_8" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="162" y="630.773">{{ data?.singleValue['13018215_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_8" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="123" y="630.909">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_15">
@@ -1825,16 +1825,16 @@
         <g id="Group 1768_16">
         <text id="AC (P)_16" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="205" y="932.909">AC (P)</tspan></text>
         <text id="kW_16" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="280.391" y="932.909">kW</tspan></text>
-        <text id="111_8" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="245" y="932.773">{{ data?.singleValue['CEN006_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_8" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="245" y="932.773">{{ data?.singleValue['CEN006_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_16">
         <text id="kWh_16" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="275.484" y="953.909">kWh</tspan></text>
-        <text id="XXX_8" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="242" y="953.773">{{ data?.singleValue['CEN006_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_8" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="242" y="953.773">{{ data?.singleValue['CEN006_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_16" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="205" y="953.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_16">
         <text id="MWh_16" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="272.789" y="974.909">MWh</tspan></text>
-        <text id="555_8" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="242" y="974.773">{{ data?.singleValue['CEN006_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_8" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="242" y="974.773">{{ data?.singleValue['CEN006_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_16" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="205" y="974.909">TOTAL</tspan></text>
         </g>
         </g>
@@ -1846,16 +1846,16 @@
         <g id="Group 1768_17">
         <text id="AC (P)_17" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="573" y="933.909">AC (P)</tspan></text>
         <text id="kW_17" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="648.391" y="933.909">kW</tspan></text>
-        <text id="111_9" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="613" y="933.773">{{ data?.singleValue['PSC012_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_9" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="613" y="933.773">{{ data?.singleValue['PSC012_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_17">
         <text id="kWh_17" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="643.484" y="954.909">kWh</tspan></text>
-        <text id="XXX_9" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="610" y="954.773">{{ data?.singleValue['PSC012_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_9" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="610" y="954.773">{{ data?.singleValue['PSC012_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_17" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="573" y="954.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_17">
         <text id="MWh_17" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="640.789" y="975.909">MWh</tspan></text>
-        <text id="555_9" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="610" y="975.773">{{ data?.singleValue['PSC012_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_9" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="610" y="975.773">{{ data?.singleValue['PSC012_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_17" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="573" y="975.909">TOTAL</tspan></text>
         </g>
         </g>
@@ -1867,16 +1867,16 @@
         <g id="Group 1768_18">
         <text id="AC (P)_18" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="842" y="837.909">AC (P)</tspan></text>
         <text id="kW_18" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="917.391" y="837.909">kW</tspan></text>
-        <text id="111_10" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="882" y="837.773">{{ data?.singleValue['EDU011_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_10" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="882" y="837.773">{{ data?.singleValue['EDU011_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_18">
         <text id="kWh_18" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="912.484" y="858.909">kWh</tspan></text>
-        <text id="XXX_10" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="879" y="858.773">{{ data?.singleValue['EDU011_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_10" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="879" y="858.773">{{ data?.singleValue['EDU011_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_18" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="842" y="858.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_18">
         <text id="MWh_18" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="909.789" y="879.909">MWh</tspan></text>
-        <text id="555_10" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="879" y="879.773">{{ data?.singleValue['EDU011_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_10" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="879" y="879.773">{{ data?.singleValue['EDU011_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_18" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="842" y="879.909">TOTAL</tspan></text>
         </g>
         </g>
@@ -1888,16 +1888,16 @@
         <g id="Group 1768_19">
         <text id="AC (P)_19" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1114" y="934.909">AC (P)</tspan></text>
         <text id="kW_19" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1189.39" y="934.909">kW</tspan></text>
-        <text id="111_11" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1154" y="934.773">{{ data?.singleValue['ESC008_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_11" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1154" y="934.773">{{ data?.singleValue['ESC008_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_19">
         <text id="kWh_19" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1184.48" y="955.909">kWh</tspan></text>
-        <text id="XXX_11" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1151" y="955.773">{{ data?.singleValue['ESC008_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_11" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1151" y="955.773">{{ data?.singleValue['ESC008_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_19" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1114" y="955.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_19">
         <text id="MWh_19" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1181.79" y="976.909">MWh</tspan></text>
-        <text id="555_11" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1151" y="976.773">{{ data?.singleValue['ESC008_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_11" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1151" y="976.773">{{ data?.singleValue['ESC008_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_19" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1114" y="976.909">TOTAL</tspan></text>
         </g>
         </g>
@@ -1909,16 +1909,16 @@
         <g id="Group 1768_20">
         <text id="AC (P)_20" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1452" y="972.909">AC (P)</tspan></text>
         <text id="kW_20" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1527.39" y="972.909">kW</tspan></text>
-        <text id="111_12" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1492" y="972.773">{{ data?.singleValue['LAW003_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_12" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1492" y="972.773">{{ data?.singleValue['LAW003_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_20">
         <text id="kWh_20" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1522.48" y="993.909">kWh</tspan></text>
-        <text id="XXX_12" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1489" y="993.773">{{ data?.singleValue['LAW003_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_12" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1489" y="993.773">{{ data?.singleValue['LAW003_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_20" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1452" y="993.909">TODAY</tspan></text>
         </g>
         <g id="Group 1771_20">
         <text id="MWh_20" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1519.79" y="1014.91">MWh</tspan></text>
-        <text id="555_12" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1489" y="1014.77">{{ data?.singleValue['LAW003_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_12" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1489" y="1014.77">{{ data?.singleValue['LAW003_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_20" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1452" y="1014.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -2218,11 +2218,11 @@
         <g id="Group 1768_21">
         <text id="AC (P)_21" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1165" y="1091.91">AC (P)</tspan></text>
         <text id="kW_21" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1238" y="1091.91">kW</tspan></text>
-        <text id="000_9" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1204" y="1091.77">{{ data?.singleValue['13030847_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_9" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1204" y="1091.77">{{ data?.singleValue['13030847_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_9">
         <text id="A_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1245" y="1110.91">A</tspan></text>
-        <text id="222_9" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1204" y="1110.77">{{ data?.singleValue['13030847_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_9" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1204" y="1110.77">{{ data?.singleValue['13030847_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_9" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1165" y="1110.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_21">
@@ -2245,16 +2245,16 @@
         <g id="Group 1768_22">
         <text id="AC (P)_22" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1330" y="1364.91">AC (P)</tspan></text>
         <text id="kW_22" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1405.39" y="1364.91">kW</tspan></text>
-        <text id="111_13" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1370" y="1364.77">{{ data?.singleValue['CEN072_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_13" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1370" y="1364.77">{{ data?.singleValue['CEN072_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_22">
         <text id="kWh_22" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1400.48" y="1385.91">kWh</tspan></text>
-        <text id="XXX_13" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1367" y="1385.77">{{ data?.singleValue['CEN072_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_13" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1367" y="1385.77">{{ data?.singleValue['CEN072_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_22" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1330" y="1385.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_22">
         <text id="MWh_22" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1397.79" y="1406.91">MWh</tspan></text>
-        <text id="555_13" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1367" y="1406.77">{{ data?.singleValue['CEN072_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_13" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1367" y="1406.77">{{ data?.singleValue['CEN072_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_22" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1330" y="1406.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -2266,16 +2266,16 @@
         <g id="Group 1768_23">
         <text id="AC (P)_23" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1546" y="1413.91">AC (P)</tspan></text>
         <text id="kW_23" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1621.39" y="1413.91">kW</tspan></text>
-        <text id="111_14" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1586" y="1413.77">{{ data?.singleValue['CEN027_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_14" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1586" y="1413.77">{{ data?.singleValue['CEN027_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_23">
         <text id="kWh_23" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1616.48" y="1434.91">kWh</tspan></text>
-        <text id="XXX_14" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1583" y="1434.77">{{ data?.singleValue['CEN027_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_14" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1583" y="1434.77">{{ data?.singleValue['CEN027_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_23" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1546" y="1434.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_23">
         <text id="MWh_23" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1613.79" y="1455.91">MWh</tspan></text>
-        <text id="555_14" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1583" y="1455.77">{{ data?.singleValue['CEN027_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_14" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1583" y="1455.77">{{ data?.singleValue['CEN027_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_23" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1546" y="1455.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -2880,11 +2880,11 @@
         <g id="Group 1768_24">
         <text id="AC (P)_24" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="29" y="1091.91">AC (P)</tspan></text>
         <text id="kW_24" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="102" y="1091.91">kW</tspan></text>
-        <text id="000_10" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="1091.77">{{ data?.singleValue['13014105_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_10" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="1091.77">{{ data?.singleValue['13014105_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_10">
         <text id="A_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="109" y="1110.91">A</tspan></text>
-        <text id="222_10" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="1110.77">{{ data?.singleValue['13014105_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_10" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="1110.77">{{ data?.singleValue['13014105_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_10" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="29" y="1110.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_24">
@@ -2907,16 +2907,16 @@
         <g id="Group 1768_25">
         <text id="AC (P)_25" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="268" y="1422.91">AC (P)</tspan></text>
         <text id="kW_25" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="343.391" y="1422.91">kW</tspan></text>
-        <text id="111_15" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="308" y="1422.77">{{ data?.singleValue['CEN087_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_15" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="308" y="1422.77">{{ data?.singleValue['CEN087_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_25">
         <text id="kWh_25" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="338.484" y="1443.91">kWh</tspan></text>
-        <text id="XXX_15" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="305" y="1443.77">{{ data?.singleValue['CEN087_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_15" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="305" y="1443.77">{{ data?.singleValue['CEN087_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_25" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="268" y="1443.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_25">
         <text id="MWh_25" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="335.789" y="1464.91">MWh</tspan></text>
-        <text id="555_15" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="305" y="1464.77">{{ data?.singleValue['CEN087_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_15" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="305" y="1464.77">{{ data?.singleValue['CEN087_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_25" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="268" y="1464.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -2928,16 +2928,16 @@
         <g id="Group 1768_26">
         <text id="AC (P)_26" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="394" y="1356.91">AC (P)</tspan></text>
         <text id="kW_26" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="469.391" y="1356.91">kW</tspan></text>
-        <text id="111_16" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="434" y="1356.77">{{ data?.singleValue['CEN001_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_16" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="434" y="1356.77">{{ data?.singleValue['CEN001_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_26">
         <text id="kWh_26" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="464.484" y="1377.91">kWh</tspan></text>
-        <text id="XXX_16" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="431" y="1377.77">{{ data?.singleValue['CEN001_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_16" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="431" y="1377.77">{{ data?.singleValue['CEN001_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_26" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="394" y="1377.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_26">
         <text id="MWh_26" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="461.789" y="1398.91">MWh</tspan></text>
-        <text id="555_16" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="431" y="1398.77">{{ data?.singleValue['CEN001_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_16" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="431" y="1398.77">{{ data?.singleValue['CEN001_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_26" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="394" y="1398.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -2949,16 +2949,16 @@
         <g id="Group 1768_27">
         <text id="AC (P)_27" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="513" y="1356.91">AC (P)</tspan></text>
         <text id="kW_27" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="588.391" y="1356.91">kW</tspan></text>
-        <text id="111_17" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="553" y="1356.77">{{ data?.singleValue['CEN005_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_17" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="553" y="1356.77">{{ data?.singleValue['CEN005_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_27">
         <text id="kWh_27" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="583.484" y="1377.91">kWh</tspan></text>
-        <text id="XXX_17" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="550" y="1377.77">{{ data?.singleValue['CEN005_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_17" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="550" y="1377.77">{{ data?.singleValue['CEN005_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_27" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="513" y="1377.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_27">
         <text id="MWh_27" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="580.789" y="1398.91">MWh</tspan></text>
-        <text id="555_17" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="550" y="1398.77">{{ data?.singleValue['CEN005_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_17" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="550" y="1398.77">{{ data?.singleValue['CEN005_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_27" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="513" y="1398.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -2970,16 +2970,16 @@
         <g id="Group 1768_28">
         <text id="AC (P)_28" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="752" y="1355.91">AC (P)</tspan></text>
         <text id="kW_28" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="827.391" y="1355.91">kW</tspan></text>
-        <text id="111_18" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="792" y="1355.77">{{ data?.singleValue['CEN103_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_18" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="792" y="1355.77">{{ data?.singleValue['CEN103_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_28">
         <text id="kWh_28" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="822.484" y="1376.91">kWh</tspan></text>
-        <text id="XXX_18" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="789" y="1376.77">{{ data?.singleValue['CEN103_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_18" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="789" y="1376.77">{{ data?.singleValue['CEN103_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_28" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="752" y="1376.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_28">
         <text id="MWh_28" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="819.789" y="1397.91">MWh</tspan></text>
-        <text id="555_18" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="789" y="1397.77">{{ data?.singleValue['CEN103_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_18" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="789" y="1397.77">{{ data?.singleValue['CEN103_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_28" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="752" y="1397.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -2991,16 +2991,16 @@
         <g id="Group 1768_29">
         <text id="AC (P)_29" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="635" y="1356.91">AC (P)</tspan></text>
         <text id="kW_29" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="710.391" y="1356.91">kW</tspan></text>
-        <text id="111_19" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="675" y="1356.77">{{ data?.singleValue['CEN003_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_19" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="675" y="1356.77">{{ data?.singleValue['CEN003_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_29">
         <text id="kWh_29" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="705.484" y="1377.91">kWh</tspan></text>
-        <text id="XXX_19" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="672" y="1377.77">{{ data?.singleValue['CEN003_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_19" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="672" y="1377.77">{{ data?.singleValue['CEN003_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_29" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="635" y="1377.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_29">
         <text id="MWh_29" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="702.789" y="1398.91">MWh</tspan></text>
-        <text id="555_19" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="672" y="1398.77">{{ data?.singleValue['CEN003_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_19" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="672" y="1398.77">{{ data?.singleValue['CEN003_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_29" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="635" y="1398.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -3131,16 +3131,16 @@
         <g id="Group 1768_30">
         <text id="AC (P)_30" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="967" y="1318.91">AC (P)</tspan></text>
         <text id="kW_30" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1042.39" y="1318.91">kW</tspan></text>
-        <text id="111_20" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1007" y="1318.77">{{ data?.singleValue['EDU003_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_20" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1007" y="1318.77">{{ data?.singleValue['EDU003_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_30">
         <text id="kWh_30" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1037.48" y="1339.91">kWh</tspan></text>
-        <text id="XXX_20" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1004" y="1339.77">{{ data?.singleValue['EDU003_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_20" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1004" y="1339.77">{{ data?.singleValue['EDU003_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_30" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="967" y="1339.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_30">
         <text id="MWh_30" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1034.79" y="1360.91">MWh</tspan></text>
-        <text id="555_20" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1004" y="1360.77">{{ data?.singleValue['EDU003_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_20" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1004" y="1360.77">{{ data?.singleValue['EDU003_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_30" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="967" y="1360.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -3308,11 +3308,11 @@
         <g id="Group 1768_31">
         <text id="AC (P)_31" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="29" y="1682.91">AC (P)</tspan></text>
         <text id="kW_31" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="102" y="1682.91">kW</tspan></text>
-        <text id="000_11" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="1682.77">{{ data?.singleValue['13023931_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_11" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="1682.77">{{ data?.singleValue['13023931_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_11">
         <text id="A_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="109" y="1701.91">A</tspan></text>
-        <text id="222_11" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="1701.77">{{ data?.singleValue['13023931_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_11" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="1701.77">{{ data?.singleValue['13023931_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_11" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="29" y="1701.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_31">
@@ -3335,16 +3335,16 @@
         <g id="Group 1768_32">
         <text id="AC (P)_32" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="138" y="2009.91">AC (P)</tspan></text>
         <text id="kW_32" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="213.391" y="2009.91">kW</tspan></text>
-        <text id="111_21" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="178" y="2009.77">{{ data?.singleValue['PHA001_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_21" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="178" y="2009.77">{{ data?.singleValue['PHA001_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_32">
         <text id="kWh_32" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="208.484" y="2030.91">kWh</tspan></text>
-        <text id="XXX_21" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="175" y="2030.77">{{ data?.singleValue['PHA001_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_21" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="175" y="2030.77">{{ data?.singleValue['PHA001_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_32" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="138" y="2030.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_32">
         <text id="MWh_32" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="205.789" y="2051.91">MWh</tspan></text>
-        <text id="555_21" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="175" y="2051.77">{{ data?.singleValue['PHA001_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_21" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="175" y="2051.77">{{ data?.singleValue['PHA001_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_32" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="138" y="2051.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -3540,11 +3540,11 @@
         <g id="Group 1768_33">
         <text id="AC (P)_33" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="287" y="1682.91">AC (P)</tspan></text>
         <text id="kW_33" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="360" y="1682.91">kW</tspan></text>
-        <text id="000_12" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="326" y="1682.77">{{ data?.singleValue['_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_12" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="326" y="1682.77">{{ data?.singleValue['_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_12">
         <text id="A_12" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="367" y="1701.91">A</tspan></text>
-        <text id="222_12" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="326" y="1701.77">{{ data?.singleValue['_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_12" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="326" y="1701.77">{{ data?.singleValue['_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_12" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="287" y="1701.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_33">
@@ -3567,16 +3567,16 @@
         <g id="Group 1768_34">
         <text id="AC (P)_34" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="379" y="2013.91">AC (P)</tspan></text>
         <text id="kW_34" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="454.391" y="2013.91">kW</tspan></text>
-        <text id="111_22" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="419" y="2013.77">{{ data?.singleValue['PHA003_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_22" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="419" y="2013.77">{{ data?.singleValue['PHA003_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_34">
         <text id="kWh_34" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="449.484" y="2034.91">kWh</tspan></text>
-        <text id="XXX_22" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="416" y="2034.77">{{ data?.singleValue['PHA003_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_22" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="416" y="2034.77">{{ data?.singleValue['PHA003_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_34" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="379" y="2034.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_34">
         <text id="MWh_34" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="446.789" y="2055.91">MWh</tspan></text>
-        <text id="555_22" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="416" y="2055.77">{{ data?.singleValue['PHA003_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_22" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="416" y="2055.77">{{ data?.singleValue['PHA003_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_34" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="379" y="2055.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -3617,11 +3617,11 @@
         <g id="Group 1768_35">
         <text id="AC (P)_35" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="564" y="1682.91">AC (P)</tspan></text>
         <text id="kW_35" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="637" y="1682.91">kW</tspan></text>
-        <text id="000_13" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="603" y="1682.77">{{ data?.singleValue['13036565_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_13" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="603" y="1682.77">{{ data?.singleValue['13036565_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_13">
         <text id="A_13" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="644" y="1701.91">A</tspan></text>
-        <text id="222_13" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="603" y="1701.77">{{ data?.singleValue['13036565_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_13" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="603" y="1701.77">{{ data?.singleValue['13036565_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_13" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="564" y="1701.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_35">
@@ -3644,16 +3644,16 @@
         <g id="Group 1768_36">
         <text id="AC (P)_36" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="607" y="1966.91">AC (P)</tspan></text>
         <text id="kW_36" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="682.391" y="1966.91">kW</tspan></text>
-        <text id="111_23" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="647" y="1966.77">{{ data?.singleValue['CEN069_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_23" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="647" y="1966.77">{{ data?.singleValue['CEN069_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_36">
         <text id="kWh_36" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="677.484" y="1987.91">kWh</tspan></text>
-        <text id="XXX_23" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="644" y="1987.77">{{ data?.singleValue['CEN069_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_23" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="644" y="1987.77">{{ data?.singleValue['CEN069_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_36" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="607" y="1987.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_36">
         <text id="MWh_36" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="674.789" y="2008.91">MWh</tspan></text>
-        <text id="555_23" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="644" y="2008.77">{{ data?.singleValue['CEN069_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_23" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="644" y="2008.77">{{ data?.singleValue['CEN069_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_36" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="607" y="2008.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -3694,11 +3694,11 @@
         <g id="Group 1768_37">
         <text id="AC (P)_37" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="853" y="1682.91">AC (P)</tspan></text>
         <text id="kW_37" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="926" y="1682.91">kW</tspan></text>
-        <text id="000_14" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="892" y="1682.77">{{ data?.singleValue['13028685_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_14" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="892" y="1682.77">{{ data?.singleValue['13028685_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_14">
         <text id="A_14" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="933" y="1701.91">A</tspan></text>
-        <text id="222_14" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="892" y="1701.77">{{ data?.singleValue['13028685_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_14" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="892" y="1701.77">{{ data?.singleValue['13028685_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_14" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="853" y="1701.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_37">
@@ -3721,16 +3721,16 @@
         <g id="Group 1768_38">
         <text id="AC (P)_38" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="897" y="1969.91">AC (P)</tspan></text>
         <text id="kW_38" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="972.391" y="1969.91">kW</tspan></text>
-        <text id="111_24" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="937" y="1969.77">{{ data?.singleValue['VET001_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_24" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="937" y="1969.77">{{ data?.singleValue['VET001_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_38">
         <text id="kWh_38" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="967.484" y="1990.91">kWh</tspan></text>
-        <text id="XXX_24" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="934" y="1990.77">{{ data?.singleValue['VET001_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_24" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="934" y="1990.77">{{ data?.singleValue['VET001_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_38" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="897" y="1990.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_38">
         <text id="MWh_38" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="964.789" y="2011.91">MWh</tspan></text>
-        <text id="555_24" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="934" y="2011.77">{{ data?.singleValue['VET001_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_24" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="934" y="2011.77">{{ data?.singleValue['VET001_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_38" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="897" y="2011.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -3796,11 +3796,11 @@
         <g id="Group 1768_39">
         <text id="AC (P)_39" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1164" y="1682.91">AC (P)</tspan></text>
         <text id="kW_39" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1237" y="1682.91">kW</tspan></text>
-        <text id="000_15" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1203" y="1682.77">{{ data?.singleValue['13040996_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_15" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1203" y="1682.77">{{ data?.singleValue['13040996_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_15">
         <text id="A_15" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1244" y="1701.91">A</tspan></text>
-        <text id="222_15" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1203" y="1701.77">{{ data?.singleValue['13040996_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_15" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1203" y="1701.77">{{ data?.singleValue['13040996_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_15" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1164" y="1701.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_39">
@@ -3823,16 +3823,16 @@
         <g id="Group 1768_40">
         <text id="AC (P)_40" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1164" y="1985.91">AC (P)</tspan></text>
         <text id="kW_40" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1239.39" y="1985.91">kW</tspan></text>
-        <text id="111_25" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1204" y="1985.77">{{ data?.singleValue['ART005_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_25" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1204" y="1985.77">{{ data?.singleValue['ART005_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_40">
         <text id="kWh_40" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1234.48" y="2006.91">kWh</tspan></text>
-        <text id="XXX_25" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1201" y="2006.77">{{ data?.singleValue['ART005_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_25" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1201" y="2006.77">{{ data?.singleValue['ART005_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_40" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1164" y="2006.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_40">
         <text id="MWh_40" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1231.79" y="2027.91">MWh</tspan></text>
-        <text id="555_25" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1201" y="2027.77">{{ data?.singleValue['ART005_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_25" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1201" y="2027.77">{{ data?.singleValue['ART005_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_40" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1164" y="2027.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -3844,16 +3844,16 @@
         <g id="Group 1768_41">
         <text id="AC (P)_41" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1282" y="1985.91">AC (P)</tspan></text>
         <text id="kW_41" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1357.39" y="1985.91">kW</tspan></text>
-        <text id="111_26" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1322" y="1985.77">{{ data?.singleValue['CEN079_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_26" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1322" y="1985.77">{{ data?.singleValue['CEN079_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_41">
         <text id="kWh_41" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1352.48" y="2006.91">kWh</tspan></text>
-        <text id="XXX_26" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1319" y="2006.77">{{ data?.singleValue['CEN079_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_26" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1319" y="2006.77">{{ data?.singleValue['CEN079_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_41" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1282" y="2006.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_41">
         <text id="MWh_41" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1349.79" y="2027.91">MWh</tspan></text>
-        <text id="555_26" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1319" y="2027.77">{{ data?.singleValue['CEN079_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_26" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1319" y="2027.77">{{ data?.singleValue['CEN079_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_41" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1282" y="2027.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -4366,11 +4366,11 @@
         <g id="Group 1768_42">
         <text id="AC (P)_42" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="29" y="2165.91">AC (P)</tspan></text>
         <text id="kW_42" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="102" y="2165.91">kW</tspan></text>
-        <text id="000_16" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="2165.77">{{ data?.singleValue['13017711_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_16" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="2165.77">{{ data?.singleValue['13017711_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_16">
         <text id="A_16" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="109" y="2184.91">A</tspan></text>
-        <text id="222_16" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="2184.77">{{ data?.singleValue['13017711_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_16" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="68" y="2184.77">{{ data?.singleValue['13017711_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_16" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="29" y="2184.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_42">
@@ -4393,16 +4393,16 @@
         <g id="Group 1768_43">
         <text id="AC (P)_43" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="277" y="2440.91">AC (P)</tspan></text>
         <text id="kW_43" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="352.391" y="2440.91">kW</tspan></text>
-        <text id="111_27" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="317" y="2440.77">{{ data?.singleValue['DEN014_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_27" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="317" y="2440.77">{{ data?.singleValue['DEN014_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_43">
         <text id="kWh_43" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="347.484" y="2461.91">kWh</tspan></text>
-        <text id="XXX_27" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="314" y="2461.77">{{ data?.singleValue['DEN014_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_27" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="314" y="2461.77">{{ data?.singleValue['DEN014_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_43" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="277" y="2461.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_43">
         <text id="MWh_43" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="344.789" y="2482.91">MWh</tspan></text>
-        <text id="555_27" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="314" y="2482.77">{{ data?.singleValue['DEN014_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_27" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="314" y="2482.77">{{ data?.singleValue['DEN014_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_43" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="277" y="2482.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -4414,16 +4414,16 @@
         <g id="Group 1768_44">
         <text id="AC (P)_44" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="488" y="2448.91">AC (P)</tspan></text>
         <text id="kW_44" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="563.391" y="2448.91">kW</tspan></text>
-        <text id="111_28" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="528" y="2448.77">{{ data?.singleValue['DEN001_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_28" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="528" y="2448.77">{{ data?.singleValue['DEN001_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_44">
         <text id="kWh_44" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="558.484" y="2469.91">kWh</tspan></text>
-        <text id="XXX_28" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="525" y="2469.77">{{ data?.singleValue['DEN001_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_28" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="525" y="2469.77">{{ data?.singleValue['DEN001_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_44" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="488" y="2469.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_44">
         <text id="MWh_44" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="555.789" y="2490.91">MWh</tspan></text>
-        <text id="555_28" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="525" y="2490.77">{{ data?.singleValue['DEN001_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_28" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="525" y="2490.77">{{ data?.singleValue['DEN001_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_44" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="488" y="2490.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -4435,16 +4435,16 @@
         <g id="Group 1768_45">
         <text id="AC (P)_45" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="601" y="2448.91">AC (P)</tspan></text>
         <text id="kW_45" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="676.391" y="2448.91">kW</tspan></text>
-        <text id="111_29" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="641" y="2448.77">{{ data?.singleValue['DEN002_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_29" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="641" y="2448.77">{{ data?.singleValue['DEN002_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_45">
         <text id="kWh_45" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="671.484" y="2469.91">kWh</tspan></text>
-        <text id="XXX_29" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="638" y="2469.77">{{ data?.singleValue['DEN002_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_29" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="638" y="2469.77">{{ data?.singleValue['DEN002_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_45" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="601" y="2469.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_45">
         <text id="MWh_45" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="668.789" y="2490.91">MWh</tspan></text>
-        <text id="555_29" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="638" y="2490.77">{{ data?.singleValue['DEN002_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_29" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="638" y="2490.77">{{ data?.singleValue['DEN002_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_45" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="601" y="2490.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -5855,11 +5855,11 @@
         <g id="Group 1768_46">
         <text id="AC (P)_46" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="117" y="2504.91">AC (P)</tspan></text>
         <text id="kW_46" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="190" y="2504.91">kW</tspan></text>
-        <text id="000_17" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="156" y="2504.77">{{ data?.singleValue['13029461_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_17" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="156" y="2504.77">{{ data?.singleValue['13029461_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_17">
         <text id="A_17" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="197" y="2523.91">A</tspan></text>
-        <text id="222_17" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="156" y="2523.77">{{ data?.singleValue['13029461_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_17" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="156" y="2523.77">{{ data?.singleValue['13029461_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_17" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="117" y="2523.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_46">
@@ -5882,16 +5882,16 @@
         <g id="Group 1768_47">
         <text id="AC (P)_47" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="332" y="2833.91">AC (P)</tspan></text>
         <text id="kW_47" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="407.391" y="2833.91">kW</tspan></text>
-        <text id="111_30" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="372" y="2833.77">{{ data?.singleValue['CEN068_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_30" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="372" y="2833.77">{{ data?.singleValue['CEN068_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_47">
         <text id="kWh_47" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="402.484" y="2854.91">kWh</tspan></text>
-        <text id="XXX_30" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="369" y="2854.77">{{ data?.singleValue['CEN068_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_30" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="369" y="2854.77">{{ data?.singleValue['CEN068_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_47" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="332" y="2854.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_47">
         <text id="MWh_47" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="399.789" y="2875.91">MWh</tspan></text>
-        <text id="555_30" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="369" y="2875.77">{{ data?.singleValue['CEN068_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_30" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="369" y="2875.77">{{ data?.singleValue['CEN068_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_47" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="332" y="2875.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -5903,16 +5903,16 @@
         <g id="Group 1768_48">
         <text id="AC (P)_48" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="456" y="2833.91">AC (P)</tspan></text>
         <text id="kW_48" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="531.391" y="2833.91">kW</tspan></text>
-        <text id="111_31" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="496" y="2833.77">{{ data?.singleValue['SCI025_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_31" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="496" y="2833.77">{{ data?.singleValue['SCI025_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_48">
         <text id="kWh_48" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="526.484" y="2854.91">kWh</tspan></text>
-        <text id="XXX_31" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="493" y="2854.77">{{ data?.singleValue['SCI025_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_31" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="493" y="2854.77">{{ data?.singleValue['SCI025_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_48" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="456" y="2854.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_48">
         <text id="MWh_48" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="523.789" y="2875.91">MWh</tspan></text>
-        <text id="555_31" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="493" y="2875.77">{{ data?.singleValue['SCI025_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_31" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="493" y="2875.77">{{ data?.singleValue['SCI025_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_48" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="456" y="2875.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -5924,16 +5924,16 @@
         <g id="Group 1768_49">
         <text id="AC (P)_49" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="695" y="2843.91">AC (P)</tspan></text>
         <text id="kW_49" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="770.391" y="2843.91">kW</tspan></text>
-        <text id="111_32" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="735" y="2843.77">{{ data?.singleValue['ECO001_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_32" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="735" y="2843.77">{{ data?.singleValue['ECO001_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_49">
         <text id="kWh_49" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="765.484" y="2864.91">kWh</tspan></text>
-        <text id="XXX_32" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="732" y="2864.77">{{ data?.singleValue['ECO001_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_32" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="732" y="2864.77">{{ data?.singleValue['ECO001_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_49" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="695" y="2864.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_49">
         <text id="MWh_49" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="762.789" y="2885.91">MWh</tspan></text>
-        <text id="555_32" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="732" y="2885.77">{{ data?.singleValue['ECO001_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_32" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="732" y="2885.77">{{ data?.singleValue['ECO001_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_49" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="695" y="2885.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -5945,16 +5945,16 @@
         <g id="Group 1768_50">
         <text id="AC (P)_50" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="841" y="2843.91">AC (P)</tspan></text>
         <text id="kW_50" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="916.391" y="2843.91">kW</tspan></text>
-        <text id="111_33" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="881" y="2843.77">{{ data?.singleValue['SCI020_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_33" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="881" y="2843.77">{{ data?.singleValue['SCI020_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_50">
         <text id="kWh_50" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="911.484" y="2864.91">kWh</tspan></text>
-        <text id="XXX_33" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="878" y="2864.77">{{ data?.singleValue['SCI020_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_33" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="878" y="2864.77">{{ data?.singleValue['SCI020_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_50" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="841" y="2864.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_50">
         <text id="MWh_50" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="908.789" y="2885.91">MWh</tspan></text>
-        <text id="555_33" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="878" y="2885.77">{{ data?.singleValue['SCI020_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_33" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="878" y="2885.77">{{ data?.singleValue['SCI020_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_50" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="841" y="2885.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -5966,16 +5966,16 @@
         <g id="Group 1768_51">
         <text id="AC (P)_51" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1075" y="2842.91">AC (P)</tspan></text>
         <text id="kW_51" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1150.39" y="2842.91">kW</tspan></text>
-        <text id="111_34" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1115" y="2842.77">{{ data?.singleValue['SCI028_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_34" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1115" y="2842.77">{{ data?.singleValue['SCI028_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_51">
         <text id="kWh_51" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1145.48" y="2863.91">kWh</tspan></text>
-        <text id="XXX_34" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1112" y="2863.77">{{ data?.singleValue['SCI028_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_34" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1112" y="2863.77">{{ data?.singleValue['SCI028_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_51" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1075" y="2863.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_51">
         <text id="MWh_51" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1142.79" y="2884.91">MWh</tspan></text>
-        <text id="555_34" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1112" y="2884.77">{{ data?.singleValue['SCI028_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_34" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1112" y="2884.77">{{ data?.singleValue['SCI028_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_51" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1075" y="2884.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -5987,16 +5987,16 @@
         <g id="Group 1768_52">
         <text id="AC (P)_52" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1437" y="2929.91">AC (P)</tspan></text>
         <text id="kW_52" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1512.39" y="2929.91">kW</tspan></text>
-        <text id="111_35" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1477" y="2929.77">{{ data?.singleValue['CEN032_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_35" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1477" y="2929.77">{{ data?.singleValue['CEN032_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_52">
         <text id="kWh_52" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1507.48" y="2950.91">kWh</tspan></text>
-        <text id="XXX_35" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1474" y="2950.77">{{ data?.singleValue['CEN032_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_35" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1474" y="2950.77">{{ data?.singleValue['CEN032_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_52" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1437" y="2950.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_52">
         <text id="MWh_52" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1504.79" y="2971.91">MWh</tspan></text>
-        <text id="555_35" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1474" y="2971.77">{{ data?.singleValue['CEN032_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_35" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1474" y="2971.77">{{ data?.singleValue['CEN032_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_52" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1437" y="2971.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -6008,16 +6008,16 @@
         <g id="Group 1768_53">
         <text id="AC (P)_53" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1288" y="2866.91">AC (P)</tspan></text>
         <text id="kW_53" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1363.39" y="2866.91">kW</tspan></text>
-        <text id="111_36" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1328" y="2866.77">{{ data?.singleValue['CEN060_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_36" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1328" y="2866.77">{{ data?.singleValue['CEN060_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_53">
         <text id="kWh_53" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1358.48" y="2887.91">kWh</tspan></text>
-        <text id="XXX_36" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1325" y="2887.77">{{ data?.singleValue['CEN060_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_36" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1325" y="2887.77">{{ data?.singleValue['CEN060_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_53" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1288" y="2887.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_53">
         <text id="MWh_53" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1355.79" y="2908.91">MWh</tspan></text>
-        <text id="555_36" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1325" y="2908.77">{{ data?.singleValue['CEN060_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_36" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1325" y="2908.77">{{ data?.singleValue['CEN060_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_53" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1288" y="2908.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -6820,11 +6820,11 @@
         <g id="Group 1768_54">
         <text id="AC (P)_54" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="34" y="3004.91">AC (P)</tspan></text>
         <text id="kW_54" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="107" y="3004.91">kW</tspan></text>
-        <text id="000_18" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="73" y="3004.77">{{ data?.singleValue['13018538_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_18" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="73" y="3004.77">{{ data?.singleValue['13018538_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_18">
         <text id="A_18" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="114" y="3023.91">A</tspan></text>
-        <text id="222_18" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="73" y="3023.77">{{ data?.singleValue['13018538_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_18" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="73" y="3023.77">{{ data?.singleValue['13018538_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_18" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="34" y="3023.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_54">
@@ -6847,16 +6847,16 @@
         <g id="Group 1768_55">
         <text id="AC (P)_55" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="241" y="3316.91">AC (P)</tspan></text>
         <text id="kW_55" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="316.391" y="3316.91">kW</tspan></text>
-        <text id="111_37" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="281" y="3316.77">{{ data?.singleValue['ENG028_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_37" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="281" y="3316.77">{{ data?.singleValue['ENG028_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_55">
         <text id="kWh_55" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="311.484" y="3337.91">kWh</tspan></text>
-        <text id="XXX_37" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="278" y="3337.77">{{ data?.singleValue['ENG028_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_37" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="278" y="3337.77">{{ data?.singleValue['ENG028_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_55" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="241" y="3337.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_55">
         <text id="MWh_55" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="308.789" y="3358.91">MWh</tspan></text>
-        <text id="555_37" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="278" y="3358.77">{{ data?.singleValue['ENG028_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_37" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="278" y="3358.77">{{ data?.singleValue['ENG028_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_55" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="241" y="3358.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -6868,16 +6868,16 @@
         <g id="Group 1768_56">
         <text id="AC (P)_56" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="350" y="3316.91">AC (P)</tspan></text>
         <text id="kW_56" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="425.391" y="3316.91">kW</tspan></text>
-        <text id="111_38" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="390" y="3316.77">{{ data?.singleValue['ENG013_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_38" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="390" y="3316.77">{{ data?.singleValue['ENG013_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_56">
         <text id="kWh_56" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="420.484" y="3337.91">kWh</tspan></text>
-        <text id="XXX_38" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="387" y="3337.77">{{ data?.singleValue['ENG013_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_38" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="387" y="3337.77">{{ data?.singleValue['ENG013_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_56" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="350" y="3337.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_56">
         <text id="MWh_56" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="417.789" y="3358.91">MWh</tspan></text>
-        <text id="555_38" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="387" y="3358.77">{{ data?.singleValue['ENG013_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_38" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="387" y="3358.77">{{ data?.singleValue['ENG013_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_56" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="350" y="3358.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -6889,16 +6889,16 @@
         <g id="Group 1768_57">
         <text id="AC (P)_57" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="494" y="3263.91">AC (P)</tspan></text>
         <text id="kW_57" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="569.391" y="3263.91">kW</tspan></text>
-        <text id="111_39" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="534" y="3263.77">{{ data?.singleValue['ENG026_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_39" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="534" y="3263.77">{{ data?.singleValue['ENG026_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_57">
         <text id="kWh_57" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="564.484" y="3284.91">kWh</tspan></text>
-        <text id="XXX_39" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="531" y="3284.77">{{ data?.singleValue['ENG026_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_39" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="531" y="3284.77">{{ data?.singleValue['ENG026_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_57" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="494" y="3284.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_57">
         <text id="MWh_57" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="561.789" y="3305.91">MWh</tspan></text>
-        <text id="555_39" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="531" y="3305.77">{{ data?.singleValue['ENG026_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_39" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="531" y="3305.77">{{ data?.singleValue['ENG026_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_57" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="494" y="3305.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -6910,16 +6910,16 @@
         <g id="Group 1768_58">
         <text id="AC (P)_58" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="853" y="3243.91">AC (P)</tspan></text>
         <text id="kW_58" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="928.391" y="3243.91">kW</tspan></text>
-        <text id="111_40" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="893" y="3243.77">{{ data?.singleValue['INS009_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_40" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="893" y="3243.77">{{ data?.singleValue['INS009_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_58">
         <text id="kWh_58" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="923.484" y="3264.91">kWh</tspan></text>
-        <text id="XXX_40" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="890" y="3264.77">{{ data?.singleValue['INS009_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_40" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="890" y="3264.77">{{ data?.singleValue['INS009_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_58" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="853" y="3264.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_58">
         <text id="MWh_58" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="920.789" y="3285.91">MWh</tspan></text>
-        <text id="555_40" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="890" y="3285.77">{{ data?.singleValue['INS009_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_40" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="890" y="3285.77">{{ data?.singleValue['INS009_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_58" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="853" y="3285.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -6931,16 +6931,16 @@
         <g id="Group 1768_59">
         <text id="AC (P)_59" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1023" y="3243.91">AC (P)</tspan></text>
         <text id="kW_59" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1098.39" y="3243.91">kW</tspan></text>
-        <text id="111_41" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1063" y="3243.77">{{ data?.singleValue['ENG030_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_41" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1063" y="3243.77">{{ data?.singleValue['ENG030_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_59">
         <text id="kWh_59" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1093.48" y="3264.91">kWh</tspan></text>
-        <text id="XXX_41" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1060" y="3264.77">{{ data?.singleValue['ENG030_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_41" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1060" y="3264.77">{{ data?.singleValue['ENG030_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_59" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1023" y="3264.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_59">
         <text id="MWh_59" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1090.79" y="3285.91">MWh</tspan></text>
-        <text id="555_41" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1060" y="3285.77">{{ data?.singleValue['ENG030_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_41" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1060" y="3285.77">{{ data?.singleValue['ENG030_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_59" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1023" y="3285.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -6974,16 +6974,16 @@
         <g id="Group 1768_60">
         <text id="AC (P)_60" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="684" y="3263.91">AC (P)</tspan></text>
         <text id="kW_60" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="759.391" y="3263.91">kW</tspan></text>
-        <text id="111_42" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="724" y="3263.77">{{ data?.singleValue['CEN093_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_42" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="724" y="3263.77">{{ data?.singleValue['CEN093_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_60">
         <text id="kWh_60" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="754.484" y="3284.91">kWh</tspan></text>
-        <text id="XXX_42" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="721" y="3284.77">{{ data?.singleValue['CEN093_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_42" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="721" y="3284.77">{{ data?.singleValue['CEN093_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_60" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="684" y="3284.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_60">
         <text id="MWh_60" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="751.789" y="3305.91">MWh</tspan></text>
-        <text id="555_42" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="721" y="3305.77">{{ data?.singleValue['CEN093_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_42" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="721" y="3305.77">{{ data?.singleValue['CEN093_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_60" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="684" y="3305.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -7228,7 +7228,7 @@
         </g>
         <g id="Group 1769_19">
         <text id="A_19" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1619" y="2186.91">A</tspan></text>
-        <text id="222_19" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1578" y="2186.77">{{ data?.singleValue['13028863_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_19" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1578" y="2186.77">{{ data?.singleValue['13028863_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_19" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1539" y="2186.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_61">
@@ -7251,16 +7251,16 @@
         <g id="Group 1768_62">
         <text id="AC (P)_62" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="956" y="2495.91">AC (P)</tspan></text>
         <text id="kW_62" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1031.39" y="2495.91">kW</tspan></text>
-        <text id="111_43" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="996" y="2495.77">{{ data?.singleValue['CEN053_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_43" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="996" y="2495.77">{{ data?.singleValue['CEN053_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_62">
         <text id="kWh_62" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1026.48" y="2516.91">kWh</tspan></text>
-        <text id="XXX_43" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="993" y="2516.77">{{ data?.singleValue['CEN053_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_43" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="993" y="2516.77">{{ data?.singleValue['CEN053_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_62" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="956" y="2516.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_62">
         <text id="MWh_62" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1023.79" y="2537.91">MWh</tspan></text>
-        <text id="555_43" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="993" y="2537.77">{{ data?.singleValue['CEN053_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_43" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="993" y="2537.77">{{ data?.singleValue['CEN053_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_62" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="956" y="2537.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -7392,16 +7392,16 @@
         <g id="Group 1768_63">
         <text id="AC (P)_63" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1147" y="2391.91">AC (P)</tspan></text>
         <text id="kW_63" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1222.39" y="2391.91">kW</tspan></text>
-        <text id="111_44" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1187" y="2391.77">{{ data?.singleValue['CEN081_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_44" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1187" y="2391.77">{{ data?.singleValue['CEN081_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_63">
         <text id="kWh_63" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1217.48" y="2412.91">kWh</tspan></text>
-        <text id="XXX_44" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1184" y="2412.77">{{ data?.singleValue['CEN081_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_44" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1184" y="2412.77">{{ data?.singleValue['CEN081_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_63" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1147" y="2412.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_63">
         <text id="MWh_63" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1214.79" y="2433.91">MWh</tspan></text>
-        <text id="555_44" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1184" y="2433.77">{{ data?.singleValue['CEN081_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_44" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1184" y="2433.77">{{ data?.singleValue['CEN081_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_63" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1147" y="2433.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -7531,16 +7531,16 @@
         <g id="Group 1768_64">
         <text id="AC (P)_64" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1362" y="2391.91">AC (P)</tspan></text>
         <text id="kW_64" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1437.39" y="2391.91">kW</tspan></text>
-        <text id="111_45" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1402" y="2391.77">{{ data?.singleValue['ARC003_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_45" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1402" y="2391.77">{{ data?.singleValue['ARC003_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_64">
         <text id="kWh_64" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1432.48" y="2412.91">kWh</tspan></text>
-        <text id="XXX_45" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1399" y="2412.77">{{ data?.singleValue['ARC003_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_45" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1399" y="2412.77">{{ data?.singleValue['ARC003_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_64" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1362" y="2412.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_64">
         <text id="MWh_64" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1429.79" y="2433.91">MWh</tspan></text>
-        <text id="555_45" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1399" y="2433.77">{{ data?.singleValue['ARC003_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_45" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1399" y="2433.77">{{ data?.singleValue['ARC003_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_64" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1362" y="2433.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -7587,11 +7587,11 @@
         <g id="Group 1768_65">
         <text id="AC (P)_65" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1499" y="1682.91">AC (P)</tspan></text>
         <text id="kW_65" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1572" y="1682.91">kW</tspan></text>
-        <text id="000_20" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1538" y="1682.77">{{ data?.singleValue['13024447_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_20" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1538" y="1682.77">{{ data?.singleValue['13024447_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_20">
         <text id="A_20" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1579" y="1701.91">A</tspan></text>
-        <text id="222_20" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1538" y="1701.77">{{ data?.singleValue['13024447_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_20" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1538" y="1701.77">{{ data?.singleValue['13024447_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_20" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1499" y="1701.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_65">
@@ -7614,16 +7614,16 @@
         <g id="Group 1768_66">
         <text id="AC (P)_66" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1543" y="2010.91">AC (P)</tspan></text>
         <text id="kW_66" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1618.39" y="2010.91">kW</tspan></text>
-        <text id="111_46" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1583" y="2010.77">{{ data?.singleValue['INS012_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_46" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1583" y="2010.77">{{ data?.singleValue['INS012_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_66">
         <text id="kWh_66" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1613.48" y="2031.91">kWh</tspan></text>
-        <text id="XXX_46" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1580" y="2031.77">{{ data?.singleValue['INS012_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_46" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1580" y="2031.77">{{ data?.singleValue['INS012_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_66" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1543" y="2031.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_66">
         <text id="MWh_66" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1610.79" y="2052.91">MWh</tspan></text>
-        <text id="555_46" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1580" y="2052.77">{{ data?.singleValue['INS012_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_46" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1580" y="2052.77">{{ data?.singleValue['INS012_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_66" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1543" y="2052.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -7876,11 +7876,11 @@
         <g id="Group 1768_67">
         <text id="AC (P)_67" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1168" y="3004.91">AC (P)</tspan></text>
         <text id="kW_67" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1241" y="3004.91">kW</tspan></text>
-        <text id="000_21" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1207" y="3004.77">{{ data?.singleValue['13036201_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="000_21" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1207" y="3004.77">{{ data?.singleValue['13036201_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1769_21">
         <text id="A_21" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1248" y="3023.91">A</tspan></text>
-        <text id="222_21" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1207" y="3023.77">{{ data?.singleValue['13036201_amp']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="222_21" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1207" y="3023.77">{{ data?.singleValue['13036201_amp']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="AC (I)_21" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1168" y="3023.91">AC (I)</tspan></text>
         </g>
         <g id="Group 1770_67">
@@ -7903,16 +7903,16 @@
         <g id="Group 1768_68">
         <text id="AC (P)_68" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1284" y="3332.91">AC (P)</tspan></text>
         <text id="kW_68" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1359.39" y="3332.91">kW</tspan></text>
-        <text id="111_47" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1324" y="3332.77">{{ data?.singleValue['PHA006_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_47" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1324" y="3332.77">{{ data?.singleValue['PHA006_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_68">
         <text id="kWh_68" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1354.48" y="3353.91">kWh</tspan></text>
-        <text id="XXX_47" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1321" y="3353.77">{{ data?.singleValue['PHA006_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_47" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1321" y="3353.77">{{ data?.singleValue['PHA006_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_68" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1284" y="3353.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_68">
         <text id="MWh_68" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1351.79" y="3374.91">MWh</tspan></text>
-        <text id="555_47" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1321" y="3374.77">{{ data?.singleValue['PHA006_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_47" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1321" y="3374.77">{{ data?.singleValue['PHA006_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_68" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1284" y="3374.91">TOTAL</tspan></text>
         </g>
         </g>
@@ -7924,16 +7924,16 @@
         <g id="Group 1768_69">
         <text id="AC (P)_69" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1500" y="3332.91">AC (P)</tspan></text>
         <text id="kW_69" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1575.39" y="3332.91">kW</tspan></text>
-        <text id="111_48" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1540" y="3332.77">{{ data?.singleValue['PHA007_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="111_48" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1540" y="3332.77">{{ data?.singleValue['PHA007_power']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         </g>
         <g id="Group 1770_69">
         <text id="kWh_69" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1570.48" y="3353.91">kWh</tspan></text>
-        <text id="XXX_48" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1537" y="3353.77">{{ data?.singleValue['PHA007_energy']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="XXX_48" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1537" y="3353.77">{{ data?.singleValue['PHA007_energy']?.dataRecords[0]?.Value  | fixPoint : 2 }}</tspan></text>
         <text id="TODAY_69" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1500" y="3353.91">TODAY</tspan></text>
         </g>
         <g id="Group 1771_69">
         <text id="MWh_69" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1567.79" y="3374.91">MWh</tspan></text>
-        <text id="555_48" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1537" y="3374.77">{{ data?.singleValue['PHA007_total']?.dataRecords[0]?.Value/1000  | myNumber2 : '1.0-2' }}</tspan></text>
+        <text id="555_48" fill="#00109C" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="9" font-weight="600" letter-spacing="0em"><tspan x="1537" y="3374.77">{{ data?.singleValue['PHA007_total']?.dataRecords[0]?.Value/1000  | fixPoint : 2 }}</tspan></text>
         <text id="TOTAL_69" fill="black" xml:space="preserve" style="white-space: pre" font-family="Inter" font-size="8" font-weight="600" letter-spacing="0em"><tspan x="1500" y="3374.91">TOTAL</tspan></text>
         </g>
         </g>

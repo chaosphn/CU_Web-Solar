@@ -2,55 +2,99 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "TOU16.W"
+			"Name": "B016.TOU16.W"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "CALC16.WH_TODAY"
+			"Name": "B016.CALC16.WH_TODAY"
+		},
+		{
+			"Title": "current_value",
+			"Name": "B016.TOU16.I"
+		},
+		{
+			"Title": "volt_value",
+			"Name": "B016.TOU16.V"
 		},
 		{
 			"Title": "pr_value",
-			"Name": "CALC16.PR"
+			"Name": "B016.CALC16.PR"
 		},
 		{
-			"Title": "saving_value",
-			"Name": ""
+			"Title": "power_slog",
+			"Name": "B016.SLOGGER16.INV_WAC"
+		},
+		{
+			"Title": "energy_slog",
+			"Name": "B016.SLOGGER16.WH_TODAY"
+		},
+		{
+			"Title": "ambtemp_slog",
+			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+		{
+			"Title": "pvtemp_slog",
+			"Name": "B006.SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "irr_slog",
+			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "status_slog",
+			"Name": "B016.SLOGGER16.MBFAIL"
 		},
 		{
 			"Title": "weather_co2",
-			"Name": "CALC16.CO2_TODAY"
+			"Name": "B016.CALC16.CO2_TODAY"
 		},
 		{
 			"Title": "energy_inv1",
-			"Name": "INV1601.WH_TODAY"
+			"Name": "B016.INV1601.WH_TODAY"
 		},
 		{
 			"Title": "energy_inv2",
-			"Name": "INV1602.WH_TODAY"
+			"Name": "B016.INV1602.WH_TODAY"
 		},
 		{
 			"Title": "performance_inv1",
-			"Name": "INV1601.EFF"
+			"Name": "B016.INV1601.EFF"
 		},
 		{
 			"Title": "performance_inv2",
-			"Name": "INV1602.EFF"
+			"Name": "B016.INV1602.EFF"
 		},
 		{
 			"Title": "power_inv1",
-			"Name": "INV1601.WAC"
+			"Name": "B016.INV1601.WAC"
 		},
 		{
 			"Title": "power_inv2",
-			"Name": "INV1602.WAC"
+			"Name": "B016.INV1602.WAC"
 		},
 		{
 			"Title": "volt_inv1",
-			"Name": "INV1601.VDC"
+			"Name": "B016.INV1601.VDC"
 		},
 		{
 			"Title": "volt_inv2",
-			"Name": "INV1602.VDC"
+			"Name": "B016.INV1602.VDC"
+		},
+		{
+			"Title": "temp_inv1",
+			"Name": "B016.INV1601.TEMP_INT"
+		},
+		{
+			"Title": "temp_inv2",
+			"Name": "B016.INV1602.TEMP_INT"
+		},
+		{
+			"Title": "run_inv1",
+			"Name": "B016.INV1601.RUN"
+		},
+		{
+			"Title": "run_inv2",
+			"Name": "B016.INV1602.RUN"
 		},
 		{
 			"Title": "cb_status",
@@ -59,42 +103,52 @@
 	],
 	"historianConfig": [
 		{
-			"Name": "TOU16.W",
+			"Name": "B016.TOU16.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
 				"Time" :"t",
 				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-16-24T23:59:59"
+				"EndTime" : "2023-12-24T23:59:59"
 			}
 		},
 		{
-			"Name": "SLOGGER06.PYRANO",
+			"Name": "B006.SLOGGER06.PYRANO",
 			"Title": "X2",
 			"Options" : {
 				"Interval": 5,
 				"Time" : "t",
 				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-16-24T23:59:59"
+				"EndTime" : "2023-12-24T23:59:59"
 			}
 		},
 		{
-			"Name": "INV1601.WH_TODAY",
+			"Name": "B016.INV1601.WAC",
 			"Title": "X3",
 			"Options" : {
 				"Interval": 5,
 				"Time" : "t",
 				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-16-24T23:59:59"
+				"EndTime" : "2023-12-24T23:59:59"
 			}
-		}		
+		},
+		{
+			"Name": "B016.INV1602.WAC",
+			"Title": "X4",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}			
 	],
 	"chartConfig":[
 		{
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "SLOGGER06.PYRANO",
+					"name": "B006.SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {
@@ -105,7 +159,7 @@
 					}
 				},
 				{
-					"name": "TOU16.W",
+					"name": "B016.TOU16.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {
@@ -152,13 +206,24 @@
 			"name": "inverterGeneration",
 			"tags": [
 				{
-					"name": "INV1601.WH_TODAY",
+					"name": "B016.INV1601.WAC",
 					"title": "INV01",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "area",
-							"color": "#01616E"
+							"color": "#01204E"
+						}
+					}
+				},
+				{
+					"name": "B016.INV1602.WAC",
+					"title": "INV02",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#028391"
 						}
 					}
 				}

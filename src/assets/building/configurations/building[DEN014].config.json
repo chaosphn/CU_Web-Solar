@@ -2,55 +2,99 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "TOU09.W"
+			"Name": "B009.TOU09.W"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "CALC09.WH_TODAY"
+			"Name": "B009.CALC09.WH_TODAY"
+		},
+		{
+			"Title": "current_value",
+			"Name": "B009.TOU09.I"
+		},
+		{
+			"Title": "volt_value",
+			"Name": "B009.TOU09.V"
 		},
 		{
 			"Title": "pr_value",
-			"Name": "CALC09.PR"
+			"Name": "B009.CALC09.PR"
 		},
 		{
-			"Title": "saving_value",
-			"Name": ""
+			"Title": "power_slog",
+			"Name": "B009.SLOGGER09.INV_WAC"
+		},
+		{
+			"Title": "energy_slog",
+			"Name": "B009.SLOGGER09.WH_TODAY"
+		},
+		{
+			"Title": "ambtemp_slog",
+			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+		{
+			"Title": "pvtemp_slog",
+			"Name": "B006.SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "irr_slog",
+			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "status_slog",
+			"Name": "B009.SLOGGER09.MBFAIL"
 		},
 		{
 			"Title": "weather_co2",
-			"Name": "CALC09.CO2_TODAY"
+			"Name": "B009.CALC09.CO2_TODAY"
 		},
 		{
 			"Title": "energy_inv1",
-			"Name": "INV0901.WH_TODAY"
+			"Name": "B009.INV0901.WH_TODAY"
 		},
 		{
 			"Title": "energy_inv2",
-			"Name": "INV0902.WH_TODAY"
+			"Name": "B009.INV0902.WH_TODAY"
 		},
 		{
 			"Title": "performance_inv1",
-			"Name": "INV0901.EFF"
+			"Name": "B009.INV0901.EFF"
 		},
 		{
 			"Title": "performance_inv2",
-			"Name": "INV0902.EFF"
+			"Name": "B009.INV0902.EFF"
 		},
 		{
 			"Title": "power_inv1",
-			"Name": "INV0901.WAC"
+			"Name": "B009.INV0901.WAC"
 		},
 		{
 			"Title": "power_inv2",
-			"Name": "INV0902.WAC"
+			"Name": "B009.INV0902.WAC"
 		},
 		{
 			"Title": "volt_inv1",
-			"Name": "INV0901.VDC"
+			"Name": "B009.INV0901.VDC"
 		},
 		{
 			"Title": "volt_inv2",
-			"Name": "INV0902.VDC"
+			"Name": "B009.INV0902.VDC"
+		},
+		{
+			"Title": "temp_inv1",
+			"Name": "B009.INV0901.TEMP_INT"
+		},
+		{
+			"Title": "temp_inv2",
+			"Name": "B009.INV0902.TEMP_INT"
+		},
+		{
+			"Title": "run_inv1",
+			"Name": "B009.INV0901.RUN"
+		},
+		{
+			"Title": "run_inv2",
+			"Name": "B009.INV0902.RUN"
 		},
 		{
 			"Title": "cb_status",
@@ -59,7 +103,7 @@
 	],
 	"historianConfig": [
 		{
-			"Name": "TOU09.W",
+			"Name": "B009.TOU09.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -69,7 +113,7 @@
 			}
 		},
 		{
-			"Name": "SLOGGER06.PYRANO",
+			"Name": "B006.SLOGGER06.PYRANO",
 			"Title": "X2",
 			"Options" : {
 				"Interval": 5,
@@ -79,7 +123,7 @@
 			}
 		},
 		{
-			"Name": "INV0901.WH_TODAY",
+			"Name": "B009.INV0901.WAC",
 			"Title": "X3",
 			"Options" : {
 				"Interval": 5,
@@ -89,8 +133,8 @@
 			}
 		},
 		{
-			"Name": "INV0902.WH_TODAY",
-			"Title": "X3",
+			"Name": "B009.INV0902.WAC",
+			"Title": "X4",
 			"Options" : {
 				"Interval": 5,
 				"Time" : "t",
@@ -104,7 +148,7 @@
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "SLOGGER06.PYRANO",
+					"name": "B006.SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {
@@ -115,7 +159,7 @@
 					}
 				},
 				{
-					"name": "TOU09.W",
+					"name": "B009.TOU09.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {
@@ -162,24 +206,24 @@
 			"name": "inverterGeneration",
 			"tags": [
 				{
-					"name": "INV0901.WH_TODAY",
+					"name": "B009.INV0901.WAC",
 					"title": "INV01",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "area",
-							"color": "#01209E"
+							"color": "#01204E"
 						}
 					}
 				},
-                {
-					"name": "INV0902.WH_TODAY",
+				{
+					"name": "B009.INV0902.WAC",
 					"title": "INV02",
 					"options": {
 						"chartOptions": {
 							"yAxis": 0,
 							"type": "area",
-							"color": "#01209E"
+							"color": "#028391"
 						}
 					}
 				}

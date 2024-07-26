@@ -132,13 +132,14 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     }
   }
 
-  selectMeter(id: string[]){
+  selectMeter(id: string){
     this.buildingList.building.map(function(item){
-      if(id.includes(item.id) && parseInt(item.no) <= 6 && !item.building){
-        item.display = true;
-      } else if(!item.building){
+      if(!item.building) {
         item.display = false;
       }
+      if(id && item.zone == id && parseInt(item.no) <= 6 && !item.building){
+        item.display = true;
+      } 
       return item;
     })
   }

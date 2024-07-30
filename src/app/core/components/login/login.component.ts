@@ -17,11 +17,11 @@ export class LoginComponent implements OnInit {
   animate: any;
   animateClass: string = '';
   siteSelected: BuildingModel = {
-    no:"01",
-    id:"ARC003",
-    zone:"3",
-    name:"อาคารเลิศ อุรัสยะนันทน์",
-    capacity: 113.4
+    no: "01",
+    id: "ARC003",
+    name: "อาคารเลิศ อุรัสยะนันทน์",
+    capacity: 113.4,
+    zone: "13028863"
   };
   constructor(private authService: AuthService, 
     private appLoadService: AppLoadService,

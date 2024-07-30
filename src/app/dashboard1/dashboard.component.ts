@@ -196,10 +196,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     //this.sub1.unsubscribe();
   }
 
-  routNavigate(id: string){
-    localStorage.setItem('zone', id)
-    if(localStorage.getItem('zone') == id){
-      this.router.navigate(['/main/dashboard2']);
+  routNavigate(name: string){
+    const _item: BuildingModel = this.store.selectSnapshot(SitesState.getSiteWithName(name))
+    if(_item && _item.zone){
+      localStorage.setItem('zone', _item.zone);
+      this.router.navigate(['/main/zoneview']);
     }
   }
 

@@ -241,7 +241,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   increaseValue(){
     //this.event.changeNavbar();
-    this.router.navigate(['/main/dashboard1']);
+    this.router.navigate(['/main/overview']);
     // this.value = this.value + 100;
     ////console.log(this.value)
   }

@@ -7,7 +7,7 @@
 			"no":"100",
 			"id":"13014105",
 			"zone":"13014105",
-			"name":"13014105",
+			"name":"Meter no.10",
 			"capacity": 603.18,
 			"display": true,
 			"building": [ "CEN001","CEN003","CEN005","CEN103","CEN087","EDU003" ]
@@ -16,7 +16,7 @@
 			"no":"101",
 			"id":"13017711",
 			"zone":"13017711",
-			"name":"13017711",
+			"name":"Meter no.13",
 			"capacity": 331.56,
 			"display": false,
 			"building": [ "DEN001","DEN001","DEN014" ]
@@ -25,7 +25,7 @@
 			"no":"102",
 			"id":"13018215",
 			"zone":"13018215",
-			"name":"13018215",
+			"name":"Meter no.11",
 			"capacity": 1037.88,
 			"display": false,
 			"building": [ "LAW003","PSC012","EDU011","ESC008","CEN006"  ]
@@ -34,7 +34,7 @@
 			"no":"103",
 			"id":"13018538",
 			"zone":"13018538",
-			"name":"13018538",
+			"name":"Meter no.22",
 			"capacity": 849.42,
 			"display": false,
 			"building": [ "INS009","CEN093","ENG028","ENG026","ENG030","ENG013"  ]
@@ -43,7 +43,7 @@
 			"no":"104",
 			"id":"13023931",
 			"zone":"13023931",
-			"name":"13023931",
+			"name":"Meter no.15",
 			"capacity": 595.08,
 			"display": false,
 			"building": [ "PHA001","PHA003" ]
@@ -52,7 +52,7 @@
 			"no":"105",
 			"id":"13024447",
 			"zone":"13024447",
-			"name":"13024447",
+			"name":"Meter no.24",
 			"capacity": 97.20,
 			"display": false,
 			"building": [ "INS012" ]
@@ -61,7 +61,7 @@
 			"no":"106",
 			"id":"13028685",
 			"zone":"13028685",
-			"name":"13028685",
+			"name":"Meter no.17",
 			"capacity": 32.40,
 			"display": false,
 			"building": [ "VET001" ]
@@ -70,7 +70,7 @@
 			"no":"107",
 			"id":"13028863",
 			"zone":"13028863",
-			"name":"13028863",
+			"name":"Meter no.21",
 			"capacity": 243.00,
 			"display": true,
 			"building": [ "ARC003","CEN053","CEN081" ]
@@ -79,7 +79,7 @@
 			"no":"108",
 			"id":"13029461",
 			"zone":"13029461",
-			"name":"13029461",
+			"name":"Meter no.23",
 			"capacity": 1193.30,
 			"display": false,
 			"building": [ "CEN032","SCI028","CEN068","SCI025","CEN060","ECO001","SCI020" ]
@@ -88,7 +88,7 @@
 			"no":"109",
 			"id":"13030117",
 			"zone":"13030117",
-			"name":"13030117",
+			"name":"Meter no.01",
 			"capacity": 120.96,
 			"display": false,
 			"building": [ "INS010" ]
@@ -97,7 +97,7 @@
 			"no":"110",
 			"id":"13030847",
 			"zone":"13030847",
-			"name":"13030847",
+			"name":"Meter no.12",
 			"capacity": 153.36,
 			"display": true,
 			"building": [ "CEN072", "CEN027" ]
@@ -106,7 +106,7 @@
 			"no":"111",
 			"id":"13030979",
 			"zone":"13030979",
-			"name":"13030979",
+			"name":"Meter no.02",
 			"capacity": 56.70,
 			"display": false,
 			"building": [ "INS011" ]
@@ -115,7 +115,7 @@
 			"no":"112",
 			"id":"13036201",
 			"zone":"13036201",
-			"name":"13036201",
+			"name":"Meter no.25",
 			"capacity":131.76,
 			"display": false,
 			"building": [ "PHA006", "PHA007" ]
@@ -124,7 +124,7 @@
 			"no":"113",
 			"id":"13036565",
 			"zone":"13036565",
-			"name":"13036565",
+			"name":"Meter no.16",
 			"capacity": 97.20,
 			"display": false,
 			"building": [ "CEN069" ]
@@ -133,7 +133,7 @@
 			"no":"114",
 			"id":"13037811",
 			"zone":"13037811",
-			"name":"13037811",
+			"name":"Meter no.03",
 			"capacity": 88.56,
 			"display": false,
 			"building": [ "CEN078" ]
@@ -142,7 +142,7 @@
 			"no":"115",
 			"id":"13037909",
 			"zone":"13037909",
-			"name":"13037909",
+			"name":"Meter no.04",
 			"capacity": 224.64,
 			"display": false,
 			"building": [ "CEN099" ]
@@ -151,7 +151,7 @@
 			"no":"116",
 			"id":"13040996",
 			"zone":"13040996",
-			"name":"13040996",
+			"name":"Meter no.20",
 			"capacity": 259.20,
 			"display": false,
 			"building": [ "CEN079", "ART005" ]
@@ -160,7 +160,7 @@
 			"no":"117",
 			"id":"95508259",
 			"zone":"95508259",
-			"name":"95508259",
+			"name":"Meter no.05",
 			"capacity": 48.06,
 			"display": false,
 			"building": [ "CEN089" ]
@@ -169,7 +169,7 @@
 			"no":"118",
 			"id":"95772485",
 			"zone":"95772485",
-			"name":"95772485",
+			"name":"Meter no.06",
 			"capacity": 95.00,
 			"display": true,
 			"building": [ "CEN091" ]
@@ -178,7 +178,7 @@
 			"no":"119",
 			"id":"96253097",
 			"zone":"96253097",
-			"name":"96253097",
+			"name":"Meter no.19",
 			"capacity": 105.84,
 			"display": false,
 			"building": [ "CEN100" ]

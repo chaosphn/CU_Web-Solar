@@ -15,7 +15,7 @@ const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: '/main/dashboard1',
+        redirectTo: '/main/mapview',
         pathMatch: 'full',
     },
     {
@@ -27,7 +27,7 @@ const routes: Routes = [
         },
         children: [
             {
-                path: 'dashboardtv',
+                path: 'mapview',
                 loadChildren: 'src/app/dashboardtv/dashboard.module#DashboardModule',
                 canActivateChild: [ AuthGuard ]
             },
@@ -37,17 +37,17 @@ const routes: Routes = [
                 canActivateChild: [ AuthGuard ]
             },
             {
-                path: 'dashboard1',
+                path: 'overview',
                 loadChildren: 'src/app/dashboard1/dashboard.module#DashboardModule',
                 canActivateChild: [ AuthGuard ]
             },
             {
-                path: 'dashboard2',
+                path: 'zoneview',
                 loadChildren: 'src/app/dashboard2/dashboard.module#DashboardModule',
                 canActivateChild: [ AuthGuard ]
             },
             {
-                path: 'dashboard3',
+                path: 'building',
                 loadChildren: 'src/app/dashboard3/dashboard.module#DashboardModule',
                 canActivateChild: [ AuthGuard ]
             },
@@ -89,7 +89,7 @@ const routes: Routes = [
             {
                 path: 'admin',
                 loadChildren: 'src/app/admin/admin.module#AdminModule',
-                //canActivateChild: [ AuthGuard ]
+                canActivateChild: [ AuthGuard ]
             }
         ]
     },

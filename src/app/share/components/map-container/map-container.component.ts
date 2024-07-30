@@ -47,7 +47,7 @@ export class MapContainerComponent implements OnInit, OnChanges {
     if(mt){
       localStorage.setItem('location', JSON.stringify(mt));
       this.event.changeNavbar();
-      this.router.navigate(['/main/dashboard3']);
+      this.router.navigate(['/main/building']);
     }
   }
 

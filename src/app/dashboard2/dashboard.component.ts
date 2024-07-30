@@ -142,7 +142,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
         this.init02();
         this.onWindowResize()
       } else {
-        this.router.navigate(['/main/dashboard1']);
+        this.router.navigate(['/main/overview']);
       }
     }
     //console.log(Bx)

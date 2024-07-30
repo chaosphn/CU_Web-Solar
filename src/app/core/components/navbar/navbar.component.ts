@@ -51,11 +51,11 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   diagramSelecter:any = false;
   diagramRouter:any = '/main/diagram';
   siteSelected: BuildingModel = {
-    no:"01",
-    id:"ARC003",
-    zone:"3",
-    name:"อาคารเลิศ อุรัสยะนันทน์",
-    capacity: 113.4
+    no: "01",
+    id: "ARC003",
+    name: "อาคารเลิศ อุรัสยะนันทน์",
+    capacity: 113.4,
+    zone: "13028863"
   };
   nowUrl: string;
   buildingList: SiteStateModel;
@@ -123,7 +123,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   }
 
   toggleBackground(data:string){
-    if( data == '/main/dashboardtv' ){
+    if( data == '/main/mapview' ){
       this.bgStatus = true;
       //console.log('special bg1');
     } else{
@@ -146,7 +146,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
 
   checkRoute(){
     const rout = this.router.url.toString();
-    if( rout == '/main/dashboardtv' ){
+    if( rout == '/main/mapview' ){
       return false;
     } else{
       return true;
@@ -201,7 +201,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
 
   callHome(){
     this.event.changeNavbar();
-    this.router.navigate(['/main/dashboard1']);
+    this.router.navigate(['/main/overview']);
   }
 
   tagShowList = [0,4,5,6,7,8]

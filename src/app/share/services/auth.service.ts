@@ -51,9 +51,12 @@ export class AuthService {
                     pages:[]
                 };
                 res.Access.Pages.forEach(item => {
-                    pageGroup.pages.push(Object.keys(item)[0].toLocaleLowerCase());
+                    //console.log(item)
                     let key = Object.keys(item);
-                    //console.log(item.key);
+                    if(item[key[0]]){
+                        pageGroup.pages.push(key[0].toLocaleLowerCase());
+                    }
+                    
                 });
                 localStorage.setItem('pages', JSON.stringify(pageGroup));
             }

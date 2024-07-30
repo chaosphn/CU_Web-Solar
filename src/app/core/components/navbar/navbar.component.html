@@ -40,15 +40,15 @@
           </mat-select>
         </div>
       </a>
-      <a mat-list-item href="#" class="box" routerLink="/main/dashboardtv" routerLinkActive="active"
-        *ngIf="pages.indexOf('dashboardtv') > -1" (click)="toggleBackground('/main/dashboardtv')">
+      <a mat-list-item href="#" class="box" routerLink="/main/mapview" routerLinkActive="active"
+        *ngIf="pages.indexOf('mapview') > -1" (click)="toggleBackground('/main/mapview')">
         <i class="material-icons">
           language
         </i>
         <p>MAP OVERVIEW</p>
       </a>
-      <a mat-list-item href="#" class="box" routerLink="/main/dashboard1" routerLinkActive="active"
-        *ngIf="pages.indexOf('dashboard1') > -1" (click)="toggleBackground('/main/dashboard1')">
+      <a mat-list-item href="#" class="box" routerLink="/main/overview" routerLinkActive="active"
+        *ngIf="pages.indexOf('overview') > -1" (click)="toggleBackground('/main/overview')">
         <i class="material-icons">
           dashboard
         </i>
@@ -61,8 +61,8 @@
         </i>
         <p>DASHBOARD</p>
       </a>
-      <a mat-list-item href="#" class="box" routerLink="/main/dashboard3" routerLinkActive="active"
-        *ngIf="pages.indexOf('dashboard3') > -1" (click)="toggleBackground('/main/dashboard')">
+      <a mat-list-item href="#" class="box" routerLink="/main/building" routerLinkActive="active"
+        *ngIf="pages.indexOf('building') > -1" (click)="toggleBackground('/main/building')">
         <i class="material-icons">
           account_balance
         </i>
@@ -111,7 +111,7 @@
         <p>REPORTS</p>
       </a>
       <a mat-list-item href="#" class="box" routerLink="/main/admin" routerLinkActive="active"
-         (click)="toggleBackground('/main/admin')">
+        *ngIf="pages.indexOf('admin') > -1"  (click)="toggleBackground('/main/admin')">
         <i class="material-icons">
           dashboard_customize
         </i>
@@ -124,12 +124,12 @@
     <mat-toolbar [style.display]="(isHandset$ | async) ? 'inherit': 'none'" class="header-control"
       [ngClass]="{'special': bgStatus}">
       <div class="nav-content">
-        <div mat-list-item href="#" class="icon-box dashboard" routerLinkActive="icon-active" routerLink="/main/dashboardtv">
+        <div mat-list-item href="#" class="icon-box dashboard" routerLinkActive="icon-active" routerLink="/main/mapview">
           <i class="material-icons icon-material-icons">
             language
           </i>
         </div>
-        <a mat-list-item href="#" class="icon-box diagram" routerLinkActive="icon-active" routerLink="/main/dashboard1">
+        <a mat-list-item href="#" class="icon-box diagram" routerLinkActive="icon-active" routerLink="/main/overview">
           <i class="material-icons icon-material-icons">
             dashboard
           </i>

@@ -9,6 +9,22 @@
 			"Name": "B006.PQM06.W"
 		},
 		{
+			"Title": "13014105_solar",
+			"Name": "CALC.ZONE10.W"
+		},
+		{
+			"Title": "13028863_solar",
+			"Name": "CALC.ZONE21.W"
+		},
+		{
+			"Title": "13030847_solar",
+			"Name": "CALC.ZONE12.W"
+		},
+		{
+			"Title": "95772485_solar",
+			"Name": "B006.TOU06.W"
+		},
+		{
 			"Title": "CEN001_power",
 			"Name": "B002.TOU02.W"
 		},

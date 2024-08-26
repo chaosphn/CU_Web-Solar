@@ -79,6 +79,7 @@
                                     <td class="brd" *ngFor="let col of row; index as j;">
                                         <span *ngIf="j==0">{{col | date: selectedReport.Header[0].type}}</span>
                                         <span *ngIf="j!=0">{{ ((col | myNumber: '1.0-4') * selectedReport.Header[j].factor) | report: 2}}</span>
+            
                                     </td>
                                 </tr>
                                 <tr>

@@ -122,4 +122,28 @@ export class AdminComponent implements OnInit, AfterViewInit {
     }
   }
 
+  async selectHolidays(date: any){
+
+    if(this.isInitialize){
+      this.holidayArr = [];
+      this.holidays = [];
+      const dateTime = new Date(date);
+      const req: HolidayRequestModel = {
+        StartDate: this.dateTimeService.getDateTime(new Date(dateTime.getFullYear(), 0, 1)),
+        EndDate: this.dateTimeService.getDateTime(new Date(dateTime.getFullYear(), 11, 31))
+      };
+      const res: HolidayResponseModel[] = await this.httpSrv.getReportHoliday(req); 
+      if(res){
+        res.forEach(item => {
+          let start = new Date(item.StartDate).getTime();
+          let end = new Date(item.EndDate).getTime();
+          let dayMillisec = 24*60*60*1000;
+          this.holidayArr.push(new Date(item.StartDate));
+        });
+        this.holidays = res;
+      } else {
+        alert('Report factor not found!');
+      }
+  }}
+
 }

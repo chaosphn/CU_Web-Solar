@@ -54,10 +54,10 @@
     </section>
     <section class="site-card" *ngFor="let item of zoneList;">
       <div class="site-content ">
-          <div class="site-info " (click)="routNavigate(item.project)">
+          <div class="site-info " (click)="routNavigate(item.name)">
             <div class="site-img "><img src="assets/images/building/dashboard/janitza.png" alt="" ></div>
             <div class="site-topic">
-              <p class="zone no-pm">{{item.project}}</p>    
+              <p class="zone no-pm">{{item.name}}</p>    
               <div class="longlist-container bz"><p class="tlist" [id]="item.building.length > 2 ? 'zone1': ''">{{getSiteTxt(item.building)}} </p></div>     
               <p class="capacity no-pm">{{item.capacity}} kWp</p>
               <p class="location no-pm">จุฬาลงกรณ์มหาวิทยาลัย</p>

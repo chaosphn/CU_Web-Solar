@@ -196,6 +196,31 @@
     }
 }
 
+@-webkit-keyframes fade-out-fwd {
+    0% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateZ(80px);
+              transform: translateZ(80px);
+      opacity: 0;
+    }
+}
+@keyframes fade-out-fwd {
+    0% {
+      -webkit-transform: translateZ(0);
+              transform: translateZ(0);
+      opacity: 1;
+    }
+    100% {
+      -webkit-transform: translateZ(80px);
+              transform: translateZ(80px);
+      opacity: 0;
+    }
+  }
+
 @media screen and (max-width: 500px) {
 
     .container-box{

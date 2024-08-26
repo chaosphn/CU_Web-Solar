@@ -168,7 +168,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     if(config){
       config.building.filter(x => x.building).forEach(i => {
         let item: SiteStateModel = {
-          project: i.name,
+          name: i.name,
+          project: i.id,
           capacity: i.capacity,
           number: parseInt(i.no),
           building: i.building.map(function(bx){

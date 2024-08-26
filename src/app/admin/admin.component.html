@@ -3,21 +3,23 @@
     <div class="head w-100 bz d-flex">
       <div class="tpc-item h-100 bz"><span>Report Facror :</span></div>
       <div class="inp-item d-flex bz">
-        <div class="input-group">
-          <div class="input-group-prepend">
+        <div class="input-group ">
+          <div class="input-group-prepend ">
             <i class="material-icons">
               monetization_on
             </i>
+            <p>Exchange Rate : </p>
           </div>
-          <input [(ngModel)]="reportFactors.ExchangeRate" step="0.001" name="ex-rate" type="number" class="form-control" placeholder="Exchange Rate">
+          <input [(ngModel)]="reportFactors.ExchangeRate" step="0.001" name="ex-rate" type="number" class="form-control" placeholder="0.00">
         </div>
         <div class="input-group">
           <div class="input-group-prepend">
             <i class="material-icons">
               cloud
             </i>
+            <p>CO2 Ratio : </p>
           </div>
-          <input [(ngModel)]="reportFactors.CO2Rate" step="0.001" name="ex-rate" type="number" class="form-control" placeholder="Co2 Rate" aria-label="Co2 rate"
+          <input [(ngModel)]="reportFactors.CO2Rate" step="0.001" name="ex-rate" type="number" class="form-control" placeholder="0.00"
             aria-describedby="basic-addon1">
         </div>
         <div class="input-group">
@@ -25,8 +27,9 @@
             <i class="material-icons">
               opacity
             </i>
+            <p>Fuel Ratio : </p>
           </div>
-          <input [(ngModel)]="reportFactors.OilRate" step="0.001" name="ex-rate" type="number" class="form-control" placeholder="Oil Rate" aria-label="Oil rate"
+          <input [(ngModel)]="reportFactors.OilRate" step="0.001" name="ex-rate" type="number" class="form-control" placeholder="0.00" 
             aria-describedby="basic-addon1">
         </div>
         <div class="input-group">
@@ -34,8 +37,9 @@
             <i class="material-icons">
               terrain
             </i>
+            <p>Tree Ratio : </p>
           </div>
-          <input [(ngModel)]="reportFactors.TreeRate" step="0.001" name="ex-rate" type="number" class="form-control" placeholder="Tree Rate" aria-label="Tree rate"
+          <input [(ngModel)]="reportFactors.TreeRate" step="0.001" name="ex-rate" type="number" class="form-control" placeholder="0.00"
             aria-describedby="basic-addon1">
         </div>
       </div>
@@ -49,7 +53,12 @@
       <div class="tpc-item h-100 bz"><span>Holiday Setting :</span></div>
       <div class="inp-item d-flex bz">
         <app-time-control [pickerType]="'calendar'"
-          style="margin-right: 7px;" (selectDatetime)="onDateTimeChange($event)"
+          style="margin-right: 7px;" (selectDatetime)="selectHolidays($event)" [startView]="'multi-years'"
+         [dateTime]="dateTime"></app-time-control>
+      </div>
+      <div class="inp-item d-flex bz">
+        <app-time-control [pickerType]="'calendar'"
+          style="margin-right: 7px;" (selectDatetime)="onDateTimeChange($event)" 
          [dateTime]="dateTime"></app-time-control>
       </div>
       <div class="btn-item h-100 bz">

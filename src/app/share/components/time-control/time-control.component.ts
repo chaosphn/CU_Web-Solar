@@ -101,7 +101,7 @@ export class TimeControlComponent implements OnInit, OnChanges {
     if (this.startView === 'multi-years') {
       const date = new Date(normalizedYear.year(), normalizedYear.month(), normalizedYear.date());
       this.dateTime = date;
-      this.setDate();
+      //this.setDate();
       datepicker.close();
     }
   }

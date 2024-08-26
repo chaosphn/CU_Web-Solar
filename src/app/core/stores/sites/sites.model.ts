@@ -2,6 +2,7 @@ export interface SiteStateModel{
     project: string;
     capacity: number;
     number: number;
+    name?: string;
     building: BuildingModel[];
 }
 

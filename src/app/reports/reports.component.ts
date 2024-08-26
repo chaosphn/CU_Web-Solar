@@ -57,6 +57,7 @@ export class ReportsComponent implements OnInit {
   chart: Chart;
   loading: boolean = false;
   holiday: string[] = [];
+  adminAccess: boolean = false;
 
   constructor(private httpService: HttpService,
     private reportHttpService: ReportHttpService,

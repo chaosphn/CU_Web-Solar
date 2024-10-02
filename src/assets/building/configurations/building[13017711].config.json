@@ -1,0 +1,35 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "DEN002_power",
+			"Name": "B045.TOU45.W"
+		},
+		{
+			"Title": "DEN014_power",
+			"Name": "B009.TOU09.W"
+		},
+		{
+			"Title": "DEN002_energy",
+			"Name": "B045.CALC45.WH_TODAY"
+		},
+		{
+			"Title": "DEN014_energy",
+			"Name": "B009.CALC09.WH_TODAY"
+		}
+	],
+	"historianConfig": [
+		{
+			"Name": "B001.TOU01.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}
+	],
+	"chartConfig":[
+		
+	]
+}

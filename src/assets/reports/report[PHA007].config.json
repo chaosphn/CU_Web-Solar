@@ -1,0 +1,203 @@
+[
+    {
+        "Name": "Daily Energy Report",
+        "Type": "daily",
+        "DateFormat": "dd MMMM yyyy",
+        "ExchangeRate": 2.75,
+        "Co2Rate": 0.23314,
+        "OilRate": 0.30283,
+        "TreeRate": 0.0193,
+        "Header": [
+            {
+                "title": "Time",
+                "tagname": "",
+                "option": "TIME",
+                "width": "4rem",
+                "type": "HH:mm",
+                "display": "Total/Average"
+            },
+            {
+                "title": "Energy\nProduction\n(kWh)",
+                "tagname": "B010.TOU10.WH",
+                "option": "DIFF",
+                "width": "7rem",
+                "type": "SUM",
+                "factor": 1
+            },
+            {
+                "title": "Energy On Peak\n(kWh)",
+                "tagname": "B010.TOU10.WH",
+                "option": "ONPEAK",
+                "width": "8rem",
+                "type": "SUM",
+                "factor": 1
+            },
+            {
+                "title": "Energy Off Peak\n(kWh)",
+                "tagname": "B010.TOU10.WH",
+                "option": "OFFPEAK",
+                "width": "8rem",
+                "type": "SUM",
+                "factor": 1
+            },
+            {
+                "title": "Irradiance\n(Wh/m2)",
+                "tagname": "B006.SLOGGER06.PYRANO",
+                "option": "AVG",
+                "width": "7rem",
+                "type": "SUM",
+                "factor": 1
+            },
+            {
+                "title": "Ambient Temp.\n(°C)",
+                "tagname": "B006.SLOGGER06.AMBTEMP",
+                "option": "AVG",
+                "width": "7rem",
+                "type": "AVG",
+                "factor": 1
+            },
+            {
+                "title": "Module Temp.\n(°C)",
+                "tagname": "B006.SLOGGER06.PVTEMP",
+                "option": "AVG",
+                "width": "7rem",
+                "type": "AVG",
+                "factor": 1
+            }
+        ]
+    },
+    {
+        "Name": "Monthly Energy Report",
+        "Type": "monthly",
+        "DateFormat": "MMMM yyyy",
+        "ExchangeRate": 2.75,
+        "Co2Rate": 0.23314,
+        "OilRate": 0.30283,
+        "TreeRate": 0.0193,
+        "Header": [
+            {
+                "title": "Day",
+                "tagname": "",
+                "option": "TIME",
+                "width": "4rem",
+                "type": "dd",
+                "display": "Total/Average"
+            },
+            {
+                "title": "Energy\nProduction\n(kWh)",
+                "tagname": "B010.TOU10.WH",
+                "option": "DIFF",
+                "width": "7rem",
+                "type": "SUM",
+                "factor": 1
+            },
+            {
+                "title": "Energy On Peak\n(kWh)",
+                "tagname": "B010.TOU10.WH",
+                "option": "ONPEAK",
+                "width": "8rem",
+                "type": "SUM",
+                "factor": 1
+            },
+            {
+                "title": "Energy Off Peak\n(kWh)",
+                "tagname": "B010.TOU10.WH",
+                "option": "OFFPEAK",
+                "width": "8rem",
+                "type": "SUM",
+                "factor": 1
+            },
+            {
+                "title": "Irradiance\n(Wh/m2)",
+                "tagname": "B006.SLOGGER06.IRR_TODAY",
+                "option": "DIFF",
+                "width": "7rem",
+                "type": "SUM",
+                "factor": 1000
+            },
+            {
+                "title": "Ambient Temp.\n(°C)",
+                "tagname": "B006.SLOGGER06.AMBTEMP",
+                "option": "AVG",
+                "width": "7rem",
+                "type": "AVG",
+                "factor": 1
+            },
+            {
+                "title": "Module Temp.\n(°C)",
+                "tagname": "B006.SLOGGER06.PVTEMP",
+                "option": "AVG",
+                "width": "7rem",
+                "type": "AVG",
+                "factor": 1
+            }
+        ]
+    },
+    {
+        "Name": "Yearly Energy Report",
+        "Type": "yearly",
+        "DateFormat": "yyyy",
+        "ExchangeRate": 2.75,
+        "Co2Rate": 0.23314,
+        "OilRate": 0.30283,
+        "TreeRate": 0.0193,
+        "Header": [
+            {
+                "title": "Month",
+                "tagname": "",
+                "option": "TIME",
+                "width": "4rem",
+                "type": "MMMM",
+                "display": "Total/Average"
+            },
+            {
+                "title": "Energy\nProduction\n(kWh)",
+                "tagname": "B010.TOU10.WH",
+                "option": "DIFF",
+                "width": "7rem",
+                "type": "SUM",
+                "factor": 1
+            },
+            {
+                "title": "Energy On Peak\n(kWh)",
+                "tagname": "B010.TOU10.WH",
+                "option": "PEAKMONTH",
+                "width": "8rem",
+                "type": "SUM",
+                "factor": 1
+            },
+            {
+                "title": "Energy Off Peak\n(kWh)",
+                "tagname": "B010.TOU10.WH",
+                "option": "OFFPEAK",
+                "width": "8rem",
+                "type": "SUM",
+                "factor": 1
+            },
+            {
+                "title": "Irradiance\n(Wh/m2)",
+                "tagname": "B006.SLOGGER06.IRR_TODAY",
+                "option": "SUMMAX",
+                "width": "7rem",
+                "type": "SUM",
+                "factor": 1000
+            },
+            {
+                "title": "Ambient Temp.\n(°C)",
+                "tagname": "B006.SLOGGER06.AMBTEMP",
+                "option": "AVGALL",
+                "width": "7rem",
+                "type": "AVG",
+                "factor": 1
+            },
+            {
+                "title": "Module Temp.\n(°C)",
+                "tagname": "B006.SLOGGER06.PVTEMP",
+                "option": "AVGALL",
+                "width": "7rem",
+                "type": "AVG",
+                "factor": 1
+            }
+        ]
+    }
+]

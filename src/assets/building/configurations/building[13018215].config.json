@@ -1,0 +1,60 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "LAW003_power",
+			"Name": "B008.TOU08.W"
+		},
+		{
+			"Title": "PSC012_power",
+			"Name": "B017.TOU17.W"
+		},
+		{
+			"Title": "EDU011_power",
+			"Name": "B032.TOU32.W"
+		},
+		{
+			"Title": "ESC008_power",
+			"Name": "B033.TOU33.W"
+		},
+		{
+			"Title": "CEN006_power",
+			"Name": "B040.TOU40.W"
+		},
+		{
+			"Title": "LAW003_energy",
+			"Name": "B008.CALC08.WH_TODAY"
+		},
+		{
+			"Title": "PSC012_energy",
+			"Name": "B017.CALC17.WH_TODAY"
+		},
+		{
+			"Title": "EDU011_energy",
+			"Name": "B032.CALC32.WH_TODAY"
+		},
+		{
+			"Title": "ESC008_energy",
+			"Name": "B033.CALC33.WH_TODAY"
+		},
+		{
+			"Title": "CEN006_energy",
+			"Name": "B040.CALC40.WH_TODAY"
+		}
+
+	],
+	"historianConfig": [
+		{
+			"Name": "B001.TOU01.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}
+	],
+	"chartConfig":[
+		
+	]
+}

@@ -170,7 +170,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   handleImageError(event: Event): void {
-    (event.target as HTMLImageElement).src = 'assets/images/building/dashboard/SAT000.png';
+    (event.target as HTMLImageElement).src = 'assets/images/notfound.jpg';
   }
 
 

@@ -1,0 +1,52 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "INS009_power",
+			"Name": "B012.TOU12.W"
+		},
+		{
+			"Title": "CEN093_power",
+			"Name": "B022.TOU22.W"
+		},
+		{
+			"Title": "ENG028_power",
+			"Name": "B028.TOU28.W"
+		},
+		{
+			"Title": "ENG030_power",
+			"Name": "B031.TOU31.W"
+		},
+		{
+			"Title": "INS009_energy",
+			"Name": "B012.CALC12.WH_TODAY"
+		},
+		{
+			"Title": "CEN093_energy",
+			"Name": "B022.CALC22.WH_TODAY"
+		},
+		{
+			"Title": "ENG028_energy",
+			"Name": "B028.CALC28.WH_TODAY"
+		},
+		{
+			"Title": "ENG030_energy",
+			"Name": "B031.CALC31.WH_TODAY"
+		}
+
+	],
+	"historianConfig": [
+		{
+			"Name": "B001.TOU01.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}
+	],
+	"chartConfig":[
+		
+	]
+}

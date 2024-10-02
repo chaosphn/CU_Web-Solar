@@ -212,6 +212,7 @@ export class ChartsComponent implements OnInit, AfterViewInit {
   selectedPeriodGroup(periodName: PeriodGroup) {
     this.periodGroupSelected = periodName;
     //this.dateTime = new Date(new Date());
+    this.dateTime = new Date();
     this.onDateTimeChange(this.dateTime);
     //console.log('start: '+this.startDate+'\nend: '+this.endDate);
     this.render(this.tagNames, this.startDate, this.endDate);
@@ -506,7 +507,7 @@ export class ChartsComponent implements OnInit, AfterViewInit {
         let endDate = new Date(this.dateTime);
         endDate.setMonth(endDate.getMonth() + 1, 1);
         this.endDate = this.dateTimeService.getDateTime(endDate);
-        this.dateTime = new Date();
+        //this.dateTime = new Date();
         break;
       case "yearly":
         let startMonth = this.dateTime.setMonth(1, 1);
@@ -514,7 +515,7 @@ export class ChartsComponent implements OnInit, AfterViewInit {
         let endMonth = new Date(this.dateTime);
         endMonth.setFullYear(endMonth.getFullYear(), 12, 1);
         this.endDate = this.dateTimeService.getDateTime(endMonth);
-        this.dateTime = new Date();
+        //this.dateTime = new Date();
         break;
     }
     //console.log('start : ' + this.startDate + '\nend : '+ this.endDate);

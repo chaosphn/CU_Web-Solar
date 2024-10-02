@@ -59,7 +59,12 @@ export class TimeControlComponent implements OnInit, OnChanges {
           const newDate = new Date(this.dateTime);
           this.selectDatetime.emit(newDate);
         }
+      } else if(propName === 'dateTime'){
+      
       }
+      // console.log(propName)
+      // console.log(changes)
+      // console.log(this.dateTime)
     }
     
   }

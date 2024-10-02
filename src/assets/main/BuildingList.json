@@ -8,18 +8,18 @@
 			"id":"13014105",
 			"zone":"13014105",
 			"name":"Meter no.10",
-			"capacity": 603.18,
+			"capacity": 538.38,
 			"display": true,
-			"building": [ "CEN001","CEN003","CEN005","CEN103","CEN087","EDU003" ]
+			"building": [ "CEN001","CEN003","CEN005","CEN103","CEN087" ]
 		},
 		{
 			"no":"101",
 			"id":"13017711",
 			"zone":"13017711",
 			"name":"Meter no.13",
-			"capacity": 331.56,
+			"capacity": 142.56,
 			"display": false,
-			"building": [ "DEN001","DEN001","DEN014" ]
+			"building": [ "DEN002","DEN014" ]
 		},
 		{
 			"no":"102",
@@ -35,9 +35,9 @@
 			"id":"13018538",
 			"zone":"13018538",
 			"name":"Meter no.22",
-			"capacity": 849.42,
+			"capacity": 408.24,
 			"display": false,
-			"building": [ "INS009","CEN093","ENG028","ENG026","ENG030","ENG013"  ]
+			"building": [ "INS009","CEN093","ENG028","ENG030" ]
 		},
 		{
 			"no":"104",
@@ -58,22 +58,13 @@
 			"building": [ "INS012" ]
 		},
 		{
-			"no":"106",
-			"id":"13028685",
-			"zone":"13028685",
-			"name":"Meter no.17",
-			"capacity": 32.40,
-			"display": false,
-			"building": [ "VET001" ]
-		},
-		{
 			"no":"107",
 			"id":"13028863",
 			"zone":"13028863",
 			"name":"Meter no.21",
-			"capacity": 243.00,
+			"capacity": 191.16,
 			"display": true,
-			"building": [ "ARC003","CEN053","CEN081" ]
+			"building": [ "ARC003","CEN053" ]
 		},
 		{
 			"no":"108",
@@ -98,9 +89,9 @@
 			"id":"13030847",
 			"zone":"13030847",
 			"name":"Meter no.12",
-			"capacity": 153.36,
+			"capacity": 91.8,
 			"display": true,
-			"building": [ "CEN072", "CEN027" ]
+			"building": [ "CEN072" ]
 		},
 		{
 			"no":"111",
@@ -170,7 +161,7 @@
 			"id":"95772485",
 			"zone":"95772485",
 			"name":"Meter no.06",
-			"capacity": 95.00,
+			"capacity": 95.04,
 			"display": true,
 			"building": [ "CEN091" ]
 		},
@@ -360,22 +351,6 @@
 			"display": false
 		},
 		{
-			"no":"47",
-			"id":"ENG013",
-			"zone":"13018538",
-			"name":"อาคารปฏิบัติการเจริญวิศวกรรม",
-			"capacity": 288.9,
-			"display": false
-		},
-		{
-			"no":"30",
-			"id":"ENG026",
-			"zone":"13018538",
-			"name":"อาคารนิวเคลียร์เทคโนโลยี วิศวกรรมเคมีและวิศวกรรมโลหการ",
-			"capacity": 152.28,
-			"display": false
-		},
-		{
 			"no":"28",
 			"id":"ENG028",
 			"zone":"13018538",
@@ -405,14 +380,6 @@
 			"zone":"13028863",
 			"name":"อาคารบรมราชกุมารี",
 			"capacity": 77.76 ,
-			"display": false
-		},
-		{
-			"no":"48",
-			"id":"CEN081",
-			"zone":"13028863",
-			"name":"อาคารพิพิธภัณฑ์จุฬาลงกรณ์มหาวิทยาลัย",
-			"capacity": 51.84,
 			"display": false
 		},
 		{
@@ -472,14 +439,6 @@
 			"display": false
 		},
 		{
-			"no":"41",
-			"id":"EDU003",
-			"zone":"13014105",
-			"name":"อาคารประชุมสุข อาชวอำรุง",
-			"capacity": 64.8,
-			"display": false
-		},
-		{
 			"no":"32",
 			"id":"EDU011",
 			"zone":"13018215",
@@ -504,27 +463,11 @@
 			"display": false
 		},
 		{
-			"no":"16",
-			"id":"CEN027",
-			"zone":"13030847",
-			"name":"หอพักพุดตาน",
-			"capacity": 61.56,
-			"display": false
-		},
-		{
 			"no":"38",
 			"id":"INS010",
 			"zone":"13030117",
 			"name":"อาคารศศปาฐศาลา",
 			"capacity": 120.96,
-			"display": false
-		},
-		{
-			"no":"43",
-			"id":"DEN001",
-			"zone":"13017711",
-			"name":"อาคารทันตกรรม1",
-			"capacity": 189.2 ,
 			"display": false
 		},
 		{
@@ -550,14 +493,6 @@
 			"name":"สถานปฏิบัติการเภสัชกรรมชุมชน(โอสถศาลา)",
 			"capacity": 48.6,
 			"display": false
-		},
-		{
-			"no":"11",
-			"id":"VET001",
-			"zone":"13028685",
-			"name":"อาคารสัตวแพทย์1",
-			"capacity": 32.4,
-			"display": false 
 		},
 		{
 			"no":"33",

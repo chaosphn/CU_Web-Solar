@@ -1,0 +1,35 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "PHA003_power",
+			"Name": "B007.TOU07.W"
+		},
+		{
+			"Title": "PHA001_power",
+			"Name": "B044.TOU44.W"
+		},
+		{
+			"Title": "PHA003_energy",
+			"Name": "B007.CALC07.WH_TODAY"
+		},
+		{
+			"Title": "PHA001_energy",
+			"Name": "B044.CALC44.WH_TODAY"
+		}
+	],
+	"historianConfig": [
+		{
+			"Name": "B001.TOU01.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}
+	],
+	"chartConfig":[
+		
+	]
+}

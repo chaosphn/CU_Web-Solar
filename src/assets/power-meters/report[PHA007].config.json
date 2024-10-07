@@ -1,16 +1,30 @@
 [
     {
+        "Name": "PQM10",
+        "kWH": "B010.PQM10.WH",
+        "kW": "B010.PQM10.W",
+        "kVAR": "B010.PQM10.VAR",
+        "HZ": "B010.TOU10.HZ",
+        "PF": "B010.PQM10.PF",
+        "VACA": "B010.PQM10.V1",
+        "VACB": "B010.PQM10.V2",
+        "VACC": "B010.PQM10.V3",
+        "IACA": "B010.PQM10.I1",
+        "IACB": "B010.PQM10.I2",
+        "IACC": "B010.PQM10.I3"
+    },
+    {
         "Name": "TOU10",
-        "kWH": "TOU10.WH",
-        "kW": "TOU10.W",
-        "kVAR": "TOU10.VAR",
-        "HZ": "TOU10.HZ",
-        "PF": "TOU10.PF",
-        "VACA": "TOU10.V1",
-        "VACB": "TOU10.V2",
-        "VACC": "TOU10.V3",
-        "IACA": "TOU10.I1",
-        "IACB": "TOU10.I2",
-        "IACC": "TOU10.I3"
+        "kWH": "B010.TOU10.WH",
+        "kW": "B010.TOU10.W",
+        "kVAR": "B010.TOU10.VAR",
+        "HZ": "B010.TOU10.HZ",
+        "PF": "B010.TOU10.PF",
+        "VACA": "B010.TOU10.V1",
+        "VACB": "B010.TOU10.V2",
+        "VACC": "B010.TOU10.V3",
+        "IACA": "B010.TOU10.I1",
+        "IACB": "B010.TOU10.I2",
+        "IACC": "B010.TOU10.I3"
     }
 ]

@@ -1,26 +1,26 @@
 [
         {
                 "Name": "INV0901",
-                "WH": "INV0901.WH",
-                "WAC": "INV0901.WAC",
-                "WDC": "INV0901.WDC",
-                "IAC": "INV0901.IAC",
-                "IDC": "INV0901.IDC",
-                "VAC": "INV0901.VAC",
-                "VDC": "INV0901.VDC",
-                "VAR": "INV0901.VAR",               
-                "HZ": "INV0901.HZ"
+                "WH": "B009.INV0901.WH",
+                "WAC": "B009.INV0901.WAC",
+                "WDC": "B009.INV0901.WDC",
+                "IAC": "B009.INV0901.IAC",
+                "IDC": "B009.INV0901.IDC",
+                "VAC": "B009.INV0901.VAC",
+                "VDC": "B009.INV0901.VDC",
+                "VAR": "B009.INV0901.VAR",               
+                "HZ": "B009.INV0901.HZ"
         },
 		{
                 "Name": "INV0902",
-                "WH": "INV0902.WH",
-                "WAC": "INV0902.WAC",
-                "WDC": "INV0902.WDC",
-                "IAC": "INV0902.IAC",
-                "IDC": "INV0902.IDC",              
-                "VAC": "INV0902.VAC",
-                "VDC": "INV0902.VDC",
-                "VAR": "INV0902.VAR",
-                "HZ": "INV0902.HZ"
+                "WH": "B009.INV0902.WH",
+                "WAC": "B009.INV0902.WAC",
+                "WDC": "B009.INV0902.WDC",
+                "IAC": "B009.INV0902.IAC",
+                "IDC": "B009.INV0902.IDC",              
+                "VAC": "B009.INV0902.VAC",
+                "VDC": "B009.INV0902.VDC",
+                "VAR": "B009.INV0902.VAR",
+                "HZ": "B009.INV0902.HZ"
         }
 ]

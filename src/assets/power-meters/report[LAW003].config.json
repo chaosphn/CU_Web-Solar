@@ -1,16 +1,17 @@
 [
+	
     {
         "Name": "TOU08",
-        "kWH": "TOU08.WH",
-        "kW": "TOU08.W",
-        "kVAR": "TOU08.VAR",
-        "HZ": "TOU08.HZ",
-        "PF": "TOU08.PF",
-        "VACA": "TOU08.V1",
-        "VACB": "TOU08.V2",
-        "VACC": "TOU08.V3",
-        "IACA": "TOU08.I1",
-        "IACB": "TOU08.I2",
-        "IACC": "TOU08.I3"
+        "kWH": "B008.TOU08.WH",
+        "kW": "B008.TOU08.W",
+        "kVAR": "B008.TOU08.VAR",
+        "HZ": "B008.TOU08.HZ",
+        "PF": "B008.TOU08.PF",
+        "VACA": "B008.TOU08.V1",
+        "VACB": "B008.TOU08.V2",
+        "VACC": "B008.TOU08.V3",
+        "IACA": "B008.TOU08.I1",
+        "IACB": "B008.TOU08.I2",
+        "IACC": "B008.TOU08.I3"
     }
 ]

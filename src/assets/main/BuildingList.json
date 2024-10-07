@@ -18,7 +18,7 @@
 			"zone":"13017711",
 			"name":"Meter no.13",
 			"capacity": 142.56,
-			"display": false,
+			"display": true,
 			"building": [ "DEN002","DEN014" ]
 		},
 		{
@@ -27,7 +27,7 @@
 			"zone":"13018215",
 			"name":"Meter no.11",
 			"capacity": 1037.88,
-			"display": false,
+			"display": true,
 			"building": [ "LAW003","PSC012","EDU011","ESC008","CEN006"  ]
 		},
 		{
@@ -36,7 +36,7 @@
 			"zone":"13018538",
 			"name":"Meter no.22",
 			"capacity": 408.24,
-			"display": false,
+			"display": true,
 			"building": [ "INS009","CEN093","ENG028","ENG030" ]
 		},
 		{
@@ -45,7 +45,7 @@
 			"zone":"13023931",
 			"name":"Meter no.15",
 			"capacity": 595.08,
-			"display": false,
+			"display": true,
 			"building": [ "PHA001","PHA003" ]
 		},
 		{
@@ -108,7 +108,7 @@
 			"zone":"13036201",
 			"name":"Meter no.25",
 			"capacity":131.76,
-			"display": false,
+			"display": true,
 			"building": [ "PHA006", "PHA007" ]
 		},
 		{

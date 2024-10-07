@@ -1,0 +1,343 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "power_value",
+			"Name": "M010.JNZC10.W"
+		},
+		{
+			"Title": "power_expected",
+			"Name": "M010.JNZC10.W_EXPECT"
+		},
+		{
+			"Title": "power_peak",
+			"Name": "M010.JNZC10.W_PEAK_DAY"
+		},
+		{
+			"Title": "power_peaktime",
+			"Name": "M010.JNZC10.W_PEAK_DAY_TIME"
+		},
+		{
+			"Title": "power_capacity",
+			"Name": "M010.JNZC10.CAPACITY"
+		},
+		{
+			"Title": "power_pr",
+			"Name": "M010.JNZC10.PR"
+		},
+		{
+			"Title": "energy_value",
+			"Name": "M010.JNZC10.WH"
+		},
+		{
+			"Title": "energy_expected",
+			"Name": "M010.JNZC10.WH_EXPECT_TODAY"
+		},
+		{
+			"Title": "energy_today",
+			"Name": "M010.JNZC10.WH_TODAY"
+		},
+		{
+			"Title": "energy_yesterday",
+			"Name": "M010.JNZC10.WH_YEAR"
+		},
+		{
+			"Title": "energy_mtd",
+			"Name": "M010.JNZC10.WH_MONTH"
+		},
+		{
+			"Title": "energy_cod",
+			"Name": "M010.JNZC10.WH"
+		},
+		{
+			"Title": "weather_irr",
+			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "weather_amb",
+			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+		{
+			"Title": "weather_pv",
+			"Name": "B006.SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "weather_irrtoday",
+			"Name": "B006.SLOGGER06.IRR_TODAY"
+		},
+		{
+			"Title": "weather_co2",
+			"Name": "B010.CALC10.CO2_TODAY"
+		},
+		{
+			"Title": "PHA006_power",
+			"Name": "B010.TOU10.W"
+		},
+		{
+			"Title": "PHA007_power",
+			"Name": "B027.TOU27.W"
+		}
+	],
+	"historianConfig": [
+		{
+			"Name": "B010.PQM10.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "CALC.ZONE25.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B010.TOU10.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B027.TOU27.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B006.SLOGGER06.PYRANO",
+			"Title": "X2",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B010.INV1001.WH",
+			"Title": "X3",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B010.INV1002.WH",
+			"Title": "X3",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B027.INV2701.WH",
+			"Title": "X4",
+			"Options" : {
+				"Interval": 5,
+				"Time" : "t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}
+	],
+	"chartConfig":[
+		{
+			"name": "powerGeneration",
+			"tags": [
+				{
+					"name": "CALC.ZONE25.W",
+					"title": "SOLAR",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#023e8a"
+						}
+					}
+				},
+				{
+					"name": "B010.PQM10.W",
+					"title": "MEA",
+					"options": {
+						"chartOptions": {
+							"yAxis": 1,
+							"type": "area",
+							"color": "#ffb703"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "#7CB5EC",
+							"text": "Solar (kW)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#ffb703",
+							"text": "MEA (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "daily"
+				}
+			}
+		},
+		{
+			"name": "energyExported",
+			"tags": [
+				{
+					"name": "B010.TOU10.W",
+					"title": "TOU10",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#03045e"
+						}
+					}
+				},
+				{
+					"name": "B027.TOU27.W",
+					"title": "TOU27",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#023e8a"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Energy Exported",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"opposite": true,
+							"visible": false
+						},
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": false
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "daily"
+				}
+			}
+		},
+		{
+			"name": "interverEnergy",
+			"tags": [
+				{
+					"name": "B027.INV2701.WH",
+					"title": "INV2701",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#caf0f8"
+						}
+					}
+				},
+				{
+					"name": "B010.INV1001.WH",
+					"title": "INV1001",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#90e0ef"
+						}
+					}
+				},
+				{
+					"name": "B010.INV1002.WH",
+					"title": "INV1002",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "column",
+							"color": "#90e0ef"
+						}
+					}
+				}
+			],
+			"type": "Raw",
+			"title": "INVERTER ENERGY",
+			"options": {
+				"runtimeConfigs": {
+					"periodName": "daily"
+				},
+				"chartOptions": {
+					"yAxis": [
+						{
+							"text": "ENERGY (kWh)",
+							"color": "#7CB5EC"
+						}
+					],
+					"legend": {
+						"enable": true
+					},
+					"xAxis": {
+						"categories": [
+							"INV2701",
+							"INV1001",
+							"INV1002"
+						]
+					}
+				}
+			}
+		}
+	]
+}

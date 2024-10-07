@@ -2,76 +2,76 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "TOU07.W"
+			"Name": "B007.TOU07.W"
 		},
 		{
 			"Title": "power_expected",
-			"Name": "CALC07.W_EXPECT"
+			"Name": "B007.CALC07.W_EXPECT"
 		},
 		{
 			"Title": "power_peak",
-			"Name": "CALC07.W_PEAK_DAY"
+			"Name": "B007.CALC07.W_PEAK_DAY"
 		},
 		{
 			"Title": "power_peaktime",
-			"Name": "CALC07.W_PEAK_DAY_TIME"
+			"Name": "B007.CALC07.W_PEAK_DAY_TIME"
 		},
 		{
 			"Title": "power_capacity",
-			"Name": "CALC07.CAPACITY"
+			"Name": "B007.CALC07.CAPACITY"
 		},
 		{
 			"Title": "power_pr",
-			"Name": "CALC07.PR"
+			"Name": "B007.CALC07.PR"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "CALC07.WH"
+			"Name": "B007.CALC07.WH"
 		},
 		{
 			"Title": "energy_expected",
-			"Name": "CALC07.WH_EXPECT_TODAY"
+			"Name": "B007.CALC07.WH_EXPECT_TODAY"
 		},
 		{
 			"Title": "energy_today",
-			"Name": "CALC07.WH_TODAY"
+			"Name": "B007.CALC07.WH_TODAY"
 		},
 		{
 			"Title": "energy_yesterday",
-			"Name": "CALC07.WH_YEAR"
+			"Name": "B007.CALC07.WH_YEAR"
 		},
 		{
 			"Title": "energy_mtd",
-			"Name": "CALC07.WH_MONTH"
+			"Name": "B007.CALC07.WH_MONTH"
 		},
 		{
 			"Title": "energy_cod",
-			"Name": "TOU07.WH"
+			"Name": "B007.TOU07.WH"
 		},
 		{
 			"Title": "weather_irr",
-			"Name": "SLOGGER06.PYRANO"
+			"Name": "B006.SLOGGER06.PYRANO"
 		},
 		{
 			"Title": "weather_amb",
-			"Name": "SLOGGER06.AMBTEMP"
+			"Name": "B006.SLOGGER06.AMBTEMP"
 		},
 		{
 			"Title": "weather_pv",
-			"Name": "SLOGGER06.PVTEMP"
+			"Name": "B006.SLOGGER06.PVTEMP"
 		},
 		{
 			"Title": "weather_irrtoday",
-			"Name": "SLOGGER06.IRR_TODAY"
+			"Name": "B006.SLOGGER06.IRR_TODAY"
 		},
 		{
 			"Title": "weather_co2",
-			"Name": "CALC07.CO2_TODAY"
+			"Name": "B007.CALC07.CO2_TODAY"
 		}
 	],
 	"historianConfig": [
 		{
-			"Name": "TOU07.W",
+			"Name": "B007.TOU07.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -81,7 +81,7 @@
 			}
 		},
 		{
-			"Name": "SLOGGER06.PYRANO",
+			"Name": "B006.SLOGGER06.PYRANO",
 			"Title": "X2",
 			"Options" : {
 				"Interval": 5,
@@ -91,7 +91,7 @@
 			}
 		},
 		{
-			"Name": "INV0701.WH",
+			"Name": "B007.INV0701.WH",
 			"Title": "X3",
 			"Options" : {
 				"Interval": 5,
@@ -101,7 +101,7 @@
 			}
 		},
 		{
-			"Name": "CALC07.WH_HOUR",
+			"Name": "B007.CALC07.WH_HOUR",
 			"Title": "X5",
 			"Options" : {
 				"Interval": 60,
@@ -111,7 +111,7 @@
 			}
 		},
 		{
-			"Name": "CALC07.PR_HOUR",
+			"Name": "B007.CALC07.PR_HOUR",
 			"Title": "X6",
 			"Options" : {
 				"Interval": 60,
@@ -126,7 +126,7 @@
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "SLOGGER06.PYRANO",
+					"name": "B006.SLOGGER06.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {
@@ -137,7 +137,7 @@
 					}
 				},
 				{
-					"name": "TOU07.W",
+					"name": "B007.TOU07.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {
@@ -186,7 +186,7 @@
 			"tags": [
 				
 				{
-					"name": "CALC07.WH_HOUR",
+					"name": "B007.CALC07.WH_HOUR",
 					"title": "Energy",
 					"period": "t",
 					"options": {
@@ -198,7 +198,7 @@
 					}
 				},
 				{
-					"name": "CALC07.WH_DAY",
+					"name": "B007.CALC07.WH_DAY",
 					"title": "Energy",
 					"period": "7d",
 					"options": {
@@ -210,7 +210,7 @@
 					}
 				},
 				{
-					"name": "CALC07.WH_DAY",
+					"name": "B007.CALC07.WH_DAY",
 					"title": "Energy",
 					"period": "30d",
 					"options": {
@@ -222,7 +222,7 @@
 					}
 				},
 				{
-					"name": "CALC07.WH_DAY",
+					"name": "B007.CALC07.WH_DAY",
 					"title": "Energy",
 					"period": "3m",
 					"options": {
@@ -234,7 +234,7 @@
 					}
 				},
 				{
-					"name": "CALC07.WH_MONTH",
+					"name": "B007.CALC07.WH_MONTH",
 					"title": "Energy",
 					"period": "12m",
 					"options": {
@@ -268,7 +268,7 @@
 			"name": "performanceRatio",
 			"tags": [
 				{
-					"name": "CALC07.PR_HOUR",
+					"name": "B007.CALC07.PR_HOUR",
 					"title": "Performance",
 					"period": "t",
 					"options": {
@@ -280,7 +280,7 @@
 					}
 				},
 				{
-					"name": "CALC07.PR_DAY",
+					"name": "B007.CALC07.PR_DAY",
 					"title": "Performance",
 					"period": "7d",
 					"options": {
@@ -292,7 +292,7 @@
 					}
 				},
 				{
-					"name": "CALC07.PR_DAY",
+					"name": "B007.CALC07.PR_DAY",
 					"title": "Performance",
 					"period": "30d",
 					"options": {
@@ -304,7 +304,7 @@
 					}
 				},
 				{
-					"name": "CALC07.PR_DAY",
+					"name": "B007.CALC07.PR_DAY",
 					"title": "Performance",
 					"period": "3m",
 					"options": {
@@ -316,7 +316,7 @@
 					}
 				},
 				{
-					"name": "CALC07.PR_MONTH",
+					"name": "B007.CALC07.PR_MONTH",
 					"title": "Performance",
 					"period": "12m",
 					"options": {
@@ -352,7 +352,7 @@
 			"name": "interverEnergy",
 			"tags": [
 				{
-					"name": "INV0701.WH",
+					"name": "B007.INV0701.WH",
 					"title": "INV01",
 					"period": "t",
 					"options": {

@@ -137,7 +137,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
       if(!item.building) {
         item.display = false;
       }
-      if(id && item.zone == id && parseInt(item.no) <= 6 && !item.building){
+      if(id && item.zone == id && parseInt(item.no) <= 12 && !item.building){
         item.display = true;
       } 
       return item;

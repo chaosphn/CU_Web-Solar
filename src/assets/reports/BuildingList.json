@@ -81,7 +81,7 @@
 			"zone":"13017711",
 			"name":"อาคารพรีคลินิก",
 			"capacity": 103.68 ,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"07",
@@ -89,7 +89,7 @@
 			"zone":"13023931",
 			"name":"โรงพักสัตว์ทดลอง",
 			"capacity": 38.88,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"10",
@@ -97,7 +97,7 @@
 			"zone":"13036201",
 			"name":"ศูนย์ปฏิบัติการวิจัยและพัฒนาเภสัชภัณฑ์และสมุนไพร",
 			"capacity": 83.16,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"20",
@@ -145,7 +145,7 @@
 			"zone":"13018538",
 			"name":"อาคารประชาธิปก-รำไพพรรณี",
 			"capacity": 60.48,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"29",
@@ -313,7 +313,7 @@
 			"zone":"13018215",
 			"name":"อาคารเทพทวาราวดี",
 			"capacity": 62.64,
-			"display": false
+			"display": true
 		},
 		{
 			"no":"14",

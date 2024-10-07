@@ -9,6 +9,14 @@
 			"Name": "B006.PQM06.W"
 		},
 		{
+			"Title": "13023931_power",
+			"Name": "B007.PQM07.W"
+		},
+		{
+			"Title": "13036201_power",
+			"Name": "B010.PQM10.W"
+		},
+		{
 			"Title": "13014105_solar",
 			"Name": "CALC.ZONE10.W"
 		},
@@ -23,6 +31,26 @@
 		{
 			"Title": "95772485_solar",
 			"Name": "B006.TOU06.W"
+		},
+		{
+			"Title": "13017711_solar",
+			"Name": "CALC.ZONE13.W"
+		},
+		{
+			"Title": "13018215_solar",
+			"Name": "CALC.ZONE11.W"
+		},
+		{
+			"Title": "13018538_solar",
+			"Name": "CALC.ZONE22.W"
+		},
+		{
+			"Title": "13023931_solar",
+			"Name": "CALC.ZONE15.W"
+		},
+		{
+			"Title": "13036201_solar",
+			"Name": "CALC.ZONE25.W"
 		},
 		{
 			"Title": "CEN001_power",
@@ -47,6 +75,26 @@
 		{
 			"Title": "CEN091_power",
 			"Name": "B006.TOU06.W"
+		},
+		{
+			"Title": "PHA003_power",
+			"Name": "B007.TOU07.W"
+		},
+		{
+			"Title": "LAW003_power",
+			"Name": "B008.TOU08.W"
+		},
+		{
+			"Title": "DEN014_power",
+			"Name": "B009.TOU09.W"
+		},
+		{
+			"Title": "PHA007_power",
+			"Name": "B010.TOU10.W"
+		},
+		{
+			"Title": "INS009_power",
+			"Name": "B012.TOU12.W"
 		},
 		{
 			"Title": "CEN001_energy",
@@ -74,171 +122,75 @@
 		},
 		{
 			"Title": "PHA003_energy",
-			"Name": "SLOGGER07.WH_TODAY"
+			"Name": "B007.SLOGGER07.WH_TODAY"
 		},
 		{
 			"Title": "LAW003_energy",
-			"Name": "SLOGGER08.WH_TODAY"
+			"Name": "B008.SLOGGER08.WH_TODAY"
 		},
 		{
 			"Title": "DEN014_energy",
-			"Name": "SLOGGER09.WH_TODAY"
+			"Name": "B009.SLOGGER09.WH_TODAY"
 		},
 		{
 			"Title": "PHA007_energy",
-			"Name": "SLOGGER10.WH_TODAY"
+			"Name": "B010.SLOGGER10.WH_TODAY"
 		},
 		{
 			"Title": "VET001_energy",
-			"Name": "SLOGGER11.WH_TODAY"
+			"Name": "B011.SLOGGER11.WH_TODAY"
 		},
 		{
 			"Title": "INS009_energy",
-			"Name": "SLOGGER12.WH_TODAY"
+			"Name": "B012.SLOGGER12.WH_TODAY"
 		},
 		{
 			"Title": "CEN089_energy",
-			"Name": "SLOGGER13.WH_TODAY"
+			"Name": "B013.SLOGGER13.WH_TODAY"
 		},
 		{
 			"Title": "CEN103_energy",
-			"Name": "SLOGGER14.WH_TODAY"
+			"Name": "B014.SLOGGER14.WH_TODAY"
 		},
 		{
 			"Title": "INS011_energy",
-			"Name": "SLOGGER15.WH_TODAY"
+			"Name": "B015.SLOGGER15.WH_TODAY"
 		},
 		{
 			"Title": "CEN027_energy",
-			"Name": "SLOGGER16.WH_TODAY"
+			"Name": "B016.SLOGGER16.WH_TODAY"
 		},
 		{
 			"Title": "PSC012_energy",
-			"Name": "SLOGGER17.WH_TODAY"
+			"Name": "B017.SLOGGER17.WH_TODAY"
 		},
 		{
 			"Title": "CEN079_energy",
-			"Name": "SLOGGER18.WH_TODAY"
+			"Name": "B018.SLOGGER18.WH_TODAY"
 		},
 		{
 			"Title": "CEN099_energy",
-			"Name": "SLOGGER19.WH_TODAY"
+			"Name": "B019.SLOGGER19.WH_TODAY"
 		},
 		{
 			"Title": "INS012_energy",
-			"Name": "SLOGGER20.WH_TODAY"
+			"Name": "B020.SLOGGER20.WH_TODAY"
 		},
 		{
 			"Title": "CEN087_energy",
-			"Name": "SLOGGER21.WH_TODAY"
+			"Name": "B021.SLOGGER21.WH_TODAY"
 		},
 		{
 			"Title": "CEN093_energy",
-			"Name": "SLOGGER22.WH_TODAY"
+			"Name": "B022.SLOGGER22.WH_TODAY"
 		},
 		{
 			"Title": "CEN032_energy",
-			"Name": "SLOGGER23.WH_TODAY"
+			"Name": "B023.SLOGGER23.WH_TODAY"
 		},
 		{
 			"Title": "ART005_energy",
-			"Name": "SLOGGER24.WH_TODAY"
-		},
-		{
-			"Title": "CEN001_pr",
-			"Name": "CALC02.PR"
-		},
-		{
-			"Title": "ARC003_pr",
-			"Name": "CALC01.PR"
-		},
-		{
-			"Title": "CEN003_pr",
-			"Name": "CALC04.PR"
-		},
-		{
-			"Title": "CEN005_pr",
-			"Name": "CALC03.PR"
-		},
-		{
-			"Title": "CEN072_pr",
-			"Name": "CALC05.PR"
-		},
-		{
-			"Title": "CEN091_pr",
-			"Name": "CALC06.PR"
-		},
-		{
-			"Title": "PHA003_pr",
-			"Name": "CALC07.PR"
-		},
-		{
-			"Title": "LAW003_pr",
-			"Name": "CALC08.PR"
-		},
-		{
-			"Title": "DEN014_pr",
-			"Name": "CALC09.PR"
-		},
-		{
-			"Title": "PHA007_pr",
-			"Name": "CALC10.PR"
-		},
-		{
-			"Title": "VET001_pr",
-			"Name": "CALC11.PR"
-		},
-		{
-			"Title": "INS009_pr",
-			"Name": "CALC12.PR"
-		},
-		{
-			"Title": "CEN089_pr",
-			"Name": "CALC13.PR"
-		},
-		{
-			"Title": "CEN103_pr",
-			"Name": "CALC14.PR"
-		},
-		{
-			"Title": "INS011_pr",
-			"Name": "CALC15.PR"
-		},
-		{
-			"Title": "CEN027_pr",
-			"Name": "CALC16.PR"
-		},
-		{
-			"Title": "PSC012_pr",
-			"Name": "CALC17.PR"
-		},
-		{
-			"Title": "CEN079_pr",
-			"Name": "CALC18.PR"
-		},
-		{
-			"Title": "CEN099_pr",
-			"Name": "CALC19.PR"
-		},
-		{
-			"Title": "INS012_pr",
-			"Name": "CALC20.PR"
-		},
-		{
-			"Title": "CEN087_pr",
-			"Name": "CALC21.PR"
-		},
-		{
-			"Title": "CEN093_pr",
-			"Name": "CALC22.PR"
-		},
-		{
-			"Title": "CEN032_pr",
-			"Name": "CALC23.PR"
-		},
-		{
-			"Title": "ART005_pr",
-			"Name": "CALC24.PR"
+			"Name": "B024.SLOGGER24.WH_TODAY"
 		},
 		{
 			"Title": "CEN001_co2",
@@ -266,75 +218,75 @@
 		},
 		{
 			"Title": "PHA003_co2",
-			"Name": "CALC07.CO2_TODAY"
+			"Name": "B007.CALC07.CO2_TODAY"
 		},
 		{
 			"Title": "LAW003_co2",
-			"Name": "CALC08.CO2_TODAY"
+			"Name": "B008.CALC08.CO2_TODAY"
 		},
 		{
 			"Title": "DEN014_co2",
-			"Name": "CALC09.CO2_TODAY"
+			"Name": "B009.CALC09.CO2_TODAY"
 		},
 		{
 			"Title": "PHA007_co2",
-			"Name": "CALC10.CO2_TODAY"
+			"Name": "B010.CALC10.CO2_TODAY"
 		},
 		{
 			"Title": "VET001_co2",
-			"Name": "CALC11.CO2_TODAY"
+			"Name": "B011.CALC11.CO2_TODAY"
 		},
 		{
 			"Title": "INS009_co2",
-			"Name": "CALC12.CO2_TODAY"
+			"Name": "B012.CALC12.CO2_TODAY"
 		},
 		{
 			"Title": "CEN089_co2",
-			"Name": "CALC13.CO2_TODAY"
+			"Name": "B013.CALC13.CO2_TODAY"
 		},
 		{
 			"Title": "CEN103_co2",
-			"Name": "CALC14.CO2_TODAY"
+			"Name": "B014.CALC14.CO2_TODAY"
 		},
 		{
 			"Title": "INS011_co2",
-			"Name": "CALC15.CO2_TODAY"
+			"Name": "B015.CALC15.CO2_TODAY"
 		},
 		{
 			"Title": "CEN027_co2",
-			"Name": "CALC16.CO2_TODAY"
+			"Name": "B016.CALC16.CO2_TODAY"
 		},
 		{
 			"Title": "PSC012_co2",
-			"Name": "CALC17.CO2_TODAY"
+			"Name": "B017.CALC17.CO2_TODAY"
 		},
 		{
 			"Title": "CEN079_co2",
-			"Name": "CALC18.CO2_TODAY"
+			"Name": "B018.CALC18.CO2_TODAY"
 		},
 		{
 			"Title": "CEN099_co2",
-			"Name": "CALC19.CO2_TODAY"
+			"Name": "B019.CALC19.CO2_TODAY"
 		},
 		{
 			"Title": "INS012_co2",
-			"Name": "CALC20.CO2_TODAY"
+			"Name": "B020.CALC20.CO2_TODAY"
 		},
 		{
 			"Title": "CEN087_co2",
-			"Name": "CALC21.CO2_TODAY"
+			"Name": "B021.CALC21.CO2_TODAY"
 		},
 		{
 			"Title": "CEN093_co2",
-			"Name": "CALC22.CO2_TODAY"
+			"Name": "B022.CALC22.CO2_TODAY"
 		},
 		{
 			"Title": "CEN032_co2",
-			"Name": "CALC23.CO2_TODAY"
+			"Name": "B023.CALC23.CO2_TODAY"
 		},
 		{
 			"Title": "ART005_co2",
-			"Name": "CALC24.CO2_TODAY"
+			"Name": "B024.CALC24.CO2_TODAY"
 		},
 		{
 			"Title": "CEN001_inso",
@@ -363,6 +315,10 @@
 		{
 			"Title": "irr_value",
 			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "inso_value",
+			"Name": "B006.SLOGGER06.IRR_TODAY"
 		},
 		{
 			"Title": "pv_value",

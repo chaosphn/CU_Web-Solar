@@ -168,7 +168,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   navigateToDashboard(item: BuildingModel){
-    if(parseInt(item.no) <= 6){
+    if(parseInt(item.no) <= 12){
       localStorage.setItem('location', JSON.stringify(item));
       this.event.changeNavbar();
       this.router.navigate(['/main/dashboard']);

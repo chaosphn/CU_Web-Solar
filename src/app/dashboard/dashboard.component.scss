@@ -60,10 +60,10 @@
     }
 }
 
-.siteInfoCard { grid-area: siteInfoCard; }
-.powerCard { grid-area: powerCard; }
-.energyCard { grid-area: energyCard; }
-.weatherCard { grid-area: weatherCard; }
+.siteInfoCard { grid-area: siteInfoCard; min-height: 200px;}
+.powerCard { grid-area: powerCard; min-height: 200px;}
+.energyCard { grid-area: energyCard; min-height: 200px;}
+.weatherCard { grid-area: weatherCard; min-height: 200px;}
 .powerChartCard { grid-area: powerChartCard; }
 .energyChartCard { grid-area: energyChartCard; }
 .prChartCard { grid-area: prChartCard; }

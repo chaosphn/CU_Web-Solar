@@ -40,6 +40,7 @@ import { FixPointPipe } from './pipe/fix-point.pipe';
 
 
 
+
 export const MY_MOMENT_FORMATS = {
   parseInput: 'YYYY-MM-DD',
   fullPickerInput: 'YYYY-MM-DD HH:mm',
@@ -60,7 +61,7 @@ export const MY_MOMENT_FORMATS = {
     OwlDateTimeModule, 
     OwlNativeDateTimeModule,
     OwlMomentDateTimeModule,
-    NgxMasonryModule
+    NgxMasonryModule,
     // NoopAnimationsModule
   ],
   declarations: [

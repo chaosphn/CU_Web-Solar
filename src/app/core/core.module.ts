@@ -23,7 +23,7 @@ import { DashboardComponent } from '../dashboardtv/dashboard.component';
     MaterialModule,
     SharedModule,
     HttpClientModule,
-    StoreModule,
+    StoreModule
   ],
   declarations: [
       NavbarComponent,

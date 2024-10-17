@@ -68,22 +68,22 @@
                         </div>
                     </div>
                     <div class="report-table bz w-100">
-                        <table *ngIf="dataTable.length > 0" class="brd">
+                        <table *ngIf="dataTable.length > 0" class="bz">
                             <thead>
                                 <tr>
-                                    <th class="brd" [style.width]="head.width" *ngFor="let head of selectedReport.Header">{{head.title}}</th>
+                                    <th class="bz" [style.width]="head.width" *ngFor="let head of selectedReport.Header">{{head.title}}</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr *ngFor="let row of dataTable | orderBy: 0">
-                                    <td class="brd" *ngFor="let col of row; index as j;">
+                                    <td class="bz" *ngFor="let col of row; index as j;">
                                         <span *ngIf="j==0">{{col | date: selectedReport.Header[0].type}}</span>
                                         <span *ngIf="j!=0">{{ ((col | myNumber: '1.0-4') * selectedReport.Header[j].factor) | report: 2}}</span>
             
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td class="brd row-summary" *ngFor="let sum of selectedReport.Header; index as i;">
+                                    <td class="bz row-summary" *ngFor="let sum of selectedReport.Header; index as i;">
                                         <span *ngIf="sum.display">{{sum.display}}</span>
                                         <span *ngIf="!sum.display">{{getSummaryData(sum.type, i, sum.factor) | report: 2}}</span>
                                     </td>

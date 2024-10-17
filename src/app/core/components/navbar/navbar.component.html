@@ -20,23 +20,16 @@
             <Input matInput placeholder="Search"
             (input)="filter($event.target.value)"
             class="nav-search"/>
-            
-            <ng-container *ngFor="let item of buildingList.building; let i = index;">
-              <mat-option *ngIf="item.display" [value]="item.name" (mouseover)="selectMeter(item.zone)" [ngClass]="item.building ? 'meter-option':''">
+            <ng-container *ngFor="let item of buildingList.building;">
+              <mat-option *ngIf="item.display" [value]="item.name" [ngClass]="item.id == siteSelected.zone ? 'active meter-option' : item.building ? 'meter-option' : ''">
                 <div class="w-100 h-100 d-flex-sb" (click)="selectSite(item)" >
-                  <!-- <div class="option-icon d-flex-ct h-100 brd" *ngIf="item.building" style="margin-right: 8px;">
-                    <i class="material-icons ">arrow_drop_down</i>
-                  </div> -->
                   <div class="bz w-100">{{item.name}}</div>
+                  <i class="material-icons" (mouseover)="selectMeter(item.zone)" *ngIf="item.building ? true : false">
+                    account_balance
+                  </i>
                 </div>
               </mat-option>
             </ng-container>
-            <!-- <ng-container *ngFor="let item of buildingList.building; let i = index;">
-              <mat-option *ngIf="item.display" [value]="item.name" (mouseover)="selectMeter(item.zone)" [ngClass]="item.building ? 'meter-option':''">
-                
-              </mat-option>
-            </ng-container> -->
-            
           </mat-select>
         </div>
       </a>

@@ -13,7 +13,7 @@ import { Subscription, timer } from 'rxjs';
 import { fastPropGetter } from '@ngxs/store/src/internal/internals';
 import { FormControl, Validators } from '@angular/forms';
 import { BuildingModel, SiteStateModel } from '../../stores/sites/sites.model';
-import { AddSite } from '../../stores/sites/sites.state';
+import { AddSite, SitesState } from '../../stores/sites/sites.state';
 import { d } from '@angular/core/src/render3';
 import { Router,NavigationEnd  } from '@angular/router';
 import { PowermetersComponent } from 'src/app/powermeters/powermeters.component';
@@ -21,12 +21,14 @@ import { EventService } from 'src/app/share/services/event.service';
 import { SetBulding } from '../../stores/building/building.state';
 import { DateTimeService } from 'src/app/share/services/datetime.service';
 import { MatSelect } from '@angular/material';
+import { FilterNamePipe } from 'src/app/share/pipe/filter-name.pipe';
 
 declare var $: any;
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.css'],
+  providers: [FilterNamePipe]
 })
 
 
@@ -59,10 +61,12 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   };
   nowUrl: string;
   buildingList: SiteStateModel;
+  dataDefault: any[];
   today: string;
   filteredBuildingList: any[] = [];
   selectedZone: string = ''
-  meterSelected: string;
+  filterText: string;
+
 
   @ViewChild('searchInput') searchInput: any;
   @ViewChild('selectDropdown') selectDropdown: MatSelect;
@@ -83,18 +87,22 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     this.sub1 = this.event.triggerFunction$.subscribe(() => {
       const site = localStorage.getItem('location');
       this.siteSelected = JSON.parse(site);
+      console.log('select Site')
     });  
     this.isChange = event.triggerNavbar$.subscribe(()=>{
       this.toggleBackground("/main/dashboard1");
+      const siteData = localStorage.getItem('location');
+      this.siteSelected = JSON.parse(siteData);
+      this.selectMeter(this.siteSelected.zone)
     });
   }
 
-  ngOnInit() {
+  async ngOnInit() {
     const userState: UserStateModel = this.store.selectSnapshot(UserState);
     this.pages = userState.PageNames;
     this.pages = this.pages.map(x => x.toLowerCase().split(' ').join(''));
     this.role = userState.Username;
-    this.getConfig();
+    await this.getConfig();
     const site = localStorage.getItem('location');
     if(site){
       this.siteSelected = JSON.parse(site);
@@ -105,10 +113,6 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     //this.startTimer(2000);
     this.today = this.dateTimeSrv.getDateTime(new Date()).substring(0,10);
     this.toggleBackground(this.currentRoute);
-    if(this.buildingList){
-      this.filteredBuildingList = this.buildingList.building;
-      this.tagShowList = this.buildingList.building.map((_, index) => index);
-    }
   }
 
   async getConfig() {
@@ -117,6 +121,8 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     if(config){
       config.building.sort((a,b) => a.zone.localeCompare(b.zone));
       this.buildingList = config;
+      this.dataDefault = config.building;
+      console.log(this.dataDefault)
       this.store.dispatch(new AddSite(this.buildingList));
     }
     // console.log(this.buildingList)
@@ -133,6 +139,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   }
 
   selectMeter(id: string){
+    //console.log(this.buildingList)
     this.buildingList.building.map(function(item){
       if(!item.building) {
         item.display = false;
@@ -152,6 +159,12 @@ export class NavbarComponent implements AfterViewInit, OnInit {
       return true;
     }
   }
+
+  swapElements = (array: any[], index1: number, index2: number) => {
+    let temp = array[index1];
+    array[index1] = array[index2];
+    array[index2] = temp;
+  };
 
   logout() {
     this.authService.logout();
@@ -206,39 +219,43 @@ export class NavbarComponent implements AfterViewInit, OnInit {
 
   tagShowList = [0,4,5,6,7,8]
   
-  onZoneChange(event){
-    this.tagShowList = []
-    const selectedZone = event;
-    this.filteredBuildingList = this.buildingList.building.filter((item,index) => {
-     if(item.zone === selectedZone){
-       this.tagShowList.push(index);
-     } 
-    }) ;
-  }
+  // onZoneChange(event){
+  //   this.tagShowList = []
+  //   const selectedZone = event;
+  //   this.filteredBuildingList = this.buildingList.building.filter((item,index) => {
+  //    if(item.zone === selectedZone){
+  //      this.tagShowList.push(index);
+  //    } 
+  //   }) ;
+  // }
 
-  filter(query: string) {
-    if(query){
-      this.filteredBuildingList = this.buildingList.building.filter((building, index) => {
-        const matches = building.name.toLowerCase().includes(query.toLowerCase());
-        if (matches) {
-          this.tagShowList.push(index);
-          building.display = true;
-        } else {
-          building.display = false;
-        }
-        return building;
-      });
+  async filter(query: string) {
+    console.log(query.length)
+    this.filterText = query;
+    if(query && query.length > 0 ){
+      console.log('xxxxxxxxx')
+      const config: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
+      if(config){
+        config.building.sort((a,b) => a.zone.localeCompare(b.zone)).map(function(item){
+          const matches = item.name.toLowerCase().includes(query.toLowerCase());
+          if(item.building){
+            item.display = matches && item.display ? true : false;
+          } else {
+            item.display = matches && parseInt(item.no) <= 12 ? true : false;
+          }
+          return item;
+        });;
+        this.buildingList = config;
+      }
+       
     } else {
-      this.filteredBuildingList = this.buildingList.building.map(function(item){
-        if(item.building){
-          item.display = true;
-        } else {
-          item.display = false;
-        }
-        return item;
-      })
+      console.log('yyyyyyyy')
+      const config: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
+      if(config){
+        config.building.sort((a,b) => a.zone.localeCompare(b.zone));
+        this.buildingList = config;
+      }
     }
-
   }
 }
 export interface Site{

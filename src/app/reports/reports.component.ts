@@ -1,5 +1,5 @@
 import { DatePipe } from '@angular/common';
-import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ReportRequest } from '../share/models/requests/report-request.model';
 import { DateTimeService } from '../share/services/datetime.service';
 import { HttpService } from './../share/services/http.service';
@@ -22,6 +22,15 @@ import { Chart } from 'angular-highcharts';
 import { OrderByPipe } from '../share/pipe/order-by.pipe';
 import * as XLSX from 'xlsx';
 import { HolidayRequestModel, HolidayResponseModel, ReportFactorModel } from '../share/models/report.model';
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+import { image } from 'html2canvas/dist/types/css/types/image';
+
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
+
+
+
+
 
 @Component({
   selector: 'app-reports',
@@ -58,6 +67,8 @@ export class ReportsComponent implements OnInit {
   loading: boolean = false;
   holiday: string[] = [];
   adminAccess: boolean = false;
+
+  @ViewChild('htmlTable') pdfTable: ElementRef;
 
   constructor(private httpService: HttpService,
     private reportHttpService: ReportHttpService,
@@ -310,7 +321,7 @@ export class ReportsComponent implements OnInit {
 
   async getResponseData(){
     const table: any[] = [];
-
+    this.resetTable();
     const fetchData = async () => {
       this.dataTable = [];
       this.loading = true;
@@ -633,11 +644,23 @@ export class ReportsComponent implements OnInit {
       
       const pdf = new jsPDF('p', 'mm', 'a4');
       const imgData = canvas.toDataURL("image/png", 1.0);
+      //pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
+      //pdf.save(reportName);
 
-      pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-      pdf.save(reportName);
+      const docDefinition = {
+        content: [
+          {
+            image: imgData,
+            width: 500
+          }
+        ]
+      }
+
+      pdfMake.createPdf(docDefinition).download(reportName);
+      //pdf.output('dataurlnewwindow');
     });
   }
+
 
   async selectSite(data:BuildingModel){
     this.siteSelected = data;

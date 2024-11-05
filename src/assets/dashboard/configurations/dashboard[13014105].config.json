@@ -2,51 +2,51 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "M00X.JNZC0X.W"
+			"Name": "M021.JNZC21.W"
 		},
 		{
 			"Title": "power_expected",
-			"Name": "M00X.JNZC0X.W_EXPECT"
+			"Name": "M021.JNZC21.W_EXPECT"
 		},
 		{
 			"Title": "power_peak",
-			"Name": "M00X.JNZC0X.W_PEAK_DAY"
+			"Name": "M021.JNZC21.W_PEAK_DAY"
 		},
 		{
 			"Title": "power_peaktime",
-			"Name": "M00X.JNZC0X.W_PEAK_DAY_TIME"
+			"Name": "M021.JNZC21.W_PEAK_DAY_TIME"
 		},
 		{
 			"Title": "power_capacity",
-			"Name": "M00X.JNZC0X.CAPACITY"
+			"Name": "M021.JNZC21.CAPACITY"
 		},
 		{
 			"Title": "power_pr",
-			"Name": "M00X.JNZC0X.PR"
+			"Name": "M021.JNZC21.PR"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "M00X.JNZC0X.WH"
+			"Name": "M021.JNZC21.WH"
 		},
 		{
 			"Title": "energy_expected",
-			"Name": "M00X.JNZC0X.WH_EXPECT_TODAY"
+			"Name": "M021.JNZC21.WH_EXPECT_TODAY"
 		},
 		{
 			"Title": "energy_today",
-			"Name": "M00X.JNZC0X.WH_TODAY"
+			"Name": "M021.JNZC21.WH_TODAY"
 		},
 		{
 			"Title": "energy_yesterday",
-			"Name": "M00X.JNZC0X.WH_YEAR"
+			"Name": "M021.JNZC21.WH_YEAR"
 		},
 		{
 			"Title": "energy_mtd",
-			"Name": "M00X.JNZC0X.WH_MONTH"
+			"Name": "M021.JNZC21.WH_MONTH"
 		},
 		{
 			"Title": "energy_cod",
-			"Name": "M00X.JNZC0X.WH"
+			"Name": "M021.JNZC21.WH"
 		},
 		{
 			"Title": "weather_irr",
@@ -165,7 +165,7 @@
 			}
 		},
 		{
-			"Name": "M00X.JNZC0X.W",
+			"Name": "B021.PQM21.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -301,7 +301,7 @@
 					}
 				},
 				{
-					"name": "B00X.PQM0X.W",
+					"name": "B021.PQM21.W",
 					"title": "13014105",
 					"options": {
 						"chartOptions": {

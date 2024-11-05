@@ -29,6 +29,14 @@
 		"Name": "B010.PQM10.W"
 	},
 	{
+		"Title": "13014105_power",
+		"Name": "B021.PQM21.W"
+	},
+	{
+		"Title": "13030847_power",
+		"Name": "B005.PQM05.W"
+	},
+	{
 		"Title": "ARC003_power",
 		"Name": "B001.TOU01.W"
 	},
@@ -235,6 +243,14 @@
 	{
 		"Title": "13036201_amp",
 		"Name": "B010.PQM10.I"
+	},
+	{
+		"Title": "13014105_amp",
+		"Name": "B021.PQM21.I"
+	},
+	{
+		"Title": "13030847_amp",
+		"Name": "B005.PQM05.I"
 	},
 	{
 		"Title": "ARC003_amp",
@@ -445,6 +461,14 @@
 		"Name": "B010.PQM10.WH"
 	},
 	{
+		"Title": "13014105_total",
+		"Name": "B021.PQM21.WH"
+	},
+	{
+		"Title": "13030847_total",
+		"Name": "B005.PQM05.WH"
+	},
+	{
 		"Title": "ARC003_total",
 		"Name": "B001.TOU01.WH"
 	},
@@ -651,6 +675,14 @@
 	{
 		"Title": "13036201_energy",
 		"Name": "M010.JNZC10.WH_TODAY"
+	},
+	{
+		"Title": "13014105_energy",
+		"Name": "M021.JNZC21.WH_TODAY"
+	},
+	{
+		"Title": "13030847_energy",
+		"Name": "M005.JNZC05.WH_TODAY"
 	},
 	{
 		"Title": "ARC003_energy",

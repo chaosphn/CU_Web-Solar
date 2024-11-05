@@ -87,7 +87,6 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     this.sub1 = this.event.triggerFunction$.subscribe(() => {
       const site = localStorage.getItem('location');
       this.siteSelected = JSON.parse(site);
-      console.log('select Site')
     });  
     this.isChange = event.triggerNavbar$.subscribe(()=>{
       this.toggleBackground("/main/dashboard1");
@@ -122,7 +121,6 @@ export class NavbarComponent implements AfterViewInit, OnInit {
       config.building.sort((a,b) => a.zone.localeCompare(b.zone));
       this.buildingList = config;
       this.dataDefault = config.building;
-      console.log(this.dataDefault)
       this.store.dispatch(new AddSite(this.buildingList));
     }
     // console.log(this.buildingList)
@@ -135,6 +133,15 @@ export class NavbarComponent implements AfterViewInit, OnInit {
     } else{
       this.bgStatus = false;
       //console.log('normal bg1');
+    }
+  }
+
+  changClassByRoute(){
+    const route =  this.router.url.toString();
+    if(route.includes('zoneview')){
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -230,10 +237,8 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   // }
 
   async filter(query: string) {
-    console.log(query.length)
     this.filterText = query;
     if(query && query.length > 0 ){
-      console.log('xxxxxxxxx')
       const config: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
       if(config){
         config.building.sort((a,b) => a.zone.localeCompare(b.zone)).map(function(item){
@@ -249,7 +254,6 @@ export class NavbarComponent implements AfterViewInit, OnInit {
       }
        
     } else {
-      console.log('yyyyyyyy')
       const config: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
       if(config){
         config.building.sort((a,b) => a.zone.localeCompare(b.zone));

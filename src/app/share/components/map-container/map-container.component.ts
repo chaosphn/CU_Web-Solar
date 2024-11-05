@@ -26,7 +26,7 @@ export class MapContainerComponent implements OnInit, OnChanges {
     
   }
 
-  getSumValueByKeys(id: string){
+  getSumValueByKeys(id: string, point: number){
     let res: string;
     const mt = this.building.find(x => x.id == id);
     if(mt && mt.building){
@@ -36,7 +36,9 @@ export class MapContainerComponent implements OnInit, OnChanges {
         return acc;
       }, 0);
       if(val > 0){
-        res = val.toString();
+        res = val.toFixed(point);
+      } else {
+        res = "---";
       }
     }
     return res;

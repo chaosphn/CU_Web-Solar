@@ -17,6 +17,14 @@
 			"Name": "B010.PQM10.W"
 		},
 		{
+			"Title": "13014105_power",
+			"Name": "B021.PQM21.W"
+		},
+		{
+			"Title": "13030847_power",
+			"Name": "B005.PQM05.W"
+		},
+		{
 			"Title": "13014105_solar",
 			"Name": "CALC.ZONE10.W"
 		},

@@ -65,7 +65,7 @@
           </div>
           <div class="progress-group ">
             <div class="site-progress "><app-circle-progress [Ids]="item.project" 
-              [title]="'POWER'"
+              [title]="'MEA'"
               [value]="data?.singleValue[item.project+'_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
               [unit]="'kW'"
               [maxValue]="data?.singleValue[item.project+'_power']?.maxValue"
@@ -77,7 +77,7 @@
                 [maxValue]="item.capacity | myNumber : '1.0-2'"
                 [percentValue]="setValueBar((getSumValue('_'+item.project) | myNumber : '1.0-2'), (item.capacity | myNumber : '1.0-2'))|| 0"></app-circle-progress></div>
             <div class="site-progress "><app-circle-progress [Ids]="item.project+'02'" 
-              [title]="'TODAY'"
+              [title]="'PRODUCE'"
               [value]="data?.singleValue[item.project+'_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
               [unit]="data?.singleValue[item.project+'_energy']?.unit"
               [maxValue]="data?.singleValue[item.project+'_energy']?.maxValue"

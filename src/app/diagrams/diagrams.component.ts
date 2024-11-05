@@ -161,9 +161,9 @@ export class DiagramsComponent implements OnInit, OnDestroy {
       isAlarm = value.toString() == '1';
     }
     if (isAlarm){
-      return 'RUN'
+      return '  RUN'
     }else{
-      return 'STOP'
+      return ' STOP'
     }
   }
 

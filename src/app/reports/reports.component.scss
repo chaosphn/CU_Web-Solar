@@ -193,7 +193,7 @@ app-time-control:first-of-type {
     padding: 12px 0px;
     .row-info{
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
+        grid-template-columns: 2.5fr 2fr 1fr 2.5fr 2fr;
         text-align: right;
         align-items: center;
         padding: 2px 0px;

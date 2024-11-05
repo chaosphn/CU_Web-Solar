@@ -651,7 +651,8 @@ export class ReportsComponent implements OnInit {
         content: [
           {
             image: imgData,
-            width: 500
+            width: 525,
+            alignment: 'center'
           }
         ]
       }

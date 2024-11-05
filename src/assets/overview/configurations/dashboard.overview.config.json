@@ -18,7 +18,7 @@
 		},
 		{
 			"Title": "13028863_energy",
-			"Name": "M001.JNZC01.WH_TODAY"
+			"Name": "CALC.ZONE21.WH_TODAY"
 		},
 		{
 			"Title": "13028863_irr",
@@ -38,7 +38,7 @@
 		},
 		{
 			"Title": "95772485_energy",
-			"Name": "M006.JNZC06.WH_TODAY"
+			"Name": "B006.CALC06.WH_TODAY"
 		},
 		{
 			"Title": "95772485_irr",
@@ -58,7 +58,7 @@
 		},
 		{
 			"Title": "13023931_energy",
-			"Name": "M007.JNZC07.WH_TODAY"
+			"Name": "CALC.ZONE15.WH_TODAY"
 		},
 		{
 			"Title": "13023931_irr",
@@ -78,7 +78,7 @@
 		},
 		{
 			"Title": "13036201_energy",
-			"Name": "M010.JNZC10.WH_TODAY"
+			"Name": "CALC.ZONE25.WH_TODAY"
 		},
 		{
 			"Title": "13036201_irr",
@@ -90,6 +90,111 @@
 		},
 		{
 			"Title": "13036201_amb",
+			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+		
+		{
+			"Title": "13014105_power",
+			"Name": "B021.PQM21.W"
+		},
+		{
+			"Title": "13014105_energy",
+			"Name": "CALC.ZONE10.WH_TODAY"
+		},
+		{
+			"Title": "13014105_irr",
+			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "13014105_pv",
+			"Name": "B006.SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "13014105_amb",
+			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+
+		{
+			"Title": "13017711_power",
+			"Name": "B00X.PQM0X.W"
+		},
+		{
+			"Title": "13017711_energy",
+			"Name": "CALC.ZONE13.WH_TODAY"
+		},
+		{
+			"Title": "13017711_irr",
+			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "13017711_pv",
+			"Name": "B006.SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "13017711_amb",
+			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+
+		{
+			"Title": "13018215_power",
+			"Name": "B00X.PQM0X.W"
+		},
+		{
+			"Title": "13018215_energy",
+			"Name": "CALC.ZONE11.WH_TODAY"
+		},
+		{
+			"Title": "13018215_irr",
+			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "13018215_pv",
+			"Name": "B006.SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "13018215_amb",
+			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+
+		{
+			"Title": "13018538_power",
+			"Name": "B00X.PQM0X.W"
+		},
+		{
+			"Title": "13018538_energy",
+			"Name": "CALC.ZONE22.WH_TODAY"
+		},
+		{
+			"Title": "13018538_irr",
+			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "13018538_pv",
+			"Name": "B006.SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "13018538_amb",
+			"Name": "B006.SLOGGER06.AMBTEMP"
+		},
+
+		{
+			"Title": "13030847_power",
+			"Name": "B005.PQM05.W"
+		},
+		{
+			"Title": "13030847_energy",
+			"Name": "CALC.ZONE12.WH_TODAY"
+		},
+		{
+			"Title": "13030847_irr",
+			"Name": "B006.SLOGGER06.PYRANO"
+		},
+		{
+			"Title": "13030847_pv",
+			"Name": "B006.SLOGGER06.PVTEMP"
+		},
+		{
+			"Title": "13030847_amb",
 			"Name": "B006.SLOGGER06.AMBTEMP"
 		},
 
@@ -230,6 +335,16 @@
 		},
 		{
 			"Name": "B010.PQM10.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "B021.PQM21.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -413,7 +528,7 @@
 					}
 				},
 				{
-					"name": "B00X.PQM0X.W",
+					"name": "B021.PQM21.W",
 					"title": "MEA",
 					"options": {
 						"chartOptions": {

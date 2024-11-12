@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { ChartParameters, HAlign, LegendParameter, Series, VAlingn, XAxisParameters, XAxisType, YAxisParameters } from './../../share/models/sat-chart';
-import { MultipleData } from './../../share/models/value-models/group-data.model';
-import { DateTimeService } from './../../share/services/datetime.service';
+import { ChartParameters, HAlign, LegendParameter, Series, VAlingn, XAxisParameters, XAxisType, YAxisParameters } from '../../share/models/sat-chart';
+import { MultipleData } from '../../share/models/value-models/group-data.model';
+import { DateTimeService } from '../../share/services/datetime.service';
 import { InverterValue } from './dashboard-inverter.service';
 import { isString } from 'util';
 import { PeriodTime1 } from 'src/app/share/models/period-time';

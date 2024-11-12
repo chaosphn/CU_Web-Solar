@@ -28,108 +28,90 @@
                     (selectDatetime)="onDateTimeChange($event)" [dateTime]="dateTime"></app-time-control>
                 </div>
                 <div class="d-flex align-items-center">
-                        <button class="btn-ok" (click)="getResponseData()">VIEW</button>
-                        <button class="btn-ok" (click)="exportToExcel()">SAVE XLS</button>
-                        <button class="btn-ok" (click)="htmltoPDF()">SAVE PDF</button>
+                        <button [disabled]="loading" class="btn-ok" (click)="getResponseData()">VIEW</button>
+                        <button [disabled]="loading" class="btn-ok" (click)="exportToExcel()">SAVE XLS</button>
+                        <button [disabled]="loading" class="btn-ok" (click)="htmltoPDF()">SAVE PDF</button>
                 </div>
             </div>
             <div class="content bz">
-                <div id="htmlTable" class="report-content bz" *ngIf="selectedReport && dataTable.length > 0">
-                    <div class="report-header d-flex-sb w-100 bz">
-                        <div><img src="assets/images/cu.png" alt="" srcset=""></div>
-                        <div class="d-col header-info">
-                            <span class="topic">{{selectedReport.Name}}</span>
-                            <span class="topic">{{dateTime | date: selectedReport.DateFormat }}</span>
-                            <span class="topic">{{siteSelected.name}}</span>
-                        </div>
-                        <div><img src="assets/images/mea.png" alt="" srcset=""></div>
-                    </div>
-                    <div class="report-info w-100 bz">
-                        <div class="row-info">
-                            <span class="bz">Energy Production:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | report: 2) }} kWh</span>
-                            <span class="bz"></span>
-                            <span class="bz">Financial Saving:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * reportFactors.ExchangeRate | report: 2 }} THB</span>
-                        </div>
-                        <div class="row-info">
-                            <span class="bz">CO<sub>2</sub> Reduction:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * reportFactors.CO2Rate | report: 2 }} Kg</span>
-                            <span class="bz"></span>
-                            <span class="bz">Oil Saving:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * reportFactors.OilRate | report: 2 }} Liters</span>
-                        </div>
-                        <div class="row-info">
-                            <span class="bz">Tree Saving:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * reportFactors.TreeRate | report: 2 }} Trees</span>
-                            <span class="bz"></span>
-                            <span class="bz"></span>
-                            <span class="bz"></span>
-                        </div>
-
-                        <!-- <div class="row-info">
-                            <span class="bz">Energy Production:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | report: 2) }} kWh</span>
-                            <span class="bz"></span>
-                            <span class="bz">Energy Charge:</span>
-                            <span class="bz">{{ ((getSummaryData("SUM", 2, 1) | myNumber: '1.0-2') * 4.1839)+((getSummaryData("SUM", 3, 1) | myNumber: '1.0-2') * 2.6037) | report: 2 }} THB</span>
-                        </div>
-                        <div class="row-info">
-                            <span class="bz">Energy Production (On Peak):</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 2, 1) | report: 2) }} kWh</span>
-                            <span class="bz"></span>
-                            <span class="bz">Energy Charge (On Peak):</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 2, 1) | myNumber: '1.0-2') * 4.1839 | report: 2 }} THB</span>
-                        </div>
-                        <div class="row-info">
-                            <span class="bz">Energy Production (Off Peak):</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 3, 1) | report: 2) }} kWh</span>
-                            <span class="bz"></span>
-                            <span class="bz">Energy Charge (Off Peak):</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 3, 1) | myNumber: '1.0-2') * 2.6037 | report: 2 }} THB</span>
-                        </div>
-                        <div class="row-info">
-                            <span class="bz">CO<sub>2</sub> Reduction:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * reportFactors.CO2Rate | report: 2 }} Kg</span>
-                            <span class="bz"></span>
-                            <span class="bz">Financial Saving (Discount):</span>
-                            <span class="bz">{{ ((getSummaryData("SUM", 2, 1) | myNumber: '1.0-2') * 4.1839) + ((getSummaryData("SUM", 3, 1) | myNumber: '1.0-2') * 2.6037) - ((getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * 2.95) | report: 2 }} THB</span>
-                        </div>
-                        <div class="row-info">
-                            <span class="bz">Tree Saving:</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * reportFactors.TreeRate | report: 2 }} Trees</span>
-                            <span class="bz"></span>
-                            <span class="bz">Financial Saving (FT):</span>
-                            <span class="bz">{{ (getSummaryData("SUM", 1, 1) | myNumber: '1.0-2') * 0.3972 | report: 2 }} THB</span>
-                        </div> -->
-                        
-                    </div>
-                    <div class="report-table bz w-100">
-                        <table *ngIf="dataTable.length > 0" class="bz">
-                            <thead>
-                                <tr>
-                                    <th class="bz" [style.width]="head.width" *ngFor="let head of selectedReport.Header">{{head.title}}</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr *ngFor="let row of dataTable | orderBy: 0">
-                                    <td class="bz" *ngFor="let col of row; index as j;">
-                                        <span *ngIf="j==0">{{col | date: selectedReport.Header[0].type}}</span>
-                                        <span *ngIf="j!=0">{{ ((col | myNumber: '1.0-4') * selectedReport.Header[j].factor) | report: 2}}</span>
-            
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td class="bz row-summary" *ngFor="let sum of selectedReport.Header; index as i;">
-                                        <span *ngIf="sum.display">{{sum.display}}</span>
-                                        <span *ngIf="!sum.display">{{getSummaryData(sum.type, i, sum.factor) | report: 2}}</span>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="report-chart bz" *ngIf="dataTable && chart">
-                        <div [style.height]="'100%'" [chart]="chart">
+                <div id="htmlTable" *ngIf="selectedReport && selectedReport.HeaderGroup">
+                    <div *ngFor="let item of this.selectedReport.HeaderGroup; index as i">
+                        <div [id]="item.Name" class="report-content bz" *ngIf="selectedReport && dataGroupTable.length > 0 && !loading">
+                            <div class="report-header d-flex-sb w-100 bz">
+                                <div><img src="assets/images/cu.png" alt="" srcset=""></div>
+                                <div class="d-col header-info">
+                                    <span class="topic">{{selectedReport.Name}}</span>
+                                    <span class="topic">{{dateTime | date: selectedReport.DateFormat }}</span>
+                                    <span class="topic">{{item.Name}}</span>
+                                </div>
+                                <div><img src="assets/images/mea.png" alt="" srcset=""></div>
+                            </div>
+                            <div class="report-info w-100 bz" *ngIf="dataGroupTable[i] && dataGroupTable[i].table">
+                                <div class="row-info">
+                                    <span class="bz">Energy Production:</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | report: 2) }} kWh</span>
+                                    <span class="bz"></span>
+                                    <span class="bz">Energy Charge:</span>
+                                    <span class="bz">{{ ((getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OnPeakRate)+((getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OffPeakRate) | report: 2 }} THB</span>
+                                </div>
+                                <div class="row-info">
+                                    <span class="bz">Energy Production (On Peak):</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | report: 2) }} kWh</span>
+                                    <span class="bz"></span>
+                                    <span class="bz">Energy Charge (On Peak):</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OnPeakRate | report: 2 }} THB</span>
+                                </div>
+                                <div class="row-info">
+                                    <span class="bz">Energy Production (Off Peak):</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | report: 2) }} kWh</span>
+                                    <span class="bz"></span>
+                                    <span class="bz">Energy Charge (Off Peak):</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OffPeakRate | report: 2 }} THB</span>
+                                </div>
+                                <div class="row-info">
+                                    <span class="bz">CO<sub>2</sub> Reduction:</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.CO2Rate | report: 2 }} Kg</span>
+                                    <span class="bz"></span>
+                                    <span class="bz">Financial Saving (Discount):</span>
+                                    <span class="bz">{{ ((getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OnPeakRate) + ((getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OffPeakRate) - ((getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OffPeakRate) | report: 2 }} THB</span>
+                                </div>
+                                <div class="row-info">
+                                    <span class="bz">Tree Saving:</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.TreeRate | report: 2 }} Trees</span>
+                                    <span class="bz"></span>
+                                    <span class="bz">Financial Saving (FT):</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.FT | report: 2 }} THB</span>
+                                </div>
+                                
+                            </div>
+                            <div class="report-table bz w-100">
+                                <table *ngIf="dataGroupTable[i] && dataGroupTable[i].table" class="bz">
+                                    <thead>
+                                        <tr>
+                                            <th class="bz" [style.width]="head.width" *ngFor="let head of item.Header">{{head.title}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let row of dataGroupTable[i].table | orderBy: 0">
+                                            <td class="bz" *ngFor="let col of row; index as j;">
+                                                <span *ngIf="j==0">{{col | date: item.Header[0].type}}</span>
+                                                <span *ngIf="j!=0">{{ ((col | myNumber: '1.0-4') * item.Header[j].factor) | report: 2}}</span>
+                    
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bz row-summary" *ngFor="let sum of item.Header; index as x;">
+                                                <span *ngIf="sum.display">{{sum.display}}</span>
+                                                <span *ngIf="!sum.display">{{getSummaryData(sum.type, x, sum.factor, dataGroupTable[i].table) | report: 2}}</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="report-chart bz" *ngIf="dataGroupTable[i] && dataGroupTable[i].table && dataGroupTable[i].chart">
+                                <div [style.height]="'100%'" [chart]="dataGroupTable[i].chart">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

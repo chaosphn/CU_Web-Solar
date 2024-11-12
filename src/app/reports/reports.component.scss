@@ -88,7 +88,9 @@ app-time-control:first-of-type {
     height: 95vh;
     overflow-y: scroll;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
     position: relative;
     //border: 1px solid rgb(255, 0, 0);
 }

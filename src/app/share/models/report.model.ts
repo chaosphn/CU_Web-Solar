@@ -12,6 +12,9 @@ export interface ReportData {
 
 export interface ReportFactorModel{
     ExchangeRate: number;
+    OnPeakRate: number;
+    OffPeakRate: number;
+    FT:number;
     CO2Rate: number;
     OilRate: number;
     TreeRate: number;

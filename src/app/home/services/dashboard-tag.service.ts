@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { ServersStateModel } from '../../core/stores/servers/servers.model';
 import { ValueType } from '../../share/models/value-models/value-type.model';
-import { ServersState } from './../../core/stores/servers/servers.state';
+import { ServersState } from '../../core/stores/servers/servers.state';
 
 @Injectable({
     providedIn: 'root'

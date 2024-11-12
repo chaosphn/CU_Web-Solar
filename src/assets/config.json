@@ -1,5 +1,5 @@
 {
-    "UrlApi": "http://sats2.ddns.net:41255/",
-    "UrlApiAuthen": "http://sats2.ddns.net:41255/",
+    "UrlApi": "http://192.168.9.134:5127/",
+    "UrlApiAuthen": "http://192.168.9.134:5127/",
     "Timer": 5
 }

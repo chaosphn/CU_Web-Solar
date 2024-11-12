@@ -117,6 +117,13 @@
         </i>
         <p>ADMIN</p>
       </a>
+      <a mat-list-item href="#" class="box" routerLink="/main/home" routerLinkActive="active"
+        *ngIf="pages.indexOf('home') > -1" (click)="toggleBackground('/main/home')">
+        <i class="material-icons">
+          language
+        </i>
+        <p>HOME</p>
+      </a>
     </mat-nav-list>
   </mat-sidenav>
 

@@ -1,0 +1,42 @@
+<div class="container-box W-100 h-100 bz">
+  <div class="polygon-box h-100 d-flex bz">
+    <div class="time-box bz">
+      <div class="clock bz">{{time}}</div>
+      <div class="date bz">{{date | date: 'dd MMM yyyy'}}</div>
+    </div>
+    <div class="production-box h-100 bz">
+      <div class="top-border"></div>
+      <div class="bottom-border"></div>
+      <div class="content-box h-100 w-100 bz">
+        <div class="topic-bx">Production Today</div>
+        <div class="card-bx d-flex bz" #cardContainer (mousedown)="onDragStart($event)"
+          (mousemove)="onDragMove($event)"
+          (mouseup)="onDragEnd()"
+          (mouseleave)="onDragEnd()">
+          <div class="parent bz" (mouseenter)="pauseAutoScroll()" >
+            <div class="div1 d-flex-ct bz"><img src="assets/images/building.png" height="60px"></div>
+            <div class="div2 bz">ศูนย์ปฏิบัติการวิจัยและพัฒนาเภสัชภัณฑ์และสมุนไพร</div>
+            <div class="div3 bz">91.52 kWh</div>
+          </div>
+          <div class="parent bz" (mouseenter)="pauseAutoScroll()" >
+            <div class="div1 d-flex-ct bz"><img src="assets/images/building.png" height="60px"></div>
+            <div class="div2 bz">ศูนย์ปฏิบัติการวิจัยและพัฒนาเภสัชภัณฑ์</div>
+            <div class="div3 bz">91.52 kWh</div>
+          </div>
+          <div class="parent" (mouseenter)="pauseAutoScroll()" >
+            <div class="div1 d-flex-ct bz"><img src="assets/images/building.png" height="60px"></div>
+            <div class="div2 bz">ศูนย์ปฏิบัติการวิจัย</div>
+            <div class="div3 bz">91.52 kWh</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="button-box d-flex bz">
+    <button class="btn-select">OverAll</button>
+    <button class="btn-select">NorthEast</button>
+    <button class="btn-select">NorthWest</button>
+    <button class="btn-select">SouthEast</button>
+    <button class="btn-select">SouthWest</button>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="container-fluid bz">
+  <div class="row-grid">
+    <div class="header-container bz">
+      <app-header-information
+        [g1Image]="'assets/images/solar-panel.png'"
+        [g1Title]="'Capacity'"
+        [g1Value]="'6,364.00'"
+        [g1Unit]="'kWp'"
+        [g2Image]="'assets/images/sun.png'"
+        [g2Title]="'Solar Radiation'"
+        [g2Value]="'444.64'"
+        [g2Unit]="'W/m2'"
+        [g3Image]="'assets/images/thermometer.png'"
+        [g3Title]="'Ambient Temp.'"
+        [g3Value]="'34.00'"
+        [g3Unit]="'C'"
+        [g4Image]="'assets/images/thermometer.png'"
+        [g4Title]="'Module Temp.'"
+        [g4Value]="'64.00'"
+        [g4Unit]="'C'"
+      ></app-header-information>
+    </div>
+    <div class="map-container bz"></div>
+  </div>
+  <div class="footer-container ">
+    <app-footer-infomation></app-footer-infomation>
+  </div>
+  <div class="overview-container ">
+    <app-overview-consumption></app-overview-consumption>
+  </div>
+</div>

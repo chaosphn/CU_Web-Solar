@@ -386,6 +386,177 @@
 			"name":"อาคารอเนกประสงค์",
 			"capacity": 172.8,
 			"display": false
+		},
+		{
+			"no":"100",
+			"id":"13014105",
+			"zone":"13014105",
+			"name":"Meter no.10",
+			"capacity": 538.38,
+			"display": true,
+			"building": [ "CEN001","CEN003","CEN005","CEN103","CEN087" ]
+		},
+		{
+			"no":"101",
+			"id":"13017711",
+			"zone":"13017711",
+			"name":"Meter no.13",
+			"capacity": 142.56,
+			"display": true,
+			"building": [ "DEN002","DEN014" ]
+		},
+		{
+			"no":"102",
+			"id":"13018215",
+			"zone":"13018215",
+			"name":"Meter no.11",
+			"capacity": 1037.88,
+			"display": true,
+			"building": [ "LAW003","PSC012","EDU011","ESC008","CEN006"  ]
+		},
+		{
+			"no":"103",
+			"id":"13018538",
+			"zone":"13018538",
+			"name":"Meter no.22",
+			"capacity": 408.24,
+			"display": true,
+			"building": [ "INS009","CEN093","ENG028","ENG030" ]
+		},
+		{
+			"no":"104",
+			"id":"13023931",
+			"zone":"13023931",
+			"name":"Meter no.15",
+			"capacity": 595.08,
+			"display": true,
+			"building": [ "PHA001","PHA003" ]
+		},
+		{
+			"no":"105",
+			"id":"13024447",
+			"zone":"13024447",
+			"name":"Meter no.24",
+			"capacity": 97.20,
+			"display": false,
+			"building": [ "INS012" ]
+		},
+		{
+			"no":"107",
+			"id":"13028863",
+			"zone":"13028863",
+			"name":"Meter no.21",
+			"capacity": 191.16,
+			"display": true,
+			"building": [ "ARC003","CEN053" ]
+		},
+		{
+			"no":"108",
+			"id":"13029461",
+			"zone":"13029461",
+			"name":"Meter no.23",
+			"capacity": 1193.30,
+			"display": false,
+			"building": [ "CEN032","SCI028","CEN068","SCI025","CEN060","ECO001","SCI020" ]
+		},
+		{
+			"no":"109",
+			"id":"13030117",
+			"zone":"13030117",
+			"name":"Meter no.01",
+			"capacity": 120.96,
+			"display": false,
+			"building": [ "INS010" ]
+		},
+		{
+			"no":"110",
+			"id":"13030847",
+			"zone":"13030847",
+			"name":"Meter no.12",
+			"capacity": 91.8,
+			"display": true,
+			"building": [ "CEN072" ]
+		},
+		{
+			"no":"111",
+			"id":"13030979",
+			"zone":"13030979",
+			"name":"Meter no.02",
+			"capacity": 56.70,
+			"display": false,
+			"building": [ "INS011" ]
+		},
+		{
+			"no":"112",
+			"id":"13036201",
+			"zone":"13036201",
+			"name":"Meter no.25",
+			"capacity":131.76,
+			"display": true,
+			"building": [ "PHA006", "PHA007" ]
+		},
+		{
+			"no":"113",
+			"id":"13036565",
+			"zone":"13036565",
+			"name":"Meter no.16",
+			"capacity": 97.20,
+			"display": false,
+			"building": [ "CEN069" ]
+		},
+		{
+			"no":"114",
+			"id":"13037811",
+			"zone":"13037811",
+			"name":"Meter no.03",
+			"capacity": 88.56,
+			"display": false,
+			"building": [ "CEN078" ]
+		},
+		{
+			"no":"115",
+			"id":"13037909",
+			"zone":"13037909",
+			"name":"Meter no.04",
+			"capacity": 224.64,
+			"display": false,
+			"building": [ "CEN099" ]
+		},
+		{
+			"no":"116",
+			"id":"13040996",
+			"zone":"13040996",
+			"name":"Meter no.20",
+			"capacity": 259.20,
+			"display": false,
+			"building": [ "CEN079", "ART005" ]
+		},
+		{
+			"no":"117",
+			"id":"95508259",
+			"zone":"95508259",
+			"name":"Meter no.05",
+			"capacity": 48.06,
+			"display": false,
+			"building": [ "CEN089" ]
+		},
+		{
+			"no":"118",
+			"id":"95772485",
+			"zone":"95772485",
+			"name":"Meter no.06",
+			"capacity": 95.04,
+			"display": true,
+			"building": [ "CEN091" ]
+		},
+		{
+			"no":"119",
+			"id":"96253097",
+			"zone":"96253097",
+			"name":"Meter no.19",
+			"capacity": 105.84,
+			"display": false,
+			"building": [ "CEN100" ]
 		}
 
 	]

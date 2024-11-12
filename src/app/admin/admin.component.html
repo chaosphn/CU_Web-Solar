@@ -8,9 +8,36 @@
             <i class="material-icons">
               monetization_on
             </i>
-            <p>Exchange Rate : </p>
+            <p>Energy Cost : </p>
           </div>
-          <input [(ngModel)]="reportFactors.ExchangeRate" step="0.001" name="ex-rate" type="number" class="form-control" placeholder="0.00">
+          <input [(ngModel)]="reportFactors.ExchangeRate" step="0.0001" name="ex-rate" type="number" class="form-control" placeholder="0.00">
+        </div>
+        <div class="input-group sp">
+          <div class="input-group-prepend ">
+            <i class="material-icons">
+              monetization_on
+            </i>
+            <p>OnPeak Energy Cost : </p>
+          </div>
+          <input [(ngModel)]="reportFactors.OnPeakRate" step="0.0001" name="ex-rate" type="number" class="form-control" placeholder="0.0000">
+        </div>
+        <div class="input-group sp">
+          <div class="input-group-prepend ">
+            <i class="material-icons">
+              monetization_on
+            </i>
+            <p>OffPeak Energy Cost : </p>
+          </div>
+          <input [(ngModel)]="reportFactors.OffPeakRate" step="0.001" name="ex-rate" type="number" class="form-control" placeholder="0.0000">
+        </div>
+        <div class="input-group ">
+          <div class="input-group-prepend ">
+            <i class="material-icons">
+              monetization_on
+            </i>
+            <p>Ft Cost : </p>
+          </div>
+          <input [(ngModel)]="reportFactors.FT" step="0.0001" name="ex-rate" type="number" class="form-control" placeholder="0.00">
         </div>
         <div class="input-group">
           <div class="input-group-prepend">

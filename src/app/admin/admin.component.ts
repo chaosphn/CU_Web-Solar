@@ -17,6 +17,9 @@ export class AdminComponent implements OnInit, AfterViewInit {
   holidays: HolidayResponseModel[] = [];
   reportFactors: ReportFactorModel = {
     ExchangeRate: 0.000,
+    OnPeakRate: 0.000,
+    OffPeakRate: 0.000,
+    FT: 0.000,
     CO2Rate: 0,
     OilRate: 0,
     TreeRate: 0,

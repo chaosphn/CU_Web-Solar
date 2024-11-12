@@ -8,9 +8,9 @@ import { TagsStateModel } from '../../core/stores/tags/tags.model';
 import { TagsState } from '../../core/stores/tags/tags.state';
 import { Data, MultipleValue, SingleValue, SingleValue1 } from '../../share/models/value-models/group-data.model';
 import { ValueType } from '../../share/models/value-models/value-type.model';
-import { ChangePeriodName, DashboardConfigsState } from './../../core/stores/configs/dashboard/dashboard-configs.state';
-import { DashboardRequestState } from './../../core/stores/requests/dashboard/dashboard-request.state';
-import { DateTimeService } from './../../share/services/datetime.service';
+import { ChangePeriodName, DashboardConfigsState } from '../../core/stores/configs/dashboard/dashboard-configs.state';
+import { DashboardRequestState } from '../../core/stores/requests/dashboard/dashboard-request.state';
+import { DateTimeService } from '../../share/services/datetime.service';
 
 @Injectable({
     providedIn: 'root'

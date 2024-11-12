@@ -9,7 +9,7 @@
 .head {
     background: #136286;
     min-height: 50px;
-    padding: 0px 24px;
+    padding: 8px 24px;
     column-gap: 16px;
 }
 
@@ -24,17 +24,25 @@
     line-height: 1;
     display: flex;
     align-items: center;
+    min-width: 150px;
 }
 
 .inp-item{
     align-items: center;
+    flex-wrap: wrap;
+    row-gap: 8px;
     column-gap: 8px;
+    .sp{
+        width: 268px;
+    }
 }
 
  
 .input-group {
     background-color: white;
     height: 24px;
+    max-width: 268px;
+    width: 200px;
     .material-icons {
         // padding-top: 2px;
         padding-left: 2px;

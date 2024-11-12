@@ -4,9 +4,9 @@ import { UUID } from 'angular2-uuid';
 import { DashboardReqHistorian, DashboardReqRealtime, DashboardRequestStateModel } from '../../core/stores/requests/dashboard/dashboard-request.model';
 import { TagsStateModel } from '../../core/stores/tags/tags.model';
 import { TagsState } from '../../core/stores/tags/tags.state';
-import { DashboardConfigStateModel, DashboardConfigsHistorian, DashboardConfigsRealtime, InverterTag, PlotTag, RawTag } from './../../core/stores/configs/dashboard/dashboard-configs.model';
-import { ValueType } from './../../share/models/value-models/value-type.model';
-import { DateTimeService } from './../../share/services/datetime.service';
+import { DashboardConfigStateModel, DashboardConfigsHistorian, DashboardConfigsRealtime, InverterTag, PlotTag, RawTag } from '../../core/stores/configs/dashboard/dashboard-configs.model';
+import { ValueType } from '../../share/models/value-models/value-type.model';
+import { DateTimeService } from '../../share/services/datetime.service';
 
 @Injectable({
     providedIn: 'root'

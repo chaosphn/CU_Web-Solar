@@ -27,6 +27,11 @@ const routes: Routes = [
         },
         children: [
             {
+                path: 'home',
+                loadChildren: 'src/app/home/dashboard.module#DashboardModule',
+                canActivateChild: [ AuthGuard ]
+            },
+            {
                 path: 'mapview',
                 loadChildren: 'src/app/dashboardtv/dashboard.module#DashboardModule',
                 canActivateChild: [ AuthGuard ]

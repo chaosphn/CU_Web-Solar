@@ -127,7 +127,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   }
 
   toggleBackground(data:string){
-    if( data == '/main/mapview' ){
+    if( data == '/main/mapview' || data == '/main/home' ){
       this.bgStatus = true;
       //console.log('special bg1');
     } else{
@@ -160,7 +160,7 @@ export class NavbarComponent implements AfterViewInit, OnInit {
 
   checkRoute(){
     const rout = this.router.url.toString();
-    if( rout == '/main/mapview' ){
+    if( rout == '/main/mapview' || rout == '/main/home' ){
       return false;
     } else{
       return true;

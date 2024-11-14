@@ -1,0 +1,10 @@
+.map-svg{
+    scale: 1.05;
+}
+
+.container-box{
+    cursor: pointer;
+    position: relative;
+    max-height: calc(100vh - 90px);
+    overflow: hidden;
+}

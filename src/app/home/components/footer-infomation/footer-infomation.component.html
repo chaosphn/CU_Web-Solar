@@ -9,23 +9,13 @@
       <div class="bottom-border"></div>
       <div class="content-box h-100 w-100 bz">
         <div class="topic-bx">Production Today</div>
-        <div class="card-bx d-flex bz" #cardContainer (mousedown)="onDragStart($event)"
+        <div class="card-bx d-flex bz" *ngIf="zone && zone.buildings" #cardContainer (mousedown)="onDragStart($event)"
           (mousemove)="onDragMove($event)"
           (mouseup)="onDragEnd()"
           (mouseleave)="onDragEnd()">
-          <div class="parent bz" (mouseenter)="pauseAutoScroll()" >
+          <div class="parent bz" *ngFor="let item of zone.buildings;" (mouseenter)="pauseAutoScroll()" >
             <div class="div1 d-flex-ct bz"><img src="assets/images/building.png" height="60px"></div>
-            <div class="div2 bz">ศูนย์ปฏิบัติการวิจัยและพัฒนาเภสัชภัณฑ์และสมุนไพร</div>
-            <div class="div3 bz">91.52 kWh</div>
-          </div>
-          <div class="parent bz" (mouseenter)="pauseAutoScroll()" >
-            <div class="div1 d-flex-ct bz"><img src="assets/images/building.png" height="60px"></div>
-            <div class="div2 bz">ศูนย์ปฏิบัติการวิจัยและพัฒนาเภสัชภัณฑ์</div>
-            <div class="div3 bz">91.52 kWh</div>
-          </div>
-          <div class="parent" (mouseenter)="pauseAutoScroll()" >
-            <div class="div1 d-flex-ct bz"><img src="assets/images/building.png" height="60px"></div>
-            <div class="div2 bz">ศูนย์ปฏิบัติการวิจัย</div>
+            <div class="div2 bz">{{item.name}}</div>
             <div class="div3 bz">91.52 kWh</div>
           </div>
         </div>
@@ -33,10 +23,10 @@
     </div>
   </div>
   <div class="button-box d-flex bz">
-    <button class="btn-select">OverAll</button>
-    <button class="btn-select">NorthEast</button>
-    <button class="btn-select">NorthWest</button>
-    <button class="btn-select">SouthEast</button>
-    <button class="btn-select">SouthWest</button>
+    <button class="btn-select" [ngClass]="{ 'btn-active' : zone.zone == 'overall' }" (click)="updateLocation('overall')">OverAll</button>
+    <button class="btn-select" [ngClass]="{ 'btn-active' : zone.zone == 'northeast' }" (click)="updateLocation('northeast')">NorthEast</button>
+    <button class="btn-select" [ngClass]="{ 'btn-active' : zone.zone == 'northwest' }" (click)="updateLocation('northwest')">NorthWest</button>
+    <button class="btn-select" [ngClass]="{ 'btn-active' : zone.zone == 'southeast' }" (click)="updateLocation('southeast')">SouthEast</button>
+    <button class="btn-select" [ngClass]="{ 'btn-active' : zone.zone == 'southwest' }" (click)="updateLocation('southwest')">SouthWest</button>
   </div>
 </div>

@@ -1,11 +1,17 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef, Input, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { LocationStateModel } from 'src/app/core/stores/location/location.model';
+import { AddZone } from 'src/app/core/stores/location/location.state';
+
 @Component({
   selector: 'app-overview-consumption',
   templateUrl: './overview-consumption.component.html',
-  styleUrls: ['./overview-consumption.component.scss']
+  styleUrls: ['./overview-consumption.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class OverviewConsumptionComponent implements OnInit, OnDestroy {
+export class OverviewConsumptionComponent implements OnInit, OnDestroy, OnChanges {
 
+  @Input() zone: LocationStateModel;
   @ViewChild('overviewContainer') cardContainer!: ElementRef;
 
   constructor(
@@ -20,6 +26,10 @@ export class OverviewConsumptionComponent implements OnInit, OnDestroy {
   scrollLeft: number = 0;
   time: string = '00:00:00';
   date: Date = new Date();
+
+  ngOnChanges(changes: SimpleChanges): void {
+    this.resetScroll();
+  }
 
   ngOnInit(): void {
     this.startAutoScroll();
@@ -59,6 +69,13 @@ export class OverviewConsumptionComponent implements OnInit, OnDestroy {
       container.scrollLeft = 0; 
     } else {
       container.scrollLeft += container.clientWidth; 
+    }
+  }
+
+  resetScroll(){
+    if(this.cardContainer && this.cardContainer.nativeElement){
+      const container = this.cardContainer.nativeElement;
+      container.scrollLeft = 0;
     }
   }
 

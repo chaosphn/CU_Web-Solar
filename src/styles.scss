@@ -245,6 +245,97 @@ button.download {
     }
 }  
 
+.effect {
+    stroke-dasharray: 4000;
+    animation: dash 15s linear infinite;
+}
+
+.point{
+    animation: blinker 16s infinite;
+}
+
+@keyframes dash {
+    from {
+        stroke-dashoffset: 4000; 
+    }
+    to {
+        stroke-dashoffset: 0; 
+        //stroke: aqua;
+    }
+}
+
+@keyframes blinker {
+    0% {
+        //scale: 1;
+        r: 8;
+    }
+    1% {
+        //scale: 1;
+        r: 9;
+    }
+    3% {
+        //scale: 1;
+        r: 10;
+    }
+    4% {
+        //scale: 1;
+        r: 11;
+    }
+    5% {
+        //scale: 1;
+        r: 12;
+    }
+    6% {
+        //scale: 1;
+        r: 13;
+    }
+    7% {
+        //scale: 1;
+        r: 14;
+    }
+    8% {
+        //scale: 1;
+        r: 15;
+    }
+    9% {
+        //scale: 1;
+        r: 16;
+    }
+    10% {
+        //scale: 1;
+        r: 15;
+    }
+    11% {
+        //scale: 1;
+        r: 14;
+    }
+    12% {
+        //scale: 1.5;
+        r: 13;
+    }
+    13% {
+        //scale: 2.5;
+        r: 12;
+    }
+    14% {
+        //scale: 1.5;
+        r: 11;
+    }
+    15% {
+        //scale: 1;
+        r: 10;
+    }
+    16% {
+        //scale: 1;
+        r: 9;
+    }
+    17% {
+        //scale: 1;
+        r: 8;
+    }
+}
+
+
 // html, body { height: 100%; }
 // body { margin: 0; font-family: 'Roboto', sans-serif; }
 #ARC003_pos{

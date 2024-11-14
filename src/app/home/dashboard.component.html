@@ -20,12 +20,22 @@
         [g4Unit]="'C'"
       ></app-header-information>
     </div>
-    <div class="map-container bz"></div>
+    <div class="map-container bz">
+      <div [ngSwitch]="locationSelected.zone">
+        <div *ngSwitchCase="'overvall'"><app-overall-infomation [config]="locationConfig" ></app-overall-infomation></div>
+        <div *ngSwitchCase="'northeast'"><app-northeast-infomation></app-northeast-infomation></div>
+        <div *ngSwitchCase="'northwest'"><app-northwest-infomation></app-northwest-infomation></div>
+        <div *ngSwitchCase="'southeast'"><app-southeast-infomation></app-southeast-infomation></div>
+        <div *ngSwitchCase="'southwest'"><app-southwest-infomation></app-southwest-infomation></div>
+        <div *ngSwitchDefault><app-overall-infomation [config]="locationConfig"></app-overall-infomation></div>
+      </div>
+    </div>
   </div>
   <div class="footer-container ">
-    <app-footer-infomation></app-footer-infomation>
+    <app-footer-infomation [config]="locationConfig" [zone]="locationSelected">
+    </app-footer-infomation>
   </div>
   <div class="overview-container ">
-    <app-overview-consumption></app-overview-consumption>
+    <app-overview-consumption [zone]="locationSelected"></app-overview-consumption>
   </div>
 </div>

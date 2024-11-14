@@ -33,6 +33,8 @@ import { EventService } from '../share/services/event.service';
 import { NavbarComponent } from '../core/components/navbar/navbar.component';
 import { Timestamp } from 'rxjs/internal/operators/timestamp';
 import { PeriodGroup, PeriodTime, PeriodTime1 } from '../share/models/period-time';
+import { LocationStateModel } from '../core/stores/location/location.model';
+import { AddZone, LocationState } from '../core/stores/location/location.state';
 
 @Component({
   selector: 'app-dashboard',
@@ -53,6 +55,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   dateTime4: Date = new Date();
   subscriptions: Subscription[] = [];
   sub1: Subscription;
+  locationState$: Observable<LocationStateModel> = this.store.select(LocationState.getLocation());
+  locationSub: Subscription;
   chartConfigs: DashboardConfigStateModel[] = [];
   chartOptions: ChartOptions = {};
   periodSelected: Period;
@@ -93,6 +97,8 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   dataHistorian?: DashboardResHistorian[] = []
   disableButton: boolean = false;
   chartSelected?: string;
+  locationConfig: LocationStateModel[] = [];
+  locationSelected?: LocationStateModel;
 
   @ViewChild('period1') period1: PeriodComponent;
   @ViewChild('period2') period2: PeriodComponent;
@@ -128,7 +134,20 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.siteName = JSON.parse(building);
     this.initDateTime();
     this.init02();
+    this.locationSub = this.locationState$.subscribe((data) => {
+      //console.log(data);
+      this.locationSelected = data;
+      this.cd.markForCheck();
+    })
   }
+
+  async updateLocation(name: string){
+    const zone = this.locationConfig.find(x => x.zone == name);
+    if(zone){
+      await this.store.dispatch(new AddZone(zone)).toPromise();
+    }
+  }
+
 
   updateInit(){
     this.unSubscribeTimer();
@@ -313,11 +332,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async getDashboardConfigs() {
     const dashboardConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/dashboard/configurations/dashboard['+this.siteName.id+'].config.json');
-    // const weatherConfigs: DashboardConfigs = await this.httpService.getConfig2('assets/card-weather/weather-value.json');
+    const location: LocationStateModel[] = await this.httpService.getConfig('assets/main/location.json');
     //const ChartsConfigs: DashboardConfigStateModel[] = await this.httpService.getConfig('assets/dashboard/configurations/dashboard.chart.config.json');
     this.chartConfigs = [].concat(dashboardConfigs.chartConfig);
     //console.log(this.chartConfigs);
     //this.dashboardTagService.addServerName(dashboardConfigs);
+    if(location){
+      console.log(location)
+      this.locationConfig = location;
+    }
     this.store.dispatch(new SetDashboardConfigs(dashboardConfigs));
     return dashboardConfigs;
   }
@@ -599,33 +622,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     }
   }
 
-  async selectPeriodInverterChart(period: PeriodGroup, chartName: string, date: Date) {
-    if(this.isInitialized){
-      const _period = this.getDateTimePeriod(date, period.Type);
-      const tagChart: any[] = this.store.selectSnapshot(DashboardConfigsState.getConfigwithChartName(chartName));
-      await this.store.dispatch(new ChangePeriod2(tagChart, _period.startTime, _period.endTime, period.Type)).toPromise();
-      this.chartSelected = chartName;
-      this.disableButton = true;
-      
-      this.dashboardInverterService.periodName = period.Type;
-      this.dashboardInverterService.requests.forEach(r => {   
-        r.Options.StartTime = _period.startTime;
-        r.Options.EndTime = _period.endTime;
-      });
-      this.chartSelected = chartName;
-      this.disableButton = true;
-      const req: DashboardReqHistorian[] = this.store.selectSnapshot(DashboardRequestState.getRequestHistorianWithName(tagChart, period));
-      console.log(req)
-      console.log(this.dashboardInverterService.requests)
-      const res: DashboardResHistorian[] = await this.httpService.getHistorian(this.dashboardInverterService.requests);
-      this.dashboardInverterService.data = res;
-      this.loadInverterValues();
-      this.disableButton = false;
-      this.chartSelected = undefined;
-      this.cd.markForCheck();
-    }
-  }
-
   startTimer(dueTimer: number) {
     const _timer = timer(dueTimer, dueTimer).subscribe(x => {
       this.timerTick();
@@ -693,38 +689,6 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.dateTime2 = new Date();
     this.dateTime3 = new Date();
     this.dateTime4 = new Date();
-  }
-
-  async selectedPeriodGroup(periodName: PeriodGroup, id: string) {
-    if(id == "1"){
-      this.periodGroupSelected1 = periodName;
-      await this.selectPeriodChart(periodName, 'powerGeneration', this.dateTime1);
-    } else if(id == "2"){
-      this.periodGroupSelected2 = periodName;
-      await this.selectPeriodChart(periodName, 'energyExported', this.dateTime2);
-    } else if(id == "3"){
-      this.periodGroupSelected3 = periodName;
-      await this.selectPeriodChart(periodName, 'performanceRatio', this.dateTime3);
-    } else if(id == "4"){
-      this.periodGroupSelected4 = periodName;
-      await this.selectPeriodInverterChart(periodName, 'interverEnergy', this.dateTime4);
-    }
-  }
-
-  async onDateTimeChange(event:Date, id: string) {
-    if(id == "1"){
-      this.dateTime1 = new Date(event.setHours(0,0,0,0));
-      await this.selectPeriodChart(this.periodGroupSelected1, 'powerGeneration', this.dateTime1);
-    } else if(id == "2"){
-      this.dateTime2 = new Date(event.setHours(0,0,0,0));
-      await this.selectPeriodChart(this.periodGroupSelected2, 'energyExported', this.dateTime2);
-    } else if(id == "3"){
-      this.dateTime3 = new Date(event.setHours(0,0,0,0));
-      await this.selectPeriodChart(this.periodGroupSelected3, 'performanceRatio', this.dateTime3);
-    } else if(id == "4"){
-      this.dateTime4 = new Date(event.setHours(0,0,0,0));
-      await this.selectPeriodInverterChart(this.periodGroupSelected4, 'interverEnergy', this.dateTime4);
-    }
   }
 
   getDateTimePeriod(event:Date, periodType: string):PeriodTime1 {

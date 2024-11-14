@@ -265,7 +265,7 @@ export class ReportsComponent implements OnInit {
   async getConfig() {
     const config: SiteStateModel = await this.httpService.getNavConfig('assets/reports/BuildingList.json');
     if(config){
-      console.log(config)
+      //console.log(config)
       this.buildingList = config.building;
     }
     this.reportConfig = await this.httpService.getConfig('assets/reports/report.config2.json');
@@ -495,7 +495,7 @@ export class ReportsComponent implements OnInit {
         const promises = this.dateColumn.map(async rw => {
           const res:DashboardResHistorian[] = await this.httpService.getReportData(this.getGroupRequestWithType(this.selectedReport.Type, rw, index));
           const testBody = this.getGroupRequestWithType(this.selectedReport.Type, rw, index);
-          console.log(testBody[0].Options.StartTime)
+          //console.log(testBody[0].Options.StartTime)
           this.response = res;        
           let row: string[] = [];
           item.Header.forEach((cl, i) => {

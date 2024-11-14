@@ -1,17 +1,23 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef, Input, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
+import { Store } from '@ngxs/store';
+import { LocationStateModel } from 'src/app/core/stores/location/location.model';
+import { AddZone } from 'src/app/core/stores/location/location.state';
 import { DateTimeService } from 'src/app/share/services/datetime.service';
 
 @Component({
   selector: 'app-footer-infomation',
   templateUrl: './footer-infomation.component.html',
-  styleUrls: ['./footer-infomation.component.scss']
+  styleUrls: ['./footer-infomation.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class FooterInfomationComponent implements OnInit, OnDestroy {
+export class FooterInfomationComponent implements OnInit, OnDestroy, OnChanges {
 
   @ViewChild('cardContainer') cardContainer!: ElementRef;
-
+  @Input() config: LocationStateModel[] = [];
+  @Input() zone: LocationStateModel;
   constructor(private dateTimeSrv: DateTimeService,
-    private cd: ChangeDetectorRef
+    private cd: ChangeDetectorRef,
+    private store: Store
   ) { }
 
   autoScrollInterval: any;
@@ -23,6 +29,10 @@ export class FooterInfomationComponent implements OnInit, OnDestroy {
   time: string = '00:00:00';
   date: Date = new Date();
 
+  ngOnChanges(changes: SimpleChanges): void {
+    //console.log(this.config)
+  }
+
   ngOnInit(): void {
     this.startAutoScroll();
     this.startAutoTimer();
@@ -30,6 +40,13 @@ export class FooterInfomationComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.clearAutoScroll();
+  }
+
+  async updateLocation(name: string){
+    const zone = this.config.find(x => x.zone == name);
+    if(zone){
+      await this.store.dispatch(new AddZone(zone)).toPromise();
+    }
   }
 
   startAutoScroll() {

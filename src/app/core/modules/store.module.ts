@@ -18,6 +18,7 @@ import { InverterConfigsState } from '../stores/configs/inverter/inverter-config
 import { InverterRequestState } from '../stores/requests/inverter/inverter-request.state';
 import { SitesState } from '../stores/sites/sites.state';
 import { BuildingState } from '../stores/building/building.state';
+import { LocationState } from '../stores/location/location.state';
 
 
 
@@ -44,7 +45,8 @@ import { BuildingState } from '../stores/building/building.state';
             InverterRequestState,
             InverterConfigsState,
             SitesState,
-            BuildingState
+            BuildingState,
+            LocationState
         ]),
         NgxsReduxDevtoolsPluginModule.forRoot()
     ],

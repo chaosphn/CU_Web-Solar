@@ -1,15 +1,16 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { SharedModule } from '../share/share.module';
-import { DailyConsumptionComponent } from './components/daily-consumption/daily-consumption.component';
-import { DailyConsumptionComponent2 } from './components/daily-consumption2/daily-consumption.component';
-import { SiteInformationComponent } from './components/site-information/site-information.component';
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { OverviewConsumptionComponent } from './components/overview-consumption/overview-consumption.component';
-import { EnviConsumptionComponent } from './components/envi-consumption/envi-consumption.component';
 import { HeaderInformationComponent } from './components/header-information/header-information.component';
 import { FooterInfomationComponent } from './components/footer-infomation/footer-infomation.component';
+import { OverallInfomationComponent } from './components/overall-infomation/overall-infomation.component';
+import { NortheastInfomationComponent } from './components/northeast-infomation/northeast-infomation.component';
+import { NorthwestInfomationComponent } from './components/northwest-infomation/northwest-infomation.component';
+import { SoutheastInfomationComponent } from './components/southeast-infomation/southeast-infomation.component';
+import { SouthwestInfomationComponent } from './components/southwest-infomation/southwest-infomation.component';
 
 
 @NgModule({
@@ -20,13 +21,14 @@ import { FooterInfomationComponent } from './components/footer-infomation/footer
   ],
   declarations: [
     DashboardComponent,
-    SiteInformationComponent,
-    DailyConsumptionComponent,
-    DailyConsumptionComponent2,
     OverviewConsumptionComponent,
-    EnviConsumptionComponent,
     HeaderInformationComponent,
-    FooterInfomationComponent
+    FooterInfomationComponent,
+    OverallInfomationComponent,
+    NortheastInfomationComponent,
+    NorthwestInfomationComponent,
+    SoutheastInfomationComponent,
+    SouthwestInfomationComponent
   ]
 })
 export class DashboardModule { }

@@ -2,15 +2,15 @@
 	"realtimeConfig": [
 		{
 			"Title": "ZONE_power",
-			"Name": "CALC.ZONE10.W"
+			"Name": "M010.CALZ10.W"
 		},
 		{
 			"Title": "ZONE_energy",
-			"Name": "CALC.ZONE10.WH_DAY"
+			"Name": "M010.CALZ10.WH_DAY"
 		},
 		{
 			"Title": "TOTAL_energy",
-			"Name": "CALC.ZONE10.WH"
+			"Name": "M010.CALZ10.WH"
 		},
 
 		{
@@ -293,7 +293,7 @@
 			}
 		},
 		{
-			"Name": "CALC.ZONE10.W",
+			"Name": "M010.CALZ10.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -677,7 +677,7 @@
 					}
 				},
 				{
-					"name": "CALC.ZONE10.W",
+					"name": "M010.CALZ10.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {

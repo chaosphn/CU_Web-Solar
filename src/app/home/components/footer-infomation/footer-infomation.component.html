@@ -1,10 +1,13 @@
 <div class="container-box W-100 h-100 bz">
   <div class="polygon-box h-100 d-flex bz">
-    <div class="time-box bz">
-      <div class="clock bz">{{time}}</div>
-      <div class="date bz">{{date | date: 'dd MMM yyyy'}}</div>
+    <div class="consumption-box bz">
+      <div class="top-border"></div>
+      <div class="bottom-border"></div>
+      <div class="chart-box w-100 bz">
+        <app-sat-chart1 *ngIf="chart" [height]="'160px'" [chartParameters]="chart"></app-sat-chart1>
+      </div>
     </div>
-    <div class="production-box h-100 bz">
+    <div class="production-box bz">
       <div class="top-border"></div>
       <div class="bottom-border"></div>
       <div class="content-box h-100 w-100 bz">
@@ -16,10 +19,14 @@
           <div class="parent bz" *ngFor="let item of zone.buildings;" (mouseenter)="pauseAutoScroll()" >
             <div class="div1 d-flex-ct bz"><img src="assets/images/building.png" height="60px"></div>
             <div class="div2 bz">{{item.name}}</div>
-            <div class="div3 bz">91.52 kWh</div>
+            <div class="div3 bz">{{data[ item.id+'_today' ]?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</div>
           </div>
         </div>
       </div>
+    </div>
+    <div class="time-box bz">
+      <div class="clock bz">{{time}}</div>
+      <div class="date bz">{{date | date: 'dd MMM yyyy'}}</div>
     </div>
   </div>
   <div class="button-box d-flex bz">

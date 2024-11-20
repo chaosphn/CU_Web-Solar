@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header-information',
@@ -29,7 +30,7 @@ export class HeaderInformationComponent implements OnInit, OnChanges {
   @Input() g4Unit: string;
   
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnChanges(changes: SimpleChanges): void {
     
@@ -38,6 +39,8 @@ export class HeaderInformationComponent implements OnInit, OnChanges {
   ngOnInit() {
   }
 
-
+  navigateToDashboard(){
+    this.router.navigate(['/main/overview']);
+  }
 
 }

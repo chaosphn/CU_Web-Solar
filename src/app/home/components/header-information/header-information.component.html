@@ -1,6 +1,6 @@
 <div class="container-box bz">
   <div class="infos-box bz d-flex">
-    <div><img src="assets/images/Icon.png" height="25px"></div>
+    <div (click)="navigateToDashboard()"><img src="assets/images/Icon.png" height="25px"></div>
     <div><img src="assets/images/mea.png" height="70px"></div>
     <div><img src="assets/images/cu.png" height="70px"></div>
     <div class="h-info ">
@@ -12,25 +12,25 @@
 
   </div>
   <div class="weathers-box bz">
-    <div class="parent" *ngIf="g1Image">
+    <div class="parent" *ngIf="g1Image && g1Value">
       <div class="div1 d-flex-ct bz"><img [src]="g1Image" height="54px"></div>
       <div class="div2 bz">{{g1Title}}</div>
       <div class="div3 bz">{{g1Value}} {{g1Unit}}</div>
     </div>
-    <div class="parent" *ngIf="g2Image">
+    <div class="parent" *ngIf="g2Image && g2Value">
       <div class="div1 d-flex-ct bz"><img [src]="g2Image" height="54px"></div>
       <div class="div2 bz">{{g2Title}}</div>
-      <div class="div3 bz">{{g2Value}} {{g2Unit}}</div>
+      <div class="div3 bz">{{g2Value}} {{g2Unit}}<sup>2</sup></div>
     </div>
-    <div class="parent" *ngIf="g3Image">
+    <div class="parent" *ngIf="g3Image && g3Value">
       <div class="div1 d-flex-ct bz"><img [src]="g3Image" height="54px"></div>
       <div class="div2 bz">{{g3Title}}</div>
-      <div class="div3 bz">{{g3Value}} {{g3Unit}}</div>
+      <div class="div3 bz">{{g3Value}} &deg;{{g3Unit}}</div>
     </div>
-    <div class="parent" *ngIf="g4Image">
+    <div class="parent" *ngIf="g4Image && g4Value">
       <div class="div1 d-flex-ct bz"><img [src]="g4Image" height="54px"></div>
       <div class="div2 bz">{{g4Title}}</div>
-      <div class="div3 bz">{{g4Value}} {{g4Unit}}</div>
+      <div class="div3 bz">{{g4Value}} &deg;{{g4Unit}}</div>
     </div>
   </div>
 </div>

@@ -10,12 +10,12 @@ export class MyNumberPipe implements PipeTransform {
     transform(value: any, format: string): any {
         if (typeof value === 'number') {
             const val = this.decimalPipe.transform(value, format);
-            return val;
+            return parseFloat(val);
         } else if(typeof value === 'string'){
             const data = this.decimalPipe.transform(parseFloat(value.replace(',','')), format);
-            return (parseInt(data) >= 0) ? parseFloat(data.replace(',','')) : "---";
+            return (parseFloat(data) >= 0) ? parseFloat(data.replace(',','')) : 0.00;
         } else {
-            return "---";
+            return '0.00';
         }
     }
 }

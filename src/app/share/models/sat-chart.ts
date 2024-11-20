@@ -1,3 +1,4 @@
+import { style } from '@angular/animations';
 import { EventEmitter } from 'events';
 import { range } from 'rxjs';
 import { min } from 'rxjs/operators';
@@ -457,6 +458,132 @@ export class ChartParametersAdapter {
         return _yAxis;
     }
 
+    getYAxis2(): any | any[] {
+        const _yAxis: any | any[] = [];
+        if (this.chartParams.yAxis) {
+            this.chartParams.yAxis.forEach(y => {
+    
+                const _x = (y.opposite) ? -75 : 10;
+                if (y.ymin && y.ymax) {
+                    _yAxis.push({
+                        lineColor: '#FFFFFF93',
+                        lineWidth: 1,
+                        endOnTick: false,
+                        tickPositioner: function () {
+                            const max: number = this.options.max;
+                            const min: number = this.options.min;
+                            const diff = max - min;
+                            const interval = diff / 4;
+                            const arr: number[] = [min];
+                            range(1, 4).forEach(i => {
+                                if (i === 4) {
+                                    arr.push(Math.ceil(max));
+                                }
+                                else {
+                                    const _val = i * interval;
+                                    arr.push(Math.ceil(_val));
+                                }
+                            });
+                            return arr;
+                        },
+                        labels: {
+                            enabled: y.labelEnable || true,
+                            // format: y.labelFormat || '{value:,.0f}',
+                            format: '{value:,.0f}',
+                            useHTML: true,
+                            style: {
+                                'color': '#FFFFFF'
+                            }
+                        },
+                        max: +y.ymax,
+                        min: 0,
+                        opposite: y.opposite,
+                        title: {
+                            reserveSpace: true,
+                            text: y.title || null,
+                            align: y.align || 'middle',
+                            useHTML: true,
+                            style: {
+                                'text-anchor': 'center',
+                                'color': '#FFFFFF'
+                            },
+                            min: y.ymin || null,
+                            max: y.ymax || null,
+                            rotation: -90,
+                            y: 0,
+                            x: 7.5
+                        },
+                        visible: y.visible || null
+                    });
+                }
+                else {
+                    _yAxis.push({
+                        lineColor: '#FFFFFF93',
+                        lineWidth: 1,
+                        endOnTick: false,
+                        tickAmount: 5,
+                        min: 0,
+                        labels: {
+                            enabled: y.labelEnable || true,
+                            // format: y.labelFormat || '{value:,.0f}',
+                            format: '{value:,.0f}',
+                            useHTML: true,
+                            style: {
+                                'color': '#FFFFFF'
+                            }
+                        },
+                        opposite: y.opposite,
+                        title: {
+                            reserveSpace: true,
+                            text: y.title || null,
+                            align: 'middle',
+                            useHTML: true,
+                            style: {
+                                'text-anchor': 'center',
+                                'color': '#FFFFFF'
+                            },
+                            rotation: -90,
+                            y: 0,
+                            x: 7.5
+                        },
+                        visible: y.visible || null
+                    });
+                }
+
+
+
+            });
+        }
+        else {
+            _yAxis.push({
+                endOnTick: false,
+                lineColor: 'gray',
+                lineWidth: 2,
+                label: {
+                    enable: true,
+                    format: '{value}',
+                    reserveSpace: false
+                },
+                // endOnTick: false,
+                // maxPadding: 0.1,
+                oposite: false,
+                // max: y.ymax,
+                title: {
+                    reserveSpace: false,
+                    text: null,
+                    align: 'middle',
+                    style: {
+                        'text-anchor': 'start'
+                    },
+                    rotation: 0,
+                    y: -25,
+                    x: 25
+                }
+            });
+        }
+        return _yAxis;
+    }
+
     getLegend(): any {        
         let _legend: any = {};
         if (this.chartParams.legend) {
@@ -606,6 +733,50 @@ export class ChartParametersAdapter {
         return _xAxis;
     }
 
+    getXAxis1(): any | any[] {
+        const _xAxis: any | any[] = [];
+        if (this.chartParams.xAxis) {
+            _xAxis[0] = {
+                type: (this.chartParams.xAxis.categories) ? null : this.chartParams.xAxis.labelType,
+                labels: {
+                    enabled: this.chartParams.xAxis.labelEnable,
+                    format: this.chartParams.xAxis.labelDateformat,
+                    color: '#FFFFFF',
+                    useHTML: true,
+                    style: {
+                        'color': '#FFFFFF'
+                    }
+                },
+                tickInterval: this.chartParams.xAxis.tickInterval,
+                lineWidth: 1,
+                lineColor: 'gray',
+                max: this.chartParams.xAxis.max,
+                crosshair: true,
+                min: this.chartParams.xAxis.min,
+                categories: (this.chartParams.xAxis.categories) ? this.chartParams.xAxis.categories : null
+            };
+
+        }
+        else {
+            _xAxis[0] = {
+                type: 'category',
+                lineWidth: 1,
+                lineColor: 'gray',
+                crosshair: true,
+                labels: {
+                    enabled: true,
+                    format: '{value:%H:%M}',
+                    color: '#FFFFFF',
+                    useHTML: true,
+                    style: {
+                        'color': '#FFFFFF'
+                    }
+                }
+            };
+        }
+        return _xAxis;
+    }
+
     getSeries(): Highcharts.IndividualSeriesOptions[] {
         // const _series: Highcharts.IndividualSeriesOptions[] = [];
         const _series: any[] = [];
@@ -681,6 +852,40 @@ export class ChartParametersAdapter {
         }
         return _plotOption;
     }
+
+    getPlotOption1(): any {
+        let _plotOption: any = {};
+        if (this.chartParams.plotOption) {
+            _plotOption = {
+                series: {
+                    lineWidth: this.chartParams.plotOption.linewidth,
+                    animation: false,
+                    marker: {
+                        enabled: false
+                    },
+                    pointPadding: 0,
+                    groupPadding: 0.1,
+                    fillOpacity: 1
+                },
+            };
+        }
+        else {
+            _plotOption = {
+                series: {
+                    lineWidth: 2,
+                    animation: false,
+                    marker: {
+                        enabled: false
+                    },
+                    pointPadding: 0,
+                    groupPadding: 0.1,
+                    fillOpacity: 1
+                }
+            };
+        }
+        return _plotOption;
+    }
+
 
     getTitle() {
         const str = this.chartParams.title || null;

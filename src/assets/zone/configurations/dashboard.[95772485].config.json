@@ -1,16 +1,16 @@
 {
 	"realtimeConfig": [
 		{
-			"Title": "ZONE_powerX",
-			"Name": "B006.SLOGGER06.INV_WAC"
+			"Title": "ZONE_power",
+			"Name": "M006.CALZ06.W"
 		},
 		{
-			"Title": "ZONE_energyX",
-			"Name": "B006.CALC06.WH_TODAY"
+			"Title": "ZONE_energy",
+			"Name": "M006.CALZ06.WH_DAY"
 		},
 		{
-			"Title": "TOTAL_energyX",
-			"Name": "B006.TOU06.WH"
+			"Title": "TOTAL_energy",
+			"Name": "M006.CALZ06.WH"
 		},
 
 		{

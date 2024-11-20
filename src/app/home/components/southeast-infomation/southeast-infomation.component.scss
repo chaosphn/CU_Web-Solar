@@ -1,9 +1,9 @@
 .map-svg{
-    scale: 1.0;
-    z-index: 10;
-    position: fixed;
-    top: 90px;
-    left: 0%;
+    scale: 1;
+}
+
+.map-img{
+    scale: 0.8;
 }
 
 .backgroup-box{
@@ -19,11 +19,6 @@
 
 .container-box{
     cursor: pointer;
-    // display: flex;
-    // flex-direction: column;
-    // justify-content: center;
-    // align-items: center;
-    //position: relative;
     max-height: calc(100vh - 90px);
     overflow: hidden;
 }

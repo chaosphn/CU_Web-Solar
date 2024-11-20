@@ -1,41 +1,45 @@
 <div class="container-fluid bz">
   <div class="row-grid">
     <div class="header-container bz">
-      <app-header-information
+      <app-header-information *ngIf="locationSelected && locationSelected.zone"
         [g1Image]="'assets/images/solar-panel.png'"
         [g1Title]="'Capacity'"
         [g1Value]="'6,364.00'"
         [g1Unit]="'kWp'"
         [g2Image]="'assets/images/sun.png'"
         [g2Title]="'Solar Radiation'"
-        [g2Value]="'444.64'"
-        [g2Unit]="'W/m2'"
+        [g2Value]="data?.singleValue[ locationSelected?.zone+'_irr' ]?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'"
+        [g2Unit]="' W/m'"
         [g3Image]="'assets/images/thermometer.png'"
         [g3Title]="'Ambient Temp.'"
-        [g3Value]="'34.00'"
+        [g3Value]="data?.singleValue[ locationSelected?.zone+'_ambtemp' ]?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'"
         [g3Unit]="'C'"
         [g4Image]="'assets/images/thermometer.png'"
         [g4Title]="'Module Temp.'"
-        [g4Value]="'64.00'"
+        [g4Value]="data?.singleValue[ locationSelected?.zone+'_pvtemp' ]?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'"
         [g4Unit]="'C'"
       ></app-header-information>
     </div>
     <div class="map-container bz">
       <div [ngSwitch]="locationSelected.zone">
         <div *ngSwitchCase="'overvall'"><app-overall-infomation [config]="locationConfig" ></app-overall-infomation></div>
-        <div *ngSwitchCase="'northeast'"><app-northeast-infomation></app-northeast-infomation></div>
-        <div *ngSwitchCase="'northwest'"><app-northwest-infomation></app-northwest-infomation></div>
-        <div *ngSwitchCase="'southeast'"><app-southeast-infomation></app-southeast-infomation></div>
-        <div *ngSwitchCase="'southwest'"><app-southwest-infomation></app-southwest-infomation></div>
+        <div *ngSwitchCase="'northeast'"><app-northeast-infomation [data]="data?.singleValue"></app-northeast-infomation></div>
+        <div *ngSwitchCase="'northwest'"><app-northwest-infomation [data]="data?.singleValue"></app-northwest-infomation></div>
+        <div *ngSwitchCase="'southeast'"><app-southeast-infomation [data]="data?.singleValue"></app-southeast-infomation></div>
+        <div *ngSwitchCase="'southwest'"><app-southwest-infomation [data]="data?.singleValue"></app-southwest-infomation></div>
         <div *ngSwitchDefault><app-overall-infomation [config]="locationConfig"></app-overall-infomation></div>
       </div>
     </div>
   </div>
-  <div class="footer-container ">
-    <app-footer-infomation [config]="locationConfig" [zone]="locationSelected">
+  <div class="footer-container bz" *ngIf="locationSelected && data && data.singleValue">
+    <app-footer-infomation
+    [config]="locationConfig" 
+    [data]="data.singleValue"
+    [chart]="chartOptions['powerconsumption']"
+    [zone]="locationSelected">
     </app-footer-infomation>
   </div>
-  <div class="overview-container ">
-    <app-overview-consumption [zone]="locationSelected"></app-overview-consumption>
+  <div class="overview-container bz" *ngIf="locationSelected && data && data.singleValue">
+    <app-overview-consumption [zone]="locationSelected" [data]="data.singleValue"></app-overview-consumption>
   </div>
 </div>

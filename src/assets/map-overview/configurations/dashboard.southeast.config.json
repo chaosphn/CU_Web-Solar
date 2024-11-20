@@ -1,0 +1,353 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "southeast_irr",
+			"Name": "M0SE.CALZSE.PYRANO"
+		},
+		{
+			"Title": "southeast_ambtemp",
+			"Name": "M0SE.CALZSE.AMBTEMP"
+		},
+		{
+			"Title": "southeast_pvtemp",
+			"Name": "M0SE.CALZSE.PVTEMP"
+		},
+
+
+		{
+			"Title": "all_produce",
+			"Name": "M0OVA.CALZOVA.W"
+		},
+		{
+			"Title": "all_import",
+			"Name": "M0OVA.CALZOVA.W_IMP"
+		},
+		{
+			"Title": "all_cons",
+			"Name": "M0OVA.CALZOVA.W_CONS"
+		},
+		{
+			"Title": "all_today",
+			"Name": "M0OVA.CALZOVA.WH_DAY"
+		},
+		{
+			"Title": "all_month",
+			"Name": "M0OVA.CALZOVA.WH_MONTH"
+		},
+		{
+			"Title": "all_year",
+			"Name": "M0OVA.CALZOVA.WH_YEAR"
+		},
+		{
+			"Title": "all_pr",
+			"Name": "M0OVA.CALZOVA.PR"
+		},
+
+
+		{
+			"Title": "se_produce",
+			"Name": "M0SE.CALZSE.W"
+		},
+		{
+			"Title": "se_import",
+			"Name": "M0SE.CALZSE.W_IMP"
+		},
+		{
+			"Title": "se_cons",
+			"Name": "M0SE.CALZSE.W_CONS"
+		},
+		{
+			"Title": "se_today",
+			"Name": "M0SE.CALZSE.WH_DAY"
+		},
+		{
+			"Title": "se_month",
+			"Name": "M0SE.CALZSE.WH_MONTH"
+		},
+		{
+			"Title": "se_year",
+			"Name": "M0SE.CALZSE.WH_YEAR"
+		},
+		{
+			"Title": "se_pr",
+			"Name": "M0SE.CALZSE.PR"
+		},
+
+		{
+			"Title": "13014105_produce",
+			"Name": "M010.CALZ10.W"
+		},
+		{
+			"Title": "13014105_import",
+			"Name": "M010.CALZ10.W_IMP"
+		},
+		{
+			"Title": "13014105_cons",
+			"Name": "M010.CALZ10.W_CONS"
+		},
+		{
+			"Title": "13014105_today",
+			"Name": "M010.CALZ10.WH_DAY"
+		},
+		{
+			"Title": "13014105_month",
+			"Name": "M010.CALZ10.WH_MONTH"
+		},
+		{
+			"Title": "13014105_year",
+			"Name": "M010.CALZ10.WH_YEAR"
+		},
+		{
+			"Title": "13014105_pr",
+			"Name": "M010.CALZ10.PR"
+		},
+
+		{
+			"Title": "13018215_produce",
+			"Name": "M011.CALZ11.W"
+		},
+		{
+			"Title": "13018215_import",
+			"Name": "M011.CALZ11.W_IMP"
+		},
+		{
+			"Title": "13018215_cons",
+			"Name": "M011.CALZ11.W_CONS"
+		},
+		{
+			"Title": "13018215_today",
+			"Name": "M011.CALZ11.WH_DAY"
+		},
+		{
+			"Title": "13018215_month",
+			"Name": "M011.CALZ11.WH_MONTH"
+		},
+		{
+			"Title": "13018215_year",
+			"Name": "M011.CALZ11.WH_YEAR"
+		},
+		{
+			"Title": "13018215_pr",
+			"Name": "M011.CALZ11.PR"
+		},
+
+		{
+			"Title": "13037909_produce",
+			"Name": "M004.CALZ04.W"
+		},
+		{
+			"Title": "13037909_import",
+			"Name": "M004.CALZ04.W_IMP"
+		},
+		{
+			"Title": "13037909_cons",
+			"Name": "M004.CALZ04.W_CONS"
+		},
+		{
+			"Title": "13037909_today",
+			"Name": "M004.CALZ04.WH_DAY"
+		},
+		{
+			"Title": "13037909_month",
+			"Name": "M004.CALZ04.WH_MONTH"
+		},
+		{
+			"Title": "13037909_year",
+			"Name": "M004.CALZ04.WH_YEAR"
+		},
+		{
+			"Title": "13037909_pr",
+			"Name": "M004.CALZ04.PR"
+		},
+
+
+
+		{
+			"Title": "PSC012_today",
+			"Name": "B017.CALC17.WH_TODAY"
+		},
+		{
+			"Title": "CEN099_today",
+			"Name": "B019.CALC19.WH_TODAY"
+		},
+		{
+			"Title": "CEN087_today",
+			"Name": "B021.CALC21.WH_TODAY"
+		},
+		{
+			"Title": "CEN001_today",
+			"Name": "B002.CALC02.WH_TODAY"
+		},
+		{
+			"Title": "CEN003_today",
+			"Name": "B004.CALC04.WH_TODAY"
+		},
+		{
+			"Title": "CEN005_today",
+			"Name": "B003.CALC03.WH_TODAY"
+		},
+		{
+			"Title": "CEN006_today",
+			"Name": "B040.CALC40.WH_TODAY"
+		},
+		{
+			"Title": "EDU011_today",
+			"Name": "B032.CALC32.WH_TODAY"
+		},
+		{
+			"Title": "LAW003_today",
+			"Name": "B008.CALC08.WH_TODAY"
+		},
+		{
+			"Title": "CEN103_today",
+			"Name": "B014.CALC14.WH_TODAY"
+		},
+		{
+			"Title": "ESC008_today",
+			"Name": "B033.CALC33.WH_TODAY"
+		},
+
+
+		{
+			"Title": "PSC012_power",
+			"Name": "B017.CALC17.W"
+		},
+		{
+			"Title": "CEN099_power",
+			"Name": "B019.CALC19.W"
+		},
+		{
+			"Title": "CEN087_power",
+			"Name": "B021.CALC21.W"
+		},
+		{
+			"Title": "CEN001_power",
+			"Name": "B002.CALC02.W"
+		},
+		{
+			"Title": "CEN003_power",
+			"Name": "B004.CALC04.W"
+		},
+		{
+			"Title": "CEN005_power",
+			"Name": "B003.CALC03.W"
+		},
+		{
+			"Title": "CEN006_power",
+			"Name": "B040.CALC40.W"
+		},
+		{
+			"Title": "EDU011_power",
+			"Name": "B032.CALC32.W"
+		},
+		{
+			"Title": "LAW003_power",
+			"Name": "B008.CALC08.W"
+		},
+		{
+			"Title": "CEN103_power",
+			"Name": "B014.CALC14.W"
+		},
+		{
+			"Title": "ESC008_power",
+			"Name": "B033.CALC33.W"
+		}
+
+	],
+	"historianConfig": [
+		{
+			"Name": "M0SE.CALZSE.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "M0SE.CALZSE.W_IMP",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "M0SE.CALZSE.W_CONS",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}
+	],
+	"chartConfig":[
+		{
+			"name": "powerconsumption",
+			"tags": [
+				{
+					"name": "M0SE.CALZSE.W_CONS",
+					"title": "Power Consumption",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#FF9213"
+						}
+					}
+				},
+				{
+					"name": "M0SE.CALZSE.W_IMP",
+					"title": "Power Purchased",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "red"
+						}
+					}
+				},
+				{
+					"name": "M0SE.CALZSE.W",
+					"title": "Power Production",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#4ac631"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": true
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		}
+	]
+}

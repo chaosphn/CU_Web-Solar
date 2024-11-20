@@ -7,65 +7,77 @@
         "Co2Rate": 0.23314,
         "OilRate": 0.30283,
         "TreeRate": 0.0193,
-        "Header": [
-            {
-                "title": "Time",
-                "tagname": "",
-                "option": "TIME",
-                "width": "4rem",
-                "type": "HH:mm",
-                "display": "Total/Average"
-            },
-            {
-                "title": "Energy\nProduction\n(kWh)",
-                "tagname": "B001.TOU01.WH",
-                "option": "DIFF",
-                "width": "7rem",
-                "type": "SUM",
-                "factor": 1
-            },
-            {
-                "title": "Energy On Peak\n(kWh)",
-                "tagname": "B001.TOU01.WH",
-                "option": "ONPEAK",
-                "width": "8rem",
-                "type": "SUM",
-                "factor": 1
-            },
-            {
-                "title": "Energy Off Peak\n(kWh)",
-                "tagname": "B001.TOU01.WH",
-                "option": "OFFPEAK",
-                "width": "8rem",
-                "type": "SUM",
-                "factor": 1
-            },
-            {
-                "title": "Irradiance\n(Wh/m2)",
-                "tagname": "B006.SLOGGER06.PYRANO",
-                "option": "AVG",
-                "width": "7rem",
-                "type": "SUM",
-                "factor": 1
-            },
-            {
-                "title": "Ambient Temp.\n(°C)",
-                "tagname": "B006.SLOGGER06.AMBTEMP",
-                "option": "AVG",
-                "width": "7rem",
-                "type": "AVG",
-                "factor": 1
-            },
-            {
-                "title": "Module Temp.\n(°C)",
-                "tagname": "B006.SLOGGER06.PVTEMP",
-                "option": "AVG",
-                "width": "7rem",
-                "type": "AVG",
-                "factor": 1
-            }
-        ],
+        "Header": [],
         "HeaderGroup": [
+            {
+                "Name": "Meter no.10",
+                "Header": [
+                    {
+                        "title": "Time",
+                        "tagname": "Group",
+                        "option": "TIME",
+                        "width": "4rem",
+                        "type": "HH:mm",
+                        "display": "Total/Average"
+                    },
+                    {
+                        "title": "Energy\nProduction\n(kWh)",
+                        "tagname": "M010.CALZ10.WH",
+                        "option": "DIFF",
+                        "width": "7rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Energy On Peak\n(kWh)",
+                        "tagname": "M010.CALZ10.WH",
+                        "option": "ONPEAK",
+                        "width": "8rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Energy Off Peak\n(kWh)",
+                        "tagname": "M010.CALZ10.WH",
+                        "option": "OFFPEAK",
+                        "width": "8rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Energy Purchased\n(kWh)",
+                        "tagname": "M010.CALZ10.WH_IMP",
+                        "option": "DIFF",
+                        "width": "8rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Irradiance\n(Wh/m2)",
+                        "tagname": "B002.SLOGGER02.PYRANO",
+                        "option": "AVG",
+                        "width": "7rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Ambient Temp.\n(°C)",
+                        "tagname": "B002.SLOGGER02.AMBTEMP",
+                        "option": "AVG",
+                        "width": "7rem",
+                        "type": "AVG",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Module Temp.\n(°C)",
+                        "tagname": "B002.SLOGGER02.PVTEMP",
+                        "option": "AVG",
+                        "width": "7rem",
+                        "type": "AVG",
+                        "factor": 1
+                    }
+                ]
+            },
             {
                 "Name": "อาคารจามจุรี1",
                 "Header": [
@@ -381,65 +393,77 @@
         "Co2Rate": 0.23314,
         "OilRate": 0.30283,
         "TreeRate": 0.0193,
-        "Header": [
-            {
-                "title": "Day",
-                "tagname": "",
-                "option": "TIME",
-                "width": "4rem",
-                "type": "dd",
-                "display": "Total/Average"
-            },
-            {
-                "title": "Energy\nProduction\n(kWh)",
-                "tagname": "B001.TOU01.WH",
-                "option": "DIFF",
-                "width": "7rem",
-                "type": "SUM",
-                "factor": 1
-            },
-            {
-                "title": "Energy On Peak\n(kWh)",
-                "tagname": "B001.TOU01.WH",
-                "option": "ONPEAK",
-                "width": "8rem",
-                "type": "SUM",
-                "factor": 1
-            },
-            {
-                "title": "Energy Off Peak\n(kWh)",
-                "tagname": "B001.TOU01.WH",
-                "option": "OFFPEAK",
-                "width": "8rem",
-                "type": "SUM",
-                "factor": 1
-            },
-            {
-                "title": "Irradiance\n(Wh/m2)",
-                "tagname": "B006.SLOGGER06.IRR_TODAY",
-                "option": "DIFF",
-                "width": "7rem",
-                "type": "SUM",
-                "factor": 1000
-            },
-            {
-                "title": "Ambient Temp.\n(°C)",
-                "tagname": "B006.SLOGGER06.AMBTEMP",
-                "option": "AVG",
-                "width": "7rem",
-                "type": "AVG",
-                "factor": 1
-            },
-            {
-                "title": "Module Temp.\n(°C)",
-                "tagname": "B006.SLOGGER06.PVTEMP",
-                "option": "AVG",
-                "width": "7rem",
-                "type": "AVG",
-                "factor": 1
-            }
-        ],
+        "Header": [],
         "HeaderGroup": [
+            {
+                "Name": "Meter no.10",
+                "Header": [
+                    {
+                        "title": "Day",
+                        "tagname": "Group",
+                        "option": "TIME",
+                        "width": "4rem",
+                        "type": "dd",
+                        "display": "Total/Average"
+                    },
+                    {
+                        "title": "Energy\nProduction\n(kWh)",
+                        "tagname": "M010.CALZ10.WH",
+                        "option": "DIFF",
+                        "width": "7rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Energy On Peak\n(kWh)",
+                        "tagname": "M010.CALZ10.WH",
+                        "option": "ONPEAK",
+                        "width": "8rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Energy Off Peak\n(kWh)",
+                        "tagname": "M010.CALZ10.WH",
+                        "option": "OFFPEAK",
+                        "width": "8rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Energy Purchased\n(kWh)",
+                        "tagname": "M010.CALZ10.WH_IMP",
+                        "option": "DIFF",
+                        "width": "8rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Irradiance\n(Wh/m2)",
+                        "tagname": "B002.SLOGGER02.IRR_TODAY",
+                        "option": "DIFF",
+                        "width": "7rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Ambient Temp.\n(°C)",
+                        "tagname": "B002.SLOGGER02.AMBTEMP",
+                        "option": "AVG",
+                        "width": "7rem",
+                        "type": "AVG",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Module Temp.\n(°C)",
+                        "tagname": "B002.SLOGGER02.PVTEMP",
+                        "option": "AVG",
+                        "width": "7rem",
+                        "type": "AVG",
+                        "factor": 1
+                    }
+                ]
+            },
             {
                 "Name": "อาคารจามจุรี1",
                 "Header": [
@@ -477,7 +501,7 @@
                     },
                     {
                         "title": "Irradiance\n(Wh/m2)",
-                        "tagname": "B002.SLOGGER02.PYRANO",
+                        "tagname": "B002.SLOGGER02.IRR_TODAY",
                         "option": "DIFF",
                         "width": "7rem",
                         "type": "SUM",
@@ -538,7 +562,7 @@
                     },
                     {
                         "title": "Irradiance\n(Wh/m2)",
-                        "tagname": "B003.SLOGGER03.PYRANO",
+                        "tagname": "B003.SLOGGER03.IRR_TODAY",
                         "option": "DIFF",
                         "width": "7rem",
                         "type": "SUM",
@@ -599,7 +623,7 @@
                     },
                     {
                         "title": "Irradiance\n(Wh/m2)",
-                        "tagname": "B004.SLOGGER04.PYRANO",
+                        "tagname": "B004.SLOGGER04.IRR_TODAY",
                         "option": "DIFF",
                         "width": "7rem",
                         "type": "SUM",
@@ -660,7 +684,7 @@
                     },
                     {
                         "title": "Irradiance\n(Wh/m2)",
-                        "tagname": "B014.SLOGGER14.PYRANO",
+                        "tagname": "B014.SLOGGER14.IRR_TODAY",
                         "option": "DIFF",
                         "width": "7rem",
                         "type": "SUM",
@@ -721,7 +745,7 @@
                     },
                     {
                         "title": "Irradiance\n(Wh/m2)",
-                        "tagname": "B021.SLOGGER21.PYRANO",
+                        "tagname": "B021.SLOGGER21.IRR_TODAY",
                         "option": "DIFF",
                         "width": "7rem",
                         "type": "SUM",
@@ -755,65 +779,77 @@
         "Co2Rate": 0.23314,
         "OilRate": 0.30283,
         "TreeRate": 0.0193,
-        "Header": [
-            {
-                "title": "Month",
-                "tagname": "",
-                "option": "TIME",
-                "width": "4rem",
-                "type": "MMMM",
-                "display": "Total/Average"
-            },
-            {
-                "title": "Energy\nProduction\n(kWh)",
-                "tagname": "B001.TOU01.WH",
-                "option": "DIFF",
-                "width": "7rem",
-                "type": "SUM",
-                "factor": 1
-            },
-            {
-                "title": "Energy On Peak\n(kWh)",
-                "tagname": "B001.TOU01.WH",
-                "option": "PEAKMONTH",
-                "width": "8rem",
-                "type": "SUM",
-                "factor": 1
-            },
-            {
-                "title": "Energy Off Peak\n(kWh)",
-                "tagname": "B001.TOU01.WH",
-                "option": "OFFPEAK",
-                "width": "8rem",
-                "type": "SUM",
-                "factor": 1
-            },
-            {
-                "title": "Irradiance\n(Wh/m2)",
-                "tagname": "B006.SLOGGER06.IRR_TODAY",
-                "option": "SUMMAX",
-                "width": "7rem",
-                "type": "SUM",
-                "factor": 1000
-            },
-            {
-                "title": "Ambient Temp.\n(°C)",
-                "tagname": "B006.SLOGGER06.AMBTEMP",
-                "option": "AVGALL",
-                "width": "7rem",
-                "type": "AVG",
-                "factor": 1
-            },
-            {
-                "title": "Module Temp.\n(°C)",
-                "tagname": "B006.SLOGGER06.PVTEMP",
-                "option": "AVGALL",
-                "width": "7rem",
-                "type": "AVG",
-                "factor": 1
-            }
-        ],
+        "Header": [],
         "HeaderGroup": [
+            {
+                "Name": "Meter no.10",
+                "Header": [
+                    {
+                        "title": "Month",
+                        "tagname": "Group",
+                        "option": "TIME",
+                        "width": "4rem",
+                        "type": "MMMM",
+                        "display": "Total/Average"
+                    },
+                    {
+                        "title": "Energy\nProduction\n(kWh)",
+                        "tagname": "M010.CALZ10.WH",
+                        "option": "DIFF",
+                        "width": "7rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Energy On Peak\n(kWh)",
+                        "tagname": "M010.CALZ10.WH",
+                        "option": "PEAKMONTH",
+                        "width": "8rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Energy Off Peak\n(kWh)",
+                        "tagname": "M010.CALZ10.WH",
+                        "option": "OFFPEAK",
+                        "width": "8rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Energy Purchased\n(kWh)",
+                        "tagname": "M010.CALZ10.WH_IMP",
+                        "option": "DIFF",
+                        "width": "8rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Irradiance\n(Wh/m2)",
+                        "tagname": "B002.SLOGGER02.IRR_TODAY",
+                        "option": "SUMMAX",
+                        "width": "7rem",
+                        "type": "SUM",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Ambient Temp.\n(°C)",
+                        "tagname": "B002.SLOGGER02.AMBTEMP",
+                        "option": "AVGALL",
+                        "width": "7rem",
+                        "type": "AVG",
+                        "factor": 1
+                    },
+                    {
+                        "title": "Module Temp.\n(°C)",
+                        "tagname": "B002.SLOGGER02.PVTEMP",
+                        "option": "AVGALL",
+                        "width": "7rem",
+                        "type": "AVG",
+                        "factor": 1
+                    }
+                ]
+            },
             {
                 "Name": "อาคารจามจุรี1",
                 "Header": [

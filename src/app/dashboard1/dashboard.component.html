@@ -66,16 +66,16 @@
           <div class="progress-group ">
             <div class="site-progress "><app-circle-progress [Ids]="item.project" 
               [title]="'MEA'"
-              [value]="data?.singleValue[item.project+'_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
+              [value]="data?.singleValue[item.project+'_mea']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
               [unit]="'kW'"
-              [maxValue]="data?.singleValue[item.project+'_power']?.maxValue"
-              [percentValue]="setValueBar(data?.singleValue[item.project+'_power']?.dataRecords[0]?.Value,data?.singleValue[item.project+'_power']?.maxValue)|| 0"></app-circle-progress></div>
+              [maxValue]="data?.singleValue[item.project+'_mea']?.maxValue"
+              [percentValue]="setValueBar(data?.singleValue[item.project+'_mea']?.dataRecords[0]?.Value,data?.singleValue[item.project+'_mea']?.maxValue)|| 0"></app-circle-progress></div>
             <div class="site-progress "><app-circle-progress [Ids]="item.project+'03'" 
                 [title]="'SOLAR'"
-                [value]="getSumValue('_'+item.project) | myNumber : '1.0-2'"
+                [value]="data?.singleValue[item.project+'_solar']?.dataRecords[0]?.Value | myNumber : '1.0-2'"
                 [unit]="'kW'"
-                [maxValue]="item.capacity | myNumber : '1.0-2'"
-                [percentValue]="setValueBar((getSumValue('_'+item.project) | myNumber : '1.0-2'), (item.capacity | myNumber : '1.0-2'))|| 0"></app-circle-progress></div>
+                [maxValue]="data?.singleValue[item.project+'_solar']?.maxValue"
+                [percentValue]="setValueBar(data?.singleValue[item.project+'_solar']?.dataRecords[0]?.Value,data?.singleValue[item.project+'_solar']?.maxValue)|| 0"></app-circle-progress></div>
             <div class="site-progress "><app-circle-progress [Ids]="item.project+'02'" 
               [title]="'PRODUCE'"
               [value]="data?.singleValue[item.project+'_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'"

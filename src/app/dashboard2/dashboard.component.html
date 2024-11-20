@@ -9,8 +9,8 @@
                 <app-circle-progress [Ids]="'00'" 
                 [title]="'POWER'" 
                 [unit]="'kW'" 
-                [value]="getSumValue('_power') | myNumber2 : '1.0-2'" 
-                [maxValue]="500"
+                [value]="data?.singleValue['ZONE_power']?.dataRecords[0]?.Value | myNumber : '1.0-2'" 
+                [maxValue]="data?.singleValue['ZONE_power']?.dataRecords[0]?.maxValue"
                 [titleFont]="'22'"
                 [valueFont]="'36'"
                 [unitFont]="'22'"
@@ -25,10 +25,10 @@
           <ng-template #content>
             <div class="energy-item">
               <div class="topic">TODAY</div>
-              <div class="value">{{getSumValue('_energy') | myNumber2 : '1.0-0'}}</div>
+              <div class="value">{{data?.singleValue['ZONE_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'}}</div>
               <div class="unit">kWh</div>
               <div class="topic">TOTAL</div>
-              <div class="value">{{getSumValue('_total') | myNumber2 : '1.0-0'}}</div>
+              <div class="value">{{data?.singleValue['TOTAL_energy']?.dataRecords[0]?.Value | myNumber : '1.0-2'}}</div>
               <div class="unit">kWh</div>
             </div>
           </ng-template>

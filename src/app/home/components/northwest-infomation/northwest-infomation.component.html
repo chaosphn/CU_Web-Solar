@@ -1,12 +1,12 @@
 <div class="container-box w-100 h-100 bz">
-  <svg width="1920" height="1080" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg class="map-svg bz" width="2560" height="1440" x="0" y="0" viewBox="0 0 2560 1440" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="Group 2192">
     <rect id="northwest 2" width="1920" height="1080" fill="url(#pattern0_899_11016)"/>
-    <g id="card">
+    <g id="card" transform="translate(0, -70)">
     <g id="Group 2073">
     <rect id="Rectangle 902" x="458.75" y="88.75" width="300.5" height="98.5" fill="#8D821D" fill-opacity="0.6" stroke="#FFEB3B" stroke-width="1.5"/>
-    <text id="&#224;&#184;&#168;&#224;&#184;&#185;&#224;&#184;&#153;&#224;&#184;&#162;&#224;&#185;&#140;&#224;&#184;&#155;&#224;&#184;&#143;&#224;&#184;&#180;&#224;&#184;&#154;&#224;&#184;&#177;&#224;&#184;&#149;&#224;&#184;&#180;&#224;&#184;&#129;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#167;&#224;&#184;&#180;&#224;&#184;&#136;&#224;&#184;&#177;&#224;&#184;&#162;&#224;&#185;&#129;&#224;&#184;&#165;&#224;&#184;&#176;&#224;&#184;&#158;&#224;&#184;&#177;&#224;&#184;&#146;&#224;&#184;&#153;&#224;&#184;&#178;&#224;&#185;&#128;&#224;&#184;&#160;&#224;&#184;&#170;&#224;&#184;&#177;&#224;&#184;&#138;&#224;&#184;&#160;&#224;&#184;&#177;&#224;&#184;&#147;&#224;&#184;&#145;&#224;&#185;&#140; &#224;&#185;&#129;&#224;&#184;&#165;&#224;&#184;&#176;&#224;&#184;&#170;&#224;&#184;&#161;&#224;&#184;&#184;&#224;&#184;&#153;&#224;&#185;&#132;&#224;&#184;&#158;&#224;&#184;&#163; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="465.5" y="109.058">&#xe28;&#xe39;&#xe19;&#xe22;&#xe4c;&#xe1b;&#xe0f;&#xe34;&#xe1a;&#xe31;&#xe15;&#xe34;&#xe01;&#xe32;&#xe23;&#xe27;&#xe34;&#xe08;&#xe31;&#xe22;&#xe41;&#xe25;&#xe30;&#xe1e;&#xe31;&#xe12;&#xe19;&#xe32;&#xe40;&#xe20;&#xe2a;&#xe31;&#xe0a;&#xe20;&#xe31;&#xe13;&#xe11;&#xe4c;&#10;</tspan><tspan x="465.5" y="128.058">&#xe41;&#xe25;&#xe30;&#xe2a;&#xe21;&#xe38;&#xe19;&#xe44;&#xe1e;&#xe23; : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="465.5" y="149.785">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#184;&#168;&#224;&#184;&#185;&#224;&#184;&#153;&#224;&#184;&#162;&#224;&#185;&#140;&#224;&#184;&#155;&#224;&#184;&#143;&#224;&#184;&#180;&#224;&#184;&#154;&#224;&#184;&#177;&#224;&#184;&#149;&#224;&#184;&#180;&#224;&#184;&#129;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#167;&#224;&#184;&#180;&#224;&#184;&#136;&#224;&#184;&#177;&#224;&#184;&#162;&#224;&#185;&#129;&#224;&#184;&#165;&#224;&#184;&#176;&#224;&#184;&#158;&#224;&#184;&#177;&#224;&#184;&#146;&#224;&#184;&#153;&#224;&#184;&#178;&#224;&#185;&#128;&#224;&#184;&#160;&#224;&#184;&#170;&#224;&#184;&#177;&#224;&#184;&#138;&#224;&#184;&#160;&#224;&#184;&#177;&#224;&#184;&#147;&#224;&#184;&#145;&#224;&#185;&#140; &#224;&#185;&#129;&#224;&#184;&#165;&#224;&#184;&#176;&#224;&#184;&#170;&#224;&#184;&#161;&#224;&#184;&#184;&#224;&#184;&#153;&#224;&#185;&#132;&#224;&#184;&#158;&#224;&#184;&#163; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="465.5" y="109.058">&#xe28;&#xe39;&#xe19;&#xe22;&#xe4c;&#xe1b;&#xe0f;&#xe34;&#xe1a;&#xe31;&#xe15;&#xe34;&#xe01;&#xe32;&#xe23;&#xe27;&#xe34;&#xe08;&#xe31;&#xe22;&#xe41;&#xe25;&#xe30;&#xe1e;&#xe31;&#xe12;&#xe19;&#xe32;&#xe40;&#xe20;&#xe2a;&#xe31;&#xe0a;&#xe20;&#xe31;&#xe13;&#xe11;&#xe4c;&#10;</tspan><tspan x="465.5" y="128.058">&#xe41;&#xe25;&#xe30;&#xe2a;&#xe21;&#xe38;&#xe19;&#xe44;&#xe1e;&#xe23; : {{data['PHA007_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="465.5" y="149.785">Today Production : {{data['PHA007_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 83.16 kWp" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="465.504" y="177.785">Capacity : 83.16 kWp</tspan></text>
     </g>
     <path id="Vector 866" d="M760 159.5H440.5V384.5" stroke="white" stroke-width="2"/>
@@ -16,12 +16,12 @@
     <circle id="Ellipse 70" cx="6.07895" cy="6.07895" r="6.07895" class="point" transform="matrix(1 0 0 -1 434 408)" fill="#FFEB3B"/>
     </g>
     </g>
-    <g id="card_2">
+    <g id="card_2" transform="translate(10, -70)">
     <g id="Group 2086">
     <g id="Group 2073_2">
     <rect id="Rectangle 902_2" x="570.75" y="201.75" width="300.5" height="98.5" fill="#957002" fill-opacity="0.6" stroke="#FFC107" stroke-width="1.5"/>
-    <text id="&#224;&#185;&#130;&#224;&#184;&#163;&#224;&#184;&#135;&#224;&#184;&#158;&#224;&#184;&#177;&#224;&#184;&#129;&#224;&#184;&#170;&#224;&#184;&#177;&#224;&#184;&#149;&#224;&#184;&#167;&#224;&#185;&#140;&#224;&#184;&#151;&#224;&#184;&#148;&#224;&#184;&#165;&#224;&#184;&#173;&#224;&#184;&#135; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="577" y="222.058">&#xe42;&#xe23;&#xe07;&#xe1e;&#xe31;&#xe01;&#xe2a;&#xe31;&#xe15;&#xe27;&#xe4c;&#xe17;&#xe14;&#xe25;&#xe2d;&#xe07; : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh_2" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="577" y="260.785">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#185;&#130;&#224;&#184;&#163;&#224;&#184;&#135;&#224;&#184;&#158;&#224;&#184;&#177;&#224;&#184;&#129;&#224;&#184;&#170;&#224;&#184;&#177;&#224;&#184;&#149;&#224;&#184;&#167;&#224;&#185;&#140;&#224;&#184;&#151;&#224;&#184;&#148;&#224;&#184;&#165;&#224;&#184;&#173;&#224;&#184;&#135; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="577" y="222.058">&#xe42;&#xe23;&#xe07;&#xe1e;&#xe31;&#xe01;&#xe2a;&#xe31;&#xe15;&#xe27;&#xe4c;&#xe17;&#xe14;&#xe25;&#xe2d;&#xe07; : {{data['PHA003_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh_2" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="577" y="260.785">Today Production : {{data['PHA003_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 38.88 kWp" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="577.004" y="290.785">Capacity : 38.88 kWp</tspan></text>
     </g>
     <path id="Vector 866_2" d="M871.5 272.5H552V320.5" stroke="white" stroke-width="2"/>
@@ -32,11 +32,11 @@
     <circle id="Ellipse 70_2" cx="6.07895" cy="6.07895" r="6.07895" class="point" transform="matrix(1 0 0 -1 546 344)" fill="#FFC107"/>
     </g>
     </g>
-    <g id="card_3">
+    <g id="card_3" transform="translate(0, -25)">
     <g id="Group 2073_3">
     <rect id="Rectangle 902_3" x="925.75" y="27.75" width="300.5" height="98.5" fill="#895200" fill-opacity="0.6" stroke="#FF9800" stroke-width="1.5"/>
-    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#158;&#224;&#184;&#163;&#224;&#184;&#181;&#224;&#184;&#132;&#224;&#184;&#165;&#224;&#184;&#180;&#224;&#184;&#153;&#224;&#184;&#180;&#224;&#184;&#129; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="932" y="48.0576">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe1e;&#xe23;&#xe35;&#xe04;&#xe25;&#xe34;&#xe19;&#xe34;&#xe01; : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh_3" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="932" y="86.7852">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#158;&#224;&#184;&#163;&#224;&#184;&#181;&#224;&#184;&#132;&#224;&#184;&#165;&#224;&#184;&#180;&#224;&#184;&#153;&#224;&#184;&#180;&#224;&#184;&#129; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="932" y="48.0576">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe1e;&#xe23;&#xe35;&#xe04;&#xe25;&#xe34;&#xe19;&#xe34;&#xe01; : {{data['DEN014_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh_3" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="932" y="86.7852">Today Production : {{data['DEN014_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 103.68 kWp" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="932.004" y="116.785">Capacity : 103.68 kWp</tspan></text>
     </g>
     <path id="Vector 866_3" d="M1226.5 98.5H911V211" stroke="white" stroke-width="2"/>
@@ -46,12 +46,12 @@
     <circle id="Ellipse 70_3" cx="6.07895" cy="6.07895" r="6.07895" class="point" transform="matrix(1 0 0 -1 905 233)" fill="#FF9800"/>
     </g>
     </g>
-    <g id="card_4">
+    <g id="card_4" transform="translate(0, -80)">
     <g id="Group 2089">
     <g id="Group 2073_4">
     <rect id="Rectangle 902_4" x="1235.75" y="113.75" width="300.5" height="98.5" fill="#895200" fill-opacity="0.6" stroke="#FF9800" stroke-width="1.5"/>
-    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#151;&#224;&#184;&#177;&#224;&#184;&#153;&#224;&#184;&#149;&#224;&#184;&#163;&#224;&#184;&#177;&#224;&#184;&#129;&#224;&#184;&#169;&#224;&#185;&#140;&#224;&#184;&#167;&#224;&#184;&#180;&#224;&#184;&#136;&#224;&#184;&#177;&#224;&#184;&#162; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1241.5" y="134.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe17;&#xe31;&#xe19;&#xe15;&#xe23;&#xe31;&#xe01;&#xe29;&#xe4c;&#xe27;&#xe34;&#xe08;&#xe31;&#xe22; : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh_4" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1241.5" y="172.785">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#151;&#224;&#184;&#177;&#224;&#184;&#153;&#224;&#184;&#149;&#224;&#184;&#163;&#224;&#184;&#177;&#224;&#184;&#129;&#224;&#184;&#169;&#224;&#185;&#140;&#224;&#184;&#167;&#224;&#184;&#180;&#224;&#184;&#136;&#224;&#184;&#177;&#224;&#184;&#162; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1241.5" y="134.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe17;&#xe31;&#xe19;&#xe15;&#xe23;&#xe31;&#xe01;&#xe29;&#xe4c;&#xe27;&#xe34;&#xe08;&#xe31;&#xe22; : {{data['DEN002_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh_4" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1241.5" y="172.785">Today Production : {{data['DEN002_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 38.88 kWp_2" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1241.5" y="202.785">Capacity : 38.88 kWp</tspan></text>
     </g>
     <path id="Vector 866_4" d="M1536 184.5H1216.5L1163 234.5" stroke="white" stroke-width="2"/>
@@ -62,11 +62,11 @@
     <circle id="Ellipse 70_4" cx="6.07895" cy="6.07895" r="6.07895" class="point" transform="matrix(1 0 0 -1 1142 252)" fill="#FF9800"/>
     </g>
     </g>
-    <g id="card_5">
+    <g id="card_5" transform="translate(-50, -100)">
     <g id="Group 2073_5">
     <rect id="Rectangle 902_5" x="1529.75" y="372.75" width="300.5" height="98.5" fill="#B54A28" fill-opacity="0.6" stroke="#FF5722" stroke-width="1.5"/>
-    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#136;&#224;&#184;&#173;&#224;&#184;&#148;&#224;&#184;&#163;&#224;&#184;&#150; 2 : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1536" y="393.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe08;&#xe2d;&#xe14;&#xe23;&#xe16; 2 : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh_5" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1536" y="431.785">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#136;&#224;&#184;&#173;&#224;&#184;&#148;&#224;&#184;&#163;&#224;&#184;&#150; 2 : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1536" y="393.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe08;&#xe2d;&#xe14;&#xe23;&#xe16; 2 : {{data['CEN079_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh_5" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1536" y="431.785">Today Production : {{data['CEN079_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 138.24 kWp" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1536" y="461.785">Capacity : 138.24 kWp</tspan></text>
     </g>
     <path id="Vector 866_5" d="M1529.5 443.5H1843.5V525.5" stroke="white" stroke-width="2"/>
@@ -76,7 +76,7 @@
     <circle id="Ellipse 70_5" cx="6.07895" cy="6.07895" r="6.07895" class="point" transform="matrix(1 0 0 -1 1838 549)" fill="#FF5722"/>
     </g>
     </g>
-    <g id="card_6">
+    <g id="card_6" transform="translate(0, -50)">
     <g id="Group 2074_2">
     <circle id="Ellipse 69_6" cx="20" cy="20" r="18" transform="matrix(1 0 0 -1 546 420)" stroke="#FFC107" stroke-width="4"/>
     <circle id="Ellipse 70_6" cx="6.07895" cy="6.07895" r="6.07895" class="point" transform="matrix(1 0 0 -1 560 406)" fill="#FFC107"/>
@@ -84,20 +84,20 @@
     <g id="Group 2083">
     <g id="Group 2073_6">
     <rect id="Rectangle 902_6" x="690.75" y="411.75" width="300.5" height="98.5" fill="#957002" fill-opacity="0.6" stroke="#FFC107" stroke-width="1.5"/>
-    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#185;&#128;&#224;&#184;&#160;&#224;&#184;&#170;&#224;&#184;&#177;&#224;&#184;&#138;&#224;&#184;&#168;&#224;&#184;&#178;&#224;&#184;&#170;&#224;&#184;&#149;&#224;&#184;&#163;&#224;&#185;&#140; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="696.5" y="432.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe40;&#xe20;&#xe2a;&#xe31;&#xe0a;&#xe28;&#xe32;&#xe2a;&#xe15;&#xe23;&#xe4c; : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh_6" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="696.5" y="470.785">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#185;&#128;&#224;&#184;&#160;&#224;&#184;&#170;&#224;&#184;&#177;&#224;&#184;&#138;&#224;&#184;&#168;&#224;&#184;&#178;&#224;&#184;&#170;&#224;&#184;&#149;&#224;&#184;&#163;&#224;&#185;&#140; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="696.5" y="432.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe40;&#xe20;&#xe2a;&#xe31;&#xe0a;&#xe28;&#xe32;&#xe2a;&#xe15;&#xe23;&#xe4c; : {{data['PHA001_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh_6" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="696.5" y="470.785">Today Production : {{data['PHA001_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 556.20 kWp" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="696.504" y="500.785">Capacity : 556.20 kWp</tspan></text>
     </g>
     <path id="Vector 866_6" d="M991 482.5H666L580.5 413.5" stroke="white" stroke-width="2"/>
     <path class="effect" id="effect_6" d="M991 482.5H666L580.5 413.5" stroke="#FFC107" stroke-width="4"/>
     </g>
     </g>
-    <g id="card_7">
+    <g id="card_7" transform="translate(50, -100)">
     <g id="Group 2085">
     <g id="Group 2073_7">
     <rect id="Rectangle 902_7" x="767.75" y="698.75" width="300.5" height="98.5" fill="#00A237" fill-opacity="0.6" stroke="#00FF57" stroke-width="1.5"/>
-    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#185;&#128;&#224;&#184;&#165;&#224;&#184;&#180;&#224;&#184;&#168; &#224;&#184;&#173;&#224;&#184;&#184;&#224;&#184;&#163;&#224;&#184;&#177;&#224;&#184;&#170;&#224;&#184;&#162;&#224;&#184;&#176;&#224;&#184;&#153;&#224;&#184;&#177;&#224;&#184;&#153;&#224;&#184;&#151;&#224;&#184;&#153;&#224;&#185;&#140; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="773.5" y="719.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe40;&#xe25;&#xe34;&#xe28;  &#xe2d;&#xe38;&#xe23;&#xe31;&#xe2a;&#xe22;&#xe30;&#xe19;&#xe31;&#xe19;&#xe17;&#xe19;&#xe4c; : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh_7" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="773.5" y="757.785">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#185;&#128;&#224;&#184;&#165;&#224;&#184;&#180;&#224;&#184;&#168; &#224;&#184;&#173;&#224;&#184;&#184;&#224;&#184;&#163;&#224;&#184;&#177;&#224;&#184;&#170;&#224;&#184;&#162;&#224;&#184;&#176;&#224;&#184;&#153;&#224;&#184;&#177;&#224;&#184;&#153;&#224;&#184;&#151;&#224;&#184;&#153;&#224;&#185;&#140; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="773.5" y="719.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe40;&#xe25;&#xe34;&#xe28;  &#xe2d;&#xe38;&#xe23;&#xe31;&#xe2a;&#xe22;&#xe30;&#xe19;&#xe31;&#xe19;&#xe17;&#xe19;&#xe4c; : {{data['ARC003_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh_7" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="773.5" y="757.785">Today Production : {{data['ARC003_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 91.80 kWp" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="773.504" y="787.785">Capacity : 91.80 kWp</tspan></text>
     </g>
     <path id="Vector 866_7" d="M1068 769.5H748.5L716.5 832.5" stroke="white" stroke-width="2"/>
@@ -108,12 +108,12 @@
     <circle id="Ellipse 70_7" cx="6.07895" cy="6.07895" r="6.07895" class="point" transform="matrix(1 0 0 -1 704 854)" fill="#00FF57"/>
     </g>
     </g>
-    <g id="card_8">
+    <g id="card_8" transform="translate(-25, -50)">
     <g id="Group 2084">
     <g id="Group 2073_8">
     <rect id="Rectangle 902_8" x="474.75" y="527.75" width="300.5" height="98.5" fill="#8D821D" fill-opacity="0.6" stroke="#FFEB3B" stroke-width="1.5"/>
-    <text id="&#224;&#184;&#170;&#224;&#184;&#150;&#224;&#184;&#178;&#224;&#184;&#153;&#224;&#184;&#155;&#224;&#184;&#143;&#224;&#184;&#180;&#224;&#184;&#154;&#224;&#184;&#177;&#224;&#184;&#149;&#224;&#184;&#180;&#224;&#184;&#129;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#185;&#128;&#224;&#184;&#160;&#224;&#184;&#170;&#224;&#184;&#177;&#224;&#184;&#138;&#224;&#184;&#129;&#224;&#184;&#163;&#224;&#184;&#163;&#224;&#184;&#161;&#224;&#184;&#138;&#224;&#184;&#184;&#224;&#184;&#161;&#224;&#184;&#138;&#224;&#184;&#153; (&#224;&#185;&#130;&#224;&#184;&#173;&#224;&#184;&#170;&#224;&#184;&#150;&#224;&#184;&#168;&#224;&#184;&#178;&#224;&#184;&#165;&#224;&#184;&#178;) : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="480.5" y="548.058">&#xe2a;&#xe16;&#xe32;&#xe19;&#xe1b;&#xe0f;&#xe34;&#xe1a;&#xe31;&#xe15;&#xe34;&#xe01;&#xe32;&#xe23;&#xe40;&#xe20;&#xe2a;&#xe31;&#xe0a;&#xe01;&#xe23;&#xe23;&#xe21;&#xe0a;&#xe38;&#xe21;&#xe0a;&#xe19;&#10;</tspan><tspan x="480.5" y="567.058">(&#xe42;&#xe2d;&#xe2a;&#xe16;&#xe28;&#xe32;&#xe25;&#xe32;) : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh_8" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="480.5" y="588.785">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#184;&#170;&#224;&#184;&#150;&#224;&#184;&#178;&#224;&#184;&#153;&#224;&#184;&#155;&#224;&#184;&#143;&#224;&#184;&#180;&#224;&#184;&#154;&#224;&#184;&#177;&#224;&#184;&#149;&#224;&#184;&#180;&#224;&#184;&#129;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#185;&#128;&#224;&#184;&#160;&#224;&#184;&#170;&#224;&#184;&#177;&#224;&#184;&#138;&#224;&#184;&#129;&#224;&#184;&#163;&#224;&#184;&#163;&#224;&#184;&#161;&#224;&#184;&#138;&#224;&#184;&#184;&#224;&#184;&#161;&#224;&#184;&#138;&#224;&#184;&#153; (&#224;&#185;&#130;&#224;&#184;&#173;&#224;&#184;&#170;&#224;&#184;&#150;&#224;&#184;&#168;&#224;&#184;&#178;&#224;&#184;&#165;&#224;&#184;&#178;) : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="480.5" y="548.058">&#xe2a;&#xe16;&#xe32;&#xe19;&#xe1b;&#xe0f;&#xe34;&#xe1a;&#xe31;&#xe15;&#xe34;&#xe01;&#xe32;&#xe23;&#xe40;&#xe20;&#xe2a;&#xe31;&#xe0a;&#xe01;&#xe23;&#xe23;&#xe21;&#xe0a;&#xe38;&#xe21;&#xe0a;&#xe19;&#10;</tspan><tspan x="480.5" y="567.058">(&#xe42;&#xe2d;&#xe2a;&#xe16;&#xe28;&#xe32;&#xe25;&#xe32;) : {{data['PHA006_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh_8" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="480.5" y="588.785">Today Production : {{data['PHA006_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 48.60 kWp" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="480.504" y="616.785">Capacity : 48.60 kWp</tspan></text>
     </g>
     <path id="Vector 866_8" d="M775 598.5H455.5L406.5 459.5" stroke="white" stroke-width="2"/>
@@ -124,12 +124,12 @@
     <circle id="Ellipse 70_8" cx="6.07895" cy="6.07895" r="6.07895" class="point" transform="matrix(1 0 0 -1 393 449)" fill="#FFEB3B"/>
     </g>
     </g>
-    <g id="card_9">
+    <g id="card_9" transform="translate(0, -50)">
     <g id="Group 2090">
     <g id="Group 2073_9">
     <rect id="Rectangle 902_9" x="1006.75" y="290.75" width="300.5" height="98.5" fill="#FF5F77" fill-opacity="0.6" stroke="#FF5F77" stroke-width="1.5"/>
-    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#170;&#224;&#184;&#150;&#224;&#184;&#178;&#224;&#184;&#154;&#224;&#184;&#177;&#224;&#184;&#153; 3 : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1013" y="311.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe2a;&#xe16;&#xe32;&#xe1a;&#xe31;&#xe19; 3 : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh_9" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1013" y="349.785">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#170;&#224;&#184;&#150;&#224;&#184;&#178;&#224;&#184;&#154;&#224;&#184;&#177;&#224;&#184;&#153; 3 : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1013" y="311.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe2a;&#xe16;&#xe32;&#xe1a;&#xe31;&#xe19; 3 : {{data['INS012_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh_9" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1013" y="349.785">Today Production : {{data['INS012_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 97.20 kWp" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1013" y="379.785">Capacity : 97.20 kWp</tspan></text>
     </g>
     <path id="Vector 866_9" d="M1307.5 361.5H934" stroke="white" stroke-width="2"/>
@@ -140,12 +140,12 @@
     <circle id="Ellipse 70_9" cx="6.07895" cy="6.07895" r="6.07895" class="point" transform="matrix(1 0 0 -1 911 368)" fill="#FF5F77"/>
     </g>
     </g>
-    <g id="card_10">
+    <g id="card_10" transform="translate(0, -70)">
     <g id="Group 2093">
     <g id="Group 2073_10">
     <rect id="Rectangle 902_10" x="1478.75" y="230.75" width="300.5" height="98.5" fill="#362621" fill-opacity="0.6" stroke="#795548" stroke-width="1.5"/>
-    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#136;&#224;&#184;&#184;&#224;&#184;&#172;&#224;&#184;&#178;&#224;&#184;&#167;&#224;&#184;&#180;&#224;&#184;&#138;&#224;&#184;&#138;&#224;&#185;&#140; 1 : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1485" y="251.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe08;&#xe38;&#xe2c;&#xe32;&#xe27;&#xe34;&#xe0a;&#xe0a;&#xe4c; 1 : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh_10" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1485" y="289.785">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#136;&#224;&#184;&#184;&#224;&#184;&#172;&#224;&#184;&#178;&#224;&#184;&#167;&#224;&#184;&#180;&#224;&#184;&#138;&#224;&#184;&#138;&#224;&#185;&#140; 1 : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1485" y="251.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe08;&#xe38;&#xe2c;&#xe32;&#xe27;&#xe34;&#xe0a;&#xe0a;&#xe4c; 1 : {{data['CEN069_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh_10" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1485" y="289.785">Today Production : {{data['CEN069_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 97.20 kWp_2" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1485" y="319.785">Capacity : 97.20 kWp</tspan></text>
     </g>
     <path id="Vector 866_10" d="M1779.5 301.5H1460L1418 371.5" stroke="white" stroke-width="2"/>
@@ -156,12 +156,12 @@
     <circle id="Ellipse 70_10" cx="6.07895" cy="6.07895" r="6.07895" class="point" transform="matrix(1 0 0 -1 1404 392)" fill="#795548"/>
     </g>
     </g>
-    <g id="card_11">
+    <g id="card_11" transform="translate(-25, -175)">
     <g id="Group 2092">
     <g id="Group 2073_11">
     <rect id="Rectangle 902_11" x="1382.75" y="705.75" width="300.5" height="98.5" fill="#B54A28" fill-opacity="0.6" stroke="#FF5722" stroke-width="1.5"/>
-    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#161;&#224;&#184;&#171;&#224;&#184;&#178;&#224;&#184;&#136;&#224;&#184;&#177;&#224;&#184;&#129;&#224;&#184;&#163;&#224;&#184;&#181;&#224;&#184;&#170;&#224;&#184;&#180;&#224;&#184;&#163;&#224;&#184;&#180;&#224;&#184;&#153;&#224;&#184;&#152;&#224;&#184;&#163; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1389" y="726.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe21;&#xe2b;&#xe32;&#xe08;&#xe31;&#xe01;&#xe23;&#xe35;&#xe2a;&#xe34;&#xe23;&#xe34;&#xe19;&#xe18;&#xe23; : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh_11" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1389" y="764.785">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#161;&#224;&#184;&#171;&#224;&#184;&#178;&#224;&#184;&#136;&#224;&#184;&#177;&#224;&#184;&#129;&#224;&#184;&#163;&#224;&#184;&#181;&#224;&#184;&#170;&#224;&#184;&#180;&#224;&#184;&#163;&#224;&#184;&#180;&#224;&#184;&#153;&#224;&#184;&#152;&#224;&#184;&#163; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1389" y="726.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe21;&#xe2b;&#xe32;&#xe08;&#xe31;&#xe01;&#xe23;&#xe35;&#xe2a;&#xe34;&#xe23;&#xe34;&#xe19;&#xe18;&#xe23; : {{data['ART005_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh_11" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1389" y="764.785">Today Production : {{data['ART005_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 120.96 kWp" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1389" y="794.785">Capacity : 120.96 kWp</tspan></text>
     </g>
     <path id="Vector 866_11" d="M1382.5 776.5H1702V617" stroke="white" stroke-width="2"/>
@@ -172,12 +172,12 @@
     <circle id="Ellipse 70_11" cx="6.07895" cy="6.07895" r="6.07895" class="point" transform="matrix(1 0 0 -1 1696.5 604)" fill="#FF5722"/>
     </g>
     </g>
-    <g id="card_12">
+    <g id="card_12" transform="translate(-25, -125)">
     <g id="Group 2091">
     <g id="Group 2073_12">
     <rect id="Rectangle 902_12" x="1200.75" y="494.75" width="300.5" height="98.5" fill="#00A237" fill-opacity="0.6" stroke="#00FF57" stroke-width="1.5"/>
-    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#154;&#224;&#184;&#163;&#224;&#184;&#161;&#224;&#184;&#163;&#224;&#184;&#178;&#224;&#184;&#138;&#224;&#184;&#129;&#224;&#184;&#184;&#224;&#184;&#161;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#181; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1207" y="515.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe1a;&#xe23;&#xe21;&#xe23;&#xe32;&#xe0a;&#xe01;&#xe38;&#xe21;&#xe32;&#xe23;&#xe35; : 55.32 kW</tspan></text>
-    <text id="Today Production : 100.20 kwh_12" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1207" y="553.785">Today Production : 100.20 kwh</tspan></text>
+    <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#154;&#224;&#184;&#163;&#224;&#184;&#161;&#224;&#184;&#163;&#224;&#184;&#178;&#224;&#184;&#138;&#224;&#184;&#129;&#224;&#184;&#184;&#224;&#184;&#161;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#181; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="1207" y="515.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe1a;&#xe23;&#xe21;&#xe23;&#xe32;&#xe0a;&#xe01;&#xe38;&#xe21;&#xe32;&#xe23;&#xe35; : {{data['CEN053_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
+    <text id="Today Production : 100.20 kwh_12" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1207" y="553.785">Today Production : {{data['CEN053_today']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kWh</tspan></text>
     <text id="Capacity : 77.76 kWp" fill="white" xml:space="preserve" style="white-space: pre" font-family="Roboto" font-size="14" font-weight="500" letter-spacing="0em"><tspan x="1207" y="583.785">Capacity : 77.76 kWp</tspan></text>
     </g>
     <path id="Vector 866_12" d="M1200.5 565.5H1520L1561 618" stroke="white" stroke-width="2"/>
@@ -191,9 +191,9 @@
     </g>
     <defs>
     <pattern id="pattern0_899_11016" patternContentUnits="objectBoundingBox" width="1" height="1">
-    <use xlink:href="#image0_899_11016" transform="scale(0.000520833 0.000925926)"/>
+    <use xlink:href="#image0_899_11016" transform="scale(0.000520833 0.000925926) translate(-50, -125)"/>
     </pattern>
-    <image id="image0_899_11016" width="1920" height="1080" xlink:href="assets/images/building/zone/northwest.png" />
+    <image class="map-img bz" id="image0_899_11016" width="2560" height="1440" overflow="visible" xlink:href="assets/images/building/zone/northwest.png" />
     </defs>
     </svg>
      

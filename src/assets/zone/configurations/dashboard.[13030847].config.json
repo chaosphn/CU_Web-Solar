@@ -1,16 +1,16 @@
 {
 	"realtimeConfig": [
 		{
-			"Title": "ZONE_powerX",
-			"Name": "CALC.ZONE12.W"
+			"Title": "ZONE_power",
+			"Name": "M012.CALZ12.W"
 		},
 		{
-			"Title": "ZONE_energyX",
-			"Name": "CALC.ZONE12.WH_DAY"
+			"Title": "ZONE_energy",
+			"Name": "M012.CALZ12.WH_DAY"
 		},
 		{
-			"Title": "TOTAL_energyX",
-			"Name": "CALC.ZONE12.WH"
+			"Title": "TOTAL_energy",
+			"Name": "M012.CALZ12.WH"
 		},
 
 		{
@@ -108,7 +108,7 @@
 			}
 		},
 		{
-			"Name": "CALC.ZONE12.W",
+			"Name": "M012.CALZ12.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -260,7 +260,7 @@
 					}
 				},
 				{
-					"name": "CALC.ZONE12.W",
+					"name": "M012.CALZ12.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {

@@ -37,6 +37,7 @@ import { DateControlComponent } from './components/date-control/date-control.com
 import { MapContainerComponent } from './components/map-container/map-container.component';
 import { DiagramBuildingComponent } from './components/diagram-building/diagram-building.component';
 import { FixPointPipe } from './pipe/fix-point.pipe';
+import { SatChart1Component } from './components/sat-chart1/sat-chart1.component';
 
 
 
@@ -95,7 +96,8 @@ export const MY_MOMENT_FORMATS = {
     DateControlComponent,
     MapContainerComponent,
     DiagramBuildingComponent,
-    FixPointPipe
+    FixPointPipe,
+    SatChart1Component
   ],
   entryComponents: [
     DialogTagComponent,
@@ -138,7 +140,8 @@ export const MY_MOMENT_FORMATS = {
     DateControlComponent,
     MapContainerComponent,
     DiagramBuildingComponent,
-    FixPointPipe
+    FixPointPipe,
+    SatChart1Component
   ],
   providers: [
     {provide: OWL_DATE_TIME_FORMATS, useValue: MY_MOMENT_FORMATS},

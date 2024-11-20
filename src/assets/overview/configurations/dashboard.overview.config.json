@@ -2,299 +2,270 @@
 	"realtimeConfig": [
 		{
 			"Title": "today_energy",
-			"Name": "CALC.ALLZONE.WH_DAY"
+			"Name": "M0OVA.CALZOVA.WH_DAY"
 		},
 		{
 			"Title": "today_power",
-			"Name": "CALC.ALLZONE.W"
+			"Name": "M0OVA.CALZOVA.W"
 		},
 		{
 			"Title": "total_energy",
-			"Name": "CALC.ALLZONE.WH"
+			"Name": "M0OVA.CALZOVA.WH"
+		},
+
+		{
+			"Title": "13028863_solar",
+			"Name": "M021.CALZ21.W"
 		},
 		{
-			"Title": "13028863_power",
-			"Name": "B001.PQM01.W"
+			"Title": "13028863_mea",
+			"Name": "M021.CALZ21.W_IMP"
 		},
 		{
 			"Title": "13028863_energy",
-			"Name": "CALC.ZONE21.WH_TODAY"
+			"Name": "M021.CALZ21.WH_DAY"
 		},
 		{
 			"Title": "13028863_irr",
-			"Name": "B006.SLOGGER06.PYRANO"
+			"Name": "M021.CALZ21.PYRANO"
 		},
 		{
 			"Title": "13028863_pv",
-			"Name": "B006.SLOGGER06.PVTEMP"
+			"Name": "M021.CALZ21.PVTEMP"
 		},
 		{
 			"Title": "13028863_amb",
-			"Name": "B006.SLOGGER06.AMBTEMP"
+			"Name": "M021.CALZ21.AMBTEMP"
+		},
+
+		{
+			"Title": "13014105_solar",
+			"Name": "M010.CALZ10.W"
 		},
 		{
-			"Title": "95772485_power",
-			"Name": "B006.PQM06.W"
-		},
-		{
-			"Title": "95772485_energy",
-			"Name": "B006.CALC06.WH_TODAY"
-		},
-		{
-			"Title": "95772485_irr",
-			"Name": "B006.SLOGGER06.PYRANO"
-		},
-		{
-			"Title": "95772485_pv",
-			"Name": "B006.SLOGGER06.PVTEMP"
-		},
-		{
-			"Title": "95772485_amb",
-			"Name": "B006.SLOGGER06.AMBTEMP"
-		},
-		{
-			"Title": "13023931_power",
-			"Name": "B007.PQM07.W"
-		},
-		{
-			"Title": "13023931_energy",
-			"Name": "CALC.ZONE15.WH_TODAY"
-		},
-		{
-			"Title": "13023931_irr",
-			"Name": "B006.SLOGGER06.PYRANO"
-		},
-		{
-			"Title": "13023931_pv",
-			"Name": "B006.SLOGGER06.PVTEMP"
-		},
-		{
-			"Title": "13023931_amb",
-			"Name": "B006.SLOGGER06.AMBTEMP"
-		},
-		{
-			"Title": "13036201_power",
-			"Name": "B010.PQM10.W"
-		},
-		{
-			"Title": "13036201_energy",
-			"Name": "CALC.ZONE25.WH_TODAY"
-		},
-		{
-			"Title": "13036201_irr",
-			"Name": "B006.SLOGGER06.PYRANO"
-		},
-		{
-			"Title": "13036201_pv",
-			"Name": "B006.SLOGGER06.PVTEMP"
-		},
-		{
-			"Title": "13036201_amb",
-			"Name": "B006.SLOGGER06.AMBTEMP"
-		},
-		
-		{
-			"Title": "13014105_power",
-			"Name": "B021.PQM21.W"
+			"Title": "13014105_mea",
+			"Name": "M010.CALZ10.W_IMP"
 		},
 		{
 			"Title": "13014105_energy",
-			"Name": "CALC.ZONE10.WH_TODAY"
+			"Name": "M010.CALZ10.WH_DAY"
 		},
 		{
 			"Title": "13014105_irr",
-			"Name": "B006.SLOGGER06.PYRANO"
+			"Name": "M010.CALZ10.PYRANO"
 		},
 		{
 			"Title": "13014105_pv",
-			"Name": "B006.SLOGGER06.PVTEMP"
+			"Name": "M010.CALZ10.PVTEMP"
 		},
 		{
 			"Title": "13014105_amb",
-			"Name": "B006.SLOGGER06.AMBTEMP"
+			"Name": "M010.CALZ10.AMBTEMP"
 		},
 
 		{
-			"Title": "13017711_power",
-			"Name": "B00X.PQM0X.W"
+			"Title": "13017711_solar",
+			"Name": "M013.CALZ13.W"
+		},
+		{
+			"Title": "13017711_mea",
+			"Name": "M013.CALZ13.W_IMP"
 		},
 		{
 			"Title": "13017711_energy",
-			"Name": "CALC.ZONE13.WH_TODAY"
+			"Name": "M013.CALZ13.WH_DAY"
 		},
 		{
 			"Title": "13017711_irr",
-			"Name": "B006.SLOGGER06.PYRANO"
+			"Name": "M013.CALZ13.PYRANO"
 		},
 		{
 			"Title": "13017711_pv",
-			"Name": "B006.SLOGGER06.PVTEMP"
+			"Name": "M013.CALZ13.PVTEMP"
 		},
 		{
 			"Title": "13017711_amb",
-			"Name": "B006.SLOGGER06.AMBTEMP"
+			"Name": "M013.CALZ13.AMBTEMP"
 		},
 
 		{
-			"Title": "13018215_power",
-			"Name": "B00X.PQM0X.W"
+			"Title": "13018215_solar",
+			"Name": "M011.CALZ11.W"
+		},
+		{
+			"Title": "13018215_mea",
+			"Name": "M011.CALZ11.W_IMP"
 		},
 		{
 			"Title": "13018215_energy",
-			"Name": "CALC.ZONE11.WH_TODAY"
+			"Name": "M011.CALZ11.WH_DAY"
 		},
 		{
 			"Title": "13018215_irr",
-			"Name": "B006.SLOGGER06.PYRANO"
+			"Name": "M011.CALZ11.PYRANO"
 		},
 		{
 			"Title": "13018215_pv",
-			"Name": "B006.SLOGGER06.PVTEMP"
+			"Name": "M011.CALZ11.PVTEMP"
 		},
 		{
 			"Title": "13018215_amb",
-			"Name": "B006.SLOGGER06.AMBTEMP"
+			"Name": "M011.CALZ11.AMBTEMP"
 		},
 
 		{
-			"Title": "13018538_power",
-			"Name": "B00X.PQM0X.W"
+			"Title": "13018538_solar",
+			"Name": "M022.CALZ22.W"
+		},
+		{
+			"Title": "13018538_mea",
+			"Name": "M022.CALZ22.W_IMP"
 		},
 		{
 			"Title": "13018538_energy",
-			"Name": "CALC.ZONE22.WH_TODAY"
+			"Name": "M022.CALZ22.WH_DAY"
 		},
 		{
 			"Title": "13018538_irr",
-			"Name": "B006.SLOGGER06.PYRANO"
+			"Name": "M022.CALZ22.PYRANO"
 		},
 		{
 			"Title": "13018538_pv",
-			"Name": "B006.SLOGGER06.PVTEMP"
+			"Name": "M022.CALZ22.PVTEMP"
 		},
 		{
 			"Title": "13018538_amb",
-			"Name": "B006.SLOGGER06.AMBTEMP"
+			"Name": "M022.CALZ22.AMBTEMP"
 		},
 
 		{
-			"Title": "13030847_power",
-			"Name": "B005.PQM05.W"
+			"Title": "13023931_solar",
+			"Name": "M015.CALZ15.W"
+		},
+		{
+			"Title": "13023931_mea",
+			"Name": "M015.CALZ15.W_IMP"
+		},
+		{
+			"Title": "13023931_energy",
+			"Name": "M015.CALZ15.WH_DAY"
+		},
+		{
+			"Title": "13023931_irr",
+			"Name": "M015.CALZ15.PYRANO"
+		},
+		{
+			"Title": "13023931_pv",
+			"Name": "M015.CALZ15.PVTEMP"
+		},
+		{
+			"Title": "13023931_amb",
+			"Name": "M015.CALZ15.AMBTEMP"
+		},
+
+		{
+			"Title": "13028863_solar",
+			"Name": "M021.CALZ21.W"
+		},
+		{
+			"Title": "13028863_mea",
+			"Name": "M021.CALZ21.W_IMP"
+		},
+		{
+			"Title": "13028863_energy",
+			"Name": "M021.CALZ21.WH_DAY"
+		},
+		{
+			"Title": "13028863_irr",
+			"Name": "M021.CALZ21.PYRANO"
+		},
+		{
+			"Title": "13028863_pv",
+			"Name": "M021.CALZ21.PVTEMP"
+		},
+		{
+			"Title": "13028863_amb",
+			"Name": "M021.CALZ21.AMBTEMP"
+		},
+
+		{
+			"Title": "13030847_solar",
+			"Name": "M012.CALZ12.W"
+		},
+		{
+			"Title": "13030847_mea",
+			"Name": "M012.CALZ12.W_IMP"
 		},
 		{
 			"Title": "13030847_energy",
-			"Name": "CALC.ZONE12.WH_TODAY"
+			"Name": "M012.CALZ12.WH_DAY"
 		},
 		{
 			"Title": "13030847_irr",
-			"Name": "B006.SLOGGER06.PYRANO"
+			"Name": "M012.CALZ12.PYRANO"
 		},
 		{
 			"Title": "13030847_pv",
-			"Name": "B006.SLOGGER06.PVTEMP"
+			"Name": "M012.CALZ12.PVTEMP"
 		},
 		{
 			"Title": "13030847_amb",
-			"Name": "B006.SLOGGER06.AMBTEMP"
+			"Name": "M012.CALZ12.AMBTEMP"
 		},
 
 		{
-			"Title": "power01_13028863",
-			"Name": "B001.SLOGGER01.INV_WAC"
+			"Title": "13036201_solar",
+			"Name": "M025.CALZ25.W"
 		},
 		{
-			"Title": "ARC003_energy1",
-			"Name": "B001.SLOGGER01.WH_TODAY"
+			"Title": "13036201_mea",
+			"Name": "M025.CALZ25.W_IMP"
 		},
 		{
-			"Title": "power02_13014105",
-			"Name": "B002.SLOGGER02.INV_WAC"
+			"Title": "13036201_energy",
+			"Name": "M025.CALZ25.WH_DAY"
 		},
 		{
-			"Title": "CEN001_energy1",
-			"Name": "B002.SLOGGER02.WH_TODAY"
+			"Title": "13036201_irr",
+			"Name": "M025.CALZ25.PYRANO"
 		},
 		{
-			"Title": "power04_13014105",
-			"Name": "B004.SLOGGER04.INV_WAC"
+			"Title": "13036201_pv",
+			"Name": "M025.CALZ25.PVTEMP"
 		},
 		{
-			"Title": "CEN003_energy1",
-			"Name": "B004.SLOGGER04.WH_TODAY"
-		},
-		{
-			"Title": "power03_13014105",
-			"Name": "B003.SLOGGER03.INV_WAC"
-		},
-		{
-			"Title": "CEN005_energy1",
-			"Name": "B003.SLOGGER03.WH_TODAY"
-		},
-		{
-			"Title": "power05_13030847",
-			"Name": "B005.SLOGGER05.INV_WAC"
-		},
-		{
-			"Title": "CEN072_energy1",
-			"Name": "B005.SLOGGER05.WH_TODAY"
-		},
-		{
-			"Title": "power06_95772485",
-			"Name": "B006.SLOGGER06.INV_WAC"
-		},
-		{
-			"Title": "CEN091_energy1",
-			"Name": "B006.SLOGGER06.WH_TODAY"
+			"Title": "13036201_amb",
+			"Name": "M025.CALZ25.AMBTEMP"
 		},
 
 		{
-			"Title": "power07_13023931",
-			"Name": "B007.SLOGGER07.INV_WAC"
+			"Title": "95772485_solar",
+			"Name": "M006.CALZ06.W"
 		},
 		{
-			"Title": "PHA003_energy1",
-			"Name": "B007.SLOGGER07.WH_TODAY"
-		},
-
-		{
-			"Title": "power08_13018215",
-			"Name": "B008.SLOGGER08.INV_WAC"
+			"Title": "95772485_mea",
+			"Name": "M006.CALZ06.W_IMP"
 		},
 		{
-			"Title": "LAW003_energy1",
-			"Name": "B008.SLOGGER08.WH_TODAY"
-		},
-
-		{
-			"Title": "power09_13017711",
-			"Name": "B009.SLOGGER09.INV_WAC"
+			"Title": "95772485_energy",
+			"Name": "M006.CALZ06.WH_DAY"
 		},
 		{
-			"Title": "DEN014_energy1",
-			"Name": "B009.SLOGGER09.WH_TODAY"
-		},
-
-		{
-			"Title": "power10_13036201",
-			"Name": "B010.SLOGGER10.INV_WAC"
+			"Title": "95772485_irr",
+			"Name": "M006.CALZ06.PYRANO"
 		},
 		{
-			"Title": "PHA007_energy1",
-			"Name": "B010.SLOGGER10.WH_TODAY"
-		},
-
-		{
-			"Title": "power12_13018538",
-			"Name": "B012.SLOGGER12.INV_WAC"
+			"Title": "95772485_pv",
+			"Name": "M006.CALZ06.PVTEMP"
 		},
 		{
-			"Title": "INS009_energy1",
-			"Name": "B012.SLOGGER12.WH_TODAY"
+			"Title": "95772485_amb",
+			"Name": "M006.CALZ06.AMBTEMP"
 		}
 	],
 	"historianConfig": [
 		{
-			"Name": "CALC.ALLZONE.W",
+			"Name": "M0OVA.CALZOVA.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -304,7 +275,19 @@
 			}
 		},
 		{
-			"Name": "B001.PQM01.W",
+			"Name": "M0OVA.CALZOVA.PYRANO",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+
+
+		{
+			"Name": "M010.CALZ10.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -314,7 +297,19 @@
 			}
 		},
 		{
-			"Name": "B006.PQM06.W",
+			"Name": "M010.CALZ10.W_IMP",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+
+
+		{
+			"Name": "M013.CALZ13.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -324,7 +319,19 @@
 			}
 		},
 		{
-			"Name": "B007.PQM07.W",
+			"Name": "M013.CALZ13.W_IMP",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+
+
+		{
+			"Name": "M011.CALZ11.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -334,7 +341,19 @@
 			}
 		},
 		{
-			"Name": "B010.PQM10.W",
+			"Name": "M011.CALZ11.W_IMP",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+
+
+		{
+			"Name": "M022.CALZ22.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -344,7 +363,19 @@
 			}
 		},
 		{
-			"Name": "B021.PQM21.W",
+			"Name": "M022.CALZ22.W_IMP",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+
+
+		{
+			"Name": "M015.CALZ15.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -354,7 +385,19 @@
 			}
 		},
 		{
-			"Name": "CALC.ZONE10.W",
+			"Name": "M015.CALZ15.W_IMP",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+
+
+		{
+			"Name": "M021.CALZ21.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -364,7 +407,19 @@
 			}
 		},
 		{
-			"Name": "CALC.ZONE12.W",
+			"Name": "M021.CALZ21.W_IMP",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+
+
+		{
+			"Name": "M012.CALZ12.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -374,7 +429,19 @@
 			}
 		},
 		{
-			"Name": "CALC.ZONE21.W",
+			"Name": "M012.CALZ12.W_IMP",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+
+
+		{
+			"Name": "M025.CALZ25.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -384,7 +451,19 @@
 			}
 		},
 		{
-			"Name": "CALC.ZONE11.W",
+			"Name": "M025.CALZ25.W_IMP",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+
+
+		{
+			"Name": "M006.CALZ06.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -394,72 +473,23 @@
 			}
 		},
 		{
-			"Name": "CALC.ZONE13.W",
+			"Name": "M006.CALZ06.W_IMP",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
 				"Time" :"t",
-				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-12-24T23:59:59"
-			}
-		},
-		{
-			"Name": "CALC.ZONE15.W",
-			"Title": "X1",
-			"Options" : {
-				"Interval": 5,
-				"Time" :"t",
-				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-12-24T23:59:59"
-			}
-		},
-		{
-			"Name": "CALC.ZONE22.W",
-			"Title": "X1",
-			"Options" : {
-				"Interval": 5,
-				"Time" :"t",
-				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-12-24T23:59:59"
-			}
-		},
-		{
-			"Name": "CALC.ZONE25.W",
-			"Title": "X1",
-			"Options" : {
-				"Interval": 5,
-				"Time" :"t",
-				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-12-24T23:59:59"
-			}
-		},
-		{
-			"Name": "B006.TOU06.W",
-			"Title": "X1",
-			"Options" : {
-				"Interval": 5,
-				"Time" :"t",
-				"StartTime" : "2021-06-24T00:00:00",
-				"EndTime" : "2023-12-24T23:59:59"
-			}
-		},
-		{
-			"Name": "B006.SLOGGER06.PYRANO",
-			"Title": "X2",
-			"Options" : {
-				"Interval": 5,
-				"Time" : "t",
 				"StartTime" : "2021-06-24T00:00:00",
 				"EndTime" : "2023-12-24T23:59:59"
 			}
 		}
+		
 	],
 	"chartConfig":[
 		{
 			"name": "allzoneGeneration",
 			"tags": [
 				{
-					"name": "B006.SLOGGER06.PYRANO",
+					"name": "M0OVA.CALZOVA.PYRANO",
 					"title": "IRR",
 					"options": {
 						"chartOptions": {
@@ -470,7 +500,7 @@
 					}
 				},
 				{
-					"name": "CALC.ALLZONE.W",
+					"name": "M0OVA.CALZOVA.W",
 					"title": "Power",
 					"options": {
 						"chartOptions": {
@@ -517,7 +547,7 @@
 			"name": "13014105",
 			"tags": [
 				{
-					"name": "CALC.ZONE10.W",
+					"name": "M010.CALZ10.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -528,7 +558,7 @@
 					}
 				},
 				{
-					"name": "B021.PQM21.W",
+					"name": "M010.CALZ10.W_IMP",
 					"title": "MEA",
 					"options": {
 						"chartOptions": {
@@ -576,7 +606,7 @@
 			"name": "13030847",
 			"tags": [
 				{
-					"name": "CALC.ZONE12.W",
+					"name": "M012.CALZ12.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -587,7 +617,7 @@
 					}
 				},
 				{
-					"name": "B00X.PQM0X.W",
+					"name": "M012.CALZ12.W_IMP",
 					"title": "MEA",
 					"options": {
 						"chartOptions": {
@@ -635,7 +665,7 @@
 			"name": "13028863",
 			"tags": [
 				{
-					"name": "CALC.ZONE21.W",
+					"name": "M021.CALZ21.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -646,7 +676,7 @@
 					}
 				},
 				{
-					"name": "B001.PQM01.W",
+					"name": "M021.CALZ21.W_IMP",
 					"title": "MEA",
 					"options": {
 						"chartOptions": {
@@ -694,7 +724,7 @@
 			"name": "95772485",
 			"tags": [
 				{
-					"name": "B006.TOU06.W",
+					"name": "M006.CALZ06.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -705,7 +735,7 @@
 					}
 				},
 				{
-					"name": "B006.PQM06.W",
+					"name": "M006.CALZ06.W_IMP",
 					"title": "MEA",
 					"options": {
 						"chartOptions": {
@@ -753,7 +783,7 @@
 			"name": "13017711",
 			"tags": [
 				{
-					"name": "CALC.ZONE13.W",
+					"name": "M013.CALZ13.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -764,7 +794,7 @@
 					}
 				},
 				{
-					"name": "B001.PQM0X.W",
+					"name": "M013.CALZ13.W_IMP",
 					"title": "MEA",
 					"options": {
 						"chartOptions": {
@@ -812,7 +842,7 @@
 			"name": "13018215",
 			"tags": [
 				{
-					"name": "CALC.ZONE11.W",
+					"name": "M011.CALZ11.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -823,7 +853,7 @@
 					}
 				},
 				{
-					"name": "B001.PQM0X.W",
+					"name": "M011.CALZ11.W_IMP",
 					"title": "MEA",
 					"options": {
 						"chartOptions": {
@@ -871,7 +901,7 @@
 			"name": "13018538",
 			"tags": [
 				{
-					"name": "CALC.ZONE22.W",
+					"name": "M022.CALZ22.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -882,7 +912,7 @@
 					}
 				},
 				{
-					"name": "B001.PQM0X.W",
+					"name": "M022.CALZ22.W_IMP",
 					"title": "MEA",
 					"options": {
 						"chartOptions": {
@@ -930,7 +960,7 @@
 			"name": "13023931",
 			"tags": [
 				{
-					"name": "CALC.ZONE15.W",
+					"name": "M015.CALZ15.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -941,7 +971,7 @@
 					}
 				},
 				{
-					"name": "B007.PQM07.W",
+					"name": "M015.CALZ15.W_IMP",
 					"title": "MEA",
 					"options": {
 						"chartOptions": {
@@ -989,7 +1019,7 @@
 			"name": "13036201",
 			"tags": [
 				{
-					"name": "CALC.ZONE25.W",
+					"name": "M025.CALZ25.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -1000,7 +1030,7 @@
 					}
 				},
 				{
-					"name": "B010.PQM10.W",
+					"name": "M025.CALZ25.W_IMP",
 					"title": "MEA",
 					"options": {
 						"chartOptions": {

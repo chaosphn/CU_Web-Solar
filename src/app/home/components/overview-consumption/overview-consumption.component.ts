@@ -2,6 +2,7 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef,
 import { Store } from '@ngxs/store';
 import { LocationStateModel } from 'src/app/core/stores/location/location.model';
 import { AddZone } from 'src/app/core/stores/location/location.state';
+import { SingleValue1 } from 'src/app/share/models/value-models/group-data.model';
 
 @Component({
   selector: 'app-overview-consumption',
@@ -12,6 +13,7 @@ import { AddZone } from 'src/app/core/stores/location/location.state';
 export class OverviewConsumptionComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input() zone: LocationStateModel;
+  @Input() data: SingleValue1;
   @ViewChild('overviewContainer') cardContainer!: ElementRef;
 
   constructor(
@@ -29,6 +31,8 @@ export class OverviewConsumptionComponent implements OnInit, OnDestroy, OnChange
 
   ngOnChanges(changes: SimpleChanges): void {
     this.resetScroll();
+    //console.log(this.data)
+    //this.cd.markForCheck();
   }
 
   ngOnInit(): void {

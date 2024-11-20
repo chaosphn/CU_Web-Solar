@@ -2,25 +2,11 @@
     {
         "zone": "overall",
         "meters": [
-            { "id": "13014105", "name": "Meter no.10" },
-            { "id": "13017711", "name": "Meter no.13" },
-            { "id": "13018215", "name": "Meter no.11" },
-            { "id": "13018538", "name": "Meter no.22" },
-            { "id": "13023931", "name": "Meter no.15" },
-            { "id": "13024447", "name": "Meter no.24" },
-            { "id": "13028863", "name": "Meter no.21" },
-            { "id": "13029461", "name": "Meter no.23" },
-            { "id": "13030117", "name": "Meter no.01" },
-            { "id": "13030847", "name": "Meter no.12" },
-            { "id": "13030979", "name": "Meter no.02" },
-            { "id": "13036201", "name": "Meter no.25" },
-            { "id": "13036565", "name": "Meter no.16" },
-            { "id": "13037811", "name": "Meter no.03" },
-            { "id": "13037909", "name": "Meter no.04" },
-            { "id": "13040996", "name": "Meter no.20" },
-            { "id": "95508259", "name": "Meter no.05" },
-            { "id": "95772485", "name": "Meter no.06" },
-            { "id": "96253097", "name": "Meter no.19" }
+            { "id": "all", "name": "Overview" },
+            { "id": "ne", "name": "North East" },
+            { "id": "nw", "name": "North West" },
+            { "id": "se", "name": "South East" },
+            { "id": "sw", "name": "South West" }
         ],
         "buildings": [
             {
@@ -193,6 +179,8 @@
     {
         "zone": "southeast",
         "meters": [
+            { "id": "all", "name": "Overview" },
+            { "id": "se", "name": "South East" },
             { "id": "13014105", "name": "Meter no.10" },
             { "id": "13018215", "name": "Meter no.11" },
             { "id": "13037909", "name": "Meter no.04" }
@@ -247,7 +235,9 @@
     },
     {
         "zone": "southwest",
-        "meters": [          
+        "meters": [
+            { "id": "all", "name": "Overview" },         
+            { "id": "sw", "name": "South West" }, 
             { "id": "13018538", "name": "Meter no.22" },
             { "id": "13029461", "name": "Meter no.23" }
         ],
@@ -301,6 +291,8 @@
     {
         "zone": "northeast",
         "meters": [
+            { "id": "all", "name": "Overview" },
+            { "id": "ne", "name": "North East" },
             { "id": "13030117", "name": "Meter no.01" },
             { "id": "13030847", "name": "Meter no.12" },
             { "id": "13030979", "name": "Meter no.02" },
@@ -343,6 +335,8 @@
     {
         "zone": "northwest",
         "meters": [
+            { "id": "all", "name": "Overview" },
+            { "id": "nw", "name": "North West" },
             { "id": "13017711", "name": "Meter no.13" },
             { "id": "13023931", "name": "Meter no.15" },
             { "id": "13028863", "name": "Meter no.21" },

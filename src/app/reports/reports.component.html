@@ -5,6 +5,11 @@
                 <div class="d-flex align-items-center selector" *ngIf="buildingList.length > 0" style="margin-right: 7px;">
                     <mat-form-field class="mat-selects">
                         <mat-select [(ngModel)]="siteSelected">
+                            <ng-container>
+                                <mat-option [value]="'Overall'" (click)="selectOverall()">
+                                  Overall
+                                </mat-option>
+                              </ng-container>
                             <ng-container *ngFor="let item of buildingList; let i = index">
                                 <mat-option *ngIf="item.display" [value]="item" (click)="selectSite(item)">
                                   {{item.name}}

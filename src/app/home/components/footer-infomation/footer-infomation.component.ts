@@ -2,6 +2,8 @@ import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef,
 import { Store } from '@ngxs/store';
 import { LocationStateModel } from 'src/app/core/stores/location/location.model';
 import { AddZone } from 'src/app/core/stores/location/location.state';
+import { ChartParameters } from 'src/app/share/models/sat-chart';
+import { SingleValue1 } from 'src/app/share/models/value-models/group-data.model';
 import { DateTimeService } from 'src/app/share/services/datetime.service';
 
 @Component({
@@ -15,6 +17,8 @@ export class FooterInfomationComponent implements OnInit, OnDestroy, OnChanges {
   @ViewChild('cardContainer') cardContainer!: ElementRef;
   @Input() config: LocationStateModel[] = [];
   @Input() zone: LocationStateModel;
+  @Input() chart: ChartParameters;
+  @Input() data: SingleValue1 = {};
   constructor(private dateTimeSrv: DateTimeService,
     private cd: ChangeDetectorRef,
     private store: Store
@@ -30,7 +34,7 @@ export class FooterInfomationComponent implements OnInit, OnDestroy, OnChanges {
   date: Date = new Date();
 
   ngOnChanges(changes: SimpleChanges): void {
-    //console.log(this.config)
+    //console.log(this.data)
   }
 
   ngOnInit(): void {
@@ -77,7 +81,7 @@ export class FooterInfomationComponent implements OnInit, OnDestroy, OnChanges {
     if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
       container.scrollLeft = 0; 
     } else {
-      container.scrollLeft += container.clientWidth; 
+      container.scrollLeft += (container.clientWidth); 
     }
   }
 

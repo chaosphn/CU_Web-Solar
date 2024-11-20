@@ -1,0 +1,445 @@
+{
+	"realtimeConfig": [
+		{
+			"Title": "northwest_irr",
+			"Name": "M0NW.CALZNW.PYRANO"
+		},
+		{
+			"Title": "northwest_ambtemp",
+			"Name": "M0NW.CALZNW.AMBTEMP"
+		},
+		{
+			"Title": "northwest_pvtemp",
+			"Name": "M0NW.CALZNW.PVTEMP"
+		},
+
+
+		{
+			"Title": "all_produce",
+			"Name": "M0OVA.CALZOVA.W"
+		},
+		{
+			"Title": "all_import",
+			"Name": "M0OVA.CALZOVA.W_IMP"
+		},
+		{
+			"Title": "all_cons",
+			"Name": "M0OVA.CALZOVA.W_CONS"
+		},
+		{
+			"Title": "all_today",
+			"Name": "M0OVA.CALZOVA.WH_DAY"
+		},
+		{
+			"Title": "all_month",
+			"Name": "M0OVA.CALZOVA.WH_MONTH"
+		},
+		{
+			"Title": "all_year",
+			"Name": "M0OVA.CALZOVA.WH_YEAR"
+		},
+		{
+			"Title": "all_pr",
+			"Name": "M0OVA.CALZOVA.PR"
+		},
+
+
+		{
+			"Title": "nw_produce",
+			"Name": "M0NW.CALZNW.W"
+		},
+		{
+			"Title": "nw_import",
+			"Name": "M0NW.CALZNW.W_IMP"
+		},
+		{
+			"Title": "nw_cons",
+			"Name": "M0NW.CALZNW.W_CONS"
+		},
+		{
+			"Title": "nw_today",
+			"Name": "M0NW.CALZNW.WH_DAY"
+		},
+		{
+			"Title": "nw_month",
+			"Name": "M0NW.CALZNW.WH_MONTH"
+		},
+		{
+			"Title": "nw_year",
+			"Name": "M0NW.CALZNW.WH_YEAR"
+		},
+		{
+			"Title": "nw_pr",
+			"Name": "M0NW.CALZNW.PR"
+		},
+
+
+		{
+			"Title": "13017711_produce",
+			"Name": "M013.CALZ13.W"
+		},
+		{
+			"Title": "13017711_import",
+			"Name": "M013.CALZ13.W_IMP"
+		},
+		{
+			"Title": "13017711_cons",
+			"Name": "M013.CALZ13.W_CONS"
+		},
+		{
+			"Title": "13017711_today",
+			"Name": "M013.CALZ13.WH_DAY"
+		},
+		{
+			"Title": "13017711_month",
+			"Name": "M013.CALZ13.WH_MONTH"
+		},
+		{
+			"Title": "13017711_year",
+			"Name": "M013.CALZ13.WH_YEAR"
+		},
+		{
+			"Title": "13017711_pr",
+			"Name": "M013.CALZ13.PR"
+		},
+
+        {
+			"Title": "13023931_produce",
+			"Name": "M015.CALZ15.W"
+		},
+		{
+			"Title": "13023931_import",
+			"Name": "M015.CALZ15.W_IMP"
+		},
+		{
+			"Title": "13023931_cons",
+			"Name": "M015.CALZ15.W_CONS"
+		},
+		{
+			"Title": "13023931_today",
+			"Name": "M015.CALZ15.WH_DAY"
+		},
+		{
+			"Title": "13023931_month",
+			"Name": "M015.CALZ15.WH_MONTH"
+		},
+		{
+			"Title": "13023931_year",
+			"Name": "M015.CALZ15.WH_YEAR"
+		},
+		{
+			"Title": "13023931_pr",
+			"Name": "M015.CALZ15.PR"
+		},
+
+        {
+			"Title": "13028863_produce",
+			"Name": "M021.CALZ21.W"
+		},
+		{
+			"Title": "13028863_import",
+			"Name": "M021.CALZ21.W_IMP"
+		},
+		{
+			"Title": "13028863_cons",
+			"Name": "M021.CALZ21.W_CONS"
+		},
+		{
+			"Title": "13028863_today",
+			"Name": "M021.CALZ21.WH_DAY"
+		},
+		{
+			"Title": "13028863_month",
+			"Name": "M021.CALZ21.WH_MONTH"
+		},
+		{
+			"Title": "13028863_year",
+			"Name": "M021.CALZ21.WH_YEAR"
+		},
+		{
+			"Title": "13028863_pr",
+			"Name": "M021.CALZ21.PR"
+		},
+
+        {
+			"Title": "13036201_produce",
+			"Name": "M025.CALZ25.W"
+		},
+		{
+			"Title": "13036201_import",
+			"Name": "M025.CALZ25.W_IMP"
+		},
+		{
+			"Title": "13036201_cons",
+			"Name": "M025.CALZ25.W_CONS"
+		},
+		{
+			"Title": "13036201_today",
+			"Name": "M025.CALZ25.WH_DAY"
+		},
+		{
+			"Title": "13036201_month",
+			"Name": "M025.CALZ25.WH_MONTH"
+		},
+		{
+			"Title": "13036201_year",
+			"Name": "M025.CALZ25.WH_YEAR"
+		},
+		{
+			"Title": "13036201_pr",
+			"Name": "M025.CALZ25.PR"
+		},
+
+        {
+			"Title": "13036565_produce",
+			"Name": "M016.CALZ16.W"
+		},
+		{
+			"Title": "13036565_import",
+			"Name": "M016.CALZ16.W_IMP"
+		},
+		{
+			"Title": "13036565_cons",
+			"Name": "M016.CALZ16.W_CONS"
+		},
+		{
+			"Title": "13036565_today",
+			"Name": "M016.CALZ16.WH_DAY"
+		},
+		{
+			"Title": "13036565_month",
+			"Name": "M016.CALZ16.WH_MONTH"
+		},
+		{
+			"Title": "13036565_year",
+			"Name": "M016.CALZ16.WH_YEAR"
+		},
+		{
+			"Title": "13036565_pr",
+			"Name": "M016.CALZ16.PR"
+		},
+
+        {
+			"Title": "13040996_produce",
+			"Name": "M020.CALZ20.W"
+		},
+		{
+			"Title": "13040996_import",
+			"Name": "M020.CALZ20.W_IMP"
+		},
+		{
+			"Title": "13040996_cons",
+			"Name": "M020.CALZ20.W_CONS"
+		},
+		{
+			"Title": "13040996_today",
+			"Name": "M020.CALZ20.WH_DAY"
+		},
+		{
+			"Title": "13040996_month",
+			"Name": "M020.CALZ20.WH_MONTH"
+		},
+		{
+			"Title": "13040996_year",
+			"Name": "M020.CALZ20.WH_YEAR"
+		},
+		{
+			"Title": "13040996_pr",
+			"Name": "M020.CALZ20.PR"
+		},
+
+		{
+			"Title": "ARC003_power",
+			"Name": "B001.CALC01.W"
+		},
+		{
+			"Title": "DEN014_power",
+			"Name": "B009.CALC09.W"
+		},
+		{
+			"Title": "PHA003_power",
+			"Name": "B007.CALC07.W"
+		},
+		{
+			"Title": "PHA007_power",
+			"Name": "B010.CALC10.W"
+		},
+		{
+			"Title": "INS012_power",
+			"Name": "B020.CALC20.W"
+		},
+		{
+			"Title": "ART005_power",
+			"Name": "B024.CALC24.W"
+		},
+		{
+			"Title": "CEN053_power",
+			"Name": "B037.CALC37.W"
+		},
+		{
+			"Title": "CEN079_power",
+			"Name": "B018.CALC18.W"
+		},
+		{
+			"Title": "DEN002_power",
+			"Name": "B045.CALC45.W"
+		},
+		{
+			"Title": "PHA001_power",
+			"Name": "B044.CALC44.W"
+		},
+		{
+			"Title": "CEN069_power",
+			"Name": "B039.CALC39.W"
+		},
+		{
+			"Title": "PHA006_power",
+			"Name": "B027.CALC27.W"
+		},
+		
+		{
+			"Title": "ARC003_today",
+			"Name": "B001.CALC01.WH_TODAY"
+		},
+		{
+			"Title": "DEN014_today",
+			"Name": "B009.CALC09.WH_TODAY"
+		},
+		{
+			"Title": "PHA003_today",
+			"Name": "B007.CALC07.WH_TODAY"
+		},
+		{
+			"Title": "PHA007_today",
+			"Name": "B010.CALC10.WH_TODAY"
+		},
+		{
+			"Title": "INS012_today",
+			"Name": "B020.CALC20.WH_TODAY"
+		},
+		{
+			"Title": "ART005_today",
+			"Name": "B024.CALC24.WH_TODAY"
+		},
+		{
+			"Title": "CEN053_today",
+			"Name": "B037.CALC37.WH_TODAY"
+		},
+		{
+			"Title": "CEN079_today",
+			"Name": "B018.CALC18.WH_TODAY"
+		},
+		{
+			"Title": "DEN002_today",
+			"Name": "B045.CALC45.WH_TODAY"
+		},
+		{
+			"Title": "PHA001_today",
+			"Name": "B044.CALC44.WH_TODAY"
+		},
+		{
+			"Title": "CEN069_today",
+			"Name": "B039.CALC39.WH_TODAY"
+		},
+		{
+			"Title": "PHA006_today",
+			"Name": "B027.CALC27.WH_TODAY"
+		}
+	],
+	"historianConfig": [
+		{
+			"Name": "M0NW.CALZNW.W",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "M0NW.CALZNW.W_IMP",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		},
+		{
+			"Name": "M0NW.CALZNW.W_CONS",
+			"Title": "X1",
+			"Options" : {
+				"Interval": 5,
+				"Time" :"t",
+				"StartTime" : "2021-06-24T00:00:00",
+				"EndTime" : "2023-12-24T23:59:59"
+			}
+		}
+	],
+	"chartConfig":[
+		{
+			"name": "powerconsumption",
+			"tags": [
+				{
+					"name": "M0NW.CALZNW.W_CONS",
+					"title": "Power Consumption",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#FF9213"
+						}
+					}
+				},
+				{
+					"name": "M0NW.CALZNW.W_IMP",
+					"title": "Power Purchased",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "red"
+						}
+					}
+				},
+				{
+					"name": "M0NW.CALZNW.W",
+					"title": "Power Production",
+					"options": {
+						"chartOptions": {
+							"yAxis": 0,
+							"type": "area",
+							"color": "#4ac631"
+						}
+					}
+				}
+			],
+			"type": "Plot",
+			"interval": 1000,
+			"title": "Power Generation",
+			"options": {
+				"chartOptions": {
+					"yAxis": [
+						{
+							"color": "#7CB5EC",
+							"text": "Power (kW)",
+							"useMax": true,
+							"visible": true
+						}
+					],
+					"xAxis": {
+						
+					},
+					"legend": {
+						"enable": true
+					}
+				},
+				"runtimeConfigs": {
+					"periodName": "t"
+				}
+			}
+		}
+	]
+}

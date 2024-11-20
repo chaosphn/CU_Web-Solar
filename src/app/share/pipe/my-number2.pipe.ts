@@ -13,7 +13,7 @@ export class Number2Pipe implements PipeTransform {
             return val;
         } else if(typeof value === 'string'){
             const data = this.decimalPipe.transform(parseFloat(value), format);
-            return (parseInt(data) >= 0) ? data : "0.00";
+            return (parseFloat(data) >= 0) ? data : "0.00";
         } else {
             return "---";
         }

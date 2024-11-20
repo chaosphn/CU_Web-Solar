@@ -1,5 +1,19 @@
 {
 	"realtimeConfig": [
+
+		{
+			"Title": "today_energy",
+			"Name": "M010.CALZ10.WH_DAY"
+		},
+		{
+			"Title": "today_power",
+			"Name": "M010.CALZ10.W"
+		},
+		{
+			"Title": "total_energy",
+			"Name": "M010.CALZ10.WH"
+		},
+
 		{
 			"Title": "CEN001_power",
 			"Name": "B002.TOU02.W"

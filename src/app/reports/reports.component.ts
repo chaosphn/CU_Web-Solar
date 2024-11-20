@@ -139,12 +139,12 @@ export class ReportsComponent implements OnInit {
       },
       series: [
         {
-          name: 'Energy Production OnPeak',
+          name: 'Energy On Peak',
           data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[2])),
           color: '#F05C5C'
         },
         {
-          name: 'Energy Production Offpeak',
+          name: 'Energy Off Peak',
           data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[3])),
           color: '#0DD141'
         }
@@ -153,59 +153,121 @@ export class ReportsComponent implements OnInit {
     this.cd.markForCheck();
   }
 
-  gteChart(data: any[], type: string){
+  gteChart(data: any[], type: string, charttype?: string){
     const orderPipe = new OrderByPipe();
-    const chart = new Chart({
-      credits: {
-        enabled: false,
-      },
-      chart: {
-        type: 'column',
-        height: 220
-      },
-      title: {
-        text: '',
-        align: ''
-        
-      },
-      exporting: {
-        enabled: false,
-      },
-      xAxis: {
-        categories: orderPipe.transform(data, 0).map(x => this.datePipe.transform(x[0], type))
-      },
-      yAxis: {
-        min: 0,
-        title: {
-          text: 'Energy (kWh)'
-        }
-      },
-      tooltip: {
-        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y} kWh</b> ({point.percentage:.0f}%)<br/>',
-        shared: true
-      },
-      plotOptions: {
-        column: {
-          stacking: 'normal',
-          dataLabels: {
-            enabled: false,
-          }
-        }
-      },
-      series: [
-        {
-          name: 'Energy Production OnPeak',
-          data: orderPipe.transform(data, 0).map(x => parseFloat(x[2])),
-          color: '#F05C5C'
+    if(charttype && charttype.toLocaleLowerCase() == 'group'){
+      const chartGroup = new Chart({
+        credits: {
+          enabled: false,
         },
-        {
-          name: 'Energy Production Offpeak',
-          data: orderPipe.transform(data, 0).map(x => parseFloat(x[3])),
-          color: '#0DD141'
-        }
-      ]
-    });
-    return chart;
+        chart: {
+          type: 'column',
+          height: 220
+        },
+        title: {
+          text: '',
+          align: ''
+          
+        },
+        exporting: {
+          enabled: false,
+        },
+        xAxis: {
+          categories: orderPipe.transform(data, 0).map(x => this.datePipe.transform(x[0], type))
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: 'Energy (kWh)'
+          }
+        },
+        tooltip: {
+          pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y} kWh</b> ({point.percentage:.0f}%)<br/>',
+          shared: true
+        },
+        plotOptions: {
+          column: {
+            stacking: 'normal',
+            dataLabels: {
+              enabled: false,
+            }
+          }
+        },
+        series: [
+          {
+            name: 'Energy Purchased',
+            data: orderPipe.transform(data, 0).map(x => parseFloat(x[4])),
+            color: '#fdc04e',
+            stack: 'Purchased'
+          },
+          {
+            name: 'Energy OnPeak',
+            data: orderPipe.transform(data, 0).map(x => parseFloat(x[2])),
+            color: '#F05C5C',
+            stack: 'Production'
+          },
+          {
+            name: 'Energy Off peak',
+            data: orderPipe.transform(data, 0).map(x => parseFloat(x[3])),
+            color: '#0DD141',
+            stack: 'Production'
+          }
+        ]
+      });
+      return chartGroup;
+    } else {
+      const chart = new Chart({
+        credits: {
+          enabled: false,
+        },
+        chart: {
+          type: 'column',
+          height: 220
+        },
+        title: {
+          text: '',
+          align: ''
+          
+        },
+        exporting: {
+          enabled: false,
+        },
+        xAxis: {
+          categories: orderPipe.transform(data, 0).map(x => this.datePipe.transform(x[0], type))
+        },
+        yAxis: {
+          min: 0,
+          title: {
+            text: 'Energy (kWh)'
+          }
+        },
+        tooltip: {
+          pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y} kWh</b> ({point.percentage:.0f}%)<br/>',
+          shared: true
+        },
+        plotOptions: {
+          column: {
+            stacking: 'normal',
+            dataLabels: {
+              enabled: false,
+            }
+          }
+        },
+        series: [
+          {
+            name: 'Energy Production OnPeak',
+            data: orderPipe.transform(data, 0).map(x => parseFloat(x[2])),
+            color: '#F05C5C'
+          },
+          {
+            name: 'Energy Production Offpeak',
+            data: orderPipe.transform(data, 0).map(x => parseFloat(x[3])),
+            color: '#0DD141'
+          }
+        ]
+      });
+      return chart;
+    }
   }
 
   ngOnDestroy() {
@@ -541,7 +603,7 @@ export class ReportsComponent implements OnInit {
         let sortingData =  table.sort((a, b) => new Date(a[0]).getHours() - new Date(b[0]).getHours());
         const tableData: TableGroupModel = {
           table: sortingData,
-          chart: this.gteChart(sortingData, item.Header[0].type),
+          chart: this.gteChart(sortingData, item.Header[0].type, item.Header[0].tagname),
           name: item.Name
         };
         if(tableData){
@@ -890,6 +952,25 @@ export class ReportsComponent implements OnInit {
     this.siteName = data.id;
     this.resetTable();
     this.reportConfig = await this.httpService.getConfig('assets/reports/report['+data.id+'].config.json');
+    if(this.reportConfig){
+      this.initReportSelect();
+    }
+
+  }
+
+  async selectOverall(){
+    this.siteSelected = {
+			no:"0",
+			id:"Overall",
+			zone:"Overall",
+			name:"Overall",
+			capacity: 6364,
+			display: true,
+			building: []
+		};
+    this.siteName = 'overall';
+    this.resetTable();
+    this.reportConfig = await this.httpService.getConfig('assets/reports/report[overall].config.json');
     if(this.reportConfig){
       this.initReportSelect();
     }

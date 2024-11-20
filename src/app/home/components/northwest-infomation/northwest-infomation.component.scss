@@ -1,10 +1,21 @@
 .map-svg{
-    scale: 1.0;
+    scale: 1;
 }
+
+.map-img{
+    scale: 0.8;
+}
+
 
 .container-box{
     cursor: pointer;
     position: relative;
     max-height: calc(100vh - 90px);
     overflow: hidden;
+}
+
+@media screen and (min-width:1940px){
+    .map-svg{
+        scale: 1;
+    }
 }

@@ -12,10 +12,11 @@ import { AddZone } from 'src/app/core/stores/location/location.state';
 export class OverallInfomationComponent implements OnInit, OnDestroy, OnChanges {
 
   @Input() config: LocationStateModel[] = [];
+  @Input() zoneDisplayed: string = 'all';
   constructor( private store: Store ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
-    //console.log(this.config)
+    //console.log(this.zoneDisplayed)
   }
 
   ngOnInit() {
@@ -32,6 +33,10 @@ export class OverallInfomationComponent implements OnInit, OnDestroy, OnChanges 
     if(zone){
       await this.store.dispatch(new AddZone(zone)).toPromise();
     }
+  }
+
+  onChangeZone(s: string){
+    return s.toLowerCase() == this.zoneDisplayed.toLowerCase() ? true : false;
   }
 
 }

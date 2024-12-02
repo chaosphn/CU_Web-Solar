@@ -251,7 +251,7 @@ button.download {
 }
 
 .point{
-    animation: blinker 16s infinite;
+    animation: dasheff 16s infinite;
 }
 
 @keyframes dash {
@@ -264,7 +264,7 @@ button.download {
     }
 }
 
-@keyframes blinker {
+@keyframes dasheff {
     0% {
         //scale: 1;
         r: 8;

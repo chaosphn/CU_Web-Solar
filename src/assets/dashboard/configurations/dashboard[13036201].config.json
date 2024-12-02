@@ -2,51 +2,55 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "M010.JNZC10.W"
+			"Name": "M025.CALZ25.W"
+		},
+		{
+			"Title": "power_import",
+			"Name": "M025.CALZ25.W_IMP"
 		},
 		{
 			"Title": "power_expected",
-			"Name": "M010.JNZC10.W_EXPECT"
+			"Name": "M025.CALZ25.W_EXPECT"
 		},
 		{
 			"Title": "power_peak",
-			"Name": "M010.JNZC10.W_PEAK_DAY"
+			"Name": "M025.CALZ25.W_PEAK_DAY"
 		},
 		{
 			"Title": "power_peaktime",
-			"Name": "M010.JNZC10.W_PEAK_DAY_TIME"
+			"Name": "M025.CALZ25.W_PEAK_DAY_TIME"
 		},
 		{
 			"Title": "power_capacity",
-			"Name": "M010.JNZC10.CAPACITY"
+			"Name": "M025.CALZ25.CAPACITY"
 		},
 		{
 			"Title": "power_pr",
-			"Name": "M010.JNZC10.PR"
+			"Name": "M025.CALZ25.PR"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "M010.JNZC10.WH"
+			"Name": "M025.CALZ25.WH"
 		},
 		{
 			"Title": "energy_expected",
-			"Name": "M010.JNZC10.WH_EXPECT_TODAY"
+			"Name": "M025.CALZ25.WH_EXPECT_TODAY"
 		},
 		{
 			"Title": "energy_today",
-			"Name": "M010.JNZC10.WH_TODAY"
+			"Name": "M025.CALZ25.WH_DAY"
 		},
 		{
 			"Title": "energy_yesterday",
-			"Name": "M010.JNZC10.WH_YEAR"
+			"Name": "M025.CALZ25.WH_YEAR"
 		},
 		{
 			"Title": "energy_mtd",
-			"Name": "M010.JNZC10.WH_MONTH"
+			"Name": "M025.CALZ25.WH_MONTH"
 		},
 		{
 			"Title": "energy_cod",
-			"Name": "M010.JNZC10.WH"
+			"Name": "M025.CALZ25.WH"
 		},
 		{
 			"Title": "weather_irr",
@@ -79,7 +83,7 @@
 	],
 	"historianConfig": [
 		{
-			"Name": "B010.PQM10.W",
+			"Name": "M025.CALZ25.W_IMP",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -89,7 +93,7 @@
 			}
 		},
 		{
-			"Name": "CALC.ZONE25.W",
+			"Name": "M025.CALZ25.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -164,7 +168,7 @@
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "CALC.ZONE25.W",
+					"name": "M025.CALZ25.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -175,7 +179,7 @@
 					}
 				},
 				{
-					"name": "B010.PQM10.W",
+					"name": "M025.CALZ25.W_IMP",
 					"title": "MEA",
 					"options": {
 						"chartOptions": {

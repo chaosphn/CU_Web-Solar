@@ -5,11 +5,7 @@
                 <div class="d-flex align-items-center selector" *ngIf="buildingList.length > 0" style="margin-right: 7px;">
                     <mat-form-field class="mat-selects">
                         <mat-select [(ngModel)]="siteSelected">
-                            <ng-container>
-                                <mat-option [value]="'Overall'" (click)="selectOverall()">
-                                  Overall
-                                </mat-option>
-                              </ng-container>
+                            
                             <ng-container *ngFor="let item of buildingList; let i = index">
                                 <mat-option *ngIf="item.display" [value]="item" (click)="selectSite(item)">
                                   {{item.name}}
@@ -35,7 +31,7 @@
                 <div class="d-flex align-items-center">
                         <button [disabled]="loading" class="btn-ok" (click)="getResponseData()">VIEW</button>
                         <button [disabled]="loading" class="btn-ok" (click)="exportToExcel()">SAVE XLS</button>
-                        <button [disabled]="loading" class="btn-ok" (click)="htmltoPDF()">SAVE PDF</button>
+                        <button [disabled]="loading" class="btn-ok" (click)="htmltoPDF2()">{{ downloadTxt ? 'LOADING' : 'SAVE PDF' }}</button>
                 </div>
             </div>
             <div class="content bz">
@@ -43,13 +39,13 @@
                     <div *ngFor="let item of this.selectedReport.HeaderGroup; index as i">
                         <div [id]="item.Name" class="report-content bz" *ngIf="selectedReport && dataGroupTable.length > 0 && !loading">
                             <div class="report-header d-flex-sb w-100 bz">
-                                <div><img src="assets/images/cu.png" alt="" srcset=""></div>
+                                <div><img src="assets/images/cu.png" alt="" srcset="" ></div>
                                 <div class="d-col header-info">
                                     <span class="topic">{{selectedReport.Name}}</span>
                                     <span class="topic">{{dateTime | date: selectedReport.DateFormat }}</span>
                                     <span class="topic">{{item.Name}}</span>
                                 </div>
-                                <div><img src="assets/images/mea.png" alt="" srcset=""></div>
+                                <div><img src="assets/images/mea.png" alt="" srcset="" ></div>
                             </div>
                             <div class="report-info w-100 bz" *ngIf="dataGroupTable[i] && dataGroupTable[i].table">
                                 <div class="row-info">
@@ -78,7 +74,7 @@
                                     <span class="bz">{{ (getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.CO2Rate | report: 2 }} Kg</span>
                                     <span class="bz"></span>
                                     <span class="bz">Financial Saving (Discount):</span>
-                                    <span class="bz">{{ ((getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OnPeakRate) + ((getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OffPeakRate) - ((getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OffPeakRate) | report: 2 }} THB</span>
+                                    <span class="bz">{{ ((getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OnPeakRate) + ((getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OffPeakRate) - ((getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.ExchangeRate) | report: 2 }} THB</span>
                                 </div>
                                 <div class="row-info">
                                     <span class="bz">Tree Saving:</span>

@@ -6,7 +6,7 @@
       <div class="zoneCard" [id]="siteName.id + '_pos'" *ngIf="!siteName.building && data && data.singleValue" >
           <app-tooltip (click)="selectBuilding(siteName.id)"
           [title]="'Bx.'"
-          [titleText]="siteName.name"
+          [titleText]="siteName.name + ' ('+ siteName.capacity +' kWp)'"
           [imgSrc]="'assets/images/building/dashboard/'+siteName.id+'.png'" 
           [g1Title]="'Energy'"
           [g1Value]="data?.singleValue[siteName.id+'_energy']?.dataRecords[0]?.Value"

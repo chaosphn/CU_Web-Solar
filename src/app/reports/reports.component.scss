@@ -86,12 +86,13 @@ app-time-control:first-of-type {
     background-color: #f8f8f8;
     margin-bottom: 10px;
     height: 95vh;
-    overflow-y: scroll;
+    overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     position: relative;
+    //visibility: visible;
     //border: 1px solid rgb(255, 0, 0);
 }
 
@@ -99,7 +100,7 @@ app-time-control:first-of-type {
 
 .full-height {
     min-height: calc(100vh - 49px);
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 
@@ -178,6 +179,7 @@ app-time-control:first-of-type {
     padding: 16px 48px;
     display: flex;
     flex-direction: column;
+    //visibility: visible;
 }
 
 .report-header{

@@ -20,7 +20,7 @@ import { AdminModule } from './admin/admin.module';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [
     AppLoadService,

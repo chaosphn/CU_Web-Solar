@@ -194,7 +194,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     let res: string = "";
     const slcBx:BuildingModel = this.store.selectSnapshot(SitesState.getSiteWithId(id));
     if(slcBx){
-      res = slcBx.name;
+      res = slcBx.name + ' ('+ slcBx.capacity +' kWp)';
     }
     return res;
   }

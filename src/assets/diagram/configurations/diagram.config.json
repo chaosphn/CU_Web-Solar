@@ -2,15 +2,15 @@
 
 	{
 		"Title": "power_active",
-		"Name": "CALC.ALLZONE.W"
+		"Name": "M0OVA.CALZOVA.W"
 	},
 	{
 		"Title": "energy_today",
-		"Name": "CALC.ALLZONE.WH_DAY"
+		"Name": "M0OVA.CALZOVA.WH_DAY"
 	},
 	{
 		"Title": "energy_total",
-		"Name": "CALC.ALLZONE.WH"
+		"Name": "M0OVA.CALZOVA.WH"
 	},
 	{
 		"Title": "ARC003_power",

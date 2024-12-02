@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef, Input, ChangeDetectionStrategy, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild, ElementRef, ChangeDetectorRef, Input, ChangeDetectionStrategy, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { Store } from '@ngxs/store';
 import { LocationStateModel } from 'src/app/core/stores/location/location.model';
 import { AddZone } from 'src/app/core/stores/location/location.state';
@@ -14,6 +14,8 @@ export class OverviewConsumptionComponent implements OnInit, OnDestroy, OnChange
 
   @Input() zone: LocationStateModel;
   @Input() data: SingleValue1;
+  @Output() zoneDisplay = new EventEmitter<string>();
+
   @ViewChild('overviewContainer') cardContainer!: ElementRef;
 
   constructor(
@@ -46,6 +48,7 @@ export class OverviewConsumptionComponent implements OnInit, OnDestroy, OnChange
 
   startAutoScroll() {
     let count = 0;
+    let cardIndex = 0;
     this.autoScrollInterval = setInterval(() => {
       if (!this.scrollPaused) {
         this.autoScroll();
@@ -67,8 +70,22 @@ export class OverviewConsumptionComponent implements OnInit, OnDestroy, OnChange
     }, 1000);
   }
 
+  onVisibilityChange(isVisible: boolean, item: any) {
+    if (isVisible) {
+      //console.log(item.id);
+      this.zoneDisplay.emit(item.id);
+    } else {
+      //console.log(`${item} is not visible`);
+    }
+  }
+
+  onScroll() {
+    //console.log('Scrolled!');
+  }
+
   autoScroll() {
     const container = this.cardContainer.nativeElement;
+    //console.log(container)
     if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
       container.scrollLeft = 0; 
     } else {
@@ -116,6 +133,18 @@ export class OverviewConsumptionComponent implements OnInit, OnDestroy, OnChange
   
   onDragEnd() {
     this.isDragging = false;
+  }
+
+  getPercentage(variant1?: number, variant2?: number){
+    if(variant1 > 0 && variant2 > 0){
+      return (((variant1)/(variant1+variant2))*100);
+    } else if( variant1 > 0 && variant2 <= 0 ){
+      return 100;
+    } else if( variant1 > 0 && !variant2 ){
+      return 100;
+    } else {
+      return 0;
+    }
   }
 
 }

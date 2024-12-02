@@ -39,6 +39,10 @@
 			"Name": "M0OVA.CALZOVA.WH_YEAR"
 		},
 		{
+			"Title": "all_year_imp",
+			"Name": "M0OVA.CALZOVA.WH_IMP_YEAR"
+		},
+		{
 			"Title": "all_pr",
 			"Name": "M0OVA.CALZOVA.PR"
 		},
@@ -67,6 +71,10 @@
 		{
 			"Title": "se_year",
 			"Name": "M0SE.CALZSE.WH_YEAR"
+		},
+		{
+			"Title": "se_year_imp",
+			"Name": "M0SE.CALZSE.WH_IMP_YEAR"
 		},
 		{
 			"Title": "se_pr",
@@ -98,6 +106,10 @@
 			"Name": "M010.CALZ10.WH_YEAR"
 		},
 		{
+			"Title": "13014105_year_imp",
+			"Name": "M010.CALZ10.WH_IMP_YEAR"
+		},
+		{
 			"Title": "13014105_pr",
 			"Name": "M010.CALZ10.PR"
 		},
@@ -127,6 +139,10 @@
 			"Name": "M011.CALZ11.WH_YEAR"
 		},
 		{
+			"Title": "13018215_year_imp",
+			"Name": "M011.CALZ11.WH_IMP_YEAR"
+		},
+		{
 			"Title": "13018215_pr",
 			"Name": "M011.CALZ11.PR"
 		},
@@ -154,6 +170,10 @@
 		{
 			"Title": "13037909_year",
 			"Name": "M004.CALZ04.WH_YEAR"
+		},
+		{
+			"Title": "13037909_year_imp",
+			"Name": "M004.CALZ04.WH_IMP_YEAR"
 		},
 		{
 			"Title": "13037909_pr",

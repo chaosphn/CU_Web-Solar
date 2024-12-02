@@ -26,14 +26,15 @@ const routes: Routes = [
             server: ServerResolver
         },
         children: [
-            {
-                path: 'home',
-                loadChildren: 'src/app/home/dashboard.module#DashboardModule',
-                canActivateChild: [ AuthGuard ]
-            },
+            // {
+            //     path: 'home',
+            //     loadChildren: 'src/app/home/dashboard.module#DashboardModule',
+            //     canActivateChild: [ AuthGuard ]
+            // },
             {
                 path: 'mapview',
-                loadChildren: 'src/app/dashboardtv/dashboard.module#DashboardModule',
+                loadChildren: 'src/app/home/dashboard.module#DashboardModule',
+                //loadChildren: 'src/app/dashboardtv/dashboard.module#DashboardModule',
                 canActivateChild: [ AuthGuard ]
             },
             {

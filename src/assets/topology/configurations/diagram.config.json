@@ -2,15 +2,15 @@
 
 	{
 		"Title": "power_active",
-		"Name": "CALC.ALLZONE.W"
+		"Name": "M0OVA.CALZOVA.W"
 	},
 	{
 		"Title": "energy_today",
-		"Name": "CALC.ALLZONE.WH_DAY"
+		"Name": "M0OVA.CALZOVA.WH_DAY"
 	},
 	{
 		"Title": "energy_total",
-		"Name": "CALC.ALLZONE.WH"
+		"Name": "M0OVA.CALZOVA.WH"
 	},
 	{
 		"Title": "13028863_power",
@@ -662,27 +662,27 @@
 	},
 	{
 		"Title": "13028863_energy",
-		"Name": "M001.JNZC01.WH_TODAY"
+		"Name": "M001.CALZ01.WH_DAY"
 	},
 	{
 		"Title": "95772485_energy",
-		"Name": "M006.JNZC06.WH_TODAY"
+		"Name": "M006.CALZ06.WH_DAY"
 	},
 	{
 		"Title": "13023931_energy",
-		"Name": "M007.JNZC07.WH_TODAY"
+		"Name": "M007.CALZ07.WH_DAY"
 	},
 	{
 		"Title": "13036201_energy",
-		"Name": "M010.JNZC10.WH_TODAY"
+		"Name": "M010.CALZ10.WH_DAY"
 	},
 	{
 		"Title": "13014105_energy",
-		"Name": "M021.JNZC21.WH_TODAY"
+		"Name": "M021.CALZ21.WH_DAY"
 	},
 	{
 		"Title": "13030847_energy",
-		"Name": "M005.JNZC05.WH_TODAY"
+		"Name": "M005.CALZ05.WH_DAY"
 	},
 	{
 		"Title": "ARC003_energy",

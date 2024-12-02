@@ -58,6 +58,15 @@ export class ReportsComponent implements OnInit {
   currentRoute: string;
   siteName: string = ''; 
   siteSelected: BuildingModel;
+  overallSelected: BuildingModel = {
+    no:"1000",
+    id:"overall",
+    zone:"overall",
+    name:"Overall",
+    capacity: 6364,
+    display: true,
+    building: []
+  };
   buildingList: BuildingModel[] = [];
   sub1: Subscription;
   startTime: string;
@@ -73,6 +82,7 @@ export class ReportsComponent implements OnInit {
   loading: boolean = false;
   holiday: string[] = [];
   adminAccess: boolean = false;
+  downloadTxt: boolean = false;
 
   @ViewChild('htmlTable') pdfTable: ElementRef;
 
@@ -96,61 +106,6 @@ export class ReportsComponent implements OnInit {
     this.initReportSelect();
     this.initSiteSelect();
     await this.getFactors();
-  }
-
-  updateChart(){
-    const orderPipe = new OrderByPipe();
-    this.chart = new Chart({
-      credits: {
-        enabled: false,
-      },
-      chart: {
-        type: 'column',
-        height: 220
-      },
-      title: {
-        text: '',
-        align: ''
-        
-      },
-      exporting: {
-        enabled: false,
-      },
-      xAxis: {
-        categories: orderPipe.transform(this.dataTable, 0).map(x => this.datePipe.transform(x[0], this.selectedReport.Header[0].type))
-      },
-      yAxis: {
-        min: 0,
-        title: {
-          text: 'Energy (kWh)'
-        }
-      },
-      tooltip: {
-        pointFormat: '<span style="color:{series.color}">{series.name}</span>: <b>{point.y} kWh</b> ({point.percentage:.0f}%)<br/>',
-        shared: true
-      },
-      plotOptions: {
-        column: {
-          stacking: 'normal',
-          dataLabels: {
-            enabled: false,
-          }
-        }
-      },
-      series: [
-        {
-          name: 'Energy On Peak',
-          data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[2])),
-          color: '#F05C5C'
-        },
-        {
-          name: 'Energy Off Peak',
-          data: orderPipe.transform(this.dataTable, 0).map(x => parseFloat(x[3])),
-          color: '#0DD141'
-        }
-      ]
-    });
-    this.cd.markForCheck();
   }
 
   gteChart(data: any[], type: string, charttype?: string){
@@ -329,8 +284,10 @@ export class ReportsComponent implements OnInit {
     if(config){
       //console.log(config)
       this.buildingList = config.building;
+      this.buildingList.push(this.overallSelected);
+      this.buildingList.sort((a, b) => parseInt(b.no) - parseInt(a.no));
     }
-    this.reportConfig = await this.httpService.getConfig('assets/reports/report.config2.json');
+    this.reportConfig = await this.httpService.getConfig('assets/reports/report[overall].config.json');
   }
 
   onDateTimeChange(event: any) {
@@ -879,35 +836,74 @@ export class ReportsComponent implements OnInit {
     this.dataGroupTable = [];
   }
 
-  // htmltoPDF(){
-  //   const chart = document.getElementById('htmlTable') as HTMLElement;
-  //   const reportName = this.siteSelected.id + " " + this.selectedReport.Name + "[" + this.datePipe.transform(this.dateTime, this.selectedReport.DateFormat) + "]" + ".pdf" 
-  //   html2canvas(chart, { scale: 2 }).then(canvas => {
-  //     const imgWidth = 208;
-  //     const imgHeight = canvas.height * imgWidth / canvas.width;
-      
-  //     const pdf = new jsPDF('p', 'mm', 'a4');
-  //     const imgData = canvas.toDataURL("image/png", 1.0);
-  //     //pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-  //     //pdf.save(reportName);
+  delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms));
 
-  //     const docDefinition = {
-  //       content: [
-  //         {
-  //           image: imgData,
-  //           width: 525,
-  //           alignment: 'center'
-  //         }
-  //       ]
-  //     }
-
-  //     pdfMake.createPdf(docDefinition).download(reportName);
-  //     //pdf.output('dataurlnewwindow');
-  //   });
-  // }
+  htmltoPDF2() {
+    this.downloadTxt = true;
+    const chart = document.getElementById('htmlTable') as HTMLElement;
+    const reportName =
+      this.siteSelected.name +
+      " " +
+      this.selectedReport.Name +
+      "[" +
+      this.datePipe.transform(this.dateTime, this.selectedReport.DateFormat) +
+      "]" +
+      ".pdf";
+  
+    const docDefinition: any = {
+      content: [],
+    };
+  
+    html2canvas(chart).then((canvas) => {
+      const croppedCanvas = document.createElement('canvas');
+      const context = croppedCanvas.getContext('2d');
+  
+      const promises = this.selectedReport.HeaderGroup.map((item, index) => {
+        return new Promise<void>((resolve) => {
+          let cropX = 0;
+          let cropY = index * 1200;
+          let cropWidth = 794;
+          let cropHeight = 1200;
+  
+          croppedCanvas.width = cropWidth;
+          croppedCanvas.height = cropHeight;
+  
+          context.drawImage(
+            canvas,
+            cropX,
+            cropY,
+            cropWidth,
+            cropHeight,
+            0,
+            0,
+            cropWidth,
+            cropHeight
+          );
+  
+          const base64Image = croppedCanvas.toDataURL(); 
+          docDefinition.content.push({
+            image: base64Image,
+            width: 525,
+            alignment: 'center',
+            pageBreak: 'after',
+          });
+  
+          resolve(); 
+        });
+      });
+  
+      Promise.all(promises).then(() => {
+        pdfMake.createPdf(docDefinition).download(reportName);
+        this.downloadTxt = false;
+      });
+    });
+  }
+  
 
 
   async htmltoPDF() {
+    //this.htmltoPDF2();
+    this.downloadTxt = true;
     const componentIds = this.selectedReport.HeaderGroup;
     const reportName = this.siteSelected.id + " " + this.selectedReport.Name + "[" + 
       this.datePipe.transform(this.dateTime, this.selectedReport.DateFormat) + "]" + ".pdf";
@@ -916,34 +912,83 @@ export class ReportsComponent implements OnInit {
     const docDefinition: any = {
       content: [],
     };
-  
+    const imgArr = [];
+
+    const chart = document.getElementById('htmlTable') as HTMLElement;
+    const chartElements = chart.getElementsByClassName('report-content') as HTMLCollectionOf<Element>;
+    
+    Array.from(chartElements).forEach((element: HTMLElement, index) => {
+      // Use html2canvas to capture each element as an image
+        html2canvas(element).then((canvas) => {
+            const dataURL = 'c'//canvas.toBlob()
+            console.log(`Chart ${index + 1} as Data URL:`, canvas.nodeName);
+            // docDefinition.content.push({
+            //   image: dataURL,
+            //   width: 525,
+            //   alignment: 'center',
+            //   pageBreak: 'after' 
+            // });
+            // Optionally append the canvas to the document to visualize
+            //document.body.appendChild(canvas); // For testing purposes
+        }).catch((error) => {
+            console.error(`Error generating Data URL for chart ${index + 1}:`, error);
+        });
+    });
+    
     const captureComponent = async (componentId: string) => {
       const chart = document.getElementById(componentId) as HTMLElement;
       if (chart) {
-        const canvas = await html2canvas(chart, { scale: 2 });
-        const imgData = canvas.toDataURL("image/png", 1.0);
-        const imgWidth = 208;
-        const imgHeight = canvas.height * imgWidth / canvas.width;
+        const canvas = await html2canvas(chart, { scale: 1, useCORS: true, logging: false,} );
+        if(canvas){
+          const imgData = canvas.toBlob((blob) => {},"image/png", 1.0)//canvas.toDataURL("image/jpeg", 1.0);
+          const imgWidth = 208;
+          const imgHeight = canvas.height * imgWidth / canvas.width;
+          console.log(imgData)
+        }
   
-        pdf.addImage(imgData, 'PNG', 0, 0, imgWidth, imgHeight);
-        pdf.addPage(); 
-  
-        docDefinition.content.push({
-          image: imgData,
-          width: 525,
-          alignment: 'center',
-          pageBreak: 'after' 
-        });
+        // docDefinition.content.push({
+        //   image: imgData,
+        //   width: 525,
+        //   alignment: 'center',
+        //   pageBreak: 'after' 
+        // });
+        // const definition = {
+        //   content: [
+        //     {
+        //       image: imgData,
+        //       width: 525,
+        //       alignment: 'center',
+        //       pageBreak: 'after' 
+        //     }
+        //   ]
+        // };
+        // const createPDF = pdfMake.createPdf(definition).getBase64( async(data: any) => {
+        //   // const pdf = await PDFDocument.load(data);
+        //   // const copyPdf = await mergePDF.copyPages(pdf, pdf.getPageIndices());
+        //   // copyPdf.forEach((page) => mergePDF.addPage(page));
+        //   console.log(data)
+        // });
+        //pdfMake.createPdf(definition).download(componentId+'.pdf');
       }
+      // await this.delay(100);
     };
   
-    for await (const id of componentIds) {
-      await captureComponent(id.Name);
-    }
-
-    pdf.deletePage(pdf.getNumberOfPages());
-    //pdf.save(reportName);
-    pdfMake.createPdf(docDefinition).download(reportName);
+    // for await (const id of componentIds) {
+    //   await captureComponent(id.Name);
+    //   await this.delay(1000);
+    // }
+    // const savePDF = await mergePDF.save();
+    // if(savePDF){
+    //   alert('save pdf')
+    // }
+    // pdfMake.createPdf(docDefinition).download(reportName);
+    // const createPDF = pdfMake.createPdf(docDefinition).getBase64( async(data: any) => {
+      
+    //   console.log(data)
+    // });
+    //pdfMake.createPdf(docDefinition).open();
+    console.log(docDefinition)
+    this.downloadTxt = false;
   }
   
 

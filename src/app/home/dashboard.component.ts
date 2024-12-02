@@ -55,6 +55,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   dateTime4: Date = new Date();
   subscriptions: Subscription[] = [];
   sub1: Subscription;
+  sliderTimer: Subscription;
   locationState$: Observable<LocationStateModel> = this.store.select(LocationState.getLocation());
   locationSub: Subscription;
   chartConfigs: DashboardConfigStateModel[] = [];
@@ -103,6 +104,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     meters: [],
     buildings: []
   };
+  zoneScrolled: string = "all";
 
   @ViewChild('period1') period1: PeriodComponent;
   @ViewChild('period2') period2: PeriodComponent;
@@ -148,6 +150,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       }
       //this.cd.markForCheck();
     });
+    this.locationSliderTimer();
   }
 
   async updateLocation(name: string){
@@ -155,6 +158,17 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     if(zone){
       await this.store.dispatch(new AddZone(zone)).toPromise();
     }
+  }
+
+  locationSliderTimer(){
+    this.sliderTimer = timer(300000, 300000).subscribe(x => {
+      const index = this.locationConfig.findIndex(x => x.zone == this.locationSelected.zone);
+      if(index == this.locationConfig.length-1){
+        this.updateLocation(this.locationConfig[0].zone);
+      } else {
+        this.updateLocation(this.locationConfig[index+1].zone);
+      }
+    });
   }
 
   async getLocationConfigs() {
@@ -183,6 +197,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       sub.unsubscribe();
     });
     this.sub1.unsubscribe();
+    this.sliderTimer.unsubscribe();
     
   }
 
@@ -517,6 +532,11 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       return {name: '12m', display: '12m'};
     }
   } 
+
+  getZoneScroll(s: any){
+    //console.log(s)
+    this.zoneScrolled = s;
+  }
 
 }
 

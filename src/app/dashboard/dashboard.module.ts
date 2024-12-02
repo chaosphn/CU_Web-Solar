@@ -8,6 +8,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { DashboardComponent } from './dashboard.component';
 import { OverviewConsumptionComponent } from './components/overview-consumption/overview-consumption.component';
 import { EnviConsumptionComponent } from './components/envi-consumption/envi-consumption.component';
+import { DailyConsumptionComponent3 } from './components/daily-consumption3/daily-consumption.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { EnviConsumptionComponent } from './components/envi-consumption/envi-con
     SiteInformationComponent,
     DailyConsumptionComponent,
     DailyConsumptionComponent2,
+    DailyConsumptionComponent3,
     OverviewConsumptionComponent,
     EnviConsumptionComponent
   ]

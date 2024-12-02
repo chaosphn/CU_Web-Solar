@@ -19,9 +19,9 @@
     <div class="powerCard" *ngIf="siteName.building ? true : false">
       <app-solar-container [title]="'POWER GENERATION'">
         <ng-template #content>
-          <app-daily-consumption2 [title]="'ACTIVE POWER'" [expectText]="''" 
-          [minValue]="data?.singleValue['power_value']?.minValue" 
-              [maxValue]="data?.singleValue['power_value']?.maxValue"
+          <!-- <app-daily-consumption2 [title]="'ACTIVE POWER'" [expectText]="''" 
+            [minValue]="data?.singleValue['power_value']?.minValue" 
+            [maxValue]="data?.singleValue['power_value']?.maxValue"
             [actualValue]="data?.singleValue['power_value']?.dataRecords[0]?.Value" 
             [actualUnit]="data?.singleValue['power_value']?.unit"
             [expectValue]="data?.singleValue['power_expected']?.dataRecords[0]?.Value" 
@@ -36,7 +36,20 @@
             [g3Value]="getSumPowerValue() | myNumber : '1.0-2'" 
             [g3Unit]="'kW'" 
             [showArrow]="false" 
-            ></app-daily-consumption2>
+          ></app-daily-consumption2> -->
+          <app-daily-consumption3 
+            [minValue]="data?.singleValue['power_value']?.minValue" 
+            [maxValue]="data?.singleValue['power_value']?.maxValue"
+            [actualValue]="data?.singleValue['power_value']?.dataRecords[0]?.Value" 
+            [actualUnit]="data?.singleValue['power_value']?.unit"
+            [title]="'SOLAR POWER'"  
+            [minValue2]="data?.singleValue['power_import']?.minValue" 
+            [maxValue2]="data?.singleValue['power_import']?.maxValue"
+            [actualValue2]="data?.singleValue['power_import']?.dataRecords[0]?.Value" 
+            [actualUnit2]="data?.singleValue['power_import']?.unit"
+            [title2]="'GRID POWER'" 
+            [showArrow]="false" 
+            ></app-daily-consumption3>
         </ng-template>
       </app-solar-container>       
     </div>
@@ -72,13 +85,11 @@
     <div class="energyCard" *ngIf="siteName.building ? false : true">
       <app-solar-container [title]="'ENERGY PRODUCTION'">
         <ng-template #content>
-          <app-daily-consumption [title]="'TODAY ENERGY'" [expectText]="'EXPECTED'" 
-          [minValue]="data?.singleValue['energy_today']?.minValue" 
-          [maxValue]="data?.singleValue['energy_today']?.maxValue"
-            [actualValue]="data?.singleValue['energy_today']?.dataRecords[0]?.Value | myNumber2 : '1.0-1'" 
+          <app-daily-consumption2 [title]="'TODAY ENERGY'" [expectText]="'EXPECTED'" 
+            [minValue]="0" 
+            [maxValue]="data?.singleValue['energy_today']?.maxValue"
+            [actualValue]="data?.singleValue['energy_today']?.dataRecords[0]?.Value" 
             [actualUnit]="data?.singleValue['energy_today']?.unit" 
-            [expectValue]="data?.singleValue['energy_expected']?.dataRecords[0]?.Value | myNumber2 : '1.0-1'" 
-            [expectUnit]="data?.singleValue['energy_expected']?.unit" 
             [g1Title]="'TODAY'"
             [g1Value]="data?.singleValue['energy_today']?.dataRecords[0]?.Value | myNumber2 : '1.0-1'" 
             [g1Unit]="data?.singleValue['energy_today']?.unit" 
@@ -91,8 +102,8 @@
             [g4Title]="'COD'" 
             [g4Value]="(data?.singleValue['energy_cod']?.dataRecords[0]?.Value /1000) | myNumber : '1.0-2'"
             [g4Unit]="'MWh'" 
-            [showArrow]="true" 
-            ></app-daily-consumption>
+            [showArrow]="false" 
+            ></app-daily-consumption2>
         </ng-template>
       </app-solar-container>
     </div>

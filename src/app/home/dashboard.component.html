@@ -22,12 +22,12 @@
     </div>
     <div class="map-container bz">
       <div [ngSwitch]="locationSelected.zone">
-        <div *ngSwitchCase="'overvall'"><app-overall-infomation [config]="locationConfig" ></app-overall-infomation></div>
+        <div *ngSwitchCase="'overvall'"><app-overall-infomation [config]="locationConfig" [zoneDisplayed]="zoneScrolled"></app-overall-infomation></div>
         <div *ngSwitchCase="'northeast'"><app-northeast-infomation [data]="data?.singleValue"></app-northeast-infomation></div>
         <div *ngSwitchCase="'northwest'"><app-northwest-infomation [data]="data?.singleValue"></app-northwest-infomation></div>
         <div *ngSwitchCase="'southeast'"><app-southeast-infomation [data]="data?.singleValue"></app-southeast-infomation></div>
         <div *ngSwitchCase="'southwest'"><app-southwest-infomation [data]="data?.singleValue"></app-southwest-infomation></div>
-        <div *ngSwitchDefault><app-overall-infomation [config]="locationConfig"></app-overall-infomation></div>
+        <div *ngSwitchDefault><app-overall-infomation [config]="locationConfig" [zoneDisplayed]="zoneScrolled"></app-overall-infomation></div>
       </div>
     </div>
   </div>
@@ -40,6 +40,6 @@
     </app-footer-infomation>
   </div>
   <div class="overview-container bz" *ngIf="locationSelected && data && data.singleValue">
-    <app-overview-consumption [zone]="locationSelected" [data]="data.singleValue"></app-overview-consumption>
+    <app-overview-consumption [zone]="locationSelected" [data]="data.singleValue" (zoneDisplay)="getZoneScroll($event)" ></app-overview-consumption>
   </div>
 </div>

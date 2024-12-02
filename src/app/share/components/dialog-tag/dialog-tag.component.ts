@@ -28,6 +28,8 @@ export class DialogTagComponent implements OnInit {
 
   ngOnInit() {
     this.buildings = this.store.selectSnapshot(SitesState.getSites());
+    this.data = this.data.filter(x => x.Category != 'undefined');
+    //console.log(this.data)
   }
 
 
@@ -56,12 +58,31 @@ export class DialogTagComponent implements OnInit {
     //     return "---";
     //   }
     // }
-    const id = name.split(".")[0].substring(name.split(".")[0].length-2, name.split(".")[0].length);
-    const res = this.buildings.find(x => parseInt(x.no) == parseInt(id));
-    if(res){
-      return res.name;
+    //console.log(name)
+    const firstTxt = name.split(".")[0];
+    if(firstTxt.startsWith('M')){
+      switch(true){
+        case firstTxt.endsWith('NE'):
+          return 'NorthEast';
+        case firstTxt.endsWith('NW'):
+          return 'NorthWest';
+        case firstTxt.endsWith('SE'):
+          return 'SouthEast';
+        case firstTxt.endsWith('SW'):
+          return 'SouthWest';
+        case firstTxt.endsWith('OVA'):
+          return 'Overall';
+        default: 
+          return firstTxt.replace('M0', 'Meter no.');
+      }
     } else {
-      return "---";
+      const id = name.split(".")[0].substring(name.split(".")[0].length-2, name.split(".")[0].length);
+      const res = this.buildings.find(x => parseInt(x.no) == parseInt(id));
+      if(res){
+        return res.name;
+      } else {
+        return "---";
+      }
     }
   }
 

@@ -2,51 +2,55 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "M005.JNZC05.W"
+			"Name": "M012.CALZ12.W"
+		},
+		{
+			"Title": "power_import",
+			"Name": "M012.CALZ12.W_IMP"
 		},
 		{
 			"Title": "power_expected",
-			"Name": "M005.JNZC05.W_EXPECT"
+			"Name": "M012.CALZ12.W_EXPECT"
 		},
 		{
 			"Title": "power_peak",
-			"Name": "M005.JNZC05.W_PEAK_DAY"
+			"Name": "M012.CALZ12.W_PEAK_DAY"
 		},
 		{
 			"Title": "power_peaktime",
-			"Name": "M005.JNZC05.W_PEAK_DAY_TIME"
+			"Name": "M012.CALZ12.W_PEAK_DAY_TIME"
 		},
 		{
 			"Title": "power_capacity",
-			"Name": "M005.JNZC05.CAPACITY"
+			"Name": "M012.CALZ12.CAPACITY"
 		},
 		{
 			"Title": "power_pr",
-			"Name": "M005.JNZC05.PR"
+			"Name": "M012.CALZ12.PR"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "M005.JNZC05.WH"
+			"Name": "M012.CALZ12.WH"
 		},
 		{
 			"Title": "energy_expected",
-			"Name": "M005.JNZC05.WH_EXPECT_TODAY"
+			"Name": "M012.CALZ12.WH_EXPECT_TODAY"
 		},
 		{
 			"Title": "energy_today",
-			"Name": "M005.JNZC05.WH_TODAY"
+			"Name": "M012.CALZ12.WH_DAY"
 		},
 		{
 			"Title": "energy_yesterday",
-			"Name": "M005.JNZC05.WH_YEAR"
+			"Name": "M012.CALZ12.WH_YEAR"
 		},
 		{
 			"Title": "energy_mtd",
-			"Name": "M005.JNZC05.WH_MONTH"
+			"Name": "M012.CALZ12.WH_MONTH"
 		},
 		{
 			"Title": "energy_cod",
-			"Name": "M005.JNZC05.WH"
+			"Name": "M012.CALZ12.WH"
 		},
 		{
 			"Title": "weather_irr",
@@ -79,7 +83,7 @@
 	],
 	"historianConfig": [
 		{
-			"Name": "B005.PQM05.W",
+			"Name": "M012.CALZ12.W_IMP",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -89,7 +93,7 @@
 			}
 		},
 		{
-			"Name": "CALC.ZONE12.W",
+			"Name": "M012.CALZ12.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -119,7 +123,7 @@
 			}
 		},
 		{
-			"Name": "M005.JNZC05.WH_TODAY",
+			"Name": "M012.CALZ12.WH_TODAY",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -194,7 +198,7 @@
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "CALC.ZONE12.W",
+					"name": "M012.CALZ12.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -205,8 +209,8 @@
 					}
 				},
 				{
-					"name": "B005.PQM05.W",
-					"title": "13003847",
+					"name": "M012.CALZ12.W_IMP",
+					"title": "MEA",
 					"options": {
 						"chartOptions": {
 							"yAxis": 1,

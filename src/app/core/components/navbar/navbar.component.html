@@ -22,7 +22,7 @@
             class="nav-search"/>
             <ng-container *ngFor="let item of buildingList.building;">
               <mat-option *ngIf="item.display" [value]="item.name" [ngClass]="item.id == siteSelected.zone ? 'active meter-option' : item.building ? 'meter-option' : ''">
-                <div class="w-100 h-100 d-flex-sb" (click)="selectSite(item)" >
+                <div class="h-100 d-flex-sb" (click)="selectSite(item)" style="width: 160px;">
                   <div class="bz w-100">{{item.name}}</div>
                   <i class="material-icons" (mouseover)="selectMeter(item.zone)" *ngIf="item.building ? true : false">
                     account_balance
@@ -117,13 +117,13 @@
         </i>
         <p>ADMIN</p>
       </a>
-      <a mat-list-item href="#" class="box" routerLink="/main/home" routerLinkActive="active"
+      <!-- <a mat-list-item href="#" class="box" routerLink="/main/home" routerLinkActive="active"
         *ngIf="pages.indexOf('home') > -1" (click)="toggleBackground('/main/home')">
         <i class="material-icons">
           language
         </i>
         <p>HOME</p>
-      </a>
+      </a> -->
     </mat-nav-list>
   </mat-sidenav>
 

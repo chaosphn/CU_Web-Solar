@@ -2,51 +2,55 @@
 	"realtimeConfig": [
 		{
 			"Title": "power_value",
-			"Name": "M001.JNZC01.W"
+			"Name": "M021.CALZ21.W"
+		},
+		{
+			"Title": "power_import",
+			"Name": "M021.CALZ21.W_IMP"
 		},
 		{
 			"Title": "power_expected",
-			"Name": "M001.JNZC01.W_EXPECT"
+			"Name": "M021.CALZ21.W_EXPECT"
 		},
 		{
 			"Title": "power_peak",
-			"Name": "M001.JNZC01.W_PEAK_DAY"
+			"Name": "M021.CALZ21.W_PEAK_DAY"
 		},
 		{
 			"Title": "power_peaktime",
-			"Name": "M001.JNZC01.W_PEAK_DAY_TIME"
+			"Name": "M021.CALZ21.W_PEAK_DAY_TIME"
 		},
 		{
 			"Title": "power_capacity",
-			"Name": "M001.JNZC01.CAPACITY"
+			"Name": "M021.CALZ21.CAPACITY"
 		},
 		{
 			"Title": "power_pr",
-			"Name": "M001.JNZC01.PR"
+			"Name": "M021.CALZ21.PR"
 		},
 		{
 			"Title": "energy_value",
-			"Name": "M001.JNZC01.WH"
+			"Name": "M021.CALZ21.WH"
 		},
 		{
 			"Title": "energy_expected",
-			"Name": "M001.JNZC01.WH_EXPECT_TODAY"
+			"Name": "M021.CALZ21.WH_EXPECT_TODAY"
 		},
 		{
 			"Title": "energy_today",
-			"Name": "M001.JNZC01.WH_TODAY"
+			"Name": "M021.CALZ21.WH_DAY"
 		},
 		{
 			"Title": "energy_yesterday",
-			"Name": "M001.JNZC01.WH_YEAR"
+			"Name": "M021.CALZ21.WH_YEAR"
 		},
 		{
 			"Title": "energy_mtd",
-			"Name": "M001.JNZC01.WH_MONTH"
+			"Name": "M021.CALZ21.WH_MONTH"
 		},
 		{
 			"Title": "energy_cod",
-			"Name": "M001.JNZC01.WH"
+			"Name": "M021.CALZ21.WH"
 		},
 		{
 			"Title": "weather_irr",
@@ -83,7 +87,7 @@
 	],
 	"historianConfig": [
 		{
-			"Name": "B001.PQM01.W",
+			"Name": "M021.CALZ21.W",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -93,7 +97,7 @@
 			}
 		},
 		{
-			"Name": "CALC.ZONE21.W",
+			"Name": "M021.CALZ21.W_IMP",
 			"Title": "X1",
 			"Options" : {
 				"Interval": 5,
@@ -198,7 +202,7 @@
 			"name": "powerGeneration",
 			"tags": [
 				{
-					"name": "CALC.ZONE21.W",
+					"name": "M021.CALZ21.W",
 					"title": "SOLAR",
 					"options": {
 						"chartOptions": {
@@ -209,8 +213,8 @@
 					}
 				},
 				{
-					"name": "B001.PQM01.W",
-					"title": "13028863",
+					"name": "M021.CALZ21.W_IMP",
+					"title": "MEA",
 					"options": {
 						"chartOptions": {
 							"yAxis": 1,

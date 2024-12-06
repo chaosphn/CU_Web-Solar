@@ -53,21 +53,21 @@
                                     <span class="bz">{{ (getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | report: 2) }} kWh</span>
                                     <span class="bz"></span>
                                     <span class="bz">Energy Charge:</span>
-                                    <span class="bz">{{ ((getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OnPeakRate)+((getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OffPeakRate) | report: 2 }} THB</span>
+                                    <span class="bz">{{ ((getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.ExchangeRate)+((getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.ExchangeRate) | report: 2 }} THB</span>
                                 </div>
                                 <div class="row-info">
                                     <span class="bz">Energy Production (On Peak):</span>
                                     <span class="bz">{{ (getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | report: 2) }} kWh</span>
                                     <span class="bz"></span>
                                     <span class="bz">Energy Charge (On Peak):</span>
-                                    <span class="bz">{{ (getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OnPeakRate | report: 2 }} THB</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.ExchangeRate | report: 2 }} THB</span>
                                 </div>
                                 <div class="row-info">
                                     <span class="bz">Energy Production (Off Peak):</span>
                                     <span class="bz">{{ (getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | report: 2) }} kWh</span>
                                     <span class="bz"></span>
                                     <span class="bz">Energy Charge (Off Peak):</span>
-                                    <span class="bz">{{ (getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OffPeakRate | report: 2 }} THB</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.ExchangeRate | report: 2 }} THB</span>
                                 </div>
                                 <div class="row-info">
                                     <span class="bz">CO<sub>2</sub> Reduction:</span>

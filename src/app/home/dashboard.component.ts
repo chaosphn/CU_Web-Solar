@@ -94,6 +94,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   currentRoute: string;
   isInitialized:boolean = false;
   siteName: BuildingModel;
+  buildingList: BuildingModel[] = [];
   dataRealtime?: DashboardResRealtime[] = [];
   dataHistorian?: DashboardResHistorian[] = []
   disableButton: boolean = false;
@@ -177,6 +178,10 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
       //console.log(location)
       this.locationConfig = location;
       this.locationSelected = location[0];
+    }
+    const building: SiteStateModel = await this.httpService.getNavConfig('assets/main/BuildingList.json');
+    if(building && building.building){
+      this.buildingList = building.building.filter(x => !x.building).sort((a,b) => parseInt(a.no) - parseInt(b.no));
     }
   }
 
@@ -377,7 +382,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   }
 
   getMaxValueRecord(data: DashboardResHistorian[]): DashboardResHistorian[] {
-    return data.map(item => {
+    return data && data.length > 0 ? data.map(item => {
       const maxValues: { [key: string]: Record } = {};
   
       item.records.forEach(record => {
@@ -403,7 +408,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
           return acc;
         },rec)
       };
-    });
+    }) : data;
   }
   
 
@@ -414,20 +419,22 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
   async addRealtimeDataToStore(data: any[]) {
     const Datas: DashboardResRealtime[] = data;
     let newData: DashboardLastValuesModel[] = []
-    Datas.forEach((item) => {
-      let record:DashboardLastValuesModel = {
-        Name: item.Name,
-        Mode: "Realtime",
-        Unit: item.Unit,
-        Min: item.Min,
-        Max: item.Max,
-        DataRecord: [{
-          TimeStamp: item.TimeStamp,
-          Value: item.Value
-        }]
-      }
-      newData.push(record);
-    });
+    if(Datas){
+      Datas.forEach((item) => {
+        let record:DashboardLastValuesModel = {
+          Name: item.Name,
+          Mode: "Realtime",
+          Unit: item.Unit,
+          Min: item.Min,
+          Max: item.Max,
+          DataRecord: [{
+            TimeStamp: item.TimeStamp,
+            Value: item.Value
+          }]
+        }
+        newData.push(record);
+      });
+    }
     return newData;
     ////console.log(newData)
     //await this.store.dispatch(new SetDashboardValues(newData)).toPromise();

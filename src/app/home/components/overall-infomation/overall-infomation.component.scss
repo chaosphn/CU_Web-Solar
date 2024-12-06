@@ -1,5 +1,6 @@
 .map-svg{
-    scale: 1.05;
+    //scale: 1.05;
+    position: relative;
 }
 
 .container-box{
@@ -11,4 +12,10 @@
 
 .hidden{
     display: none !important;
+}
+
+.card-area{
+    cursor: pointer;
+    z-index: 1500000;
+    position: fixed;
 }

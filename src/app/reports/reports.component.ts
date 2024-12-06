@@ -564,7 +564,7 @@ export class ReportsComponent implements OnInit {
           name: item.Name
         };
         if(tableData){
-          //console.log(tableData);
+          console.log(tableData);
           this.dataGroupTable.push(tableData);
         }
       };

@@ -25,12 +25,16 @@ export class AdminComponent implements OnInit, AfterViewInit {
     TreeRate: 0,
     TimeStamp:''
   };
+  monthArr: any[] = [ {no: 1, name: 'Jan'}, {no: 2, name: 'Feb'}, {no: 3, name: 'Mar'}, {no: 4, name: 'Apr'}, {no: 5, name: 'May'}, {no: 6, name: 'Jun'}, {no: 7, name: 'Jul'}
+    ,{no: 8, name: 'Aug'} ,{no: 9, name: 'Sep'} ,{no: 10, name: 'Oct'} ,{no: 11, name: 'Nov'} ,{no: 12, name: 'Dec'}
+   ]
   constructor(private dateTimeService: DateTimeService,
     private httpSrv: HttpService
   ) { }
 
   ngOnInit() {
     const date = new Date();
+    console.log(date.getMonth())
     // date.setDate(2);
     // this.holidayArr.push(new Date(date));
     this.getFactors();
@@ -148,5 +152,9 @@ export class AdminComponent implements OnInit, AfterViewInit {
         alert('Report factor not found!');
       }
   }}
+
+  filterDateByMonth(m: number, dates: Date[]){
+    return dates.filter(x => x.getMonth()+1 == m);
+  }
 
 }

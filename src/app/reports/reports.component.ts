@@ -156,13 +156,13 @@ export class ReportsComponent implements OnInit {
             stack: 'Purchased'
           },
           {
-            name: 'Energy OnPeak',
+            name: 'Energy On Peak',
             data: orderPipe.transform(data, 0).map(x => parseFloat(x[2])),
             color: '#F05C5C',
             stack: 'Production'
           },
           {
-            name: 'Energy Off peak',
+            name: 'Energy Off Peak',
             data: orderPipe.transform(data, 0).map(x => parseFloat(x[3])),
             color: '#0DD141',
             stack: 'Production'
@@ -210,12 +210,12 @@ export class ReportsComponent implements OnInit {
         },
         series: [
           {
-            name: 'Energy Production OnPeak',
+            name: 'Energy On Peak',
             data: orderPipe.transform(data, 0).map(x => parseFloat(x[2])),
             color: '#F05C5C'
           },
           {
-            name: 'Energy Production Offpeak',
+            name: 'Energy Off Peak',
             data: orderPipe.transform(data, 0).map(x => parseFloat(x[3])),
             color: '#0DD141'
           }
@@ -564,7 +564,7 @@ export class ReportsComponent implements OnInit {
           name: item.Name
         };
         if(tableData){
-          console.log(tableData);
+          //console.log(tableData);
           this.dataGroupTable.push(tableData);
         }
       };

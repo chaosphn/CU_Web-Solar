@@ -60,6 +60,9 @@ input {
     background: whitesmoke;
     min-height: 250px;
     padding: 24px;
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 8px;
     .material-icons {
         font-size: 16px;
     }
@@ -86,4 +89,27 @@ input {
 
 .chip{
     font-weight: 500;
+}
+
+.date-col{
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    //align-items: center;
+}
+
+.date-title{
+    text-align: center;
+    font-weight: 500;
+    padding: 12px auto;
+    background-color: #136286;
+    color: whitesmoke;
+    border-radius: 8px;
+}
+
+.date-group{
+    // display: flex;
+    // flex-direction: column;
+    // align-items: center;
+    // justify-content: center;
 }

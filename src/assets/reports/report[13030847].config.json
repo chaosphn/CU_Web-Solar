@@ -91,7 +91,7 @@
                     },
                     {
                         "title": "Energy\nProduction\n(kWh)",
-                        "tagname": "B005.TOU05.WH",
+                        "tagname": "B005.TOU05.WH_MTD",
                         "option": "DIFF",
                         "width": "7rem",
                         "type": "SUM",
@@ -99,7 +99,7 @@
                     },
                     {
                         "title": "Energy On Peak\n(kWh)",
-                        "tagname": "B005.TOU05.WH",
+                        "tagname": "B005.TOU05.WH_MTD",
                         "option": "ONPEAK",
                         "width": "8rem",
                         "type": "SUM",
@@ -107,7 +107,7 @@
                     },
                     {
                         "title": "Energy Off Peak\n(kWh)",
-                        "tagname": "B005.TOU05.WH",
+                        "tagname": "B005.TOU05.WH_MTD",
                         "option": "OFFPEAK",
                         "width": "8rem",
                         "type": "SUM",
@@ -233,7 +233,7 @@
                     },
                     {
                         "title": "Energy\nProduction\n(kWh)",
-                        "tagname": "B005.TOU05.WH",
+                        "tagname": "B005.TOU05.WH_MTD",
                         "option": "DIFF",
                         "width": "7rem",
                         "type": "SUM",
@@ -241,7 +241,7 @@
                     },
                     {
                         "title": "Energy On Peak\n(kWh)",
-                        "tagname": "B005.TOU05.WH",
+                        "tagname": "B005.TOU05.WH_MTD",
                         "option": "ONPEAK",
                         "width": "8rem",
                         "type": "SUM",
@@ -249,7 +249,7 @@
                     },
                     {
                         "title": "Energy Off Peak\n(kWh)",
-                        "tagname": "B005.TOU05.WH",
+                        "tagname": "B005.TOU05.WH_MTD",
                         "option": "OFFPEAK",
                         "width": "8rem",
                         "type": "SUM",
@@ -375,7 +375,7 @@
                     },
                     {
                         "title": "Energy\nProduction\n(kWh)",
-                        "tagname": "B005.TOU05.WH",
+                        "tagname": "B005.TOU05.WH_MTD",
                         "option": "DIFF",
                         "width": "7rem",
                         "type": "SUM",
@@ -383,7 +383,7 @@
                     },
                     {
                         "title": "Energy On Peak\n(kWh)",
-                        "tagname": "B005.TOU05.WH",
+                        "tagname": "B005.TOU05.WH_MTD",
                         "option": "PEAKMONTH",
                         "width": "8rem",
                         "type": "SUM",
@@ -391,7 +391,7 @@
                     },
                     {
                         "title": "Energy Off Peak\n(kWh)",
-                        "tagname": "B005.TOU05.WH",
+                        "tagname": "B005.TOU05.WH_MTD",
                         "option": "OFFPEAK",
                         "width": "8rem",
                         "type": "SUM",

@@ -21,7 +21,7 @@ import { ReportChartService } from './services/report-chart.service';
 import { Chart } from 'angular-highcharts';
 import { OrderByPipe } from '../share/pipe/order-by.pipe';
 import * as XLSX from 'xlsx';
-import { HolidayRequestModel, HolidayResponseModel, ReportFactorModel } from '../share/models/report.model';
+import { HolidayRequestModel, HolidayResponseModel, ReportFactorModel, ReportRequestModel } from '../share/models/report.model';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
 import { image } from 'html2canvas/dist/types/css/types/image';
@@ -337,70 +337,6 @@ export class ReportsComponent implements OnInit {
     //this.getRequestData();
   }
 
-  // getRequestData(){
-  //   if(this.selectedReport.Header){
-  //     const req: DashboardReqHistorian[] = this.selectedReport.Header.reduce((acc, cur) => {
-  //       if(cur.tagname && !acc.find(x => x.Name == cur.tagname)){
-  //         let reqItem: DashboardReqHistorian = {
-  //           Name: cur.tagname,
-  //           Options: {
-  //             Time: "",
-  //             StartTime: this.startTime,
-  //             EndTime: this.endTime
-  //           }
-  //         };
-  //         acc.push(reqItem);
-  //       }
-  //       return acc;
-  //     },[]);
-  //     if(req){this.request = req;}
-  //   }
-  // }
-
-  // getRequestWithType(type: string, time: Date){
-  //   let start: string = "";
-  //   let end: string = "";
-  //   switch(type){
-  //     case 'daily':
-  //       // start = this.dateTimeService.getDateTime(time);
-  //       // const endD = time.getTime() + (60*60*1000);
-  //       // end = this.dateTimeService.getDateTime(new Date(endD));
-  //       // const startM = time.setHours(0,0,0,0)
-  //       start = new Date(time).toISOString();
-  //       const endD = time.getTime() + (60*60*1000);
-  //       end = new Date(endD).toISOString();
-  //       break;
-  //     case 'monthly':
-  //       const startM = time.setHours(0,0,0,0)
-  //       start = new Date(startM).toISOString();
-  //       const endM = time.setHours(23,59,59,0)
-  //       end = new Date(endM).toISOString();
-  //       break;
-  //     case 'yearly':
-  //       const startY = time.setHours(0,0,0,0)
-  //       start = new Date(startY).toISOString();//this.dateTimeService.getDateTime(new Date(startY));
-  //       const endY = time.setMonth(time.getMonth()+1, 0);
-  //       const lastDate = new Date(endY).setHours(23,59,59,0)
-  //       end = new Date(lastDate).toISOString();;//this.dateTimeService.getDateTime(new Date(lastDate));
-  //       break;
-  //   }
-  //   console.log('start : '+start+'\nend : '+end);
-  //   const req: DashboardReqHistorian[] = this.selectedReport.Header.reduce((acc, cur) => {
-  //     if(cur.tagname && !acc.find(x => x.Name == cur.tagname)){
-  //       let reqItem: DashboardReqHistorian = {
-  //         Name: cur.tagname,
-  //         Options: {
-  //           Time: "",
-  //           StartTime: start,
-  //           EndTime: end
-  //         }
-  //       };
-  //       acc.push(reqItem);
-  //     }
-  //     return acc;
-  //   },[]);
-  //   return req;
-  // }
 
   getGroupRequestWithType(type: string, time: Date, index: number){
     let start: string = "";
@@ -444,65 +380,6 @@ export class ReportsComponent implements OnInit {
     return req;
   }
 
-  // async getResponseData(){
-  //   const table: any[] = [];
-  //   this.resetTable();
-  //   const fetchData = async () => {
-  //     this.dataTable = [];
-  //     this.loading = true;
-  //     const promises = this.dateColumn.map(async rw => {
-  //       const res:DashboardResHistorian[] = await this.httpService.getReportData(this.getRequestWithType(this.selectedReport.Type, rw));
-  //       this.response = res;        
-  //       let row: any[] = [];
-  //       this.selectedReport.Header.forEach((cl, i) => {
-  //         switch (cl.option) {
-  //           case "TIME":
-  //             //console.log(new Date(rw))
-  //             row.push(new Date(rw).toISOString());
-  //             break;
-  //           case "DIFF":
-  //             row.push(this.getDiffValue(cl.tagname, rw));
-  //             break;
-  //           case "MAX":
-  //             row.push(this.getMaxValue(cl.tagname, rw));
-  //             break;
-  //           case "AVG":
-  //             row.push(this.getAverageValue(cl.tagname, rw));
-  //             break;
-  //           case "ONPEAK":
-  //             row.push(this.getDiffPeakValue(cl.tagname, rw));
-  //             break;
-  //           case "OFFPEAK":
-  //             let diff = parseFloat(row[1]) - parseFloat(row[2]);
-  //             row.push(diff.toString());
-  //             break;
-  //           case "SUMMAX":
-  //             row.push(this.getSumMaxValue(cl.tagname, rw));
-  //             break;
-  //           case "AVGALL":
-  //             row.push(this.getAverageAllValue(cl.tagname, rw));
-  //             break;
-  //           case "PEAKMONTH":
-  //             row.push(this.getDiffValueForMonth(cl.tagname));
-  //             break;
-  //           default:
-  //             row.push("0.00");
-  //             break;
-  //         }
-  //       });
-  //       table.push(row);
-  //     });
-  //     await Promise.all(promises);
-  //     this.loading = false;
-  //     console.log(table)
-  //     this.dataTable = table.sort((a, b) => new Date(a[0]).getHours() - new Date(b[0]).getHours());
-  //     if (this.dataTable) {
-  //       this.updateChart();
-  //     }
-  //   };
-  //   fetchData();
-  // }
-
   async getResponseData(){
   
     this.resetTable();
@@ -513,8 +390,11 @@ export class ReportsComponent implements OnInit {
         let table: any[] = [];
         const promises = this.dateColumn.map(async rw => {
           const res:DashboardResHistorian[] = await this.httpService.getReportData(this.getGroupRequestWithType(this.selectedReport.Type, rw, index));
+          console.log(item);
+          console.log(this.selectedReport.Type)
+          console.log(this.dateColumn)
           const testBody = this.getGroupRequestWithType(this.selectedReport.Type, rw, index);
-          //console.log(testBody[0].Options.StartTime)
+          console.log(testBody)
           this.response = res;        
           let row: string[] = [];
           item.Header.forEach((cl, i) => {
@@ -1022,30 +902,7 @@ export class ReportsComponent implements OnInit {
 
   }
 
-  // exportToExcel(): void {
-  //   const headers: string[] = [];
-  //   const rows:any[] = [];
-
-  //   if(this.selectedReport && this.selectedReport.Header.length > 0 && this.dataTable.length > 0){
-  //     this.selectedReport.Header.forEach(record => {
-  //       headers.push(record.title);
-  //     });
-  //     this.dataTable.forEach((item, index)=> {
-  //       const row = [this.datePipe.transform(item[0], this.selectedReport.Header[0].type)];
-  //       item.forEach( (x, i) => {
-  //         if(i > 0){row.push(x);}
-  //       });
-  //       rows.push(row);
-  //     })
-  //     const reportName = this.siteSelected.id + " " + this.selectedReport.Name + "[" + this.datePipe.transform(this.dateTime, this.selectedReport.DateFormat) + "]"
-  //     const sheet: XLSX.WorkSheet = XLSX.utils.aoa_to_sheet([headers, ...rows]);
-  //     const workbook: XLSX.WorkBook = { Sheets: { 'data': sheet }, SheetNames: ['data'] };
-  //     const excelBuffer: any = XLSX.write(workbook, { bookType: 'xlsx', type: 'array' });
-  //     this.saveAsExcelFile(excelBuffer, reportName);
-  //   } else {
-  //     alert('please select report!');
-  //   }
-  // }
+  
   exportToExcel(): void {
     if (!this.selectedReport || !this.selectedReport.HeaderGroup || this.selectedReport.HeaderGroup.length === 0 || this.dataGroupTable.length === 0) {
       alert('Please select a valid report!');
@@ -1087,6 +944,53 @@ export class ReportsComponent implements OnInit {
     link.href = window.URL.createObjectURL(data);
     link.download = fileName + '.xlsx';
     link.click();
+  }
+
+  async getResponseData2(){
+  
+    this.resetTable();
+    // for await (const item of this.selectedReport.HeaderGroup) {
+    //   this.loading = true;
+    //   const req:ReportRequestModel = {
+    //     Name: item.Name,
+    //     Type: this.selectedReport.Type,
+    //     Header: item.Header,
+    //     DateColumn: this.dateColumn,
+    //     StartTime: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 0, 1)),
+    //     EndTime: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 11, 31))
+    //   };
+    //   const response = await this.httpService.getCompleteReportData(req);
+    //   if(response){
+    //     const tableData: TableGroupModel = {
+    //       table: response,
+    //       chart: this.gteChart(response, item.Header[0].type, item.Header[0].tagname),
+    //       name: item.Name
+    //     };
+    //     this.dataGroupTable.push(tableData);
+    //   }
+    // }
+    this.loading = true;
+    const report = this.selectedReport.HeaderGroup.map( async(item, index) => {
+      const req:ReportRequestModel = {
+        Name: item.Name,
+        Type: this.selectedReport.Type,
+        Header: item.Header,
+        DateColumn: this.dateColumn,
+        StartTime: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 0, 1)),
+        EndTime: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 11, 31))
+      };
+      const response = await this.httpService.getCompleteReportData(req);
+      if(response){
+        const tableData: TableGroupModel = {
+          table: response,
+          chart: this.gteChart(response, item.Header[0].type, item.Header[0].tagname),
+          name: item.Name
+        };
+        this.dataGroupTable[index] = tableData;
+      }
+    });
+    await Promise.all(report);
+    this.loading = false;
   }
 }
 

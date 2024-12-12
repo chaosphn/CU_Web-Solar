@@ -29,7 +29,7 @@
                     (selectDatetime)="onDateTimeChange($event)" [dateTime]="dateTime"></app-time-control>
                 </div>
                 <div class="d-flex align-items-center">
-                        <button [disabled]="loading" class="btn-ok" (click)="getResponseData()">VIEW</button>
+                        <button [disabled]="loading" class="btn-ok" (click)="getResponseData2()">VIEW</button>
                         <button [disabled]="loading" class="btn-ok" (click)="exportToExcel()">SAVE XLS</button>
                         <button [disabled]="loading" class="btn-ok" (click)="htmltoPDF2()">{{ downloadTxt ? 'LOADING' : 'SAVE PDF' }}</button>
                 </div>
@@ -96,8 +96,8 @@
                                         <tr *ngFor="let row of dataGroupTable[i].table | orderBy: 0">
                                             <td class="bz" *ngFor="let col of row; index as j;">
                                                 <span *ngIf="j==0">{{col | date: item.Header[0].type}}</span>
-                                                <span *ngIf="j!=0">{{ ((col | myNumber: '1.0-4') * item.Header[j].factor) | report: 2}}</span>
-                    
+                                                <span *ngIf="j!=0 && item.Header[j].factor">{{ ((col | myNumber: '1.0-4') * item.Header[j].factor) | report: 2}}</span>
+                                                <span *ngIf="j!=0 && !item.Header[j].factor">{{ ((col | myNumber: '1.0-4') * 1) | report: 2}}</span>
                                             </td>
                                         </tr>
                                         <tr>

@@ -13,7 +13,7 @@ import { WriteDataRequest } from 'src/app/core/stores/last-values/dashboard/dash
 import { DashboardConfigs } from 'src/app/core/stores/configs/dashboard/dashboard-configs.model';
 import { TagInfo } from '../models/tag-group.model';
 import { PowerTagConfig } from '../models/power-config.model';
-import { HolidayRequestModel, ReportFactorModel, SetHolidayModel } from '../models/report.model';
+import { HolidayRequestModel, ReportFactorModel, ReportRequestModel, SetHolidayModel } from '../models/report.model';
 import { RequestOptions } from '@angular/http';
 
 @Injectable({
@@ -79,6 +79,21 @@ export class HttpService {
         });
 
         return this.httpClient.post( this.appLoadService.Config.UrlApi + 'gethisdata', body, {headers} ).pipe(
+            map((x: any) => {
+                
+                return x;
+            })
+        ).toPromise();
+    }
+
+    async getCompleteReportData(requests: ReportRequestModel) {
+        const body = requests;
+        //console.log()
+        const headers = new HttpHeaders({
+            'Content-Type': 'application/json'
+        });
+
+        return this.httpClient.post( this.appLoadService.Config.UrlApi + 'dev/genreport', body, {headers} ).pipe(
             map((x: any) => {
                 
                 return x;

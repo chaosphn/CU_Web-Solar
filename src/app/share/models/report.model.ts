@@ -1,3 +1,5 @@
+import { ReportHeaderModel } from "src/app/reports/reports.component";
+
 export interface ReportModel {
     [name: string]: ReportData;
 }
@@ -38,4 +40,13 @@ export interface SetHolidayModel{
 export interface HolidayRequestModel{
     StartDate: string;
     EndDate: string;
+}
+
+export interface ReportRequestModel{
+    Name: string,
+    StartTime: string,
+    EndTime: string,
+    Type: string,
+    Header: ReportHeaderModel[],
+    DateColumn: Date[]
 }

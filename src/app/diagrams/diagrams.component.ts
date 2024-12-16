@@ -387,7 +387,7 @@ export class DiagramsComponent implements OnInit, OnDestroy {
     const diagramConfig: DiagramConfigModel[] = await this.httpService.getConfig('assets/diagram/configurations/diagram.config.json');
     const invAlarm: InverterAlarmModel[] = await this.httpService.getConfig('assets/main/inverter.alarm.json');
     if(invAlarm){
-      console.log(invAlarm)
+      //console.log(invAlarm)
       this.invAlarmConfig = invAlarm;
     }
     // const diagramEquip: DiagramEquipmentModel[] = await this.httpService.getConfig('assets/diagram/equipments/' + this.siteName.id + '.equipment.json');

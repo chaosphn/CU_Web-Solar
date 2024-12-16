@@ -1,0 +1,207 @@
+[
+    {
+        "id": 2001,
+        "level": "Major",
+        "name": "High String InputVoltage"
+    },
+    {
+        "id": 2002,
+        "level": "Major",
+        "name": "DC Arc Fault"
+    },
+    {
+        "id": 2011,
+        "level": "Major",
+        "name": "String Reverse Connection"
+    },
+    {
+        "id": 2012,
+        "level": "Warning",
+        "name": "StringCurrent Backfeed"
+    },
+    {
+        "id": 2013,
+        "level": "Warning",
+        "name": "Abnormal String Power"
+    },
+    {
+        "id": 2021,
+        "level": "Major",
+        "name": " AFCI Self-Check Fail."
+    },
+    {
+        "id": 2031,
+        "level": "Major",
+        "name": "Ph. Wire Short-Circuited"
+    },
+    {
+        "id": 2032,
+        "level": "Major",
+        "name": " Grid Loss"
+    },
+    {
+        "id": 2033,
+        "level": "Major",
+        "name": " Grid Undervoltage"
+    },
+    {
+        "id": 2034,
+        "level": "Major",
+        "name": "Grid Overvoltage"
+    },
+    {
+        "id": 2035,
+        "level": "Major",
+        "name": "Grid Volt. Imbalance"
+    },
+    {
+        "id": 2036,
+        "level": "Major",
+        "name": "Grid Overfrequency"
+    },
+    {
+        "id": 2037,
+        "level": "Major",
+        "name": "Grid Underfrequency"
+    },
+    {
+        "id": 2038,
+        "level": "Major",
+        "name": "Unstable Grid Frequency"
+    },
+    {
+        "id": 2039,
+        "level": "Major",
+        "name": "Output Overcurrent"
+    },
+    {
+        "id": 2040,
+        "level": "Major",
+        "name": "Output DC Overhigh"
+    },
+    {
+        "id": 2051,
+        "level": "Major",
+        "name": "Abnormal ResidualCurrent"
+    },
+    {
+        "id": 2061,
+        "level": "Major",
+        "name": "Abnormal Grounding"
+    },
+    {
+        "id": 2062,
+        "level": "Major",
+        "name": " Low Insulation Resistance"
+    },
+    {
+        "id": 2063,
+        "level": "Minor",
+        "name": "Overtemperature"
+    },
+    {
+        "id": 2064,
+        "level": "Major",
+        "name": "Device Fault"
+    },
+    {
+        "id": 2065,
+        "level": "Minor",
+        "name": "Version Mismatch"
+    },
+    {
+        "id": 2066,
+        "level": "Warning",
+        "name": "License Expired"
+    },
+    {
+        "id": 61440,
+        "level": "Minor",
+        "name": "Faulty Monitoring Unit"
+    },
+    {
+        "id": 2067,
+        "level": "Major",
+        "name": "Faulty Power Collector"
+    },
+    {
+        "id": 2068,
+        "level": "Minor",
+        "name": "Battery abnormal"
+    },
+    {
+        "id": 2070,
+        "level": "Major",
+        "name": "Active Islanding"
+    },
+    {
+        "id": 2071,
+        "level": "Major",
+        "name": "Passive Islanding"
+    },
+    {
+        "id": 2072,
+        "level": "Major",
+        "name": "Transient AC Overvoltage"
+    },
+    {
+        "id": 2075,
+        "level": "Warning",
+        "name": "Peripheral short circuit"
+    },
+    {
+        "id": 2077,
+        "level": "Major",
+        "name": "Churn output overload"
+    },
+    {
+        "id": 2080,
+        "level": "Major",
+        "name": "Abnormal PV configuration"
+    },
+    {
+        "id": 2081,
+        "level": "Warning",
+        "name": "Optimizer fault"
+    },
+    {
+        "id": 2085,
+        "level": "Minor",
+        "name": "Built-in PID abnormal"
+    },
+    {
+        "id": 2014,
+        "level": "Major",
+        "name": "High String InputVoltage"
+    },
+    {
+        "id": 2086,
+        "level": "Major",
+        "name": "External Fan Abnormal"
+    },
+    {
+        "id": 2069,
+        "level": "Major",
+        "name": "Battery Reverse Connection"
+    },
+    {
+        "id": 2082,
+        "level": "Major",
+        "name": "Grid Controller Abnormal"
+    },
+    {
+        "id": 2015,
+        "level": "Warning",
+        "name": "PV String Loss"
+    },
+    {
+        "id": 2087,
+        "level": "Major",
+        "name": "Internal Fan Abnormal"
+    },
+    {
+        "id": 2088,
+        "level": "Major",
+        "name": "DC Protection Abnormal"
+    }
+]

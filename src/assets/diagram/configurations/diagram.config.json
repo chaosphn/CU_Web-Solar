@@ -2479,5 +2479,345 @@
 	{
 		"Title": "inv4801_run",
 		"Name": "B048.INV4801.RUN"
+	},
+	{
+		"Title": "inv0101_alarm",
+		"Name": "B001.INV0101.ALARM"
+	},
+	{
+		"Title": "inv0102_alarm",
+		"Name": "B001.INV0102.ALARM"
+	},
+	{
+		"Title": "inv0201_alarm",
+		"Name": "B002.INV0201.ALARM"
+	},
+	{
+		"Title": "inv0202_alarm",
+		"Name": "B002.INV0202.ALARM"
+	},
+	{
+		"Title": "inv0301_alarm",
+		"Name": "B003.INV0301.ALARM"
+	},
+	{
+		"Title": "inv0302_alarm",
+		"Name": "B003.INV0302.ALARM"
+	},
+	{
+		"Title": "inv0401_alarm",
+		"Name": "B004.INV0401.ALARM"
+	},
+	{
+		"Title": "inv0501_alarm",
+		"Name": "B005.INV0501.ALARM"
+	},
+	{
+		"Title": "inv0502_alarm",
+		"Name": "B005.INV0502.ALARM"
+	},
+	{
+		"Title": "inv0601_alarm",
+		"Name": "B006.INV0601.ALARM"
+	},
+	{
+		"Title": "inv0602_alarm",
+		"Name": "B006.INV0602.ALARM"
+	},
+	{
+		"Title": "inv0701_alarm",
+		"Name": "B007.INV0701.ALARM"
+	},
+	{
+		"Title": "inv0801_alarm",
+		"Name": "B008.INV0801.ALARM"
+	},
+	{
+		"Title": "inv0901_alarm",
+		"Name": "B009.INV0901.ALARM"
+	},
+	{
+		"Title": "inv0902_alarm",
+		"Name": "B009.INV0902.ALARM"
+	},
+	{
+		"Title": "inv1001_alarm",
+		"Name": "B010.INV1001.ALARM"
+	},
+	{
+		"Title": "inv1002_alarm",
+		"Name": "B010.INV1002.ALARM"
+	},
+	{
+		"Title": "inv1101_alarm",
+		"Name": "B011.INV1101.ALARM"
+	},
+	{
+		"Title": "inv1201_alarm",
+		"Name": "B012.INV1201.ALARM"
+	},
+	{
+		"Title": "inv1301_alarm",
+		"Name": "B013.INV1301.ALARM"
+	},
+	{
+		"Title": "inv1401_alarm",
+		"Name": "B014.INV1401.ALARM"
+	},
+	{
+		"Title": "inv1501_alarm",
+		"Name": "B015.INV1501.ALARM"
+	},
+	{
+		"Title": "inv1601_alarm",
+		"Name": "B016.INV1601.ALARM"
+	},
+	{
+		"Title": "inv1701_alarm",
+		"Name": "B017.INV1701.ALARM"
+	},
+	{
+		"Title": "inv1801_alarm",
+		"Name": "B018.INV1801.ALARM"
+	},
+	{
+		"Title": "inv1802_alarm",
+		"Name": "B018.INV1802.ALARM"
+	},
+	{
+		"Title": "inv1901_alarm",
+		"Name": "B019.INV1901.ALARM"
+	},
+	{
+		"Title": "inv1902_alarm",
+		"Name": "B019.INV1902.ALARM"
+	},
+	{
+		"Title": "inv2001_alarm",
+		"Name": "B020.INV2001.ALARM"
+	},
+	{
+		"Title": "inv2002_alarm",
+		"Name": "B020.INV2002.ALARM"
+	},
+	{
+		"Title": "inv2101_alarm",
+		"Name": "B021.INV2101.ALARM"
+	},
+	{
+		"Title": "inv2102_alarm",
+		"Name": "B021.INV2102.ALARM"
+	},
+	{
+		"Title": "in21803_alarm",
+		"Name": "B021.INV2103.ALARM"
+	},
+	{
+		"Title": "inv2201_alarm",
+		"Name": "B022.INV2201.ALARM"
+	},
+	{
+		"Title": "inv2202_alarm",
+		"Name": "B022.INV2202.ALARM"
+	},
+	{
+		"Title": "inv2301_alarm",
+		"Name": "B023.INV2301.ALARM"
+	},
+	{
+		"Title": "inv2302_alarm",
+		"Name": "B023.INV2302.ALARM"
+	},
+	{
+		"Title": "inv2401_alarm",
+		"Name": "B024.INV2401.ALARM"
+	},
+	{
+		"Title": "inv2501_alarm",
+		"Name": "B025.INV2501.ALARM"
+	},
+	{
+		"Title": "inv2601_alarm",
+		"Name": "B026.INV2601.ALARM"
+	},
+	{
+		"Title": "inv2602_alarm",
+		"Name": "B026.INV2602.ALARM"
+	},
+	{
+		"Title": "inv2701_alarm",
+		"Name": "B027.INV2701.ALARM"
+	},
+	{
+		"Title": "inv2801_alarm",
+		"Name": "B028.INV2801.ALARM"
+	},
+	{
+		"Title": "inv2802_alarm",
+		"Name": "B028.INV2802.ALARM"
+	},
+	{
+		"Title": "inv2901_alarm",
+		"Name": "B029.INV2901.ALARM"
+	},
+	{
+		"Title": "inv2902_alarm",
+		"Name": "B029.INV2902.ALARM"
+	},
+	{
+		"Title": "inv3001_alarm",
+		"Name": "B030.INV3001.ALARM"
+	},
+	{
+		"Title": "inv3002_alarm",
+		"Name": "B030.INV3002.ALARM"
+	},
+	{
+		"Title": "inv3101_alarm",
+		"Name": "B031.INV3101.ALARM"
+	},
+	{
+		"Title": "inv3201_alarm",
+		"Name": "B032.INV3201.ALARM"
+	},
+	{
+		"Title": "inv3202_alarm",
+		"Name": "B032.INV3202.ALARM"
+	},
+	{
+		"Title": "inv3203_alarm",
+		"Name": "B032.INV3203.ALARM"
+	},
+	{
+		"Title": "inv3301_alarm",
+		"Name": "B033.INV3301.ALARM"
+	},
+	{
+		"Title": "inv3302_alarm",
+		"Name": "B033.INV3302.ALARM"
+	},
+	{
+		"Title": "inv3401_alarm",
+		"Name": "B034.INV3401.ALARM"
+	},
+	{
+		"Title": "inv3402_alarm",
+		"Name": "B034.INV3402.ALARM"
+	},
+	{
+		"Title": "inv3403_alarm",
+		"Name": "B034.INV3403.ALARM"
+	},
+	{
+		"Title": "inv3501_alarm",
+		"Name": "B035.INV3501.ALARM"
+	},
+	{
+		"Title": "inv3502_alarm",
+		"Name": "B035.INV3502.ALARM"
+	},
+	{
+		"Title": "inv3601_alarm",
+		"Name": "B036.INV3601.ALARM"
+	},
+	{
+		"Title": "inv3602_alarm",
+		"Name": "B036.INV3602.ALARM"
+	},
+	{
+		"Title": "inv3701_alarm",
+		"Name": "B037.INV3701.ALARM"
+	},
+	{
+		"Title": "inv3702_alarm",
+		"Name": "B037.INV3702.ALARM"
+	},
+	{
+		"Title": "inv3801_alarm",
+		"Name": "B038.INV3801.ALARM"
+	},
+	{
+		"Title": "inv3901_alarm",
+		"Name": "B039.INV3901.ALARM"
+	},
+	{
+		"Title": "inv3902_alarm",
+		"Name": "B039.INV3902.ALARM"
+	},
+	{
+		"Title": "inv4001_alarm",
+		"Name": "B040.INV4001.ALARM"
+	},
+	{
+		"Title": "inv4002_alarm",
+		"Name": "B040.INV4002.ALARM"
+	},
+	{
+		"Title": "inv4003_alarm",
+		"Name": "B040.INV4003.ALARM"
+	},
+	{
+		"Title": "inv4101_alarm",
+		"Name": "B041.INV4101.ALARM"
+	},
+	{
+		"Title": "inv4201_alarm",
+		"Name": "B042.INV4201.ALARM"
+	},
+	{
+		"Title": "inv4202_alarm",
+		"Name": "B042.INV4202.ALARM"
+	},
+	{
+		"Title": "inv4301_alarm",
+		"Name": "B043.INV4301.ALARM"
+	},
+	{
+		"Title": "inv4302_alarm",
+		"Name": "B043.INV4302.ALARM"
+	},
+	{
+		"Title": "inv4401_alarm",
+		"Name": "B044.INV4401.ALARM"
+	},
+	{
+		"Title": "inv4402_alarm",
+		"Name": "B044.INV4402.ALARM"
+	},
+	{
+		"Title": "inv4403_alarm",
+		"Name": "B044.INV4403.ALARM"
+	},
+	{
+		"Title": "inv4404_alarm",
+		"Name": "B044.INV4404.ALARM"
+	},
+	{
+		"Title": "inv4405_alarm",
+		"Name": "B044.INV4405.ALARM"
+	},
+	{
+		"Title": "inv4501_alarm",
+		"Name": "B045.INV4501.ALARM"
+	},
+	{
+		"Title": "inv4601_alarm",
+		"Name": "B046.INV4601.ALARM"
+	},
+	{
+		"Title": "inv4701_alarm",
+		"Name": "B047.INV4701.ALARM"
+	},
+	{
+		"Title": "inv4702_alarm",
+		"Name": "B047.INV4702.ALARM"
+	},
+	{
+		"Title": "inv4703_alarm",
+		"Name": "B047.INV4703.ALARM"
+	},
+	{
+		"Title": "inv4801_alarm",
+		"Name": "B048.INV4801.ALARM"
 	}
 ]

@@ -39,10 +39,11 @@
 .label{
   fill: rgb(94, 0, 0) !important;
   animation: blinker 1s linear infinite;
+ //color: #df6400;
 }
 
 @keyframes blinker {
-    50% {
+    25% {
       opacity: 0;
     }
 }

@@ -27,6 +27,7 @@ import {debounceTime, takeUntil, distinctUntilChanged } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { EventService } from '../share/services/event.service';
+import { transform } from 'html2canvas/dist/types/css/property-descriptors/transform';
 
 
 @Component({
@@ -53,6 +54,7 @@ export class DiagramsComponent implements OnInit, OnDestroy {
   testStatus: boolean = false;
   equipmentList: DiagramEquipmentModel[] = [];
   sub1: Subscription;
+  invAlarmConfig: InverterAlarmModel[] = [];
   private unsubscribe$: Subject<void> = new Subject();
 
   constructor(
@@ -81,9 +83,10 @@ export class DiagramsComponent implements OnInit, OnDestroy {
     this.currentRoute = this.router.url.toString()
     const building = localStorage.getItem('location');
     this.siteName = JSON.parse(building);
-    if(this.siteName){
-      this.init();
-    }
+    // if(this.siteName){
+    //   this.init();
+    // }
+    this.init();
   }
 
   async updateInit(){
@@ -134,7 +137,7 @@ export class DiagramsComponent implements OnInit, OnDestroy {
     if (!isAlarm){
       return { fill:'black',opacity: 1}
     }else{
-      return { fill:'#00c300', opacity: 1, padding: '10px'}
+      return { fill:'#00c300', opacity: 1}
     }
   }
 
@@ -164,6 +167,60 @@ export class DiagramsComponent implements OnInit, OnDestroy {
       return '  RUN'
     }else{
       return ' STOP'
+    }
+  }
+
+  getStatusStyle(tagName: string){
+    let run: any;
+    if(this.data && this.data.singleValue[tagName+'_run']){
+      run = this.data.singleValue[tagName+'_run'].dataRecords[0].Value;
+    }
+    let alarm: any;
+    if(this.data && this.data.singleValue[tagName+'_alarm']){
+      alarm = this.data.singleValue[tagName+'_alarm'].dataRecords[0].Value;
+    }
+    if(alarm && parseInt(alarm) > 0){
+      const findAlarm = this.invAlarmConfig.find(x => x.id == parseInt(alarm));
+      let style: any;
+      if(findAlarm){
+        switch (findAlarm.level) {
+          case 'Major':
+            style = { fill:'red',opacity: 1, animation: 'blinker 4s linear infinite'}
+            break;
+          case 'Minor':
+            style = { fill:'#df6400',opacity: 1, animation: 'blinker 4s linear infinite'}
+            break;
+          case 'Warning':
+            style = { fill:'#A77800',opacity: 1, animation: 'blinker 4s linear infinite'}
+            break;
+          default:
+            break;
+        }
+      }
+      return findAlarm ? style : { fill:'black',opacity: 1};
+    } else if(run) {
+      return run && parseInt(run) == 1 ? { fill:'#00c300', opacity: 1} : { fill:'black',opacity: 1};
+    } else {
+      return { fill:'black',opacity: 1};
+    }
+  }
+
+  getStatusTxt(tagName: string){
+    let run: any;
+    if(this.data && this.data.singleValue[tagName+'_run']){
+      run = this.data.singleValue[tagName+'_run'].dataRecords[0].Value;
+    }
+    let alarm: any;
+    if(this.data && this.data.singleValue[tagName+'_alarm']){
+      alarm = this.data.singleValue[tagName+'_alarm'].dataRecords[0].Value;
+    }
+    if(alarm && parseInt(alarm) > 0){
+      const findAlarm = this.invAlarmConfig.find(x => x.id == parseInt(alarm));
+      return findAlarm ? findAlarm.name : 'UNKNOW';
+    } else if(run) {
+      return run && parseInt(run) == 1 ? 'RUNNING' : 'STOPPED';
+    } else {
+      return 'UNKNOW';
     }
   }
 
@@ -328,6 +385,11 @@ export class DiagramsComponent implements OnInit, OnDestroy {
 
   async getDiagramConfigs() {
     const diagramConfig: DiagramConfigModel[] = await this.httpService.getConfig('assets/diagram/configurations/diagram.config.json');
+    const invAlarm: InverterAlarmModel[] = await this.httpService.getConfig('assets/main/inverter.alarm.json');
+    if(invAlarm){
+      console.log(invAlarm)
+      this.invAlarmConfig = invAlarm;
+    }
     // const diagramEquip: DiagramEquipmentModel[] = await this.httpService.getConfig('assets/diagram/equipments/' + this.siteName.id + '.equipment.json');
     // if(diagramEquip){
     //   this.equipmentList = diagramEquip;
@@ -445,4 +507,10 @@ export class DiagramsComponent implements OnInit, OnDestroy {
       return true;
     }
   }
+}
+
+export interface InverterAlarmModel{
+  id: number;
+  level: string;
+  name: string;
 }

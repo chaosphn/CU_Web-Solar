@@ -24,7 +24,7 @@ import * as XLSX from 'xlsx';
 import { HolidayRequestModel, HolidayResponseModel, ReportFactorModel, ReportRequestModel } from '../share/models/report.model';
 import pdfMake from 'pdfmake/build/pdfmake';
 import pdfFonts from 'pdfmake/build/vfs_fonts';
-import { image } from 'html2canvas/dist/types/css/types/image';
+import { image } from 'html2canvas/dist/types/css/types/image';;
 
 pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
@@ -42,6 +42,7 @@ export class ReportsComponent implements OnInit {
   reportConfig: ReportConfigModel[] = [];
   pdf: string;
   selectedReport: ReportConfigModel;
+  renderReport?: ReportConfigModel;
   selectedGroupReport: ReportConfigModel[] = [];
   reportFactors: ReportFactorModel = {
     ExchangeRate: 2.95,
@@ -53,7 +54,6 @@ export class ReportsComponent implements OnInit {
     TreeRate: 1,
     TimeStamp:''
   };
-
   startView: string;
   currentRoute: string;
   siteName: string = ''; 
@@ -83,6 +83,7 @@ export class ReportsComponent implements OnInit {
   holiday: string[] = [];
   adminAccess: boolean = false;
   downloadTxt: boolean = false;
+  oldReportData: string = '';
 
   @ViewChild('htmlTable') pdfTable: ElementRef;
 
@@ -282,7 +283,7 @@ export class ReportsComponent implements OnInit {
   async getConfig() {
     const config: SiteStateModel = await this.httpService.getNavConfig('assets/reports/BuildingList.json');
     if(config){
-      //console.log(config)
+      ////console.log(config)
       this.buildingList = config.building;
       this.buildingList.push(this.overallSelected);
       this.buildingList.sort((a, b) => parseInt(b.no) - parseInt(a.no));
@@ -293,7 +294,7 @@ export class ReportsComponent implements OnInit {
   onDateTimeChange(event: any) {
     this.dateTime = event;
     this.resetTable();
-    this.initHolidays();
+    //this.initHolidays();
     switch(this.selectedReport.Type){
       case "daily":
         this.dateColumn = [];
@@ -362,7 +363,7 @@ export class ReportsComponent implements OnInit {
         end = new Date(lastDate).toISOString();;//this.dateTimeService.getDateTime(new Date(lastDate));
         break;
     }
-    //console.log('start : '+start+'\nend : '+end);
+    ////console.log('start : '+start+'\nend : '+end);
     const req: DashboardReqHistorian[] = this.selectedReport.HeaderGroup[index].Header.reduce((acc, cur) => {
       if(cur.tagname && !acc.find(x => x.Name == cur.tagname)){
         let reqItem: DashboardReqHistorian = {
@@ -390,17 +391,17 @@ export class ReportsComponent implements OnInit {
         let table: any[] = [];
         const promises = this.dateColumn.map(async rw => {
           const res:DashboardResHistorian[] = await this.httpService.getReportData(this.getGroupRequestWithType(this.selectedReport.Type, rw, index));
-          console.log(item);
-          console.log(this.selectedReport.Type)
-          console.log(this.dateColumn)
+          //console.log(item);
+          //console.log(this.selectedReport.Type)
+          //console.log(this.dateColumn)
           const testBody = this.getGroupRequestWithType(this.selectedReport.Type, rw, index);
-          console.log(testBody)
+          //console.log(testBody)
           this.response = res;        
           let row: string[] = [];
           item.Header.forEach((cl, i) => {
             switch (cl.option) {
               case "TIME":
-                //console.log(new Date(rw))
+                ////console.log(new Date(rw))
                 row.push(new Date(rw).toISOString());
                 break;
               case "DIFF":
@@ -436,22 +437,22 @@ export class ReportsComponent implements OnInit {
           table.push(row);
         });
         await Promise.all(promises);
-        //console.log(table)
+        ////console.log(table)
         let sortingData =  table.sort((a, b) => new Date(a[0]).getHours() - new Date(b[0]).getHours());
-        const tableData: TableGroupModel = {
-          table: sortingData,
-          chart: this.gteChart(sortingData, item.Header[0].type, item.Header[0].tagname),
-          name: item.Name
-        };
-        if(tableData){
-          //console.log(tableData);
-          this.dataGroupTable.push(tableData);
-        }
+        // const tableData: TableGroupModel = {
+        //   table: sortingData,
+        //   chart: this.gteChart(sortingData, item.Header[0].type, item.Header[0].tagname),
+        //   name: item.Name
+        // };
+        // if(tableData){
+        //   ////console.log(tableData);
+        //   this.dataGroupTable.push(tableData);
+        // }
       };
       await fetchData();
       index++;
     }
-    //console.log(this.dataGroupTable)
+    ////console.log(this.dataGroupTable)
     this.loading = false;
   }
 
@@ -462,7 +463,7 @@ export class ReportsComponent implements OnInit {
     // if(this.selectedReport.Type == "monthly"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,11) }
     // else if(this.selectedReport.Type == "yearly"){ findDate = this.dateTimeService.getDateTime(new Date(dateTime)).substring(0,8) }
     const tags = this.response.find(x => x.Name == tag);
-    // console.log(tags)
+    // //console.log(tags)
     if(tags && tags.records){
       const data:Record[] = tags.records
       //.filter(d => d.TimeStamp.includes(findDate))
@@ -673,7 +674,7 @@ export class ReportsComponent implements OnInit {
   
   getSummaryData(type: string, index: number, factor: number, data: any[]){
     let res: string = "0.00";
-    //console.log(data)
+    ////console.log(data)
     if(data && data.length > 0){
       switch(type){
         case "SUM":
@@ -801,7 +802,7 @@ export class ReportsComponent implements OnInit {
       // Use html2canvas to capture each element as an image
         html2canvas(element).then((canvas) => {
             const dataURL = 'c'//canvas.toBlob()
-            console.log(`Chart ${index + 1} as Data URL:`, canvas.nodeName);
+            //console.log(`Chart ${index + 1} as Data URL:`, canvas.nodeName);
             // docDefinition.content.push({
             //   image: dataURL,
             //   width: 525,
@@ -811,7 +812,7 @@ export class ReportsComponent implements OnInit {
             // Optionally append the canvas to the document to visualize
             //document.body.appendChild(canvas); // For testing purposes
         }).catch((error) => {
-            console.error(`Error generating Data URL for chart ${index + 1}:`, error);
+            //console.error(`Error generating Data URL for chart ${index + 1}:`, error);
         });
     });
     
@@ -823,7 +824,7 @@ export class ReportsComponent implements OnInit {
           const imgData = canvas.toBlob((blob) => {},"image/png", 1.0)//canvas.toDataURL("image/jpeg", 1.0);
           const imgWidth = 208;
           const imgHeight = canvas.height * imgWidth / canvas.width;
-          console.log(imgData)
+          //console.log(imgData)
         }
   
         // docDefinition.content.push({
@@ -846,7 +847,7 @@ export class ReportsComponent implements OnInit {
         //   // const pdf = await PDFDocument.load(data);
         //   // const copyPdf = await mergePDF.copyPages(pdf, pdf.getPageIndices());
         //   // copyPdf.forEach((page) => mergePDF.addPage(page));
-        //   console.log(data)
+        //   //console.log(data)
         // });
         //pdfMake.createPdf(definition).download(componentId+'.pdf');
       }
@@ -864,10 +865,10 @@ export class ReportsComponent implements OnInit {
     // pdfMake.createPdf(docDefinition).download(reportName);
     // const createPDF = pdfMake.createPdf(docDefinition).getBase64( async(data: any) => {
       
-    //   console.log(data)
+    //   //console.log(data)
     // });
     //pdfMake.createPdf(docDefinition).open();
-    console.log(docDefinition)
+    //console.log(docDefinition)
     this.downloadTxt = false;
   }
   
@@ -948,9 +949,10 @@ export class ReportsComponent implements OnInit {
 
   async getResponseData2(){
   
-    this.resetTable();
+    // this.resetTable();
+    // this.loading = true;
+    // this.renderReport = this.selectedReport;
     // for await (const item of this.selectedReport.HeaderGroup) {
-    //   this.loading = true;
     //   const req:ReportRequestModel = {
     //     Name: item.Name,
     //     Type: this.selectedReport.Type,
@@ -969,29 +971,95 @@ export class ReportsComponent implements OnInit {
     //     this.dataGroupTable.push(tableData);
     //   }
     // }
-    this.loading = true;
-    const report = this.selectedReport.HeaderGroup.map( async(item, index) => {
-      const req:ReportRequestModel = {
-        Name: item.Name,
-        Type: this.selectedReport.Type,
-        Header: item.Header,
-        DateColumn: this.dateColumn,
-        StartTime: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 0, 1)),
-        EndTime: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 11, 31))
-      };
-      const response = await this.httpService.getCompleteReportData(req);
-      if(response){
-        const tableData: TableGroupModel = {
-          table: response,
-          chart: this.gteChart(response, item.Header[0].type, item.Header[0].tagname),
-          name: item.Name
+    // this.loading = false;
+    const checkdate = new Date()
+    checkdate.setHours(0,0,0,0);
+    const reportDate = new Date(this.dateTime);
+    reportDate.setHours(0,0,0,0);
+    const reportId = this.siteName+this.selectedReport.Type+this.dateTime.toISOString();
+    const reportDataTable:TableGroupModel[] = [];
+    ////console.log('report time : ' + reportDate.getTime() + " : " + reportDate.toISOString());
+    ////console.log('date time : ' + checkdate.getTime() + " : " + checkdate.toISOString());
+    if(reportId != this.oldReportData){
+      this.oldReportData = reportId;
+      this.loading = true;
+      ////console.log('new data')
+      this.dataGroupTable = [];
+      this.renderReport = this.selectedReport;
+      const report = this.renderReport.HeaderGroup.map( async(item, index) => {
+        const req:ReportRequestModel = {
+          Name: item.Name,
+          Type: this.renderReport.Type,
+          Header: item.Header,
+          DateColumn: this.dateColumn,
+          StartTime: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 0, 1)),
+          EndTime: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 11, 31))
         };
-        this.dataGroupTable[index] = tableData;
-      }
-    });
-    await Promise.all(report);
-    this.loading = false;
+        const response = await this.httpService.getCompleteReportData(req);
+        if(response){
+          const tableData: TableGroupModel = {
+            table: response,
+            chart: this.gteChart(response, item.Header[0].type, item.Header[0].tagname),
+            name: item.Name,
+            dateformat: this.renderReport.DateFormat,
+            title: this.renderReport.Name,
+            header: item.Header
+          };
+          reportDataTable[index] = tableData;
+        }
+      });
+      await Promise.all(report);
+      this.dataGroupTable = reportDataTable;
+      this.loading = false;
+    } else if( reportDate.getTime() >= checkdate.getTime()){
+      this.oldReportData = reportId;
+      this.loading = true;
+      ////console.log('new data')
+      this.dataGroupTable = [];
+      this.renderReport = this.selectedReport;
+      const report = this.renderReport.HeaderGroup.map( async(item, index) => {
+        const req:ReportRequestModel = {
+          Name: item.Name,
+          Type: this.renderReport.Type,
+          Header: item.Header,
+          DateColumn: this.dateColumn,
+          StartTime: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 0, 1)),
+          EndTime: this.dateTimeService.getDateTime(new Date(this.dateTime.getFullYear(), 11, 31))
+        };
+        const response = await this.httpService.getCompleteReportData(req);
+        if(response){
+          const tableData: TableGroupModel = {
+            table: response,
+            chart: this.gteChart(response, item.Header[0].type, item.Header[0].tagname),
+            name: item.Name,
+            dateformat: this.renderReport.DateFormat,
+            title: this.renderReport.Name,
+            header: item.Header
+          };
+          reportDataTable[index] = tableData;
+        }
+      });
+      await Promise.all(report);
+      this.dataGroupTable = reportDataTable;
+      this.loading = false;
+    } else {
+      // const oldTable = this.dataGroupTable;
+      // this.dataGroupTable = [];
+      // this.dataGroupTable = oldTable;
+    }
+    //console.log(this.dataGroupTable)
   }
+
+  resetLoading(){
+    //console.log('2222')
+    this.loading = false;
+    //return 'xxx';
+  }
+
+  itemByName(item: TableGroupModel, index: number){
+    return item.name;
+  }
+  
 }
 
 export interface ReportConfigModel{
@@ -1026,4 +1094,7 @@ export interface TableGroupModel{
   table: string[][];
   chart: Chart;
   name: string;
+  dateformat: string;
+  title: string;
+  header: ReportHeaderModel[];
 }

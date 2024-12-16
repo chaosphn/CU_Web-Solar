@@ -35,14 +35,95 @@
                 </div>
             </div>
             <div class="content bz">
+                <!-- <div id="htmlTable" *ngIf="renderReport && renderReport.HeaderGroup && !loading && dataGroupTable.length == renderReport.HeaderGroup.length">
+                    <div *ngFor="let item of this.renderReport.HeaderGroup; index as i">
+                        <div [id]="item.Name" class="report-content bz" *ngIf="dataGroupTable[i] && dataGroupTable[i].table && !loading">
+                            <div class="report-header d-flex-sb w-100 bz">
+                                <div><img src="assets/images/cu.png" alt="" srcset="" ></div>
+                                <div class="d-col header-info">
+                                    <span class="topic">{{renderReport.Name}}</span>
+                                    <span class="topic">{{dateTime | date: renderReport.DateFormat }}</span>
+                                    <span class="topic">{{item.Name}}</span>
+                                </div>
+                                <div><img src="assets/images/mea.png" alt="" srcset="" ></div>
+                            </div>
+                            <div class="report-info w-100 bz" *ngIf="dataGroupTable[i] && dataGroupTable[i].table">
+                                <div class="row-info">
+                                    <span class="bz">Energy Production:</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | report: 2) }} kWh</span>
+                                    <span class="bz"></span>
+                                    <span class="bz">Energy Charge:</span>
+                                    <span class="bz">{{ ((getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.ExchangeRate)+((getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.ExchangeRate) | report: 2 }} THB</span>
+                                </div>
+                                <div class="row-info">
+                                    <span class="bz">Energy Production (On Peak):</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | report: 2) }} kWh</span>
+                                    <span class="bz"></span>
+                                    <span class="bz">Energy Charge (On Peak):</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.ExchangeRate | report: 2 }} THB</span>
+                                </div>
+                                <div class="row-info">
+                                    <span class="bz">Energy Production (Off Peak):</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | report: 2) }} kWh</span>
+                                    <span class="bz"></span>
+                                    <span class="bz">Energy Charge (Off Peak):</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.ExchangeRate | report: 2 }} THB</span>
+                                </div>
+                                <div class="row-info">
+                                    <span class="bz">CO<sub>2</sub> Reduction:</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.CO2Rate | report: 2 }} Kg</span>
+                                    <span class="bz"></span>
+                                    <span class="bz">Financial Saving (Discount):</span>
+                                    <span class="bz">{{ ((getSummaryData("SUM", 2, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OnPeakRate) + ((getSummaryData("SUM", 3, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.OffPeakRate) - ((getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.ExchangeRate) | report: 2 }} THB</span>
+                                </div>
+                                <div class="row-info">
+                                    <span class="bz">Tree Saving:</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.TreeRate | report: 2 }} Trees</span>
+                                    <span class="bz"></span>
+                                    <span class="bz">Financial Saving (FT):</span>
+                                    <span class="bz">{{ (getSummaryData("SUM", 1, 1, dataGroupTable[i].table) | myNumber: '1.0-2') * reportFactors.FT | report: 2 }} THB</span>
+                                </div>
+                                
+                            </div>
+                            <div class="report-table bz w-100">
+                                <table *ngIf="dataGroupTable[i] && dataGroupTable[i].table" class="bz">
+                                    <thead>
+                                        <tr>
+                                            <th class="bz" [style.width]="head.width" *ngFor="let head of item.Header">{{head.title}}</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let row of dataGroupTable[i].table | orderBy: 0">
+                                            <td class="bz" *ngFor="let col of row; index as j;">
+                                                <span *ngIf="j==0">{{col | date: item.Header[0].type}}</span>
+                                                <span *ngIf="j!=0 && item.Header[j] && item.Header[j].factor">{{ ((col | myNumber: '1.0-4') * item.Header[j].factor) | report: 2}}</span>
+                                                <span *ngIf="j!=0 && !item.Header[j].factor">{{ ((col | myNumber: '1.0-4') * 1) | report: 2}}</span>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bz row-summary" *ngFor="let sum of item.Header; index as x;">
+                                                <span *ngIf="sum.display">{{sum.display}}</span>
+                                                <span *ngIf="!sum.display">{{getSummaryData(sum.type, x, sum.factor, dataGroupTable[i].table) | report: 2}}</span>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="report-chart bz" *ngIf="dataGroupTable[i] && dataGroupTable[i].table && dataGroupTable[i].chart">
+                                <div [style.height]="'100%'" [chart]="dataGroupTable[i].chart">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
                 <div class="loading-wave" *ngIf="loading">
                     <div class="loading-bar"></div>
                     <div class="loading-bar"></div>
                     <div class="loading-bar"></div>
                     <div class="loading-bar"></div>
                 </div>
-                <div id="htmlTable" *ngIf="renderReport && dataGroupTable && !loading">
-                    <div *ngFor="let item of dataGroupTable; trackBy:itemByName">
+                <div id="htmlTable" *ngIf="renderReport && dataGroupTable && !loading && dataGroupTable.length == renderReport.HeaderGroup.length">
+                    <div *ngFor="let item of this.dataGroupTable; index as i" *ngFor="let item of list; trackBy:item">
                         <div [id]="item.name" class="report-content bz" *ngIf="item && item.table">
                             <div class="report-header d-flex-sb w-100 bz">
                                 <div><img src="assets/images/cu.png" alt="" srcset="" ></div>
@@ -103,8 +184,8 @@
                                             <td class="bz" *ngFor="let col of row; index as j;">
                                                 <span *ngIf="j==0">{{col | date: item.header[0].type}}</span>
                                                 <span *ngIf="j!=0 && item.header[j] && item.header[j].factor > 1">{{ ((col | myNumber: '1.0-4') * item.header[j].factor) | report: 2}}</span>
-                                                <span *ngIf="j!=0 && item.header[j] && item.header[j].factor <= 1">{{ (col | myNumber: '1.0-4') | report: 2}}</span>
                                                 <span *ngIf="j!=0 && item.header[j] && !item.header[j].factor">{{ ((col | myNumber: '1.0-4') * 1) | report: 2}}</span>
+                                                <span *ngIf="j!=0 ">{{ ((col | myNumber: '1.0-4') * 1) | report: 2}}</span>
                                             </td>
                                         </tr>
                                         <tr>

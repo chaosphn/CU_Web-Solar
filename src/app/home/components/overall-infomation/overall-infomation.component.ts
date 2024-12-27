@@ -13,7 +13,11 @@ export class OverallInfomationComponent implements OnInit, OnDestroy, OnChanges 
 
   @Input() config: LocationStateModel[] = [];
   @Input() zoneDisplayed: string = 'all';
-  constructor( private store: Store ) { }
+
+  constructor( private store: Store ) {
+    //console.log(overallImage)
+    //this.image = overallImage;
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     //console.log(this.zoneDisplayed)

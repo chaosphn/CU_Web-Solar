@@ -1,7 +1,7 @@
 <div class="container-fluid">
   <div class="svg-container bz w-100 h-100">
     <div class="svgBox w-100 h-100">
-      <img [src]="'assets/images/building/'+siteName.zone+'.png'" alt="" width="100%" height="100%">
+      <img [src]="'assets/images/building/zone/'+siteName.zone+'.png'" alt="" width="100%" height="100%">
       <!-- <img [src]="'assets/images/map.png'" alt="" width="100%" height="100%"> -->
       <div class="zoneCard" [id]="siteName.id + '_pos'" *ngIf="!siteName.building && data && data.singleValue" >
           <app-tooltip (click)="selectBuilding(siteName.id)"

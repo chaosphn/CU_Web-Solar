@@ -185,13 +185,13 @@ export class DiagramsComponent implements OnInit, OnDestroy {
       if(findAlarm){
         switch (findAlarm.level) {
           case 'Major':
-            style = { fill:'red',opacity: 1, animation: 'blinker 4s linear infinite'}
+            style = { fill:'red',opacity: 1, animation: 'blinker 2s linear infinite'}
             break;
           case 'Minor':
-            style = { fill:'#df6400',opacity: 1, animation: 'blinker 4s linear infinite'}
+            style = { fill:'#FD674E',opacity: 1, animation: 'blinker 2s linear infinite'}
             break;
           case 'Warning':
-            style = { fill:'#A77800',opacity: 1, animation: 'blinker 4s linear infinite'}
+            style = { fill:'#A77800',opacity: 1, animation: 'blinker 2s linear infinite'}
             break;
           default:
             break;
@@ -217,7 +217,7 @@ export class DiagramsComponent implements OnInit, OnDestroy {
     if(alarm && parseInt(alarm) > 0){
       const findAlarm = this.invAlarmConfig.find(x => x.id == parseInt(alarm));
       return findAlarm ? findAlarm.name : 'UNKNOW';
-    } else if(run) {
+    } else if(run >= 0) {
       return run && parseInt(run) == 1 ? 'RUNNING' : 'STOPPED';
     } else {
       return 'UNKNOW';
@@ -379,7 +379,7 @@ export class DiagramsComponent implements OnInit, OnDestroy {
     await this.addDataToStore(data);
     
     this.loadSingleValue();
-    this.startTimer(this.appLoadService.Config.Timer * 30000);
+    this.startTimer(60000);
 
   }
 

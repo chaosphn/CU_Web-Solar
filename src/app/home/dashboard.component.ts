@@ -143,7 +143,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     await this.getLocationConfigs();
     this.init02();
     this.locationSub = this.locationState$.subscribe((data) => {
-      console.log('update state : '+ data.zone);
+      //console.log('update state : '+ data.zone);
       this.unSubscribeTimer();
       if(data && data.zone){
         this.locationSelected = data;
@@ -442,19 +442,16 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
 
   async addHistorianDataToStore(data: any[]) {
     const Datas: DashboardResHistorian[] = data;
-    let newData: DashboardLastValuesModel[] = []
-    Datas.forEach((item) => {
-      let record:DashboardLastValuesModel = {
-        Name: item.Name,
+    return Datas ? Datas.map(function(x){
+      return {
+        Name: x.Name,
         Mode: "Historian",
-        Min: item.Min,
-        Max: item.Max,
-        Unit: item.Unit,
-        DataRecord: item.records
+        Min: x.Min,
+        Max: x.Max,
+        Unit: x.Unit,
+        DataRecord: x.records
       }
-      newData.push(record);
-    });
-    return newData;
+    }) : [];
     ////console.log(newData)
     //await this.store.dispatch(new SetDashboardValues(newData)).toPromise();
   }

@@ -8,6 +8,9 @@ import { AuthService } from './../../share/services/auth.service';
 @Injectable({ providedIn: 'root' })
 export class ServerErrorsInterceptor implements HttpInterceptor {
 
+    username: string;
+    password: string;
+
     constructor(private authService: AuthService,
         private router: Router) { }
 
@@ -20,8 +23,9 @@ export class ServerErrorsInterceptor implements HttpInterceptor {
                         case 401:
                             return this.handle401Error(req, next);
                         case 403:
-                            this.router.navigate(['login']);
-                            return observableThrowError(error);
+                            //this.router.navigate(['login']);
+                            //this.authService.refreshLogin();
+                            return this.handle403Error(req, next);
                         default:
                             return observableThrowError(error);
                     }
@@ -43,17 +47,43 @@ export class ServerErrorsInterceptor implements HttpInterceptor {
         );
     }
 
+    handle403Error(req: HttpRequest<any>, next: HttpHandler) {
+        return this.authService.refreshLogin().pipe(
+            switchMap((newToken: any) => {
+                //console.log(newToken)
+                const newReq = this.addToken(req);
+                return next.handle(newReq);
+            }),
+            catchError(error => {
+                return this.logoutUser();
+            }),
+        );
+    }
+
 
 
     private addToken(request: HttpRequest<any>) {
-        const token = localStorage.getItem('token');
-        if(token){
-            const authReq = request.clone({
-                headers: request.headers.set('Authorization', 'bearer ' + token)
-            });
-            return authReq;
+        const tokens = localStorage.getItem('token');
+        if(tokens){
+          const authReq = request.clone({
+            headers: request.headers.set('Authorization', tokens)
+          });
+          //console.log('return new auth request')
+          return authReq;
         } else {
-            return request;
+          //console.log('return old request')
+          this.logoutUser();
+          return request;
+        }
+    }
+
+    private async refreshToken() {
+        try {
+            if(this.username && this.password){
+                await this.authService.login(this.username, this.password);
+            }
+        } catch (error) {
+            console.log(error);
         }
     }
 
@@ -69,5 +99,10 @@ export class ServerErrorsInterceptor implements HttpInterceptor {
         localStorage.removeItem('refresh_token');
         localStorage.removeItem('username');
         localStorage.removeItem('pages');
+    }
+
+    setUserInfomation(user: string, pass: string){
+        this.username = user;
+        this.password = pass;
     }
 }

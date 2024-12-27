@@ -54,7 +54,7 @@
                     },
                     {
                         "title": "Irradiance\n(Wh/m2)",
-                        "tagname": "M0OVA.CALZOVA.PYRANO",
+                        "tagname": "B006.SLOGGER06.PYRANO",
                         "option": "AVG",
                         "width": "7rem",
                         "type": "SUM",
@@ -62,7 +62,7 @@
                     },
                     {
                         "title": "Ambient Temp.\n(°C)",
-                        "tagname": "M0OVA.CALZOVA.AMBTEMP",
+                        "tagname": "B006.SLOGGER06.AMBTEMP",
                         "option": "AVG",
                         "width": "7rem",
                         "type": "AVG",
@@ -70,7 +70,7 @@
                     },
                     {
                         "title": "Module Temp.\n(°C)",
-                        "tagname": "M0OVA.CALZOVA.PVTEMP",
+                        "tagname": "B006.SLOGGER06.PVTEMP",
                         "option": "AVG",
                         "width": "7rem",
                         "type": "AVG",
@@ -2636,7 +2636,7 @@
                     },
                     {
                         "title": "Irradiance\n(Wh/m2)",
-                        "tagname": "M0OVA.CALZOVA.IRR_TODAY",
+                        "tagname": "B006.SLOGGER06.IRR_TODAY",
                         "option": "DIFF",
                         "width": "7rem",
                         "type": "SUM",
@@ -2644,7 +2644,7 @@
                     },
                     {
                         "title": "Ambient Temp.\n(°C)",
-                        "tagname": "M0OVA.CALZOVA.AMBTEMP",
+                        "tagname": "B006.SLOGGER06.AMBTEMP",
                         "option": "AVG",
                         "width": "7rem",
                         "type": "AVG",
@@ -2652,7 +2652,7 @@
                     },
                     {
                         "title": "Module Temp.\n(°C)",
-                        "tagname": "M0OVA.CALZOVA.PVTEMP",
+                        "tagname": "B006.SLOGGER06.PVTEMP",
                         "option": "AVG",
                         "width": "7rem",
                         "type": "AVG",
@@ -5218,7 +5218,7 @@
                     },
                     {
                         "title": "Irradiance\n(Wh/m2)",
-                        "tagname": "M0OVA.CALZOVA.IRR_TODAY",
+                        "tagname": "B006.SLOGGER06.IRR_TODAY",
                         "option": "SUMMAX",
                         "width": "7rem",
                         "type": "SUM",
@@ -5226,7 +5226,7 @@
                     },
                     {
                         "title": "Ambient Temp.\n(°C)",
-                        "tagname": "M0OVA.CALZOVA.AMBTEMP",
+                        "tagname": "B006.SLOGGER06.AMBTEMP",
                         "option": "AVGALL",
                         "width": "7rem",
                         "type": "AVG",
@@ -5234,7 +5234,7 @@
                     },
                     {
                         "title": "Module Temp.\n(°C)",
-                        "tagname": "M0OVA.CALZOVA.PVTEMP",
+                        "tagname": "B006.SLOGGER06.PVTEMP",
                         "option": "AVGALL",
                         "width": "7rem",
                         "type": "AVG",

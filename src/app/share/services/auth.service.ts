@@ -3,12 +3,15 @@ import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { HttpService } from './http.service';
+import { ServerErrorsInterceptor } from 'src/app/routings/interceptors/server-error.interceptor';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
     currentRoute = 'main/dashboard';
+    user: string;
+    pass: string;
 
     constructor(private router: Router, private httpService: HttpService) {
 
@@ -46,6 +49,8 @@ export class AuthService {
                 localStorage.setItem('token', res.Access.Token);
                 localStorage.setItem('refresh_token', res.Access.Token);
                 localStorage.setItem('username', username);
+                this.user = username;
+                this.pass = password;
                 //console.log(res.Access.Pages);
                 let pageGroup = {
                     pages:[]
@@ -66,16 +71,20 @@ export class AuthService {
     }
 
     refreshToken(): Observable<any> {
-        const refreshToken = localStorage.getItem('refresh_token');
-        return this.httpService.refreshToken(refreshToken).pipe(
-            map(res => {
-                if (res && res.access_token && res.refresh_token) {
-                    localStorage.setItem('token', res.access_token);
-                    localStorage.setItem('refresh_token', res.refresh_token);
-                }
-                return res;
-            })
-        );
+       try {
+         const refreshToken = localStorage.getItem('refresh_token');
+         return this.httpService.refreshToken(refreshToken).pipe(
+             map(res => {
+                 if (res && res.access_token && res.refresh_token) {
+                     localStorage.setItem('token', res.access_token);
+                     localStorage.setItem('refresh_token', res.refresh_token);
+                 }
+                 return res;
+             })
+         );
+       } catch (error) {
+        
+       }
     }
 
     async checkToken(): Promise<boolean> {
@@ -101,6 +110,20 @@ export class AuthService {
 
     logout() {
         //this.removeUserInfo();
+        this.user = undefined;
+        this.pass = undefined;
         this.router.navigate(['login']);
+    }
+
+    refreshLogin(): Observable<any> {
+        return this.httpService.refreshLogin(this.user, this.pass).pipe(
+            map(res => {
+                if (res && res.Access.Token) {
+                    localStorage.setItem('token', res.Access.Token);
+                    localStorage.setItem('refresh_token', res.Access.Token);
+                }
+                return res;
+            })
+        );
     }
 }

@@ -23,10 +23,10 @@
     <div class="map-container bz">
       <div [ngSwitch]="locationSelected.zone">
         <div *ngSwitchCase="'overvall'"><app-overall-infomation [config]="locationConfig" [zoneDisplayed]="zoneScrolled"></app-overall-infomation></div>
-        <div *ngSwitchCase="'northeast'"><app-northeast-infomation [data]="data?.singleValue" [building]="buildingList"></app-northeast-infomation></div>
-        <div *ngSwitchCase="'northwest'"><app-northwest-infomation [data]="data?.singleValue" [building]="buildingList"></app-northwest-infomation></div>
-        <div *ngSwitchCase="'southeast'"><app-southeast-infomation [data]="data?.singleValue" [building]="buildingList"></app-southeast-infomation></div>
-        <div *ngSwitchCase="'southwest'"><app-southwest-infomation [data]="data?.singleValue" [building]="buildingList"></app-southwest-infomation></div>
+        <div *ngSwitchCase="'northwest'"><app-northeast-infomation [data]="data?.singleValue" [building]="buildingList"></app-northeast-infomation></div>
+        <div *ngSwitchCase="'northeast'"><app-northwest-infomation [data]="data?.singleValue" [building]="buildingList"></app-northwest-infomation></div>
+        <div *ngSwitchCase="'southwest'"><app-southeast-infomation [data]="data?.singleValue" [building]="buildingList"></app-southeast-infomation></div>
+        <div *ngSwitchCase="'southeast'"><app-southwest-infomation [data]="data?.singleValue" [building]="buildingList"></app-southwest-infomation></div>
         <div *ngSwitchDefault><app-overall-infomation [config]="locationConfig" [zoneDisplayed]="zoneScrolled"></app-overall-infomation></div>
       </div>
     </div>

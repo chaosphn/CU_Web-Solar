@@ -303,6 +303,17 @@ export class HttpService {
         return res;
     }
 
+    refreshLogin(username: string, password: string): Observable<any> {
+        const body = {
+            user : username,
+            password : password
+        };
+        //console.log(body)
+        const res: any = this.httpClient.post(this.appLoadService.Config.UrlApiAuthen + 'userauthen', body);
+        //console.log(res);
+        return res;
+    }
+
     downloadFileAlarm(StartTime: string,EndTime: string,FilterObjectName: string,MaxEvents: string) {
         const body = `?StartTime=${StartTime}&EndTime=${EndTime}&FilterObjectName=${FilterObjectName}&MaxEvents=${MaxEvents}`;
         window.open(this.appLoadService.Config.UrlApi + 'api/alarmevents/GetEventsFile' + body, '_blank');

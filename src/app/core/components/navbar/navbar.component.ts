@@ -148,9 +148,9 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   selectMeter(id: string){
     //console.log(this.buildingList)
     this.buildingList.building.map(function(item){
-      if(!item.building) {
-        item.display = false;
-      }
+      // if(!item.building) {
+      //   item.display = false;
+      // }
       if(id && item.zone == id && parseInt(item.no) <= 12 && !item.building){
         item.display = true;
       } 
@@ -211,6 +211,15 @@ export class NavbarComponent implements AfterViewInit, OnInit {
   async selectSite(data:BuildingModel){
     this.siteSelected = data;
     localStorage.setItem('location', JSON.stringify(data));
+    this.buildingList.building.map(function(item){
+      if(!item.building && item.zone != data.zone) {
+        item.display = false;
+      }
+      // if(data.id && item.zone == data.id && parseInt(item.no) <= 12 && !item.building){
+      //   item.display = true;
+      // } 
+      return item;
+    })
     this.event.triggerFunction()
     await this.store.dispatch( new SetBulding(data)).toPromise();
   }

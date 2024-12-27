@@ -246,11 +246,17 @@ button.download {
 }  
 
 .effect {
-    stroke-dasharray: 4000;
-    animation: dash 15s linear infinite;
+    // stroke-dasharray: 4000;
+    // animation: dash 15s linear infinite;
 }
 
-.point{
+.stroke-effect {
+    stroke-dasharray: 4000;
+    animation: dash 10s linear alternate;
+    -webkit-animation: dash 10s linear alternate;
+}
+
+.point-effect {
     animation: dasheff 16s infinite;
 }
 

@@ -23,10 +23,10 @@ export class TokenInterceptor implements HttpInterceptor {
   }
 
   private addToken(request: HttpRequest<any>) {
-    const token = localStorage.getItem('token');
-    if(token){
+    const tokens = localStorage.getItem('token');
+    if(tokens){
       const authReq = request.clone({
-        headers: request.headers.set('Authorization', token)
+        headers: request.headers.set('Authorization', tokens)
       });
       return authReq;
     } else {

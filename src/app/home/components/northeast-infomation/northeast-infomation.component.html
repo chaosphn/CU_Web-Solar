@@ -1,8 +1,8 @@
 <div class="container-box w-100 h-100 bz">
-  <svg class="map-svg bz" width="1920" height="1080" x="0" y="0" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg class="map-svg bz"  width="1920" height="1080" x="0" y="0" viewBox="0 0 1920 1080" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <g id="Group 2191">
     <rect id="northwest 1" width="1920" height="1080" fill="url(#pattern0_899_11015)"/>
-    <g id="card" transform="translate(50, -150)">
+    <g id="card" transform="translate(50, -150)" (click)="creatBuildingAnimate()">
     <g id="Group 2068">
     <rect id="Rectangle 902" x="672.75" y="799.75" width="300.5" height="98.5" fill="#270068" fill-opacity="0.6" stroke="#5C00FF" stroke-width="1.5"/>
     <text id="&#224;&#184;&#136;&#224;&#184;&#184;&#224;&#184;&#172;&#224;&#184;&#178;&#224;&#184;&#153;&#224;&#184;&#180;&#224;&#184;&#167;&#224;&#184;&#178;&#224;&#184;&#170; : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="679" y="820.058">&#xe08;&#xe38;&#xe2c;&#xe32;&#xe19;&#xe34;&#xe27;&#xe32;&#xe2a;  : {{data['CEN089_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
@@ -16,7 +16,7 @@
     <circle id="Ellipse 70" cx="1041.08" cy="811.079" r="6.07895" class="point" fill="#5C00FF"/>
     </g>
     </g>
-    <g id="card_2" transform="translate(100, -130)">
+    <g id="card_2" transform="translate(100, -130)" >
     <g id="Group 2069">
     <rect id="Rectangle 902_2" x="447.75" y="644.75" width="300.5" height="98.5" fill="#202020" fill-opacity="0.6" stroke="black" stroke-width="1.5"/>
     <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#136;&#224;&#184;&#184;&#224;&#184;&#172;&#224;&#184;&#178;&#224;&#184;&#158;&#224;&#184;&#177;&#224;&#184;&#146;&#224;&#184;&#153;&#224;&#185;&#140; 13 : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="454" y="665.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe08;&#xe38;&#xe2c;&#xe32;&#xe1e;&#xe31;&#xe12;&#xe19;&#xe4c; 13  : {{data['_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>
@@ -30,7 +30,7 @@
     <circle id="Ellipse 70_2" cx="381.079" cy="607.079" r="6.07895" class="point" fill="black"/>
     </g>
     </g>
-    <g id="card_3" transform="translate(120, -100)">
+    <g id="card_3" transform="translate(120, -100)" (click)="resetBuildingAnimate()">
     <g id="Group 2070">
     <rect id="Rectangle 902_3" x="480.75" y="225.75" width="300.5" height="98.5" fill="#252F64" fill-opacity="0.6" stroke="#3F51B5" stroke-width="1.5"/>
     <text id="&#224;&#184;&#173;&#224;&#184;&#178;&#224;&#184;&#132;&#224;&#184;&#178;&#224;&#184;&#163;&#224;&#184;&#136;&#224;&#184;&#184;&#224;&#184;&#172;&#224;&#184;&#178;&#224;&#184;&#158;&#224;&#184;&#177;&#224;&#184;&#146;&#224;&#184;&#153;&#224;&#185;&#140; 14 : 55.32 kW" fill="white" xml:space="preserve" style="white-space: pre" font-family="Tahoma" font-size="14" font-weight="bold" letter-spacing="0em"><tspan x="487" y="246.058">&#xe2d;&#xe32;&#xe04;&#xe32;&#xe23;&#xe08;&#xe38;&#xe2c;&#xe32;&#xe1e;&#xe31;&#xe12;&#xe19;&#xe4c; 14 : {{data['CEN100_power']?.dataRecords[0]?.Value  | myNumber2 : '1.0-2'}} kW</tspan></text>

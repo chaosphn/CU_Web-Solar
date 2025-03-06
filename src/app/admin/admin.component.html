@@ -96,11 +96,11 @@
       <div class="date-col bz" *ngFor="let m of monthArr">
         <div class="date-title"><span>{{m.name}}</span></div>
         <div class="date-group bz">
-          <mat-chip-list #chipList>
-            <mat-chip class="chip bz"
+          <mat-chip-list #chipList class="bz">
+            <mat-chip class="chip w-100 bz"
               *ngFor="let date of filterDateByMonth(m.no, holidayArr); index as i;"
               [removable]="removable"
-              (removed)="remove(i)">
+              (removed)="remove(date)">
               {{date | date: 'dd-MMM-yyyy'}}
               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
             </mat-chip>

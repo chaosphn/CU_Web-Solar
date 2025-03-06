@@ -28,6 +28,8 @@ import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { EventService } from '../share/services/event.service';
 import { transform } from 'html2canvas/dist/types/css/property-descriptors/transform';
+import { DashboardReqHistorian, DashboardReqRealtime } from '../core/stores/requests/dashboard/dashboard-request.model';
+import { DashboardResHistorian, DashboardResRealtime } from '../core/stores/last-values/dashboard/dashboard-last-values.model';
 
 
 @Component({
@@ -55,6 +57,8 @@ export class DiagramsComponent implements OnInit, OnDestroy {
   equipmentList: DiagramEquipmentModel[] = [];
   sub1: Subscription;
   invAlarmConfig: InverterAlarmModel[] = [];
+  hisRequest: DashboardReqHistorian[] = [];
+  lastUpdate: Date;
   private unsubscribe$: Subject<void> = new Subject();
 
   constructor(
@@ -374,14 +378,62 @@ export class DiagramsComponent implements OnInit, OnDestroy {
   async init() {
     const dashboardConfigs = await this.getDiagramConfigs();
     const requests = this.createRequests(dashboardConfigs);
-    await this.store.dispatch(new SetDiagramRequest(requests)).toPromise();
-    const data = await this.requestData();
-    await this.addDataToStore(data);
+    await this.store.dispatch(new SetDiagramRequest({Tags: requests.Tags.filter(x => x.includes('ALARM') || x.includes('RUN'))})).toPromise();
+    const calcRequest = requests.Tags.filter(x => x.includes('CALC'));
+    const calcData = await this.requestCustomData({
+      Tags: calcRequest
+    });
+    if(calcData){
+      const lastTimestamp = calcData.reduce((prev, cur) => new Date(prev) < new Date(cur.TimeStamp) ? prev : cur.TimeStamp );
+      this.lastUpdate = lastTimestamp;
+      const beforeLast = new Date(lastTimestamp).getTime() - (60*1000);
+      const requestHis = requests.Tags.filter(x => !x.includes('ALARM') && !x.includes('RUN')).map(function(tag){
+        return {
+          Name: tag,
+          Options: {
+            Time: '',
+            StartTime: new Date(beforeLast).toISOString(),
+            EndTime: new Date(lastTimestamp).toISOString()
+          }
+        };
+      });
+      this.hisRequest = requestHis;
+      //console.log(new Date(lastTimestamp).toISOString(),new Date(beforeLast).toISOString(),requestHis[0])
+      const dataHis: DashboardResHistorian[] = await this.requestPlotData(requestHis);
+      const data = await this.requestData();
+      const histoyToRealtime: DashboardResRealtime[] = dataHis.map(function(item){
+        return { Name: item.Name, Min: item.Min, Max: item.Max, Unit: item.Unit, Value: item.records && item.records.length > 0 ? item.records[0].Value : null, TimeStamp: item.records  && item.records.length > 0 ? item.records[0].TimeStamp : null  }
+      });
+      data.forEach((item) => {histoyToRealtime.push(item)});
+      await this.addDataToStore(histoyToRealtime);
+      this.loadSingleValue();
+      this.startTimer(360000);
+    }
+    // const data = await this.requestData();
+    // await this.addDataToStore(data);
     
-    this.loadSingleValue();
-    this.startTimer(60000);
+    // this.loadSingleValue();
+    // this.startTimer(60000);
 
   }
+
+  getNearestPast5MinuteInterval() {
+    // Get current date and time
+    const now = new Date();
+    
+    // Get current minutes
+    const currentMinutes = now.getMinutes();
+    
+    // Calculate the nearest 5-minute interval that doesn't exceed current time
+    const nearestInterval = Math.floor(currentMinutes / 5) * 5;
+    
+    // Create a new date object with the calculated interval
+    const resultTime = new Date(now);
+    resultTime.setMinutes(nearestInterval, 0, 0);
+    
+    return resultTime;
+  }
+
 
   async getDiagramConfigs() {
     const diagramConfig: DiagramConfigModel[] = await this.httpService.getConfig('assets/diagram/configurations/diagram.config.json');
@@ -431,6 +483,18 @@ export class DiagramsComponent implements OnInit, OnDestroy {
 
   }
 
+  async requestCustomData(req: DashboardReqRealtime): Promise<any[]> {
+    const data = await this.httpService.getRealtime(req);
+    //console.log(data)
+    return data;
+
+  }
+
+  async requestPlotData(request: DashboardReqHistorian[]): Promise<any[]> {
+      let data: DashboardResHistorian[] = await this.httpService.getHistorian(request);
+      return data;
+    }
+
   async addDataToStore(data: any[]) {
     const Datas: DiagramResRealtime[] = data;
     let newData: DiagramLastValuesModel[] = []
@@ -468,11 +532,30 @@ export class DiagramsComponent implements OnInit, OnDestroy {
   }
 
   async timerTick() {
-
-    const data = await this.requestData();
-    await this.addDataToStore(data);
-    this.loadSingleValue();
-    this.cd.markForCheck();
+      const updtTime = new Date(this.lastUpdate).getTime() + (5*60*1000);
+      const lastTimestamp = new Date(updtTime);
+      this.lastUpdate = lastTimestamp;
+      const beforeLast = new Date(lastTimestamp).getTime() - (60*1000);
+      const requestHis = this.hisRequest.map(function(tag){
+        return {
+          Name: tag.Name,
+          Options: {
+            Time: '',
+            StartTime: new Date(beforeLast).toISOString(),
+            EndTime: new Date(lastTimestamp).toISOString()
+          }
+        };
+      });
+      //console.log(new Date(lastTimestamp).toISOString(),new Date(beforeLast).toISOString(),requestHis[0])
+      const dataHis: DashboardResHistorian[] = await this.requestPlotData(requestHis);
+      const data = await this.requestData();
+      const histoyToRealtime: DashboardResRealtime[] = dataHis.map(function(item){
+        return { Name: item.Name, Min: item.Min, Max: item.Max, Unit: item.Unit, Value: item.records && item.records.length > 0 ? item.records[0].Value : null, TimeStamp: item.records  && item.records.length > 0 ? item.records[0].TimeStamp : null  }
+      });
+      data.forEach((item) => {histoyToRealtime.push(item)});
+      await this.addDataToStore(histoyToRealtime);
+      this.loadSingleValue();
+      this.cd.markForCheck();
   }
 
   private async updateCurrentData(res: DiagramLastValuesStateModel[]) {

@@ -141,12 +141,15 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     this.siteName = JSON.parse(building);
     //this.initDateTime();
     await this.getLocationConfigs();
-    this.init02();
+    //this.init02();
     this.locationSub = this.locationState$.subscribe((data) => {
       //console.log('update state : '+ data.zone);
       this.unSubscribeTimer();
       if(data && data.zone){
         this.locationSelected = data;
+        this.init02();
+      } else {
+        this.locationSelected = this.locationConfig[0];
         this.init02();
       }
       //this.cd.markForCheck();
@@ -203,6 +206,7 @@ export class DashboardComponent implements OnInit, OnDestroy, AfterViewInit {
     });
     this.sub1.unsubscribe();
     this.sliderTimer.unsubscribe();
+    this.locationSub.unsubscribe();
     
   }
 

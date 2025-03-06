@@ -5,10 +5,14 @@
 //       }
 // }
 
+#htmlTable{
+    width: 794px !important;
+}
+
 .container-fluid {
     height: 100%;
     max-height: 100vh;
-    overflow: hidden;
+    overflow-y: hidden;
     width: auto;
     padding: 7px 7px 0px 7px;
 }
@@ -86,12 +90,13 @@ app-time-control:first-of-type {
     background-color: #f8f8f8;
     margin-bottom: 10px;
     height: 95vh;
-    overflow-y: auto;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-items: center;
     position: relative;
+    overflow: visible;
+    overflow-y: scroll;
     //visibility: visible;
     //border: 1px solid rgb(255, 0, 0);
 }

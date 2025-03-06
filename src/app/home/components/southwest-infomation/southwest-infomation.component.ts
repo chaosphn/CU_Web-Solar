@@ -33,7 +33,7 @@ export class SouthwestInfomationComponent implements OnInit, OnChanges, OnDestro
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    //console.log(this.building)
+    //console.log(this.data)
   }
 
   ngOnDestroy(): void {

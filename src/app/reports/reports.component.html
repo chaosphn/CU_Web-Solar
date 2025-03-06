@@ -59,35 +59,35 @@
                                     <span class="bz">{{ (getSummaryData("SUM", 1, 1, item.table) | report: 2) }} kWh</span>
                                     <span class="bz"></span>
                                     <span class="bz">Energy Charge:</span>
-                                    <span class="bz">{{ ((getSummaryData("SUM", 2, 1, item.table) | myNumber: '1.0-2') * reportFactors.ExchangeRate)+((getSummaryData("SUM", 3, 1, item.table) | myNumber: '1.0-2') * reportFactors.ExchangeRate) | report: 2 }} THB</span>
+                                    <span class="bz" *ngIf="isHide">{{ ((getSummaryData("SUM", 2, 1, item.table) | myNumber: '1.0-2') * reportFactors.ExchangeRate)+((getSummaryData("SUM", 3, 1, item.table) | myNumber: '1.0-2') * reportFactors.ExchangeRate) | report: 2 }} THB</span>
                                 </div>
                                 <div class="row-info">
                                     <span class="bz">Energy Production (On Peak):</span>
                                     <span class="bz">{{ (getSummaryData("SUM", 2, 1, item.table) | report: 2) }} kWh</span>
                                     <span class="bz"></span>
                                     <span class="bz">Energy Charge (On Peak):</span>
-                                    <span class="bz">{{ (getSummaryData("SUM", 2, 1, item.table) | myNumber: '1.0-2') * reportFactors.ExchangeRate | report: 2 }} THB</span>
+                                    <span class="bz" *ngIf="isHide">{{ (getSummaryData("SUM", 2, 1, item.table) | myNumber: '1.0-2') * reportFactors.ExchangeRate | report: 2 }} THB</span>
                                 </div>
                                 <div class="row-info">
                                     <span class="bz">Energy Production (Off Peak):</span>
                                     <span class="bz">{{ (getSummaryData("SUM", 3, 1, item.table) | report: 2) }} kWh</span>
                                     <span class="bz"></span>
                                     <span class="bz">Energy Charge (Off Peak):</span>
-                                    <span class="bz">{{ (getSummaryData("SUM", 3, 1, item.table) | myNumber: '1.0-2') * reportFactors.ExchangeRate | report: 2 }} THB</span>
+                                    <span class="bz" *ngIf="isHide">{{ (getSummaryData("SUM", 3, 1, item.table) | myNumber: '1.0-2') * reportFactors.ExchangeRate | report: 2 }} THB</span>
                                 </div>
                                 <div class="row-info">
                                     <span class="bz">CO<sub>2</sub> Reduction:</span>
                                     <span class="bz">{{ (getSummaryData("SUM", 1, 1, item.table) | myNumber: '1.0-2') * reportFactors.CO2Rate | report: 2 }} Kg</span>
                                     <span class="bz"></span>
                                     <span class="bz">Financial Saving (Discount):</span>
-                                    <span class="bz">{{ ((getSummaryData("SUM", 2, 1, item.table) | myNumber: '1.0-2') * reportFactors.OnPeakRate) + ((getSummaryData("SUM", 3, 1, item.table) | myNumber: '1.0-2') * reportFactors.OffPeakRate) - ((getSummaryData("SUM", 1, 1, item.table) | myNumber: '1.0-2') * reportFactors.ExchangeRate) | report: 2 }} THB</span>
+                                    <span class="bz" *ngIf="isHide">{{ ((getSummaryData("SUM", 2, 1, item.table) | myNumber: '1.0-2') * reportFactors.OnPeakRate) + ((getSummaryData("SUM", 3, 1, item.table) | myNumber: '1.0-2') * reportFactors.OffPeakRate) - ((getSummaryData("SUM", 1, 1, item.table) | myNumber: '1.0-2') * reportFactors.ExchangeRate) | report: 2 }} THB</span>
                                 </div>
                                 <div class="row-info">
                                     <span class="bz">Tree Saving:</span>
                                     <span class="bz">{{ (getSummaryData("SUM", 1, 1, item.table) | myNumber: '1.0-2') * reportFactors.TreeRate | report: 2 }} Trees</span>
                                     <span class="bz"></span>
                                     <span class="bz">Financial Saving (FT):</span>
-                                    <span class="bz">{{ (getSummaryData("SUM", 1, 1, item.table) | myNumber: '1.0-2') * reportFactors.FT | report: 2 }} THB</span>
+                                    <span class="bz" *ngIf="isHide">{{ (getSummaryData("SUM", 1, 1, item.table) | myNumber: '1.0-2') * reportFactors.FT | report: 2 }} THB</span>
                                 </div>
                                 
                             </div>

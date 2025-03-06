@@ -49,6 +49,7 @@ export class AuthService {
                 localStorage.setItem('token', res.Access.Token);
                 localStorage.setItem('refresh_token', res.Access.Token);
                 localStorage.setItem('username', username);
+                localStorage.setItem('role', res.Access.Role);
                 this.user = username;
                 this.pass = password;
                 //console.log(res.Access.Pages);
@@ -112,6 +113,7 @@ export class AuthService {
         //this.removeUserInfo();
         this.user = undefined;
         this.pass = undefined;
+        localStorage.clear();
         this.router.navigate(['login']);
     }
 

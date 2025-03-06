@@ -5,7 +5,7 @@
       <app-solar-container [title]="'SITE INFORMATION'">
         <ng-template #content>
           <app-site-information 
-          [name]="siteName.name" 
+          [name]="siteName.building ? siteName.id : siteName.name" 
           [imgName]="siteName.building ? 'janitza.png' : siteName.id+'.png'"
           [location]="'จุฬาลงกรณ์มหาวิทยาลัย'" 
           [capacityValue]="siteName.capacity"

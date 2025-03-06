@@ -58,7 +58,29 @@ export class OverviewConsumptionComponent implements OnInit, OnDestroy, OnChange
       if(count>=6){
         this.scrollPaused = false;
       }
-    }, 5000); 
+    }, 10000); 
+  }
+
+  nextScroll(){
+    this.pauseAutoScroll()
+    const container = this.cardContainer.nativeElement;
+    //console.log(container)
+    if (container.scrollLeft + container.clientWidth >= container.scrollWidth) {
+      container.scrollLeft = 0; 
+    } else {
+      container.scrollLeft += container.clientWidth; 
+    }
+  }
+
+  previousScroll(){
+    this.pauseAutoScroll()
+    const container = this.cardContainer.nativeElement;
+    //console.log(container)
+    if (container.scrollLeft - container.clientWidth >= container.scrollWidth) {
+      container.scrollLeft = 0; 
+    } else {
+      container.scrollLeft -= container.clientWidth; 
+    }
   }
 
   startAutoTimer() {

@@ -11,6 +11,7 @@ import { HolidayRequestModel, HolidayResponseModel, ReportFactorModel, SetHolida
 export class AdminComponent implements OnInit, AfterViewInit {
 
   removable = true;
+  selectedYear: Date = new Date();
   dateTime: Date = new Date();
   isInitialize: boolean = false;
   holidayArr: Date[] = [];
@@ -34,7 +35,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     const date = new Date();
-    console.log(date.getMonth())
+    //console.log(date.getMonth())
     // date.setDate(2);
     // this.holidayArr.push(new Date(date));
     this.getFactors();
@@ -55,8 +56,10 @@ export class AdminComponent implements OnInit, AfterViewInit {
     }
   }
 
-  remove(idx: number){
-    this.holidayArr.splice(idx, 1)
+  remove(d: Date){
+   
+    const index = this.holidayArr.findIndex(x => x == d);
+    this.holidayArr.splice(index, 1)
   }
 
   async getFactors(){
@@ -83,7 +86,6 @@ export class AdminComponent implements OnInit, AfterViewInit {
     const set = confirm('Please make sure before setHolidays!');
     if(this.holidayArr.length > 0 && set){
       const req: SetHolidayModel[] = this.holidayArr
-      .filter(x => !this.holidays.find(d => new Date(d.StartDate).getTime() == x.getTime()))
       .map(function(item){
         let dateTime = item.getTime(); 
         let hld: SetHolidayModel =  {
@@ -95,7 +97,11 @@ export class AdminComponent implements OnInit, AfterViewInit {
         return hld;
       });
       //console.log(req)
-      if(req.length > 0){ this.httpSrv.setReportHoliday(req); }
+      if(req.length > 0){ this.httpSrv.setReportHoliday({
+        start: this.dateTimeService.getDateTime(new Date(this.selectedYear.getFullYear(), 0, 1)),
+        end: this.dateTimeService.getDateTime(new Date(this.selectedYear.getFullYear(), 11, 31)),
+        holidays: req
+      }); }
     } else if(this.holidayArr.length == 0 ){
       alert('Please select date!');
     }
@@ -134,6 +140,7 @@ export class AdminComponent implements OnInit, AfterViewInit {
     if(this.isInitialize){
       this.holidayArr = [];
       this.holidays = [];
+      this.selectedYear = new Date(date);
       const dateTime = new Date(date);
       const req: HolidayRequestModel = {
         StartDate: this.dateTimeService.getDateTime(new Date(dateTime.getFullYear(), 0, 1)),

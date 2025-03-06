@@ -181,13 +181,13 @@
         "meters": [
             { "id": "all", "name": "Overview" },
             { "id": "nw", "name": "North West" },
-            { "id": "13030117", "name": "Meter no.01" },
-            { "id": "13030847", "name": "Meter no.12" },
-            { "id": "13030979", "name": "Meter no.02" },
-            { "id": "13037811", "name": "Meter no.03" },
-            { "id": "95508259", "name": "Meter no.05" },
-            { "id": "95772485", "name": "Meter no.06" },
-            { "id": "96253097", "name": "Meter no.19" }
+            { "id": "13030117", "name": "13030117" },
+            { "id": "13030847", "name": "13030847" },
+            { "id": "13030979", "name": "13030979" },
+            { "id": "13037811", "name": "13037811" },
+            { "id": "95508259", "name": "95508259" },
+            { "id": "95772485", "name": "95772485" },
+            { "id": "96253097", "name": "96253097" }
         ],
         "buildings": [
             {
@@ -225,12 +225,12 @@
         "meters": [
             { "id": "all", "name": "Overview" },
             { "id": "ne", "name": "North East" },
-            { "id": "13017711", "name": "Meter no.13" },
-            { "id": "13023931", "name": "Meter no.15" },
-            { "id": "13028863", "name": "Meter no.21" },
-            { "id": "13036201", "name": "Meter no.25" },
-            { "id": "13036565", "name": "Meter no.16" },
-            { "id": "13040996", "name": "Meter no.20" }        
+            { "id": "13017711", "name": "13017711" },
+            { "id": "13023931", "name": "13023931" },
+            { "id": "13028863", "name": "13028863" },
+            { "id": "13036201", "name": "13036201" },
+            { "id": "13036565", "name": "13036565" },
+            { "id": "13040996", "name": "13040996" }        
         ],
         "buildings": [
             {
@@ -289,9 +289,9 @@
         "meters": [
             { "id": "all", "name": "Overview" },
             { "id": "sw", "name": "South West" },
-            { "id": "13014105", "name": "Meter no.10" },
-            { "id": "13018215", "name": "Meter no.11" },
-            { "id": "13037909", "name": "Meter no.04" }
+            { "id": "13014105", "name": "13014105" },
+            { "id": "13018215", "name": "13018215" },
+            { "id": "13037909", "name": "13037909" }
         ],
         "buildings": [
             {
@@ -346,8 +346,8 @@
         "meters": [
             { "id": "all", "name": "Overview" },         
             { "id": "se", "name": "South East" }, 
-            { "id": "13018538", "name": "Meter no.22" },
-            { "id": "13029461", "name": "Meter no.23" }
+            { "id": "13018538", "name": "13018538" },
+            { "id": "13029461", "name": "13029461" }
         ],
         "buildings": [
             {

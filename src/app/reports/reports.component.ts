@@ -84,6 +84,7 @@ export class ReportsComponent implements OnInit {
   adminAccess: boolean = false;
   downloadTxt: boolean = false;
   oldReportData: string = '';
+  isHide: boolean = true;
 
   @ViewChild('htmlTable') pdfTable: ElementRef;
 
@@ -102,6 +103,10 @@ export class ReportsComponent implements OnInit {
 
   async ngOnInit() {
     this.uuid = UUID.UUID();
+    const userRole = localStorage.getItem('role');
+    if(userRole.toLowerCase().includes('admin')){
+      this.isHide = true;
+    }
     this.dateTime = new Date(new Date().setDate(new Date().getDate()-1));
     await this.getConfig();
     this.initReportSelect();
@@ -734,11 +739,16 @@ export class ReportsComponent implements OnInit {
     const docDefinition: any = {
       content: [],
     };
+
+    // Ensure full table visibility before capturing
+    const originalOverflow = chart.style.overflow;
+    chart.style.overflow = 'visible';
+    chart.style.width = '100%';
   
-    html2canvas(chart).then((canvas) => {
+    html2canvas(chart, {scale: 1}).then((canvas) => {
       const croppedCanvas = document.createElement('canvas');
       const context = croppedCanvas.getContext('2d');
-  
+
       const promises = this.selectedReport.HeaderGroup.map((item, index) => {
         return new Promise<void>((resolve) => {
           let cropX = 0;
@@ -746,8 +756,8 @@ export class ReportsComponent implements OnInit {
           let cropWidth = 794;
           let cropHeight = 1200;
   
-          croppedCanvas.width = cropWidth;
-          croppedCanvas.height = cropHeight;
+          croppedCanvas.width = 794;
+          croppedCanvas.height = 1200;
   
           context.drawImage(
             canvas,
@@ -760,7 +770,6 @@ export class ReportsComponent implements OnInit {
             cropWidth,
             cropHeight
           );
-  
           const base64Image = croppedCanvas.toDataURL(); 
           docDefinition.content.push({
             image: base64Image,
@@ -779,98 +788,113 @@ export class ReportsComponent implements OnInit {
       });
     });
   }
-  
 
-
-  async htmltoPDF() {
-    //this.htmltoPDF2();
-    this.downloadTxt = true;
-    const componentIds = this.selectedReport.HeaderGroup;
-    const reportName = this.siteSelected.id + " " + this.selectedReport.Name + "[" + 
-      this.datePipe.transform(this.dateTime, this.selectedReport.DateFormat) + "]" + ".pdf";
-  
-    const pdf = new jsPDF('p', 'mm', 'a4');
-    const docDefinition: any = {
-      content: [],
-    };
-    const imgArr = [];
-
-    const chart = document.getElementById('htmlTable') as HTMLElement;
-    const chartElements = chart.getElementsByClassName('report-content') as HTMLCollectionOf<Element>;
+  saveCanvasToImage(canvas: HTMLCanvasElement, filename: string = 'image.png') {
+    // Create a download link
+    const link = document.createElement('a');
     
-    Array.from(chartElements).forEach((element: HTMLElement, index) => {
-      // Use html2canvas to capture each element as an image
-        html2canvas(element).then((canvas) => {
-            const dataURL = 'c'//canvas.toBlob()
-            //console.log(`Chart ${index + 1} as Data URL:`, canvas.nodeName);
-            // docDefinition.content.push({
-            //   image: dataURL,
-            //   width: 525,
-            //   alignment: 'center',
-            //   pageBreak: 'after' 
-            // });
-            // Optionally append the canvas to the document to visualize
-            //document.body.appendChild(canvas); // For testing purposes
-        }).catch((error) => {
-            //console.error(`Error generating Data URL for chart ${index + 1}:`, error);
-        });
-    });
+    // Convert canvas to data URL
+    const imageDataUrl = canvas.toDataURL('image/png');
     
-    const captureComponent = async (componentId: string) => {
-      const chart = document.getElementById(componentId) as HTMLElement;
-      if (chart) {
-        const canvas = await html2canvas(chart, { scale: 1, useCORS: true, logging: false,} );
-        if(canvas){
-          const imgData = canvas.toBlob((blob) => {},"image/png", 1.0)//canvas.toDataURL("image/jpeg", 1.0);
-          const imgWidth = 208;
-          const imgHeight = canvas.height * imgWidth / canvas.width;
-          //console.log(imgData)
-        }
-  
-        // docDefinition.content.push({
-        //   image: imgData,
-        //   width: 525,
-        //   alignment: 'center',
-        //   pageBreak: 'after' 
-        // });
-        // const definition = {
-        //   content: [
-        //     {
-        //       image: imgData,
-        //       width: 525,
-        //       alignment: 'center',
-        //       pageBreak: 'after' 
-        //     }
-        //   ]
-        // };
-        // const createPDF = pdfMake.createPdf(definition).getBase64( async(data: any) => {
-        //   // const pdf = await PDFDocument.load(data);
-        //   // const copyPdf = await mergePDF.copyPages(pdf, pdf.getPageIndices());
-        //   // copyPdf.forEach((page) => mergePDF.addPage(page));
-        //   //console.log(data)
-        // });
-        //pdfMake.createPdf(definition).download(componentId+'.pdf');
-      }
-      // await this.delay(100);
-    };
-  
-    // for await (const id of componentIds) {
-    //   await captureComponent(id.Name);
-    //   await this.delay(1000);
-    // }
-    // const savePDF = await mergePDF.save();
-    // if(savePDF){
-    //   alert('save pdf')
-    // }
-    // pdfMake.createPdf(docDefinition).download(reportName);
-    // const createPDF = pdfMake.createPdf(docDefinition).getBase64( async(data: any) => {
-      
-    //   //console.log(data)
-    // });
-    //pdfMake.createPdf(docDefinition).open();
-    //console.log(docDefinition)
-    this.downloadTxt = false;
+    // Set download attributes
+    link.download = filename;
+    link.href = imageDataUrl;
+    
+    // Append to body, click, and remove
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
   }
+
+  // async htmltoPDF() {
+  //   //this.htmltoPDF2();
+  //   this.downloadTxt = true;
+  //   const componentIds = this.selectedReport.HeaderGroup;
+  //   const reportName = this.siteSelected.id + " " + this.selectedReport.Name + "[" + 
+  //     this.datePipe.transform(this.dateTime, this.selectedReport.DateFormat) + "]" + ".pdf";
+  
+  //   const pdf = new jsPDF('p', 'mm', 'a4');
+  //   const docDefinition: any = {
+  //     content: [],
+  //   };
+  //   const imgArr = [];
+
+  //   const chart = document.getElementById('htmlTable') as HTMLElement;
+  //   const chartElements = chart.getElementsByClassName('report-content') as HTMLCollectionOf<Element>;
+    
+  //   Array.from(chartElements).forEach((element: HTMLElement, index) => {
+  //     // Use html2canvas to capture each element as an image
+  //       html2canvas(element).then((canvas) => {
+  //           const dataURL = 'c'//canvas.toBlob()
+  //           //console.log(`Chart ${index + 1} as Data URL:`, canvas.nodeName);
+  //           // docDefinition.content.push({
+  //           //   image: dataURL,
+  //           //   width: 525,
+  //           //   alignment: 'center',
+  //           //   pageBreak: 'after' 
+  //           // });
+  //           // Optionally append the canvas to the document to visualize
+  //           //document.body.appendChild(canvas); // For testing purposes
+  //       }).catch((error) => {
+  //           //console.error(`Error generating Data URL for chart ${index + 1}:`, error);
+  //       });
+  //   });
+    
+  //   const captureComponent = async (componentId: string) => {
+  //     const chart = document.getElementById(componentId) as HTMLElement;
+  //     if (chart) {
+  //       const canvas = await html2canvas(chart, { scale: 1, useCORS: true, logging: false,} );
+  //       if(canvas){
+  //         const imgData = canvas.toBlob((blob) => {},"image/png", 1.0)//canvas.toDataURL("image/jpeg", 1.0);
+  //         const imgWidth = 208;
+  //         const imgHeight = canvas.height * imgWidth / canvas.width;
+  //         //console.log(imgData)
+  //       }
+  
+  //       // docDefinition.content.push({
+  //       //   image: imgData,
+  //       //   width: 525,
+  //       //   alignment: 'center',
+  //       //   pageBreak: 'after' 
+  //       // });
+  //       // const definition = {
+  //       //   content: [
+  //       //     {
+  //       //       image: imgData,
+  //       //       width: 525,
+  //       //       alignment: 'center',
+  //       //       pageBreak: 'after' 
+  //       //     }
+  //       //   ]
+  //       // };
+  //       // const createPDF = pdfMake.createPdf(definition).getBase64( async(data: any) => {
+  //       //   // const pdf = await PDFDocument.load(data);
+  //       //   // const copyPdf = await mergePDF.copyPages(pdf, pdf.getPageIndices());
+  //       //   // copyPdf.forEach((page) => mergePDF.addPage(page));
+  //       //   //console.log(data)
+  //       // });
+  //       //pdfMake.createPdf(definition).download(componentId+'.pdf');
+  //     }
+  //     // await this.delay(100);
+  //   };
+  
+  //   // for await (const id of componentIds) {
+  //   //   await captureComponent(id.Name);
+  //   //   await this.delay(1000);
+  //   // }
+  //   // const savePDF = await mergePDF.save();
+  //   // if(savePDF){
+  //   //   alert('save pdf')
+  //   // }
+  //   // pdfMake.createPdf(docDefinition).download(reportName);
+  //   // const createPDF = pdfMake.createPdf(docDefinition).getBase64( async(data: any) => {
+      
+  //   //   //console.log(data)
+  //   // });
+  //   //pdfMake.createPdf(docDefinition).open();
+  //   //console.log(docDefinition)
+  //   this.downloadTxt = false;
+  // }
   
 
   async selectSite(data:BuildingModel){

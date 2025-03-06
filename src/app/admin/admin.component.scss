@@ -61,7 +61,7 @@ input {
     min-height: 250px;
     padding: 24px;
     display: grid;
-    grid-template-columns: repeat(12, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     column-gap: 8px;
     .material-icons {
         font-size: 16px;
@@ -89,11 +89,15 @@ input {
 
 .chip{
     font-weight: 500;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
 }
 
 .date-col{
     display: flex;
     flex-direction: column;
+    align-items: stretch;
     row-gap: 16px;
     //align-items: center;
 }
@@ -104,12 +108,12 @@ input {
     padding: 12px auto;
     background-color: #136286;
     color: whitesmoke;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 .date-group{
-    // display: flex;
-    // flex-direction: column;
-    // align-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
     // justify-content: center;
 }

@@ -93,7 +93,7 @@ export class HttpService {
             'Content-Type': 'application/json'
         });
 
-        return this.httpClient.post( this.appLoadService.Config.UrlApi + 'dev/genreport', body, {headers} ).pipe(
+        return this.httpClient.post( /*this.appLoadService.Config.UrlApi*/'http://192.168.14.11:4040/' + 'api/genreport', body, {headers} ).pipe(
             map((x: any) => {
                 
                 return x;
@@ -203,7 +203,7 @@ export class HttpService {
             password : password
         };
         //console.log(body)
-        const res: any = await this.httpClient.post(this.appLoadService.Config.UrlApiAuthen + 'userauthen', body).toPromise();
+        const res: any = await this.httpClient.post(this.appLoadService.Config.UrlApiAuthen + 'webauthen', body).toPromise();
         //console.log(res);
         return res;
     }
@@ -288,9 +288,9 @@ export class HttpService {
         return res;
     }
 
-    async setReportHoliday(item: any[]) {
+    async setReportHoliday(item: any) {
         const body = item;
-        const res: any = await this.httpClient.post(this.appLoadService.Config.UrlApiAuthen + 'customholidays' ,body).toPromise();
+        const res: any = await this.httpClient.post(this.appLoadService.Config.UrlApiAuthen + 'setholidays' ,body).toPromise();
         // console.log(res)
         return res;
     }

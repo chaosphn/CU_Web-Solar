@@ -1,113 +1,126 @@
-<div class="container-fluid w-100 h-100 bz" *ngIf="zone && zone.meters " #overviewContainer (mousedown)="onDragStart($event)"
-  (mousemove)="onDragMove($event)"
-  (mouseup)="onDragEnd()"
-  (mouseleave)="onDragEnd()"
-  (scroll)="onScroll()" >
-  <div #item.name class="container-slide w-100 bz" *ngFor="let item of zone.meters" (mouseenter)="pauseAutoScroll()" appObserveVisibility (visibilityChange)="onVisibilityChange($event, item)">
-    <div class="container-overview w-100 bz">
-    <div class="content-box bz w-100 h-100">
-      <div class="title-box">{{item.name}}</div>
-      <div class="group-box w-100 h-100 bz">
-        <div class="cons-section bz w-100 h-100">
-          <div class="power-card d-col bz">
-            <img src="assets/images/building.png" height="60px">
-            <span class="unit">{{getPercentage(data[ item.id+'_produce' ]?.dataRecords[0]?.Value, data[ item.id+'_import' ]?.dataRecords[0]?.Value) | myNumber2 : '1.0-1'}}%</span>
-            <span class="value">{{ data[ item.id+'_produce' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }}</span>
-            <span class="unit">kw</span>
-          </div>
-          <div class="d-flex-ct bz w-100 h-100">
-            <div class="arrow-left">
-              <span></span><span></span><span></span>
+
+<div class="container-outer bz">
+  <div class="next-slide bz" (click)="previousScroll()">
+    <div class="d-flex-ct bz w-100 h-100">
+      <div class="slide-rigth">
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid w-100 h-100 bz" *ngIf="zone && zone.meters " #overviewContainer >
+    <div #item.name class="container-slide w-100 bz" *ngFor="let item of zone.meters" (mouseenter)="pauseAutoScroll()" appObserveVisibility (visibilityChange)="onVisibilityChange($event, item)">
+      <div class="container-overview w-100 bz">
+      <div class="content-box bz w-100 h-100">
+        <div class="title-box">{{item.name}}</div>
+        <div class="group-box w-100 h-100 bz">
+          <div class="cons-section bz w-100 h-100">
+            <div class="power-card d-col bz">
+              <img src="assets/images/building.png" height="60px">
+              <span class="unit">{{getPercentage(data[ item.id+'_produce' ]?.dataRecords[0]?.Value, data[ item.id+'_import' ]?.dataRecords[0]?.Value) | myNumber2 : '1.0-1'}}%</span>
+              <span class="value">{{ data[ item.id+'_produce' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }}</span>
+              <span class="unit">kw</span>
+            </div>
+            <div class="d-flex-ct bz w-100 h-100">
+              <div class="arrow-left">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="power-card d-col bz">
+              <img src="assets/images/consumtion.png" height="60px">
+              <span class="unit">100.0%</span>
+              <span class="value">{{ data[ item.id+'_cons' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }}</span>
+              <span class="unit">kw</span>
+            </div>
+            <div class="d-flex-ct bz w-100 h-100">
+              <div class="arrow-rigth">
+                <span></span><span></span><span></span>
+              </div>
+            </div>
+            <div class="power-card d-col bz">
+              <img src="assets/images/grid.png" height="60px">
+              <span class="unit">{{getPercentage(data[ item.id+'_import' ]?.dataRecords[0]?.Value,  data[ item.id+'_produce' ]?.dataRecords[0]?.Value) | myNumber2 : '1.0-1'}}%</span>
+              <span class="value">{{ data[ item.id+'_import' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }}</span>
+              <span class="unit">kw</span>
             </div>
           </div>
-          <div class="power-card d-col bz">
-            <img src="assets/images/consumtion.png" height="60px">
-            <span class="unit">100.0%</span>
-            <span class="value">{{ data[ item.id+'_cons' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }}</span>
-            <span class="unit">kw</span>
-          </div>
-          <div class="d-flex-ct bz w-100 h-100">
-            <div class="arrow-rigth">
-              <span></span><span></span><span></span>
+          <div class="produce-section bz w-100 h-100">
+            <div class="energy-card bz w-100 h-100">
+              <div class="icon d-flex-ct bz"><img src="assets/images/panel.png" height="50px"></div>
+              <div class="information w-100 bz">
+                <div class="title bz">Energy Production Today</div>
+                <div class="value bz">{{ data[ item.id+'_today' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }} <span>kWh</span></div>
+              </div>
             </div>
-          </div>
-          <div class="power-card d-col bz">
-            <img src="assets/images/grid.png" height="60px">
-            <span class="unit">{{getPercentage(data[ item.id+'_import' ]?.dataRecords[0]?.Value,  data[ item.id+'_produce' ]?.dataRecords[0]?.Value) | myNumber2 : '1.0-1'}}%</span>
-            <span class="value">{{ data[ item.id+'_import' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }}</span>
-            <span class="unit">kw</span>
+            <div class="energy-card bz w-100 h-100">
+              <div class="icon d-flex-ct bz"><img src="assets/images/panel.png" height="50px"></div>
+              <div class="information w-100 bz">
+                <div class="title bz">Energy Production Monthly</div>
+                <div class="value bz">{{ data[ item.id+'_month' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }} <span>MWh</span></div>
+              </div>
+            </div>
+            <div class="energy-card bz w-100 h-100">
+              <div class="icon d-flex-ct bz"><img src="assets/images/panel.png" height="50px"></div>
+              <div class="information w-100 bz">
+                <div class="title bz">Energy Production Yearly</div>
+                <div class="value bz">{{ data[ item.id+'_year' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }} <span>MWh</span></div>
+              </div>
+            </div>
+            <div class="energy-card bz w-100 h-100">
+              <div class="icon d-flex-ct bz"><img src="assets/images/panel.png" height="50px"></div>
+              <div class="information w-100 bz">
+                <div class="title bz">Performance Ratio</div>
+                <div class="value bz">{{ data[ item.id+'_pr' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }} <span>%</span></div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="produce-section bz w-100 h-100">
-          <div class="energy-card bz w-100 h-100">
-            <div class="icon d-flex-ct bz"><img src="assets/images/panel.png" height="50px"></div>
-            <div class="information w-100 bz">
-              <div class="title bz">Energy Production Today</div>
-              <div class="value bz">{{ data[ item.id+'_today' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }} <span>kWh</span></div>
+      </div>
+      </div>
+      <div class="environment-box w-100 bz">
+        <div class="content-box h-100">
+          <div class="title-box">Environmental</div>
+          <div class="grid-box bz w-100 h-100 bz">
+            <div class="parent bz">
+              <div class="div1 d-flex-ct bz"><img src="assets/images/saving.png" height="50px"></div>
+              <div class="div2 bz">Financial</div>
+              <div class="div3 bz">{{(data[ item.id+'_today' ]?.dataRecords[0]?.Value)*2.95 | myNumber2 : '1.0-2'}} <span class="unit">THB</span></div>
             </div>
-          </div>
-          <div class="energy-card bz w-100 h-100">
-            <div class="icon d-flex-ct bz"><img src="assets/images/panel.png" height="50px"></div>
-            <div class="information w-100 bz">
-              <div class="title bz">Energy Production Monthly</div>
-              <div class="value bz">{{ data[ item.id+'_month' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }} <span>MWh</span></div>
+            <div class="parent bz">
+              <div class="div1 d-flex-ct bz"><img src="assets/images/cabon.png" height="50px"></div>
+              <div class="div2 bz">Co<sup>2</sup> Reduction</div>
+              <div class="div3 bz">{{(data[ item.id+'_today' ]?.dataRecords[0]?.Value )*0.23314 | myNumber2 : '1.0-2'}} <span class="unit">kgCO<sup>2</sup></span></div>
             </div>
-          </div>
-          <div class="energy-card bz w-100 h-100">
-            <div class="icon d-flex-ct bz"><img src="assets/images/panel.png" height="50px"></div>
-            <div class="information w-100 bz">
-              <div class="title bz">Energy Production Yearly</div>
-              <div class="value bz">{{ data[ item.id+'_year' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }} <span>MWh</span></div>
+            <div class="parent bz">
+              <div class="div1 d-flex-ct bz"><img src="assets/images/footprint.png" height="50px"></div>
+              <div class="div2 bz">Co<sup>2</sup> Footprint</div>
+              <!-- <div class="div3 bz">{{ (data[ item.id+'_year' ]?.dataRecords[0]?.Value)*0.5113 | myNumber2 : '1.0-2'}} <span class="unit">tCO<sup>2</sup>eq</span></div> -->
+              <div class="div3 bz">{{ (data[ item.id+'_year_imp' ]?.dataRecords[0]?.Value)*0.23314 | myNumber2 : '1.0-2'}} <span class="unit">tCO<sup>2</sup></span></div>
             </div>
-          </div>
-          <div class="energy-card bz w-100 h-100">
-            <div class="icon d-flex-ct bz"><img src="assets/images/panel.png" height="50px"></div>
-            <div class="information w-100 bz">
-              <div class="title bz">Performance Ratio</div>
-              <div class="value bz">{{ data[ item.id+'_pr' ]?.dataRecords[0]?.Value | myNumber2 : '1.0-2' }} <span>%</span></div>
+            <div class="parent bz">
+              <div class="div1 d-flex-ct bz"><img src="assets/images/credit.png" height="50px"></div>
+              <div class="div2 bz">Co<sup>2</sup> Credit</div>
+              <!-- <div class="div3 bz">{{ ((data[ item.id+'_year' ]?.dataRecords[0]?.Value )*0.5113)*54.3 | myNumber2 : '1.0-2'}} <span class="unit">THB</span></div> -->
+              <div class="div3 bz">{{ (data[ item.id+'_year' ]?.dataRecords[0]?.Value)*0.23314 | myNumber2 : '1.0-2'}} <span class="unit">tCO<sup>2</sup></span></div>
+            </div>
+            <div class="parent bz">
+              <div class="div1 d-flex-ct bz"><img src="assets/images/oil.png" height="50px"></div>
+              <div class="div2 bz">Oil</div>
+              <div class="div3 bz">{{(data[ item.id+'_today' ]?.dataRecords[0]?.Value)*3.11 | myNumber2 : '1.0-2'}} <span class="unit">Lites</span></div>
+            </div>
+            <div class="parent bz">
+              <div class="div1 d-flex-ct bz"><img src="assets/images/tree.png" height="50px"></div>
+              <div class="div2 bz">Tree</div>
+              <div class="div3 bz">{{(data[ item.id+'_today' ]?.dataRecords[0]?.Value)*0.0193 | myNumber2 : '1.0-2'}} <span class="unit">Trees</span></div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    </div>
-    <div class="environment-box w-100 bz">
-      <div class="content-box h-100">
-        <div class="title-box">Environmental</div>
-        <div class="grid-box bz w-100 h-100 bz">
-          <div class="parent bz">
-            <div class="div1 d-flex-ct bz"><img src="assets/images/saving.png" height="50px"></div>
-            <div class="div2 bz">Financial</div>
-            <div class="div3 bz">{{(data[ item.id+'_today' ]?.dataRecords[0]?.Value)*2.95 | myNumber2 : '1.0-2'}} <span class="unit">THB</span></div>
-          </div>
-          <div class="parent bz">
-            <div class="div1 d-flex-ct bz"><img src="assets/images/cabon.png" height="50px"></div>
-            <div class="div2 bz">Co<sup>2</sup> Reduction</div>
-            <div class="div3 bz">{{(data[ item.id+'_today' ]?.dataRecords[0]?.Value )*0.23314 | myNumber2 : '1.0-2'}} <span class="unit">kgCO<sup>2</sup></span></div>
-          </div>
-          <div class="parent bz">
-            <div class="div1 d-flex-ct bz"><img src="assets/images/footprint.png" height="50px"></div>
-            <div class="div2 bz">Co<sup>2</sup> Footprint</div>
-            <!-- <div class="div3 bz">{{ (data[ item.id+'_year' ]?.dataRecords[0]?.Value)*0.5113 | myNumber2 : '1.0-2'}} <span class="unit">tCO<sup>2</sup>eq</span></div> -->
-            <div class="div3 bz">{{ (data[ item.id+'_year_imp' ]?.dataRecords[0]?.Value)*0.23314 | myNumber2 : '1.0-2'}} <span class="unit">tCO<sup>2</sup></span></div>
-          </div>
-          <div class="parent bz">
-            <div class="div1 d-flex-ct bz"><img src="assets/images/credit.png" height="50px"></div>
-            <div class="div2 bz">Co<sup>2</sup> Credit</div>
-            <!-- <div class="div3 bz">{{ ((data[ item.id+'_year' ]?.dataRecords[0]?.Value )*0.5113)*54.3 | myNumber2 : '1.0-2'}} <span class="unit">THB</span></div> -->
-            <div class="div3 bz">{{ (data[ item.id+'_year' ]?.dataRecords[0]?.Value)*0.23314 | myNumber2 : '1.0-2'}} <span class="unit">tCO<sup>2</sup></span></div>
-          </div>
-          <div class="parent bz">
-            <div class="div1 d-flex-ct bz"><img src="assets/images/oil.png" height="50px"></div>
-            <div class="div2 bz">Oil</div>
-            <div class="div3 bz">{{(data[ item.id+'_today' ]?.dataRecords[0]?.Value)*3.11 | myNumber2 : '1.0-2'}} <span class="unit">Lites</span></div>
-          </div>
-          <div class="parent bz">
-            <div class="div1 d-flex-ct bz"><img src="assets/images/tree.png" height="50px"></div>
-            <div class="div2 bz">Tree</div>
-            <div class="div3 bz">{{(data[ item.id+'_today' ]?.dataRecords[0]?.Value)*0.0193 | myNumber2 : '1.0-2'}} <span class="unit">Trees</span></div>
-          </div>
-        </div>
+  </div>
+  <div class="next-slide bz" (click)="nextScroll()">
+    <div class="d-flex-ct bz w-100 h-100">
+      <div class="slide-left">
+        <span></span>
       </div>
     </div>
   </div>
